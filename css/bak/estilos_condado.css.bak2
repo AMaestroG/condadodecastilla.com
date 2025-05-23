@@ -1,0 +1,519 @@
+/* --- Variables de Color Temáticas --- */
+:root {
+    --color-morado-emperador: #402E4D; /* Púrpura profundo y regio */
+    --color-alabastro: #F0EDE5;        /* Blanco cremoso, para fondos principales y texto claro */
+    --color-piedra-arena: #C8BBAE;   /* Beige/tostado desaturado */
+    --color-dorado-antiguo: #AE945A;   /* Dorado más apagado y con carácter */
+    --color-bronce-oscuro: #705A3B;    /* Un tono bronce para acentos y bordes */
+    
+    --color-texto-principal: #2A2A2A; /* Gris muy oscuro, casi negro, para alto contraste sobre claro */
+    --color-texto-secundario: #555555; /* Gris medio */
+    --color-texto-hero: var(--color-alabastro); /* Texto claro para la sección hero */
+    --color-texto-sobre-purpura: var(--color-alabastro);
+
+    --color-primario-rgb: 64, 46, 77; 
+    --color-negro-contraste-rgb: 26, 26, 26; 
+
+    --font-principal: 'Lora', serif;
+    --font-titulos: 'Cinzel', serif;
+
+    --transition-speed: 0.35s; 
+    --border-radius-suave: 6px;
+    --border-radius-medio: 10px;
+    --box-shadow-sutil: 0 4px 12px rgba(var(--color-primario-rgb), 0.08); /* Más sutil */
+    --box-shadow-medio: 0 6px 20px rgba(var(--color-primario-rgb), 0.12); /* Más sutil */
+    --box-shadow-elevado: 0 10px 30px rgba(var(--color-negro-contraste-rgb), 0.15);
+}
+
+/* --- Reseteo y Estilos Globales --- */
+*, *::before, *::after {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; 
+    font-size: 100%; 
+}
+
+body {
+    font-family: var(--font-principal);
+    line-height: 1.75; 
+    color: var(--color-texto-principal);
+    background-color: var(--color-alabastro); 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-titulos);
+    color: var(--color-morado-emperador);
+    margin-top: 1.8em; /* Aumentado ligeramente */
+    margin-bottom: 0.8em; /* Aumentado ligeramente */
+    line-height: 1.25; 
+    font-weight: 700; 
+    text-wrap: balance; /* Mejorar balance de texto en títulos */
+}
+
+h1 { font-size: clamp(2.4em, 5.5vw, 3.5em); text-align: center; } 
+h2 { font-size: clamp(2em, 4.5vw, 3em); } 
+h3 { font-size: clamp(1.5em, 3.5vw, 2.2em); }
+
+p {
+    margin-bottom: 1.6em; /* Aumentado ligeramente */
+    max-width: 70ch; /* Ligeramente más ancho para párrafos */
+}
+
+a {
+    color: var(--color-dorado-antiguo);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
+}
+
+a:focus-visible { 
+    color: var(--color-morado-emperador);
+    text-decoration: none; 
+    outline: 2.5px solid var(--color-dorado-antiguo);
+    outline-offset: 3px;
+}
+a:hover {
+    color: var(--color-morado-emperador);
+    text-decoration: none; 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-medio); 
+    display: block; 
+}
+
+.container {
+    width: 90%; 
+    max-width: 1280px; 
+    margin: 0 auto;
+    padding: 0 25px; /* Aumentado padding horizontal */
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    background-color: var(--color-morado-emperador);
+    padding: 1em 0; 
+    box-shadow: 0 5px 15px rgba(var(--color-negro-contraste-rgb), 0.25); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo-text {
+    font-size: clamp(1.6em, 3.5vw, 2em); 
+    color: var(--color-piedra-clara);
+    font-weight: 900; 
+}
+.navbar .logo-text:hover, .navbar .logo-text:focus-visible {
+    transform: scale(1.03); 
+    outline: none; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center; 
+}
+
+.nav-links li {
+    margin-left: clamp(12px, 2.2vw, 22px); 
+}
+
+.nav-links a {
+    color: var(--color-piedra-clara);
+    font-weight: 700; 
+    font-size: clamp(0.9em, 1.9vw, 1.05em); 
+    text-transform: uppercase;
+    padding: 0.7em 1em; 
+    border-radius: var(--border-radius-suave);
+    letter-spacing: 0.8px; /* Aumentado letter-spacing */
+}
+.nav-links a i { 
+    margin-right: 8px; /* Más espacio para el icono */
+    font-size: 1.2em; 
+}
+
+.nav-links a:hover, .nav-links a:focus-visible, .nav-links a.active-link { 
+    color: var(--color-morado-emperador);
+    background-color: var(--color-dorado-antiguo);
+    outline: none; 
+}
+
+.nav-toggle {
+    display: none; 
+    font-size: 2em; 
+    color: var(--color-piedra-clara);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.2em;
+}
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--color-dorado-antiguo);
+    outline-offset: 2px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* IMPORTANTE: Descarga la imagen y usa una ruta local: url('/imagenes/hero_mis_tierras.jpg') */
+    background-image: linear-gradient(rgba(var(--color-morado-emperador-rgb), 0.65), rgba(var(--color-negro-contraste-rgb), 0.75)), url('/imagenes/hero_mis_tierras.jpg');
+    background-color: var(--color-morado-emperador); 
+    background-size: cover;
+    background-position: center center; 
+    background-attachment: fixed; 
+    color: var(--color-texto-hero); 
+    padding: clamp(70px, 18vh, 120px) 20px; 
+    text-align: center;
+    border-bottom: 10px solid var(--color-dorado-antiguo); /* Borde más grueso */
+    min-height: 85vh; /* Ligeramente más alto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Reducido gap, el escudo irá arriba */
+    max-width: 900px; 
+    background-color: rgba(var(--color-negro-contraste-rgb), 0.6); /* Fondo más oscuro para mejor contraste */
+    padding: clamp(25px, 5vw, 50px);
+    border-radius: var(--border-radius-medio);
+    box-shadow: 0 10px 35px rgba(var(--color-negro-contraste-rgb), 0.4);
+}
+
+.hero-escudo {
+    width: clamp(150px, 25vw, 220px); /* Escudo más grande */
+    height: auto;
+    margin-bottom: 25px; /* Más espacio debajo del escudo */
+    animation: fadeInScaleUp 1.2s ease-out forwards;
+    filter: drop-shadow(0px 6px 12px rgba(var(--color-negro-contraste-rgb), 0.5)); 
+}
+
+/* Animación se mantiene igual */
+
+.hero h1 {
+    font-size: clamp(2.8em, 8vw, 5em); /* Título aún más grande */
+    color: var(--color-alabastro); 
+    margin-top: 0; /* Quitar margen superior si el escudo está arriba */
+    margin-bottom: 0.4em; 
+    text-shadow: 0 0 20px rgba(var(--color-negro-contraste-rgb), 0.8), 0 0 8px rgba(var(--color-dorado-antiguo),0.6); 
+    line-height: 1.15; /* Ajustar para títulos grandes */
+}
+
+.hero p {
+    font-size: clamp(1.15em, 3vw, 1.65em); 
+    margin-bottom: 40px; 
+    color: var(--color-piedra-clara); 
+    text-shadow: 0 0 10px rgba(var(--color-negro-contraste-rgb), 0.7);
+    line-height: 1.65;
+    max-width: 65ch; /* Ajustar ancho del párrafo */
+}
+
+.cta-button {
+    background-color: var(--color-dorado-antiguo);
+    color: var(--color-morado-emperador);
+    padding: clamp(18px, 2.8vh, 22px) clamp(40px, 6vw, 55px); 
+    font-size: clamp(1.2em, 3vw, 1.5em); 
+    font-weight: 700; 
+    border-radius: 50px; 
+    border: 3px solid var(--color-morado-emperador); /* Borde más visible */
+    box-shadow: 0 8px 22px rgba(var(--color-negro-contraste-rgb), 0.35);
+    text-transform: uppercase; 
+    letter-spacing: 1.2px;
+}
+
+.cta-button:hover, .cta-button:focus-visible {
+    background-color: var(--color-morado-emperador);
+    color: var(--color-dorado-antiguo);
+    border-color: var(--color-dorado-antiguo);
+    transform: translateY(-4px) scale(1.04); 
+    box-shadow: 0 12px 30px rgba(var(--color-negro-contraste-rgb), 0.4);
+    outline: none; 
+}
+
+/* --- Sección de Video --- */
+.video-section {
+    padding: clamp(50px, 8vh, 70px) 0; 
+    background-color: var(--color-piedra-arena); 
+}
+.video-container {
+    max-width: 1000px; 
+    border: 6px solid var(--color-alabastro); 
+    border-radius: var(--border-radius-medio); 
+    box-shadow: var(--box-shadow-elevado); /* Sombra más elevada */
+}
+.video-section h2 { 
+     margin-bottom: 40px; 
+     color: var(--color-morado-emperador);
+}
+
+/* --- Secciones Generales --- */
+.section {
+    padding: clamp(60px, 10vh, 90px) 0; /* Más padding vertical */
+}
+
+/* SECCIÓN DE INTRODUCCIÓN DETALLADA */
+.detailed-intro-section { 
+    background-color: var(--color-alabastro); 
+}
+.detailed-intro-section .container {
+    max-width: 900px; 
+}
+.detailed-intro-section h2 { 
+    text-align: center;
+    font-size: clamp(2.2em, 5.5vw, 3.2em);
+    margin-bottom: 1.3em; 
+}
+.detailed-intro-section p {
+    font-size: clamp(1.05em, 2.3vw, 1.2em);
+    line-height: 1.85; 
+    text-align: justify; 
+    margin-bottom: 1.6em;
+    color: var(--color-texto-secundario); /* Texto ligeramente más claro para diferenciar */
+}
+.detailed-intro-section p:first-of-type {
+    font-size: clamp(1.1em, 2.5vw, 1.3em); /* Primer párrafo un poco más grande */
+    color: var(--color-texto-principal);
+    font-weight: 400; /* Lora regular */
+}
+
+
+/* Galería dentro de la introducción detallada */
+.image-gallery-intro {
+    gap: 25px; 
+    margin-top: 40px;
+}
+.image-gallery-intro img {
+    border: 5px solid var(--color-piedra-arena); 
+    box-shadow: var(--box-shadow-sutil);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, filter var(--transition-speed) ease;
+}
+.image-gallery-intro img:hover {
+    transform: scale(1.06) rotate(-1.5deg); 
+    box-shadow: var(--box-shadow-medio);
+    filter: sepia(35%) contrast(1.05) brightness(0.95); 
+}
+
+
+/* Sección de tarjetas con fondo alterno */
+.section.alternate-bg {
+     background-color: var(--color-piedra-arena); 
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2.2em, 5.5vw, 3.2em); 
+    margin-bottom: 20px; /* Reducido para acercar la estrella */
+}
+
+/* Estrella de 8 puntas como separador */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px; /* Tamaño de la estrella base */
+    height: 50px;
+    background-color: var(--color-dorado-antiguo);
+    margin: 25px auto 40px auto; /* Espaciado */
+    position: relative;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    /* Esta es una forma de hacer una estrella, puede requerir ajustes o un SVG para perfección */
+}
+
+
+/* --- Tarjetas --- */
+.card-grid {
+    gap: 40px; 
+}
+
+.card {
+    background-color: var(--color-alabastro); 
+    border: 1px solid var(--color-piedra-media); 
+    border-radius: var(--border-radius-medio); 
+    box-shadow: var(--box-shadow-sutil);
+    overflow: hidden; /* Asegurar que la imagen no desborde el radio */
+}
+
+.card:hover {
+    transform: translateY(-12px); /* Elevación más pronunciada */
+    box-shadow: var(--box-shadow-elevado); /* Sombra más elevada */
+}
+
+.card img {
+    border-bottom: 5px solid var(--color-dorado-antiguo); 
+    border-radius: var(--border-radius-medio) var(--border-radius-medio) 0 0; 
+    filter: grayscale(30%) contrast(1.1); /* Toque desaturado y contrastado */
+    transition: transform var(--transition-speed) ease, filter 0.4s ease;
+}
+.card:hover img {
+    transform: scale(1.08); 
+    filter: grayscale(0%) contrast(1);
+}
+
+.card-content {
+    padding: 30px; 
+}
+
+.card-content h3 {
+    font-size: clamp(1.4em, 3vw, 1.8em); 
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    font-size: clamp(1em, 2vw, 1.05em); 
+    line-height: 1.7;
+    color: var(--color-texto-secundario);
+}
+
+.card-content .read-more {
+    background-color: transparent; 
+    color: var(--color-dorado-antiguo);
+    border: 2px solid var(--color-dorado-antiguo);
+    padding: 12px 22px; 
+    font-size: 0.95em;
+    font-weight: 700; /* Botón más destacado */
+}
+.card-content .read-more:hover, .card-content .read-more:focus-visible {
+    background-color: var(--color-dorado-antiguo);
+    color: var(--color-morado-emperador);
+    outline: none; 
+}
+
+/* --- Sección de Inmersión --- */
+.immersion-section {
+    background-color: var(--color-morado-emperador);
+    color: var(--color-alabastro);
+    padding: clamp(60px, 12vh, 100px) 20px;
+}
+.immersion-section h2 {
+    color: var(--color-dorado-antiguo); 
+    font-size: clamp(2em, 5vw, 3em);
+}
+.immersion-section p {
+    font-size: clamp(1.15em, 2.8vw, 1.5em);
+    max-width: 850px;
+    line-height: 1.7;
+}
+.immersion-section .cta-button {
+    background-color: var(--color-dorado-antiguo);
+    color: var(--color-morado-emperador);
+    border-color: transparent; 
+}
+.immersion-section .cta-button:hover, .immersion-section .cta-button:focus-visible {
+    background-color: var(--color-alabastro);
+    color: var(--color-morado-emperador);
+    border-color: var(--color-morado-emperador);
+    outline: none;
+}
+
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-texto-principal); 
+    color: var(--color-piedra-clara); 
+    padding: 60px 20px; 
+    border-top: 10px solid var(--color-dorado-antiguo); 
+}
+
+.footer p {
+    font-size: clamp(0.95em, 2vw, 1.05em);
+}
+
+.footer a { 
+    color: var(--color-dorado-antiguo);
+}
+.footer a:focus-visible {
+    color: var(--color-alabastro);
+    outline: 1px dashed var(--color-dorado-antiguo);
+}
+.footer a:hover {
+    color: var(--color-alabastro);
+}
+
+.footer .social-links a { 
+    font-size: 2em; 
+    color: var(--color-dorado-antiguo); 
+}
+.footer .social-links a img { 
+     filter: brightness(0) saturate(100%) invert(70%) sepia(27%) saturate(500%) hue-rotate(3deg) brightness(90%) contrast(90%); 
+}
+.footer .social-links a:hover, .footer .social-links a:focus-visible {
+    color: var(--color-alabastro); 
+}
+ .footer .social-links a:hover img {
+     filter: brightness(0) saturate(100%) invert(93%) sepia(8%) saturate(179%) hue-rotate(327deg) brightness(108%) contrast(91%); 
+ }
+        
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        position: absolute; 
+        top: 100%; 
+        left: 0;
+        background-color: var(--color-morado-emperador); 
+        padding: 0; 
+        box-shadow: 0 4px 8px rgba(var(--color-negro-contraste-rgb),0.2);
+        max-height: 0; 
+        overflow: hidden; 
+        transition: max-height 0.45s ease-in-out, padding 0.45s ease-in-out; 
+    }
+    .nav-links.active {
+        max-height: 60vh; 
+        padding: 10px 0;
+    }
+    .nav-links li {
+        margin: 0; 
+        width: 100%;
+        border-bottom: 1px solid rgba(var(--color-piedra-clara),0.1); 
+    }
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    .nav-links a {
+         padding: 15px; 
+         display: block; 
+         text-align: center;
+         font-size: 1.1em;
+    }
+    .nav-toggle { display: block; }
+
+    .hero-content {
+        padding: 20px; /* Reducir padding en móvil */
+    }
+    .hero-escudo {
+        width: clamp(100px, 22vw, 140px); /* Ajustar escudo en móvil */
+    }
+    .hero h1 { font-size: clamp(2.4em, 7vw, 3.5em); }
+    .hero p { font-size: clamp(1.05em, 3.5vw, 1.4em); }
+
+    .detailed-intro-section p { text-align: left; } /* Mejorar legibilidad en móvil */
+}
+@media (max-width: 480px) { 
+    .navbar .logo-text { font-size: clamp(1.3em, 5vw, 1.6em); }
+    .hero h1 { font-size: clamp(2.2em, 10vw, 3em); }
+    .hero p { font-size: clamp(1em, 4vw, 1.2em); }
+    .cta-button { padding: 15px 30px; font-size: clamp(1em, 4vw, 1.2em); }
+    .detailed-intro-section h2, .section-title { font-size: clamp(1.8em, 6vw, 2.5em); }
+    .card-content { padding: 20px; }
+    .section-title::after { width: 70px; height: 4px; } /* Estrella más pequeña en móvil */
+}
+
