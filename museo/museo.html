@@ -50,7 +50,7 @@
                 <h2 class="section-title">Aporta tu Pieza al Museo <i class="fas fa-upload"></i></h2>
                 <p class="intro-paragraph" style="text-align:center; font-size: clamp(1em, 2.2vw, 1.15em); margin-bottom: 2em;">
                     ¿Tienes una fotografía de un objeto, ruina o documento histórico relacionado con el Alfoz de Cerasio y Lantarón o el Condado de Castilla? ¡Compártelo con nosotros! 
-                    <br><small>(Las subidas son para demostración y no se almacenan permanentemente en esta versión. Para una funcionalidad real, se requiere un backend).</small>
+                    <br><small>(Las piezas subidas se guardarán si el backend está correctamente configurado y en funcionamiento).</small>
                 </p>
 
                 <form id="uploadForm" class="upload-form-container">
@@ -83,7 +83,7 @@
             <div class="container"> 
                 <h2 class="section-title">Galería del Museo <i class="fas fa-landmark"></i></h2>
                 <div id="museumGalleryGrid" class="card-grid museum-gallery-grid">
-                    <p class="no-pieces-message" id="noPiecesMessage">Aún no se han añadido piezas al museo. ¡Sé el primero en contribuir!</p>
+                    <p class="no-pieces-message" id="noPiecesMessage">Cargando piezas del museo...</p>
                 </div>
             </div>
         </section>
@@ -122,43 +122,62 @@
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
             
-            // AJUSTA ESTA LÍNEA SI TU BACKEND CORRE EN UNA IP O PUERTO DIFERENTE, O SI TU NGINX NO ESTÁ CONFIGURADO PARA PROXY /api
-            // Para desarrollo local donde Flask corre en http://localhost:5000 y Nginx sirve el frontend en el mismo dominio (y hace proxy a /api):
-            // const API_BASE_URL = ""; // Esto hará que el fetch vaya a /api/museo/piezas (relativo al dominio actual)
-            // Si accedes al HTML directamente como file:// o si el backend está en un dominio/puerto totalmente diferente:
-            const API_BASE_URL = "http://localhost:5000"; // O "http://10.0.0.164:5000" si esa es la IP de tu backend accesible
+            // API_BASE_URL se deja vacía ("") porque Nginx actuará como reverse proxy.
+            // Las peticiones a /api/... serán redirigidas por Nginx al backend Flask.
+            const API_BASE_URL = ""; 
 
-            let museumPieces = []; 
+            let localMuseumPieces = []; // Para mantener una copia local y para ejemplos
 
             function loadSamplePieces() {
-                museumPieces = [
-                    { id: 1, titulo: "Fragmento Cerámico Decorado", descripcion: "Pequeño fragmento de cerámica con intrincados motivos geométricos, posiblemente de la época celtíbera, hallado cerca del cauce del río Tirón.", autor: "Museo Local (Ejemplo)", imagenUrl: "/imagenes/museo_ceramica_ejemplo.jpg", altText: "Fragmento de cerámica celtíbera con decoración geométrica" },
-                    { id: 2, titulo: "Sestercio Romano de Auca", descripcion: "Moneda de bronce (Sestercio) acuñada en la ceca de Auca Patricia durante el mandato del emperador Augusto. Muestra el perfil imperial y símbolos locales.", autor: "Colección Privada (Ejemplo)", imagenUrl: "/imagenes/museo_moneda_ejemplo.jpg", altText: "Moneda romana de bronce (Sestercio) con perfil de emperador" },
-                    { id: 3, titulo: "Hebilla Visigoda Ornamentada", descripcion: "Impresionante hebilla de cinturón de bronce con incrustaciones de pasta vítrea, datada en el siglo VI o VII, recuperada en una necrópolis cercana a Cerezo.", autor: "Descubrimiento Reciente (Ejemplo)", imagenUrl: "/imagenes/museo_hebilla_ejemplo.jpg", altText: "Hebilla visigoda de bronce con adornos e incrustaciones" }
+                // Estas son piezas de ejemplo que se mostrarán si el backend no responde
+                // o si se decide no cargar desde el backend inicialmente.
+                // IMPORTANTE: Reemplaza estas URLs con imágenes reales en tu carpeta /imagenes/
+                return [
+                    { id: 'sample1', titulo: "Fragmento Cerámico Decorado (Ejemplo)", descripcion: "Pequeño fragmento de cerámica con intrincados motivos geométricos, posiblemente de la época celtíbera, hallado cerca del cauce del río Tirón.", autor: "Museo Local", imagenUrl: "/imagenes/museo_ceramica_ejemplo.jpg", altText: "Fragmento de cerámica celtíbera con decoración geométrica" },
+                    { id: 'sample2', titulo: "Sestercio Romano de Auca (Ejemplo)", descripcion: "Moneda de bronce (Sestercio) acuñada en la ceca de Auca Patricia durante el mandato del emperador Augusto. Muestra el perfil imperial y símbolos locales.", autor: "Colección Privada", imagenUrl: "/imagenes/museo_moneda_ejemplo.jpg", altText: "Moneda romana de bronce (Sestercio) con perfil de emperador" },
+                    { id: 'sample3', titulo: "Hebilla Visigoda Ornamentada (Ejemplo)", descripcion: "Impresionante hebilla de cinturón de bronce con incrustaciones de pasta vítrea, datada en el siglo VI o VII, recuperada en una necrópolis cercana a Cerezo.", autor: "Descubrimiento Reciente", imagenUrl: "/imagenes/museo_hebilla_ejemplo.jpg", altText: "Hebilla visigoda de bronce con adornos e incrustaciones" }
                 ];
-                 // Renderiza ejemplos solo si el fetch inicial al backend falla o si no hay API_BASE_URL real.
-                if (museumPieces.length > 0 && (!API_BASE_URL || API_BASE_URL === "http://localhost:5000")) { // Condición para mostrar ejemplos
-                   if (!document.querySelector('.museum-piece-card')) { // Solo si la galería está vacía
-                        renderGallery(museumPieces);
-                        if(noPiecesMessage) noPiecesMessage.textContent = 'Mostrando piezas de ejemplo. Sube la tuya para contribuir.';
-                   }
-                }
             }
             
+            async function fetchPieces() {
+                try {
+                    const url = `${API_BASE_URL}/api/museo/piezas`;
+                    console.log(`Intentando obtener piezas desde: ${url}`);
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
+                    }
+                    const pieces = await response.json();
+                    localMuseumPieces = pieces; // Actualizar con datos del backend
+                    renderGallery(localMuseumPieces);
+                } catch (error) {
+                    console.error('Error al cargar piezas del museo desde el backend:', error);
+                    localMuseumPieces = loadSamplePieces(); // Cargar ejemplos si falla el fetch
+                    renderGallery(localMuseumPieces); 
+                    if(noPiecesMessage) {
+                        noPiecesMessage.innerHTML = `No se pudieron cargar las piezas del servidor. Mostrando ejemplos. <br><small>Error: ${error.message}</small>`;
+                        noPiecesMessage.style.display = 'block';
+                        noPiecesMessage.style.color = 'orange';
+                        noPiecesMessage.style.textAlign = 'center';
+                    }
+                }
+            }
+
             if (window.location.protocol === "https:" && API_BASE_URL.startsWith("http://")) {
-                console.warn("ADVERTENCIA DE CONTENIDO MIXTO: La página se sirve sobre HTTPS, pero la API_BASE_URL está configurada para HTTP. Es probable que el navegador bloquee las solicitudes.");
+                console.warn("ADVERTENCIA DE CONTENIDO MIXTO DETECTADA.");
                 if(noPiecesMessage) {
-                    noPiecesMessage.innerHTML = `<strong>Advertencia de Contenido Mixto:</strong> Esta página (HTTPS) está intentando acceder a un backend en <em>${API_BASE_URL}</em> (HTTP). Los navegadores suelen bloquear esto por seguridad. Para solucionarlo, tu backend también debe servirse sobre HTTPS o acceder a esta página mediante HTTP.`;
+                    noPiecesMessage.innerHTML = `<strong>Advertencia de Contenido Mixto:</strong> Esta página (HTTPS) está intentando acceder a un backend en una URL HTTP (<code>${API_BASE_URL}</code>). Los navegadores suelen bloquear esto. Asegúrate de que tu Nginx esté configurado para hacer proxy a la API y que esta URL sea relativa (ej. "") o también HTTPS.`;
                     noPiecesMessage.style.display = 'block';
-                    noPiecesMessage.style.color = 'orange';
+                    noPiecesMessage.style.color = 'darkred';
                     noPiecesMessage.style.textAlign = 'left';
-                    noPiecesMessage.style.padding = '10px';
-                    noPiecesMessage.style.border = '1px solid orange';
-                    noPiecesMessage.style.backgroundColor = '#fff3cd';
+                    noPiecesMessage.style.padding = '15px';
+                    noPiecesMessage.style.border = '2px solid darkred';
+                    noPiecesMessage.style.backgroundColor = '#ffe0e0';
                 }
+            } else {
+                 fetchPieces(); // Cargar piezas desde el backend al iniciar
             }
-            
-            fetchPieces(); // Cargar piezas desde el backend al iniciar
+
 
             if (piezaImagenInput) {
                 piezaImagenInput.addEventListener('change', function(event) {
@@ -209,7 +228,8 @@
                     formData.append('piezaImagen', imagenFile);
 
                     try {
-                        const url = API_BASE_URL ? `${API_BASE_URL}/api/museo/piezas` : '/api/museo/piezas';
+                        const url = `${API_BASE_URL}/api/museo/piezas`;
+                        console.log(`Intentando subir pieza a: ${url}`);
                         const response = await fetch(url, {
                             method: 'POST',
                             body: formData 
@@ -228,38 +248,11 @@
                         if(imagePreviewContainer) imagePreviewContainer.style.display = 'none';
                     } catch (error) {
                         console.error('Error al subir la pieza:', error);
-                        alert(`Error al subir la pieza: ${error.message}. Asegúrate de que el backend esté corriendo y accesible en ${API_BASE_URL || window.location.origin}.`);
+                        alert(`Error al subir la pieza: ${error.message}. Asegúrate de que el backend esté corriendo y accesible.`);
                     }
                 });
             }
             
-            async function fetchPieces() {
-                try {
-                    const url = API_BASE_URL ? `${API_BASE_URL}/api/museo/piezas` : '/api/museo/piezas';
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        // Si falla el fetch del backend, no borres los ejemplos locales si ya se mostraron.
-                        // Solo muestra el error y permite que los ejemplos permanezcan si loadSamplePieces ya los renderizó.
-                        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
-                    }
-                    const fetchedPieces = await response.json(); 
-                    museumPieces = fetchedPieces; // Actualizar el array local con datos del backend
-                    renderGallery(museumPieces);
-                } catch (error) {
-                    console.error('Error al cargar piezas del museo desde el backend:', error);
-                    // Solo cargar ejemplos si la galería está vacía y falla el fetch
-                    if (museumGalleryGrid && museumGalleryGrid.children.length <= 1) { // <=1 para contar el <p> de no-pieces
-                        console.log("Mostrando piezas de ejemplo locales debido a error al contactar el backend y galería vacía.");
-                        loadSamplePieces(); 
-                    }
-                    if(noPiecesMessage && museumPieces.length === 0) { // Solo muestra si no hay nada (ni ejemplos)
-                        noPiecesMessage.innerHTML = `No se pudieron cargar las piezas del servidor. <br><small>Error: ${error.message}</small>`;
-                        noPiecesMessage.style.display = 'block';
-                        noPiecesMessage.style.color = 'red';
-                    }
-                }
-            }
-
             function renderGallery(piecesArray) {
                 if (!museumGalleryGrid || !noPiecesMessage) return;
                 museumGalleryGrid.innerHTML = ''; 
@@ -276,15 +269,15 @@
                     
                     const img = document.createElement('img');
                     let imageUrl = pieza.imagenUrl;
-                    // Construir URL absoluta si API_BASE_URL está definida y la URL de la pieza es relativa a la API
-                    if (API_BASE_URL && !pieza.imagenUrl.startsWith('http') && !pieza.imagenUrl.startsWith('data:') && pieza.imagenUrl.startsWith('/uploads/')) {
-                        imageUrl = `${API_BASE_URL}${pieza.imagenUrl}`;
-                    } else if (!API_BASE_URL && !pieza.imagenUrl.startsWith('http') && !pieza.imagenUrl.startsWith('data:') && !pieza.imagenUrl.startsWith('/')) {
-                         // Si API_BASE_URL está vacía, y la imagenUrl no es absoluta ni relativa a la raíz, asumimos que es relativa a la página actual.
-                         // Es mejor que las URLs del backend sean siempre relativas a la raíz del sitio (/uploads/...)
-                        imageUrl = pieza.imagenUrl.startsWith('/') ? pieza.imagenUrl : `/${pieza.imagenUrl}`;
+                    
+                    // Si API_BASE_URL está vacío (porque Nginx hace proxy), y la imagenUrl es relativa (ej. /uploads/...),
+                    // el navegador la solicitará correctamente desde el mismo dominio.
+                    // Si imagenUrl ya es una URL completa (http/https/data), se usa tal cual.
+                    if (API_BASE_URL && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:')) {
+                        imageUrl = `${API_BASE_URL}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+                    } else if (!API_BASE_URL && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:') && !imageUrl.startsWith('/')) {
+                        imageUrl = `/${imageUrl}`;
                     }
-
 
                     img.src = imageUrl; 
                     img.alt = pieza.altText || `Imagen de ${pieza.titulo}`;
