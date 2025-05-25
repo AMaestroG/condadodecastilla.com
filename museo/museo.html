@@ -36,7 +36,7 @@
         </div>
     </nav>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/imagenes/placeholder.jpg'); min-height: 50vh;">
+    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg'); min-height: 50vh;">
         <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.6); padding: clamp(30px, 5vw, 50px);">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header" style="width: clamp(50px, 8vw, 70px); margin-bottom:15px;">
             <h1 style="font-size: clamp(2.8em, 7vw, 4.5em);">Museo Colaborativo del Alfoz</h1>
@@ -80,7 +80,8 @@
         </section>
 
         <section class="section museum-gallery-section alternate-bg">
-            <div class="container"> <h2 class="section-title">Galería del Museo <i class="fas fa-landmark"></i></h2>
+            <div class="container"> 
+                <h2 class="section-title">Galería del Museo <i class="fas fa-landmark"></i></h2>
                 <div id="museumGalleryGrid" class="card-grid museum-gallery-grid">
                     <p class="no-pieces-message" id="noPiecesMessage">Aún no se han añadido piezas al museo. ¡Sé el primero en contribuir!</p>
                 </div>
@@ -120,37 +121,34 @@
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
-
-            // AJUSTA ESTA URL SI TU BACKEND CORRE EN OTRO LADO (ej. http://tu_ip_servidor:5000)
-            // Si el frontend y backend están en el mismo dominio/puerto, puedes usar rutas relativas (ej. "/api/museo/piezas")
-            const API_BASE_URL = "/"; 
-            // const API_BASE_URL = ""; // Usar si frontend y backend están en el mismo origen exacto
+            
+            // AJUSTA ESTA LÍNEA SI TU BACKEND CORRE EN UNA IP O PUERTO DIFERENTE, O SI TU NGINX NO ESTÁ CONFIGURADO PARA PROXY /api
+            // Para desarrollo local donde Flask corre en http://localhost:5000 y Nginx sirve el frontend en el mismo dominio (y hace proxy a /api):
+            // const API_BASE_URL = ""; // Esto hará que el fetch vaya a /api/museo/piezas (relativo al dominio actual)
+            // Si accedes al HTML directamente como file:// o si el backend está en un dominio/puerto totalmente diferente:
+            const API_BASE_URL = "http://localhost:5000"; // O "http://10.0.0.164:5000" si esa es la IP de tu backend accesible
 
             let museumPieces = []; 
 
             function loadSamplePieces() {
-                // IMPORTANTE: Reemplaza estas URLs con imágenes reales en tu carpeta /imagenes/
-                // o elimina esta función si no quieres piezas de ejemplo.
                 museumPieces = [
                     { id: 1, titulo: "Fragmento Cerámico Decorado", descripcion: "Pequeño fragmento de cerámica con intrincados motivos geométricos, posiblemente de la época celtíbera, hallado cerca del cauce del río Tirón.", autor: "Museo Local (Ejemplo)", imagenUrl: "/imagenes/museo_ceramica_ejemplo.jpg", altText: "Fragmento de cerámica celtíbera con decoración geométrica" },
                     { id: 2, titulo: "Sestercio Romano de Auca", descripcion: "Moneda de bronce (Sestercio) acuñada en la ceca de Auca Patricia durante el mandato del emperador Augusto. Muestra el perfil imperial y símbolos locales.", autor: "Colección Privada (Ejemplo)", imagenUrl: "/imagenes/museo_moneda_ejemplo.jpg", altText: "Moneda romana de bronce (Sestercio) con perfil de emperador" },
                     { id: 3, titulo: "Hebilla Visigoda Ornamentada", descripcion: "Impresionante hebilla de cinturón de bronce con incrustaciones de pasta vítrea, datada en el siglo VI o VII, recuperada en una necrópolis cercana a Cerezo.", autor: "Descubrimiento Reciente (Ejemplo)", imagenUrl: "/imagenes/museo_hebilla_ejemplo.jpg", altText: "Hebilla visigoda de bronce con adornos e incrustaciones" }
                 ];
-                // Si no tienes backend, renderiza las piezas de ejemplo
-                // Si tienes backend, fetchPieces() se encargará de cargar desde la API.
-                // Para esta demo sin backend persistente, las piezas de ejemplo se mostrarán
-                // y las nuevas subidas se añadirán a este array localmente.
-                if (API_BASE_URL === "http://localhost:5000" || API_BASE_URL === "") { // Asumimos que si es localhost, el backend podría no estar siempre
-                    renderGallery(museumPieces); // Renderiza ejemplos si no se puede conectar al backend
-                } else {
-                    fetchPieces(); // Intenta cargar desde el backend si API_BASE_URL está configurada a algo más específico
+                 // Renderiza ejemplos solo si el fetch inicial al backend falla o si no hay API_BASE_URL real.
+                if (museumPieces.length > 0 && (!API_BASE_URL || API_BASE_URL === "http://localhost:5000")) { // Condición para mostrar ejemplos
+                   if (!document.querySelector('.museum-piece-card')) { // Solo si la galería está vacía
+                        renderGallery(museumPieces);
+                        if(noPiecesMessage) noPiecesMessage.textContent = 'Mostrando piezas de ejemplo. Sube la tuya para contribuir.';
+                   }
                 }
             }
-           
+            
             if (window.location.protocol === "https:" && API_BASE_URL.startsWith("http://")) {
                 console.warn("ADVERTENCIA DE CONTENIDO MIXTO: La página se sirve sobre HTTPS, pero la API_BASE_URL está configurada para HTTP. Es probable que el navegador bloquee las solicitudes.");
                 if(noPiecesMessage) {
-                    noPiecesMessage.innerHTML = `<strong>Advertencia de Contenido Mixto:</strong> Esta página (HTTPS) está intentando acceder a un backend en <em>${API_BASE_URL}</em> (HTTP). Los navegadores suelen bloquear esto por seguridad. Para solucionarlo, tu backend también debe servirse sobre HTTPS.`;
+                    noPiecesMessage.innerHTML = `<strong>Advertencia de Contenido Mixto:</strong> Esta página (HTTPS) está intentando acceder a un backend en <em>${API_BASE_URL}</em> (HTTP). Los navegadores suelen bloquear esto por seguridad. Para solucionarlo, tu backend también debe servirse sobre HTTPS o acceder a esta página mediante HTTP.`;
                     noPiecesMessage.style.display = 'block';
                     noPiecesMessage.style.color = 'orange';
                     noPiecesMessage.style.textAlign = 'left';
@@ -158,10 +156,9 @@
                     noPiecesMessage.style.border = '1px solid orange';
                     noPiecesMessage.style.backgroundColor = '#fff3cd';
                 }
-            } else {
-                 fetchPieces(); // Cargar piezas desde el backend al iniciar
             }
-
+            
+            fetchPieces(); // Cargar piezas desde el backend al iniciar
 
             if (piezaImagenInput) {
                 piezaImagenInput.addEventListener('change', function(event) {
@@ -169,7 +166,7 @@
                     if (file) {
                         if (file.size > 2 * 1024 * 1024) { // 2MB
                             alert('La imagen es demasiado grande. El tamaño máximo es 2MB.');
-                            this.value = ""; // Limpiar el input
+                            this.value = ""; 
                             if(imagePreview) imagePreview.src = '#';
                             if(imagePreviewContainer) imagePreviewContainer.style.display = 'none';
                             return;
@@ -200,7 +197,7 @@
                         alert('Por favor, completa el título, la descripción y selecciona una imagen.');
                         return;
                     }
-                    if (imagenFile.size > 2 * 1024 * 1024) { 
+                     if (imagenFile.size > 2 * 1024 * 1024) { 
                         alert('La imagen es demasiado grande. El tamaño máximo es 2MB.');
                         return;
                     }
@@ -213,7 +210,6 @@
 
                     try {
                         const url = API_BASE_URL ? `${API_BASE_URL}/api/museo/piezas` : '/api/museo/piezas';
-                        console.log(`Intentando subir pieza a: ${url}`);
                         const response = await fetch(url, {
                             method: 'POST',
                             body: formData 
@@ -236,27 +232,30 @@
                     }
                 });
             }
-           
+            
             async function fetchPieces() {
                 try {
                     const url = API_BASE_URL ? `${API_BASE_URL}/api/museo/piezas` : '/api/museo/piezas';
-                    console.log(`Intentando obtener piezas desde: ${url}`);
                     const response = await fetch(url);
                     if (!response.ok) {
+                        // Si falla el fetch del backend, no borres los ejemplos locales si ya se mostraron.
+                        // Solo muestra el error y permite que los ejemplos permanezcan si loadSamplePieces ya los renderizó.
                         throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
                     }
-                    museumPieces = await response.json(); // Actualizar el array local con datos del backend
+                    const fetchedPieces = await response.json(); 
+                    museumPieces = fetchedPieces; // Actualizar el array local con datos del backend
                     renderGallery(museumPieces);
                 } catch (error) {
                     console.error('Error al cargar piezas del museo desde el backend:', error);
-                    // Si falla el fetch del backend, mostramos las piezas de ejemplo locales
-                    // Esto es solo para la demo, en producción querrías un mejor manejo de errores.
-                    console.log("Mostrando piezas de ejemplo locales debido a error al contactar el backend.");
-                    loadSamplePieces(); // Carga y renderiza los ejemplos si el fetch falla
-                    if(noPiecesMessage) {
-                        noPiecesMessage.innerHTML = `No se pudieron cargar las piezas del servidor. Mostrando ejemplos locales. <br><small>Error: ${error.message}</small>`;
+                    // Solo cargar ejemplos si la galería está vacía y falla el fetch
+                    if (museumGalleryGrid && museumGalleryGrid.children.length <= 1) { // <=1 para contar el <p> de no-pieces
+                        console.log("Mostrando piezas de ejemplo locales debido a error al contactar el backend y galería vacía.");
+                        loadSamplePieces(); 
+                    }
+                    if(noPiecesMessage && museumPieces.length === 0) { // Solo muestra si no hay nada (ni ejemplos)
+                        noPiecesMessage.innerHTML = `No se pudieron cargar las piezas del servidor. <br><small>Error: ${error.message}</small>`;
                         noPiecesMessage.style.display = 'block';
-                        noPiecesMessage.style.color = 'orange';
+                        noPiecesMessage.style.color = 'red';
                     }
                 }
             }
@@ -274,14 +273,18 @@
                 piecesArray.forEach(pieza => {
                     const card = document.createElement('div');
                     card.classList.add('card', 'museum-piece-card');
-                   
+                    
                     const img = document.createElement('img');
                     let imageUrl = pieza.imagenUrl;
-                    if (API_BASE_URL && !pieza.imagenUrl.startsWith('http') && !pieza.imagenUrl.startsWith('data:')) {
+                    // Construir URL absoluta si API_BASE_URL está definida y la URL de la pieza es relativa a la API
+                    if (API_BASE_URL && !pieza.imagenUrl.startsWith('http') && !pieza.imagenUrl.startsWith('data:') && pieza.imagenUrl.startsWith('/uploads/')) {
                         imageUrl = `${API_BASE_URL}${pieza.imagenUrl}`;
                     } else if (!API_BASE_URL && !pieza.imagenUrl.startsWith('http') && !pieza.imagenUrl.startsWith('data:') && !pieza.imagenUrl.startsWith('/')) {
-                        imageUrl = `/${pieza.imagenUrl}`;
+                         // Si API_BASE_URL está vacía, y la imagenUrl no es absoluta ni relativa a la raíz, asumimos que es relativa a la página actual.
+                         // Es mejor que las URLs del backend sean siempre relativas a la raíz del sitio (/uploads/...)
+                        imageUrl = pieza.imagenUrl.startsWith('/') ? pieza.imagenUrl : `/${pieza.imagenUrl}`;
                     }
+
 
                     img.src = imageUrl; 
                     img.alt = pieza.altText || `Imagen de ${pieza.titulo}`;
@@ -301,7 +304,7 @@
                     const authorP = document.createElement('p');
                     authorP.classList.add('piece-author');
                     authorP.innerHTML = `<strong>Aportado por:</strong> ${pieza.autor}`;
-                   
+                    
                     const descriptionP = document.createElement('p');
                     descriptionP.classList.add('piece-description');
                     descriptionP.textContent = pieza.descripcion.substring(0, 120) + (pieza.descripcion.length > 120 ? '...' : ''); 
@@ -309,13 +312,13 @@
                     cardContent.appendChild(titleH3);
                     cardContent.appendChild(authorP);
                     cardContent.appendChild(descriptionP);
-                   
+                    
                     card.appendChild(img);
                     card.appendChild(cardContent);
                     museumGalleryGrid.appendChild(card);
                 });
             }
-           
+            
             function openModal(src, caption) {
                 if(modal && modalImage && modalCaption) {
                     modal.style.display = "block";
@@ -329,13 +332,13 @@
                     if(modal) modal.style.display = "none";
                 }
             }
-           
+            
             window.onclick = function(event) {
                 if (event.target == modal) {
                     if(modal) modal.style.display = "none";
                 }
             }
-           
+            
             // Script para el menú de navegación móvil
             const navToggle = document.querySelector('.nav-toggle');
             const navLinks = document.querySelector('.nav-links');
