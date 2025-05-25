@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,7 @@
         </div>
     </nav>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg'); min-height: 50vh;">
+    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/imagenes/placeholder.jpg'); min-height: 50vh;">
         <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.6); padding: clamp(30px, 5vw, 50px);">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header" style="width: clamp(50px, 8vw, 70px); margin-bottom:15px;">
             <h1 style="font-size: clamp(2.8em, 7vw, 4.5em);">Museo Colaborativo del Alfoz</h1>
@@ -146,7 +146,7 @@
                     fetchPieces(); // Intenta cargar desde el backend si API_BASE_URL está configurada a algo más específico
                 }
             }
-            
+           
             if (window.location.protocol === "https:" && API_BASE_URL.startsWith("http://")) {
                 console.warn("ADVERTENCIA DE CONTENIDO MIXTO: La página se sirve sobre HTTPS, pero la API_BASE_URL está configurada para HTTP. Es probable que el navegador bloquee las solicitudes.");
                 if(noPiecesMessage) {
@@ -200,7 +200,7 @@
                         alert('Por favor, completa el título, la descripción y selecciona una imagen.');
                         return;
                     }
-                     if (imagenFile.size > 2 * 1024 * 1024) { 
+                    if (imagenFile.size > 2 * 1024 * 1024) { 
                         alert('La imagen es demasiado grande. El tamaño máximo es 2MB.');
                         return;
                     }
@@ -236,7 +236,7 @@
                     }
                 });
             }
-            
+           
             async function fetchPieces() {
                 try {
                     const url = API_BASE_URL ? `${API_BASE_URL}/api/museo/piezas` : '/api/museo/piezas';
@@ -274,7 +274,7 @@
                 piecesArray.forEach(pieza => {
                     const card = document.createElement('div');
                     card.classList.add('card', 'museum-piece-card');
-                    
+                   
                     const img = document.createElement('img');
                     let imageUrl = pieza.imagenUrl;
                     if (API_BASE_URL && !pieza.imagenUrl.startsWith('http') && !pieza.imagenUrl.startsWith('data:')) {
@@ -301,7 +301,7 @@
                     const authorP = document.createElement('p');
                     authorP.classList.add('piece-author');
                     authorP.innerHTML = `<strong>Aportado por:</strong> ${pieza.autor}`;
-                    
+                   
                     const descriptionP = document.createElement('p');
                     descriptionP.classList.add('piece-description');
                     descriptionP.textContent = pieza.descripcion.substring(0, 120) + (pieza.descripcion.length > 120 ? '...' : ''); 
@@ -309,13 +309,13 @@
                     cardContent.appendChild(titleH3);
                     cardContent.appendChild(authorP);
                     cardContent.appendChild(descriptionP);
-                    
+                   
                     card.appendChild(img);
                     card.appendChild(cardContent);
                     museumGalleryGrid.appendChild(card);
                 });
             }
-            
+           
             function openModal(src, caption) {
                 if(modal && modalImage && modalCaption) {
                     modal.style.display = "block";
@@ -329,13 +329,13 @@
                     if(modal) modal.style.display = "none";
                 }
             }
-            
+           
             window.onclick = function(event) {
                 if (event.target == modal) {
                     if(modal) modal.style.display = "none";
                 }
             }
-            
+           
             // Script para el menú de navegación móvil
             const navToggle = document.querySelector('.nav-toggle');
             const navLinks = document.querySelector('.nav-links');
@@ -361,4 +361,3 @@
 
 </body>
 </html>
-   
