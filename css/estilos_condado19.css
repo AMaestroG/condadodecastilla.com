@@ -925,147 +925,87 @@ img {
     margin-bottom: 1.5em;
 }
 
-/* Estilos para la página de historia.html y otras páginas internas (cabecera) */
-.page-header.hero[style*="/imagenes/hero_historia_background.jpg"] h1,
-.page-header.hero[style*="/imagenes/hero_alfoz_background.jpg"] h1,
-.page-header.hero[style*="/imagenes/hero_personajes_background.jpg"] h1,
-.page-header.hero[style*="/imagenes/hero_camino_santiago.jpg"] h1 { 
+/* Estilos para la página de historia.html (cabecera) */
+.page-header.hero[style*="/imagenes/hero_historia_background.jpg"] h1 {
     font-size: clamp(2.8em, 7vw, 4.5em) !important; 
 }
-.page-header.hero[style*="/imagenes/hero_historia_background.jpg"] p,
-.page-header.hero[style*="/imagenes/hero_alfoz_background.jpg"] p,
-.page-header.hero[style*="/imagenes/hero_personajes_background.jpg"] p,
-.page-header.hero[style*="/imagenes/hero_camino_santiago.jpg"] p {
+.page-header.hero[style*="/imagenes/hero_historia_background.jpg"] p {
     font-size: clamp(1.1em, 2.5vw, 1.5em) !important;
 }
 
-/* Estilos para el índice de personajes y bloques de contenido de página interna */
-.page-content-block { 
-    background-color: rgba(var(--color-fondo-pagina-base-rgb), 0.96);
-    padding: clamp(30px, 5vw, 50px);
-    border-radius: var(--border-radius-medio);
-    box-shadow: var(--box-shadow-medio);
-    margin-top: 2em; 
-    margin-bottom: 2em;
-}
-.page-content-block .intro-paragraph {
-    font-style: normal; 
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 2em;
+/* Estilos para la Barra Lateral Derecha */
+#sidebar-derecha {
+    height: 100%;
+    width: 280px; /* Ancho de la barra lateral */
+    position: fixed;
+    z-index: 1100; /* Encima de la navbar si es necesario, ajustar según sea necesario */
+    top: 0;
+    right: -280px; /* Inicialmente oculta fuera de la pantalla */
+    background-color: var(--color-primario-purpura); /* Usando variable de color existente */
+    overflow-x: hidden;
+    transition: right 0.5s ease; /* Animación suave */
+    padding-top: 60px; /* Espacio para el botón de cierre u otros elementos */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.25);
+    border-left: 2px solid var(--color-secundario-dorado);
 }
 
-.indice-categorias {
-    list-style: none;
-    padding: 0;
+#sidebar-derecha.visible {
+    right: 0; /* Muestra la barra lateral */
 }
-.indice-categorias li {
-    margin-bottom: 2em;
-    padding-bottom: 1.5em;
-    border-bottom: 1px solid var(--color-piedra-media);
-}
-.indice-categorias li:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-.indice-categorias h3 { 
-    font-size: clamp(1.5em, 3.5vw, 2em); 
-    color: var(--color-primario-purpura);
-    margin-bottom: 0.8em;
-    border-left: 4px solid var(--color-secundario-dorado);
-    padding-left: 15px;
-}
-.indice-categorias h3 i {
-    margin-right: 10px;
-    color: var(--color-secundario-dorado);
-}
-.indice-personajes-lista { 
-    list-style: none; 
-    padding-left: 20px; 
-}
-.indice-personajes-lista li {
-    margin-bottom: 0.7em;
-    border-bottom: none; 
-    padding-bottom: 0;
-}
-.indice-personajes-lista li::before { 
-    content: '';
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-image: url('/imagenes/estrella.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: 10px;
-    opacity: 0.8;
-}
-.indice-personajes-lista li a {
-    font-size: clamp(1em, 2vw, 1.15em);
-    color: var(--color-texto-principal); 
-}
-.indice-personajes-lista li a:hover {
-    color: var(--color-secundario-dorado);
-}
-.back-to-link { 
-    display: inline-block;
-    margin-top: 2em;
-    padding: 12px 25px;
-    background-color: var(--color-secundario-dorado);
-    color: var(--color-primario-purpura) !important; 
-    border-radius: 25px;
+
+#sidebar-derecha ul#sidebar-links a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.1em; /* Tamaño de fuente de los enlaces */
     font-family: "Cinzel", serif;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    border: 2px solid var(--color-primario-purpura);
-    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
-}
-.back-to-link:hover {
-    background-color: var(--color-primario-purpura);
-    color: var(--color-acento-amarillo) !important; 
-    text-decoration: none;
-    transform: translateY(-2px);
+    color: var(--color-piedra-clara); /* Usando variable de color existente */
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid rgba(184, 134, 11, 0.2); /* --color-secundario-dorado con opacidad */
 }
 
-/* Estilos para la página de Alfoz (bibliografía, citas, etc.) */
-.bibliografia-referencias {
-    margin-top: 3em;
-    padding-top: 2em;
-    border-top: 1px solid var(--color-piedra-media);
+#sidebar-derecha ul#sidebar-links a:hover,
+#sidebar-derecha ul#sidebar-links a:focus-visible {
+    background-color: var(--color-secundario-dorado);
+    color: var(--color-primario-purpura);
+    text-decoration: none;
+    outline: none;
 }
-.bibliografia-referencias h3 {
-    font-size: clamp(1.4em, 3vw, 1.9em);
-    margin-bottom: 0.8em;
+
+#sidebar-derecha ul#sidebar-links li:last-child a {
+    border-bottom: none;
 }
-.bibliografia-referencias ul, .bibliografia-referencias ol {
-    padding-left: 25px;
-    margin-bottom: 1.5em;
+
+/* Estilo para el botón de cierre de la sidebar */
+#cerrar-sidebar {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px; /* No necesario si está posicionado absolutamente a la derecha */
+    color: var(--color-piedra-clara);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-.bibliografia-referencias ul li, .bibliografia-referencias ol li {
-    margin-bottom: 0.6em;
-    font-size: clamp(0.9em, 1.8vw, 1em);
-    color: var(--color-texto-secundario);
+
+#cerrar-sidebar:hover,
+#cerrar-sidebar:focus-visible {
+    color: var(--color-acento-amarillo);
+    outline: none;
 }
-.datos-historicos-alcazar {
-    margin-top: 3em;
-    padding: 20px;
-    background-color: rgba(var(--color-piedra-arena-rgb, 200, 187, 174), 0.2);
-    border-left: 5px solid var(--color-secundario-dorado);
-    border-radius: var(--border-radius-suave);
-}
-.datos-historicos-alcazar h3, .datos-historicos-alcazar h4 {
-    margin-top: 0.5em;
-}
-.cita-latin {
-    display: block;
-    margin: 1em 0 1em 2em;
-    padding: 0.8em 1em;
-    background-color: rgba(var(--color-piedra-clara-rgb,234,224,208), 0.5);
-    border-left: 3px solid var(--color-secundario-dorado);
-    font-style: italic;
-    color: var(--color-texto-principal);
-    font-size: 0.95em;
+
+/* Estilos para el botón de activación de la sidebar (#boton-sidebar) */
+/* El HTML para #boton-sidebar ya tiene algunos estilos inline. 
+   Estos CSS son para asegurar o complementar. */
+#boton-sidebar {
+    cursor: pointer;
+    width: 40px; /* Ancho como se definió en el HTML */
+    height: auto;
+    /* Ajustar posicionamiento si es necesario para que esté bien alineado en la navbar.
+       Esto puede depender de la estructura exacta de la navbar y si otros elementos
+       como .nav-toggle están visibles. */
+    /* Ejemplo: position: absolute; right: 20px; top: 15px; */
+    /* Por ahora, se asume que el margin-left: auto y display: block del HTML lo posicionan adecuadamente.
+       Si el nav-toggle (☰) está presente y visible en escritorio, pueden necesitarse ajustes
+       para que no se solapen o para decidir cuál se muestra. */
 }

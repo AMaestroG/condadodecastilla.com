@@ -1345,3 +1345,79 @@ img {
   cursor: pointer;
 }
 
+/* Estilos para la Barra Lateral Derecha */
+#sidebar-derecha {
+    height: 100%;
+    width: 280px; /* Ancho de la barra lateral */
+    position: fixed;
+    z-index: 1100; /* Encima de la navbar si es necesario, ajustar según sea necesario */
+    top: 0;
+    right: -280px; /* Inicialmente oculta fuera de la pantalla */
+    background-color: var(--color-primario-purpura); /* Usando variable de color existente */
+    overflow-x: hidden;
+    transition: right 0.5s ease; /* Animación suave */
+    padding-top: 60px; /* Espacio para el botón de cierre u otros elementos */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.25);
+    border-left: 2px solid var(--color-secundario-dorado);
+}
+
+#sidebar-derecha.visible {
+    right: 0; /* Muestra la barra lateral */
+}
+
+#sidebar-derecha ul#sidebar-links a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.1em; /* Tamaño de fuente de los enlaces */
+    font-family: "Cinzel", serif;
+    color: var(--color-piedra-clara); /* Usando variable de color existente */
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid rgba(184, 134, 11, 0.2); /* --color-secundario-dorado con opacidad */
+}
+
+#sidebar-derecha ul#sidebar-links a:hover,
+#sidebar-derecha ul#sidebar-links a:focus-visible {
+    background-color: var(--color-secundario-dorado);
+    color: var(--color-primario-purpura);
+    text-decoration: none;
+    outline: none;
+}
+
+#sidebar-derecha ul#sidebar-links li:last-child a {
+    border-bottom: none;
+}
+
+/* Estilo para el botón de cierre de la sidebar */
+#cerrar-sidebar {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px; /* No necesario si está posicionado absolutamente a la derecha */
+    color: var(--color-piedra-clara);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#cerrar-sidebar:hover,
+#cerrar-sidebar:focus-visible {
+    color: var(--color-acento-amarillo);
+    outline: none;
+}
+
+/* Estilos para el botón de activación de la sidebar (#boton-sidebar) */
+/* El HTML para #boton-sidebar ya tiene algunos estilos inline. 
+   Estos CSS son para asegurar o complementar. */
+#boton-sidebar {
+    cursor: pointer;
+    width: 40px; /* Ancho como se definió en el HTML */
+    height: auto;
+    /* Ajustar posicionamiento si es necesario para que esté bien alineado en la navbar.
+       Esto puede depender de la estructura exacta de la navbar y si otros elementos
+       como .nav-toggle están visibles. */
+    /* Ejemplo: position: absolute; right: 20px; top: 15px; */
+    /* Por ahora, se asume que el margin-left: auto y display: block del HTML lo posicionan adecuadamente.
+       Si el nav-toggle (☰) está presente y visible en escritorio, pueden necesitarse ajustes
+       para que no se solapen o para decidir cuál se muestra. */
+}

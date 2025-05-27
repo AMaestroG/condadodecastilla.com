@@ -36,8 +36,25 @@
                 <li><a href="/contacto/contacto.html">Contacto</a></li>
                 <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li> 
             </ul>
+            <img src="/imagenes/escudo.jpg" alt="Menú" id="boton-sidebar" style="cursor:pointer; width:40px; height:auto; margin-left: auto; display: block;">
         </div>
     </nav>
+
+    <aside id="sidebar-derecha" style="display: none;"> {/* Estilo inicial para ocultarla, se refinará con CSS */}
+        <a href="javascript:void(0)" id="cerrar-sidebar" style="position:absolute; top:10px; right:25px; font-size:36px; text-decoration:none; color:#EAE0C8;">&times;</a>
+        <ul id="sidebar-links" style="list-style-type:none; padding:0; margin-top:60px;">
+            <li><a href="index.html" class="active-link">Inicio</a></li> 
+            <li><a href="/historia/historia.html">Nuestra Historia</a></li>
+            <li><a href="/alfoz/alfoz.html">El Alfoz</a></li>
+            <li><a href="/lugares/lugares.html">Lugares Emblemáticos</a></li>
+            <li><a href="/camino_santiago/camino_santiago.html">Camino de Santiago</a></li>
+            <li><a href="/museo/museo.html">Museo Colaborativo</a></li>
+            <li><a href="/visitas/visitas.html">Planifica Tu Visita</a></li>
+            <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
+            <li><a href="/contacto/contacto.html">Contacto</a></li>
+            <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li> 
+        </ul>
+    </aside>
 
     <header class="hero">
         <div class="hero-content">
@@ -291,6 +308,35 @@
                     navLinks.classList.remove('active');
                 }
             });
+        });
+
+        // JavaScript para la barra lateral derecha
+        const botonSidebar = document.getElementById('boton-sidebar');
+        const sidebarDerecha = document.getElementById('sidebar-derecha');
+        const cerrarSidebar = document.getElementById('cerrar-sidebar');
+
+        if (botonSidebar && sidebarDerecha) {
+            botonSidebar.addEventListener('click', (event) => {
+                event.stopPropagation(); // Evita que el clic se propague al listener del documento
+                sidebarDerecha.classList.toggle('visible');
+            });
+        }
+
+        if (cerrarSidebar && sidebarDerecha) {
+            cerrarSidebar.addEventListener('click', () => {
+                sidebarDerecha.classList.remove('visible');
+            });
+        }
+        
+        // Opcional: Cerrar la sidebar si se hace clic fuera de ella
+        document.addEventListener('click', function(event) {
+            if (sidebarDerecha && botonSidebar) { // Asegurarse que los elementos existen
+                const isClickInsideSidebar = sidebarDerecha.contains(event.target);
+                const isClickOnButton = botonSidebar.contains(event.target);
+                if (!isClickInsideSidebar && !isClickOnButton && sidebarDerecha.classList.contains('visible')) {
+                    sidebarDerecha.classList.remove('visible');
+                }
+            }
         });
     </script>
 

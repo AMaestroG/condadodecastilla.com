@@ -31,8 +31,22 @@
                 <li><a href="/contacto/contacto.html">Contacto</a></li>
                 <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li> 
             </ul>
+            <img src="/imagenes/escudo.jpg" alt="Menú" id="boton-sidebar" style="cursor:pointer; width:40px; height:auto; margin-left: 15px;">
         </div>
     </nav>
+
+    <aside id="sidebar-derecha" style="display: none;">
+        <a href="javascript:void(0)" id="cerrar-sidebar" style="position:absolute; top:10px; right:25px; font-size:36px; text-decoration:none; color:#EAE0C8;">&times;</a>
+        <ul id="sidebar-links" style="list-style-type:none; padding:0; margin-top:60px;">
+            <li><a href="/index.html">Inicio</a></li> 
+            <li><a href="/historia/historia.html" class="active-link">Nuestra Historia</a></li>
+            <li><a href="/lugares/lugares.html">Lugares Emblemáticos</a></li>
+            <li><a href="/visitas/visitas.html">Planifica Tu Visita</a></li>
+            <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
+            <li><a href="/contacto/contacto.html">Contacto</a></li>
+            <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li> 
+        </ul>
+    </aside>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/imagenes/arcollana.jpg'); min-height: 50vh;">
         <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.5); padding: clamp(30px, 5vw, 50px);">
@@ -167,6 +181,34 @@
                     navLinks.classList.remove('active');
                 }
             });
+        });
+
+        // JavaScript para la barra lateral derecha
+        const botonSidebar = document.getElementById('boton-sidebar');
+        const sidebarDerecha = document.getElementById('sidebar-derecha');
+        const cerrarSidebar = document.getElementById('cerrar-sidebar');
+
+        if (botonSidebar && sidebarDerecha) {
+            botonSidebar.addEventListener('click', (event) => {
+                event.stopPropagation(); // Evita que el clic se propague al document listener inmediatamente
+                sidebarDerecha.classList.toggle('visible');
+            });
+        }
+
+        if (cerrarSidebar && sidebarDerecha) {
+            cerrarSidebar.addEventListener('click', () => {
+                sidebarDerecha.classList.remove('visible');
+            });
+        }
+        
+        document.addEventListener('click', function(event) {
+            if (sidebarDerecha && botonSidebar) { // Asegurarse que los elementos existen
+                 const isClickInsideSidebar = sidebarDerecha.contains(event.target);
+                 const isClickOnButton = botonSidebar.contains(event.target);
+                 if (!isClickInsideSidebar && !isClickOnButton && sidebarDerecha.classList.contains('visible')) {
+                     sidebarDerecha.classList.remove('visible');
+                 }
+            }
         });
     </script>
 
