@@ -1385,3 +1385,197 @@ img {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* --- Styles for Content Subsections and Figures --- */
+.content-subsection {
+    margin-bottom: 3.5em; /* Add space between subsections */
+    padding-bottom: 2em;
+    border-bottom: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.3); /* Subtle separator */
+}
+
+.content-subsection:last-of-type {
+    border-bottom: none; /* No border for the last subsection */
+    margin-bottom: 1em;
+}
+
+.content-subsection h3 {
+    font-size: clamp(1.6em, 3.8vw, 2.2em); /* Slightly larger H3 for subsections */
+    color: var(--color-primario-purpura);
+    margin-bottom: 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid var(--color-secundario-dorado); /* Accent under H3 */
+    display: inline-block; /* So border only spans the text width */
+}
+
+.content-subsection h3 i {
+    margin-right: 12px; /* Space for FontAwesome icons in H3 */
+    color: var(--color-secundario-dorado);
+}
+
+.content-subsection p {
+    font-size: clamp(1em, 2.2vw, 1.15em); /* Consistent paragraph text */
+    line-height: 1.75;
+    margin-bottom: 1.5em;
+}
+
+.content-subsection .image-gallery-intro {
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+}
+
+.content-subsection figure {
+    margin: 0; /* Reset default figure margin */
+    background-color: rgba(var(--color-fondo-pagina-rgb), 0.5); /* Slight background tint for figures */
+    padding: 10px;
+    border-radius: var(--border-radius-suave);
+    box-shadow: var(--box-shadow-sutil);
+    border: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.4);
+}
+
+.content-subsection figure img {
+    border: none; /* Remove default image border if any, rely on figure's border */
+    margin-bottom: 0.5em; /* Space between image and caption */
+    border-radius: var(--border-radius-suave); /* Consistent border radius */
+}
+
+.content-subsection figcaption {
+    font-size: clamp(0.85em, 1.8vw, 0.95em);
+    text-align: center;
+    color: var(--color-texto-principal);
+    font-style: italic;
+    padding: 0.5em 0;
+}
+
+/* Ensure these styles don't negatively impact existing galleries if .image-gallery-intro is nested */
+.page-content-block .content-subsection .image-gallery-intro img {
+    border: none; /* Override general .image-gallery-intro img border for this specific context */
+}
+
+/* --- Styles for Comments Section --- */
+#comments-section {
+    background-color: rgba(var(--color-fondo-pagina-rgb), 0.7); /* Slightly different background for emphasis */
+    padding: 25px;
+    border-radius: var(--border-radius-suave);
+    margin-top: 2em;
+}
+
+#comments-section h3 {
+    border-bottom: none; /* Remove bottom border from subsection h3 if not desired here */
+    text-align: center;
+}
+
+#comments-section .contact-form-container { /* Re-using for comment form styling */
+    box-shadow: none; /* Remove excessive shadow if inherited */
+    border: 1px solid rgba(var(--color-piedra-media-rgb), 0.3);
+}
+
+.comment-item {
+    background-color: var(--color-fondo-pagina);
+    padding: 15px;
+    border-radius: var(--border-radius-suave);
+    margin-bottom: 15px;
+    border: 1px solid var(--color-piedra-media);
+    box-shadow: var(--box-shadow-sutil);
+}
+
+.comment-item p {
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: left; /* Override centered intro paragraph style */
+}
+
+.comment-item strong {
+    color: var(--color-primario-purpura);
+    font-family: var(--font-titulos);
+}
+
+.comment-item small {
+    font-size: 0.8em;
+    color: var(--color-texto-secundario);
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* --- Styles for Participation Sections (Share Story, Quiz, Gallery Promo) --- */
+#share-story-section, #quiz-section, #gallery-promo-section {
+    margin-top: 2.5em;
+    padding-top: 1.5em;
+}
+
+#share-story-section h3, #quiz-section h3, #gallery-promo-section h3 {
+    text-align: center; /* Center titles for these new sections */
+    border-bottom: none; /* Override default from .content-subsection if not desired */
+    margin-bottom: 1.2em;
+}
+
+.quiz-container {
+    background-color: rgba(var(--color-fondo-pagina-rgb), 0.8);
+    padding: 20px;
+    border-radius: var(--border-radius-suave);
+    border: 1px solid rgba(var(--color-piedra-media-rgb), 0.4);
+}
+
+.quiz-question {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed rgba(var(--color-piedra-media-rgb), 0.3);
+}
+.quiz-question:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.quiz-question p strong {
+    font-family: var(--font-principal); /* Main font for question text */
+    color: var(--color-texto-principal);
+}
+
+.quiz-options {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quiz-options button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    font-family: var(--font-principal);
+    font-size: 0.95em;
+    background-color: var(--color-piedra-clara);
+    color: var(--color-texto-principal);
+    border: 1px solid var(--color-piedra-media);
+    border-radius: var(--border-radius-suave);
+    cursor: pointer;
+    transition: background-color var(--transition-speed-fast), color var(--transition-speed-fast);
+    text-align: left;
+}
+
+.quiz-options button:hover:not(:disabled) {
+    background-color: var(--color-secundario-dorado);
+    color: var(--color-primario-purpura);
+}
+
+.quiz-options button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#quiz-feedback {
+    min-height: 20px; /* Reserve space for feedback text */
+    font-size: 1.1em;
+    color: var(--color-primario-purpura);
+}
+
+#gallery-promo-section .image-gallery-intro figure {
+    border: 2px solid var(--color-piedra-clara); /* Lighter border for promo images */
+}
+#gallery-promo-section .image-gallery-intro figcaption {
+    font-size: 0.9em;
+    color: var(--color-texto-secundario);
+}
