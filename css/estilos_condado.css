@@ -1570,6 +1570,15 @@ img {
     min-height: 20px; /* Reserve space for feedback text */
     font-size: 1.1em;
     color: var(--color-primario-purpura);
+    text-align: center; /* Ensure it's centered if not already */
+    opacity: 0; /* Start hidden for fade-in */
+    transform: translateY(10px); /* Start slightly lower for slide-in */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+#quiz-feedback.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #gallery-promo-section .image-gallery-intro figure {
@@ -1579,3 +1588,50 @@ img {
     font-size: 0.9em;
     color: var(--color-texto-secundario);
 }
+
+/* --- Scroll Animation Styling --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transition-delay: 0.2s; /* Slight delay before animation starts */
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Subtle Hover Effects for Figures in Content Subsections --- */
+.content-subsection figure img {
+    /* Ensure existing transitions from .image-gallery-intro img are not entirely overridden, 
+       or define a new specific transition here if needed.
+       The previous step already added some figure img styling, this enhances it. */
+    transition: transform var(--transition-speed-fast) ease-in-out, 
+                box-shadow var(--transition-speed-fast) ease-in-out,
+                filter var(--transition-speed-fast) ease-in-out; /* Added filter for completeness */
+}
+
+.content-subsection figure:hover img {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: var(--box-shadow-medio); /* Use pre-defined medium shadow */
+    /* Optional: Slightly change filter if desired, e.g., a subtle brightness or contrast change */
+    /* filter: brightness(1.05); */
+}
+
+/* Refine existing .image-gallery-intro img hover effect if it's too aggressive
+   or ensure it doesn't conflict. The specificity of .content-subsection figure:hover img 
+   should generally take precedence for these specific images. */
+
+/* The following rule was added in a previous step of the *first* plan:
+.image-gallery-intro img:hover {
+    transform: scale(1.08) rotate(-2deg); 
+    box-shadow: var(--box-shadow-elevado);
+    filter: sepia(50%) contrast(1.1) brightness(0.85); 
+}
+   This is fine, the new rule is more specific for figures inside content-subsections.
+   If any .image-gallery-intro is directly inside a .content-subsection (which they are),
+   and the img is directly inside a figure, the new rule for figure:hover img will apply.
+*/
+
+[end of css/estilos_condado.css]
