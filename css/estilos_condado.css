@@ -10,9 +10,10 @@
     --color-fondo-body-base: #f0e9e0; /* Tono alabastro para fallback del body si la imagen no carga */
     
     --color-negro-contraste: #1A1A1A;
-    --color-overlay-seccion-oscura: rgba(30, 20, 10, 0.45); 
-    --color-alabastro-retroiluminado-glow: rgba(248, 245, 238, 0.8); 
-    --color-dorado-glow: rgba(184, 134, 11, 0.35); 
+    --color-overlay-seccion-oscura: rgba(30, 20, 10, 0.65); /* Overlay más oscuro por defecto */
+    --color-linterna-haz: rgba(248, 245, 238, 0.35); /* Color del haz de la linterna, más sutil */
+    --color-linterna-centro: rgba(255, 255, 240, 0.55); /* Centro más brillante de la linterna */
+
 
     --color-primario-purpura-rgb: 74, 13, 103;
     --color-negro-contraste-rgb: 10, 10, 10; 
@@ -34,6 +35,12 @@
     --box-shadow-sutil: 0 4px 10px rgba(var(--color-primario-purpura-rgb), 0.07);
     --box-shadow-medio: 0 6px 18px rgba(var(--color-primario-purpura-rgb), 0.1);
     --box-shadow-elevado: 0 10px 35px rgba(var(--color-negro-contraste-rgb), 0.2);
+
+    /* CSS Custom Properties para la linterna */
+    --spotlight-x: 50%;
+    --spotlight-y: 50%;
+    --spotlight-size: 0px; /* Tamaño inicial de la linterna (se activará con JS) */
+    --spotlight-opacity: 0;
 }
 
 /* --- Reseteo y Estilos Globales --- */
@@ -77,6 +84,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: clamp(2.6em, 6vw, 4em); text-align: center; } 
 h2 { font-size: clamp(2.2em, 5vw, 3.2em); } 
 h3 { font-size: clamp(1.7em, 4vw, 2.4em); }
+h4 { font-size: clamp(1.3em, 3vw, 1.8em); margin-top: 1.5em; margin-bottom: 0.6em;}
+
 
 p {
     margin-bottom: 1.8em; 
@@ -136,47 +145,6 @@ img {
     align-items: center; 
 }
 
-/* Estilos para el logo como TEXTO de múltiples líneas */
-.navbar .logo-text {
-    font-family: var(--font-titulos);
-    color: var(--color-piedra-clara);
-    text-decoration: none;
-    font-weight: 900; 
-    transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; /* Alineado a la izquierda dentro de su contenedor */
-    text-align: left; /* Alineado a la izquierda */
-    line-height: 1; 
-    padding: 5px 0; 
-}
-.navbar .logo-text .logo-line {
-    display: block; 
-    white-space: nowrap; 
-}
-.navbar .logo-text .logo-line-1 {
-    font-size: clamp(1em, 2vw, 1.3em); /* Ajustado para que no sea tan grande */
-}
-.navbar .logo-text .logo-line-2 {
-    font-size: clamp(0.75em, 1.5vw, 1em); 
-    font-weight: normal; 
-    margin: -0.1em 0 -0.1em 0.5em; 
-    color: var(--color-acento-amarillo); 
-}
-.navbar .logo-text .logo-line-3 {
-    font-size: clamp(1em, 2vw, 1.3em); 
-}
-
-.navbar .logo-text:hover, 
-.navbar .logo-text:focus-visible {
-    transform: scale(1.02); 
-    color: var(--color-acento-amarillo);
-    outline: none; 
-}
-.navbar .logo-text:hover .logo-line-2 {
-    color: var(--color-piedra-clara); 
-}
-/* Estilos para el logo como IMAGEN (si se usa en otras páginas o como fallback) */
 .navbar .logo-link {
     display: inline-block; 
     line-height: 0; 
@@ -198,7 +166,6 @@ img {
     outline: none; 
 }
 
-
 .nav-links {
     list-style: none;
     display: flex;
@@ -208,7 +175,7 @@ img {
 }
 
 .nav-links li {
-    margin-left: clamp(5px, 1vw, 12px); /* Aún más reducido para muchos items */
+    margin-left: clamp(5px, 1vw, 12px); 
     margin-top: 5px; 
     margin-bottom: 5px;
 }
@@ -216,16 +183,16 @@ img {
 .nav-links a {
     color: var(--color-piedra-clara);
     font-weight: 700; 
-    font-size: clamp(0.65em, 1.2vw, 0.8em); /* Muy pequeño para muchos items */
+    font-size: clamp(0.65em, 1.2vw, 0.8em); 
     text-transform: uppercase;
-    padding: 0.5em 0.6em; 
+    padding: 0.6em 0.7em; 
     border-radius: var(--border-radius-suave);
-    letter-spacing: 0.6px; 
+    letter-spacing: 0.7px; 
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 .nav-links a i { 
-    margin-right: 4px; 
-    font-size: 1em; 
+    margin-right: 5px; 
+    font-size: 1.1em; 
 }
 
 .nav-links a:hover, .nav-links a:focus-visible, .nav-links a.active-link { 
@@ -266,7 +233,8 @@ img {
 .page-header.hero[style*="/imagenes/hero_cultura_background.jpg"], 
 .page-header.hero[style*="/imagenes/hero_visitas_background.jpg"], 
 .page-header.hero[style*="/imagenes/hero_contacto_background.jpg"],
-.page-header.hero[style*="/imagenes/hero_museo_background.jpg"] { 
+.page-header.hero[style*="/imagenes/hero_museo_background.jpg"],
+.page-header.hero[style*="/imagenes/hero_galeria_background.jpg"] { 
     /* No se necesita nada aquí si el style inline ya define el background-image específico */
 }
 
@@ -413,7 +381,7 @@ img {
      color: var(--color-primario-purpura);
 }
 
-/* --- Secciones Generales con Efecto de Iluminación y Fondo Alabastro --- */
+/* --- Secciones Generales con Efecto de Linterna --- */
 .section {
     padding: clamp(70px, 12vh, 100px) 0; 
     position: relative; 
@@ -421,13 +389,14 @@ img {
     background-size: cover;
     background-position: center center;
     background-attachment: local; 
-    transition: box-shadow var(--transition-speed) ease-out, 
-                transform var(--transition-speed) ease-out;
     z-index: 1; 
     border-radius: var(--border-radius-medio); 
     margin: 30px 0; 
     box-shadow: var(--box-shadow-sutil);
+    overflow: hidden; /* Para contener los pseudo-elementos */
 }
+
+/* Overlay oscuro por defecto */
 .section::before { 
     content: "";
     position: absolute;
@@ -435,30 +404,41 @@ img {
     background-color: var(--color-overlay-seccion-oscura); 
     mix-blend-mode: multiply; 
     opacity: 1; 
-    transition: opacity var(--transition-speed) ease-out;
+    transition: opacity var(--transition-speed-fast) ease-out; /* Transición más rápida para el overlay */
     z-index: 0; 
     border-radius: inherit; 
     pointer-events: none; 
 }
+
+/* Efecto Linterna (Spotlight) */
+.section::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* Cubre toda la sección */
+    background: radial-gradient(
+        circle calc(var(--spotlight-size, 0px) * 1.5) at var(--spotlight-x, -9999px) var(--spotlight-y, -9999px),
+        var(--color-linterna-centro) 0%,       /* Centro brillante */
+        var(--color-linterna-haz) 30%,         /* Haz principal */
+        transparent 60%                        /* Borde difuminado */
+    );
+    opacity: var(--spotlight-opacity, 0);
+    pointer-events: none;
+    transition: opacity var(--transition-speed-fast) ease-out; /* Transición para la aparición/desaparición */
+    z-index: 0; /* Mismo nivel que el overlay oscuro, el contenido del container estará encima */
+    border-radius: inherit;
+}
+
 .section > .container { 
     position: relative;
-    z-index: 1; 
+    z-index: 1; /* Asegura que el contenido del container esté sobre los pseudo-elementos */
     background-color: rgba(var(--color-fondo-pagina-rgb), 0.9); 
     padding: 30px; 
     border-radius: var(--border-radius-suave); 
     box-shadow: 0 0 15px rgba(var(--color-negro-contraste-rgb), 0.1);
 }
 
-.section:hover,
-.section.section-active { 
-    box-shadow: 0 0 60px 25px var(--color-alabastro-retroiluminado-glow), 0 0 30px rgba(var(--color-dorado-rgb),0.4); 
-    transform: scale(1.015); 
-    z-index: 2; 
-}
-.section:hover::before,
-.section.section-active::before {
-    opacity: 0.1; 
-}
+/* No se necesita :hover en .section ya que JS controlará la opacidad de ::after */
+/* Y el ::before se queda como está, el spotlight se superpone */
 
 
 /* SECCIÓN DE INTRODUCCIÓN DETALLADA y Bloques de Contenido de Página Interna */
@@ -520,7 +500,7 @@ img {
 
 
 /* Sección de tarjetas con fondo alterno y patrón de estrella sutil */
-.section.alternate-bg::after { 
+.section.alternate-bg > .container::before { /* Estrella de fondo sutil, ahora en el container para estar debajo del contenido */
     content: '';
     position: absolute;
     top: 50%;
@@ -532,8 +512,8 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     transform: translate(-50%, -50%) rotate(15deg);
-    z-index: 0; 
-    opacity: 0.04; 
+    z-index: -1; /* Detrás del contenido del .container pero sobre el fondo de alabastro de .section */
+    opacity: 0.06; 
 }
 
 
@@ -676,9 +656,13 @@ img {
     margin: 30px 0;
     border-radius: var(--border-radius-medio);
 }
-.immersion-section::before { 
+.immersion-section::before { /* Quitar overlay oscuro de .section */
     opacity: 0 !important;
 }
+.immersion-section::after { /* Quitar efecto linterna de .section */
+    opacity: 0 !important;
+}
+
 
 .immersion-section h2 {
     color: var(--color-acento-amarillo); 
@@ -704,7 +688,7 @@ img {
 
 /* --- Estilos para la Línea de Tiempo --- */
 .timeline-section {
-    /* background-color: var(--color-fondo-pagina);  Hereda de .section */
+    /* Hereda de .section */
 }
 .timeline-intro {
     text-align: center;
@@ -998,7 +982,8 @@ img {
 .page-header.hero[style*="/imagenes/hero_cultura_background.jpg"] h1,
 .page-header.hero[style*="/imagenes/hero_visitas_background.jpg"] h1,
 .page-header.hero[style*="/imagenes/hero_contacto_background.jpg"] h1,
-.page-header.hero[style*="/imagenes/hero_museo_background.jpg"] h1 { 
+.page-header.hero[style*="/imagenes/hero_museo_background.jpg"] h1,
+.page-header.hero[style*="/imagenes/hero_galeria_background.jpg"] h1 { 
     font-size: clamp(2.8em, 7vw, 4.5em) !important; 
 }
 .page-header.hero[style*="/imagenes/hero_historia_background.jpg"] p,
@@ -1008,7 +993,8 @@ img {
 .page-header.hero[style*="/imagenes/hero_cultura_background.jpg"] p,
 .page-header.hero[style*="/imagenes/hero_visitas_background.jpg"] p,
 .page-header.hero[style*="/imagenes/hero_contacto_background.jpg"] p,
-.page-header.hero[style*="/imagenes/hero_museo_background.jpg"] p {
+.page-header.hero[style*="/imagenes/hero_museo_background.jpg"] p,
+.page-header.hero[style*="/imagenes/hero_galeria_background.jpg"] p {
     font-size: clamp(1.1em, 2.5vw, 1.5em) !important;
 }
 
@@ -1018,8 +1004,8 @@ img {
     padding: clamp(30px, 5vw, 50px);
     border-radius: var(--border-radius-medio);
     box-shadow: var(--box-shadow-medio);
-    margin-top: 0; /* Ajustado para que el .section maneje el margen */
-    margin-bottom: 0; /* Ajustado para que el .section maneje el margen */
+    margin-top: 0; 
+    margin-bottom: 0; 
 }
 .page-content-block .intro-paragraph {
     font-style: normal; 
@@ -1227,13 +1213,15 @@ img {
     margin-top: 10px;
 }
 
-/* Estilos para la página del Museo Colaborativo */
+/* Estilos para la página del Museo Colaborativo y Galería Colaborativa */
 .upload-section .container.page-content-block,
-.museum-gallery-section .container.page-content-block { 
+.museum-gallery-section .container.page-content-block,
+.upload-section-galeria .container.page-content-block, 
+.photo-gallery-section .container.page-content-block { 
     background-color: rgba(var(--color-fondo-pagina-rgb), 0.92);
 }
 
-.upload-form-container {
+.upload-form-container { 
     max-width: 750px;
     margin: 0 auto;
     background-color: var(--color-fondo-pagina);
@@ -1282,13 +1270,66 @@ img {
     text-align: center;
     min-height: 60px; 
 }
-.no-pieces-message {
+.no-pieces-message,
+.no-photos-message { 
     grid-column: 1 / -1; 
     text-align: center;
     font-style: italic;
     color: var(--color-texto-secundario);
     padding: 40px;
 }
+
+/* Estilos específicos para la Galería de Fotos Colaborativa */
+.photo-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+}
+.photo-card {
+    background-color: var(--color-fondo-pagina);
+    border: 1px solid var(--color-piedra-media);
+    border-radius: var(--border-radius-suave);
+    box-shadow: var(--box-shadow-sutil);
+    overflow: hidden;
+    transition: transform var(--transition-speed-fast) ease, box-shadow var(--transition-speed-fast) ease;
+    display: flex;
+    flex-direction: column;
+}
+.photo-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--box-shadow-medio);
+}
+.photo-card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: var(--border-radius-suave) var(--border-radius-suave) 0 0;
+    margin: 0;
+    cursor: pointer;
+}
+.photo-card-caption {
+    padding: 15px;
+    text-align: center;
+}
+.photo-card-caption h4 {
+    font-size: clamp(1.1em, 2.5vw, 1.4em);
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--color-primario-purpura);
+}
+.photo-card-caption p {
+    font-size: 0.9em;
+    color: var(--color-texto-secundario);
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.photo-author-gallery { 
+    font-size: 0.8em !important;
+    font-style: italic;
+    color: var(--color-piedra-media) !important;
+    margin-top: 5px;
+}
+
 
 /* Modal para imágenes */
 .modal {
@@ -1344,4 +1385,3 @@ img {
   text-decoration: none;
   cursor: pointer;
 }
-
