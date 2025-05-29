@@ -15,27 +15,7 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="/index.html" class="logo-link">
-                <img src="/imagenes/AlfozCerasioLantaron.jpg" alt="Logo Alfoz de Cerasio y Lantarón" class="logo-image">
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-            <ul class="nav-links">
-                <li><a href="/index.html">Inicio</a></li> 
-                <li><a href="/historia/historia.html">Nuestra Historia</a></li>
-                <li><a href="/alfoz/alfoz.html">El Alfoz</a></li>
-                <li><a href="/lugares/lugares.html">Lugares Emblemáticos</a></li>
-                <li><a href="/camino_santiago/camino_santiago.html">Camino de Santiago</a></li>
-                <li><a href="/museo/museo.html">Museo Colaborativo</a></li>
-                <li><a href="/galeria/galeria_colaborativa.html" class="active-link">Galería Colaborativa</a></li>
-                <li><a href="/visitas/visitas.html">Planifica Tu Visita</a></li>
-                <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
-                <li><a href="/contacto/contacto.html">Contacto</a></li>
-                <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li> 
-            </ul>
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/imagenes/hero_galeria_background.jpg'); min-height: 50vh;">
         <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.6); padding: clamp(30px, 5vw, 50px);">
@@ -106,6 +86,7 @@
         </div>
     </footer>
 
+    <script src="/js/layout.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const uploadForm = document.getElementById('uploadPhotoForm');
@@ -329,25 +310,25 @@
                 }
             }
             
-            const navToggle = document.querySelector('.nav-toggle');
-            const navLinks = document.querySelector('.nav-links');
+            // const navToggle = document.querySelector('.nav-toggle'); // Removed
+            // const navLinks = document.querySelector('.nav-links'); // Removed
 
-            if (navToggle && navLinks) { 
-                navToggle.addEventListener('click', () => {
-                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-                    navToggle.setAttribute('aria-expanded', !isExpanded);
-                    navLinks.classList.toggle('active');
-                });
+            // if (navToggle && navLinks) {  // Removed
+            //     navToggle.addEventListener('click', () => {
+            //         const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+            //         navToggle.setAttribute('aria-expanded', !isExpanded);
+            //         navLinks.classList.toggle('active');
+            //     });
 
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (navLinks.classList.contains('active')) {
-                            navToggle.setAttribute('aria-expanded', 'false');
-                            navLinks.classList.remove('active');
-                        }
-                    });
-                });
-            }
+            //     navLinks.querySelectorAll('a').forEach(link => {
+            //         link.addEventListener('click', () => {
+            //             if (navLinks.classList.contains('active')) {
+            //                 navToggle.setAttribute('aria-expanded', 'false');
+            //                 navLinks.classList.remove('active');
+            //             }
+            //         });
+            //     });
+            // }
         });
     </script>
 

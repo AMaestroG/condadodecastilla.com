@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
-            // Initialize mobile navigation after header is loaded
-            initializeMobileNavigation();
+            // NEW: Initialize sidebar navigation after header is loaded
+            initializeSidebarNavigation(); 
         });
 
     fetch('/_footer.html')
@@ -14,6 +14,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
+// NEW: Function to handle sidebar interactions
+function initializeSidebarNavigation() {
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const body = document.body;
+
+    if (sidebarToggle && sidebar && body) { // Added body check
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-visible');
+            body.classList.toggle('sidebar-active'); // For main content shift
+            // Optional: Change toggle button text/icon and ARIA attribute
+            if (sidebar.classList.contains('sidebar-visible')) {
+                sidebarToggle.setAttribute('aria-expanded', 'true');
+                // sidebarToggle.textContent = '✕'; // Example: Change to X
+            } else {
+                sidebarToggle.setAttribute('aria-expanded', 'false');
+                // sidebarToggle.textContent = '☰'; // Example: Change back to burger
+            }
+        });
+    } else {
+        console.error("Sidebar toggle, sidebar element, or body not found.");
+    }
+}
+
+/*
+// OLD function to be removed or commented out:
 function initializeMobileNavigation() {
     // Script para el menú de navegación móvil
     const navToggle = document.querySelector('.nav-toggle');
@@ -41,3 +67,4 @@ function initializeMobileNavigation() {
         console.error("Mobile navigation elements not found. Header might not be loaded correctly.");
     }
 }
+*/
