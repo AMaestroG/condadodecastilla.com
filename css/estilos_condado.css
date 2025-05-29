@@ -260,6 +260,12 @@ img {
     filter: drop-shadow(0 0 10px rgba(var(--color-acento-amarillo-rgb), 0.5));
 }
 
+.decorative-star-header-highlighted { /* Specific for Cerezo de Rio Tiron header star */
+    filter: drop-shadow(0 0 12px rgba(var(--color-acento-amarillo-rgb), 0.75)) !important; /* Ensure it overrides */
+    width: clamp(60px, 10vw, 80px) !important; /* Example of keeping a slight size variation if needed */
+    margin-bottom: 20px !important;
+}
+
 
 /* --- Hero Section (Página de Inicio) --- */
 .hero { 
@@ -357,6 +363,19 @@ img {
     box-shadow: 0 16px 40px rgba(var(--color-negro-contraste-rgb), 0.5), inset 0 -2px 3px rgba(var(--color-negro-contraste-rgb), 0.1);
     outline: none; 
 }
+
+/* Smaller CTA button variant */
+.cta-button-small {
+    padding: clamp(12px, 2vh, 18px) clamp(25px, 5vw, 45px);
+    font-size: clamp(0.9em, 2.2vw, 1.2em);
+    letter-spacing: 1.2px;
+}
+/* Ensure hover/focus for small buttons are consistent if not already covered by general .cta-button:hover */
+.cta-button-small:hover, .cta-button-small:focus-visible {
+    /* Inherits transform and shadow changes from .cta-button:hover */
+    /* Specific background/color can be set here if different from large CTA */
+}
+
 
 /* --- Sección de Video --- */
 .video-section {
@@ -1000,7 +1019,7 @@ img {
 
 /* Estilos para el índice de personajes y bloques de contenido de página interna */
 .page-content-block { 
-    background-color: rgba(var(--color-fondo-pagina-base-rgb), 0.96);
+    background-color: rgba(var(--color-fondo-pagina-rgb), 0.96); /* Corrected variable */
     padding: clamp(30px, 5vw, 50px);
     border-radius: var(--border-radius-medio);
     box-shadow: var(--box-shadow-medio);
@@ -1088,6 +1107,76 @@ img {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
+/* Styles for Character Detail Pages (within .page-content-block.personaje-detail-content) */
+.page-content-block.personaje-detail-content img.personaje-imagen-principal {
+    max-width: 300px; 
+    margin: 1em auto 2em auto; /* Adjusted margin */
+    border: 6px solid var(--color-piedra-media); /* Thicker border */
+    border-radius: 50%; 
+    object-fit: cover;
+    height: 300px; 
+    background-color: var(--color-piedra-clara); 
+    box-shadow: var(--box-shadow-elevado); /* Added shadow */
+}
+
+.page-content-block.personaje-detail-content h2 {
+    text-align: left; 
+    border-bottom: 3px solid var(--color-secundario-dorado); /* Thicker border */
+    padding-bottom: 0.4em; /* Adjusted padding */
+    margin-top: 0; /* Remove top margin if it's the first element */
+    margin-bottom: 1.2em; 
+    font-size: clamp(1.9em, 4.5vw, 2.6em); /* Slightly larger */
+    color: var(--color-primario-purpura); /* Ensure color consistency */
+}
+.page-content-block.personaje-detail-content h2::after { 
+    display: none !important; 
+}
+
+.page-content-block.personaje-detail-content h3 { /* Added styling for H3 based on Gonzalo Tellez page */
+    font-size: clamp(1.5em, 3.5vw, 2em);
+    color: var(--color-primario-purpura);
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid var(--color-piedra-media);
+    padding-bottom: 0.2em;
+}
+
+
+.page-content-block.personaje-detail-content p, 
+.page-content-block.personaje-detail-content ul {
+    text-align: justify;
+    margin-bottom: 1.6em; 
+    font-size: clamp(1.05em, 2.2vw, 1.18em); /* Slightly larger */
+    line-height: 1.85; /* More line height */
+}
+.page-content-block.personaje-detail-content ul {
+    list-style-position: outside; 
+    padding-left: 30px; /* More padding for lists */
+}
+.page-content-block.personaje-detail-content ul li {
+    margin-bottom: 0.7em; 
+}
+
+/* Specific header style for personaje pages, if using hero_personajes_background.jpg */
+.page-header.hero[style*="hero_personajes_background.jpg"] .hero-content h1 {
+    color: #fff; 
+    text-shadow: 2px 2px 8px rgba(var(--color-negro-contraste-rgb), 0.75); 
+    font-size: clamp(2.8em, 6.5vw, 4.2em); /* Adjusted size */
+}
+.page-header.hero[style*="hero_personajes_background.jpg"] .hero-content p { /* For potential subtitles */
+    font-size: clamp(1.1em, 2.3vw, 1.4em);
+    color: var(--color-piedra-clara);
+}
+
+
+/* Styles for .page-header-indice (if used on indice_personajes.html based on original embedded styles) */
+/* This assumes .page-header-indice would be structured like .page-header.hero */
+.page-header-indice .hero-content h1 { 
+     color: #fff;
+     text-shadow: 2px 2px 6px var(--color-negro-contraste);
+}
+
 
 /* Estilos para la página de Alfoz (bibliografía, citas, etc.) */
 .bibliografia-referencias {
@@ -1230,9 +1319,9 @@ img {
     box-shadow: var(--box-shadow-elevado);
     border: 1px solid var(--color-piedra-media);
 }
-.upload-form-container h2 {
+.upload-form-container h2 { /* This also applies to contact form h2 */
     text-align: center;
-    margin-top: 0;
+    margin-top: 0; /* Remove default h2 top margin if it's the first child */
     margin-bottom: 30px;
 }
 .upload-form-container .form-group label i {
@@ -1242,10 +1331,12 @@ img {
     width: 100%;
     margin-top: 15px;
 }
-.preview-container img {
+.preview-container img { /* Applies to both museo and galeria previews */
     max-height: 200px;
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto; /* Centered preview */
     border: 2px solid var(--color-piedra-media);
+    border-radius: var(--border-radius-suave); /* Softer radius for previews */
+    display: block; /* Ensure block for centering */
 }
 
 .museum-gallery-grid {
