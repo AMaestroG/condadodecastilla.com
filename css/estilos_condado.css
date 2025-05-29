@@ -1634,4 +1634,118 @@ img {
    and the img is directly inside a figure, the new rule for figure:hover img will apply.
 */
 
+/* --- Sidebar Styles --- */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Initial hidden state, slightly wider to accommodate padding */
+    width: 280px;
+    height: 100vh;
+    background-color: var(--color-primario-purpura); /* Using existing primary color */
+    padding: 20px;
+    box-shadow: 4px 0 15px rgba(var(--color-negro-contraste-rgb), 0.3);
+    transition: left 0.35s ease-in-out;
+    overflow-y: auto;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.sidebar-visible {
+    left: 0;
+}
+
+#sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 1.8em; /* Adjusted size */
+    color: var(--color-piedra-clara);
+    background-color: var(--color-primario-purpura);
+    border: 2px solid var(--color-secundario-dorado);
+    border-radius: var(--border-radius-suave);
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: left 0.35s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Adjust toggle button position when sidebar is visible */
+body.sidebar-active #sidebar-toggle {
+    left: 300px; /* sidebar width + desired offset */
+}
+
+
+#sidebar .logo-link {
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+
+#sidebar .logo-image {
+    max-width: 80%; /* Adjust as needed */
+    height: auto;
+    border-radius: var(--border-radius-suave);
+    margin: 0 auto;
+    border: 3px solid var(--color-secundario-dorado);
+}
+
+#sidebar .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Keep flex for easy column layout */
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-start; /* Align items to the start of the flex container */
+    width: 100%;
+}
+
+#sidebar .nav-links li {
+    width: 100%; /* Make list items take full width */
+    margin-bottom: 8px; /* Space between links */
+}
+
+#sidebar .nav-links a {
+    display: block; /* Make links block-level for full-width click area */
+    padding: 12px 15px;
+    color: var(--color-piedra-clara);
+    font-family: var(--font-titulos);
+    font-size: 1.1em; /* Slightly larger font for sidebar */
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--border-radius-suave);
+    transition: background-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease, padding-left var(--transition-speed-fast) ease;
+}
+
+#sidebar .nav-links a:hover,
+#sidebar .nav-links a:focus-visible,
+#sidebar .nav-links a.active-link {
+    background-color: var(--color-acento-amarillo);
+    color: var(--color-primario-purpura);
+    padding-left: 25px; /* Indent on hover/active for visual feedback */
+    outline: none;
+}
+
+#sidebar .nav-links a i {
+    margin-right: 10px; /* Space for icons */
+    font-size: 1.1em;
+}
+
+/* Main content adjustment when sidebar is active */
+body.sidebar-active {
+    margin-left: 280px; /* Should match sidebar width */
+    transition: margin-left 0.35s ease-in-out;
+}
+
+/* Responsive adjustments for toggle button and sidebar interaction */
+@media (max-width: 768px) {
+    /* No changes needed for #sidebar-toggle related to 'body.sidebar-active' as it's handled by JS */
+    /* The main content margin adjustment will still apply, which is good. */
+    /* Ensure the old navbar and nav-toggle are hidden if they still exist or appear */
+    .navbar, .nav-toggle {
+        display: none !important; /* Force hide old navbar elements */
+    }
+}
+
 [end of css/estilos_condado.css]

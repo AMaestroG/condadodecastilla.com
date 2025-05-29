@@ -15,25 +15,7 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="/index.html" class="logo-link">
-                <img src="/imagenes/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas" class="logo-image">
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-            <ul class="nav-links">
-                <li><a href="/index.html">Inicio</a></li> 
-                <li><a href="/historia/historia.html">Nuestra Historia</a></li>
-                <li><a href="/alfoz/alfoz.html">El Alfoz</a></li>
-                <li><a href="/lugares/lugares.html">Lugares Emblemáticos</a></li>
-                <li><a href="/camino_santiago/camino_santiago.html">Camino de Santiago</a></li>
-                <li><a href="/visitas/visitas.html" class="active-link">Planifica Tu Visita</a></li>
-                <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
-                <li><a href="/contacto/contacto.html">Contacto</a></li>
-                <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li> 
-            </ul>
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/imagenes/placeholder.jpg'); min-height: 45vh;">
         <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.55); padding: clamp(30px, 5vw, 50px);">
@@ -162,27 +144,6 @@
         </div>
     </footer>
 
-    <script>
-        // Script para el menú de navegación móvil
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        navToggle.addEventListener('click', () => {
-            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-            navToggle.setAttribute('aria-expanded', !isExpanded);
-            navLinks.classList.toggle('active');
-        });
-
-        // Opcional: Cerrar menú al hacer clic en un enlace
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-    </script>
-
+    <script src="/js/layout.js"></script>
 </body>
 </html>
