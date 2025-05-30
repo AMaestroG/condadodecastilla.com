@@ -17,33 +17,11 @@
 <body>
   <div id="header-placeholder"></div>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="/index.html" class="logo-link">
-                <img src="/imagenes/AlfozCerasioLantaron.jpg" alt="Logo Alfoz de Cerasio y Lantarón" class="logo-image">
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-            <ul class="nav-links">
-                <li><a href="/index.html">Inicio</a></li> 
-                <li><a href="/historia/historia.html">Nuestra Historia</a></li>
-                <li><a href="/alfoz/alfoz.html">El Alfoz</a></li>
-                <li><a href="/lugares/lugares.html" class="active-link">Lugares Emblemáticos</a></li>
-                <li><a href="/camino_santiago/camino_santiago.html">Camino de Santiago</a></li>
-                <li><a href="/museo/museo.html">Museo Colaborativo</a></li>
-                <li><a href="/galeria/galeria_colaborativa.html">Galería Colaborativa</a></li> 
-                <li><a href="/visitas/visitas.html">Planifica Tu Visita</a></li>
-                <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
-                <li><a href="/contacto/contacto.html">Contacto</a></li>
-                <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li> 
-            </ul>
-        </div>
-    </nav>
-
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/imagenes/Muralla.jpg'); min-height: 60vh;">
-        <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.6); padding: clamp(30px, 5vw, 50px);">
-            <img src="/imagenes/estrellaGordita.png" alt="Estrella Decorativa de Cerezo" class="decorative-star-header" style="width: clamp(60px, 10vw, 80px); margin-bottom:20px; filter: drop-shadow(0 0 10px rgba(var(--color-acento-amarillo-rgb), 0.7));">
-            <h1 style="font-size: clamp(3em, 8vw, 5em);">Cerezo de Río Tirón</h1>
-            <p style="font-size: clamp(1.2em, 2.8vw, 1.7em); max-width: 65ch;">Descubre el alma de la primitiva Castilla, un enclave de historia milenaria, ruinas imponentes y un legado que pervive.</p>
+    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/imagenes/Muralla.jpg');">
+        <div class="hero-content">
+            <img src="/imagenes/estrellaGordita.png" alt="Estrella Decorativa de Cerezo" class="decorative-star-header decorative-star-header-highlighted">
+            <h1>Cerezo de Río Tirón</h1>
+            <p>Descubre el alma de la primitiva Castilla, un enclave de historia milenaria, ruinas imponentes y un legado que pervive.</p>
         </div>
     </header>
 
@@ -51,7 +29,7 @@
         <section class="section detailed-intro-section">
             <div class="container page-content-block"> 
                 <h2 class="section-title">Un Viaje al Corazón de la Historia</h2>
-                <p class="intro-paragraph" style="text-align:center; font-size: clamp(1.1em, 2.3vw, 1.3em); margin-bottom: 2.5em;">
+                <p class="intro-paragraph">
                     Bienvenido a Cerezo de Río Tirón, un lugar donde cada piedra susurra historias de emperadores, condes y el nacimiento de una lengua. 
                     Prepárate para explorar un municipio que fue cuna de culturas y testigo de la forja de Castilla.
                 </p>
@@ -119,7 +97,7 @@
                     <p>Cerezo de Río Tirón te espera con los brazos abiertos. Para organizar tu viaje y descubrir todos los secretos que esta tierra ancestral tiene para ofrecer, te invitamos a consultar nuestra sección de <a href="/visitas/visitas.html">Planifica Tu Visita</a>.</p>
                     <p>Allí encontrarás información sobre cómo llegar, opciones de alojamiento, gastronomía local y rutas turísticas para no perderte nada. ¡Ven y vive la historia en primera persona!</p>
                     <div style="text-align: center; margin-top: 2em;">
-                        <a href="/visitas/visitas.html" class="cta-button" style="font-size: clamp(1em, 2.5vw, 1.3em); padding: 15px 30px;">Ir a Planifica Tu Visita</a>
+                        <a href="/visitas/visitas.html" class="cta-button cta-button-small">Ir a Planifica Tu Visita</a>
                     </div>
                 </div>
 
@@ -142,7 +120,7 @@
                             <label for="comment-text"><i class="fas fa-pencil-alt"></i> Comentario:</label>
                             <textarea id="comment-text" name="comment-text" rows="4" required placeholder="Escribe tu comentario aquí..."></textarea>
                         </div>
-                        <button type="submit" class="cta-button submit-button" style="width: auto; font-size: 1em; padding: 12px 25px;">Enviar Comentario</button>
+                        <button type="submit" class="cta-button cta-button-small submit-button">Enviar Comentario</button>
                     </form>
                     <div id="comments-list" style="margin-top: 3em;">
                         <h4><i class="fas fa-comment-dots"></i> Comentarios Anteriores:</h4>
@@ -157,7 +135,7 @@
                     <h3><i class="fas fa-microphone-alt"></i> Comparte Tu Historia</h3>
                     <p>¿Tienes alguna anécdota personal, un recuerdo familiar o un dato curioso sobre Cerezo de Río Tirón que te gustaría compartir? Nos encantaría escucharlo. Envíanos tu historia y podríamos destacarla (con tu permiso).</p>
                     <div style="text-align: center; margin-top: 1em;">
-                        <a href="mailto:historias@condadodecastilla.com?subject=Historia sobre Cerezo de Río Tirón" class="cta-button" style="font-size: 1em; padding: 12px 25px;"><i class="fas fa-envelope"></i> Enviar Mi Historia</a>
+                        <a href="mailto:historias@condadodecastilla.com?subject=Historia sobre Cerezo de Río Tirón" class="cta-button cta-button-small"><i class="fas fa-envelope"></i> Enviar Mi Historia</a>
                     </div>
                 </div>
         
@@ -206,8 +184,8 @@
                         </figure>
                     </div>
                     <div style="text-align: center; margin-top: 2em; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
-                        <a href="/museo/museo.html" class="cta-button" style="font-size: 0.9em; padding: 10px 20px;">Visitar Museo</a>
-                        <a href="/galeria/galeria_colaborativa.html" class="cta-button" style="font-size: 0.9em; padding: 10px 20px;">Visitar Galería</a>
+                        <a href="/museo/museo.html" class="cta-button cta-button-small">Visitar Museo</a>
+                        <a href="/galeria/galeria_colaborativa.html" class="cta-button cta-button-small">Visitar Galería</a>
                     </div>
                 </div>
             </div>
@@ -233,27 +211,6 @@
     </footer>
 
     <script>
-        // Script para el menú de navegación móvil
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (navToggle && navLinks) {
-            navToggle.addEventListener('click', () => {
-                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-                navToggle.setAttribute('aria-expanded', !isExpanded);
-                navLinks.classList.toggle('active');
-            });
-
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navToggle.setAttribute('aria-expanded', 'false');
-                        navLinks.classList.remove('active');
-                    }
-                });
-            });
-        }
-        
         // --- Comments Section Logic ---
         const commentForm = document.getElementById('comment-form');
         const commentsList = document.getElementById('comments-list');
