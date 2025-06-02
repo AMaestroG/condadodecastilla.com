@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+<?php $current_page_url = $_SERVER['REQUEST_URI']; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -68,6 +70,16 @@
     </header>
 
     <main>
+        <?php
+        if (isset($_SESSION['comment_error'])) {
+            echo '<div class="container" style="padding-top: 1em;"><p class="session-message-error">' . htmlspecialchars($_SESSION['comment_error']) . '</p></div>';
+            unset($_SESSION['comment_error']);
+        }
+        if (isset($_SESSION['comment_success'])) {
+            echo '<div class="container" style="padding-top: 1em;"><p class="session-message-success">' . htmlspecialchars($_SESSION['comment_success']) . '</p></div>';
+            unset($_SESSION['comment_success']);
+        }
+        ?>
         <section class="section alternate-bg">
             <div class="container article-content">
                 <h2 class="section-title" style="text-align:center; margin-bottom:1.5em;">Contexto y Reflexiones sobre Nuevo4.md</h2>
@@ -103,6 +115,31 @@
 
                 <p><em>El contenido completo de nuevo4.md es extenso y presenta un formato de investigación y reflexión. Esta página busca ofrecer una adaptación legible en HTML, reconociendo que la interpretación y estructuración detallada de cada punto del original requeriría un análisis editorial profundo.</em></p>
 
+            </div>
+        </section>
+
+        <section class="section comments-form-section">
+            <div class="container">
+                <h2 class="section-title">Dejar un Comentario</h2>
+                <form method="POST" action="/submit_comment.php" class="comment-form">
+                    <input type="hidden" name="page_url" value="<?php echo htmlspecialchars($current_page_url, ENT_QUOTES, 'UTF-8'); ?>">
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comentario:</label>
+                        <textarea id="comment" name="comment" rows="5" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="comments-section" class="section comments-display-section alternate-bg">
+            <div class="container">
+                <h2 class="section-title">Comentarios</h2>
+                <?php include __DIR__ . '/../display_comments.php'; ?>
             </div>
         </section>
     </main>

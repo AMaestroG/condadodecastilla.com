@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+<?php $current_page_url = $_SERVER['REQUEST_URI']; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,6 +19,17 @@
 <body>
 
     <div id="header-placeholder"></div>
+
+    <?php
+    if (isset($_SESSION['comment_error'])) {
+        echo '<p class="session-message-error">' . htmlspecialchars($_SESSION['comment_error']) . '</p>';
+        unset($_SESSION['comment_error']);
+    }
+    if (isset($_SESSION['comment_success'])) {
+        echo '<p class="session-message-success">' . htmlspecialchars($_SESSION['comment_success']) . '</p>';
+        unset($_SESSION['comment_success']);
+    }
+    ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/imagenes/hero_historia_background.jpg');">
         <div class="hero-content">
@@ -128,6 +141,34 @@
             </div>
         </section>
     </main>
+
+    <section id="comment-form-section" class="section comment-form-section">
+        <div class="container">
+            <h2 class="section-title">Deja tu Comentario</h2>
+            <form method="POST" action="/submit_comment.php" class="comment-form">
+                <input type="hidden" name="page_url" value="<?php echo htmlspecialchars($current_page_url, ENT_QUOTES, 'UTF-8'); ?>">
+                
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment">Comentario:</label>
+                    <textarea id="comment" name="comment" rows="5" required class="form-control"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="comments-section" class="section comments-display-section alternate-bg">
+        <div class="container">
+            <h2 class="section-title">Comentarios</h2>
+            <?php include __DIR__ . '/../display_comments.php'; ?>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="container">

@@ -1839,4 +1839,132 @@ body.sidebar-active {
     }
 }
 
+/* --- Comment System Styles --- */
+
+/* Comment Form Section */
+.comments-form-section {
+    padding: 2em 0;
+    background-color: #f9f9f9; /* Light background for the form area */
+}
+
+.comments-form-section h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--color-primario-purpura);
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.comments-form-section .form-group {
+    margin-bottom: 1.5em;
+}
+
+.comments-form-section label {
+    display: block;
+    margin-bottom: .5em;
+    font-weight: bold;
+    color: var(--color-texto-principal);
+}
+
+.comments-form-section input[type="text"],
+.comments-form-section textarea {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+    font-family: 'Lora', serif;
+    font-size: 1em;
+}
+
+.comments-form-section input[type="text"]:focus,
+.comments-form-section textarea:focus {
+    border-color: var(--color-primario-purpura);
+    outline: none;
+    box-shadow: 0 0 5px rgba(var(--color-primario-purpura-rgb), 0.5);
+}
+
+.comments-form-section button[type="submit"] {
+    background-color: var(--color-acento-rojo);
+    color: white;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comments-form-section button[type="submit"]:hover {
+    background-color: #a04040; /* Darker shade of accent red */
+}
+
+/* Comment Display Section */
+.comments-display-section {
+    padding: 2em 0;
+}
+
+.comments-display-section h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--color-primario-purpura);
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.comment-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1em;
+    margin-bottom: 1.5em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.comment-item .comment-author {
+    font-weight: bold;
+    color: var(--color-primario-purpura);
+    margin-bottom: 0.25em;
+}
+
+.comment-item .comment-date {
+    font-size: 0.85em;
+    color: #777;
+    margin-bottom: 0.75em;
+    display: block;
+}
+
+.comment-item .comment-text {
+    line-height: 1.6;
+    color: var(--color-texto-principal);
+    white-space: pre-wrap; /* Preserves line breaks and wrapping */
+}
+
+.no-comments-message {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    padding: 1em 0;
+}
+
+/* Session messages styling (general, can be adjusted) */
+.session-message-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.session-message-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
 [end of css/estilos_condado.css]
