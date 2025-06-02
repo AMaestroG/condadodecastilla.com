@@ -59,7 +59,7 @@ body {
     font-family: var(--font-principal);
     line-height: 1.8; 
     color: var(--color-texto-principal);
-    background-image: url('/imagenes/alabastro.jpg'); 
+    background-image: url('/assets/img/alabastro.jpg'); 
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;
@@ -220,7 +220,7 @@ img {
 .page-header.hero { 
     background-image: 
         linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.8), rgba(var(--color-negro-contraste-rgb), 0.9)), 
-        url('/imagenes/hero_default_background.jpg'); 
+        url('/assets/img/hero_default_background.jpg'); 
     min-height: 45vh; 
     padding: clamp(60px, 15vh, 100px) 20px; 
     border-bottom-width: 10px; 
@@ -271,7 +271,7 @@ img {
 .hero { 
     background-image: 
         linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.82), rgba(var(--color-negro-contraste-rgb), 0.95)), 
-        url('/imagenes/hero_mis_tierras.jpg'); 
+        url('/assets/img/hero_mis_tierras.jpg'); 
     background-color: var(--color-primario-purpura); 
     background-size: cover;
     background-position: center center; 
@@ -404,7 +404,7 @@ img {
 .section {
     padding: clamp(70px, 12vh, 100px) 0; 
     position: relative; 
-    background-image: url('/imagenes/alabastro.jpg'); 
+    background-image: url('/assets/img/alabastro.jpg'); 
     background-size: cover;
     background-position: center center;
     background-attachment: local; 
@@ -526,7 +526,7 @@ img {
     left: 50%;
     width: 300px; 
     height: 300px;
-    background-image: url('/imagenes/estrella.png'); 
+    background-image: url('/assets/img/estrella.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -548,7 +548,7 @@ img {
     display: block;
     width: 55px; 
     height: 55px;
-    background-image: url('/imagenes/estrella.png');
+    background-image: url('/assets/img/estrella.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -613,7 +613,7 @@ img {
     display: inline-block;
     width: 14px; 
     height: 14px;
-    background-image: url('/imagenes/estrella.png');
+    background-image: url('/assets/img/estrella.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -820,7 +820,7 @@ img {
     display: block;
     width: 70px; 
     height: 70px;
-    background-image: url('/imagenes/estrella.png');
+    background-image: url('/assets/img/estrella.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1073,7 +1073,7 @@ img {
     display: inline-block;
     width: 10px;
     height: 10px;
-    background-image: url('/imagenes/estrella.png');
+    background-image: url('/assets/img/estrella.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1839,4 +1839,35 @@ body.sidebar-active {
     }
 }
 
-[end of css/estilos_condado.css]
+/* --- Styles from historia/nuestra_historia_nuevo4.html <style> block --- */
+.article-content p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+.article-content h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--color-secundario-dorado);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+.article-content h4 {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--color-primario-purpura);
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+}
+.article-content a {
+    color: var(--color-acento-rojo);
+    text-decoration: underline;
+}
+.article-content a:hover {
+    color: var(--color-secundario-dorado);
+}
+/* --- End of styles from historia/nuestra_historia_nuevo4.html <style> block --- */
+/* --- Styles from inline attributes in historia/nuestra_historia_nuevo4.html --- */
+.page-header.hero.hero-nuestra-historia-specific {
+    background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/cerezo_vista_aerea.jpg');
+    min-height: 50vh;
+}
+/* --- End of styles from inline attributes in historia/nuestra_historia_nuevo4.html --- */
