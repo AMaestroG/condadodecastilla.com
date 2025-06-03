@@ -79,17 +79,20 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2; 
     font-weight: 700; 
     text-wrap: balance; 
+    text-align: center; /* Added global text-align center */
 }
 
 h1 { font-size: clamp(2.6em, 6vw, 4em); text-align: center; } 
-h2 { font-size: clamp(2.2em, 5vw, 3.2em); } 
-h3 { font-size: clamp(1.7em, 4vw, 2.4em); }
-h4 { font-size: clamp(1.3em, 3vw, 1.8em); margin-top: 1.5em; margin-bottom: 0.6em;}
+h2 { font-size: clamp(2.2em, 5vw, 3.2em); text-align: center; } /* Ensured text-align center */
+h3 { font-size: clamp(1.7em, 4vw, 2.4em); text-align: center; } /* Ensured text-align center */
+h4 { font-size: clamp(1.3em, 3vw, 1.8em); margin-top: 1.5em; margin-bottom: 0.6em; text-align: center; } /* Ensured text-align center */
+/* h5 and h6 will inherit from the general h1-h6 rule */
 
 
 p {
     margin-bottom: 1.8em; 
     max-width: 68ch; 
+    text-align: center; /* Added text-align center */
 }
 
 a {
@@ -480,7 +483,7 @@ img {
 .page-content-block p {
     font-size: clamp(1.05em, 2.3vw, 1.2em);
     line-height: 1.85; 
-    text-align: justify; 
+    text-align: center !important;
     margin-bottom: 1.6em;
     color: var(--color-texto-principal); 
 }
@@ -718,12 +721,22 @@ img {
     margin-bottom: 3.5em; 
     color: var(--color-texto-secundario);
 }
-.timeline {
+.timeline { /* .timeline was already here, just adding general ul, ol rules below it */
     list-style: none;
     padding: 0;
     margin: 0 auto;
     max-width: 800px; 
     position: relative;
+}
+
+/* General list styling */
+ul, ol {
+    list-style-position: inside; /* Make bullets/numbers align better with centered text */
+    padding-left: 0; /* Remove default padding if items are centered */
+}
+
+ul li, ol li {
+    text-align: center; /* Center text within list items */
 }
 .timeline::before {
     content: '';
@@ -787,7 +800,7 @@ img {
 .timeline-content p {
     font-size: clamp(0.95em, 1.8vw, 1.05em);
     color: var(--color-texto-secundario);
-    text-align: left; 
+    text-align: center;
     margin-bottom: 1em;
 }
 .timeline-read-more {
@@ -908,7 +921,7 @@ img {
     .hero h1 { font-size: clamp(2.4em, 7vw, 3.5em); }
     .hero p { font-size: clamp(1.05em, 3.5vw, 1.4em); max-width: 90%;}
 
-    .detailed-intro-section p { text-align: left; } 
+    .detailed-intro-section p { text-align: center !important; } /* Changed to center */
     .section-title::after { width: 40px; height: 40px; margin: 20px auto 35px auto; } 
 
     .timeline::before { left: 20px; }
@@ -947,7 +960,7 @@ img {
     min-width: 300px; 
 }
 .camino-text p {
-    text-align: justify;
+    text-align: center;
     font-size: clamp(1em, 2.1vw, 1.15em);
     color: var(--color-texto-secundario);
 }
@@ -1121,7 +1134,7 @@ img {
 }
 
 .page-content-block.personaje-detail-content h2 {
-    text-align: left; 
+    text-align: center;
     border-bottom: 3px solid var(--color-secundario-dorado); /* Thicker border */
     padding-bottom: 0.4em; /* Adjusted padding */
     margin-top: 0; /* Remove top margin if it's the first element */
@@ -1145,17 +1158,18 @@ img {
 
 .page-content-block.personaje-detail-content p, 
 .page-content-block.personaje-detail-content ul {
-    text-align: justify;
+    text-align: center;
     margin-bottom: 1.6em; 
     font-size: clamp(1.05em, 2.2vw, 1.18em); /* Slightly larger */
     line-height: 1.85; /* More line height */
 }
 .page-content-block.personaje-detail-content ul {
-    list-style-position: outside; 
-    padding-left: 30px; /* More padding for lists */
+    list-style-position: inside;
+    padding-left: 0; /* Adjusted padding as list items are centered */
 }
 .page-content-block.personaje-detail-content ul li {
     margin-bottom: 0.7em; 
+    text-align: center;
 }
 
 /* Specific header style for personaje pages, if using hero_personajes_background.jpg */
@@ -1573,7 +1587,7 @@ img {
     margin-bottom: 0.5em;
     font-size: 1em;
     line-height: 1.6;
-    text-align: left; /* Override centered intro paragraph style */
+    text-align: center;
 }
 
 .comment-item strong {
