@@ -1851,6 +1851,15 @@ body.sidebar-active {
     .navbar, .nav-toggle {
         display: none !important; /* Force hide old navbar elements */
     }
+
+    /* Explicit styles for sidebar links on mobile to ensure visibility and clickability */
+    #sidebar .nav-links a {
+        color: var(--color-piedra-clara) !important; /* Ensure text color */
+        opacity: 1 !important; /* Ensure not transparent */
+        visibility: visible !important; /* Ensure visible */
+        pointer-events: auto !important; /* Ensure clickable */
+        /* Font size, padding, display:block are already set and should be fine */
+    }
 }
 
 /* --- Styles from historia/nuestra_historia_nuevo4.html <style> block --- */
