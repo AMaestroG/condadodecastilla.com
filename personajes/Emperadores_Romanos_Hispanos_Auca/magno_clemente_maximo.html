@@ -3,258 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magno Clemente Maximo - Condado de Castilla</title>
+    <title>Magno Clemente Máximo - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-
-        /* --- Variables de Color Basadas en el Escudo --- */
-        :root {
-            --color-primario-purpura: #4A0D67; /* Morado oscuro del fondo del escudo */
-            --color-secundario-dorado: #B8860B; /* Dorado/Ocre del borde y detalles */
-            --color-acento-amarillo: #FFD700;  /* Amarillo brillante de la estrella */
-            --color-piedra-clara: #EAE0C8;   /* Beige muy claro para texto sobre fondos oscuros o detalles */
-            --color-piedra-media: #D2B48C;   /* Arenisca para fondos secundarios o elementos */
-            --color-texto-principal: #2c1d12;  /* Un marrón oscuro para el texto principal */
-            --color-fondo-pagina: #fdfaf6;   /* Un blanco hueso muy sutil para el fondo general */
-            --color-negro-contraste: #1A1A1A;
-            --color-primario-purpura-rgb: 74, 13, 103; 
-            --transition-speed: 0.3s; 
-        }
-
-        /* --- Estilos Generales --- */
-        *, *::before, *::after {
-            box-sizing: border-box; 
-        }
-
-        html {
-            scroll-behavior: smooth; 
-        }
-
-        body {
-            font-family: "Lora", serif;
-            line-height: 1.7;
-            color: var(--color-texto-principal);
-            background-color: var(--color-fondo-pagina);
-            margin: 0;
-            padding: 0;
-            font-size: 16px; 
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Cinzel", serif;
-            color: var(--color-primario-purpura);
-            margin-top: 1.5em;
-            margin-bottom: 0.7em;
-            line-height: 1.3;
-            font-weight: 700; 
-        }
-
-        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; } 
-        h2 { font-size: clamp(1.8em, 4vw, 2.5em); }
-        h3 { font-size: clamp(1.4em, 3vw, 2em); }
-
-        a {
-            color: var(--color-secundario-dorado);
-            text-decoration: none;
-            transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
-        }
-
-        a:focus-visible { 
-            color: var(--color-acento-amarillo);
-            text-decoration: underline;
-            outline: 2px solid var(--color-acento-amarillo);
-            outline-offset: 2px;
-        }
-        a:hover {
-            color: var(--color-acento-amarillo);
-            text-decoration: underline;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            display: block; 
-        }
-        
-        .container {
-            width: 90%; 
-            max-width: 1200px; 
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* --- Barra de Navegación (simplificada para páginas de personajes) --- */
-        .navbar {
-            background-color: var(--color-primario-purpura);
-            padding: 0.8em 0; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-            /* position: sticky;  Puede no ser necesario en páginas de detalle */
-            /* top: 0; */
-            z-index: 1000;
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between; /* Centrar si solo hay logo */
-            align-items: center;
-        }
-        
-        .navbar .logo-text {
-            font-family: "Cinzel", serif;
-            font-size: clamp(1.5em, 3vw, 1.8em); 
-            color: var(--color-piedra-clara);
-            text-decoration: none;
-            font-weight: 900; 
-            transition: transform var(--transition-speed) ease;
-        }
-        .navbar .logo-text:hover, .navbar .logo-text:focus-visible {
-            transform: scale(1.05);
-            text-decoration: none;
-            outline: none; 
-        }
-        /* Se omite .nav-links y .nav-toggle para la plantilla de personaje para simplificar, 
-           se puede añadir si se desea un menú completo en cada página de personaje */
-
-        /* Estilos específicos para la página del personaje y el índice */
-        .page-header-personaje, .page-header-indice {
-            background-color: var(--color-piedra-media);
-            background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.65), rgba(44, 29, 18, 0.8)), url("/assets/img/hero_background_mezquita_llana.jpg"); /* Placeholder, considera cambiarla */
-            background-size: cover;
-            background-position: center;
-            padding: clamp(40px, 10vh, 80px) 20px;
-            text-align: center;
-            color: var(--color-piedra-clara);
-            border-bottom: 6px solid var(--color-secundario-dorado);
-        }
-        .page-header-personaje h1, .page-header-indice h1 {
-            color: #fff;
-            text-shadow: 2px 2px 6px var(--color-negro-contraste);
-        }
-        .content-section { /* Clase genérica para secciones de contenido */
-            padding: clamp(30px, 6vh, 50px) 0;
-        }
-        .content-wrapper { /* Contenedor para el contenido principal */
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px 40px; /* Más padding lateral */
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .content-wrapper img.personaje-imagen-principal {
-            max-width: 300px; 
-            margin: 0 auto 1.5em auto;
-            border: 4px solid var(--color-piedra-media);
-            border-radius: 50%; /* Imagen redonda para retratos */
-            object-fit: cover;
-            height: 300px; /* Asegurar que sea cuadrada para el círculo */
-        }
-        .content-wrapper h2 {
-            text-align:left;
-            border-bottom: 2px solid var(--color-secundario-dorado);
-            padding-bottom: 0.3em;
-            margin-bottom: 1em;
-            font-size: clamp(1.6em, 3.5vw, 2.2em);
-        }
-         .content-wrapper h2::after { display:none; } 
-
-        .content-wrapper p, .content-wrapper ul {
-            text-align: justify;
-            margin-bottom: 1em;
-            font-size: clamp(1em, 2vw, 1.1em);
-        }
-        .content-wrapper ul {
-            list-style-position: outside;
-            padding-left: 20px;
-        }
-        .content-wrapper ul li {
-            margin-bottom: 0.5em;
-        }
-        .back-to-link, .cta-button-personaje { /* Estilo común para botones/enlaces de acción */
-            display: inline-block;
-            margin-top: 2em;
-            padding: 12px 25px;
-            background-color: var(--color-secundario-dorado);
-            color: var(--color-primario-purpura) !important; /* Forzar color de texto */
-            border-radius: 25px;
-            font-family: "Cinzel", serif;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border: 2px solid var(--color-primario-purpura);
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
-        }
-        .back-to-link:hover, .cta-button-personaje:hover {
-            background-color: var(--color-primario-purpura);
-            color: var(--color-acento-amarillo) !important; /* Forzar color de texto */
-            text-decoration: none;
-            transform: translateY(-2px);
-        }
-        
-        /* Estilos para el índice de personajes */
-        .indice-categorias li {
-            list-style-type: none; /* Quitar viñetas de la lista principal de categorías */
-            margin-bottom: 1.5em;
-        }
-        .indice-categorias h3 { /* Título de categoría en el índice */
-            font-size: clamp(1.3em, 2.8vw, 1.7em);
-            border-left: none;
-            padding-left: 0;
-            margin-bottom: 0.5em;
-        }
-        .indice-personajes-lista { /* Lista de personajes dentro de una categoría */
-            list-style: disc; /* Viñetas para los personajes */
-            padding-left: 30px;
-        }
-        .indice-personajes-lista li a {
-            font-size: clamp(1em, 2vw, 1.1em);
-        }
-
-
-        /* --- Footer --- */
-        .footer {
-            background-color: var(--color-texto-principal); 
-            color: var(--color-piedra-clara);
-            text-align: center;
-            padding: 40px 20px; 
-            margin-top: 50px;
-            border-top: 6px solid var(--color-secundario-dorado);
-        }
-        .footer .container {
-             padding-top: 15px;
-             padding-bottom: 15px;
-        }
-        .footer p {
-            margin: 0.6em 0;
-            font-size: clamp(0.9em, 1.8vw, 1em);
-        }
-        .footer a { 
-            color: var(--color-acento-amarillo);
-        }
-        .footer a:focus-visible {
-            color: #fff;
-            text-decoration: underline;
-            outline: 1px dashed var(--color-acento-amarillo);
-            outline-offset: 1px;
-        }
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-    </style>
+    <link rel="stylesheet" href="/css/estilos_personajes.css"> <!-- Referencia al CSS común de personajes -->
 </head>
 <body>
     <div id="header-placeholder"></div>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Magno Clemente Maximo</h1>
+            <h1>Magno Clemente Máximo</h1>
         </div>
     </header>
 
@@ -262,26 +24,32 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/placeholder.jpg" alt="[Retrato o imagen de Magno Clemente Maximo]" class="personaje-imagen-principal" onerror="this.style.display='none'">
-                    <h2>Biografía y Relevancia</h2>
-                    <p>
-                        Información detallada sobre Magno Clemente Maximo, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. 
-                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
+                    <img src="/assets/img/placeholder.jpg" alt="Magno Clemente Máximo" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     
-                    <h3>Hitos Importantes</h3>
+                    <h2>Nacimiento y Origen</h2>
+                    <p>Magno Clemente Máximo (Magnus Maximus) fue un emperador romano. Las investigaciones y tradiciones locales recogidas en <code>nuevo4.md</code> lo identifican como uno de los emperadores nacidos en Auca Patricia, vinculada a la actual Cerezo de Río Tirón, en Hispania. El texto <code>nuevo4.md</code> afirma: "Mas tarde nacen tres emperadores romanos en Auka, Teodosio I el Grande su primo Magno Clemente Máximo y su hijo Flavio Victor." y también "En el siglo IV nacen 4 emperadores romanos en Auca Patricia capital de Cantabria, Flavio Teodosio I el Grande y su hijo Flavio Arcadio, Magno Clemente Maximo y su hijo Flavio Victor."</p>
+                    <p><code>nuevo4.md</code> también lo describe como primo de Teodosio I el Grande ("su primo Magno Clemente Máximo"), lo que sugiere una conexión familiar con la región de Gallaecia, de donde tradicionalmente se considera oriunda la familia de Teodosio, y que el autor de <code>nuevo4.md</code> vincula estrechamente con Auca.</p>
+
+                    <h2>Ascenso y Reinado en Occidente</h2>
+                    <p>Máximo sirvió bajo el padre de Teodosio I en Britania. En el año 383 d.C., fue proclamado emperador por sus tropas en Britania, rebelándose contra el emperador Graciano. Cruzó a la Galia, donde Graciano fue derrotado y posteriormente asesinado.</p>
+                    <p>Tras su victoria, Máximo estableció su capital en Augusta Treverorum (Tréveris) y gobernó sobre Britania, Galia e Hispania. Fue reconocido como emperador de Occidente por Teodosio I durante un tiempo, mientras Valentiniano II mantenía el control de Italia. Su reinado se caracterizó por una fuerte defensa de las fronteras y una administración eficiente en los territorios que controlaba.</p>
+                    <p>Sin embargo, su ambición lo llevó a invadir Italia en 387 d.C., expulsando a Valentiniano II, lo que finalmente provocó la intervención militar de Teodosio I.</p>
+
+                    <h2>Religión y Creencias</h2>
+                    <p>El reinado de Máximo es conocido por ser el primer emperador cristiano en ordenar la ejecución de otros cristianos por herejía, en este caso, el obispo hispano Prisciliano y algunos de sus seguidores. Esta acción fue condenada por figuras eclesiásticas prominentes de la época, como San Martín de Tours y San Ambrosio de Milán, quienes se opusieron a la interferencia imperial en asuntos doctrinales de la Iglesia y a la aplicación de la pena capital por herejía.</p>
+                    <p>Curiosamente, el documento <code>nuevo4.md</code> señala que "Máximo y Elen eran muy devotos de San Martín de Tours". Esta afirmación, de ser precisa, podría indicar una devoción personal que existía a pesar de las tensiones generadas por el caso de Prisciliano, o reflejar una tradición local particular. El autor de <code>nuevo4.md</code> también menciona: "De Magno Clemente no he investigado mucho... de que Máximo y Elen eran muy devotos de San Martín de Tours, pero por esa zona de episcopi San Martín en Cerezo de Río Tirón, en los restos superficiales de la ruina de mas de 116 metros de largo aparecen piezas de cerámica altomedivales... habrá que esperar alguna pista que nos guíe al Mausoleo Imperial Romano de Magno Clemente."</p>
+                    <p>Esta última cita de <code>nuevo4.md</code> también introduce la especulación sobre la existencia de un mausoleo imperial para Magno Clemente Máximo en el área de Auca/Cerezo, específicamente en la zona de la "episcopi San Martín".</p>
+
+                    <h2>Familia</h2>
+                    <p>Magno Máximo estuvo casado con Elen (o Helena), a quien la tradición galesa (no mencionada en `nuevo4.md`) atribuye un origen británico. Según <code>nuevo4.md</code>, tuvieron un hijo:</p>
                     <ul>
-                        <li>[Hito importante 1 de Magno Clemente Maximo]</li>
-                        <li>[Hito importante 2 de Magno Clemente Maximo]</li>
-                        <li>[Hito importante 3 de Magno Clemente Maximo]</li>
+                        <li>Flavio Victor (mencionado como "su hijo Flavio Victor").</li>
                     </ul>
+
+                    <h2>Caída y Muerte</h2>
+                    <p>La invasión de Italia por Máximo en 387 d.C. llevó a un conflicto directo con Teodosio I. En el verano de 388 d.C., Teodosio I derrotó a las fuerzas de Máximo en la Batalla de Poetovio (actual Ptuj, Eslovenia). Máximo huyó a Aquileia, donde fue sitiado, capturado y ejecutado el 28 de agosto de 388 d.C.</p>
                     
-                    <p style="text-align:center;">
+                    <p style="text-align:center; margin-top: 3em;">
                         <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
@@ -291,8 +59,13 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 CondadoDeCastilla.com - Todos los derechos reservados.</p>
+            <p>&copy; <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
             <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
+             <div class="social-links">
+                <a href="https://www.facebook.com/groups/1052427398664069" aria-label="Facebook" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" title="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter" title="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
     </footer>
     <script src="/js/layout.js"></script>
