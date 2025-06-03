@@ -15,7 +15,7 @@
     --color-linterna-centro: rgba(255, 255, 240, 0.55); /* Centro más brillante de la linterna */
 
 
-    --color-primario-purpura-rgb: 74, 13, 103;
+    --color-primario-purpura-rgb: 91, 26, 125;
     --color-negro-contraste-rgb: 10, 10, 10; 
     --color-dorado-rgb: 184, 134, 11;
     --color-acento-amarillo-rgb: 255, 215, 0;
@@ -59,7 +59,7 @@ body {
     font-family: var(--font-principal);
     line-height: 1.8; 
     color: var(--color-texto-principal);
-    background-image: url('/assets/img/alabastro.jpg'); 
+    background-image: linear-gradient(rgba(234, 224, 208, 0.05), rgba(234, 224, 208, 0.05)), url('/assets/img/alabastro.jpg'); 
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;
@@ -278,7 +278,7 @@ img {
     color: var(--color-texto-hero); 
     padding: clamp(80px, 22vh, 160px) 20px; 
     text-align: center;
-    border-bottom: 15px solid var(--color-secundario-dorado); 
+    border-bottom: 15px solid #AF8F0A; 
     min-height: 95vh; 
     display: flex;
     flex-direction: column;
@@ -574,7 +574,7 @@ img {
     background-color: var(--color-fondo-pagina); 
     border: 2px solid var(--color-piedra-media); 
     border-radius: var(--border-radius-medio); 
-    box-shadow: 8px 8px 0px -2px var(--color-piedra-media), 16px 16px 28px rgba(var(--color-morado-emperador-rgb), 0.18); 
+    box-shadow: 8px 8px 0px -2px var(--color-piedra-media), 16px 16px 28px rgba(91, 26, 125, 0.18); 
     overflow: hidden; 
     transition: transform 0.4s ease, box-shadow 0.4s ease; 
     position: relative; 
