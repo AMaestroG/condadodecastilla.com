@@ -30,7 +30,6 @@
                 <h2 class="section-title">Comparte tu Visión <i class="fas fa-camera-retro"></i></h2>
                 <p class="intro-paragraph" style="text-align:center; font-size: clamp(1em, 2.2vw, 1.15em); margin-bottom: 2em;">
                     ¿Has capturado la esencia del Condado de Castilla en una fotografía? ¿Un paisaje, un detalle arquitectónico, una escena cotidiana? ¡Súbela y forma parte de nuestra galería colectiva!
-                    <br><small>(Las subidas son para demostración y no se almacenan permanentemente en esta versión. Para una funcionalidad real, se requiere un backend que guarde las imágenes en `/imagenes/galeria_colaborativa/` o similar).</small>
                 </p>
 
                 <form id="uploadPhotoForm" class="upload-form-container"> <div class="form-group">
@@ -103,49 +102,32 @@
 
             // API_BASE_URL se deja vacía ("") si Nginx hace proxy para /api/galeria
             // O usa la URL completa de tu backend si es necesario para desarrollo.
-            const API_BASE_URL_GALERIA = ""; // Ejemplo: "http://localhost:5000" o ""
-            const UPLOAD_PATH_SIMULATED = "/imagenes/galeria_colaborativa/"; // Para simular dónde se guardarían
+            const API_BASE_URL_GALERIA = "/api/"; // Ejemplo: "http://localhost:5000" o ""
+            // const UPLOAD_PATH_SIMULATED = "/imagenes/galeria_colaborativa/"; // Para simular dónde se guardarían - REMOVED
 
             let galleryPhotos = []; 
 
-            function loadSamplePhotos() {
-                // IMPORTANTE: Reemplaza estas URLs con imágenes reales en tu carpeta /imagenes/galeria_colaborativa/
-                // o crea imágenes placeholder.
-                return [
-                    { id: 'sample_photo1', titulo: "Atardecer en el Alcázar (Ejemplo)", descripcion: "Vista del Alcázar de Cerezo bañado por la luz dorada del atardecer.", autor: "Fotógrafo Local", imagenUrl: "/assets/img/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg", altText: "Atardecer sobre el Alcázar de Cerezo" },
-                    { id: 'sample_photo2', titulo: "Detalle Románico (Ejemplo)", descripcion: "Capitel historiado en la portada de una de las iglesias de la comarca.", autor: "Visitante Anónimo", imagenUrl: "/assets/img/galeria_colaborativa/ejemplo_detalle_romanico.jpg", altText: "Detalle de un capitel románico" },
-                    { id: 'sample_photo3', titulo: "Paisaje desde las Alturas (Ejemplo)", descripcion: "Panorámica de los campos de Castilla desde un mirador cercano a Lantarón.", autor: "Amante del Senderismo", imagenUrl: "/assets/img/galeria_colaborativa/ejemplo_paisaje_lantaron.jpg", altText: "Paisaje castellano desde las alturas" }
-                ];
-            }
-            
             async function fetchPhotos() {
-                // En una implementación real, esto haría fetch a tu endpoint GET /api/galeria/fotos
-                // Por ahora, simulamos o usamos ejemplos locales.
-                console.log("Intentando cargar fotos...");
-                if (API_BASE_URL_GALERIA && API_BASE_URL_GALERIA !== "") { // Si hay un backend configurado
-                    try {
-                        const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`; // Asume este endpoint
-                        const response = await fetch(url);
-                        if (!response.ok) {
-                            throw new Error(`Error HTTP: ${response.status}`);
-                        }
-                        galleryPhotos = await response.json();
-                        renderPhotoGallery(galleryPhotos);
-                    } catch (error) {
-                        console.error('Error al cargar fotos desde el backend:', error);
-                        galleryPhotos = loadSamplePhotos();
-                        renderPhotoGallery(galleryPhotos);
-                        if(noPhotosMsg) noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. Mostrando ejemplos. <br><small>${error.message}</small>`;
+                console.log("Intentando cargar fotos desde el backend...");
+                try {
+                    const url = `${API_BASE_URL_GALERIA}galeria_list.php`;
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
                     }
-                } else {
-                    // Si no hay backend configurado, solo cargar ejemplos
-                    galleryPhotos = loadSamplePhotos();
+                    galleryPhotos = await response.json();
                     renderPhotoGallery(galleryPhotos);
-                    if(noPhotosMsg && galleryPhotos.length > 0) noPhotosMsg.textContent = 'Mostrando fotos de ejemplo. ¡Sube la tuya!';
+                } catch (error) {
+                    console.error('Error al cargar la galería:', error);
+                    if(noPhotosMsg) {
+                        noPhotosMsg.innerHTML = `Error al cargar la galería. Inténtalo más tarde. <br><small>${error.message}</small>`;
+                        noPhotosMsg.style.display = 'block'; // Asegurarse que el mensaje sea visible
+                    }
+                    galleryGrid.innerHTML = ''; // Limpiar por si había algo antes
                 }
             }
             
-            fetchPhotos();
+            fetchPhotos(); // Cargar fotos al iniciar
 
             if (photoFileInput) {
                 photoFileInput.addEventListener('change', function(event) {
@@ -195,44 +177,29 @@
                     formData.append('photoAutor', autor);
                     formData.append('photoFile', imagenFile); // Nombre del campo de archivo
 
-                    // SIMULACIÓN DE SUBIDA AL BACKEND
-                    if (API_BASE_URL_GALERIA && API_BASE_URL_GALERIA !== "") {
-                        try {
-                            const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`; // Asume este endpoint
-                            const response = await fetch(url, {
-                                method: 'POST',
-                                body: formData 
-                            });
+                    try {
+                        const response = await fetch(`${API_BASE_URL_GALERIA}galeria_upload.php`, {
+                            method: 'POST',
+                            body: formData
+                        });
 
-                            if (!response.ok) {
-                                const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status}` }));
-                                throw new Error(errorData.error || `Error del servidor: ${response.status}`);
-                            }
-                            const result = await response.json();
-                            alert(result.mensaje || '¡Fotografía subida con éxito!');
-                            fetchPhotos(); // Recargar la galería desde el backend
-                        } catch (error) {
-                            console.error('Error al subir la fotografía:', error);
-                            alert(`Error al subir la fotografía: ${error.message}.`);
+                        // Intentar parsear JSON incluso si !response.ok, ya que el backend debería enviar JSON de error
+                        const result = await response.json();
+
+                        if (!response.ok) {
+                            // Usar el mensaje del backend si está disponible, sino un error genérico.
+                            throw new Error(result.message || `Error del servidor: ${response.status}`);
                         }
-                    } else {
-                        // Simulación local si no hay backend
-                        const reader = new FileReader();
-                        reader.onloadend = function() {
-                            const nuevaFoto = {
-                                id: 'local_' + Date.now(), 
-                                titulo: titulo,
-                                descripcion: descripcion,
-                                autor: autor,
-                                imagenUrl: reader.result, // Data URL para visualización local
-                                altText: `Fotografía: ${titulo}`
-                            };
-                            galleryPhotos.unshift(nuevaFoto);
-                            renderPhotoGallery(galleryPhotos);
-                            alert('¡Fotografía añadida localmente (simulación)!');
-                        }
-                        reader.readAsDataURL(imagenFile);
+
+                        // Usar result.message del backend (era result.mensaje antes, corregido en PHP a message)
+                        alert(result.message || '¡Fotografía subida con éxito!');
+                        fetchPhotos(); // Recargar la galería desde el backend
+                    } catch (error) {
+                        console.error('Error al subir la fotografía:', error);
+                        // Mostrar el mensaje de error capturado, que puede ser del backend o un error de red/fetch.
+                        alert(`Error al subir la fotografía: ${error.message}.`);
                     }
+
                     uploadForm.reset();
                     if(photoPreview) photoPreview.src = '#';
                     if(photoPreviewContainer) photoPreviewContainer.style.display = 'none';
@@ -243,8 +210,12 @@
                 if (!galleryGrid || !noPhotosMsg) return;
                 galleryGrid.innerHTML = ''; 
                 if (!photosArray || photosArray.length === 0) {
-                    noPhotosMsg.style.display = 'block';
-                    noPhotosMsg.textContent = 'Aún no se han compartido fotografías. ¡Anímate a ser el primero!';
+                    // noPhotosMsg.style.display = 'block'; // El bloque catch de fetchPhotos ya maneja esto
+                    // noPhotosMsg.textContent = 'Aún no se han compartido fotografías. ¡Anímate a ser el primero!'; // Idem
+                    if (noPhotosMsg.style.display !== 'block') { // Si no hay un error ya mostrado
+                        noPhotosMsg.textContent = 'Aún no se han compartido fotografías. ¡Anímate a ser el primero!';
+                        noPhotosMsg.style.display = 'block';
+                    }
                     return;
                 }
                 noPhotosMsg.style.display = 'none';
@@ -256,20 +227,20 @@
                     const img = document.createElement('img');
                     // Si la imagenUrl es una ruta relativa del backend, Nginx la servirá.
                     // Si es una Data URL (subida local), se mostrará directamente.
-                    img.src = photo.imagenUrl; 
-                    img.alt = photo.altText || `Fotografía: ${photo.titulo}`;
+                    img.src = photo.imagenUrl; // Esto ya debería ser la URL correcta desde el backend
+                    img.alt = photo.altText || `Fotografía: ${photo.titulo || 'Sin título'}`;
                     img.onerror = function() { 
                         this.onerror=null; 
                         this.src='https://placehold.co/400x300/D2B48C/2c1d12?text=Foto+no+disponible';
-                        this.alt = `Error al cargar foto: ${photo.titulo}`;
+                        this.alt = `Error al cargar foto: ${photo.titulo || 'Sin título'}`;
                     };
-                    img.addEventListener('click', () => openModal(img.src, `${photo.titulo}${photo.autor !== 'Anónimo' && photo.autor ? ' - por ' + photo.autor : ''}`));
+                    img.addEventListener('click', () => openModal(img.src, `${photo.titulo || 'Sin título'}${photo.autor && photo.autor.toLowerCase() !== 'anónimo' ? ' - por ' + photo.autor : ''}`));
 
                     const captionDiv = document.createElement('div');
                     captionDiv.classList.add('photo-card-caption');
                     
                     const titleH4 = document.createElement('h4');
-                    titleH4.textContent = photo.titulo;
+                    titleH4.textContent = photo.titulo || 'Sin título'; // Backend debería proveer 'Sin título' si está vacío
                     captionDiv.appendChild(titleH4);
 
                     if (photo.descripcion) {
