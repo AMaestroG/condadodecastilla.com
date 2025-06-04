@@ -1,3 +1,39 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    @session_start();
+}
+require_once __DIR__ . '/../includes/auth.php';      // For is_admin_logged_in()
+// require_once __DIR__ . '/../dashboard/db_connect.php'; // $pdo - might not be needed for this page if not using db for gallery
+
+$is_admin = is_admin_logged_in();
+$gallery_images_data = [];
+$gallery_dir = __DIR__ . '/../assets/img/galeria_colaborativa/';
+$gallery_url_prefix = '/assets/img/galeria_colaborativa/';
+
+if (is_dir($gallery_dir)) {
+    $files = scandir($gallery_dir);
+    if ($files) {
+        foreach ($files as $file) {
+            if ($file !== '.' && $file !== '..' && !is_dir($gallery_dir . $file)) {
+                // Basic check for image extensions
+                $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+                $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+                if (in_array($ext, $allowed_extensions)) {
+                    $gallery_images_data[] = [
+                        'id' => htmlspecialchars($file), // Filename as ID
+                        'titulo' => htmlspecialchars(ucfirst(str_replace(['_', '-'], ' ', pathinfo($file, PATHINFO_FILENAME)))),
+                        'descripcion' => 'Imagen de la galería colaborativa.', // Generic description
+                        'autor' => '', // No author info from filename
+                        'imagenUrl' => htmlspecialchars($gallery_url_prefix . $file),
+                        'altText' => htmlspecialchars(ucfirst(str_replace(['_', '-'], ' ', pathinfo($file, PATHINFO_FILENAME)))),
+                        'showDeleteButton' => $is_admin // Add flag for delete button
+                    ];
+                }
+            }
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -144,39 +180,46 @@
 
             let localGalleryPhotos = []; 
 
-            function loadSamplePhotos() {
-                return [
-                    { id: 'sample_photo1', titulo: "Atardecer en el Alcázar (Ejemplo)", descripcion: "Vista del Alcázar de Cerezo bañado por la luz dorada del atardecer.", autor: "Fotógrafo Local", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg", altText: "Atardecer sobre el Alcázar de Cerezo" },
-                    { id: 'sample_photo2', titulo: "Detalle Románico (Ejemplo)", descripcion: "Capitel historiado en la portada de una de las iglesias de la comarca.", autor: "Visitante Anónimo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_detalle_romanico.jpg", altText: "Detalle de un capitel románico" },
-                    { id: 'sample_photo3', titulo: "Paisaje desde las Alturas (Ejemplo)", descripcion: "Panorámica de los campos de Castilla desde un mirador cercano a Lantarón.", autor: "Amante del Senderismo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_paisaje_lantaron.jpg", altText: "Paisaje castellano desde las alturas" }
-                ];
-            }
+            // function loadSamplePhotos() { // Commented out or removed
+            //     return [
+            //         { id: 'sample_photo1', titulo: "Atardecer en el Alcázar (Ejemplo)", descripcion: "Vista del Alcázar de Cerezo bañado por la luz dorada del atardecer.", autor: "Fotógrafo Local", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg", altText: "Atardecer sobre el Alcázar de Cerezo" },
+            //         { id: 'sample_photo2', titulo: "Detalle Románico (Ejemplo)", descripcion: "Capitel historiado en la portada de una de las iglesias de la comarca.", autor: "Visitante Anónimo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_detalle_romanico.jpg", altText: "Detalle de un capitel románico" },
+            //         { id: 'sample_photo3', titulo: "Paisaje desde las Alturas (Ejemplo)", descripcion: "Panorámica de los campos de Castilla desde un mirador cercano a Lantarón.", autor: "Amante del Senderismo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_paisaje_lantaron.jpg", altText: "Paisaje castellano desde las alturas" }
+            //     ];
+            // }
             
-            async function fetchPhotos() {
-                try {
-                    const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
-                    console.log(`Intentando obtener fotos desde: ${url}`);
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
-                    }
-                    const photos = await response.json();
-                    localGalleryPhotos = photos;
-                    renderPhotoGallery(localGalleryPhotos);
-                } catch (error) {
-                    console.error('Error al cargar fotos desde el backend:', error);
-                    localGalleryPhotos = loadSamplePhotos(); 
-                    renderPhotoGallery(localGalleryPhotos); 
-                    if(noPhotosMsg) {
-                        noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. Mostrando ejemplos. <br><small>Error: ${error.message}</small>`;
-                        noPhotosMsg.style.display = 'block';
-                        noPhotosMsg.style.color = 'orange';
-                        noPhotosMsg.style.textAlign = 'center';
-                    }
-                }
-            }
+            // async function fetchPhotos() { // Commented out or removed and replaced
+            //     try {
+            //         const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
+            //         console.log(`Intentando obtener fotos desde: ${url}`);
+            //         const response = await fetch(url);
+            //         if (!response.ok) {
+            //             throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
+            //         }
+            //         const photos = await response.json();
+            //         localGalleryPhotos = photos;
+            //         renderPhotoGallery(localGalleryPhotos);
+            //     } catch (error) {
+            //         console.error('Error al cargar fotos desde el backend:', error);
+            //         localGalleryPhotos = loadSamplePhotos();
+            //         renderPhotoGallery(localGalleryPhotos);
+            //         if(noPhotosMsg) {
+            //             noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. Mostrando ejemplos. <br><small>Error: ${error.message}</small>`;
+            //             noPhotosMsg.style.display = 'block';
+            //             noPhotosMsg.style.color = 'orange';
+            //             noPhotosMsg.style.textAlign = 'center';
+            //         }
+            //     }
+            // }
             
-            fetchPhotos();
+            // fetchPhotos(); // Commented out or removed
+
+            localGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
+            renderPhotoGallery(localGalleryPhotos);
+            if (localGalleryPhotos.length === 0 && noPhotosMsg) {
+                noPhotosMsg.textContent = 'No hay fotografías en la galería todavía, o el directorio está vacío.';
+                noPhotosMsg.style.display = 'block';
+            }
 
             if (photoFileInput) {
                 photoFileInput.addEventListener('change', function(event) {
@@ -295,12 +338,14 @@
                         captionDiv.appendChild(authorP);
                     }
 
-                    const deleteButton = document.createElement('button');
-                    deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro');
-                    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Borrar';
-                    deleteButton.setAttribute('data-id', photo.id);
-                    deleteButton.addEventListener('click', handleDeleteFotoGaleria);
-                    captionDiv.appendChild(deleteButton);
+                    if (photo.showDeleteButton) {
+                        const deleteButton = document.createElement('button');
+                        deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro'); // Use existing classes if available
+                        deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Borrar';
+                        deleteButton.setAttribute('data-id', photo.id); // photo.id is the filename
+                        deleteButton.addEventListener('click', handleDeleteFotoGaleria); // Existing handler
+                        captionDiv.appendChild(deleteButton);
+                    }
                     
                     photoCard.appendChild(img);
                     photoCard.appendChild(captionDiv);
@@ -314,18 +359,30 @@
                     return;
                 }
                 try {
-                    const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos/${fotoId}`;
-                    const response = await fetch(url, { method: 'DELETE' });
+                    const url = '/delete_gallery_image.php'; // New endpoint
+                    const formData = new FormData();
+                    formData.append('filename', fotoId);
+
+                    const response = await fetch(url, { method: 'POST', body: formData }); // Changed to POST, can also be DELETE with FormData for some servers
                     if (!response.ok) {
-                        const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status}` }));
-                        throw new Error(errorData.error || `Error del servidor: ${response.status}`);
+                        const errorText = await response.text();
+                        throw new Error(errorText || `Error del servidor: ${response.status}`);
                     }
-                    const result = await response.json();
-                    alert(result.mensaje || 'Fotografía borrada con éxito.');
-                    fetchPhotos(); 
+                    const resultText = await response.text(); // Expecting plain text or simple JSON
+                    alert(resultText || 'Fotografía borrada con éxito.');
+
+                    // Refresh gallery by re-assigning and re-rendering
+                    // This is a simple way if not fetching new data from server after delete
+                    localGalleryPhotos = localGalleryPhotos.filter(p => p.id !== fotoId);
+                    renderPhotoGallery(localGalleryPhotos);
+                    if (localGalleryPhotos.length === 0 && noPhotosMsg) {
+                        noPhotosMsg.textContent = 'No hay fotografías en la galería todavía, o el directorio está vacío.';
+                        noPhotosMsg.style.display = 'block';
+                    }
+
                 } catch (error) {
                     console.error('Error al borrar la fotografía:', error);
-                    alert(`Error al borrar la fotografía: ${error.message}`);
+                    alert(`Error al borrar la fotografía: ${error.message}. Asegúrate de que el script delete_gallery_image.php exista y funcione.`);
                 }
             }
             
