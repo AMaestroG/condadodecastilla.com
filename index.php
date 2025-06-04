@@ -1,3 +1,23 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    @session_start();
+}
+require_once 'includes/auth.php';      // For is_admin_logged_in()
+require_once 'dashboard/db_connect.php'; // Provides $pdo
+require_once 'includes/text_manager.php';// For editableText()
+?>
+<!--
+    IMPORTANTE: Este archivo ha sido convertido a PHP para permitir contenido editable.
+    Las llamadas a `editableText()` que verá en este archivo son ejemplos. Usted necesitará:
+    1. Identificar los elementos de texto específicos que desea hacer editables en esta página.
+    2. Elegir 'text_id' únicos y descriptivos para cada elemento editable.
+    3. Proporcionar el contenido por defecto apropiado para su sitio dentro de la función `editableText()`.
+    4. Asegurarse de que la etiqueta HTML contenedora (ej: 'h1', 'p', 'div') y cualquier clase CSS sean correctas para su diseño.
+    5. Verificar que 'dashboard/db_connect.php' tenga credenciales de base de datos válidas.
+    6. Iniciar sesión con el usuario administrador (ej: Rodrigo Tabliega / Rudericus) para ver los enlaces de edición (✏️).
+    7. La tabla `site_texts` debe existir en su base de datos (creada por `01_create_tables.sql`).
+    8. Puede que necesite ajustar las rutas de CSS/JS si la conversión a .php afecta las rutas relativas.
+-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,8 +41,8 @@
         <div class="hero-content">
             <img src="/assets/img/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas dorada encima." class="hero-escudo">
             <div>
-                <h1>Condado de Castilla: Cuna de Tu Cultura e Idioma</h1>
-                <p>Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.</p>
+                <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla: Cuna de Tu Cultura e Idioma', 'h1', ''); ?>
+                <?php editableText('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.', 'p', ''); ?>
             </div>
         </div>
         <a href="/historia/historia.html" class="cta-button">Descubre la Historia</a>
@@ -47,8 +67,8 @@
     <main>
         <section class="section detailed-intro-section spotlight-active">
             <div class="container">
-                <h2>Recuperando la Memoria de la Hispanidad Castellana</h2>
-                <p>Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.</p>
+                <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', ''); ?>
+                <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', ''); ?>
                 <p style="margin-top: 2.5em;">
                     <a href="/secciones_index/memoria_hispanidad.html" class="cta-button">Leer Más Sobre Nuestra Memoria</a>
                 </p>
