@@ -15,10 +15,17 @@
  * @param bool $auto_create If true and text_id not found, creates it with default_content.
  * @return string The text content.
  */
-function getText(string $text_id, PDO $pdo, string $default_content = '', bool $auto_create = true): string {
-    try {
-        $stmt = $pdo->prepare("SELECT text_content FROM site_texts WHERE text_id = :text_id");
-        $stmt->bindParam(':text_id', $text_id);
+if (!function_exists('getText')) {
+    function getText(string $text_id, ?PDO $pdo, string $default_content = '', bool $auto_create = true): string {
+        // If $pdo is null, we can't proceed with database operations.
+        // Return default content or handle as an error appropriately.
+        if ($pdo === null) {
+            // error_log("getText called with null PDO for text_id: $text_id");
+            return $default_content; // Or a more specific error message/logging
+        }
+        try {
+            $stmt = $pdo->prepare("SELECT text_content FROM site_texts WHERE text_id = :text_id");
+            $stmt->bindParam(':text_id', $text_id);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -57,6 +64,7 @@ function getText(string $text_id, PDO $pdo, string $default_content = '', bool $
         return "Error cargando texto ID: '" . htmlspecialchars($text_id) . "'. Contenido por defecto: " . htmlspecialchars($default_content);
     }
 }
+} // End of function_exists('getText') check
 
 /**
  * Displays text with an edit button for admins.
@@ -71,26 +79,38 @@ function getText(string $text_id, PDO $pdo, string $default_content = '', bool $
  * @param string $editor_page_path Path to the main text editor page (e.g., '/edit_texts.php').
  * @return void Outputs HTML directly.
  */
-function editableText(string $text_id, PDO $pdo, string $default_content = '', string $tag = 'span', string $css_class = '', string $editor_page_path = '/edit_texts.php'): void {
-    // Ensure is_admin_logged_in() is available. It should be included by the calling script.
-    // if (!function_exists('is_admin_logged_in')) {
-    //     echo "Error: is_admin_logged_in() function not found. Make sure auth.php is included.";
-    //     return;
-    // }
+if (!function_exists('editableText')) {
+    function editableText(string $text_id, ?PDO $pdo, string $default_content = '', string $tag = 'span', string $css_class = '', string $editor_page_path = '/edit_texts.php'): void {
+        if ($pdo === null) {
+            // Database connection is not available
+            $class_attribute = $css_class ? " class='" . htmlspecialchars($css_class) . "'" : "";
+            echo "<" . $tag . $class_attribute . " data-text-id='" . htmlspecialchars($text_id) . "'>";
+            echo nl2br(htmlspecialchars($default_content)); // Display default content
+            echo "</" . $tag . ">";
+            // Do not display the edit link as DB is not available
+            return;
+        }
 
-    // Auto-create with default content if not found. True by default for getText.
-    $content = getText($text_id, $pdo, $default_content, true);
+        // Ensure is_admin_logged_in() is available. It should be included by the calling script.
+        // if (!function_exists('is_admin_logged_in')) {
+        //     echo "Error: is_admin_logged_in() function not found. Make sure auth.php is included.";
+        //     return;
+        // }
 
-    $class_attribute = $css_class ? " class='" . htmlspecialchars($css_class) . "'" : "";
+        // Auto-create with default content if not found. True by default for getText.
+        $content = getText($text_id, $pdo, $default_content, true);
 
-    // Output the editable text content, wrapped in the specified tag
-    echo "<" . $tag . $class_attribute . " data-text-id='" . htmlspecialchars($text_id) . "'>";
-    echo nl2br(htmlspecialchars($content)); // Use nl2br to respect newlines, and htmlspecialchars for security
-    echo "</" . $tag . ">";
+        $class_attribute = $css_class ? " class='" . htmlspecialchars($css_class) . "'" : "";
 
-    // If admin is logged in, show an edit link/button
-    if (is_admin_logged_in()) {
-        echo " <a href='" . htmlspecialchars($editor_page_path) . "?edit_id=" . urlencode($text_id) . "' class='edit-text-link' title='Editar: " . htmlspecialchars($text_id) . "'>✏️</a>";
+        // Output the editable text content, wrapped in the specified tag
+        echo "<" . $tag . $class_attribute . " data-text-id='" . htmlspecialchars($text_id) . "'>";
+        echo nl2br(htmlspecialchars($content)); // Use nl2br to respect newlines, and htmlspecialchars for security
+        echo "</" . $tag . ">";
+
+        // If admin is logged in, show an edit link/button
+        if (is_admin_logged_in()) {
+            echo " <a href='" . htmlspecialchars($editor_page_path) . "?edit_id=" . urlencode($text_id) . "' class='edit-text-link' title='Editar: " . htmlspecialchars($text_id) . "'>✏️</a>";
+        }
     }
-}
+} // End of function_exists('editableText') check
 ?>
