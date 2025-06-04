@@ -14,13 +14,11 @@
     <link rel="stylesheet" href="/css/estilos_condado.css">
 </head>
 <body>
-    <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->
+    <div id="linterna-condado"></div> 
     
-    <!-- Este div será reemplazado por tu layout.js con la navegación/sidebar -->
     <div id="header-placeholder"></div> 
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg');">
-        <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_museo_background.jpg -->
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1>Museo Colaborativo del Alfoz</h1>
@@ -91,7 +89,6 @@
         </div>
     </footer>
 
-    <!-- Tu script layout.js para cargar el header/sidebar -->
     <script src="/js/layout.js"></script> 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -154,7 +151,12 @@
                     const url = `${API_BASE_URL}/api/museo/piezas`;
                     const response = await fetch(url);
                     if (!response.ok) {
-                        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
+                        let errorMsg = `Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`;
+                        try {
+                            const errData = await response.json();
+                            errorMsg = errData.error || errorMsg;
+                        } catch (e) { /* No hacer nada si no es JSON */ }
+                        throw new Error(errorMsg);
                     }
                     const pieces = await response.json();
                     localMuseumPieces = pieces;
@@ -225,8 +227,12 @@
                         const url = `${API_BASE_URL}/api/museo/piezas`;
                         const response = await fetch(url, { method: 'POST', body: formData });
                         if (!response.ok) {
-                            const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status} ${response.statusText}` }));
-                            throw new Error(errorData.error || `Error del servidor: ${response.status} ${response.statusText}`);
+                            let errorMsg = `Error del servidor: ${response.status} ${response.statusText}`;
+                            try {
+                                const errorData = await response.json();
+                                errorMsg = errorData.error || errorMsg;
+                            } catch(e) { /* No hacer nada si no es JSON */ }
+                            throw new Error(errorMsg);
                         }
                         const result = await response.json();
                         alert(result.mensaje || '¡Pieza subida con éxito!');
@@ -312,8 +318,12 @@
                     const url = `${API_BASE_URL}/api/museo/piezas/${piezaId}`;
                     const response = await fetch(url, { method: 'DELETE' });
                     if (!response.ok) {
-                        const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status}` }));
-                        throw new Error(errorData.error || `Error del servidor: ${response.status}`);
+                        let errorMsg = `Error del servidor: ${response.status}`;
+                        try {
+                            const errorData = await response.json();
+                            errorMsg = errorData.error || errorMsg;
+                        } catch(e) { /* No hacer nada si no es JSON */ }
+                        throw new Error(errorMsg);
                     }
                     const result = await response.json();
                     alert(result.mensaje || 'Pieza borrada con éxito.');
