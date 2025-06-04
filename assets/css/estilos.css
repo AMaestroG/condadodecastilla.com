@@ -1852,12 +1852,25 @@ body.sidebar-active {
         display: none !important; /* Force hide old navbar elements */
     }
 
+    #sidebar .nav-links {
+        max-height: none;
+        overflow: visible;
+        /* Optionally, you can be more explicit if other flex properties from the generic .nav-links rule were problematic:
+        position: static; /* Or relative, depending on desired layout, but not absolute like the old one */
+        /* background-color: transparent; /* If it was inheriting a background */
+        /* box-shadow: none; /* If it was inheriting a shadow */
+        /* padding: 0; /* Reset padding if necessary */
+        /* width: 100%; /* Already set in the base #sidebar .nav-links but good to ensure */
+        /* display: flex; /* Already set */
+        /* flex-direction: column; /* Already set */
+    }
+
     /* Explicit styles for sidebar links on mobile to ensure visibility and clickability */
     #sidebar .nav-links a {
-        color: var(--color-piedra-clara) !important; /* Ensure text color */
-        opacity: 1 !important; /* Ensure not transparent */
-        visibility: visible !important; /* Ensure visible */
-        pointer-events: auto !important; /* Ensure clickable */
+        color: var(--color-piedra-clara); /* Ensure text color */
+        opacity: 1; /* Ensure not transparent */
+        visibility: visible; /* Ensure visible */
+        pointer-events: auto; /* Ensure clickable */
         /* Font size, padding, display:block are already set and should be fine */
     }
 }
