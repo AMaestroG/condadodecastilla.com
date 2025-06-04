@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museo Colaborativo del Condado - Condado de Castilla</title>
-    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
+    <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="stylesheet" href="/assets/css/estilos.css">
+    <link rel="stylesheet" href="/css/estilos_condado.css">
 </head>
 <body>
+    <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->
+    
+    <!-- Este div será reemplazado por tu layout.js con la navegación/sidebar -->
+    <div id="header-placeholder"></div> 
 
-    <div id="header-placeholder"></div>
-
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_museo_background.jpg');">
+    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg');">
+        <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_museo_background.jpg -->
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1>Museo Colaborativo del Alfoz</h1>
             <p>Un espacio para compartir y descubrir los tesoros históricos y arqueológicos de nuestra tierra, aportados por la comunidad.</p>
         </div>
@@ -29,7 +32,7 @@
         <section class="section upload-section">
             <div class="container page-content-block">
                 <h2 class="section-title">Aporta tu Pieza al Museo <i class="fas fa-upload"></i></h2>
-                <p class="intro-paragraph" style="text-align:center; font-size: clamp(1em, 2.2vw, 1.15em); margin-bottom: 2em;">
+                <p class="intro-paragraph">
                     ¿Tienes una fotografía de un objeto, ruina o documento histórico relacionado con el Alfoz de Cerasio y Lantarón o el Condado de Castilla? ¡Compártelo con nosotros! 
                     <br><small>(Las piezas subidas se guardarán si el backend está correctamente configurado y en funcionamiento).</small>
                 </p>
@@ -53,7 +56,7 @@
                         <small>Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 2MB.</small>
                     </div>
                     <div class="form-group preview-container" id="imagePreviewContainer" style="display:none;">
-                        <img id="imagePreview" src="#" alt="Vista previa de la imagen subida"/>
+                        <img id="imagePreview" src="#" alt="Vista previa de la imagen subida" style="max-height: 200px; margin-bottom: 10px; border: 1px solid var(--condado-piedra-media);"/>
                     </div>
                     <button type="submit" class="cta-button submit-button"><i class="fas fa-cloud-upload-alt"></i> Subir Pieza al Museo</button>
                 </form>
@@ -76,7 +79,6 @@
         <div id="modalCaption"></div>
     </div>
 
-
     <footer class="footer">
         <div class="container">
             <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
@@ -89,9 +91,41 @@
         </div>
     </footer>
 
-    <script src="/js/layout.js"></script>
+    <!-- Tu script layout.js para cargar el header/sidebar -->
+    <script src="/js/layout.js"></script> 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- Efecto Linterna ---
+            const linterna = document.getElementById('linterna-condado');
+            const seccionesConLinterna = document.querySelectorAll('.section'); 
+            if (linterna) {
+                function actualizarPosicionLinterna(e) {
+                    requestAnimationFrame(() => {
+                        linterna.style.setProperty('--mouse-x', e.clientX + 'px');
+                        linterna.style.setProperty('--mouse-y', e.clientY + 'px');
+                    });
+                }
+                function activarLinterna() {
+                    requestAnimationFrame(() => {
+                        linterna.style.setProperty('--linterna-opacity', '0.65'); 
+                        linterna.style.setProperty('--linterna-radio', '250px'); 
+                    });
+                }
+                function desactivarLinterna() {
+                     requestAnimationFrame(() => {
+                        linterna.style.setProperty('--linterna-opacity', '0');
+                    });
+                }
+                document.body.addEventListener('mousemove', actualizarPosicionLinterna);
+                seccionesConLinterna.forEach(section => {
+                    section.addEventListener('mouseenter', activarLinterna);
+                    section.addEventListener('mouseleave', desactivarLinterna);
+                });
+            } else {
+                console.warn("Elemento #linterna-condado no encontrado.");
+            }
+
+            // --- Lógica del Museo Colaborativo ---
             const uploadForm = document.getElementById('uploadForm');
             const museumGalleryGrid = document.getElementById('museumGalleryGrid');
             const noPiecesMessage = document.getElementById('noPiecesMessage');
@@ -104,37 +138,30 @@
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
             
-            // API_BASE_URL se deja vacía ("") porque Nginx actuará como reverse proxy.
-            // Las peticiones a /api/... serán redirigidas por Nginx al backend Flask.
-            const API_BASE_URL = ""; 
+            const API_BASE_URL = ""; // Nginx hará proxy para /api/museo/piezas
 
-            let localMuseumPieces = []; // Para mantener una copia local y para ejemplos
+            let localMuseumPieces = []; 
 
             function loadSamplePieces() {
-                // Estas son piezas de ejemplo que se mostrarán si el backend no responde
-                // o si se decide no cargar desde el backend inicialmente.
-                // IMPORTANTE: Reemplaza estas URLs con imágenes reales en tu carpeta /imagenes/
                 return [
-                    { id: 'sample1', titulo: "Fragmento Cerámico Decorado (Ejemplo)", descripcion: "Pequeño fragmento de cerámica con intrincados motivos geométricos, posiblemente de la época celtíbera, hallado cerca del cauce del río Tirón.", autor: "Museo Local", imagenUrl: "/assets/img/museo_ceramica_ejemplo.jpg", altText: "Fragmento de cerámica celtíbera con decoración geométrica" },
-                    { id: 'sample2', titulo: "Sestercio Romano de Auca (Ejemplo)", descripcion: "Moneda de bronce (Sestercio) acuñada en la ceca de Auca Patricia durante el mandato del emperador Augusto. Muestra el perfil imperial y símbolos locales.", autor: "Colección Privada", imagenUrl: "/assets/img/museo_moneda_ejemplo.jpg", altText: "Moneda romana de bronce (Sestercio) con perfil de emperador" },
-                    { id: 'sample3', titulo: "Hebilla Visigoda Ornamentada (Ejemplo)", descripcion: "Impresionante hebilla de cinturón de bronce con incrustaciones de pasta vítrea, datada en el siglo VI o VII, recuperada en una necrópolis cercana a Cerezo.", autor: "Descubrimiento Reciente", imagenUrl: "/assets/img/museo_hebilla_ejemplo.jpg", altText: "Hebilla visigoda de bronce con adornos e incrustaciones" }
+                    { id: 'sample_m1', titulo: "Estela Funeraria (Ejemplo Museo)", descripcion: "Antigua estela de piedra con grabados, encontrada en las cercanías de un camino histórico.", autor: "Arqueología Local", imagenUrl: "/imagenes/museo_estela_ejemplo.jpg", altText: "Estela funeraria de piedra" },
+                    { id: 'sample_m2', titulo: "Capitel Románico (Ejemplo Museo)", descripcion: "Detalle de un capitel con figuras zoomorfas, perteneciente a una ermita desaparecida.", autor: "Patrimonio Olvidado", imagenUrl: "/imagenes/museo_capitel_ejemplo.jpg", altText: "Capitel románico con figuras" }
                 ];
             }
             
             async function fetchPieces() {
                 try {
                     const url = `${API_BASE_URL}/api/museo/piezas`;
-                    console.log(`Intentando obtener piezas desde: ${url}`);
                     const response = await fetch(url);
                     if (!response.ok) {
                         throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
                     }
                     const pieces = await response.json();
-                    localMuseumPieces = pieces; // Actualizar con datos del backend
+                    localMuseumPieces = pieces;
                     renderGallery(localMuseumPieces);
                 } catch (error) {
                     console.error('Error al cargar piezas del museo desde el backend:', error);
-                    localMuseumPieces = loadSamplePieces(); // Cargar ejemplos si falla el fetch
+                    localMuseumPieces = loadSamplePieces(); 
                     renderGallery(localMuseumPieces); 
                     if(noPiecesMessage) {
                         noPiecesMessage.innerHTML = `No se pudieron cargar las piezas del servidor. Mostrando ejemplos. <br><small>Error: ${error.message}</small>`;
@@ -144,22 +171,8 @@
                     }
                 }
             }
-
-            if (window.location.protocol === "https:" && API_BASE_URL.startsWith("http://")) {
-                console.warn("ADVERTENCIA DE CONTENIDO MIXTO DETECTADA.");
-                if(noPiecesMessage) {
-                    noPiecesMessage.innerHTML = `<strong>Advertencia de Contenido Mixto:</strong> Esta página (HTTPS) está intentando acceder a un backend en una URL HTTP (<code>${API_BASE_URL}</code>). Los navegadores suelen bloquear esto. Asegúrate de que tu Nginx esté configurado para hacer proxy a la API y que esta URL sea relativa (ej. "") o también HTTPS.`;
-                    noPiecesMessage.style.display = 'block';
-                    noPiecesMessage.style.color = 'darkred';
-                    noPiecesMessage.style.textAlign = 'left';
-                    noPiecesMessage.style.padding = '15px';
-                    noPiecesMessage.style.border = '2px solid darkred';
-                    noPiecesMessage.style.backgroundColor = '#ffe0e0';
-                }
-            } else {
-                 fetchPieces(); // Cargar piezas desde el backend al iniciar
-            }
-
+            
+            fetchPieces(); 
 
             if (piezaImagenInput) {
                 piezaImagenInput.addEventListener('change', function(event) {
@@ -188,7 +201,6 @@
             if (uploadForm) {
                 uploadForm.addEventListener('submit', async function(event) {
                     event.preventDefault();
-
                     const titulo = document.getElementById('piezaTitulo').value.trim();
                     const descripcion = document.getElementById('piezaDescripcion').value.trim();
                     const autor = document.getElementById('piezaAutor').value.trim() || 'Anónimo';
@@ -211,17 +223,11 @@
 
                     try {
                         const url = `${API_BASE_URL}/api/museo/piezas`;
-                        console.log(`Intentando subir pieza a: ${url}`);
-                        const response = await fetch(url, {
-                            method: 'POST',
-                            body: formData 
-                        });
-
+                        const response = await fetch(url, { method: 'POST', body: formData });
                         if (!response.ok) {
-                            const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status} ${response.statusText}. URL: ${url}` }));
-                            throw new Error(errorData.error || `Error del servidor: ${response.status} ${response.statusText}. URL: ${url}`);
+                            const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status} ${response.statusText}` }));
+                            throw new Error(errorData.error || `Error del servidor: ${response.status} ${response.statusText}`);
                         }
-
                         const result = await response.json();
                         alert(result.mensaje || '¡Pieza subida con éxito!');
                         fetchPieces(); 
@@ -251,27 +257,10 @@
                     
                     const img = document.createElement('img');
                     let imageUrl = pieza.imagenUrl;
-                    
-                    // Si API_BASE_URL está vacío (porque Nginx hace proxy), y la imagenUrl es relativa (ej. /uploads/...),
-                    // el navegador la solicitará correctamente desde el mismo dominio.
-                    // Si imagenUrl ya es una URL completa (http/https/data), se usa tal cual.
                     if (API_BASE_URL && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:')) {
                         imageUrl = `${API_BASE_URL}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
                     } else if (!API_BASE_URL && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:') && !imageUrl.startsWith('/')) {
                         imageUrl = `/${imageUrl}`;
-                        // ... después de añadir descriptionP ...
-
-                      const deleteButton = document.createElement('button');
-                      deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro'); // Añade clases para estilo
-                      deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Borrar';
-                      deleteButton.setAttribute('data-id', pieza.id);
-                      deleteButton.addEventListener('click', handleDeletePiezaMuseo);
-  
-                      cardContent.appendChild(deleteButton); // Añadir el botón
-  
-                      card.appendChild(img);
-                      card.appendChild(cardContent);
-                      museumGalleryGrid.appendChild(card);
                     }
 
                     img.src = imageUrl; 
@@ -297,14 +286,42 @@
                     descriptionP.classList.add('piece-description');
                     descriptionP.textContent = pieza.descripcion.substring(0, 120) + (pieza.descripcion.length > 120 ? '...' : ''); 
 
+                    const deleteButton = document.createElement('button');
+                    deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro');
+                    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Borrar';
+                    deleteButton.setAttribute('data-id', pieza.id);
+                    deleteButton.addEventListener('click', handleDeletePiezaMuseo);
+
                     cardContent.appendChild(titleH3);
                     cardContent.appendChild(authorP);
                     cardContent.appendChild(descriptionP);
+                    cardContent.appendChild(deleteButton);
                     
                     card.appendChild(img);
                     card.appendChild(cardContent);
                     museumGalleryGrid.appendChild(card);
                 });
+            }
+
+            async function handleDeletePiezaMuseo(event) {
+                const piezaId = event.target.closest('.delete-button').getAttribute('data-id');
+                if (!confirm(`¿Estás seguro de que quieres borrar la pieza de museo con ID ${piezaId}? Esta acción no se puede deshacer.`)) {
+                    return;
+                }
+                try {
+                    const url = `${API_BASE_URL}/api/museo/piezas/${piezaId}`;
+                    const response = await fetch(url, { method: 'DELETE' });
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status}` }));
+                        throw new Error(errorData.error || `Error del servidor: ${response.status}`);
+                    }
+                    const result = await response.json();
+                    alert(result.mensaje || 'Pieza borrada con éxito.');
+                    fetchPieces(); 
+                } catch (error) {
+                    console.error('Error al borrar la pieza de museo:', error);
+                    alert(`Error al borrar la pieza: ${error.message}`);
+                }
             }
             
             function openModal(src, caption) {
@@ -326,27 +343,6 @@
                     if(modal) modal.style.display = "none";
                 }
             }
-            
-            // Script para el menú de navegación móvil
-            // const navToggle = document.querySelector('.nav-toggle'); // Removed
-            // const navLinks = document.querySelector('.nav-links'); // Removed
-
-            // if (navToggle && navLinks) { // Removed
-            //     navToggle.addEventListener('click', () => {
-            //         const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-            //         navToggle.setAttribute('aria-expanded', !isExpanded);
-            //         navLinks.classList.toggle('active');
-            //     });
-
-            //     navLinks.querySelectorAll('a').forEach(link => {
-            //         link.addEventListener('click', () => {
-            //             if (navLinks.classList.contains('active')) {
-            //                 navToggle.setAttribute('aria-expanded', 'false');
-            //                 navLinks.classList.remove('active');
-            //             }
-            //         });
-            //     });
-            // }
         });
     </script>
 
