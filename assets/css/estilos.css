@@ -23,6 +23,11 @@
     --color-fondo-pagina-rgb: 253, 250, 246; 
     --color-error: #d9534f; 
     --color-success: #5cb85c;
+    --color-piedra-arena-rgb: 200, 187, 174;
+    --color-morado-emperador-rgb: 74, 13, 103; /* Based on --color-primario-purpura-rgb */
+    --color-piedra-clara-rgb: 234, 224, 208;
+    --color-fondo-pagina-base-rgb: 253, 250, 246; /* Based on --color-fondo-pagina */
+    --color-piedra-media-rgb: 210, 180, 140;
 
 
     --font-principal: 'Lora', serif;
