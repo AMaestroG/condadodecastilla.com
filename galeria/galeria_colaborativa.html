@@ -4,36 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería Colaborativa - Condado de Castilla</title>
-    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
+    <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="stylesheet" href="/assets/css/estilos.css">
+    <link rel="stylesheet" href="/css/estilos_condado.css">
 </head>
 <body>
+    <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->
+    
+    <!-- Este div será reemplazado por tu layout.js con la navegación/sidebar -->
+    <div id="header-placeholder"></div> 
 
-    <div id="header-placeholder"></div>
-
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_galeria_background.jpg');">
+    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_galeria_background.jpg');">
+        <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1>Galería Colaborativa del Condado</h1>
             <p>Un mosaico de miradas sobre la belleza, historia y rincones de nuestra tierra, creado por todos.</p>
         </div>
     </header>
 
     <main>
-        <section class="section upload-section-galeria"> <div class="container page-content-block">
+        <section class="section upload-section-galeria">
+            <div class="container page-content-block">
                 <h2 class="section-title">Comparte tu Visión <i class="fas fa-camera-retro"></i></h2>
-                <p class="intro-paragraph" style="text-align:center; font-size: clamp(1em, 2.2vw, 1.15em); margin-bottom: 2em;">
+                <p class="intro-paragraph">
                     ¿Has capturado la esencia del Condado de Castilla en una fotografía? ¿Un paisaje, un detalle arquitectónico, una escena cotidiana? ¡Súbela y forma parte de nuestra galería colectiva!
-                    <br><small>(Las subidas son para demostración y no se almacenan permanentemente en esta versión. Para una funcionalidad real, se requiere un backend que guarde las imágenes en `/imagenes/galeria_colaborativa/` o similar).</small>
+                    <br><small>(Las fotos subidas se añadirán a la galería si el backend está correctamente configurado).</small>
                 </p>
 
-                <form id="uploadPhotoForm" class="upload-form-container"> <div class="form-group">
+                <form id="uploadPhotoForm" class="upload-form-container">
+                    <div class="form-group">
                         <label for="photoTitulo"><i class="fas fa-heading"></i> Título de la Foto:</label>
                         <input type="text" id="photoTitulo" name="photoTitulo" required placeholder="Ej: Atardecer en el Alcázar">
                     </div>
@@ -51,7 +56,7 @@
                         <small>Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 2MB.</small>
                     </div>
                     <div class="form-group preview-container" id="photoPreviewContainer" style="display:none;">
-                        <img id="photoPreview" src="#" alt="Vista previa de la fotografía"/>
+                        <img id="photoPreview" src="#" alt="Vista previa de la fotografía" style="max-height: 200px; margin-bottom: 10px; border: 1px solid var(--condado-piedra-media);"/>
                     </div>
                     <button type="submit" class="cta-button submit-button"><i class="fas fa-share-square"></i> Compartir Fotografía</button>
                 </form>
@@ -62,7 +67,7 @@
             <div class="container"> 
                 <h2 class="section-title">Nuestra Galería Compartida <i class="fas fa-images"></i></h2>
                 <div id="photoGalleryGrid" class="photo-gallery-grid">
-                    <p class="no-photos-message" id="noPhotosMessage">Aún no se han compartido fotografías. ¡Anímate a ser el primero!</p>
+                    <p class="no-photos-message" id="noPhotosMessage">Cargando fotografías...</p>
                 </div>
             </div>
         </section>
@@ -86,9 +91,43 @@
         </div>
     </footer>
 
-    <script src="/js/layout.js"></script>
+    <!-- Tu script layout.js para cargar el header/sidebar -->
+    <script src="/js/layout.js"></script> 
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- Efecto Linterna ---
+            const linterna = document.getElementById('linterna-condado');
+            const seccionesConLinterna = document.querySelectorAll('.section'); 
+
+            if (linterna) {
+                function actualizarPosicionLinterna(e) {
+                    requestAnimationFrame(() => {
+                        linterna.style.setProperty('--mouse-x', e.clientX + 'px');
+                        linterna.style.setProperty('--mouse-y', e.clientY + 'px');
+                    });
+                }
+                function activarLinterna() {
+                    requestAnimationFrame(() => {
+                        linterna.style.setProperty('--linterna-opacity', '0.65'); 
+                        linterna.style.setProperty('--linterna-radio', '250px'); 
+                    });
+                }
+                function desactivarLinterna() {
+                    requestAnimationFrame(() => {
+                        linterna.style.setProperty('--linterna-opacity', '0');
+                    });
+                }
+                document.body.addEventListener('mousemove', actualizarPosicionLinterna);
+                seccionesConLinterna.forEach(section => {
+                    section.addEventListener('mouseenter', activarLinterna);
+                    section.addEventListener('mouseleave', desactivarLinterna);
+                });
+            } else {
+                console.warn("Elemento #linterna-condado no encontrado.");
+            }
+
+            // --- Lógica de la Galería Colaborativa ---
             const uploadForm = document.getElementById('uploadPhotoForm');
             const galleryGrid = document.getElementById('photoGalleryGrid');
             const noPhotosMsg = document.getElementById('noPhotosMessage');
@@ -100,52 +139,44 @@
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
+            
+            const API_BASE_URL_GALERIA = ""; // Nginx hará proxy para /api/galeria/fotos
 
-            // API_BASE_URL se deja vacía ("") si Nginx hace proxy para /api/galeria
-            // O usa la URL completa de tu backend si es necesario para desarrollo.
-            const API_BASE_URL_GALERIA = ""; // Ejemplo: "http://localhost:5000" o ""
-            const UPLOAD_PATH_SIMULATED = "/imagenes/galeria_colaborativa/"; // Para simular dónde se guardarían
-
-            let galleryPhotos = []; 
+            let localGalleryPhotos = []; 
 
             function loadSamplePhotos() {
-                // IMPORTANTE: Reemplaza estas URLs con imágenes reales en tu carpeta /imagenes/galeria_colaborativa/
-                // o crea imágenes placeholder.
                 return [
-                    { id: 'sample_photo1', titulo: "Atardecer en el Alcázar (Ejemplo)", descripcion: "Vista del Alcázar de Cerezo bañado por la luz dorada del atardecer.", autor: "Fotógrafo Local", imagenUrl: "/assets/img/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg", altText: "Atardecer sobre el Alcázar de Cerezo" },
-                    { id: 'sample_photo2', titulo: "Detalle Románico (Ejemplo)", descripcion: "Capitel historiado en la portada de una de las iglesias de la comarca.", autor: "Visitante Anónimo", imagenUrl: "/assets/img/galeria_colaborativa/ejemplo_detalle_romanico.jpg", altText: "Detalle de un capitel románico" },
-                    { id: 'sample_photo3', titulo: "Paisaje desde las Alturas (Ejemplo)", descripcion: "Panorámica de los campos de Castilla desde un mirador cercano a Lantarón.", autor: "Amante del Senderismo", imagenUrl: "/assets/img/galeria_colaborativa/ejemplo_paisaje_lantaron.jpg", altText: "Paisaje castellano desde las alturas" }
+                    { id: 'sample_photo1', titulo: "Atardecer en el Alcázar (Ejemplo)", descripcion: "Vista del Alcázar de Cerezo bañado por la luz dorada del atardecer.", autor: "Fotógrafo Local", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg", altText: "Atardecer sobre el Alcázar de Cerezo" },
+                    { id: 'sample_photo2', titulo: "Detalle Románico (Ejemplo)", descripcion: "Capitel historiado en la portada de una de las iglesias de la comarca.", autor: "Visitante Anónimo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_detalle_romanico.jpg", altText: "Detalle de un capitel románico" },
+                    { id: 'sample_photo3', titulo: "Paisaje desde las Alturas (Ejemplo)", descripcion: "Panorámica de los campos de Castilla desde un mirador cercano a Lantarón.", autor: "Amante del Senderismo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_paisaje_lantaron.jpg", altText: "Paisaje castellano desde las alturas" }
                 ];
             }
             
             async function fetchPhotos() {
-                // En una implementación real, esto haría fetch a tu endpoint GET /api/galeria/fotos
-                // Por ahora, simulamos o usamos ejemplos locales.
-                console.log("Intentando cargar fotos...");
-                if (API_BASE_URL_GALERIA && API_BASE_URL_GALERIA !== "") { // Si hay un backend configurado
-                    try {
-                        const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`; // Asume este endpoint
-                        const response = await fetch(url);
-                        if (!response.ok) {
-                            throw new Error(`Error HTTP: ${response.status}`);
-                        }
-                        galleryPhotos = await response.json();
-                        renderPhotoGallery(galleryPhotos);
-                    } catch (error) {
-                        console.error('Error al cargar fotos desde el backend:', error);
-                        galleryPhotos = loadSamplePhotos();
-                        renderPhotoGallery(galleryPhotos);
-                        if(noPhotosMsg) noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. Mostrando ejemplos. <br><small>${error.message}</small>`;
+                try {
+                    const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
+                    console.log(`Intentando obtener fotos desde: ${url}`);
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
                     }
-                } else {
-                    // Si no hay backend configurado, solo cargar ejemplos
-                    galleryPhotos = loadSamplePhotos();
-                    renderPhotoGallery(galleryPhotos);
-                    if(noPhotosMsg && galleryPhotos.length > 0) noPhotosMsg.textContent = 'Mostrando fotos de ejemplo. ¡Sube la tuya!';
+                    const photos = await response.json();
+                    localGalleryPhotos = photos;
+                    renderPhotoGallery(localGalleryPhotos);
+                } catch (error) {
+                    console.error('Error al cargar fotos desde el backend:', error);
+                    localGalleryPhotos = loadSamplePhotos(); 
+                    renderPhotoGallery(localGalleryPhotos); 
+                    if(noPhotosMsg) {
+                        noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. Mostrando ejemplos. <br><small>Error: ${error.message}</small>`;
+                        noPhotosMsg.style.display = 'block';
+                        noPhotosMsg.style.color = 'orange';
+                        noPhotosMsg.style.textAlign = 'center';
+                    }
                 }
             }
             
-            fetchPhotos();
+            fetchPhotos(); // Cargar fotos al iniciar
 
             if (photoFileInput) {
                 photoFileInput.addEventListener('change', function(event) {
@@ -174,13 +205,12 @@
             if (uploadForm) {
                 uploadForm.addEventListener('submit', async function(event) {
                     event.preventDefault();
-
                     const titulo = document.getElementById('photoTitulo').value.trim();
                     const descripcion = document.getElementById('photoDescripcion').value.trim();
                     const autor = document.getElementById('photoAutor').value.trim() || 'Anónimo';
                     const imagenFile = photoFileInput.files[0];
 
-                    if (!titulo || !imagenFile) { // Descripción es opcional
+                    if (!titulo || !imagenFile) {
                         alert('Por favor, completa el título y selecciona una imagen.');
                         return;
                     }
@@ -193,49 +223,25 @@
                     formData.append('photoTitulo', titulo);
                     formData.append('photoDescripcion', descripcion);
                     formData.append('photoAutor', autor);
-                    formData.append('photoFile', imagenFile); // Nombre del campo de archivo
+                    formData.append('photoFile', imagenFile);
 
-                    // SIMULACIÓN DE SUBIDA AL BACKEND
-                    if (API_BASE_URL_GALERIA && API_BASE_URL_GALERIA !== "") {
-                        try {
-                            const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`; // Asume este endpoint
-                            const response = await fetch(url, {
-                                method: 'POST',
-                                body: formData 
-                            });
-
-                            if (!response.ok) {
-                                const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status}` }));
-                                throw new Error(errorData.error || `Error del servidor: ${response.status}`);
-                            }
-                            const result = await response.json();
-                            alert(result.mensaje || '¡Fotografía subida con éxito!');
-                            fetchPhotos(); // Recargar la galería desde el backend
-                        } catch (error) {
-                            console.error('Error al subir la fotografía:', error);
-                            alert(`Error al subir la fotografía: ${error.message}.`);
+                    try {
+                        const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
+                        const response = await fetch(url, { method: 'POST', body: formData });
+                        if (!response.ok) {
+                            const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status} ${response.statusText}` }));
+                            throw new Error(errorData.error || `Error del servidor: ${response.status} ${response.statusText}`);
                         }
-                    } else {
-                        // Simulación local si no hay backend
-                        const reader = new FileReader();
-                        reader.onloadend = function() {
-                            const nuevaFoto = {
-                                id: 'local_' + Date.now(), 
-                                titulo: titulo,
-                                descripcion: descripcion,
-                                autor: autor,
-                                imagenUrl: reader.result, // Data URL para visualización local
-                                altText: `Fotografía: ${titulo}`
-                            };
-                            galleryPhotos.unshift(nuevaFoto);
-                            renderPhotoGallery(galleryPhotos);
-                            alert('¡Fotografía añadida localmente (simulación)!');
-                        }
-                        reader.readAsDataURL(imagenFile);
+                        const result = await response.json();
+                        alert(result.mensaje || '¡Fotografía subida con éxito!');
+                        fetchPhotos(); 
+                        uploadForm.reset();
+                        if(photoPreview) photoPreview.src = '#';
+                        if(photoPreviewContainer) photoPreviewContainer.style.display = 'none';
+                    } catch (error) {
+                        console.error('Error al subir la fotografía:', error);
+                        alert(`Error al subir la fotografía: ${error.message}. Asegúrate de que el backend esté corriendo y accesible.`);
                     }
-                    uploadForm.reset();
-                    if(photoPreview) photoPreview.src = '#';
-                    if(photoPreviewContainer) photoPreviewContainer.style.display = 'none';
                 });
             }
             
@@ -251,19 +257,24 @@
 
                 photosArray.forEach(photo => {
                     const photoCard = document.createElement('div');
-                    photoCard.classList.add('photo-card'); // Usaremos esta clase para estilizar
+                    photoCard.classList.add('photo-card'); 
                     
                     const img = document.createElement('img');
-                    // Si la imagenUrl es una ruta relativa del backend, Nginx la servirá.
-                    // Si es una Data URL (subida local), se mostrará directamente.
-                    img.src = photo.imagenUrl; 
+                    let imageUrl = photo.imagenUrl;
+                    if (API_BASE_URL_GALERIA && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:')) {
+                        imageUrl = `${API_BASE_URL_GALERIA}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+                    } else if (!API_BASE_URL_GALERIA && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:') && !imageUrl.startsWith('/')) {
+                        imageUrl = `/${imageUrl}`;
+                    }
+
+                    img.src = imageUrl; 
                     img.alt = photo.altText || `Fotografía: ${photo.titulo}`;
                     img.onerror = function() { 
                         this.onerror=null; 
                         this.src='https://placehold.co/400x300/D2B48C/2c1d12?text=Foto+no+disponible';
                         this.alt = `Error al cargar foto: ${photo.titulo}`;
                     };
-                    img.addEventListener('click', () => openModal(img.src, `${photo.titulo}${photo.autor !== 'Anónimo' && photo.autor ? ' - por ' + photo.autor : ''}`));
+                    img.addEventListener('click', () => openModal(img.src, `${photo.titulo}${photo.autor && photo.autor.toLowerCase() !== 'anónimo' ? ' - por ' + photo.autor : ''}`));
 
                     const captionDiv = document.createElement('div');
                     captionDiv.classList.add('photo-card-caption');
@@ -283,11 +294,40 @@
                         authorP.innerHTML = `<small>Por: ${photo.autor}</small>`;
                         captionDiv.appendChild(authorP);
                     }
+
+                    // Botón de borrado
+                    const deleteButton = document.createElement('button');
+                    deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro');
+                    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Borrar';
+                    deleteButton.setAttribute('data-id', photo.id);
+                    deleteButton.addEventListener('click', handleDeleteFotoGaleria);
+                    captionDiv.appendChild(deleteButton);
                     
                     photoCard.appendChild(img);
                     photoCard.appendChild(captionDiv);
                     galleryGrid.appendChild(photoCard);
                 });
+            }
+
+            async function handleDeleteFotoGaleria(event) {
+                const fotoId = event.target.closest('.delete-button').getAttribute('data-id');
+                if (!confirm(`¿Estás seguro de que quieres borrar la fotografía con ID ${fotoId}? Esta acción no se puede deshacer.`)) {
+                    return;
+                }
+                try {
+                    const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos/${fotoId}`;
+                    const response = await fetch(url, { method: 'DELETE' });
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status}` }));
+                        throw new Error(errorData.error || `Error del servidor: ${response.status}`);
+                    }
+                    const result = await response.json();
+                    alert(result.mensaje || 'Fotografía borrada con éxito.');
+                    fetchPhotos(); 
+                } catch (error) {
+                    console.error('Error al borrar la fotografía:', error);
+                    alert(`Error al borrar la fotografía: ${error.message}`);
+                }
             }
             
             function openModal(src, caption) {
@@ -309,26 +349,6 @@
                     if(modal) modal.style.display = "none";
                 }
             }
-            
-            // const navToggle = document.querySelector('.nav-toggle'); // Removed
-            // const navLinks = document.querySelector('.nav-links'); // Removed
-
-            // if (navToggle && navLinks) {  // Removed
-            //     navToggle.addEventListener('click', () => {
-            //         const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-            //         navToggle.setAttribute('aria-expanded', !isExpanded);
-            //         navLinks.classList.toggle('active');
-            //     });
-
-            //     navLinks.querySelectorAll('a').forEach(link => {
-            //         link.addEventListener('click', () => {
-            //             if (navLinks.classList.contains('active')) {
-            //                 navToggle.setAttribute('aria-expanded', 'false');
-            //                 navLinks.classList.remove('active');
-            //             }
-            //         });
-            //     });
-            // }
         });
     </script>
 
