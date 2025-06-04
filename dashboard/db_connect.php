@@ -41,10 +41,7 @@ try {
     // In a production environment, log this error to a file or a logging system.
     // Avoid displaying detailed error messages to the end-user.
     error_log("Database Connection Error: " . $e->getMessage(), 0);
-    
-    // Display a generic error message to the user
-    // You might want to redirect to an error page or display a more user-friendly message.
-    die("ERROR: Could not connect to the database. Please check the configuration and ensure the Progress ODBC driver is installed and configured correctly. Detailed error: " . $e->getMessage());
+    $pdo = null;
 }
 
 // The $pdo object is now ready to be used for database operations.
