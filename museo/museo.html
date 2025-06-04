@@ -259,6 +259,19 @@
                         imageUrl = `${API_BASE_URL}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
                     } else if (!API_BASE_URL && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:') && !imageUrl.startsWith('/')) {
                         imageUrl = `/${imageUrl}`;
+                        // ... después de añadir descriptionP ...
+
+                      const deleteButton = document.createElement('button');
+                      deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro'); // Añade clases para estilo
+                      deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Borrar';
+                      deleteButton.setAttribute('data-id', pieza.id);
+                      deleteButton.addEventListener('click', handleDeletePiezaMuseo);
+  
+                      cardContent.appendChild(deleteButton); // Añadir el botón
+  
+                      card.appendChild(img);
+                      card.appendChild(cardContent);
+                      museumGalleryGrid.appendChild(card);
                     }
 
                     img.src = imageUrl; 
