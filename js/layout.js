@@ -68,3 +68,30 @@ function initializeMobileNavigation() {
     }
 }
 */
+
+// --- Section Spotlight Effect ---
+document.addEventListener('DOMContentLoaded', () => {
+    const sectionsWithSpotlight = document.querySelectorAll('.section.spotlight-active');
+
+    sectionsWithSpotlight.forEach(section => {
+        section.style.setProperty('--spotlight-opacity', '1'); // Make spotlight visible
+
+        section.addEventListener('mousemove', (e) => {
+            const rect = section.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const size = Math.min(rect.width, rect.height) * 0.5; // Adjust size based on section
+
+            section.style.setProperty('--spotlight-x', `${(x / rect.width) * 100}%`);
+            section.style.setProperty('--spotlight-y', `${(y / rect.height) * 100}%`);
+            section.style.setProperty('--spotlight-size', `${size}px`);
+        });
+
+        section.addEventListener('mouseleave', () => {
+            // Optional: Reset to center or fade out
+            section.style.setProperty('--spotlight-x', '50%');
+            section.style.setProperty('--spotlight-y', '50%');
+            // section.style.setProperty('--spotlight-opacity', '0'); // Or fade slowly
+        });
+    });
+});
