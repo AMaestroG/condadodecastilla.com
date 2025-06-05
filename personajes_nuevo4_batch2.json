@@ -1,0 +1,44 @@
+[
+  {
+    "name": "San Formerio",
+    "era": "Roman / Christian Sainthood",
+    "status": "Santo, Mártir",
+    "description": "His history is linked to a circus with lions in Auca Patricia (Cerezo) in 277, during Emperor Aureliano's time. The church of Santi Emiliani in Auca is mentioned to sacralize the place of torments for Christian martyrs like him. Mentioned as being distributed throughout Cantabria and Gallecia."
+  },
+  {
+    "name": "Aureliano",
+    "era": "Roman",
+    "status": "Emperador",
+    "description": "Mentioned in the context of San Formerio, dating events to his time (277 A.D.). Associated with a Roman governor and a circus with lions in the Vega de los Tormentos in Aucam Patricia."
+  },
+  {
+    "name": "Paterna",
+    "era": "Asturleonese (c. 840-842)",
+    "status": "Esposa de Ramiro I, Cerezana de Cuna, Banucasi de nombre",
+    "description": "Wife of Ramiro I. Described as 'Cerezana de Cuna, Banucasi de nombre'. Around 840-842, associated with Ramiro I in founding a hospital for Hospitalarios under the San Jorge flag in Cerasio (Cerezo de Río Tirón), dedicated to San Antón. Her marriage to Ramiro I is mentioned in the context of the Alcázar de Cerasio passing to Christian hands as a dote."
+  },
+  {
+    "name": "Gonzalo Téllez",
+    "era": "Medieval Castilian (c. 913-930)",
+    "status": "Conde de Cerezo y Lantarón, Conde de Castilla y de Álava",
+    "description": "Referred to as a famous 'Conde de Cerezo y Lantarón - Conde de Castila y de Álava'. Mentioned regarding the Hospital de San Jorge (c. 930). Founded San Pedro de Arlanza. Donated to the monastery of San Jorge, San Juan y San Martín in 'suburbio quem ferunt Cerasio' in 913 with his wife Flamula. His signature with a 'lucero del Alba' is noted."
+  },
+  {
+    "name": "Fernán González",
+    "era": "Medieval Castilian (Condado de Castilla)",
+    "status": "Conde de Lara, Conde de Burgos, luego Conde de Cerezo y Lantarón, Señor de toda Castilla y Álava",
+    "description": "Son of Gonzalo Fernández (Primer Conde de Burgos). Became Conde de Cerezo y Lantarón, Castilla y Álava after marrying Doña Sancha, widow of Álvaro Herramelluriz. His titles are listed. Credited with moving the capital from Alcázar de Cerasio to Burgos. His father, Gonzalo Fernández, is said by Fray Justo Pérez Úrbiel to be buried in Cerezo."
+  },
+  {
+    "name": "Doña Sancha",
+    "era": "Medieval Castilian (Condado de Castilla)",
+    "status": "Viuda de Álvaro Herramelluriz, Esposa de Fernán González, Hija de los reyes de Navarra, Condesa de Cerezo y Lantarón, Condesa de Castilla y Álava",
+    "description": "Widow of Álvaro Herramelluriz (Conde de Cerezo y Lantarón – Conde de Castilla y Álava). Daughter of the kings of Navarra. Inherited the counties of Cerezo y Lantarón (Castilla) and Álava from her first husband. Later married Fernán González, who then regent/assumed these titles through her."
+  },
+  {
+    "name": "Rodrigo (Primer Conde de Castilla)",
+    "era": "Medieval Castilian (c. 860s)",
+    "status": "Primer Conde de Cerezo y Lantarón, Conde de Castilla y Álava",
+    "description": "Father of Diego Rodríguez Porcelos. The text states he lost the Battle of la Morcuera, which took place in the Alfoz de Cerezo y Lantarón. His castles are implied to be within this Alfoz. His fortress 'Alqila' (described as having four castles) is mentioned as a 'cuna y tumba de Condes de Castilla'. One of the first Condes de Castilla y Álava."
+  }
+]
