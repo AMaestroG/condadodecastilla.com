@@ -7,7 +7,7 @@ require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/db_connect.php'; // Provides $pdo
 
 // Ensure user is admin and request is POST
-require_admin_login('/login.php');
+require_admin_login();
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['feedback_message'] = 'Acceso no válido.';
     $_SESSION['feedback_type'] = 'error';

@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Administración</title>
     <!-- Link to existing stylesheet, assuming one exists in assets/css/ -->
-    <link rel="stylesheet" href="../assets/css/estilos.css">
+    <link rel="stylesheet" href="../assets/css/epic_theme.css">
     <style>
         body {
             display: flex;
