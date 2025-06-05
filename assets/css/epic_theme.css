@@ -294,6 +294,115 @@ body.sidebar-active #sidebar-toggle {
     outline: none;
 }
 
+/* --- Pieza Info Overlay Styles --- */
+#pieza-info-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--epic-text-color-rgb), 0.8); /* Dark overlay background */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1050; /* High z-index, above most content but potentially below a main menu if one had higher */
+    opacity: 0;
+    transition: opacity var(--global-transition-speed) ease-in-out;
+    align-items: center; /* For centering #overlay-content */
+    justify-content: center; /* For centering #overlay-content */
+}
+
+#pieza-info-overlay.visible {
+    display: flex; /* Use flex to enable centering */
+    opacity: 1;
+}
+
+#overlay-content {
+    background-color: var(--epic-alabaster-bg);
+    color: var(--epic-text-color);
+    padding: clamp(20px, 4vw, 40px);
+    border-radius: var(--global-border-radius);
+    box-shadow: var(--global-box-shadow-dark);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: left; /* Override body's text-align:center */
+    position: relative; /* For positioning close button */
+    transform: scale(0.95);
+    transition: transform var(--global-transition-speed) ease-in-out;
+}
+
+#pieza-info-overlay.visible #overlay-content {
+    transform: scale(1);
+}
+
+#overlay-content h3 { /* #overlay-titulo */
+    font-family: var(--font-headings);
+    color: var(--epic-purple-emperor);
+    font-size: clamp(1.8em, 4vw, 2.5em);
+    margin-top: 0;
+    margin-bottom: 0.7em;
+    border-bottom: 2px solid var(--epic-gold-secondary);
+    padding-bottom: 0.3em;
+    text-align: center;
+}
+
+#overlay-content p { /* #overlay-autor, #overlay-descripcion */
+    font-family: var(--font-primary);
+    font-size: clamp(1em, 2vw, 1.1em);
+    line-height: 1.6;
+    margin-bottom: 1em;
+    text-align: left; /* Ensure paragraphs are left-aligned */
+}
+
+#overlay-content #overlay-autor {
+    font-style: italic;
+    color: var(--epic-purple-emperor); /* Or a slightly less prominent color */
+    margin-bottom: 1.5em;
+}
+
+#overlay-cerrar {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 0.7em 1.5em;
+    font-family: var(--font-headings);
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--epic-alabaster-bg);
+    background-color: var(--epic-gold-secondary);
+    border: 2px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    cursor: pointer;
+    transition: background-color var(--global-transition-speed), color var(--global-transition-speed), border-color var(--global-transition-speed);
+}
+
+#overlay-cerrar:hover,
+#overlay-cerrar:focus {
+    background-color: var(--epic-gold-main);
+    border-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    outline: none;
+}
+
+/* Alternative close button as an 'X' in the corner */
+/*
+#overlay-cerrar.corner-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    color: var(--epic-text-color);
+    padding: 0;
+    line-height: 1;
+}
+#overlay-cerrar.corner-close:hover {
+    color: var(--epic-purple-emperor);
+}
+*/
+
 #sidebar .nav-links a i { /* FontAwesome icons */
     margin-right: 10px;
     font-size: 1.1em;

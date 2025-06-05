@@ -7,6 +7,14 @@
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Postprocessing -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -412,6 +420,15 @@
         });
     </script>
     <script src="/js/museo-3d.js"></script>
+
+    <div id="pieza-info-overlay">
+        <div id="overlay-content">
+            <h3 id="overlay-titulo"></h3>
+            <p id="overlay-autor"></p>
+            <p id="overlay-descripcion"></p>
+            <button id="overlay-cerrar" aria-label="Cerrar información de la pieza">&times; Cerrar</button>
+        </div>
+    </div>
 
 </body>
 </html>
