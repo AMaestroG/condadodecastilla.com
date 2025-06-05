@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museo Colaborativo del Condado - Condado de Castilla</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,8 +63,13 @@
             </div>
         </section>
 
-        <section class="section museum-gallery-section alternate-bg">
-            <div class="container"> 
+        <div class="view-switch-controls container" style="text-align: center; margin-bottom: 20px; padding-top: 20px;">
+            <button id="show-2d-gallery-btn" class="cta-button view-switch-button">Ver Galería 2D</button>
+            <button id="show-3d-museum-btn" class="cta-button view-switch-button">Explorar Museo 3D</button>
+        </div>
+
+        <section class="section museum-gallery-section alternate-bg" id="gallery-2d-section">
+            <div class="container">
                 <h2 class="section-title">Galería del Museo <i class="fas fa-landmark"></i></h2>
                 <div id="museumGalleryGrid" class="card-grid museum-gallery-grid">
                     <p class="no-pieces-message" id="noPiecesMessage">Cargando piezas del museo...</p>
@@ -70,6 +77,16 @@
             </div>
         </section>
     </main>
+
+    <section id="museo-3d-section" class="section museo-3d-section alternate-bg">
+        <div class="container page-content-block">
+            <h2 class="section-title">Explora el Museo en 3D <i class="fas fa-vr-cardboard"></i></h2>
+            <p class="intro-paragraph">Visualiza algunas piezas destacadas en un entorno tridimensional interactivo. Usa el ratón para orbitar, hacer zoom y seleccionar piezas para ver sus detalles. (Funcionalidad en desarrollo)</p>
+            <div id="museo-3d-container">
+                <!-- Three.js canvas will be injected here -->
+            </div>
+        </div>
+    </section>
 
     <div id="imageModal" class="modal">
         <span class="modal-close-button">&times;</span>
@@ -89,7 +106,7 @@
         </div>
     </footer>
 
-    <script src="/js/layout.js"></script> 
+    <script src="/js/layout.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Efecto Linterna ---
@@ -124,7 +141,8 @@
 
             // --- Lógica del Museo Colaborativo ---
             const uploadForm = document.getElementById('uploadForm');
-            const museumGalleryGrid = document.getElementById('museumGalleryGrid');
+            const gallery2DSection = document.getElementById('gallery-2d-section'); // Changed to section
+            const museumGalleryGrid = document.getElementById('museumGalleryGrid'); // This is inside gallery2DSection
             const noPiecesMessage = document.getElementById('noPiecesMessage');
             const imagePreview = document.getElementById('imagePreview');
             const imagePreviewContainer = document.getElementById('imagePreviewContainer');
@@ -134,10 +152,48 @@
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
+            const museum3DSection = document.getElementById('museo-3d-section');
+            const show2DGalleryBtn = document.getElementById('show-2d-gallery-btn');
+            const show3DMuseumBtn = document.getElementById('show-3d-museum-btn');
             
             const API_BASE_URL = ""; // Nginx hará proxy para /api/museo/piezas
 
-            let localMuseumPieces = []; 
+            let localMuseumPieces = [];
+
+            // --- View Switcher Logic ---
+            function switchTo2DView() {
+                if (gallery2DSection) gallery2DSection.style.display = 'block'; // Show 2D section
+                if (museum3DSection) museum3DSection.style.display = 'none';   // Hide 3D section
+                if (show2DGalleryBtn) show2DGalleryBtn.disabled = true;
+                if (show3DMuseumBtn) show3DMuseumBtn.disabled = false;
+                // If Three.js is running, you might want to stop its animation loop or renderer here to save resources
+                // For now, js/museo-3d.js handles its own resize and animation.
+            }
+
+            function switchTo3DView() {
+                if (gallery2DSection) gallery2DSection.style.display = 'none';  // Hide 2D section
+                if (museum3DSection) museum3DSection.style.display = 'block';  // Show 3D section
+                if (show2DGalleryBtn) show2DGalleryBtn.disabled = false;
+                if (show3DMuseumBtn) show3DMuseumBtn.disabled = true;
+
+                // Trigger a resize event for the 3D canvas in case it was initialized while hidden
+                // The onWindowResize in museo-3d.js should pick this up.
+                window.dispatchEvent(new Event('resize'));
+            }
+
+            if (show2DGalleryBtn && show3DMuseumBtn && gallery2DSection && museum3DSection) {
+                show2DGalleryBtn.addEventListener('click', switchTo2DView);
+                show3DMuseumBtn.addEventListener('click', switchTo3DView);
+
+                // Initial state: Show 2D, hide 3D
+                switchTo2DView();
+            } else {
+                console.warn("One or more elements for view switching not found. Ensure gallery-2d-section, museo-3d-section, show-2d-gallery-btn, and show-3d-museum-btn exist.");
+                // Fallback: ensure both are visible if buttons aren't there, or hide 3D by default.
+                if (museum3DSection && !(show2DGalleryBtn && show3DMuseumBtn)) { // If buttons missing, hide 3D
+                     museum3DSection.style.display = 'none';
+                }
+            }
 
             function loadSamplePieces() {
                 return [
@@ -355,6 +411,7 @@
             }
         });
     </script>
+    <script src="/js/museo-3d.js"></script>
 
 </body>
 </html>
