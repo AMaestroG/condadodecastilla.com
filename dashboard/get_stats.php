@@ -1,55 +1,71 @@
 <?php
 header('Content-Type: application/json');
-require_once 'db_connect.php'; // Establishes $pdo connection
+require_once 'db_connect.php'; // Establece la conexión $pdo
 
-$response = ['success' => false, 'message' => '', 'data' => []];
+$response = ['success' => false, 'message' => 'Error desconocido.', 'data' => []];
 
-// Check if $pdo is set and is an instance of PDO
 if (!isset($pdo) || !$pdo instanceof PDO) {
-    // This case might occur if db_connect.php had an issue but didn't die,
-    // or if $pdo was somehow unset.
-    $response['message'] = "Database connection is not available. Please check db_connect.php.";
-    error_log("get_stats.php: PDO object not available from db_connect.php.", 0);
+    $response['message'] = "La conexión a la base de datos no está disponible. Revisa la configuración.";
+    error_log("get_stats.php: el objeto PDO no está disponible desde db_connect.php.");
     http_response_code(500); // Internal Server Error
     echo json_encode($response);
     exit;
 }
 
 try {
-    // Prepare and execute the SQL statement
-    // IMPORTANT: The user must ensure these table and column names match their actual database schema.
-    // This example assumes a table named 'visit_stats' with columns 'section_name' and 'visit_count'.
-    $sql = "SELECT section_name, SUM(visit_count) as total_visits FROM visit_stats GROUP BY section_name ORDER BY total_visits DESC";
-    $stmt = $pdo->query($sql);
+    // Estadísticas de ejemplo: Conteo de piezas del museo y fotos de la galería
+    // En una aplicación real, tendrías una tabla 'visit_stats' o similar.
+    // Aquí adaptamos para contar los ítems que ya tienes.
+
+    $stats_data = [];
+
+    // Contar piezas del museo
+    $stmt_museo = $pdo->query("SELECT COUNT(*) as total_items FROM piezas_museo");
+    $count_museo = $stmt_museo->fetchColumn();
+    if ($count_museo !== false) {
+        $stats_data[] = ["section_name" => "Piezas del Museo", "total_visits" => (int)$count_museo];
+    } else {
+        $stats_data[] = ["section_name" => "Piezas del Museo", "total_visits" => 0];
+        error_log("get_stats.php: No se pudo obtener el conteo de piezas_museo.");
+    }
+
+    // Contar fotos de la galería
+    $stmt_galeria = $pdo->query("SELECT COUNT(*) as total_items FROM fotos_galeria");
+    $count_galeria = $stmt_galeria->fetchColumn();
+    if ($count_galeria !== false) {
+        $stats_data[] = ["section_name" => "Fotos de Galería", "total_visits" => (int)$count_galeria];
+    } else {
+        $stats_data[] = ["section_name" => "Fotos de Galería", "total_visits" => 0];
+        error_log("get_stats.php: No se pudo obtener el conteo de fotos_galeria.");
+    }
     
-    // Fetch all results. If no rows are returned, $stats will be an empty array.
-    $stats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+    // Podrías añadir más "secciones" si tienes otras tablas o formas de medir visitas
+    // Ejemplo de datos estáticos si tus tablas están vacías:
+    if (empty($stats_data) || ($count_museo == 0 && $count_galeria == 0)) {
+        // $stats_data[] = ["section_name" => "Página de Inicio", "total_visits" => 150]; // Dato de ejemplo
+        // $stats_data[] = ["section_name" => "Historia", "total_visits" => 75];      // Dato de ejemplo
+    }
+
+
     $response['success'] = true;
-    $response['data'] = $stats; // Will be an empty array if no stats are found
+    $response['data'] = $stats_data;
     
-    if (empty($stats)) {
-        $response['message'] = "No visit statistics found."; // Optional: a message indicating no data
+    if (empty($stats_data)) {
+        $response['message'] = "No hay estadísticas para mostrar todavía.";
+    } else {
+        $response['message'] = "Estadísticas cargadas correctamente.";
     }
     
 } catch (PDOException $e) {
-    // Log the detailed PDO error to the server's error log
-    error_log("Database Query Error in get_stats.php: " . $e->getMessage(), 0);
-    
-    // Set a user-friendly error message for the JSON response
-    $response['message'] = "Error fetching statistics. Please check the server logs for more details.";
-    // Consider setting an appropriate HTTP status code for client-side handling
-    // http_response_code(500); // Internal Server Error
-    
+    error_log("Error de Consulta a BD en get_stats.php: " . $e->getMessage(), 0);
+    $response['message'] = "Error al obtener estadísticas de la base de datos.";
+    http_response_code(500); 
 } catch (Exception $e) {
-    // Catch any other non-PDO exceptions (e.g., issues not directly related to the database query)
-    error_log("General Error in get_stats.php: " . $e->getMessage(), 0);
-    $response['message'] = "An unexpected error occurred. Please check the server logs for more details.";
-    // http_response_code(500); // Internal Server Error
+    error_log("Error General en get_stats.php: " . $e->getMessage(), 0);
+    $response['message'] = "Ocurrió un error inesperado al procesar las estadísticas.";
+    http_response_code(500);
 }
 
-// Ensure $pdo is nullified if it's no longer needed, especially if persistent connections were considered.
-// $pdo = null; // Usually handled by PHP at script end, but explicit can be good.
-
+$pdo = null; // Cerrar conexión
 echo json_encode($response);
 ?>
