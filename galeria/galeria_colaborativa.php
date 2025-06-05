@@ -54,8 +54,7 @@ if (is_dir($gallery_dir)) {
 <body>
     <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->
     
-    <!-- Este div será reemplazado por tu layout.js con la navegación/sidebar -->
-    <div id="header-placeholder"></div> 
+    <?php require_once __DIR__ . '/../_header.html'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_galeria_background.jpg');">
         <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->
