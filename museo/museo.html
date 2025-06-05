@@ -6,7 +6,8 @@
     <title>Museo Colaborativo del Condado - Condado de Castilla</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script> <!-- Will be commented out in JS -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <!-- Postprocessing -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
@@ -15,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
 
+    <div id="crosshair" style="position: fixed; top: 50%; left: 50%; width: 6px; height: 6px; background-color: rgba(255,255,255,0.6); border-radius: 50%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none; display: none;"></div>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -420,6 +422,15 @@
         });
     </script>
     <script src="/js/museo-3d.js"></script>
+
+    <div id="pointer-lock-instructions" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); color: white; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 20px; z-index: 10000; cursor: pointer;">
+        <div>
+            <h1>Exploración del Museo</h1>
+            <p style="font-size: 1.2em; margin-top: 1em;">Haz clic en esta pantalla para empezar a explorar.</p>
+            <p style="margin-top: 0.5em;">Usa las teclas <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> para moverte y el <kbd>RATÓN</kbd> para mirar alrededor.</p>
+            <p style="font-size: 0.8em; margin-top: 2em;">Presiona <kbd>ESC</kbd> para liberar el cursor.</p>
+        </div>
+    </div>
 
     <div id="pieza-info-overlay">
         <div id="overlay-content">
