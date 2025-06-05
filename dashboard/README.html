@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Visit Statistics Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/estilos.css">
+    <link rel="stylesheet" href="../assets/css/epic_theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="../assets/js/layout.js" defer></script>
+</head>
+<body>
+    <button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+<div id="sidebar" class="sidebar">
+    <a href="/index.html" class="logo-link">
+        <img src="/assets/img/AlfozCerasioLantaron.jpg" alt="Logo Alfoz de Cerasio y Lantarón" class="logo-image">
+    </a>
+    <ul class="nav-links">
+        <li><a href="/index.html" class="active-link">Inicio</a></li>
+        <li><a href="/historia/historia.html">Nuestra Historia</a></li>
+        <li><a href="/alfoz/alfoz.html">El Alfoz</a></li>
+        <li><a href="/lugares/lugares.html">Lugares Emblemáticos</a></li>
+        <li><a href="/camino_santiago/camino_santiago.html">Camino de Santiago</a></li>
+        <li><a href="/museo/museo.html">Museo Colaborativo</a></li>
+        <li><a href="/galeria/galeria_colaborativa.html">Galería Colaborativa</a></li>
+        <li><a href="/visitas/visitas.html">Planifica Tu Visita</a></li>
+        <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
+        <li><a href="/personajes/indice_personajes.html">Personajes</a></li>
+        <li><a href="/contacto/contacto.html">Contacto</a></li>
+        <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li>
+        <li><a href="https://chat.whatsapp.com/JWJ6mWXPuekIBZ8HJSSsZx" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+    </ul>
+</div>
+
+    <main class="container page-content-block">
+        <h1>PHP Visit Statistics Dashboard</h1>
+<h2>Overview</h2>
+<p>This dashboard displays website visit statistics per section using a bar chart. It fetches data from a Progress database via PHP and PDO_ODBC, and renders the chart in the browser using Chart.js.</p>
+<p>The system consists of three main PHP files:
+-   <code>db_connect.php</code>: Handles the database connection. <strong>This file requires manual configuration.</strong>
+-   <code>get_stats.php</code>: Fetches statistics from the database and outputs them in JSON format.
+-   <code>index.php</code>: Displays the dashboard, including the chart.</p>
+<h2>Prerequisites</h2>
+<p>Before deploying this dashboard, ensure the following requirements are met:</p>
+<ol>
+<li><strong>PHP Environment</strong>: A web server with PHP installed.<ul>
+<li>The <strong>PDO ODBC extension</strong> (<code>php_pdo_odbc.dll</code> or <code>pdo_odbc.so</code>) must be enabled in your <code>php.ini</code> file.</li>
+</ul>
+</li>
+<li><strong>Progress ODBC Driver</strong>: The appropriate Progress OpenEdge ODBC driver must be installed and correctly configured on the server where PHP is running. This includes setting up an ODBC Data Source Name (DSN) if you choose to connect via a system DSN, or ensuring the driver is available for DSN-less connections.</li>
+<li><strong>Database Access</strong>: Network access from the web server to the Progress database server.</li>
+<li><strong>Database Credentials</strong>: Valid username and password for accessing the Progress database.</li>
+<li><strong>Client Internet Access</strong>: The client's web browser needs internet access to load the Chart.js library from the CDN.</li>
+</ol>
+<h2>Configuration</h2>
+<p>The primary configuration file is <code>dashboard/db_connect.php</code>. You <strong>must</strong> update this file with your actual Progress database credentials and connection details.</p>
+<p>Open <code>dashboard/db_connect.php</code> and modify the following placeholder variables:</p>
+<ul>
+<li><code>$db_host</code>: Your Progress database server hostname or IP address.
+    <code>php
+    $db_host = "YOUR_DB_HOST"; // e.g., "localhost" or "192.168.1.100"</code></li>
+<li><code>$db_name</code>: The name of your Progress database.
+    <code>php
+    $db_name = "YOUR_DB_NAME"; // e.g., "sportsdb"</code></li>
+<li><code>$db_user</code>: The username for database access.
+    <code>php
+    $db_user = "YOUR_DB_USER";</code></li>
+<li><code>$db_pass</code>: The password for the database user.
+    <code>php
+    $db_pass = "YOUR_DB_PASSWORD";</code></li>
+<li><code>$db_port</code>: The port number your Progress database is listening on. This is often specific to your Progress setup (e.g., 2050, 5555).
+    <code>php
+    $db_port = "YOUR_DB_PORT"; // e.g., 2050</code></li>
+<li><code>$db_other_params</code> (Optional): If your connection requires other specific parameters (e.g., ServiceName, EncryptionMethod), you can uncomment and set this variable in <code>db_connect.php</code>.
+    <code>php
+    // $db_other_params = "ServiceName=your_service;EncryptionMethod=1;ValidateServerCertificate=0";</code></li>
+</ul>
+<h3>DSN String Configuration</h3>
+<p>The script uses a DSN-less connection string by default. The DSN string is constructed as follows:</p>
+<pre><code class="language-php">$dsn = &quot;odbc:DRIVER={Progress OpenEdge Wire Protocol};HOST=$db_host;PORT=$db_port;DB=$db_name;&quot;;
+</code></pre>
+<p><strong>Important</strong>:
+*   The <code>DRIVER</code> name <code>{Progress OpenEdge Wire Protocol}</code> might need to be adjusted based on the exact name of the Progress ODBC driver installed on your system. Check your server's ODBC Data Source Administrator for the correct driver name (e.g., it could be <code>{DataDirect OpenEdge Wire Protocol}</code> or similar).
+*   If you prefer to use a pre-configured System DSN, you can change the <code>$dsn</code> variable to something like:
+    <code>php
+    $dsn = "odbc:YOUR_SYSTEM_DSN_NAME";
+    // Ensure $db_user and $db_pass are then passed to the PDO constructor,
+    // or configure them in your system DSN.</code>
+*   Consult your Progress ODBC driver documentation if you encounter issues with the DSN or connection string.</p>
+<h2>Database Table Structure</h2>
+<p>The <code>dashboard/get_stats.php</code> script assumes a specific table structure for fetching visit statistics.</p>
+<ul>
+<li><strong>Assumed Table Name</strong>: <code>visit_stats</code></li>
+<li><strong>Assumed Columns</strong>:<ul>
+<li><code>section_name</code> (VARCHAR or similar text type): Stores the name or identifier of the website section (e.g., 'Homepage', 'Products', 'Contact Us').</li>
+<li><code>visit_count</code> (INTEGER or similar numeric type): Stores the number of visits recorded for that section for a specific entry or period. The script aggregates these counts.</li>
+</ul>
+</li>
+</ul>
+<p>If your database table or column names are different, you <strong>must</strong> update the SQL query within <code>dashboard/get_stats.php</code>.</p>
+<p>The current query is:</p>
+<pre><code class="language-sql">SELECT section_name, SUM(visit_count) as total_visits
+FROM visit_stats
+GROUP BY section_name
+ORDER BY total_visits DESC;
+</code></pre>
+<p>Modify <code>visit_stats</code>, <code>section_name</code>, or <code>visit_count</code> in this query to match your actual schema.</p>
+<h2>Running the Dashboard</h2>
+<ol>
+<li><strong>Configure</strong>: Update <code>dashboard/db_connect.php</code> with your database credentials and DSN details as described above.</li>
+<li><strong>Modify Query (if needed)</strong>: Adjust the SQL query in <code>dashboard/get_stats.php</code> if your table/column names differ.</li>
+<li><strong>Deploy</strong>: Upload the entire <code>dashboard</code> directory (containing <code>index.php</code>, <code>get_stats.php</code>, <code>db_connect.php</code>, and this <code>README.md</code>) to your PHP-enabled web server.</li>
+<li><strong>Access</strong>: Open your web browser and navigate to the <code>index.php</code> file. For example:
+    <code>http://your-server.com/path-to-dashboard/dashboard/index.php</code></li>
+</ol>
+<p>The dashboard should display a bar chart of visit statistics.</p>
+<h2>Troubleshooting</h2>
+<p>If you encounter issues, here are some common troubleshooting steps:</p>
+<ol>
+<li><strong>Check Web Server Error Logs</strong>: PHP errors, database connection failures, and other issues are often logged by your web server (e.g., Apache error log, Nginx error log, PHP error log). These logs are invaluable for diagnosing problems.</li>
+<li><strong>Verify <code>db_connect.php</code></strong>:<ul>
+<li>Double-check all database credentials, hostname, port, and database name.</li>
+<li>Ensure the ODBC driver name in the DSN string is correct for your system.</li>
+</ul>
+</li>
+<li><strong>Test <code>get_stats.php</code> Directly</strong>:<ul>
+<li>Navigate to <code>http://your-server.com/path-to-dashboard/dashboard/get_stats.php</code> in your browser.</li>
+<li>This should output a JSON string.</li>
+<li>If it's empty, shows a PHP error, or a JSON error message, it indicates a problem with either the database connection (<code>db_connect.php</code>) or the SQL query in <code>get_stats.php</code>.</li>
+<li>The error message (if any) in the JSON output (e.g., <code>{"success":false,"message":"Error details..."}</code>) can provide clues.</li>
+</ul>
+</li>
+<li><strong>ODBC Driver Configuration</strong>:<ul>
+<li>Confirm the Progress ODBC driver is correctly installed and configured in your server's ODBC settings.</li>
+<li>Ensure the PHP process has the necessary permissions to use the ODBC driver.</li>
+</ul>
+</li>
+<li><strong>Database Table/Column Names</strong>:<ul>
+<li>Verify that the table name (<code>visit_stats</code>) and column names (<code>section_name</code>, <code>visit_count</code>) used in the <code>get_stats.php</code> query match your actual database schema.</li>
+</ul>
+</li>
+<li><strong>Browser Console</strong>: Open your browser's developer tools (usually by pressing F12) and check the "Console" tab for any JavaScript errors when viewing <code>index.php</code>. This can help diagnose issues with Chart.js or the data fetching process.</li>
+<li><strong>PHP PDO ODBC Extension</strong>: Ensure <code>extension=pdo_odbc</code> (or similar for your OS) is uncommented in your <code>php.ini</code> file and that the PHP module is loaded. You can verify this using <code>phpinfo();</code>.</li>
+</ol>
+    </main>
+    <footer class="footer">
+    <div class="container">
+        <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
+        <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/groups/1052427398664069" aria-label="Facebook" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a aria-label="Instagram" title="Síguenos en Instagram (Próximamente)"><i class="fab fa-instagram"></i></a>
+            <a aria-label="Twitter" title="Síguenos en Twitter (Próximamente)"><i class="fab fa-twitter"></i></a>
+            <a href="https://chat.whatsapp.com/JWJ6mWXPuekIBZ8HJSSsZx" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="Únete a nuestro grupo de WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
