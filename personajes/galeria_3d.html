@@ -31,10 +31,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js"></script>
 
     <script type="module">
         // import * as THREE from 'three'; // THREE should be global from the script above
         import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+        import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+        import { EffectComposer } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js';
 
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
@@ -62,7 +70,7 @@
         const ambientLight = new THREE.AmbientLight(0xaaaaee, 0.4); // Bluish tint, less intensity
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffeedd, 0.8); // Pale Yellowish, reduced intensity
+        const directionalLight = new THREE.DirectionalLight(0xffeedd, 0.6); // Pale Yellowish, intensity reduced to 0.6
         directionalLight.position.set(-5, 8, 3); // New position
         scene.add(directionalLight);
 
@@ -83,6 +91,18 @@
         controls.maxDistance = 25; // Increased max distance
         // controls.maxPolarAngle = Math.PI / 2; // Prevent looking below the ground
         controls.update(); // Important after setting camera position if target is default
+
+        // Post-processing
+        let composer = new EffectComposer(renderer); // Initialize here
+        composer.addPass(new RenderPass(scene, camera));
+
+        const bloomPass = new UnrealBloomPass(
+            new THREE.Vector2(window.innerWidth, window.innerHeight),
+            1.5, // strength
+            0.4, // radius
+            0.85 // threshold
+        );
+        composer.addPass(bloomPass);
 
         // Overlay DOM Elements
         const infoOverlay = document.getElementById('character-info-overlay');
@@ -109,72 +129,92 @@
             }
         }
 
+        function createSphereForCharacter(character, index) { // Added index parameter
+            const charGeometry = new THREE.SphereGeometry(0.5, 32, 16);
+            let colorValue = 0xcccccc;
+            if (character.name && character.name.length >= 2) {
+                const hashPart1 = character.name.charCodeAt(0).toString(16).padStart(2, '0');
+                const hashPart2 = character.name.charCodeAt(1).toString(16).padStart(2, '0');
+                const potentialColor = parseInt(`cc${hashPart1}${hashPart2}`, 16);
+                if (!isNaN(potentialColor)) {
+                    colorValue = potentialColor > 0xFFFFFF ? Math.random() * 0xffffff : potentialColor;
+                } else { colorValue = Math.random() * 0xffffff; }
+            } else { colorValue = Math.random() * 0xffffff; }
+
+            const baseColor = new THREE.Color(colorValue);
+            baseColor.lerp(new THREE.Color(0x555555), 0.5);
+
+            const materialProperties = {
+                color: baseColor,
+                metalness: 0.1,
+                roughness: 0.8
+            };
+
+            if (index === 1) { // Make the second character's sphere (index 1) a bit emissive
+                materialProperties.emissive = baseColor;
+                materialProperties.emissiveIntensity = 0.5;
+            }
+
+            const charMaterial = new THREE.MeshStandardMaterial(materialProperties);
+            const charMesh = new THREE.Mesh(charGeometry, charMaterial);
+            if (character.coordinates) {
+                charMesh.position.set(character.coordinates.x || 0, character.coordinates.y || 0, character.coordinates.z || 0);
+            } else {
+                charMesh.position.set(Math.random() * 10 - 5, Math.random() * 2 - 1, Math.random() * 10 - 5);
+            }
+            charMesh.userData = character;
+            charMesh.name = `character_${character.name}_sphere`; // Differentiate name
+            scene.add(charMesh);
+        }
+
         function populateSceneWithCharacters() {
             if (!charactersData || charactersData.length === 0) {
                 console.log('No character data available to populate the scene.');
                 return;
             }
 
-            // Remove or comment out the old single cube code:
-            /*
-            const geometry = new THREE.BoxGeometry(1, 1, 1);
-            const material = new THREE.MeshStandardMaterial({ color: 0x00ff00, metalness: 0.3, roughness: 0.4 }); // Green cube
-            const cube = new THREE.Mesh(geometry, material);
-            scene.add(cube);
-            */
+            const gltfLoader = new GLTFLoader();
 
-            // If the cube was added previously and we want to remove it dynamically:
-            const oldCube = scene.getObjectByName("singleRotatingCube"); // Assume we name it if we want to remove it
+            // If the old single cube was added and needs removal:
+            const oldCube = scene.getObjectByName("singleRotatingCube");
             if (oldCube) {
                 scene.remove(oldCube);
-                oldCube.geometry.dispose();
-                oldCube.material.dispose();
+                if (oldCube.geometry) oldCube.geometry.dispose();
+                if (oldCube.material) oldCube.material.dispose();
             }
 
+            charactersData.forEach((character, index) => {
+                if (index === 0) { // Special handling for the first character to load a glTF model
+                    gltfLoader.load(
+                        'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf', // URL to a sample glTF model
+                        (gltf) => {
+                            const loadedModel = gltf.scene;
+                            loadedModel.scale.set(0.2, 0.2, 0.2); // Scale down the model
 
-            charactersData.forEach(character => {
-                const charGeometry = new THREE.SphereGeometry(0.5, 32, 16); // Radius 0.5
+                            if (character.coordinates) {
+                                loadedModel.position.set(character.coordinates.x || 0, character.coordinates.y || 0, character.coordinates.z || 0);
+                            } else {
+                                loadedModel.position.set(Math.random() * 10 - 5, Math.random() * 2 - 1, Math.random() * 10 - 5);
+                            }
 
-                // Simple color hash from name
-                let colorValue = 0xcccccc; // Default grey
-                if (character.name && character.name.length >= 2) {
-                    const hashPart1 = character.name.charCodeAt(0).toString(16).padStart(2, '0');
-                    const hashPart2 = character.name.charCodeAt(1).toString(16).padStart(2, '0');
-                    // Ensure we don't get overly dark colors, mix with some base
-                    const potentialColor = parseInt(`cc${hashPart1}${hashPart2}`, 16);
-                    if (!isNaN(potentialColor)) {
-                        colorValue = potentialColor > 0xFFFFFF ? Math.random() * 0xffffff : potentialColor;
-                    } else {
-                        colorValue = Math.random() * 0xffffff;
-                    }
-                } else {
-                    colorValue = Math.random() * 0xffffff;
+                            loadedModel.userData = character;
+                            loadedModel.name = `character_${character.name}_gltf`;
+
+                            scene.add(loadedModel);
+                            console.log(`Loaded glTF model for ${character.name}`);
+                        },
+                        undefined, // onProgress callback (optional)
+                        (error) => {
+                            console.error(`Error loading glTF model for ${character.name}:`, error);
+                            createSphereForCharacter(character, 0); // Pass index 0 for the first character if it falls back
+                        }
+                    );
+                } else { // For all other characters, create spheres as before
+                    createSphereForCharacter(character, index); // Pass index
                 }
-
-                const baseColor = new THREE.Color(colorValue);
-                baseColor.lerp(new THREE.Color(0x555555), 0.5); // Lerp towards grey to desaturate/darken
-
-                const charMaterial = new THREE.MeshStandardMaterial({
-                    color: baseColor,
-                    metalness: 0.1, // More matte
-                    roughness: 0.8  // More matte
-                });
-
-                const charMesh = new THREE.Mesh(charGeometry, charMaterial);
-
-                if (character.coordinates) {
-                    charMesh.position.set(character.coordinates.x || 0, character.coordinates.y || 0, character.coordinates.z || 0);
-                } else {
-                    // Fallback position if coordinates are missing
-                    charMesh.position.set(Math.random() * 10 - 5, Math.random() * 2 - 1, Math.random() * 10 - 5);
-                }
-
-                charMesh.userData = character; // Store all character data
-                charMesh.name = `character_${character.name}`; // Assign a name for potential lookup
-                scene.add(charMesh);
             });
 
-            console.log(`Populated scene with ${charactersData.length} characters.`);
+            console.log(`Populated scene with ${charactersData.length} characters (attempted).`);
         }
 
         loadCharacterData();
@@ -235,6 +275,9 @@
             // Update renderer
             renderer.setSize(sizes.width, sizes.height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            composer.setSize(sizes.width, sizes.height);
+            composer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         });
 
         // Animation loop
@@ -251,8 +294,8 @@
             }
             */
 
-            // Render scene
-            renderer.render(scene, camera);
+            // Render scene using composer
+            composer.render();
 
             // Call animate again on the next frame
             window.requestAnimationFrame(animate);
