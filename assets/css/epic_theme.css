@@ -7,10 +7,10 @@
     --epic-gold-main-rgb: 255, 215, 0;
     --epic-gold-secondary: #B8860B;
     --epic-gold-secondary-rgb: 184, 134, 11;
-    --epic-alabaster-bg: #fdfaf6;
-    --epic-alabaster-bg-rgb: 253, 250, 246;
-    --epic-alabaster-medium: #f0e9e0;
-    --epic-alabaster-medium-rgb: 240, 233, 224;
+    --epic-alabaster-bg: #EAEBF0; /* Cool greyish-white */
+    --epic-alabaster-bg-rgb: 234, 235, 240; /* RGB for the new color */
+    --epic-alabaster-medium: #D8D9E0; /* Derived from new --epic-alabaster-bg */
+    --epic-alabaster-medium-rgb: 216, 217, 224; /* RGB for new medium alabaster */
     --epic-text-color: #2c1d12;
     --epic-text-color-rgb: 44, 29, 18;
     --epic-text-light: #EAE0C8;
@@ -56,6 +56,7 @@ body {
     background-attachment: fixed; /* For parallax-like effect */
     background-position: center center;
     background-color: var(--epic-alabaster-bg); /* Fallback color */
+    filter: grayscale(70%) brightness(110%) contrast(105%); /* Cooler, greyish tone for alabastro.jpg */
     line-height: 1.7;
     text-align: center; /* Global text centering */
     -webkit-font-smoothing: antialiased;
@@ -84,10 +85,11 @@ h6 { font-size: clamp(1em, 2.5vw, 1.4em); }
 
 /* --- Paragraphs --- */
 p {
-    margin-bottom: 1.5em;
+    margin-bottom: 1.25em; /* Adjusted margin */
     max-width: 70ch; /* Limit width for readability, even if centered */
     margin-left: auto; /* Required for max-width to work with text-align:center */
     margin-right: auto; /* Required for max-width to work with text-align:center */
+    text-shadow: 0 1px 2px rgba(var(--epic-alabaster-medium-rgb), 0.4); /* Subtle shadow for depth/readability */
     /* text-align: center; is inherited from body */
 }
 
@@ -95,7 +97,7 @@ p {
 a {
     color: var(--epic-gold-main);
     text-decoration: none;
-    transition: color var(--global-transition-speed) ease, opacity var(--global-transition-speed) ease;
+    transition: color var(--global-transition-speed) ease-in-out, opacity var(--global-transition-speed) ease-in-out, letter-spacing var(--global-transition-speed) ease-in-out;
 }
 
 a:hover,
@@ -103,6 +105,7 @@ a:focus-visible {
     color: var(--epic-gold-secondary);
     opacity: 0.85;
     text-decoration: underline;
+    letter-spacing: 0.25px;
 }
 a:focus-visible {
     outline: 2px solid var(--epic-gold-main);
@@ -161,7 +164,7 @@ th {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding: 1em;
+    padding: clamp(1.5em, 3vw, 2.5em); /* Adjusted padding */
 }
 
 /* --- Helper class for forced left alignment if needed --- */
@@ -278,7 +281,7 @@ body.sidebar-active #sidebar-toggle {
     font-weight: 600;
     text-decoration: none;
     border-radius: var(--global-border-radius);
-    transition: background-color var(--global-transition-speed) ease, color var(--global-transition-speed) ease, padding-left var(--global-transition-speed) ease;
+    transition: background-color var(--global-transition-speed) ease-in-out, color var(--global-transition-speed) ease-in-out, padding-left var(--global-transition-speed) ease-in-out;
     /* text-align: center; is inherited */
 }
 
@@ -465,7 +468,7 @@ body.sidebar-active {
     box-shadow: var(--global-box-shadow-medium), inset 0 -3px 5px rgba(var(--epic-text-color-rgb), 0.2);
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all var(--global-transition-speed) ease;
+    transition: all var(--global-transition-speed) ease-in-out;
     margin-top: 1em;
 }
 
@@ -513,8 +516,7 @@ body.sidebar-active {
 }
 
 /* Container within .section for actual content */
-.section > .container-epic, /* Using the .container-epic defined in base styles */
-.page-content-block { /* .page-content-block is another common content wrapper */
+.section > .container-epic { /* Using the .container-epic defined in base styles */
     position: relative;
     z-index: 1; /* Above section's ::before overlay */
     background-color: var(--epic-transparent-overlay-light); /* Semi-transparent alabaster */
@@ -525,11 +527,36 @@ body.sidebar-active {
     margin-top: 0; /* Reset if inside .section */
     margin-bottom: 0; /* Reset if inside .section */
 }
+
+.page-content-block { /* .page-content-block is another common content wrapper */
+    position: relative;
+    z-index: 1; /* Above section's ::before overlay */
+    background-color: var(--epic-transparent-overlay-light); /* Semi-transparent alabaster */
+    backdrop-filter: blur(3px); /* Subtle blur for content background */
+    padding: clamp(1.5em, 4vw, 3em);
+    border-radius: var(--global-border-radius);
+    box-shadow: var(--global-box-shadow-medium);
+    margin-top: 2em; /* General margin for page-content-block */
+    margin-bottom: 2em; /* General margin for page-content-block */
+}
+
 /* If a section has a specific background and we want its content container to be more opaque */
 .section.alternate-bg > .container-epic,
 .section[style*="background-image"] > .container-epic,
 .page-content-block.dark-bg-content { /* Add this class if page-content-block is on a dark page bg */
     background-color: rgba(var(--epic-alabaster-bg-rgb), 0.92); /* More opaque alabaster */
+    /* Margins are already set by the general .page-content-block or .section > .container-epic rules.
+       If specific overrides are needed for .dark-bg-content, they can be added here.
+       The previous change that added margins here might have been too specific.
+       Keeping the margin declaration here if .page-content-block.dark-bg-content needs different margins
+       than the general .page-content-block. For now, let's assume it inherits or we want the 2em.
+       If the 2em from the previous step on this specific selector was intentional and different from the
+       general .page-content-block, then it should be preserved.
+       Re-evaluating: the previous step DID add 2em here. The new general rule for .page-content-block also adds 2em.
+       So, it's redundant for .page-content-block.dark-bg-content to also have it if it's the same.
+       Let's remove the specific margin from .page-content-block.dark-bg-content here,
+       as it will inherit from the new general .page-content-block rule.
+    */
 }
 
 
@@ -567,7 +594,7 @@ body.sidebar-active {
     border-radius: var(--global-border-radius);
     box-shadow: var(--global-box-shadow-medium);
     overflow: hidden;
-    transition: transform var(--global-transition-speed) ease, box-shadow var(--global-transition-speed) ease;
+    transition: transform var(--global-transition-speed) ease-in-out, box-shadow var(--global-transition-speed) ease-in-out;
     display: flex;
     flex-direction: column; /* For footer button alignment */
     /* text-align: center; is inherited */
@@ -587,7 +614,7 @@ body.sidebar-active {
     margin: 0 0 1em 0; /* Remove image's own margins, add space below */
     border-radius: 0; /* Image takes top radius from card */
     filter: sepia(30%) contrast(1.1) brightness(0.9); /* Subtle epic filter */
-    transition: filter var(--global-transition-speed) ease, transform var(--global-transition-speed) ease;
+    transition: filter var(--global-transition-speed) ease-in-out, transform var(--global-transition-speed) ease-in-out;
 }
 .card:hover img {
     filter: sepia(10%) contrast(1) brightness(1);
@@ -640,7 +667,7 @@ body.sidebar-active {
     border-radius: 20px;
     align-self: center; /* Center button */
     margin-top: auto; /* Stick to bottom */
-    transition: background-color var(--global-transition-speed) ease, color var(--global-transition-speed) ease;
+    transition: background-color var(--global-transition-speed) ease-in-out, color var(--global-transition-speed) ease-in-out;
 }
 
 .card-content .read-more:hover, .card-content .read-more:focus-visible {
@@ -934,7 +961,7 @@ body.sidebar-active {
 .image-gallery-intro img {
     border: 6px solid var(--color-piedra-media, #D2B48C); /* Mapped */
     box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); /* Mapped */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, filter 0.4s ease-in-out;
     margin: 0 auto;
 }
 .image-gallery-intro img:hover {
@@ -1978,11 +2005,14 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 
 /* --- Scroll Animation Styling --- */
+/* For optimal use, JavaScript is recommended to add the '.is-visible' class
+   when the element actually enters the viewport.
+   JS can also be used to create staggered delays for multiple items. */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(25px); /* Subtler entry */
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    transition-delay: 0.2s;
+    transition-delay: 0.1s; /* Quicker start */
 }
 
 .animate-on-scroll.is-visible {
@@ -2056,8 +2086,8 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     inset: 0; /* Cover the entire section */
     background: radial-gradient(
         circle calc(var(--spotlight-size, 200px) * 1.5) at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
-        rgba(var(--epic-gold-main-rgb), 0.25) 0%,       /* Goldish center, more transparent */
-        rgba(var(--epic-gold-secondary-rgb), 0.15) 30%, /* Softer goldish haz */
+        rgba(230, 240, 255, 0.35) 0%,       /* Light, slightly bluish-white center */
+        rgba(200, 220, 255, 0.20) 30%, /* Light, slightly bluish-white haze */
         transparent 60%                                /* Fade out */
     );
     opacity: var(--spotlight-opacity, 0); /* Controlled by JS, default to 0 */
