@@ -677,6 +677,43 @@ body.sidebar-active {
     outline: none;
 }
 
+/* --- Estilos para Etiquetas Sugeridas por IA --- */
+.tags-sugeridos-ia {
+    /* El contenedor tiene estilos inline para margen y borde superior.
+       El text-align:center se aplica a sus hijos a través de #listaTagsIA y el h4. */
+}
+
+.lista-tags-ia {
+    /* El text-align:center ya está aplicado inline. */
+    /* Se añade flexbox para mejor espaciado y envoltura de etiquetas. */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px; /* Espacio horizontal y vertical entre etiquetas */
+    margin-top: 10px; /* Espacio después del título h4 de la sección */
+}
+
+.tag-ia {
+    display: inline-block; /* Comportamiento natural para spans, pero explícito */
+    background-color: var(--epic-alabaster-medium);
+    color: var(--epic-purple-emperor);
+    padding: 6px 12px;
+    border-radius: 15px; /* Estilo píldora */
+    font-size: 0.9em;
+    font-family: var(--font-primary);
+    border: 1px solid var(--epic-gold-secondary);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none; /* En caso de que se conviertan en enlaces */
+    margin-bottom: 4px; /* Para el caso de wrap, asegurar un pequeño espacio vertical extra si gap no es suficiente */
+}
+
+.tag-ia:hover {
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    transform: translateY(-1px); /* Ligero efecto de elevación */
+    box-shadow: 0 2px 5px rgba(var(--epic-text-color-rgb), 0.15);
+}
+
 /* --- View Switcher Buttons --- */
 .view-switch-controls {
     /* Using .container class for width management if needed, or text-align: center; directly */

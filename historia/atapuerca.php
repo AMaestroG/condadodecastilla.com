@@ -57,6 +57,26 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                 <div id="resumenIAContenedor" style="display:none; margin-top:20px; padding:20px; border:1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                     <!-- El resumen generado por IA se insertará aquí -->
                 </div>
+                <div id="tagsSugeridosIA" class="tags-sugeridos-ia" style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed #ccc;">
+                    <h4 style="font-family: 'Cinzel', serif; color: var(--epic-purple-emperor); margin-bottom: 15px; text-align:center;">Etiquetas Sugeridas por IA:</h4>
+                    <div id="listaTagsIA" class="lista-tags-ia" style="text-align:center;">
+                        <?php
+                        if (function_exists('get_suggested_tags_placeholder')) {
+                            $suggested_tags = get_suggested_tags_placeholder('atapuerca');
+                            if (!empty($suggested_tags)) {
+                                foreach ($suggested_tags as $tag) {
+                                    echo '<span class="tag-ia">' . htmlspecialchars($tag) . '</span> ';
+                                }
+                            } else {
+                                echo '<p>No hay sugerencias de etiquetas por el momento.</p>';
+                            }
+                        } else {
+                            // Esto no debería ocurrir si ai_utils.php se incluyó correctamente.
+                            echo '<p>Error: La función de sugerencia de etiquetas no está disponible.</p>';
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

@@ -30,4 +30,20 @@ function get_smart_summary_placeholder(string $content_key, string $full_text = 
     return "<p><strong>" . $summary . "</strong></p><p><em>(Funcionalidad de resumen real con IA pendiente de implementación completa).</em></p>";
 }
 
+/**
+ * Placeholder para una función que generaría etiquetas sugeridas por IA.
+ *
+ * @param string $content_key Un identificador para el contenido a etiquetar.
+ * @return array Un array de strings con las etiquetas sugeridas.
+ */
+function get_suggested_tags_placeholder(string $content_key): array {
+    // Simulación basada en content_key
+    if ($content_key === 'atapuerca' || $content_key === 'Contenido de Atapuerca') {
+        return ['Prehistoria', 'Evolución Humana', 'Arqueología', 'Yacimientos UNESCO', 'Homo Antecessor', 'Burgos', 'Paleontología'];
+    }
+
+    // Etiquetas por defecto para otros contenidos no especificados
+    return ['General', 'Contenido Interesante', 'Historia', 'Web'];
+}
+
 ?>
