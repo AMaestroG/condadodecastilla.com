@@ -68,6 +68,39 @@
                     <div class="form-group preview-container" id="imagePreviewContainer" style="display:none;">
                         <img id="imagePreview" src="#" alt="Vista previa de la imagen subida" style="max-height: 200px; margin-bottom: 10px; border: 1px solid var(--condado-piedra-media);"/>
                     </div>
+
+                    <fieldset class="form-fieldset">
+                        <legend><i class="fas fa-cube"></i> Opcional: Detalles de Posicionamiento 3D</legend>
+                        <div class="form-group">
+                            <label for="notasAdicionales"><i class="fas fa-pencil-alt"></i> Notas Adicionales (para 3D):</label>
+                            <textarea id="notasAdicionales" name="notasAdicionales" rows="3" placeholder="Cualquier nota relevante para la visualización 3D..."></textarea>
+                        </div>
+                        <div class="form-grid-triplet">
+                            <div class="form-group">
+                                <label for="posX"><i class="fas fa-arrows-alt-h"></i> Posición X (3D):</label>
+                                <input type="number" id="posX" name="posX" step="0.1" placeholder="0.0">
+                            </div>
+                            <div class="form-group">
+                                <label for="posY"><i class="fas fa-arrows-alt-v"></i> Posición Y (3D):</label>
+                                <input type="number" id="posY" name="posY" step="0.1" placeholder="0.0">
+                            </div>
+                            <div class="form-group">
+                                <label for="posZ"><i class="fas fa-ruler-combined"></i> Posición Z (3D):</label>
+                                <input type="number" id="posZ" name="posZ" step="0.1" placeholder="0.0">
+                            </div>
+                        </div>
+                        <div class="form-grid-doublet">
+                            <div class="form-group">
+                                <label for="escala"><i class="fas fa-search-plus"></i> Escala (3D):</label>
+                                <input type="number" id="escala" name="escala" step="0.05" placeholder="1.0">
+                            </div>
+                            <div class="form-group">
+                                <label for="rotacionY"><i class="fas fa-sync-alt"></i> Rotación Y (3D Grados):</label>
+                                <input type="number" id="rotacionY" name="rotacionY" step="0.1" placeholder="0.0">
+                            </div>
+                        </div>
+                    </fieldset>
+
                     <button type="submit" class="cta-button submit-button"><i class="fas fa-cloud-upload-alt"></i> Subir Pieza al Museo</button>
                 </form>
             </div>
@@ -117,311 +150,14 @@
     </footer>
 
     <script src="/js/layout.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Efecto Linterna ---
-            const linterna = document.getElementById('linterna-condado');
-            const seccionesConLinterna = document.querySelectorAll('.section'); 
-            if (linterna) {
-                function actualizarPosicionLinterna(e) {
-                    requestAnimationFrame(() => {
-                        linterna.style.setProperty('--mouse-x', e.clientX + 'px');
-                        linterna.style.setProperty('--mouse-y', e.clientY + 'px');
-                    });
-                }
-                function activarLinterna() {
-                    requestAnimationFrame(() => {
-                        linterna.style.setProperty('--linterna-opacity', '0.65'); 
-                        linterna.style.setProperty('--linterna-radio', '250px'); 
-                    });
-                }
-                function desactivarLinterna() {
-                     requestAnimationFrame(() => {
-                        linterna.style.setProperty('--linterna-opacity', '0');
-                    });
-                }
-                document.body.addEventListener('mousemove', actualizarPosicionLinterna);
-                seccionesConLinterna.forEach(section => {
-                    section.addEventListener('mouseenter', activarLinterna);
-                    section.addEventListener('mouseleave', desactivarLinterna);
-                });
-            } else {
-                console.warn("Elemento #linterna-condado no encontrado.");
-            }
-
-            // --- Lógica del Museo Colaborativo ---
-            const uploadForm = document.getElementById('uploadForm');
-            const gallery2DSection = document.getElementById('gallery-2d-section'); // Changed to section
-            const museumGalleryGrid = document.getElementById('museumGalleryGrid'); // This is inside gallery2DSection
-            const noPiecesMessage = document.getElementById('noPiecesMessage');
-            const imagePreview = document.getElementById('imagePreview');
-            const imagePreviewContainer = document.getElementById('imagePreviewContainer');
-            const piezaImagenInput = document.getElementById('piezaImagen');
-
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalCaption = document.getElementById('modalCaption');
-            const modalCloseButton = document.querySelector('.modal-close-button');
-            const museum3DSection = document.getElementById('museo-3d-section');
-            const show2DGalleryBtn = document.getElementById('show-2d-gallery-btn');
-            const show3DMuseumBtn = document.getElementById('show-3d-museum-btn');
-            
-            const API_BASE_URL = ""; // Nginx hará proxy para /api/museo/piezas
-
-            let localMuseumPieces = [];
-
-            // --- View Switcher Logic ---
-            function switchTo2DView() {
-                if (gallery2DSection) gallery2DSection.style.display = 'block'; // Show 2D section
-                if (museum3DSection) museum3DSection.style.display = 'none';   // Hide 3D section
-                if (show2DGalleryBtn) show2DGalleryBtn.disabled = true;
-                if (show3DMuseumBtn) show3DMuseumBtn.disabled = false;
-                // If Three.js is running, you might want to stop its animation loop or renderer here to save resources
-                // For now, js/museo-3d.js handles its own resize and animation.
-            }
-
-            function switchTo3DView() {
-                if (gallery2DSection) gallery2DSection.style.display = 'none';  // Hide 2D section
-                if (museum3DSection) museum3DSection.style.display = 'block';  // Show 3D section
-                if (show2DGalleryBtn) show2DGalleryBtn.disabled = false;
-                if (show3DMuseumBtn) show3DMuseumBtn.disabled = true;
-
-                // Trigger a resize event for the 3D canvas in case it was initialized while hidden
-                // The onWindowResize in museo-3d.js should pick this up.
-                window.dispatchEvent(new Event('resize'));
-            }
-
-            if (show2DGalleryBtn && show3DMuseumBtn && gallery2DSection && museum3DSection) {
-                show2DGalleryBtn.addEventListener('click', switchTo2DView);
-                show3DMuseumBtn.addEventListener('click', switchTo3DView);
-
-                // Initial state: Show 2D, hide 3D
-                switchTo2DView();
-            } else {
-                console.warn("One or more elements for view switching not found. Ensure gallery-2d-section, museo-3d-section, show-2d-gallery-btn, and show-3d-museum-btn exist.");
-                // Fallback: ensure both are visible if buttons aren't there, or hide 3D by default.
-                if (museum3DSection && !(show2DGalleryBtn && show3DMuseumBtn)) { // If buttons missing, hide 3D
-                     museum3DSection.style.display = 'none';
-                }
-            }
-
-            function loadSamplePieces() {
-                return [
-                    { id: 'sample_m1', titulo: "Estela Funeraria (Ejemplo Museo)", descripcion: "Antigua estela de piedra con grabados, encontrada en las cercanías de un camino histórico.", autor: "Arqueología Local", imagenUrl: "/imagenes/museo_estela_ejemplo.jpg", altText: "Estela funeraria de piedra" },
-                    { id: 'sample_m2', titulo: "Capitel Románico (Ejemplo Museo)", descripcion: "Detalle de un capitel con figuras zoomorfas, perteneciente a una ermita desaparecida.", autor: "Patrimonio Olvidado", imagenUrl: "/imagenes/museo_capitel_ejemplo.jpg", altText: "Capitel románico con figuras" }
-                ];
-            }
-            
-            async function fetchPieces() {
-                try {
-                    const url = `${API_BASE_URL}/api/museo/piezas`;
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        let errorMsg = `Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`;
-                        try {
-                            const errData = await response.json();
-                            errorMsg = errData.error || errorMsg;
-                        } catch (e) { /* No hacer nada si no es JSON */ }
-                        throw new Error(errorMsg);
-                    }
-                    const pieces = await response.json();
-                    localMuseumPieces = pieces;
-                    renderGallery(localMuseumPieces);
-                } catch (error) {
-                    console.error('Error al cargar piezas del museo desde el backend:', error);
-                    localMuseumPieces = loadSamplePieces(); 
-                    renderGallery(localMuseumPieces); 
-                    if(noPiecesMessage) {
-                        noPiecesMessage.innerHTML = `No se pudieron cargar las piezas del servidor. Mostrando ejemplos. <br><small>Error: ${error.message}</small>`;
-                        noPiecesMessage.style.display = 'block';
-                        noPiecesMessage.style.color = 'orange';
-                        noPiecesMessage.style.textAlign = 'center';
-                    }
-                }
-            }
-            
-            fetchPieces(); 
-
-            if (piezaImagenInput) {
-                piezaImagenInput.addEventListener('change', function(event) {
-                    const file = event.target.files[0];
-                    if (file) {
-                        if (file.size > 2 * 1024 * 1024) { // 2MB
-                            alert('La imagen es demasiado grande. El tamaño máximo es 2MB.');
-                            this.value = ""; 
-                            if(imagePreview) imagePreview.src = '#';
-                            if(imagePreviewContainer) imagePreviewContainer.style.display = 'none';
-                            return;
-                        }
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            if(imagePreview) imagePreview.src = e.target.result;
-                            if(imagePreviewContainer) imagePreviewContainer.style.display = 'block';
-                        }
-                        reader.readAsDataURL(file);
-                    } else {
-                        if(imagePreview) imagePreview.src = '#';
-                        if(imagePreviewContainer) imagePreviewContainer.style.display = 'none';
-                    }
-                });
-            }
-
-            if (uploadForm) {
-                uploadForm.addEventListener('submit', async function(event) {
-                    event.preventDefault();
-                    const titulo = document.getElementById('piezaTitulo').value.trim();
-                    const descripcion = document.getElementById('piezaDescripcion').value.trim();
-                    const autor = document.getElementById('piezaAutor').value.trim() || 'Anónimo';
-                    const imagenFile = piezaImagenInput.files[0];
-
-                    if (!titulo || !descripcion || !imagenFile) {
-                        alert('Por favor, completa el título, la descripción y selecciona una imagen.');
-                        return;
-                    }
-                     if (imagenFile.size > 2 * 1024 * 1024) { 
-                        alert('La imagen es demasiado grande. El tamaño máximo es 2MB.');
-                        return;
-                    }
-
-                    const formData = new FormData();
-                    formData.append('piezaTitulo', titulo);
-                    formData.append('piezaDescripcion', descripcion);
-                    formData.append('piezaAutor', autor);
-                    formData.append('piezaImagen', imagenFile);
-
-                    try {
-                        const url = `${API_BASE_URL}/api/museo/piezas`;
-                        const response = await fetch(url, { method: 'POST', body: formData });
-                        if (!response.ok) {
-                            let errorMsg = `Error del servidor: ${response.status} ${response.statusText}`;
-                            try {
-                                const errorData = await response.json();
-                                errorMsg = errorData.error || errorMsg;
-                            } catch(e) { /* No hacer nada si no es JSON */ }
-                            throw new Error(errorMsg);
-                        }
-                        const result = await response.json();
-                        alert(result.mensaje || '¡Pieza subida con éxito!');
-                        fetchPieces(); 
-                        uploadForm.reset();
-                        if(imagePreview) imagePreview.src = '#';
-                        if(imagePreviewContainer) imagePreviewContainer.style.display = 'none';
-                    } catch (error) {
-                        console.error('Error al subir la pieza:', error);
-                        alert(`Error al subir la pieza: ${error.message}. Asegúrate de que el backend esté corriendo y accesible.`);
-                    }
-                });
-            }
-            
-            function renderGallery(piecesArray) {
-                if (!museumGalleryGrid || !noPiecesMessage) return;
-                museumGalleryGrid.innerHTML = ''; 
-                if (!piecesArray || piecesArray.length === 0) {
-                    noPiecesMessage.style.display = 'block';
-                    noPiecesMessage.textContent = 'Aún no se han añadido piezas al museo. ¡Sé el primero en contribuir!';
-                    return;
-                }
-                noPiecesMessage.style.display = 'none';
-
-                piecesArray.forEach(pieza => {
-                    const card = document.createElement('div');
-                    card.classList.add('card', 'museum-piece-card');
-                    
-                    const img = document.createElement('img');
-                    let imageUrl = pieza.imagenUrl;
-                    if (API_BASE_URL && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:')) {
-                        imageUrl = `${API_BASE_URL}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
-                    } else if (!API_BASE_URL && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:') && !imageUrl.startsWith('/')) {
-                        imageUrl = `/${imageUrl}`;
-                    }
-
-                    img.src = imageUrl; 
-                    img.alt = pieza.altText || `Imagen de ${pieza.titulo}`;
-                    img.onerror = function() { 
-                        this.onerror=null; 
-                        this.src='https://placehold.co/300x200/D2B48C/2c1d12?text=Imagen+no+disponible';
-                        this.alt = `Error al cargar imagen para ${pieza.titulo}`;
-                    };
-                    img.addEventListener('click', () => openModal(img.src, `${pieza.titulo} - por ${pieza.autor}`));
-
-                    const cardContent = document.createElement('div');
-                    cardContent.classList.add('card-content');
-
-                    const titleH3 = document.createElement('h3');
-                    titleH3.innerHTML = `<i class="fas fa-monument"></i> ${pieza.titulo}`; 
-
-                    const authorP = document.createElement('p');
-                    authorP.classList.add('piece-author');
-                    authorP.innerHTML = `<strong>Aportado por:</strong> ${pieza.autor}`;
-                    
-                    const descriptionP = document.createElement('p');
-                    descriptionP.classList.add('piece-description');
-                    descriptionP.textContent = pieza.descripcion.substring(0, 120) + (pieza.descripcion.length > 120 ? '...' : ''); 
-
-                    const deleteButton = document.createElement('button');
-                    deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro');
-                    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Borrar';
-                    deleteButton.setAttribute('data-id', pieza.id);
-                    deleteButton.addEventListener('click', handleDeletePiezaMuseo);
-
-                    cardContent.appendChild(titleH3);
-                    cardContent.appendChild(authorP);
-                    cardContent.appendChild(descriptionP);
-                    cardContent.appendChild(deleteButton);
-                    
-                    card.appendChild(img);
-                    card.appendChild(cardContent);
-                    museumGalleryGrid.appendChild(card);
-                });
-            }
-
-            async function handleDeletePiezaMuseo(event) {
-                const piezaId = event.target.closest('.delete-button').getAttribute('data-id');
-                if (!confirm(`¿Estás seguro de que quieres borrar la pieza de museo con ID ${piezaId}? Esta acción no se puede deshacer.`)) {
-                    return;
-                }
-                try {
-                    const url = `${API_BASE_URL}/api/museo/piezas/${piezaId}`;
-                    const response = await fetch(url, { method: 'DELETE' });
-                    if (!response.ok) {
-                        let errorMsg = `Error del servidor: ${response.status}`;
-                        try {
-                            const errorData = await response.json();
-                            errorMsg = errorData.error || errorMsg;
-                        } catch(e) { /* No hacer nada si no es JSON */ }
-                        throw new Error(errorMsg);
-                    }
-                    const result = await response.json();
-                    alert(result.mensaje || 'Pieza borrada con éxito.');
-                    fetchPieces(); 
-                } catch (error) {
-                    console.error('Error al borrar la pieza de museo:', error);
-                    alert(`Error al borrar la pieza: ${error.message}`);
-                }
-            }
-            
-            function openModal(src, caption) {
-                if(modal && modalImage && modalCaption) {
-                    modal.style.display = "block";
-                    modalImage.src = src;
-                    modalCaption.innerHTML = caption;
-                }
-            }
-
-            if (modalCloseButton) {
-                modalCloseButton.onclick = function() {
-                    if(modal) modal.style.display = "none";
-                }
-            }
-            
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    if(modal) modal.style.display = "none";
-                }
-            }
-        });
-    </script>
-    <script src="/js/museo-3d.js"></script>
+    <script src="/js/museo-2d-gallery.js"></script>
+    <!-- Museo 3D Modules -->
+    <script src="/js/museum-3d/utils.js"></script>
+    <script src="/js/museum-3d/sceneManager.js"></script>
+    <script src="/js/museum-3d/museumLayout.js"></script>
+    <script src="/js/museum-3d/playerControls.js"></script>
+    <script src="/js/museum-3d/exhibitManager.js"></script>
+    <script src="/js/museo-3d-main.js"></script>
 
     <div id="pointer-lock-instructions" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); color: white; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 20px; z-index: 10000; cursor: pointer;">
         <div>
