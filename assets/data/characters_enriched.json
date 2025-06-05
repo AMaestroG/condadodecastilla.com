@@ -1,0 +1,523 @@
+[
+    {
+        "name": "Fernando Diaz",
+        "bio_snippet": "Información detallada sobre Fernando Diaz, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Fernando Diaz]",
+            "[Hito importante 2 de Fernando Diaz]",
+            "[Hito importante 3 de Fernando Diaz]"
+        ],
+        "file_path": "/app/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html",
+        "category": "Condes_de_Castilla_Alava_y_Lantaron",
+        "whisper": "'Fernando Diaz, a whisper in the ruins,' or so the bards once sang, their verses echoing [hito importante 3 de fernando diaz].",
+        "coordinates": {
+            "x": -37.5,
+            "y": 0,
+            "z": -0.1968992548982893
+        },
+        "web_path": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html"
+    },
+    {
+        "name": "Gonzalo Tellez",
+        "bio_snippet": "Gonzalo Téllez (en latín: Gundisalvus Tellii) (m. c. 915) fue conde de Lantarón y Cerezo desde aproximadamente el año 897 hasta su muerte. \n                        Su figura es fundamental en la consolidación de los territorios orientales del Reino de Asturias frente a las incursiones musulmanas, \n ...",
+        "key_facts": [
+            "Repoblación y fortificación de Lantarón y Cerezo, estableciendo una línea defensiva crucial.",
+            "Participación activa en las luchas contra los ejércitos de Al-Ándalus, defendiendo y expandiendo las fronteras cristianas.",
+            "Fundación, junto a su esposa Flamula, del Monasterio de San Pedro de Arlanza (c. 912), que se convertiría en un panteón condal y un foco de irradiación cultural.",
+            "Aparición en diplomas y crónicas de la época como uno de los principales magnates de la corte asturleonesa, actuando como testigo en importantes donaciones reales.",
+            "Su gobierno sentó las bases para la futura autonomía del Condado de Castilla."
+        ],
+        "file_path": "/app/personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html",
+        "category": "Condes_de_Castilla_Alava_y_Lantaron",
+        "whisper": "The chronicles speak of Gonzalo Tellez, whose life was marked by su gobierno sentó las bases para la futura autonomía del condado de castilla and tales of nobility.",
+        "coordinates": {
+            "x": -35.0,
+            "y": 0,
+            "z": 0.0005787002858959056
+        },
+        "web_path": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html"
+    },
+    {
+        "name": "Dona Sancha",
+        "bio_snippet": "Información detallada sobre Dona Sancha, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Dona Sancha]",
+            "[Hito importante 2 de Dona Sancha]",
+            "[Hito importante 3 de Dona Sancha]"
+        ],
+        "file_path": "/app/personajes/Condes_de_Castilla_Alava_y_Lantaron/dona_sancha.html",
+        "category": "Condes_de_Castilla_Alava_y_Lantaron",
+        "whisper": "Remember Dona Sancha? A soul intertwined with the fate of these ruins, known for [hito importante 1 de dona sancha].",
+        "coordinates": {
+            "x": -32.5,
+            "y": 0,
+            "z": 0.6440567276202347
+        },
+        "web_path": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/dona_sancha.html"
+    },
+    {
+        "name": "Fernan Gonzalez",
+        "bio_snippet": "Información detallada sobre Fernan Gonzalez, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Fernan Gonzalez]",
+            "[Hito importante 2 de Fernan Gonzalez]",
+            "[Hito importante 3 de Fernan Gonzalez]"
+        ],
+        "file_path": "/app/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernan_gonzalez.html",
+        "category": "Condes_de_Castilla_Alava_y_Lantaron",
+        "whisper": "Let the stones of old speak of Fernan Gonzalez, and of the time they [hito importante 3 de fernan gonzalez].",
+        "coordinates": {
+            "x": -30.0,
+            "y": 0,
+            "z": 0.4965908816239275
+        },
+        "web_path": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernan_gonzalez.html"
+    },
+    {
+        "name": "Rodrigo El Conde",
+        "bio_snippet": "Información detallada sobre Rodrigo El Conde, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Rodrigo El Conde]",
+            "[Hito importante 2 de Rodrigo El Conde]",
+            "[Hito importante 3 de Rodrigo El Conde]"
+        ],
+        "file_path": "/app/personajes/Condes_de_Castilla_Alava_y_Lantaron/rodrigo_el_conde.html",
+        "category": "Condes_de_Castilla_Alava_y_Lantaron",
+        "whisper": "'Rodrigo El Conde, an echo in the stones,' or so the bards once sang, their verses echoing [hito importante 1 de rodrigo el conde].",
+        "coordinates": {
+            "x": -27.5,
+            "y": 0,
+            "z": -0.9706047306577328
+        },
+        "web_path": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/rodrigo_el_conde.html"
+    },
+    {
+        "name": "Alvaro Herramelliz",
+        "bio_snippet": "Alvaro Herraméliz fue una figura crucial en la historia temprana de Castilla, ostentando los títulos de Conde de Cerezo y Lantarón, así como Conde de Castilla y Álava. Gobernó desde el estratégico Alcázar de Cerasio, considerado en el documento `nuevo4.md` como un punto central en el origen de Casti...",
+        "key_facts": [
+            "Conde de Cerezo y Lantarón.",
+            "Conde de Castilla y Álava.",
+            "Gobernó desde el Alcázar de Cerasio.",
+            "Esposo de Doña Sancha, hija de los reyes de Navarra.",
+            "Su viuda, Doña Sancha, transmitió sus títulos a Fernán González tras su matrimonio, unificando así importantes señoríos castellanos."
+        ],
+        "file_path": "/app/personajes/Condes_de_Castilla_Alava_y_Lantaron/alvaro_herramelliz.html",
+        "category": "Condes_de_Castilla_Alava_y_Lantaron",
+        "whisper": "'A forgotten name, now remembered' - thus is Alvaro Herramelliz remembered in the chronicles of old.",
+        "coordinates": {
+            "x": -25.0,
+            "y": 0,
+            "z": 1.2444039062239378
+        },
+        "web_path": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/alvaro_herramelliz.html"
+    },
+    {
+        "name": "Diego Rodriguez Porcelos",
+        "bio_snippet": "Información detallada sobre Diego Rodriguez Porcelos, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Diego Rodriguez Porcelos]",
+            "[Hito importante 2 de Diego Rodriguez Porcelos]",
+            "[Hito importante 3 de Diego Rodriguez Porcelos]"
+        ],
+        "file_path": "/app/personajes/Condes_de_Castilla_Alava_y_Lantaron/diego_rodriguez_porcelos.html",
+        "category": "Condes_de_Castilla_Alava_y_Lantaron",
+        "whisper": "Unearth the story of Diego Rodriguez Porcelos: a chapter from a period of profound faith, a testament to rodriguez.",
+        "coordinates": {
+            "x": -22.5,
+            "y": 0,
+            "z": -1.9250119705195128
+        },
+        "web_path": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/diego_rodriguez_porcelos.html"
+    },
+    {
+        "name": "Monjes Hospitalarios San Jorge Y San Anton",
+        "bio_snippet": "Información detallada sobre Monjes Hospitalarios San Jorge Y San Anton, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Monjes Hospitalarios San Jorge Y San Anton]",
+            "[Hito importante 2 de Monjes Hospitalarios San Jorge Y San Anton]",
+            "[Hito importante 3 de Monjes Hospitalarios San Jorge Y San Anton]"
+        ],
+        "file_path": "/app/personajes/Ordenes_y_Legados/monjes_hospitalarios_san_jorge_y_san_anton.html",
+        "category": "Ordenes_y_Legados",
+        "whisper": "Consider Monjes Hospitalarios San Jorge Y San Anton, whose actions concerning [hito importante 1 de monjes hospitalarios san jorge y san anton] shaped the contours of this land.",
+        "coordinates": {
+            "x": -20.0,
+            "y": 0,
+            "z": -1.268752321309187
+        },
+        "web_path": "/personajes/Ordenes_y_Legados/monjes_hospitalarios_san_jorge_y_san_anton.html"
+    },
+    {
+        "name": "Paterna Banucasi",
+        "bio_snippet": "Información detallada sobre Paterna Banucasi, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Paterna Banucasi]",
+            "[Hito importante 2 de Paterna Banucasi]",
+            "[Hito importante 3 de Paterna Banucasi]"
+        ],
+        "file_path": "/app/personajes/Ordenes_y_Legados/paterna_banucasi.html",
+        "category": "Ordenes_y_Legados",
+        "whisper": "Hark, for Paterna Banucasi once walked these lands, leaving whispers of [hito importante 3 de paterna banucasi] in the ancient stones.",
+        "coordinates": {
+            "x": -17.5,
+            "y": 0,
+            "z": 1.9485512144216153
+        },
+        "web_path": "/personajes/Ordenes_y_Legados/paterna_banucasi.html"
+    },
+    {
+        "name": "Flavio Victor",
+        "bio_snippet": null,
+        "key_facts": [],
+        "file_path": "/app/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_victor.html",
+        "category": "Emperadores_Romanos_Hispanos_Auca",
+        "whisper": "From an age of empires, Flavio Victor emerges, a figure of an unknown theme.",
+        "coordinates": {
+            "x": -15.0,
+            "y": 0,
+            "z": -1.9008397894943019
+        },
+        "web_path": "/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_victor.html"
+    },
+    {
+        "name": "Magno Clemente Máximo",
+        "bio_snippet": null,
+        "key_facts": [],
+        "file_path": "/app/personajes/Emperadores_Romanos_Hispanos_Auca/clemente_magno_maximo.html",
+        "category": "Emperadores_Romanos_Hispanos_Auca",
+        "whisper": "Lost to time, yet Magno Clemente Máximo lingers, a whisper of an unknown quality from a bygone era.",
+        "coordinates": {
+            "x": -12.5,
+            "y": 0,
+            "z": -0.2524250140382378
+        },
+        "web_path": "/personajes/Emperadores_Romanos_Hispanos_Auca/clemente_magno_maximo.html"
+    },
+    {
+        "name": "Flavio Arcadio",
+        "bio_snippet": null,
+        "key_facts": [],
+        "file_path": "/app/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_arcadio.html",
+        "category": "Emperadores_Romanos_Hispanos_Auca",
+        "whisper": "Let the stones of old speak of Flavio Arcadio, and of the time they their unrecorded deeds.",
+        "coordinates": {
+            "x": -10.0,
+            "y": 0,
+            "z": 1.3120490654678187
+        },
+        "web_path": "/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_arcadio.html"
+    },
+    {
+        "name": "Flavio Teodosio I El Grande",
+        "bio_snippet": "Flavio Teodosio (Flavius Theodosius) nació el 11 de enero del año 347 d.C. Según las investigaciones y tradiciones locales recogidas ennuevo4.md, su nacimiento se sitúa en Auca Patricia, vinculada a la actual Cerezo de Río Tirón, en Hispania, cuna de varios emperadores hispanos. Sus padres fueron el...",
+        "key_facts": [],
+        "file_path": "/app/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_teodosio_i_el_grande.html",
+        "category": "Emperadores_Romanos_Hispanos_Auca",
+        "whisper": "Hark, for Flavio Teodosio I El Grande once walked these lands, leaving whispers of their unrecorded deeds in the ancient stones.",
+        "coordinates": {
+            "x": -7.5,
+            "y": 0,
+            "z": -0.8417464730120097
+        },
+        "web_path": "/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_teodosio_i_el_grande.html"
+    },
+    {
+        "name": "Flavio Teodosio I el Grande",
+        "bio_snippet": null,
+        "key_facts": [],
+        "file_path": "/app/personajes/Emperadores_Romanos_Hispanos_Auca/teodosio_i.html",
+        "category": "Emperadores_Romanos_Hispanos_Auca",
+        "whisper": "Hark, for Flavio Teodosio I el Grande once walked these lands, leaving whispers of their unrecorded deeds in the ancient stones.",
+        "coordinates": {
+            "x": -5.0,
+            "y": 0,
+            "z": 0.6181560472007277
+        },
+        "web_path": "/personajes/Emperadores_Romanos_Hispanos_Auca/teodosio_i.html"
+    },
+    {
+        "name": "Magno Clemente Máximo",
+        "bio_snippet": "Magno Clemente Máximo (Magnus Maximus) fue un emperador romano. Las investigaciones y tradiciones locales recogidas ennuevo4.mdlo identifican como uno de los emperadores nacidos en Auca Patricia, vinculada a la actual Cerezo de Río Tirón, en Hispania. El textonuevo4.mdafirma: \"Mas tarde nacen tres e...",
+        "key_facts": [],
+        "file_path": "/app/personajes/Emperadores_Romanos_Hispanos_Auca/magno_clemente_maximo.html",
+        "category": "Emperadores_Romanos_Hispanos_Auca",
+        "whisper": "Beneath the dust of ages lies the story of Magno Clemente Máximo, a narrative of cerezo.",
+        "coordinates": {
+            "x": -2.5,
+            "y": 0,
+            "z": -1.7980728613460384
+        },
+        "web_path": "/personajes/Emperadores_Romanos_Hispanos_Auca/magno_clemente_maximo.html"
+    },
+    {
+        "name": "San Formerio",
+        "bio_snippet": "Información detallada sobre San Formerio, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de San Formerio]",
+            "[Hito importante 2 de San Formerio]",
+            "[Hito importante 3 de San Formerio]"
+        ],
+        "file_path": "/app/personajes/Santos_y_Martires/san_formerio.html",
+        "category": "Santos_y_Martires",
+        "whisper": "Lost to time, yet San Formerio lingers, a whisper of formerio from a bygone era.",
+        "coordinates": {
+            "x": 0.0,
+            "y": 0,
+            "z": -0.904934121954184
+        },
+        "web_path": "/personajes/Santos_y_Martires/san_formerio.html"
+    },
+    {
+        "name": "San Vitores",
+        "bio_snippet": "Información detallada sobre San Vitores, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de San Vitores]",
+            "[Hito importante 2 de San Vitores]",
+            "[Hito importante 3 de San Vitores]"
+        ],
+        "file_path": "/app/personajes/Santos_y_Martires/san_vitores.html",
+        "category": "Santos_y_Martires",
+        "whisper": "Ask the silent hills of San Vitores; they might recall [hito importante 2 de san vitores] from an age of este.",
+        "coordinates": {
+            "x": 2.5,
+            "y": 0,
+            "z": -1.011027190130148
+        },
+        "web_path": "/personajes/Santos_y_Martires/san_vitores.html"
+    },
+    {
+        "name": "Abades Sonna Donnino Damian",
+        "bio_snippet": "Información detallada sobre Abades Sonna Donnino Damian, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Abades Sonna Donnino Damian]",
+            "[Hito importante 2 de Abades Sonna Donnino Damian]",
+            "[Hito importante 3 de Abades Sonna Donnino Damian]"
+        ],
+        "file_path": "/app/personajes/Santos_y_Martires/abades_sonna_donnino_damian.html",
+        "category": "Santos_y_Martires",
+        "whisper": "Beneath the dust of ages lies the story of Abades Sonna Donnino Damian, a narrative of sonna.",
+        "coordinates": {
+            "x": 5.0,
+            "y": 0,
+            "z": 1.5286740196043018
+        },
+        "web_path": "/personajes/Santos_y_Martires/abades_sonna_donnino_damian.html"
+    },
+    {
+        "name": "San Millan De La Cogolla",
+        "bio_snippet": "Información detallada sobre San Millan De La Cogolla, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de San Millan De La Cogolla]",
+            "[Hito importante 2 de San Millan De La Cogolla]",
+            "[Hito importante 3 de San Millan De La Cogolla]"
+        ],
+        "file_path": "/app/personajes/Santos_y_Martires/san_millan_de_la_cogolla.html",
+        "category": "Santos_y_Martires",
+        "whisper": "Hark, for San Millan De La Cogolla once walked these lands, leaving whispers of [hito importante 1 de san millan de la cogolla] in the ancient stones.",
+        "coordinates": {
+            "x": 7.5,
+            "y": 0,
+            "z": 0.38366887458312116
+        },
+        "web_path": "/personajes/Santos_y_Martires/san_millan_de_la_cogolla.html"
+    },
+    {
+        "name": "Obispo Indalecio",
+        "bio_snippet": "Información detallada sobre Obispo Indalecio, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Obispo Indalecio]",
+            "[Hito importante 2 de Obispo Indalecio]",
+            "[Hito importante 3 de Obispo Indalecio]"
+        ],
+        "file_path": "/app/personajes/Santos_y_Martires/obispo_indalecio.html",
+        "category": "Santos_y_Martires",
+        "whisper": "Unearth the story of Obispo Indalecio: a chapter from an era of upheaval, a testament to indalecio.",
+        "coordinates": {
+            "x": 10.0,
+            "y": 0,
+            "z": -1.723343041079994
+        },
+        "web_path": "/personajes/Santos_y_Martires/obispo_indalecio.html"
+    },
+    {
+        "name": "Obispos Gudesteos Frunimio",
+        "bio_snippet": "Información detallada sobre Obispos Gudesteos Frunimio, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Obispos Gudesteos Frunimio]",
+            "[Hito importante 2 de Obispos Gudesteos Frunimio]",
+            "[Hito importante 3 de Obispos Gudesteos Frunimio]"
+        ],
+        "file_path": "/app/personajes/Santos_y_Martires/obispos_gudesteos_frunimio.html",
+        "category": "Santos_y_Martires",
+        "whisper": "Lost to time, yet Obispos Gudesteos Frunimio lingers, a whisper of gudesteos from a bygone era.",
+        "coordinates": {
+            "x": 12.5,
+            "y": 0,
+            "z": -0.1930249039737948
+        },
+        "web_path": "/personajes/Santos_y_Martires/obispos_gudesteos_frunimio.html"
+    },
+    {
+        "name": "Obispo Sancho",
+        "bio_snippet": "Información detallada sobre Obispo Sancho, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Obispo Sancho]",
+            "[Hito importante 2 de Obispo Sancho]",
+            "[Hito importante 3 de Obispo Sancho]"
+        ],
+        "file_path": "/app/personajes/Santos_y_Martires/obispo_sancho.html",
+        "category": "Santos_y_Martires",
+        "whisper": "Let the stones of old speak of Obispo Sancho, and of the time they [hito importante 3 de obispo sancho].",
+        "coordinates": {
+            "x": 15.0,
+            "y": 0,
+            "z": -0.015234091229661129
+        },
+        "web_path": "/personajes/Santos_y_Martires/obispo_sancho.html"
+    },
+    {
+        "name": "Beatriz de las Aguas Misteriosas",
+        "bio_snippet": "En los susurros del viento que acaricia las riberas del río Tirón y en el murmullo cristalino de sus fuentes ancestrales, pervive la leyenda de Beatriz, la Dama de las Aguas Misteriosas. No se cuenta entre los nobles de espada y linaje, ni entre santos de altar y oración, pero su memoria está tejida...",
+        "key_facts": [
+            "Guardiana de las fuentes del Tirón y protectora de sus aguas.",
+            "Consejera de los habitantes locales, ofreciendo sabiduría y remedios naturales.",
+            "Protagonista de numerosos cuentos y leyendas locales sobre sus profecías y curaciones.",
+            "Se dice que su espíritu aún vaga por las orillas del río, velando por la pureza de sus aguas y la gente de la comarca."
+        ],
+        "file_path": "/app/personajes/Leyendas_y_Cuentos/beatriz.html",
+        "category": "Leyendas_y_Cuentos",
+        "whisper": "Let the stones of old speak of Beatriz de las Aguas Misteriosas, and of the time they guardiana de las fuentes del tirón y protectora de sus aguas.",
+        "coordinates": {
+            "x": 17.5,
+            "y": 0,
+            "z": 0.167045105244517
+        },
+        "web_path": "/personajes/Leyendas_y_Cuentos/beatriz.html"
+    },
+    {
+        "name": "Turok Nerea Amaia Hijos Corocotta",
+        "bio_snippet": "Información detallada sobre Turok Nerea Amaia Hijos Corocotta, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Turok Nerea Amaia Hijos Corocotta]",
+            "[Hito importante 2 de Turok Nerea Amaia Hijos Corocotta]",
+            "[Hito importante 3 de Turok Nerea Amaia Hijos Corocotta]"
+        ],
+        "file_path": "/app/personajes/Militares_y_Gobernantes/turok_nerea_amaia_hijos_corocotta.html",
+        "category": "Militares_y_Gobernantes",
+        "whisper": "The legacy of Turok Nerea Amaia Hijos Corocotta is etched in time, a tale of corocotta and glory.",
+        "coordinates": {
+            "x": 20.0,
+            "y": 0,
+            "z": -0.592486497008144
+        },
+        "web_path": "/personajes/Militares_y_Gobernantes/turok_nerea_amaia_hijos_corocotta.html"
+    },
+    {
+        "name": "Alba Esposa Corocotta",
+        "bio_snippet": "Información detallada sobre Alba Esposa Corocotta, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Alba Esposa Corocotta]",
+            "[Hito importante 2 de Alba Esposa Corocotta]",
+            "[Hito importante 3 de Alba Esposa Corocotta]"
+        ],
+        "file_path": "/app/personajes/Militares_y_Gobernantes/alba_esposa_corocotta.html",
+        "category": "Militares_y_Gobernantes",
+        "whisper": "Unearth the story of Alba Esposa Corocotta: a chapter from a period of profound faith, a testament to esposa.",
+        "coordinates": {
+            "x": 22.5,
+            "y": 0,
+            "z": 1.8076777394031804
+        },
+        "web_path": "/personajes/Militares_y_Gobernantes/alba_esposa_corocotta.html"
+    },
+    {
+        "name": "Cesar Augusto",
+        "bio_snippet": "Información detallada sobre Cesar Augusto, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Cesar Augusto]",
+            "[Hito importante 2 de Cesar Augusto]",
+            "[Hito importante 3 de Cesar Augusto]"
+        ],
+        "file_path": "/app/personajes/Militares_y_Gobernantes/cesar_augusto.html",
+        "category": "Militares_y_Gobernantes",
+        "whisper": "'A forgotten name, now remembered' - thus is Cesar Augusto remembered in the chronicles of old.",
+        "coordinates": {
+            "x": 25.0,
+            "y": 0,
+            "z": -1.9515509358794363
+        },
+        "web_path": "/personajes/Militares_y_Gobernantes/cesar_augusto.html"
+    },
+    {
+        "name": "Corocotta",
+        "bio_snippet": "Información detallada sobre Corocotta, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Corocotta]",
+            "[Hito importante 2 de Corocotta]",
+            "[Hito importante 3 de Corocotta]"
+        ],
+        "file_path": "/app/personajes/Militares_y_Gobernantes/corocotta.html",
+        "category": "Militares_y_Gobernantes",
+        "whisper": "Ask the silent hills of Corocotta; they might recall [hito importante 1 de corocotta] from an age of corocotta.",
+        "coordinates": {
+            "x": 27.5,
+            "y": 0,
+            "z": 0.28346212607342514
+        },
+        "web_path": "/personajes/Militares_y_Gobernantes/corocotta.html"
+    },
+    {
+        "name": "Conde Casio Cerasio",
+        "bio_snippet": "Información detallada sobre Conde Casio Cerasio, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Conde Casio Cerasio]",
+            "[Hito importante 2 de Conde Casio Cerasio]",
+            "[Hito importante 3 de Conde Casio Cerasio]"
+        ],
+        "file_path": "/app/personajes/Militares_y_Gobernantes/conde_casio_cerasio.html",
+        "category": "Militares_y_Gobernantes",
+        "whisper": "Unearth the story of Conde Casio Cerasio: a chapter from a forgotten age, a testament to conde.",
+        "coordinates": {
+            "x": 30.0,
+            "y": 0,
+            "z": 0.8342318260124979
+        },
+        "web_path": "/personajes/Militares_y_Gobernantes/conde_casio_cerasio.html"
+    },
+    {
+        "name": "Agripa",
+        "bio_snippet": "Información detallada sobre Agripa, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Agripa]",
+            "[Hito importante 2 de Agripa]",
+            "[Hito importante 3 de Agripa]"
+        ],
+        "file_path": "/app/personajes/Militares_y_Gobernantes/agripa.html",
+        "category": "Militares_y_Gobernantes",
+        "whisper": "In the shadow of ancient fortresses, the memory of Agripa and their cerezo endures.",
+        "coordinates": {
+            "x": 32.5,
+            "y": 0,
+            "z": 0.6782046581505918
+        },
+        "web_path": "/personajes/Militares_y_Gobernantes/agripa.html"
+    },
+    {
+        "name": "Ramiro I De Asturias",
+        "bio_snippet": "Información detallada sobre Ramiro I De Asturias, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. \n                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.",
+        "key_facts": [
+            "[Hito importante 1 de Ramiro I De Asturias]",
+            "[Hito importante 2 de Ramiro I De Asturias]",
+            "[Hito importante 3 de Ramiro I De Asturias]"
+        ],
+        "file_path": "/app/personajes/Militares_y_Gobernantes/ramiro_i_de_asturias.html",
+        "category": "Militares_y_Gobernantes",
+        "whisper": "Unearth the story of Ramiro I De Asturias: a chapter from an era of upheaval, a testament to este.",
+        "coordinates": {
+            "x": 35.0,
+            "y": 0,
+            "z": 1.0786460024386173
+        },
+        "web_path": "/personajes/Militares_y_Gobernantes/ramiro_i_de_asturias.html"
+    }
+]

@@ -275,7 +275,41 @@
         }
 
         function createSphereForCharacter(character, index) { // Added index parameter
-            const charGeometry = new THREE.SphereGeometry(0.5, 32, 16);
+            let charGeometry;
+            let y_offset = 0; // Default y_offset for origin at base
+
+            const category = character.category || "Unknown"; // Fallback for category
+
+            switch (category) {
+                case "Condes_de_Castilla_Alava_y_Lantaron":
+                    charGeometry = new THREE.CylinderGeometry(0.3, 0.3, 0.8, 16);
+                    y_offset = (0.8 / 2);
+                    break;
+                case "Militares_y_Gobernantes":
+                    charGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.6);
+                    y_offset = (0.8 / 2);
+                    break;
+                case "Santos_y_Martires":
+                    charGeometry = new THREE.ConeGeometry(0.4, 0.9, 16);
+                    y_offset = (0.9 / 2);
+                    break;
+                case "Emperadores_Romanos_Hispanos_Auca":
+                    charGeometry = new THREE.OctahedronGeometry(0.5, 0);
+                    y_offset = 0;
+                    break;
+                case "Ordenes_y_Legados":
+                    charGeometry = new THREE.TorusKnotGeometry(0.3, 0.1, 64, 8, 2, 3);
+                    y_offset = 0;
+                    break;
+                case "Leyendas_y_Cuentos":
+                    charGeometry = new THREE.SphereGeometry(0.45, 32, 16);
+                    y_offset = 0;
+                    break;
+                default: // Unknown or any other category
+                    charGeometry = new THREE.SphereGeometry(0.4, 32, 16); // Default sphere
+                    y_offset = 0;
+            }
+
             let colorValue = 0xcccccc;
             if (character.name && character.name.length >= 2) {
                 const hashPart1 = character.name.charCodeAt(0).toString(16).padStart(2, '0');
@@ -302,10 +336,13 @@
 
             const charMaterial = new THREE.MeshStandardMaterial(materialProperties);
             const charMesh = new THREE.Mesh(charGeometry, charMaterial);
+
             if (character.coordinates) {
-                charMesh.position.set(character.coordinates.x || 0, character.coordinates.y || 0, character.coordinates.z || 0);
+                // Apply y_offset so the base of the geometry is near y=0 (on the ground plane at y=-0.55)
+                charMesh.position.set(character.coordinates.x || 0, (character.coordinates.y || 0) + y_offset, character.coordinates.z || 0);
             } else {
-                charMesh.position.set(Math.random() * 10 - 5, Math.random() * 2 - 1, Math.random() * 10 - 5);
+                // Fallback position if coordinates are missing
+                charMesh.position.set(Math.random() * 10 - 5, y_offset, Math.random() * 10 - 5);
             }
             charMesh.userData = character;
             charMesh.name = `character_${character.name}_sphere`; // Differentiate name
