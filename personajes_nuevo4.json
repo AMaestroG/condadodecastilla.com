@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Constantino",
+    "era": "Roman",
+    "status": "Emperador (implied)",
+    "description": "Roman coins bearing his head found in Cerezo fields; mentioned in relation to a star symbol on the Cerezo shield and Roman camp gates."
+  },
+  {
+    "name": "Máximo",
+    "era": "Roman",
+    "status": "Emperador",
+    "description": "Roman Emperor (also referred to as Magno Clemente Máximo). His coins, and his son Falvio Victor's, feature a city or Roman camp gate like a castle tower with a star. Mentioned as one of three Roman emperors of Hispanic origin. His coins are linked to the Pendón de Castilla. Described as very devout of San Martín de Tours."
+  },
+  {
+    "name": "Falvio Victor",
+    "era": "Roman",
+    "status": "Hijo de Emperador Máximo, Emperador",
+    "description": "Son of Emperor Máximo, and also referred to as an Emperor. His coins (like his father's) show a city/camp gate resembling a castle tower with a star. Mentioned as one of three Roman emperors of Hispanic origin. The Pendón de Castilla is described as a Roman camp gate similar to those on his coins. Allegedly decapitated on August 26, 388, in the Circus of Civita Auka."
+  },
+  {
+    "name": "Conde Casio",
+    "era": "Visigothic/Hispano-Roman/Arab",
+    "status": "Conde",
+    "description": "Governed Auca Patricia (Cerezo de Río Tirón). The text mentions 'La Mezquita de Yanna, el hijo del Conde Conde Casio, en el Alcázar de Cerasio.' Arabs reportedly built a monumental Alcazar for him, referred to as the 'Conde de la Cantabrica' and a 'Conde Visigodo en auca patriniani.' The Alcázar de Cerasio is called the Alcázar of Conde Casio. Described as a Hispano-Gothic count who converted to Islam and built the Alcázar after Auca Patricia's destruction."
+  },
+  {
+    "name": "Cesar Augusto",
+    "era": "Roman",
+    "status": "Emperador (implied)",
+    "description": "Founded Auca Patricia in Segisamam, his headquarters during the Cantabrian wars, making it the Capital of Cantabrica. Also credited with founding the city of Oca in 'termino de los palacios'. A section describes him planning the conquest of Hispania with Agripa."
+  },
+  {
+    "name": "Flavio Teodosio I el Grande",
+    "era": "Roman",
+    "status": "Emperador",
+    "description": "One of three Roman emperors of Hispanic origin mentioned, family with Máximo and Falvio Victor. Reportedly born in Gallecia. Tradition, as per the text, places his birth and death in Cerezo. His mother is named as Santa Elena."
+  },
+  {
+    "name": "Ramiro I",
+    "era": "Asturleonese",
+    "status": "Rey (implied)",
+    "description": "His wife was Paterna (Cerezana de Cuna, Banucasi de nombre). Around 840, Hospitalarios operated under his San Jorge flag, guarding the church of San Nicolas. In 842, he founded a hospital in Cerasio (Cerezo de Río Tirón) with Monjes Hospitalarios, dedicated to San Antón."
+  }
+]

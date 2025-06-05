@@ -31,10 +31,11 @@
                     Explora las biografías y el legado de las figuras más importantes que marcaron la historia de Cerezo de Río Tirón, el Alfoz de Cerasio y Lantarón, y el Condado de Castilla.
                 </p>
                 
+                <div id="error-message-container" style="color: red; text-align: center;"></div>
                 <ul class="indice-categorias">
                     <li>
                         <h3><i class="fas fa-chess-king"></i> Condes de Castilla, Álava y Lantarón</h3>
-                        <ul class="indice-personajes-lista">
+                        <ul class="indice-personajes-lista" id="condes-lista">
                             <li><a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/rodrigo_el_conde.html">Rodrigo (Rodrigo el Conde)</a></li>
                             <li><a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/diego_rodriguez_porcelos.html">Diego Rodríguez Porcelos</a></li>
                             <li><a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html">Fernando Díaz</a></li>
@@ -46,7 +47,7 @@
                     </li>
                     <li>
                         <h3><i class="fas fa-shield-alt"></i> Militares y Gobernantes</h3>
-                        <ul class="indice-personajes-lista">
+                        <ul class="indice-personajes-lista" id="militares-lista">
                             <li><a href="/personajes/Militares_y_Gobernantes/conde_casio_cerasio.html">Conde Casio (Cerasio)</a></li>
                             <li><a href="/personajes/Militares_y_Gobernantes/ramiro_i_de_asturias.html">Ramiro I de Asturias</a></li>
                             <li><a href="/personajes/Militares_y_Gobernantes/agripa.html">Agripa</a></li>
@@ -58,7 +59,7 @@
                     </li>
                     <li>
                         <h3><i class="fas fa-cross"></i> Santos y Mártires</h3>
-                        <ul class="indice-personajes-lista">
+                        <ul class="indice-personajes-lista" id="santos-lista">
                             <li><a href="/personajes/Santos_y_Martires/san_formerio.html">San Formerio</a></li>
                             <li><a href="/personajes/Santos_y_Martires/san_vitores.html">San Vitores</a></li>
                             <li><a href="/personajes/Santos_y_Martires/san_millan_de_la_cogolla.html">San Millán de la Cogolla</a></li>
@@ -70,23 +71,24 @@
                     </li>
                     <li>
                         <h3><i class="fas fa-landmark"></i> Emperadores Romanos de Cuna Hispana</h3>
-                        <ul class="indice-personajes-lista">
-                            <li><a href="/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_teodosio_i_el_grande.html">Flavio Teodosio I el Grande</a></li>
+                        <ul class="indice-personajes-lista" id="emperadores-lista">
+                            <li><a href="/personajes/Emperadores_Romanos_Hispanos_Auca/constantino.html">Constantino</a></li>
                             <li><a href="/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_arcadio.html">Flavio Arcadio</a></li>
-                            <li><a href="/personajes/Emperadores_Romanos_Hispanos_Auca/magno_clemente_maximo.html">Magno Clemente Máximo</a></li>
+                            <li><a href="/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_teodosio_i_el_grande.html">Flavio Teodosio I el Grande</a></li>
                             <li><a href="/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_victor.html">Flavio Victor</a></li>
+                            <li><a href="/personajes/Emperadores_Romanos_Hispanos_Auca/magno_clemente_maximo.html">Magno Clemente Máximo</a></li>
                         </ul>
                     </li>
                     <li>
                         <h3><i class="fas fa-hands-helping"></i> Órdenes y Legados</h3>
-                        <ul class="indice-personajes-lista">
+                        <ul class="indice-personajes-lista" id="ordenes-lista">
                             <li><a href="/personajes/Ordenes_y_Legados/monjes_hospitalarios_san_jorge_y_san_anton.html">Monjes Hospitalarios de San Jorge y San Antón</a></li>
                             <li><a href="/personajes/Ordenes_y_Legados/paterna_banucasi.html">Paterna (Banucasi)</a></li>
                         </ul>
                     </li>
                     <li>
                         <h3><i class="fas fa-book-open"></i> Leyendas y Cuentos</h3>
-                        <ul class="indice-personajes-lista">
+                        <ul class="indice-personajes-lista" id="leyendas-lista">
                             <li><a href="/personajes/Leyendas_y_Cuentos/beatriz.html">Beatriz de las Aguas Misteriosas</a></li>
                         </ul>
                     </li>
@@ -94,29 +96,29 @@
 
                 <section class="character-gallery-container">
                     <h2>Galería de Personajes</h2>
-                    <div class="gallery-grid">
+                    <div class="gallery-grid" id="galeria-personajes-grid">
                         <div class="gallery-item">
-                            <img src="/assets/img/placeholder.jpg" alt="Rodrigo el Conde">
+                            <img src="/assets/img/placeholder_personaje.png" alt="Rodrigo el Conde">
                             <p>Rodrigo el Conde</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="/assets/img/placeholder.jpg" alt="Diego Rodríguez Porcelos">
+                            <img src="/assets/img/placeholder_personaje.png" alt="Diego Rodríguez Porcelos">
                             <p>Diego Rodríguez Porcelos</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="/assets/img/placeholder.jpg" alt="Fernán González">
+                            <img src="/assets/img/placeholder_personaje.png" alt="Fernán González">
                             <p>Fernán González</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="/assets/img/placeholder.jpg" alt="Conde Casio">
+                            <img src="/assets/img/placeholder_personaje.png" alt="Conde Casio">
                             <p>Conde Casio</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="/assets/img/placeholder.jpg" alt="San Formerio">
+                            <img src="/assets/img/placeholder_personaje.png" alt="San Formerio">
                             <p>San Formerio</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="/assets/img/placeholder.jpg" alt="Flavio Teodosio I el Grande">
+                            <img src="/assets/img/placeholder_personaje.png" alt="Flavio Teodosio I el Grande">
                             <p>Flavio Teodosio I el Grande</p>
                         </div>
                     </div>
@@ -142,5 +144,6 @@
     </footer>
 
     <script src="/js/layout.js"></script>
+    <script src="/js/personajes_loader.js"></script>
 </body>
 </html>
