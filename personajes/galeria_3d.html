@@ -16,15 +16,119 @@
             width: 100%;
             height: 100%;
         }
+
+        /* Character Info Overlay Styling */
+        #character-info-overlay {
+            /* display: none; */ /* Handled by lack of .visible class initially */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(300px, 80%, 450px); /* Responsive width */
+            background-color: rgba(26, 38, 57, 0.95); /* Dark Sapphire Blue, more opaque */
+            color: #e0e0e0; /* Light grey text */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.7);
+            z-index: 100;
+            font-family: 'Lora', serif; /* Match body font or a suitable thematic one */
+            border: 1px solid rgba(138, 175, 255, 0.3); /* Subtle border */
+            opacity: 0; /* For fade transition */
+            visibility: hidden; /* For fade transition */
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        #character-info-overlay.visible {
+            /* display: block; */ /* Not needed if visibility handles it */
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #character-info-overlay h2 { /* info-name */
+            font-family: 'Cinzel', serif; /* Match heading font or a suitable thematic one */
+            color: #ffffff; /* White heading */
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(138, 175, 255, 0.5); /* Thematic border color */
+            padding-bottom: 10px;
+            font-size: 1.6em;
+            text-align: center;
+        }
+
+        #character-info-overlay #info-bio {
+            font-size: 0.95em;
+            line-height: 1.6;
+            max-height: 150px; /* Keep scroll for longer bios */
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding-right: 10px; /* For scrollbar spacing */
+            color: #cccccc;
+        }
+        /* Custom scrollbar for bio (optional, WebKit only) */
+        #character-info-overlay #info-bio::-webkit-scrollbar {
+            width: 8px;
+        }
+        #character-info-overlay #info-bio::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+        #character-info-overlay #info-bio::-webkit-scrollbar-thumb {
+            background: rgba(138, 175, 255, 0.4);
+            border-radius: 4px;
+        }
+        #character-info-overlay #info-bio::-webkit-scrollbar-thumb:hover {
+            background: rgba(138, 175, 255, 0.6);
+        }
+
+
+        #character-info-overlay #info-whisper {
+            font-style: italic;
+            background-color: rgba(0,0,0,0.3);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: #b0c4de; /* Light Steel Blue */
+            text-align: center;
+        }
+
+        #character-info-overlay #info-link {
+            color: #9acdff; /* Lighter, more prominent blue */
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block; /* Allows margin */
+            margin-bottom: 10px; /* Corrected from margin-top for spacing before button */
+        }
+        #character-info-overlay #info-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        #character-info-overlay #info-close-button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: rgba(138, 175, 255, 0.5); /* Thematic button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Cinzel', sans-serif; /* Corrected from 'Cinzel', serif to 'Cinzel', sans-serif or just 'Cinzel' if it's always serif */
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+        #character-info-overlay #info-close-button:hover {
+            background-color: rgba(138, 175, 255, 0.8);
+        }
     </style>
 </head>
 <body>
-    <div id="character-info-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(40, 40, 50, 0.9); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); z-index: 100; max-width: 400px; text-align: left;">
-        <h2 id="info-name" style="margin-top: 0; border-bottom: 1px solid #666; padding-bottom: 10px;"></h2>
-        <p id="info-bio" style="max-height: 150px; overflow-y: auto; margin-bottom: 10px;"></p>
-        <p id="info-whisper" style="font-style: italic; background-color: rgba(0,0,0,0.2); padding: 10px; border-radius: 5px;"></p>
-        <a id="info-link" href="#" target="_blank" style="color: #8af; text-decoration: none;">Leer más...</a>
-        <button id="info-close-button" style="display: block; margin: 15px auto 0; padding: 8px 15px; background-color: #555; color: white; border: none; border-radius: 5px; cursor: pointer;">Cerrar</button>
+    <div id="character-info-overlay">
+        <h2 id="info-name"></h2>
+        <p id="info-bio"></p>
+        <p id="info-whisper"></p>
+        <a id="info-link" href="#" target="_blank">Leer más...</a>
+        <button id="info-close-button">Cerrar</button>
     </div>
     <canvas id="webgl-canvas"></canvas>
     <!-- Content will go here -->
@@ -35,9 +139,11 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/RenderPass.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
 
     <script type="module">
         // import * as THREE from 'three'; // THREE should be global from the script above
+        // TWEEN should be globally available from the UMD script
         import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
         import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
         import { EffectComposer } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js';
@@ -91,6 +197,45 @@
         controls.maxDistance = 25; // Increased max distance
         // controls.maxPolarAngle = Math.PI / 2; // Prevent looking below the ground
         controls.update(); // Important after setting camera position if target is default
+
+        // Ground Plane
+        const groundGeometry = new THREE.PlaneGeometry(50, 50);
+        const groundMaterial = new THREE.MeshStandardMaterial({
+            color: 0x333333,
+            roughness: 0.9,
+            metalness: 0.1,
+        });
+        const groundPlane = new THREE.Mesh(groundGeometry, groundMaterial);
+        groundPlane.rotation.x = -Math.PI / 2;
+        groundPlane.position.y = -0.55;
+        scene.add(groundPlane);
+
+        // Basic Ruin Structures
+        const ruinMaterial = new THREE.MeshStandardMaterial({ // Renamed to ruinMaterial for clarity
+            color: 0x555555,
+            roughness: 0.8,
+            metalness: 0.2
+        });
+
+        // Example Pillar 1
+        const pillarGeometry1 = new THREE.BoxGeometry(0.5, 3, 0.5);
+        const pillar1 = new THREE.Mesh(pillarGeometry1, ruinMaterial);
+        pillar1.position.set(-5, 1.5 - 0.55, -3);
+        scene.add(pillar1);
+
+        // Example Pillar 2 (broken)
+        const pillarGeometry2 = new THREE.BoxGeometry(0.6, 1.5, 0.6);
+        const pillar2 = new THREE.Mesh(pillarGeometry2, ruinMaterial);
+        pillar2.position.set(4, 0.75 - 0.55, -6);
+        pillar2.rotation.z = Math.PI / 12;
+        scene.add(pillar2);
+
+        // Example Wall Fragment
+        const wallGeometry = new THREE.BoxGeometry(4, 2, 0.3);
+        const wall1 = new THREE.Mesh(wallGeometry, ruinMaterial);
+        wall1.position.set(0, 1 - 0.55, 8);
+        wall1.rotation.y = Math.PI / 8;
+        scene.add(wall1);
 
         // Post-processing
         let composer = new EffectComposer(renderer); // Initialize here
@@ -246,11 +391,43 @@
                     infoWhisper.textContent = charData.whisper || '...';
                     if (charData.web_path) {
                         infoLink.href = charData.web_path;
-                        infoLink.style.display = 'inline';
+                        infoLink.style.display = 'inline-block'; // Use inline-block for proper display with margin
                     } else {
                         infoLink.style.display = 'none';
                     }
-                    infoOverlay.style.display = 'block';
+                    infoOverlay.classList.add('visible');
+
+                    // --- Camera Focusing Logic ---
+                    const targetPosition = new THREE.Vector3();
+                    intersectedObject.getWorldPosition(targetPosition);
+
+                    const currentCameraPosition = camera.position.clone();
+                    const currentControlsTarget = controls.target.clone();
+
+                    const offsetDistance = camera.position.distanceTo(controls.target); // Maintain current distance
+                    const offsetDirection = new THREE.Vector3().subVectors(camera.position, controls.target).normalize();
+                    const targetCameraPosition = new THREE.Vector3().copy(targetPosition).add(offsetDirection.multiplyScalar(offsetDistance));
+
+                    // Tween for camera position
+                    new TWEEN.Tween(currentCameraPosition)
+                        .to(targetCameraPosition, 800)
+                        .easing(TWEEN.Easing.Quadratic.InOut)
+                        .onUpdate(() => {
+                            camera.position.copy(currentCameraPosition);
+                        })
+                        .start();
+
+                    // Tween for OrbitControls target
+                    new TWEEN.Tween(currentControlsTarget)
+                        .to(targetPosition, 800)
+                        .easing(TWEEN.Easing.Quadratic.InOut)
+                        .onUpdate(() => {
+                            controls.target.copy(currentControlsTarget);
+                        })
+                        .onComplete(() => {
+                            controls.update();
+                        })
+                        .start();
                 }
             }
         }
@@ -259,7 +436,7 @@
         window.addEventListener('click', onDocumentMouseClick, false);
 
         infoCloseButton.addEventListener('click', () => {
-            infoOverlay.style.display = 'none';
+            infoOverlay.classList.remove('visible');
         });
 
         // Handle window resize
@@ -284,6 +461,8 @@
         const animate = () => {
             // Update controls
             controls.update();
+
+            TWEEN.update(); // Update TWEEN animations
 
             // Rotate cube (The old single cube)
             /*
