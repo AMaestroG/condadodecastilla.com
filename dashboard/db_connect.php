@@ -1,58 +1,51 @@
 <?php
-// Database configuration
-$db_host = "localhost";         // Host de la base de datos
-$db_name = "condado_castilla_db"; // Nombre de tu base de datos
-$db_user = "condado_user";        // Usuario de tu base de datos
+// dashboard/db_connect.php
+// Configuración para conectar a la base de datos PostgreSQL
+
+// Habilitar la visualización de errores para desarrollo (eliminar o comentar en producción)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Configuración de la base de datos PostgreSQL
+$db_host = "localhost";         // Host de la base de datos (PostgreSQL está en el mismo servidor)
+$db_name = "condado_castilla_db"; // Nombre de tu base de datos PostgreSQL
+$db_user = "condado_user";        // Usuario de tu base de datos PostgreSQL
 $db_pass = "tu_contraseña_muy_segura"; // ¡¡¡REEMPLAZA ESTO CON LA CONTRASEÑA REAL DE 'condado_user'!!!
 $db_port = "5432";                // Puerto estándar de PostgreSQL
 
-// $db_other_params = "YOUR_OTHER_PARAMS"; // Replace with any other connection parameters (e.g., ServiceName=your_service;EncryptionMethod=1;ValidateServerCertificate=0)
+// Cadena de conexión (DSN) para PostgreSQL usando PDO
+$dsn = "pgsql:host=$db_host;port=$db_port;dbname=$db_name;user=$db_user;password=$db_pass";
 
-// PDO options (can be customized)
+// Opciones de conexión PDO (recomendadas)
 $db_options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Recommended for error handling
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,   // Fetches associative arrays
-    PDO::ATTR_EMULATE_PREPARES   => false,              // Use native prepared statements
-    // PDO::ATTR_PERSISTENT => true, // Consider if persistent connections are needed
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Lanza excepciones en errores
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Devuelve resultados como arrays asociativos
+    PDO::ATTR_EMULATE_PREPARES   => false,                  // Usa preparaciones nativas (más seguro)
 ];
 
-// Construct the DSN (Data Source Name) for Progress OpenEdge ODBC
-// Ensure the "Progress OpenEdge Wire Protocol" driver (or similar, e.g., "DataDirect OpenEdge Wire Protocol") is installed on the server where PHP is running.
-// The driver name might vary based on the specific ODBC driver version installed.
-// Check your ODBC Administrator for the exact driver name.
-$dsn = "odbc:DRIVER={Progress OpenEdge Wire Protocol};HOST=$db_host;PORT=$db_port;DB=$db_name;";
-// Optionally, include UID and PWD in the DSN, though it's often better to pass them to the PDO constructor.
-// $dsn .= "UID=$db_user;PWD=$db_pass;";
-// If you have other parameters, append them like so:
-// if (!empty($db_other_params)) {
-//     $dsn .= $db_other_params;
-// }
-
+$pdo = null; // Inicializar $pdo
 
 try {
-    // Establish the database connection
-    // If UID and PWD are not in the DSN, pass them as arguments to the PDO constructor.
-    $pdo = new PDO($dsn, $db_user, $db_pass, $db_options);
-
-    // You can uncomment the following line for a quick connection test (remove in production)
-    // echo "Connected to Progress database successfully!";
+    // Establecer la conexión a la base de datos
+    $pdo = new PDO($dsn);
+    
+    // Mensaje de éxito (puedes comentarlo o eliminarlo después de probar)
+    // echo "<p style='color:green; font-family:monospace;'>Conexión a PostgreSQL ('$db_name') exitosa!</p>";
 
 } catch (PDOException $e) {
-    // Handle connection errors
-    // In a production environment, log this error to a file or a logging system.
-    // Avoid displaying detailed error messages to the end-user.
-    error_log("Database Connection Error: " . $e->getMessage(), 0);
-    $pdo = null;
+    // Manejar errores de conexión
+    $error_message = "Error de conexión a la Base de Datos: " . $e->getMessage();
+    error_log($error_message, 0); // Loguear el error detallado en el log de errores del servidor
+    
+    // Mostrar un mensaje de error genérico al usuario en el HTML del dashboard si este script se incluye directamente
+    // o dejar que el script que lo incluye maneje el error si $pdo es null.
+    // Para el propósito del dashboard, si get_stats.php incluye esto, debería manejar el caso de $pdo nulo.
+    // Si index.php lo incluye directamente, podrías mostrar un error aquí.
+    // Por ahora, lo dejamos así y get_stats.php deberá verificar $pdo.
+    // die("<p style='color:red; font-family:monospace;'>FALLO DE CONEXIÓN: " . htmlspecialchars($e->getMessage()) . "</p>");
 }
 
-// The $pdo object is now ready to be used for database operations.
-// For example:
-// $stmt = $pdo->query("SELECT * FROM your_table_name LIMIT 10");
-// while ($row = $stmt->fetch()) {
-//     print_r($row);
-// }
-
-// It's good practice to close the connection when it's no longer needed,
-// though PHP usually handles this automatically at the end of the script.
-// To explicitly close: $pdo = null;
+// El objeto $pdo estará disponible para los scripts que incluyan este archivo.
+// Si la conexión falla, $pdo seguirá siendo null o la excepción habrá detenido el script si no se maneja.
 ?>
