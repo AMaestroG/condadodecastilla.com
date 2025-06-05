@@ -35,7 +35,7 @@ require_once 'includes/text_manager.php';// For editableText()
 
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php require_once __DIR__ . '/_header.html'; ?>
 
     <header class="hero">
         <div class="hero-content">
@@ -164,7 +164,7 @@ require_once 'includes/text_manager.php';// For editableText()
         </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <?php require_once __DIR__ . '/_footer.html'; ?>
 
     <script src="/js/layout.js"></script>
 

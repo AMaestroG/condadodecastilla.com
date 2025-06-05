@@ -1,17 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/_header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-            // NEW: Initialize sidebar navigation after header is loaded
-            initializeSidebarNavigation(); 
-        });
+    // Always initialize sidebar navigation. For PHP pages, elements are already there.
+    // For static HTML pages, this will run, and then the header fetch below will populate the necessary elements.
+    // The initializeSidebarNavigation function itself checks for element existence.
+    initializeSidebarNavigation();
 
-    fetch('/_footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        });
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (headerPlaceholder) {
+        fetch('/_header.html')
+            .then(response => response.text())
+            .then(data => {
+                headerPlaceholder.innerHTML = data;
+                // Re-initialize sidebar navigation if header was loaded dynamically,
+                // in case the elements weren't ready on the first call.
+                initializeSidebarNavigation();
+            })
+            .catch(error => console.error('Error fetching _header.html:', error));
+    }
+
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+        fetch('/_footer.html')
+            .then(response => response.text())
+            .then(data => {
+                footerPlaceholder.innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching _footer.html:', error));
+    }
 });
 
 // NEW: Function to handle sidebar interactions
