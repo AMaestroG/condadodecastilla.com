@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Millan De La Cogolla - Condado de Castilla</title>
+    <title>San Braulio de Zaragoza - Obispos y Escritores</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,17 +22,17 @@
             --color-texto-principal: #2c1d12;  /* Un marrón oscuro para el texto principal */
             --color-fondo-pagina: #fdfaf6;   /* Un blanco hueso muy sutil para el fondo general */
             --color-negro-contraste: #1A1A1A;
-            --color-primario-purpura-rgb: 74, 13, 103; 
-            --transition-speed: 0.3s; 
+            --color-primario-purpura-rgb: 74, 13, 103;
+            --transition-speed: 0.3s;
         }
 
         /* --- Estilos Generales --- */
         *, *::before, *::after {
-            box-sizing: border-box; 
+            box-sizing: border-box;
         }
 
         html {
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
 
         body {
@@ -42,7 +42,7 @@
             background-color: var(--color-fondo-pagina);
             margin: 0;
             padding: 0;
-            font-size: 16px; 
+            font-size: 16px;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -51,10 +51,10 @@
             margin-top: 1.5em;
             margin-bottom: 0.7em;
             line-height: 1.3;
-            font-weight: 700; 
+            font-weight: 700;
         }
 
-        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; } 
+        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; }
         h2 { font-size: clamp(1.8em, 4vw, 2.5em); }
         h3 { font-size: clamp(1.4em, 3vw, 2em); }
 
@@ -64,7 +64,7 @@
             transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
         }
 
-        a:focus-visible { 
+        a:focus-visible {
             color: var(--color-acento-amarillo);
             text-decoration: underline;
             outline: 2px solid var(--color-acento-amarillo);
@@ -79,52 +79,46 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            display: block; 
+            display: block;
         }
-        
+
         .container {
-            width: 90%; 
-            max-width: 1200px; 
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* --- Barra de Navegación (simplificada para páginas de personajes) --- */
         .navbar {
             background-color: var(--color-primario-purpura);
-            padding: 0.8em 0; 
+            padding: 0.8em 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-            /* position: sticky;  Puede no ser necesario en páginas de detalle */
-            /* top: 0; */
             z-index: 1000;
         }
 
         .navbar .container {
             display: flex;
-            justify-content: space-between; /* Centrar si solo hay logo */
+            justify-content: space-between;
             align-items: center;
         }
-        
+
         .navbar .logo-text {
             font-family: "Cinzel", serif;
-            font-size: clamp(1.5em, 3vw, 1.8em); 
+            font-size: clamp(1.5em, 3vw, 1.8em);
             color: var(--color-piedra-clara);
             text-decoration: none;
-            font-weight: 900; 
+            font-weight: 900;
             transition: transform var(--transition-speed) ease;
         }
         .navbar .logo-text:hover, .navbar .logo-text:focus-visible {
             transform: scale(1.05);
             text-decoration: none;
-            outline: none; 
+            outline: none;
         }
-        /* Se omite .nav-links y .nav-toggle para la plantilla de personaje para simplificar, 
-           se puede añadir si se desea un menú completo en cada página de personaje */
 
-        /* Estilos específicos para la página del personaje y el índice */
         .page-header-personaje, .page-header-indice {
             background-color: var(--color-piedra-media);
-            background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.65), rgba(44, 29, 18, 0.8)), url("/assets/img/hero_background_mezquita_llana.jpg"); /* Placeholder, considera cambiarla */
+            background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.65), rgba(44, 29, 18, 0.8)), url("/assets/img/hero_background_mezquita_llana.jpg");
             background-size: cover;
             background-position: center;
             padding: clamp(40px, 10vh, 80px) 20px;
@@ -136,24 +130,24 @@
             color: #fff;
             text-shadow: 2px 2px 6px var(--color-negro-contraste);
         }
-        .content-section { /* Clase genérica para secciones de contenido */
+        .content-section {
             padding: clamp(30px, 6vh, 50px) 0;
         }
-        .content-wrapper { /* Contenedor para el contenido principal */
+        .content-wrapper {
             max-width: 800px;
             margin: 0 auto;
             background-color: #fff;
-            padding: 30px 40px; /* Más padding lateral */
+            padding: 30px 40px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .content-wrapper img.personaje-imagen-principal {
-            max-width: 300px; 
+            max-width: 300px;
             margin: 0 auto 1.5em auto;
             border: 4px solid var(--color-piedra-media);
-            border-radius: 50%; /* Imagen redonda para retratos */
+            border-radius: 50%;
             object-fit: cover;
-            height: 300px; /* Asegurar que sea cuadrada para el círculo */
+            height: 300px;
         }
         .content-wrapper h2 {
             text-align:left;
@@ -162,7 +156,7 @@
             margin-bottom: 1em;
             font-size: clamp(1.6em, 3.5vw, 2.2em);
         }
-         .content-wrapper h2::after { display:none; } 
+         .content-wrapper h2::after { display:none; }
 
         .content-wrapper p, .content-wrapper ul {
             text-align: justify;
@@ -176,12 +170,12 @@
         .content-wrapper ul li {
             margin-bottom: 0.5em;
         }
-        .back-to-link, .cta-button-personaje { /* Estilo común para botones/enlaces de acción */
+        .back-to-link, .cta-button-personaje {
             display: inline-block;
             margin-top: 2em;
             padding: 12px 25px;
             background-color: var(--color-secundario-dorado);
-            color: var(--color-primario-purpura) !important; /* Forzar color de texto */
+            color: var(--color-primario-purpura) !important;
             border-radius: 25px;
             font-family: "Cinzel", serif;
             font-weight: bold;
@@ -192,37 +186,34 @@
         }
         .back-to-link:hover, .cta-button-personaje:hover {
             background-color: var(--color-primario-purpura);
-            color: var(--color-acento-amarillo) !important; /* Forzar color de texto */
+            color: var(--color-acento-amarillo) !important;
             text-decoration: none;
             transform: translateY(-2px);
         }
-        
-        /* Estilos para el índice de personajes */
+
         .indice-categorias li {
-            list-style-type: none; /* Quitar viñetas de la lista principal de categorías */
+            list-style-type: none;
             margin-bottom: 1.5em;
         }
-        .indice-categorias h3 { /* Título de categoría en el índice */
+        .indice-categorias h3 {
             font-size: clamp(1.3em, 2.8vw, 1.7em);
             border-left: none;
             padding-left: 0;
             margin-bottom: 0.5em;
         }
-        .indice-personajes-lista { /* Lista de personajes dentro de una categoría */
-            list-style: disc; /* Viñetas para los personajes */
+        .indice-personajes-lista {
+            list-style: disc;
             padding-left: 30px;
         }
         .indice-personajes-lista li a {
             font-size: clamp(1em, 2vw, 1.1em);
         }
 
-
-        /* --- Footer --- */
         .footer {
-            background-color: var(--color-texto-principal); 
+            background-color: var(--color-texto-principal);
             color: var(--color-piedra-clara);
             text-align: center;
-            padding: 40px 20px; 
+            padding: 40px 20px;
             margin-top: 50px;
             border-top: 6px solid var(--color-secundario-dorado);
         }
@@ -234,7 +225,7 @@
             margin: 0.6em 0;
             font-size: clamp(0.9em, 1.8vw, 1em);
         }
-        .footer a { 
+        .footer a {
             color: var(--color-acento-amarillo);
         }
         .footer a:focus-visible {
@@ -255,7 +246,7 @@
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>San Millán de la Cogolla</h1>
+            <h1>San Braulio de Zaragoza</h1>
         </div>
     </header>
 
@@ -263,34 +254,27 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/placeholder.jpg" alt="Retrato o imagen de San Millán de la Cogolla" class="personaje-imagen-principal" onerror="this.style.display='none'">
-                    <h2>Biografía y Relevancia</h2>
+                    <img src="/assets/img/placeholder.jpg" alt="Retrato o imagen de San Braulio" class="personaje-imagen-principal">
+                    <h2>Biografía y Relevancia Histórica</h2>
                     <p>
-                        San Millán de la Cogolla (Berceo, 473 - Monasterio de Suso, 574) fue un ermitaño, anacoreta y luego cenobita visigodo, considerado santo y patrón de Castilla y La Rioja. Su vida transcurrió principalmente en la Sierra de la Demanda.
+                        San Braulio (c. 590 – c. 651) fue una figura eclesiástica e intelectual prominente en la Hispania visigoda. Obispo de Zaragoza desde aproximadamente el 631 hasta su muerte, fue un prolífico escritor, consejero de reyes visigodos y una figura central en la cultura de su tiempo. Mantuvo correspondencia con importantes personalidades y participó activamente en los Concilios de Toledo. Su obra más conocida es la 'Vida de San Millán de la Cogolla', un texto hagiográfico fundamental para la historia del cristianismo primitivo en la península.
                     </p>
+
+                    <h3>Menciones en "nuevo4.md"</h3>
                     <p>
-                        Su figura es fundamental para entender la espiritualidad altomedieval en la península ibérica y su legado perdura a través de los monasterios de Suso y Yuso, declarados Patrimonio de la Humanidad. Es también conocido por ser el lugar donde se encuentran las Glosas Emilianenses, uno de los primeros testimonios escritos del romance hispánico.
-                    </p>
-                    
-                    <h3>Información Adicional de <code>nuevo4.md</code></h3>
-                    <p>
-                        Según el documento <code>nuevo4.md</code>, San Millán fue bautizado por el Obispo de Oca. También se narra, a través de San Braulio, que fue testigo de la destrucción de Civitate Auca Patricia. El Becerro Galicano de San Millán de la Cogolla es citado como una fuente clave que contendría la primera mención de 'Castilla' vinculada a Auca Patricia. La vida de San Millán, escrita por San Braulio, es referenciada en relación con las acciones del rey Leovigildo en Cantabria (Auca) y la profecía sobre un personaje llamado Abundancio.
+                        El documento <code>nuevo4.md</code> recurre a la 'Vida de San Millán de la Cogolla', escrita por San Braulio, como una fuente histórica clave. Específicamente, se cita su obra para relatar la destrucción de Auca Patricia (identificada como la capital de Cantabria y asociada con Cerezo de Río Tirón) por el rey visigodo Leovigildo. Según <code>nuevo4.md</code>, San Braulio detalló que Leovigildo dejó solo tres torres en pie en Auca, un hecho que el documento vincula con el diseño del Pendón de Castilla. También se hace referencia a San Braulio al narrar la historia de Abundancio, quien dudó de una profecía de San Millán sobre esta destrucción y fue posteriormente ejecutado por Leovigildo.
                     </p>
 
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Considerado Santo, Monje, Ermitaño y Patrón de Castilla y La Rioja.</li>
-                        <li>Vivió como anacoreta en las cuevas de la Sierra de la Demanda.</li>
-                        <li>Fundador del Monasterio de Suso, origen del complejo monástico de San Millán de la Cogolla.</li>
-                        <li>Su vida fue escrita por San Braulio, obispo de Zaragoza.</li>
-                        <li>Los monasterios de Suso y Yuso son Patrimonio de la Humanidad por la UNESCO.</li>
-                        <li>En el Monasterio de Suso se encontraron las Glosas Emilianenses.</li>
-                        <li>Bautizado por el Obispo de Oca (según <code>nuevo4.md</code>).</li>
-                        <li>Testigo de la destrucción de Civitate Auca Patricia (narrado por San Braulio, según <code>nuevo4.md</code>).</li>
-                        <li>El Becerro Galicano de San Millán de la Cogolla es una fuente clave que vincularía 'Castilla' con Auca Patricia (según <code>nuevo4.md</code>).</li>
-                        <li>Su biografía por San Braulio es referencia para eventos relacionados con Leovigildo en Cantabria/Auca (según <code>nuevo4.md</code>).</li>
+                        <li>Obispo de Zaragoza en el siglo VII (c. 631-651).</li>
+                        <li>Destacado intelectual y escritor de la Hispania visigoda.</li>
+                        <li>Autor de la 'Vida de San Millán de la Cogolla'.</li>
+                        <li>Según <code>nuevo4.md</code>, su obra es fuente para la conquista y destrucción de Auca Patricia/Cantabria por Leovigildo.</li>
+                        <li>Citado en <code>nuevo4.md</code> por el detalle de las tres torres que quedaron en Auca tras la destrucción por Leovigildo (vinculadas al Pendón de Castilla).</li>
+                        <li>Referenciado en <code>nuevo4.md</code> al contar la historia de Abundancio, su escepticismo ante la profecía de San Millán y su posterior muerte a manos de Leovigildo.</li>
                     </ul>
-                    
+
                     <p style="text-align:center;">
                         <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
@@ -301,7 +285,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 CondadoDeCastilla.com - Todos los derechos reservados.</p>
+            <p>&copy; <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
             <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
         </div>
     </footer>

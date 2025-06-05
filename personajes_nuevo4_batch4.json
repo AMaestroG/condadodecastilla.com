@@ -1,0 +1,32 @@
+[
+  {
+    "name": "San Millán de la Cogolla",
+    "era": "Visigothic / Early Medieval",
+    "status": "Santo, Monje, Ermitaño, Patrón de Castilla y La Rioja",
+    "description": "Baptized by the Bishop of Oca, according to `nuevo4.md`. Witnessed the destruction of Civitate Auca Patricia, as narrated by San Braulio. The Becerro Galicano de San Millán de la Cogolla is a key source repeatedly cited, said to contain the first mention of 'Castilla' linked to Auca Patricia. His life, written by San Braulio, is referenced for Leovigildo's actions in Cantabria (Auca) and the prophecy about Abundancio."
+  },
+  {
+    "name": "Fray Prudencio de Sandoval",
+    "era": "Early Modern (16th-17th Century)",
+    "status": "Cronista, Obispo de Pamplona, Monje de San Millán",
+    "description": "Author of 'Historias de Idacio obispo...' (original title) / 'Historia de cinco obispos' (Pamplona, 1615). Frequently cited in `nuevo4.md` for his interpretations of the Becerro Galicano, especially regarding Auca Patricia as the origin of Castilla, its founding by Augustus, and its episcopal status. `nuevo4.md` often aligns with his views, such as reading 'Auca Patricia' instead of 'Area Paterniani' in the Becerro."
+  },
+  {
+    "name": "Leovigildo",
+    "era": "Visigothic (6th Century)",
+    "status": "Rey Godo",
+    "description": "According to `nuevo4.md` (citing San Braulio), he conquered Auca Patricia (capital of Cantabria) in 574, destroying its walls and towers but leaving three standing (linked to the Pendón de Castilla). Also mentioned for executing Abundancio after the prophecy of San Millán about Cantabria's destruction."
+  },
+  {
+    "name": "San Braulio",
+    "era": "Visigothic (7th Century)",
+    "status": "Obispo de Zaragoza, Escritor",
+    "description": "Author of 'Vida de San Millán de la Cogolla'. His work is cited in `nuevo4.md` as a source for Leovigildo's destruction of Auca Patricia/Cantabria, the detail about three towers remaining, and the story of Abundancio's disbelief and subsequent death at Leovigildo's hand."
+  },
+  {
+    "name": "Alfonso II el Casto",
+    "era": "Astur (c. 791-842)",
+    "status": "Rey, Creador del Camino de Santiago",
+    "description": "Referred to in `nuevo4.md` as the 'creador del Camino de Santiago'. The text states he conquered the Auca area. His son Ramiro I's marriage to Paterna (from Cerasio/Castilla) and their founding of the Hospital de San Jorge in Cerasio are linked to his era. The Crónica Albeldense is cited stating Alfonso II was exiled to Cerezo. Also associated with establishing the Bishopric of Valpuesta (804) as a successor to Auca."
+  }
+]
