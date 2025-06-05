@@ -1,6 +1,13 @@
 <?php
 // includes/ai_utils.php
 
+if (!defined('GEMINI_API_KEY')) {
+    define('GEMINI_API_KEY', 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO'); // Placeholder
+}
+if (!defined('GEMINI_API_ENDPOINT')) {
+    define('GEMINI_API_ENDPOINT', 'https://api.gemini.example.com/v1/generateContent'); // Placeholder
+}
+
 if (!defined('AI_UTILS_LOADED')) {
     define('AI_UTILS_LOADED', true);
 }
@@ -44,6 +51,113 @@ function get_suggested_tags_placeholder(string $content_key): array {
 
     // Etiquetas por defecto para otros contenidos no especificados
     return ['General', 'Contenido Interesante', 'Historia', 'Web'];
+}
+
+/**
+ * Función helper para simular una llamada a la API de Gemini.
+ * En un entorno real, esto realizaría una solicitud HTTP real usando curl.
+ *
+ * @param array $payload El cuerpo de la solicitud a enviar a la API.
+ * @return array|null La respuesta decodificada de la API como array, o null en caso de error simulado.
+ */
+function _call_gemini_api_simulator(array $payload): ?array {
+    // Simulación de la llamada a la API y la respuesta.
+    // No se realizan llamadas cURL reales aquí para el entorno de demostración.
+
+    $simulated_success = true; // Cambiar a false para probar manejo de errores
+
+    if (!$simulated_success) {
+        error_log("Simulated Gemini API call failed.");
+        return null;
+    }
+
+    // Extraer el prompt para la simulación de respuesta (asumiendo una estructura simple)
+    $prompt_text = "";
+    if (isset($payload['contents'][0]['parts'][0]['text'])) {
+        $prompt_text = $payload['contents'][0]['parts'][0]['text'];
+    }
+
+    // Simular una respuesta basada en el tipo de prompt (muy básico)
+    $generated_text = "Este es un texto simulado generado por la API de Gemini en respuesta a un prompt que comenzaba con: '" . substr(htmlspecialchars($prompt_text), 0, 100) . "...'. ";
+    if (stripos($prompt_text, "resume") !== false || stripos($prompt_text, "resumen") !== false) {
+        $generated_text .= "Este parece ser un resumen. Los puntos clave incluyen A, B y C. La elaboración detallada seguiría.";
+    } elseif (stripos($prompt_text, "etiquetas") !== false || stripos($prompt_text, "tags") !== false) {
+        $generated_text = json_encode(['tag1', 'tag2', 'tag3', 'simulated_tag']); // Simular respuesta para etiquetas
+    } elseif (stripos($prompt_text, "traduce") !== false || stripos($prompt_text, "translate") !== false) {
+        $generated_text .= "Esta es la porción traducida simulada. El contenido original se ha procesado y convertido al idioma de destino.";
+    }
+
+
+    // Estructura de respuesta simulada similar a lo que podría devolver Gemini API (muy simplificada)
+    // Referencia: https://ai.google.dev/docs/gemini_api_overview?hl=es-419#text-generation-response
+    // La estructura real puede variar, esto es solo para la simulación.
+    $simulated_response = [
+        'candidates' => [
+            [
+                'content' => [
+                    'parts' => [
+                        [
+                            'text' => $generated_text
+                        ]
+                    ],
+                    'role' => 'model'
+                ],
+                // Otros campos como 'finishReason', 'index', 'safetyRatings' podrían estar aquí.
+            ]
+        ],
+        // 'promptFeedback' podría estar aquí.
+    ];
+
+    return $simulated_response;
+}
+
+/**
+ * Genera un resumen de un texto utilizando el simulador de la API de Gemini.
+ *
+ * @param string $text_to_summarize El texto que se va a resumir.
+ * @return string El resumen generado o un mensaje de error.
+ */
+function get_real_ai_summary(string $text_to_summarize): string {
+    if (empty(trim($text_to_summarize))) {
+        return "Error: No se proporcionó texto para resumir.";
+    }
+
+    // Preparar el prompt para la API de Gemini
+    $prompt = "Por favor, resume el siguiente texto de forma concisa y clara, enfocándote en los puntos clave relevantes para un lector interesado en historia y cultura. El resumen debe ser adecuado para mostrar en una página web. Texto a resumir:
+
+\"" . $text_to_summarize . "\"";
+
+    // Estructura del payload para la API de Gemini (simplificada para el simulador)
+    // Ver: https://ai.google.dev/docs/gemini_api_overview?hl=es-419#text-generation-prompt
+    $payload = [
+        'contents' => [
+            [
+                'parts' => [
+                    ['text' => $prompt]
+                ]
+            ]
+        ],
+        // Se podrían añadir 'generationConfig' o 'safetySettings' aquí si el simulador los manejara.
+    ];
+
+    $api_response = _call_gemini_api_simulator($payload);
+
+    if ($api_response === null) {
+        return "Error: La llamada simulada a la API de IA para el resumen falló.";
+    }
+
+    // Procesar la respuesta simulada (adaptar según la estructura real de Gemini si es necesario)
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $summary = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        // Podría ser necesario un post-procesamiento adicional aquí para limpiar el resumen.
+        return !empty($summary) ? nl2br(htmlspecialchars($summary)) : "Error: El resumen generado por la IA simulada estaba vacío.";
+    } elseif (isset($api_response['error']['message'])) { // Manejo de errores de la API si los hubiera
+         return "Error de la API de IA simulada: " . htmlspecialchars($api_response['error']['message']);
+    } else {
+        // Loggear la respuesta inesperada para depuración si es posible en un entorno real.
+        // error_log("Respuesta inesperada de la API de IA simulada: " . print_r($api_response, true));
+        return "Error: Respuesta inesperada del servicio de resumen de IA simulada.";
+    }
 }
 
 /**

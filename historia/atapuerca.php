@@ -92,22 +92,58 @@ require_once __DIR__ . '/../includes/ai_utils.php';
         document.addEventListener('DOMContentLoaded', function() {
             const btnResumen = document.getElementById('btnResumenIA');
             const resumenContenedor = document.getElementById('resumenIAContenedor');
+            const contentContainer = document.getElementById('textoPrincipalAtapuerca'); // Asegurarse que este ID es el correcto para el contenido a resumir
 
-            if (btnResumen && resumenContenedor) {
+            if (btnResumen && resumenContenedor && contentContainer) { // contentContainer también es necesario aquí
                 btnResumen.addEventListener('click', function() {
-                    // Para esta demostración, obtenemos un resumen de placeholder generado por PHP.
-                    // En una implementación real, aquí podría haber una llamada AJAX
-                    // o se podría haber extraído el texto de 'textoPrincipalAtapuerca'
-                    // y enviado a una función de resumen.
-
-                    // Generamos el resumen placeholder directamente con PHP e imprimimos como string JS.
-                    // Usamos una clave genérica ya que no estamos pasando el texto completo aquí.
-                    const resumenHtml = <?php echo json_encode(get_smart_summary_placeholder('Contenido de Atapuerca')); ?>;
-
-                    resumenContenedor.innerHTML = resumenHtml;
+                    // Mostrar indicador de carga
+                    resumenContenedor.innerHTML = '<p><em>Generando resumen con IA... Por favor, espere.</em></p>';
                     resumenContenedor.style.display = 'block';
-                    // Opcional: Desplazar la vista al resumen
-                    // resumenContenedor.scrollIntoView({ behavior: 'smooth' });
+
+                    // Obtener el texto del contenido principal.
+                    // Usar textContent para obtener solo el texto, no el HTML.
+                    const textoParaResumir = contentContainer.textContent.trim();
+
+                    if (!textoParaResumir) {
+                        resumenContenedor.innerHTML = '<p style="color:red;">Error: No se pudo extraer contenido para resumir.</p>';
+                        return;
+                    }
+
+                    // Realizar la petición fetch al endpoint AJAX
+                    fetch('/ajax_actions/get_summary.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json' // Indicar que esperamos JSON de vuelta
+                        },
+                        body: JSON.stringify({ text_to_summarize: textoParaResumir })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            // Si la respuesta HTTP no es ok (ej. 4xx, 5xx), intentar leer el error del cuerpo si es JSON
+                            return response.json().then(errData => {
+                                throw new Error(errData.error || `Error del servidor: ${response.status} ${response.statusText}`);
+                            }).catch(() => {
+                                // Si el cuerpo no es JSON o no hay mensaje de error, usar el statusText
+                                throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+                            });
+                        }
+                        return response.json(); // Convertir la respuesta a JSON
+                    })
+                    .then(data => {
+                        if (data.success && data.summary) {
+                            // El summary ya viene formateado con nl2br(htmlspecialchars()) desde el backend
+                            resumenContenedor.innerHTML = data.summary;
+                        } else if (data.error) {
+                            resumenContenedor.innerHTML = `<p style="color:red;">Error al generar resumen: ${data.error}</p>`;
+                        } else {
+                            resumenContenedor.innerHTML = '<p style="color:red;">Error: Respuesta inesperada del servicio de resumen.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error en la petición fetch para resumen:', error);
+                        resumenContenedor.innerHTML = `<p style="color:red;">Error de conexión o solicitud: ${error.message}</p>`;
+                    });
                 });
             }
         });
