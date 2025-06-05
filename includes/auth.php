@@ -1,38 +1,41 @@
 <?php
+// /includes/auth.php
+
 if (session_status() == PHP_SESSION_NONE) {
-    // Attempt to start the session, suppressing errors if headers already sent (though ideally this should be called before any output)
-    @session_start();
+    @session_start(); // El @ suprime errores si la sesión ya está iniciada, aunque es mejor verificar.
 }
 
-define('ADMIN_ROLE', 'admin');
+define('ADMIN_ROLE', 'admin'); // Define el rol de administrador
 
-/**
- * Checks if a user is logged in and has an admin role.
- *
- * @return bool True if admin is logged in, false otherwise.
- */
-function is_admin_logged_in(): bool {
+function is_admin_logged_in() {
     return isset($_SESSION['user_id']) && isset($_SESSION['user_role']) && $_SESSION['user_role'] === ADMIN_ROLE;
 }
 
-/**
- * If the user is not an admin, redirects to the login page and exits.
- * Call this at the beginning of any admin-only page.
- *
- * @param string $login_page_path The path to the login page, e.g., '/login.php' or '../login.php'
- */
-function require_admin_login(string $login_page_path = '/login.php'): void {
+function require_admin_login($redirect_url = '/dashboard/login.php') {
     if (!is_admin_logged_in()) {
-        // Ensure no output has been sent before header()
+        // Guardar la URL a la que se intentaba acceder para redirigir después del login
+        $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
         if (!headers_sent()) {
-            header("Location: " . $login_page_path);
+            header("Location: " . $redirect_url);
         } else {
-            // Fallback if headers are already sent (though this indicates a problem elsewhere)
-            echo "<p>Access denied. Please <a href='" . htmlspecialchars($login_page_path) . "'>login</a>.</p>";
-            // Optionally log this situation as it's not ideal.
+            // Fallback si los headers ya se enviaron
+            echo "<p>Acceso denegado. Por favor, <a href='" . htmlspecialchars($redirect_url) . "'>inicie sesión como administrador</a>.</p>";
+            echo "<script>window.location.href='" . htmlspecialchars($redirect_url) . "';</script>";
         }
         exit;
     }
 }
 
+function logout_user() {
+    $_SESSION = array(); // Limpiar todas las variables de sesión
+
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+    session_destroy();
+}
 ?>
