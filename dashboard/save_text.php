@@ -3,8 +3,8 @@ if (session_status() == PHP_SESSION_NONE) {
     @session_start();
 }
 
-require_once 'includes/auth.php';
-require_once 'dashboard/db_connect.php'; // Provides $pdo
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/db_connect.php'; // Provides $pdo
 
 // Ensure user is admin and request is POST
 require_admin_login('/login.php');

@@ -3,9 +3,9 @@ if (session_status() == PHP_SESSION_NONE) {
     @session_start();
 }
 
-require_once 'includes/auth.php';
-require_once 'dashboard/db_connect.php'; // Provides $pdo
-require_once 'includes/text_manager.php'; // For getText, though not directly used for display here
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/db_connect.php'; // Provides $pdo
+require_once __DIR__ . '/../includes/text_manager.php'; // For getText, though not directly used for display here
 
 // Ensure user is admin
 require_admin_login('/login.php'); // Redirect to login if not admin
@@ -42,7 +42,7 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Textos del Sitio</title>
-    <link rel="stylesheet" href="assets/css/estilos.css"> <!-- Assuming general styles -->
+    <link rel="stylesheet" href="../assets/css/estilos.css"> <!-- Assuming general styles -->
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
         .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -71,7 +71,7 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
 <body>
     <div class="container">
         <nav>
-            <a href="index.html">Volver al Inicio</a> <?php // TODO: Link to index.php if it becomes dynamic ?>
+            <a href="../index.html">Volver al Inicio</a> <?php // TODO: Link to index.php if it becomes dynamic ?>
             <a href="logout.php">Cerrar Sesión</a>
         </nav>
         <h1>Editor de Textos del Sitio</h1>

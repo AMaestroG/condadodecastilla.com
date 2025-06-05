@@ -1,12 +1,12 @@
 <?php
 echo "Before including text_manager.php\n";
-require_once 'includes/text_manager.php';
+require_once __DIR__ . '/../includes/text_manager.php';
 echo "After including text_manager.php\n";
 
 // We still need $pdo for getText, db_connect will be included by text_manager.php if we modify it,
 // or we can include it here. For now, let's assume $pdo might be null.
 // The db_connect.php script is already modified to set $pdo to null on error.
-require_once 'dashboard/db_connect.php';
+require_once __DIR__ . '/db_connect.php';
 
 
 if (function_exists('getText')) {
