@@ -1,0 +1,69 @@
+{
+  "nodes": {
+    "http://example.com": {
+      "id": "19ef8a36-0c2c-4c10-97c5-51e5552ee75c",
+      "url": "http://example.com",
+      "content": "Example Domain Example Domain This domain is for use in illustrative examples in documents. You may use this\n            domain in literature without prior coordination or asking for permission. More information... Another Page Different Site",
+      "last_crawled_at": "2025-06-05T19:34:34.839750",
+      "metadata": {
+        "title": "Example Domain"
+      }
+    },
+    "http://www.iana.org/domains/example": {
+      "id": "7e51ec9a-20a8-4146-89df-e55afe231128",
+      "url": "http://www.iana.org/domains/example",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T19:34:34.840051",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "http://example.com/another-page": {
+      "id": "e4044d2b-d2b2-494c-a554-296a3adfcffb",
+      "url": "http://example.com/another-page",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T19:34:34.840907",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://example.net/different-site": {
+      "id": "69664712-40ef-42d9-9231-3ce05244f4b6",
+      "url": "https://example.net/different-site",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T19:34:34.842084",
+      "metadata": {
+        "status": "placeholder"
+      }
+    }
+  },
+  "edges": [
+    {
+      "id": "ba8894db-55bc-44f3-941e-f4eb6094927b",
+      "source_url": "http://example.com",
+      "target_url": "http://www.iana.org/domains/example",
+      "anchor_text": "More information...",
+      "created_at": "2025-06-05T19:34:34.840028",
+      "source_resource_id": "19ef8a36-0c2c-4c10-97c5-51e5552ee75c",
+      "target_resource_id": "7e51ec9a-20a8-4146-89df-e55afe231128"
+    },
+    {
+      "id": "91a45c0d-a6ae-43d5-970b-2e2fdc1fa9d5",
+      "source_url": "http://example.com",
+      "target_url": "http://example.com/another-page",
+      "anchor_text": "Another Page",
+      "created_at": "2025-06-05T19:34:34.840853",
+      "source_resource_id": "19ef8a36-0c2c-4c10-97c5-51e5552ee75c",
+      "target_resource_id": "e4044d2b-d2b2-494c-a554-296a3adfcffb"
+    },
+    {
+      "id": "d935898b-0374-4919-859b-df8947224598",
+      "source_url": "http://example.com",
+      "target_url": "https://example.net/different-site",
+      "anchor_text": "Different Site",
+      "created_at": "2025-06-05T19:34:34.842063",
+      "source_resource_id": "19ef8a36-0c2c-4c10-97c5-51e5552ee75c",
+      "target_resource_id": "69664712-40ef-42d9-9231-3ce05244f4b6"
+    }
+  ]
+}
