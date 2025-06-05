@@ -1,11 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-// ... resto de tu código PHP ...
-
-
-
 // Database configuration
 $db_host = "localhost";         // Host de la base de datos
 $db_name = "condado_castilla_db"; // Nombre de tu base de datos
