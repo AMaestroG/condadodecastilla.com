@@ -1,6 +1,7 @@
 import os
 import json
 import sys
+import random # <--- Add this import
 
 # Ensure the scripts directory is in the Python path for module imports
 # This is important if the script is run from the repository root.
@@ -121,14 +122,17 @@ def main():
             char_data['web_path'] = f"/{web_accessible_path}" # Prepend / for absolute path from site root
 
             enriched_characters_data.append(char_data)
-            print(f"Successfully processed and enriched: {char_data['name']}")
+            print(f"Successfully processed and enriched: {char_data.get('name')} (Category: {char_data.get('category', 'N/A')})")
             print(f"  Whisper: {char_data['whisper'][:50]}...")
             print(f"  Coordinates: {char_data['coordinates']}")
             print(f"  Web Path: {char_data['web_path']}")
 
-        else:
+        elif char_data: # Parsed but no name, still log category if available
             processing_errors +=1
-            print(f"Failed to parse or missing essential data for: {relative_file_path}")
+            print(f"Processed file (no name found, skipped): {relative_file_path} (Category: {char_data.get('category', 'N/A')})")
+        else: # char_data is None
+            processing_errors +=1
+            print(f"Failed to parse (returned None): {relative_file_path}")
 
     if not enriched_characters_data:
         print("\nNo characters were successfully processed. Output JSON will be empty or not created.")

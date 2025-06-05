@@ -13,11 +13,49 @@ def parse_character_html(file_path):
         dict: A dictionary containing extracted character information,
               or None if the file cannot be processed or essential elements are missing.
     """
+    # Extract category from file path first
+    category_name = "Unknown" # Default
+    try:
+        # e.g., file_path can be "personajes/Condes_Alava/rodrigo.html" or an absolute path from testing
+        # We want the name of the directory containing the file, relative to "personajes" or just the immediate parent.
+        parent_dir_path = os.path.dirname(file_path)
+        category_name_candidate = os.path.basename(parent_dir_path)
+
+        # Avoid using "personajes" itself as a category if the file is directly under it
+        # or if the path is already relative like "Condes_Alava/rodrigo.html"
+        if category_name_candidate and category_name_candidate.lower() != "personajes":
+            category_name = category_name_candidate
+        elif category_name_candidate.lower() == "personajes": # File is directly under "personajes"
+             # Try to see if the file_path itself was like "personajes/SomeCategory/file.html"
+             # and dirname gave "personajes/SomeCategory", then basename gave "SomeCategory" - this is good.
+             # If dirname was "personajes", then it means file is like "personajes/file.html" -> category "Unknown"
+             # This logic is a bit tricky due to how base_dir is handled in process_characters.py
+             # Let's assume for now if parent_dir_path ends with 'personajes', it's an unknown category,
+             # unless the file_path itself is like 'Category/file.html' (then parent_dir_path is 'Category')
+             # This part might need refinement based on how paths are consistently passed.
+             # The current logic in get_character_html_files returns full absolute paths.
+             # So, os.path.basename(os.path.dirname(file_path)) is the most direct parent.
+             # If this parent is 'personajes', then the category is 'Unknown'.
+
+             # Let's re-evaluate: if path is /abs/path/to/repo/personajes/Category/file.html
+             # dirname is /abs/path/to/repo/personajes/Category
+             # basename is Category - this is correct.
+             # if path is /abs/path/to/repo/personajes/file.html
+             # dirname is /abs/path/to/repo/personajes
+             # basename is personajes - this should be Unknown.
+            pass # category_name remains "Unknown" if os.path.basename(parent_dir_path) == "personajes"
+
+    except Exception as e:
+        # This error would be very unusual for basic path operations
+        print(f"Error extracting category from path {file_path}: {e}")
+        category_name = "Unknown"
+
     character_data = {
         'name': None,
         'bio_snippet': None,
         'key_facts': [],
-        'file_path': file_path
+        'file_path': file_path,
+        'category': category_name
     }
 
     try:
@@ -141,7 +179,10 @@ if __name__ == '__main__':
     # For the subtask, we assume the script might be run from the repo root.
 
     # Create a dummy HTML file for testing if it doesn't exist
-    dummy_html_path = "personajes/dummy_character.html"
+    # Modify path to include a test category
+    dummy_category_name = "Test_Category_Dummies"
+    dummy_html_path = os.path.join("personajes", dummy_category_name, "dummy_character.html")
+
     dummy_html_content = """
     <!DOCTYPE html>
     <html lang="es">
@@ -184,6 +225,7 @@ if __name__ == '__main__':
         print(f"Bio Snippet: {parsed_data['bio_snippet']}")
         print(f"Key Facts: {parsed_data['key_facts']}")
         print(f"File Path: {parsed_data['file_path']}")
+        print(f"Category: {parsed_data['category']} (Expected: {dummy_category_name})")
     else:
         print("No data parsed or file not suitable.")
 
@@ -214,6 +256,7 @@ if __name__ == '__main__':
         print(f"Bio Snippet: {parsed_data_no_hitos['bio_snippet']}")
         print(f"Key Facts: {parsed_data_no_hitos['key_facts']} (Expected: [])")
         print(f"File Path: {parsed_data_no_hitos['file_path']}")
+        print(f"Category: {parsed_data_no_hitos['category']} (Expected: personajes or Unknown based on path)")
     else:
         print("No data parsed or file not suitable for no-hitos test.")
 
