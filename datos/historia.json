@@ -1,0 +1,78 @@
+{
+  "info": {
+    "seccion": "Historia",
+    "descripcion": "Artículos detallados sobre la historia del Condado de Castilla, Cerasio, Auca Patricia y temas relacionados."
+  },
+  "articulos": [
+    {
+      "titulo": "El Alcázar de Cerasio: Fortaleza de Castilla",
+      "slug": "alcazar_de_cerasio",
+      "descripcion_corta": "Detalles sobre la construcción, importancia y materiales del Alcázar de Cerasio.",
+      "archivo_markdown": "contenido/historia/alcazar_de_cerasio.md",
+      "archivo_html_original": "historia/subpaginas/alcazar_de_cerasio.html"
+    },
+    {
+      "titulo": "El Alfoz de Cerezo y Lantarón: Territorio Histórico",
+      "slug": "alfoz_cerezo_lantaron",
+      "descripcion_corta": "Exploración de la definición, extensión e importancia del Alfoz de Cerezo y Lantarón.",
+      "archivo_markdown": "contenido/historia/alfoz_cerezo_lantaron.md",
+      "archivo_html_original": "historia/subpaginas/alfoz_cerezo_lantaron.html"
+    },
+    {
+      "titulo": "Auca Patricia: Ubicación y Significado en Cerezo de Río Tirón",
+      "slug": "auca_patricia_ubicacion",
+      "descripcion_corta": "Análisis sobre la ubicación y relevancia de Auca Patricia en relación con Cerezo de Río Tirón.",
+      "archivo_markdown": "contenido/historia/auca_patricia_ubicacion.md",
+      "archivo_html_original": "historia/subpaginas/auca_patricia_ubicacion.html"
+    },
+    {
+      "titulo": "El Becerro Galicano y el Origen de Castilla",
+      "slug": "becerro_galicano_origen_castilla",
+      "descripcion_corta": "Relación entre el Becerro Galicano de San Millán y los orígenes de Castilla.",
+      "archivo_markdown": "contenido/historia/becerro_galicano_origen_castilla.md",
+      "archivo_html_original": "historia/subpaginas/becerro_galicano_origen_castilla.html"
+    },
+    {
+      "titulo": "Condes de Castilla y Álava en Cerasio",
+      "slug": "condes_castilla_alava_cerasio",
+      "descripcion_corta": "Sobre los linajes y el gobierno de los Condes de Castilla y Álava desde Cerasio.",
+      "archivo_markdown": "contenido/historia/condes_castilla_alava_cerasio.md",
+      "archivo_html_original": "historia/subpaginas/condes_castilla_alava_cerasio.html"
+    },
+    {
+      "titulo": "Evidencia Arqueológica en Cerezo",
+      "slug": "evidencia_arqueologica_cerezo",
+      "descripcion_corta": "Hallazgos y evidencias arqueológicas encontradas en la zona de Cerezo.",
+      "archivo_markdown": "contenido/historia/evidencia_arqueologica_cerezo.md",
+      "archivo_html_original": "historia/subpaginas/evidencia_arqueologica_cerezo.html"
+    },
+    {
+      "titulo": "Legado Romano: Emperadores y Estructuras",
+      "slug": "legado_romano_emperadores_estructuras",
+      "descripcion_corta": "Influencia romana en la región, incluyendo emperadores y estructuras.",
+      "archivo_markdown": "contenido/historia/legado_romano_emperadores_estructuras.md",
+      "archivo_html_original": "historia/subpaginas/legado_romano_emperadores_estructuras.html"
+    },
+    {
+      "titulo": "El Obispado de Oca y Auca",
+      "slug": "obispado_oca_auca",
+      "descripcion_corta": "Historia y relevancia del obispado de Oca y su relación con Auca.",
+      "archivo_markdown": "contenido/historia/obispado_oca_auca.md",
+      "archivo_html_original": "historia/subpaginas/obispado_oca_auca.html"
+    },
+    {
+      "titulo": "Orígenes del Castellano Vulgar",
+      "slug": "origenes_castellano_vulgar",
+      "descripcion_corta": "Investigación sobre el nacimiento del castellano vulgar en la región.",
+      "archivo_markdown": "contenido/historia/origenes_castellano_vulgar.md",
+      "archivo_html_original": "historia/subpaginas/origenes_castellano_vulgar.html"
+    },
+    {
+      "titulo": "San Vitores y San Formerio: Santos de la Región",
+      "slug": "san_vitores_san_formerio",
+      "descripcion_corta": "Historia y devoción de San Vitores y San Formerio.",
+      "archivo_markdown": "contenido/historia/san_vitores_san_formerio.md",
+      "archivo_html_original": "historia/subpaginas/san_vitores_san_formerio.html"
+    }
+  ]
+}
