@@ -30,6 +30,13 @@
     --global-box-shadow-medium: 0 5px 15px rgba(var(--epic-text-color-rgb), 0.15);
     --global-box-shadow-dark: 0 8px 25px rgba(var(--epic-text-color-rgb), 0.2);
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
+
+    /* Form Validation & Message Colors */
+    --epic-error-red: #D32F2F;
+    --epic-error-red-rgb: 211, 47, 47;
+    --epic-success-color: var(--epic-gold-secondary);
+    --epic-success-color-rgb: var(--epic-gold-secondary-rgb);
+    --spacing-m: 1em; /* Define spacing variable for consistency */
 }
 
 /* --- Global Reset & Box Sizing --- */
@@ -136,6 +143,14 @@ img {
     border-radius: var(--global-border-radius);
     margin-top: 1em;
     margin-bottom: 1em;
+    transition: opacity 0.5s ease-in-out; /* General fade for images */
+}
+
+img.lazy-loaded-fade-in {
+    opacity: 0;
+}
+img.lazy-loaded-fade-in.loaded {
+    opacity: 1;
 }
 
 /* --- Tables --- */
@@ -630,103 +645,6 @@ body.sidebar-active {
     filter: drop-shadow(0 0 8px var(--epic-gold-main));
 }
 
-/* --- Cards (.card) --- */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2em; /* Increased gap */
-    margin-top: 2em;
-}
-
-.card {
-    background-color: var(--epic-alabaster-bg);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    box-shadow: var(--global-box-shadow-medium);
-    overflow: hidden;
-    transition: transform var(--global-transition-speed) ease-in-out, box-shadow var(--global-transition-speed) ease-in-out;
-    display: flex;
-    flex-direction: column; /* For footer button alignment */
-    text-align: center; /* Card content often centered */
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--global-box-shadow-dark);
-    border-color: var(--epic-gold-main);
-}
-
-.card img {
-    width: 100%;
-    height: 200px; /* Fixed height for card images */
-    object-fit: cover; /* Crop images to fit */
-    border-bottom: 4px solid var(--epic-gold-main);
-    margin: 0 0 1em 0; /* Remove image's own margins, add space below */
-    border-radius: 0; /* Image takes top radius from card */
-    filter: sepia(30%) contrast(1.1) brightness(0.9); /* Subtle epic filter */
-    transition: filter var(--global-transition-speed) ease-in-out, transform var(--global-transition-speed) ease-in-out;
-}
-.card:hover img {
-    filter: sepia(10%) contrast(1) brightness(1);
-    transform: scale(1.05);
-}
-
-.card-content {
-    padding: 1.5em;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Allows button to stick to bottom */
-    /* text-align: center; is inherited */
-}
-
-.card-content h3 {
-    font-size: clamp(1.3em, 3vw, 1.7em);
-    margin-top: 0;
-    margin-bottom: 0.7em;
-    color: var(--epic-purple-emperor);
-}
-.card-content h3::before { /* Small star before card titles */
-    content: '';
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-image: url('/assets/img/estrella.png');
-    background-size: contain;
-    margin-right: 8px;
-    opacity: 0.7;
-    vertical-align: middle;
-}
-
-.card-content p {
-    font-size: clamp(0.95em, 2vw, 1.05em);
-    line-height: 1.6;
-    color: var(--epic-text-color);
-    margin-bottom: 1.2em;
-    flex-grow: 1; /* Pushes button down */
-}
-
-.card-content .read-more { /* Button inside card */
-    background-color: transparent;
-    color: var(--epic-gold-secondary);
-    border: 2px solid var(--epic-gold-secondary);
-    padding: 0.6em 1.2em;
-    font-size: 0.9em;
-    font-weight: 700;
-    font-family: var(--font-headings);
-    text-transform: uppercase;
-    border-radius: 20px;
-    align-self: center; /* Center button */
-    margin-top: auto; /* Stick to bottom */
-    transition: background-color var(--global-transition-speed) ease-in-out, color var(--global-transition-speed) ease-in-out;
-}
-
-.card-content .read-more:hover, .card-content .read-more:focus-visible {
-    background-color: var(--epic-gold-secondary);
-    color: var(--epic-alabaster-bg); /* Light text on gold bg */
-    text-decoration: none;
-    outline: none;
-}
-
 /* --- Content from estilos.css Merged --- */
 
 /*
@@ -1016,7 +934,7 @@ body.sidebar-active {
 }
 .image-gallery-intro img:hover {
     transform: scale(1.08) rotate(-2deg);
-    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
+    box-shadow: var(--global-box-shadow-dark); /* Enhanced shadow */
     filter: sepia(50%) contrast(1.1) brightness(0.85);
 }
 
@@ -1065,52 +983,61 @@ body.sidebar-active {
 
 
 /* --- Tarjetas (Cards) --- */
-/* epic_theme.css has .card-grid and .card. estilos.css also has these. Appending for now. */
+/* The simpler .card style from epic_theme.css base has been removed.
+   The following is the prioritized "creative" card style, with refinements. */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kept from creative version */
+    gap: 40px; /* Kept from creative version */
+    margin-top: 2em; /* From simpler version, good spacing */
 }
 
 .card {
-    background-color: var(--color-fondo-pagina, #fdfaf6); /* Mapped */
-    border: 2px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    border-radius: var(--border-radius-medio, 10px); /* Mapped */
+    background-color: var(--color-fondo-pagina, #fdfaf6); /* Using mapped var, consider --epic-alabaster-bg */
+    border: 2px solid var(--color-piedra-media, #D2B48C); /* Mapped, consider --epic-gold-secondary */
+    border-radius: var(--global-border-radius); /* Standardized to 8px */
     box-shadow: 8px 8px 0px -2px var(--color-piedra-media, #D2B48C), 16px 16px 28px rgba(var(--color-morado-emperador-rgb, 74, 13, 103), 0.18); /* Mapped */
-    overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-    z-index: 1;
+    overflow: hidden; /* Essential */
+    transition: transform var(--global-transition-speed) ease, box-shadow var(--global-transition-speed) ease, border-color var(--global-transition-speed) ease; /* Standardized speed, added border-color */
+    position: relative; /* Essential for pseudo-elements */
+    z-index: 1; /* For stacking context if needed with pseudo-elements */
     display: flex;
     flex-direction: column;
+    text-align: center; /* Added for card content centering */
 }
 
 .card:hover {
-    transform: translateY(-18px) translateX(-9px) rotate(1.5deg);
+    transform: translateY(-18px) translateX(-9px) rotate(1.5deg); /* Creative hover transform */
     box-shadow: 12px 12px 0px -2px var(--color-secundario-dorado, #B8860B), 22px 22px 35px rgba(var(--color-morado-emperador-rgb, 74, 13, 103), 0.25); /* Mapped */
+    border-color: var(--epic-gold-main); /* Enhanced border pop on hover */
 }
 
 .card img {
-    border-bottom: 6px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
-    border-radius: var(--border-radius-medio, 10px) var(--border-radius-medio, 10px) 0 0; /* Mapped */
+    border-bottom: 6px solid var(--color-secundario-dorado, #B8860B); /* Mapped, consider --epic-gold-main */
+    /* border-radius for image adjusted to fit card's new global radius */
+    border-radius: 0; /* Top corners will be clipped by card's overflow:hidden and border-radius */
     filter: grayscale(70%) sepia(40%) contrast(1.1) brightness(0.85);
-    transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.45s ease-out;
-    margin: 0;
+    transition: transform var(--global-transition-speed) cubic-bezier(0.165, 0.84, 0.44, 1), filter var(--global-transition-speed) ease-out; /* Standardized speed */
+    margin: 0; /* Remove default image margins */
     width: 100%;
-}
-.card:hover img {
-    transform: scale(1.15);
-    filter: grayscale(10%) sepia(10%) contrast(1.05) brightness(1);
+    height: 200px; /* Retain fixed height for consistency */
+    object-fit: cover; /* Retain object-fit */
 }
 
-.card-content { /* epic_theme.css has .card-content. Appending. */
-    padding: 30px;
-    /* text-align: center; */ /* Already centered by previous rule */
+.card:hover img {
+    transform: scale(1.15); /* Existing image zoom */
+    filter: grayscale(0%) sepia(0%) contrast(1.05) brightness(1.05) saturate(1.1); /* Enhanced color pop */
+}
+
+.card-content {
+    padding: 30px; /* Kept from creative version */
+    /* text-align: center; */ /* Inherited from .card */
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
-.card-content h3::before { /* epic_theme.css has .card-content h3::before. Appending. */
+
+.card-content h3::before {
     content: '';
     display: inline-block;
     width: 14px;
@@ -1644,9 +1571,28 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     font-size: 1em;
     color: var(--color-texto-principal, #2c1d12); /* Mapped */
     background-color: rgba(var(--color-fondo-pagina-base-rgb, 253, 250, 246), 0.7); /* Mapped */
-    transition: border-color var(--global-transition-speed) ease, box-shadow var(--global-transition-speed) ease; /* Standardized */
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-left-color: transparent; /* Default transparent, change on validation */
+    transition: border-color var(--global-transition-speed) ease,
+                box-shadow var(--global-transition-speed) ease,
+                border-left-color var(--global-transition-speed) ease; /* Added border-left-color */
     text-align: left; /* Override global centering */
 }
+
+/* Validation states */
+.form-group input[type="text"]:valid,
+.form-group input[type="email"]:valid,
+.form-group textarea:valid {
+    border-left-color: var(--epic-success-color);
+}
+
+.form-group input[type="text"]:invalid,
+.form-group input[type="email"]:invalid,
+.form-group textarea:invalid {
+    border-left-color: var(--epic-error-red);
+}
+
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
@@ -1664,6 +1610,29 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .submit-button { /* This class is used by .cta-button, so styling might be inherited or conflict. */
     width: 100%;
     margin-top: 10px;
+}
+
+/* --- Form Messages --- */
+.form-message {
+    padding: var(--spacing-m, 1em);
+    margin-top: var(--spacing-m, 1em);
+    border-radius: var(--global-border-radius);
+    text-align: center;
+    font-weight: bold;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.form-message-success {
+    background-color: rgba(var(--epic-success-color-rgb), 0.15);
+    color: var(--epic-success-color);
+    border-color: var(--epic-success-color);
+}
+
+.form-message-error {
+    background-color: rgba(var(--epic-error-red-rgb), 0.1);
+    color: var(--epic-error-red);
+    border-color: var(--epic-error-red);
 }
 
 /* Estilos para la página del Museo Colaborativo y Galería Colaborativa */
@@ -1762,6 +1731,11 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     border-radius: var(--border-radius-suave, 5px) var(--border-radius-suave, 5px) 0 0; /* Mapped */
     margin: 0;
     cursor: pointer;
+    transition: transform var(--global-transition-speed) ease, filter var(--global-transition-speed) ease;
+}
+.photo-card:hover img {
+    transform: scale(1.05); /* Slight zoom on image within the already transforming card */
+    filter: brightness(110%); /* Make image a bit brighter */
 }
 .photo-card-caption {
     padding: 15px;
@@ -1801,6 +1775,8 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
   height: 100%;
   overflow: auto;
   background-color: rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.92); /* Mapped */
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 .modal-content {
   margin: auto;
@@ -1833,13 +1809,15 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
   top: 15px;
   right: 35px;
   color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
-  font-size: 40px;
+  font-size: 45px; /* Increased size */
   font-weight: bold;
-  transition: color var(--global-transition-speed) ease; /* Standardized */
+  transition: color var(--global-transition-speed) ease, transform var(--global-transition-speed) ease; /* Added transform */
 }
 .modal-close-button:hover,
 .modal-close-button:focus {
-  color: var(--color-acento-amarillo, #FFD700); /* Mapped */
+  color: var(--epic-gold-main); /* Brighter gold */
+  transform: scale(1.1); /* Distinct feedback */
+  outline: none; /* Remove default focus outline */
   text-decoration: none;
   cursor: pointer;
 }
