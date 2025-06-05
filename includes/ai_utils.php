@@ -46,4 +46,41 @@ function get_suggested_tags_placeholder(string $content_key): array {
     return ['General', 'Contenido Interesante', 'Historia', 'Web'];
 }
 
+/**
+ * Placeholder para una función que simularía una traducción inteligente.
+ *
+ * @param string $content_id Identificador del contenido (ej. 'atapuerca_main_text').
+ * @param string $target_language Código del idioma objetivo (ej. 'en-ai', 'fr-ai').
+ * @param string $original_sample_text Un extracto del texto original para incluir en la demo. O el texto completo si se desea devolverlo para 'es'.
+ * @return string El texto "traducido" de demostración o el texto original si target_language es 'es'.
+ */
+function get_simulated_translation_placeholder(string $content_id, string $target_language, string $original_sample_text = ''): string {
+    if ($target_language === 'es') {
+        // Si el objetivo es español, se asume que se quiere restaurar el original.
+        // El JavaScript debería tener el contenido original completo.
+        // Esta función, si es llamada con 'es', simplemente devuelve el sample/original que se le pasó.
+        return $original_sample_text;
+    }
+
+    $original_snippet = !empty($original_sample_text) ? htmlspecialchars(substr(strip_tags($original_sample_text), 0, 70)) . "..." : "el contenido original";
+
+    $outputText = "<div style='padding:15px; background-color:#e3f2fd; border:1px solid #bbdefb; border-radius:4px; margin-top:10px;'>";
+    $outputText .= "<p style='font-size:0.9em; color:#0d47a1;'><em>Traducción IA (Demostración) para: " . htmlspecialchars($content_id) . "</em></p>";
+
+    switch ($target_language) {
+        case 'en-ai':
+            $outputText .= "<p><strong>Simulated English Translation:</strong> This demonstrates where AI-generated English text would appear. The original Spanish content started with: '<em>" . $original_snippet . "</em>'.</p>";
+            $outputText .= "<p>In a production system, the full text would be processed by an advanced neural machine translation model to provide an accurate and nuanced English version.</p>";
+            break;
+        case 'fr-ai':
+            $outputText .= "<p><strong>Traduction Française Simulée :</strong> Ceci montre où le texte français généré par l'IA apparaîtrait. Le contenu original en espagnol commençait par : '<em>" . $original_snippet . "</em>'.</p>";
+            $outputText .= "<p>Dans un système de production, le texte intégral serait traité par un modèle avancé de traduction automatique neuronale pour fournir une version française précise et nuancée.</p>";
+            break;
+        // No hay caso 'default' o 'es' aquí porque ya se manejó al inicio de la función.
+    }
+    $outputText .= "<p style='font-size:0.8em; color:#1976d2; margin-top:10px;'><em>(Esta es una simulación. La funcionalidad de traducción real con IA está pendiente de implementación).</em></p>";
+    $outputText .= "</div>";
+    return $outputText;
+}
+
 ?>

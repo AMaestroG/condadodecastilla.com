@@ -33,6 +33,12 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                 <h2 class="section-title"><?php editableText('atapuerca_titulo_seccion', $pdo, 'Un Tesoro de la Prehistoria'); ?></h2>
                 <p class="timeline-intro"><?php editableText('atapuerca_intro_p1', $pdo, 'La Sierra de Atapuerca, ubicada al norte de Ibeas de Juarros en la provincia de Burgos, es un enclave montañoso de modesta altitud que alberga un extraordinario conjunto de yacimientos arqueológicos y paleontológicos. Reconocida como Patrimonio de la Humanidad por la UNESCO, Espacio de Interés Natural y Bien de Interés Cultural, Atapuerca ha proporcionado al mundo testimonios fósiles de al menos cinco especies distintas de homínidos, arrojando luz invaluable sobre la evolución humana en Europa.'); ?></p>
 
+                <div id="languageSelectorContainer" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #ccc; text-align: center;">
+                    <h4 style="font-family: 'Cinzel', serif; color: var(--epic-purple-emperor); margin-bottom: 10px;">Seleccionar Idioma (Demostración):</h4>
+                    <button class="lang-btn active" data-lang="es" title="Ver contenido en Español (original)">Español (Original)</button>
+                    <button class="lang-btn" data-lang="en-ai" title="Simular traducción al Inglés por IA">Inglés (Traducción IA)</button>
+                    <button class="lang-btn" data-lang="fr-ai" title="Simular traducción al Francés por IA">Francés (Traducción IA)</button>
+                </div>
                 <article class="content-article"> <!-- Using a generic class for content styling -->
                     <div id="textoPrincipalAtapuerca">
                         <h3><?php editableText('atapuerca_ctx_geo_titulo', $pdo, 'Contexto Geográfico y Geológico'); ?></h3>
@@ -106,5 +112,49 @@ require_once __DIR__ . '/../includes/ai_utils.php';
             }
         });
         </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const contentContainer = document.getElementById('textoPrincipalAtapuerca');
+        const originalContentHTML = contentContainer ? contentContainer.innerHTML : ''; // Guardar el contenido HTML original
+
+        // Preparar los textos de placeholder para cada idioma usando PHP
+        // Esto se hace una vez al cargar la página para tenerlos listos en JS
+        <?php
+            // Asegurarse de que la función existe antes de llamarla
+            $translation_placeholders = [];
+            if (function_exists('get_simulated_translation_placeholder')) {
+                // Para la demostración, no necesitamos pasar el texto original completo aquí,
+                // la función get_simulated_translation_placeholder ya tiene una lógica de snippet.
+                // Usaremos un content_id genérico para Atapuerca.
+                $original_text_snippet_for_demo = "Contenido original de la página de Atapuerca..."; // Un snippet muy corto o incluso vacío
+                $translation_placeholders['en-ai'] = get_simulated_translation_placeholder('atapuerca_main_content', 'en-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['fr-ai'] = get_simulated_translation_placeholder('atapuerca_main_content', 'fr-ai', $original_text_snippet_for_demo);
+            }
+        ?>
+        const translations = <?php echo json_encode($translation_placeholders); ?>;
+
+        if (contentContainer && langButtons.length > 0) {
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Gestionar clase activa
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const targetLang = this.getAttribute('data-lang');
+
+                    if (targetLang === 'es') {
+                        contentContainer.innerHTML = originalContentHTML;
+                    } else if (translations[targetLang]) {
+                        contentContainer.innerHTML = translations[targetLang];
+                    } else {
+                        // Fallback si algo va mal (ej. idioma no definido en placeholders)
+                        contentContainer.innerHTML = "<p>Traducción de demostración no disponible para este idioma.</p>";
+                    }
+                });
+            });
+        }
+    });
+    </script>
 </body>
 </html>
