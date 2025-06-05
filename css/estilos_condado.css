@@ -975,6 +975,27 @@ a:focus-visible {
     color: var(--condado-texto); font-size: 0.95em;
 }
 
+.edit-text-link {
+    display: inline-block;
+    margin-left: 5px;
+    color: var(--condado-acento); /* O el color que prefieras */
+    text-decoration: none;
+    font-size: 0.8em; /* Más pequeño para no ser intrusivo */
+    border: 1px solid var(--condado-acento);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 18px; /* Ajustar para centrar el lápiz */
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+.edit-text-link:hover {
+    opacity: 1;
+    background-color: rgba(var(--condado-acento-rgb), 0.1);
+    text-decoration: none;
+}
+
 /* Estilos para Sidebar (basado en HTML de museo/galeria) */
 #sidebar {
     position: fixed;
