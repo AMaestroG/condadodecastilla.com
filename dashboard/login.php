@@ -39,10 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['user_role'] = $user['role'];
 
+                    // Determine redirect URL
+                    $redirect_to = '/index.html'; // Default redirect
+                    if (isset($_SESSION['redirect_after_login'])) {
+                        $redirect_to = $_SESSION['redirect_after_login'];
+                        unset($_SESSION['redirect_after_login']); // Clear it after use
+                    }
+
                     $login_success = true;
                     if (!headers_sent()) {
                          // Redirect to a meaningful page, e.g., the main site index or an admin panel
-                        header("Location: /index.html");
+                        header("Location: " . $redirect_to);
                         exit;
                     }
                 } else {
@@ -147,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="success-message">Login exitoso. Redirigiendo...</p>
             <script>
                 // Fallback redirect if header() failed
-                setTimeout(function() { window.location.href = '/index.html'; }, 1000);
+                setTimeout(function() { window.location.href = '<?php echo $redirect_to; ?>'; }, 1000);
             </script>
         <?php endif; ?>
 

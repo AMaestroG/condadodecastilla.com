@@ -3,7 +3,9 @@ if (session_status() == PHP_SESSION_NONE) {
     @session_start();
 }
 require_once __DIR__ . '/../includes/auth.php';      // For is_admin_logged_in()
-// require_once __DIR__ . '/../dashboard/db_connect.php'; // $pdo - might not be needed for this page if not using db for gallery
+// dashboard/db_connect.php ya podría estar comentado, asegurarse que se incluye para $pdo
+require_once __DIR__ . '/../dashboard/db_connect.php'; // Necesario para $pdo
+require_once __DIR__ . '/../includes/text_manager.php'; // Necesario para editableText()
 
 $is_admin = is_admin_logged_in();
 $gallery_images_data = [];
@@ -59,17 +61,17 @@ if (is_dir($gallery_dir)) {
         <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Galería Colaborativa del Condado</h1>
-            <p>Un mosaico de miradas sobre la belleza, historia y rincones de nuestra tierra, creado por todos.</p>
+            <?php editableText('galeria_colab_header_titulo', $pdo, 'Galería Colaborativa del Condado', 'h1', ''); ?>
+            <?php editableText('galeria_colab_header_parrafo', $pdo, 'Un mosaico de miradas sobre la belleza, historia y rincones de nuestra tierra, creado por todos.', 'p', ''); ?>
         </div>
     </header>
 
     <main>
         <section class="section upload-section-galeria">
             <div class="container page-content-block">
-                <h2 class="section-title">Comparte tu Visión <i class="fas fa-camera-retro"></i></h2>
+                <h2 class="section-title"><?php editableText('galeria_colab_comparte_titulo', $pdo, 'Comparte tu Visión', 'span', ''); ?> <i class="fas fa-camera-retro"></i></h2>
                 <p class="intro-paragraph">
-                    ¿Has capturado la esencia del Condado de Castilla en una fotografía? ¿Un paisaje, un detalle arquitectónico, una escena cotidiana? ¡Súbela y forma parte de nuestra galería colectiva!
+                    <?php editableText('galeria_colab_comparte_parrafo', $pdo, '¿Has capturado la esencia del Condado de Castilla en una fotografía? ¿Un paisaje, un detalle arquitectónico, una escena cotidiana? ¡Súbela y forma parte de nuestra galería colectiva!', 'span', '', false); ?>
                     <br><small>(Las fotos subidas se añadirán a la galería si el backend está correctamente configurado).</small>
                 </p>
 
@@ -101,7 +103,7 @@ if (is_dir($gallery_dir)) {
 
         <section class="section photo-gallery-section alternate-bg">
             <div class="container"> 
-                <h2 class="section-title">Nuestra Galería Compartida <i class="fas fa-images"></i></h2>
+                <h2 class="section-title"><?php editableText('galeria_colab_galeria_titulo', $pdo, 'Nuestra Galería Compartida', 'span', ''); ?> <i class="fas fa-images"></i></h2>
                 <div id="photoGalleryGrid" class="photo-gallery-grid">
                     <p class="no-photos-message" id="noPhotosMessage">Cargando fotografías...</p>
                 </div>

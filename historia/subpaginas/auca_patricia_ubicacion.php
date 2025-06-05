@@ -62,6 +62,10 @@ if (file_exists($json_historia_indice_path)) {
 
 // Título de la página actual (podría venir del JSON si esta página también fuera generada por el script)
 $titulo_pagina_actual = $breadcrumb_tema_actual_texto; // Usar el título del tema para el <title>
+
+// Asumiendo que $pdo no está disponible aún, o para asegurar que sí lo esté.
+require_once __DIR__ . '/../../../dashboard/db_connect.php'; // Ajustar ruta si es necesario
+require_once __DIR__ . '/../../../includes/text_manager.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -205,11 +209,11 @@ $titulo_pagina_actual = $breadcrumb_tema_actual_texto; // Usar el título del te
                     <p><a href="/historia/subpaginas_indice.php" class="back-link">&laquo; Volver al Índice Detallado</a></p>
 
                     <h3>La Identificación de Auca Patricia</h3>
-                    <p>Y hay muchas, muchas referencias a Auca como ciudad Patricia Romana antes de ser ser Patricia Visigoda. Capital de la provincia Cantabrica y Vardulias... Que luego no digan que Castilla y Vardulias y auka paterniani no están relacionadas con Cerasio y el origen de Castilla.</p>
-                    <p>Aquí se evidencia la indefinición de la localización de la civitate, de la ciudad de Auca. Pues si sabemos dónde hay una ciudad Romana con 1200 metros de decumanus y 1200 metros de cardo... En Cerezo de Río Tirón. ciudad de Auca.</p>
+                    <?php editableText('auca_identificacion_p1', $pdo, 'Y hay muchas, muchas referencias a Auca como ciudad Patricia Romana antes de ser ser Patricia Visigoda. Capital de la provincia Cantabrica y Vardulias... Que luego no digan que Castilla y Vardulias y auka paterniani no están relacionadas con Cerasio y el origen de Castilla.', 'p', ''); ?>
+                    <?php editableText('auca_identificacion_p2', $pdo, 'Aquí se evidencia la indefinición de la localización de la civitate, de la ciudad de Auca. Pues si sabemos dónde hay una ciudad Romana con 1200 metros de decumanus y 1200 metros de cardo... En Cerezo de Río Tirón. ciudad de Auca.', 'p', ''); ?>
 
                     <h4>Dimensiones y Estructura Urbana Romana</h4>
-                    <p>Y la ciudad de Oca, Auca Patricia, Civitate Auki Patriciani, Civita de Aucam, fue fundada por Cesar Augusto en Segisamam donde puso su cuartel General en las guerras cántabras, convirtiéndola en la Capital de la Cantábrica. Donde estaba el ultimo puerto Fluvial navegable del Río Ebro, en el Gurugu de Segisamam. Aun se puede ver el puerto romano en el termino de Glera de los Celox (barcos de legionarios romanos en ríos).</p>
+                    <?php editableText('auca_dimensiones_p1', $pdo, 'Y la ciudad de Oca, Auca Patricia, Civitate Auki Patriciani, Civita de Aucam, fue fundada por Cesar Augusto en Segisamam donde puso su cuartel General en las guerras cántabras, convirtiéndola en la Capital de la Cantábrica. Donde estaba el ultimo puerto Fluvial navegable del Río Ebro, en el Gurugu de Segisamam. Aun se puede ver el puerto romano en el termino de Glera de los Celox (barcos de legionarios romanos en ríos).', 'p', ''); ?>
                     <p>Y medir las puertas de la ciudad que encajan en tamaño posición y orientación con la decumanus de Auca Patricia.</p>
                     <p>En Cerezo de Río Tirón que actualmente y siempre es Oca, hay una civita Romana de 144 hectáreas rodeada de murallas romanas de hormigón romano de 6 metros de ancho, mas sus segunda murallas y fosos... una capital Patricia con Obispado.</p>
                     <p>Las calzadas romanas y el ultimo puerto fluvial romano sobre el rio Ebro esta en la Glera de los Celox (embarcación romana de legion en Rios). En Cerezo de Rio tirón aun puedes ver miles de ruinas enfrente de su Alcázar, puedes medir la carretera que va desde la caseta(cruce entre Tormmantos y Belorado) hasta el Túnel 1200 metros de Cardo (Norte-Sur) y 1200 metros de Decumanus (Este-Oeste) aun se puede apreciar los cimientos de la puerta decumanus siniestra. En esos 1200 km veras a ambos lados de la carreta las ruinas de la civita de Auca Patricia la capital de Cantabria pues Cesar Augusto puso su cuartel general en las Guerras Cántabras en territorio Berón, enfrente de Segisamam en el ultimo puerto navegable del río Ebro, en la calzada de Tarraco a Astorga, al irse Augusto, la provincia recién conquistada siguió gobernándose desde la silla de Cesar Augusto hasta su destrucción en el 714 por Muza Ibn Nuhasir.</p>
