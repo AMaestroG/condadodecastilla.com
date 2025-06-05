@@ -1,10 +1,11 @@
 <?php
 // Database configuration
-$db_host = "YOUR_DB_HOST";         // Replace with your database host
-$db_name = "YOUR_DB_NAME";         // Replace with your database name
-$db_user = "YOUR_DB_USER";         // Replace with your database username
-$db_pass = "YOUR_DB_PASSWORD";     // Replace with your database password
-$db_port = "YOUR_DB_PORT";         // Replace with your database port (e.g., 2050 or your specific Progress port)
+$db_host = "localhost";         // Host de la base de datos
+$db_name = "condado_castilla_db"; // Nombre de tu base de datos
+$db_user = "condado_user";        // Usuario de tu base de datos
+$db_pass = "TU_CONTRASEÑA_REAL_AQUI"; // ¡¡¡REEMPLAZA ESTO CON LA CONTRASEÑA REAL DE 'condado_user'!!!
+$db_port = "5432";                // Puerto estándar de PostgreSQL
+
 // $db_other_params = "YOUR_OTHER_PARAMS"; // Replace with any other connection parameters (e.g., ServiceName=your_service;EncryptionMethod=1;ValidateServerCertificate=0)
 
 // PDO options (can be customized)
