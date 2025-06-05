@@ -3,7 +3,7 @@
 $db_host = "localhost";         // Host de la base de datos
 $db_name = "condado_castilla_db"; // Nombre de tu base de datos
 $db_user = "condado_user";        // Usuario de tu base de datos
-$db_pass = "TU_CONTRASEÑA_REAL_AQUI"; // ¡¡¡REEMPLAZA ESTO CON LA CONTRASEÑA REAL DE 'condado_user'!!!
+$db_pass = "tu_contraseña_muy_segura"; // ¡¡¡REEMPLAZA ESTO CON LA CONTRASEÑA REAL DE 'condado_user'!!!
 $db_port = "5432";                // Puerto estándar de PostgreSQL
 
 // $db_other_params = "YOUR_OTHER_PARAMS"; // Replace with any other connection parameters (e.g., ServiceName=your_service;EncryptionMethod=1;ValidateServerCertificate=0)
