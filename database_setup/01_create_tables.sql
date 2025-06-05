@@ -2,9 +2,9 @@
 -- Note: Progress OpenEdge might have specific syntax for auto-incrementing fields or default timestamps.
 -- Consult your Progress DB documentation if these generic statements cause issues.
 
--- Users table for authentication
+-- Users table for authentication (PostgreSQL syntax)
 CREATE TABLE users (
-    id INTEGER PRIMARY KEY, -- For Progress, this might need to be a SEQUENCE-backed field e.g., CREATE SEQUENCE users_id_seq; CREATE TABLE users (id INTEGER DEFAULT NEXT-VALUE(users_id_seq) PRIMARY KEY, ...)
+    id SERIAL PRIMARY KEY, -- SERIAL is an auto-incrementing integer in PostgreSQL. For Progress, a SEQUENCE might be needed, e.g., CREATE SEQUENCE users_id_seq; id INTEGER DEFAULT NEXT-VALUE(users_id_seq)
     username VARCHAR(100) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     role VARCHAR(50) NOT NULL,
