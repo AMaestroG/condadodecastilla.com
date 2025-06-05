@@ -1,0 +1,130 @@
+/* Inherits body background from epic_theme.css or specific page */
+
+/* Container for the gallery section - already styled by .container in the HTML from previous step,
+   or if we want specific styles for this section's container that differ from the global .container */
+.character-gallery-container {
+    padding: 20px 0; /* Vertical padding, horizontal handled by .container or auto margins */
+    margin-top: 2em;
+    margin-bottom: 2em;
+    /* background-color: var(--epic-alabaster-bg); /* Optional: if it needs a distinct background */
+    /* border-radius: var(--global-border-radius); */
+    /* box-shadow: var(--global-box-shadow-light); */
+}
+
+/* Heading for the gallery */
+.character-gallery-container h2 {
+    text-align: center; /* Default from theme, but can be explicit */
+    color: var(--epic-gold-secondary); /* Consistent with other H2s */
+    font-family: var(--font-headings);
+    font-size: clamp(2em, 5vw, 3em); /* Consistent with .section-title */
+    margin-bottom: 1em;
+}
+.character-gallery-container h2::after { /* Optional: decorative element like .section-title */
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url('/assets/img/estrella.png'); /* Assuming this is a theme element */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 15px auto 30px auto;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 6px var(--epic-gold-main));
+}
+
+
+/* Grid layout for the gallery items */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive columns */
+    gap: 25px; /* Space between items */
+    padding: 20px;
+    max-width: 1200px; /* Optional: constrain max width of the grid itself */
+    margin: 0 auto; /* Center the grid if max-width is set */
+}
+
+/* Individual gallery item card */
+.gallery-item {
+    background-color: var(--epic-alabaster-bg); /* Light background for card */
+    border: 2px solid var(--epic-gold-secondary); /* Gold border */
+    border-radius: var(--global-border-radius); /* Theme border radius */
+    box-shadow: var(--global-box-shadow-medium); /* Theme shadow */
+    padding: 20px;
+    text-align: center; /* Center text and image (if block and margin auto) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items like image and text block */
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--global-box-shadow-dark);
+}
+
+/* Character image within the card */
+.gallery-item img {
+    width: 100%; /* Make image take full width of its container part */
+    max-width: 180px; /* Max width for the image itself */
+    height: 180px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-radius: 50%; /* Circular images */
+    border: 4px solid var(--epic-gold-main); /* Gold border for image */
+    margin-bottom: 15px; /* Space below image */
+    box-shadow: 0 2px 6px rgba(var(--epic-text-color-rgb), 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    border-color: var(--epic-purple-emperor);
+}
+
+/* Character name paragraph */
+.gallery-item p {
+    font-family: var(--font-headings); /* Cinzel for names */
+    font-size: clamp(1.1em, 2.5vw, 1.3em);
+    color: var(--epic-purple-emperor); /* Purple for names */
+    margin-top: 0.5em;
+    margin-bottom: 0; /* Remove default p margin if not needed */
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Ensure styles from the old galeria_personajes.css are not interfering
+   or are properly overridden if this file is meant to replace it.
+   The styles provided here are for the new .character-gallery-container, .gallery-grid, .gallery-item.
+   The old .character-gallery, .character-card might still exist if the HTML wasn't fully changed.
+   Assuming the new HTML structure is used.
+*/
+
+/* Previous styles from the first version of galeria_personajes.css for .character-card, etc.
+   can be removed or adapted if the HTML structure has completely changed to .gallery-item.
+   For this task, we focus on styling the new structure.
+*/
+
+/* Removing old styles that might conflict if HTML was not updated:
+body {
+    background-image: url('../img/fondo.jpeg');
+    background-size: cover;
+} -> This is handled by epic_theme.css or page-specific body styles
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+} -> This is an old .container, the new page uses .container-epic or .page-content-block from the theme,
+    and the HTML for indice_personajes.html uses <div class="container page-content-block">.
+    The existing rules in epic_theme.css for .page-content-block and .container (from estilos.css)
+    will apply to that element. We don't need to redefine .container here unless it's a different one.
+
+.character-gallery { ... }
+.character-card { ... }
+.character-card img { ... }
+    -> These were for the old structure. The new structure is .gallery-grid and .gallery-item.
+       If the old HTML is still present elsewhere and needs these, they should be in a separate file
+       or carefully namespaced. For this task, we are styling the new gallery.
+*/
