@@ -1,116 +1,90 @@
 <?php
-// This file should be included after db_connect.php and auth.php are available.
+// /includes/text_manager.php
+
+// Asegurarse de que auth.php (para is_admin_logged_in) está incluido.
+// Esto podría hacerse en cada página que usa editableText, o aquí condicionalmente.
+if (session_status() == PHP_SESSION_NONE) {
+    @session_start();
+}
+if (!function_exists('is_admin_logged_in')) { // Evitar re-declaración si ya está incluido
+    require_once __DIR__ . '/auth.php';
+}
 
 /**
- * Fetches a text snippet from the site_texts table.
- * If not found, it can optionally insert a default value.
- *
- * IMPORTANT: Assumes $pdo is globally available or passed in. For this implementation,
- * it's better to require it as a parameter.
- * IMPORTANT: Assumes is_admin_logged_in() is available.
- *
- * @param string $text_id The unique identifier for the text.
- * @param PDO $pdo The PDO database connection object.
- * @param string $default_content Optional default content to display and insert if the text_id is not found and auto_create is true.
- * @param bool $auto_create If true and text_id not found, creates it with default_content.
- * @return string The text content.
+ * Obtiene el contenido de un texto desde la base de datos.
+ * Si no se encuentra, inserta el texto por defecto y lo devuelve.
  */
-if (!function_exists('getText')) {
-    function getText(string $text_id, ?PDO $pdo, string $default_content = '', bool $auto_create = true): string {
-        // If $pdo is null, we can't proceed with database operations.
-        // Return default content or handle as an error appropriately.
-        if ($pdo === null) {
-            // error_log("getText called with null PDO for text_id: $text_id");
-            return $default_content; // Or a more specific error message/logging
-        }
-        try {
-            $stmt = $pdo->prepare("SELECT text_content FROM site_texts WHERE text_id = :text_id");
-            $stmt->bindParam(':text_id', $text_id);
+function getTextContentFromDB(string $text_id, PDO $pdo, string $default_text): string {
+    try {
+        $stmt = $pdo->prepare("SELECT text_content FROM site_texts WHERE text_id = :text_id");
+        $stmt->bindParam(':text_id', $text_id);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result) {
             return $result['text_content'];
-        } elseif ($auto_create) {
-            // Text not found, and auto_create is true. Attempt to insert the default content.
-            // This basic INSERT might fail if another request creates it simultaneously.
-            // A more robust solution for Progress OpenEdge might involve a MERGE statement or specific error handling for duplicate keys.
-            // For simplicity, we'll try to insert and if it fails (e.g. duplicate), we'll re-fetch or just return default.
+        } else {
+            // El texto no existe, lo insertamos con el valor por defecto
             try {
                 $insert_stmt = $pdo->prepare("INSERT INTO site_texts (text_id, text_content, updated_at) VALUES (:text_id, :text_content, CURRENT_TIMESTAMP)");
                 $insert_stmt->bindParam(':text_id', $text_id);
-                $insert_stmt->bindParam(':text_content', $default_content);
+                $insert_stmt->bindParam(':text_content', $default_text);
                 $insert_stmt->execute();
-                return $default_content; // Return the default content that was just inserted
+                return $default_text;
             } catch (PDOException $e) {
-                // Log error or handle duplicate key: $e->getCode() might give '23000' for integrity constraint violation.
-                // If it was a duplicate key, the content might now exist, so try fetching again.
-                // error_log("getText auto_create for $text_id failed with: " . $e->getMessage());
-                $retry_stmt = $pdo->prepare("SELECT text_content FROM site_texts WHERE text_id = :text_id");
-                $retry_stmt->bindParam(':text_id', $text_id);
-                $retry_stmt->execute();
-                $retry_result = $retry_stmt->fetch(PDO::FETCH_ASSOC);
-                if ($retry_result) {
-                    return $retry_result['text_content'];
-                }
-                return $default_content; // Fallback to default if insert and retry failed
+                // Log error, pero devolver el texto por defecto para que la página no se rompa
+                error_log("text_manager.php - Error al insertar texto por defecto para ID '$text_id': " . $e->getMessage());
+                return $default_text; // Devuelve el texto por defecto si la inserción falla
             }
         }
-        // Not found and auto_create is false
-        return $default_content;
     } catch (PDOException $e) {
-        error_log("PDOException in getText for '" . $text_id . "': " . $e->getMessage());
-        // Return default content on error to prevent breaking the page
-        return "Error cargando texto ID: '" . htmlspecialchars($text_id) . "'. Contenido por defecto: " . htmlspecialchars($default_content);
+        error_log("text_manager.php - Error al obtener texto para ID '$text_id': " . $e->getMessage());
+        return $default_text; // Devuelve el texto por defecto en caso de error de BD
     }
 }
-} // End of function_exists('getText') check
 
 /**
- * Displays text with an edit button for admins.
- * The text itself is wrapped in the specified HTML tag.
- * The edit button is an anchor link placed immediately after the tag.
+ * Muestra un texto editable.
+ * Si el administrador está logueado, muestra un enlace para editar el texto.
  *
- * @param string $text_id The unique identifier for the text.
- * @param PDO $pdo The PDO database connection object.
- * @param string $default_content Default content if the text is not found.
- * @param string $tag The HTML tag to wrap the content in (e.g., 'p', 'span', 'h1', 'div'). Defaults to 'span'.
- * @param string $css_class A CSS class to apply to the wrapping tag.
- * @param string $editor_page_path Path to the main text editor page (e.g., '/edit_texts.php').
- * @return void Outputs HTML directly.
+ * @param string $text_id El identificador único del texto.
+ * @param PDO $pdo La instancia de conexión a la base de datos.
+ * @param string $default_text El texto a mostrar si no se encuentra en la BD.
+ * @param string $html_tag La etiqueta HTML que envolverá el texto (ej: 'p', 'h1', 'span').
+ * @param string $css_classes Clases CSS adicionales para la etiqueta HTML contenedora.
+ * @param bool $allow_html Si se permite HTML en el contenido (default: false, se usa htmlspecialchars).
  */
-if (!function_exists('editableText')) {
-    function editableText(string $text_id, ?PDO $pdo, string $default_content = '', string $tag = 'span', string $css_class = '', string $editor_page_path = '/edit_texts.php'): void {
-        if ($pdo === null) {
-            // Database connection is not available
-            $class_attribute = $css_class ? " class='" . htmlspecialchars($css_class) . "'" : "";
-            echo "<" . $tag . $class_attribute . " data-text-id='" . htmlspecialchars($text_id) . "'>";
-            echo nl2br(htmlspecialchars($default_content)); // Display default content
-            echo "</" . $tag . ">";
-            // Do not display the edit link as DB is not available
-            return;
-        }
+function editableText(string $text_id, PDO $pdo, string $default_text, string $html_tag = 'span', string $css_classes = '', bool $allow_html = false) {
+    // Obtener el contenido del texto. Esta función ahora maneja la creación si no existe.
+    $content = getTextContentFromDB($text_id, $pdo, $default_text);
 
-        // Ensure is_admin_logged_in() is available. It should be included by the calling script.
-        // if (!function_exists('is_admin_logged_in')) {
-        //     echo "Error: is_admin_logged_in() function not found. Make sure auth.php is included.";
-        //     return;
-        // }
+    // Escapar HTML si no está permitido, para prevenir XSS
+    $display_content = $allow_html ? $content : htmlspecialchars($content);
 
-        // Auto-create with default content if not found. True by default for getText.
-        $content = getText($text_id, $pdo, $default_content, true);
-
-        $class_attribute = $css_class ? " class='" . htmlspecialchars($css_class) . "'" : "";
-
-        // Output the editable text content, wrapped in the specified tag
-        echo "<" . $tag . $class_attribute . " data-text-id='" . htmlspecialchars($text_id) . "'>";
-        echo nl2br(htmlspecialchars($content)); // Use nl2br to respect newlines, and htmlspecialchars for security
-        echo "</" . $tag . ">";
-
-        // If admin is logged in, show an edit link/button
-        if (is_admin_logged_in()) {
-            echo " <a href='" . htmlspecialchars($editor_page_path) . "?edit_id=" . urlencode($text_id) . "' class='edit-text-link' title='Editar: " . htmlspecialchars($text_id) . "'>✏️</a>";
-        }
+    $output = "<" . htmlspecialchars($html_tag);
+    if (!empty($css_classes)) {
+        $output .= " class=\"" . htmlspecialchars($css_classes) . "\"";
     }
-} // End of function_exists('editableText') check
+    // Añadir data-attribute para identificarlo en la página de edición si es necesario
+    $output .= " data-text-id=\"" . htmlspecialchars($text_id) . "\">";
+    $output .= $display_content;
+
+    // Añadir enlace de edición si el administrador está logueado
+    if (is_admin_logged_in()) {
+        // Determinar la ruta correcta a edit_texts.php
+        // Asumimos que text_manager.php está en /includes/ y edit_texts.php en /dashboard/
+        // Si esta página (donde se llama editableText) está en la raíz, el enlace es correcto.
+        // Si esta página está en una subcarpeta, se necesitaría ajustar el path.
+        // Una solución más robusta sería definir una constante con la URL base del dashboard.
+        $edit_url = '/dashboard/edit_texts.php?edit_id=' . urlencode($text_id);
+        $output .= " <a href=\"" . htmlspecialchars($edit_url) . "\" class=\"edit-text-link\" title=\"Editar este texto\">✏️</a>";
+    }
+
+    $output .= "</" . htmlspecialchars($html_tag) . ">";
+    echo $output;
+}
+
+// La línea 101 que causaba el error ha sido eliminada o la lógica ha sido reemplazada por getTextContentFromDB.
+// El error 'gettext() expects exactly 1 argument, 4 given' ya no debería ocurrir.
 ?>
+
