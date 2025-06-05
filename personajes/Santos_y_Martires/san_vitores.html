@@ -89,19 +89,16 @@
             padding: 20px;
         }
 
-        /* --- Barra de Navegación (simplificada para páginas de personajes) --- */
         .navbar {
             background-color: var(--color-primario-purpura);
             padding: 0.8em 0; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-            /* position: sticky;  Puede no ser necesario en páginas de detalle */
-            /* top: 0; */
             z-index: 1000;
         }
 
         .navbar .container {
             display: flex;
-            justify-content: space-between; /* Centrar si solo hay logo */
+            justify-content: space-between;
             align-items: center;
         }
         
@@ -118,13 +115,10 @@
             text-decoration: none;
             outline: none; 
         }
-        /* Se omite .nav-links y .nav-toggle para la plantilla de personaje para simplificar, 
-           se puede añadir si se desea un menú completo en cada página de personaje */
 
-        /* Estilos específicos para la página del personaje y el índice */
         .page-header-personaje, .page-header-indice {
             background-color: var(--color-piedra-media);
-            background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.65), rgba(44, 29, 18, 0.8)), url("/assets/img/hero_background_mezquita_llana.jpg"); /* Placeholder, considera cambiarla */
+            background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.65), rgba(44, 29, 18, 0.8)), url("/assets/img/hero_background_mezquita_llana.jpg");
             background-size: cover;
             background-position: center;
             padding: clamp(40px, 10vh, 80px) 20px;
@@ -136,14 +130,14 @@
             color: #fff;
             text-shadow: 2px 2px 6px var(--color-negro-contraste);
         }
-        .content-section { /* Clase genérica para secciones de contenido */
+        .content-section {
             padding: clamp(30px, 6vh, 50px) 0;
         }
-        .content-wrapper { /* Contenedor para el contenido principal */
+        .content-wrapper {
             max-width: 800px;
             margin: 0 auto;
             background-color: #fff;
-            padding: 30px 40px; /* Más padding lateral */
+            padding: 30px 40px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
@@ -151,9 +145,9 @@
             max-width: 300px; 
             margin: 0 auto 1.5em auto;
             border: 4px solid var(--color-piedra-media);
-            border-radius: 50%; /* Imagen redonda para retratos */
+            border-radius: 50%;
             object-fit: cover;
-            height: 300px; /* Asegurar que sea cuadrada para el círculo */
+            height: 300px;
         }
         .content-wrapper h2 {
             text-align:left;
@@ -176,12 +170,12 @@
         .content-wrapper ul li {
             margin-bottom: 0.5em;
         }
-        .back-to-link, .cta-button-personaje { /* Estilo común para botones/enlaces de acción */
+        .back-to-link, .cta-button-personaje {
             display: inline-block;
             margin-top: 2em;
             padding: 12px 25px;
             background-color: var(--color-secundario-dorado);
-            color: var(--color-primario-purpura) !important; /* Forzar color de texto */
+            color: var(--color-primario-purpura) !important;
             border-radius: 25px;
             font-family: "Cinzel", serif;
             font-weight: bold;
@@ -192,32 +186,29 @@
         }
         .back-to-link:hover, .cta-button-personaje:hover {
             background-color: var(--color-primario-purpura);
-            color: var(--color-acento-amarillo) !important; /* Forzar color de texto */
+            color: var(--color-acento-amarillo) !important;
             text-decoration: none;
             transform: translateY(-2px);
         }
         
-        /* Estilos para el índice de personajes */
         .indice-categorias li {
-            list-style-type: none; /* Quitar viñetas de la lista principal de categorías */
+            list-style-type: none;
             margin-bottom: 1.5em;
         }
-        .indice-categorias h3 { /* Título de categoría en el índice */
+        .indice-categorias h3 {
             font-size: clamp(1.3em, 2.8vw, 1.7em);
             border-left: none;
             padding-left: 0;
             margin-bottom: 0.5em;
         }
-        .indice-personajes-lista { /* Lista de personajes dentro de una categoría */
-            list-style: disc; /* Viñetas para los personajes */
+        .indice-personajes-lista {
+            list-style: disc;
             padding-left: 30px;
         }
         .indice-personajes-lista li a {
             font-size: clamp(1em, 2vw, 1.1em);
         }
 
-
-        /* --- Footer --- */
         .footer {
             background-color: var(--color-texto-principal); 
             color: var(--color-piedra-clara);
@@ -263,23 +254,28 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/placeholder.jpg" alt="[Retrato o imagen de San Vitores]" class="personaje-imagen-principal" onerror="this.style.display='none'">
+                    <img src="/assets/img/santos_martires/san_vitores_cerezo_placeholder.jpg" alt="Iglesia o ermita de San Vitores" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        Información detallada sobre San Vitores, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. 
-                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.
+                        San Vitores (o San Víctor) es un santo y mártir cuya veneración está extendida por diversas regiones del norte de España, incluyendo La Rioja, Burgos (especialmente en Cerezo de Río Tirón y comarcas aledañas), Cantabria y Palencia. Tradicionalmente, se le considera un eremita y predicador que sufrió martirio. Las fechas y circunstancias de su vida y muerte varían según las tradiciones locales, algunas situándolo en épocas de persecución romana y otras durante la dominación musulmana.
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        En Cerezo de Río Tirón, San Vitores es una figura de profunda devoción, y su santuario ha sido un lugar de peregrinación. La tradición oral y los relatos hagiográficos lo describen como un ejemplo de fe inquebrantable.
+                    </p>
+
+                    <h3>Perspectiva de "nuevo4.md"</h3>
+                    <p>
+                        El documento <code>nuevo4.md</code> ofrece una interpretación específica sobre San Vitores, conectándolo con eventos del Bajo Imperio Romano en Auca Patricia (Cerezo de Río Tirón). Según este texto, la veneración a San Vitores, al igual que la de San Formerio, se extendió por 'toda la Cantabria y la Gallecia'. Una afirmación central en <code>nuevo4.md</code> es que San Vitores fue decapitado el 26 de agosto del año 388 en el Circo de la Civita Auka (Auca Patricia, actual Cerezo de Río Tirón), coincidiendo con la fecha de decapitación atribuida en el mismo documento a Flavio Victor. El texto también menciona la existencia de una 'piedra de la decapitación' marcada en Quintanilleja y un mausoleo romano con un circo ritual en el lugar del martirio de San Vitores.
                     </p>
                     
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>[Hito importante 1 de San Vitores]</li>
-                        <li>[Hito importante 2 de San Vitores]</li>
-                        <li>[Hito importante 3 de San Vitores]</li>
+                        <li>Santo y mártir con veneración extendida en el norte de España, incluyendo Cerezo de Río Tirón.</li>
+                        <li>Tradicionalmente considerado eremita y predicador.</li>
+                        <li>Según <code>nuevo4.md</code>, su culto se distribuye 'por toda la Cantabria y la Gallecia'.</li>
+                        <li>Conforme a <code>nuevo4.md</code>, fue decapitado el 26 de agosto del 388 d.C. en el Circo de Civita Auka (Auca Patricia, Cerezo de Río Tirón).</li>
+                        <li>El documento <code>nuevo4.md</code> vincula su martirio con el del emperador Flavio Victor, indicando que ambos eventos ocurrieron el mismo día.</li>
+                        <li><code>nuevo4.md</code> menciona una 'piedra de la decapitación' en Quintanilleja y un mausoleo romano con circo ritual en el sitio de su martirio.</li>
                     </ul>
                     
                     <p style="text-align:center;">
@@ -292,7 +288,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 CondadoDeCastilla.com - Todos los derechos reservados.</p>
+            <p>&copy; <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
             <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
         </div>
     </footer>

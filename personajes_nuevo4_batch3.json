@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Diego Rodríguez Porcelos",
+    "era": "Medieval Castilian",
+    "status": "Conde de Cerezo y Lantarón, Conde de Castilla",
+    "description": "Son of Rodrigo (Primer Conde de Castilla). Referred to as 'Conde de Cerezo y Lantarón – Conde de Castilla'. The text suggests it's unclear if he was also Count of Álava after the Battle of la Morcuera. His father's Alfoz (Alfoz de Cerezo y Lantarón) is also considered his. Credited in `nuevo4.md` with refounding the Bishopric of Oca, founding Burgos, and that his son was Fernando Díaz."
+  },
+  {
+    "name": "Álvaro Herramelluriz",
+    "era": "Medieval Castilian",
+    "status": "Conde de Cerezo y Lantarón, Conde de Castilla y Álava",
+    "description": "Husband of Doña Sancha (daughter of the kings of Navarra). Upon his death, Doña Sancha inherited his titles of Conde de Cerezo y Lantarón (Castilla) and Álava. Fernán González then married Doña Sancha, thereby acquiring these titles. Governed from the Alcázar de Cerasio according to `nuevo4.md`."
+  },
+  {
+    "name": "San Vitores",
+    "era": "Roman / Christian Sainthood",
+    "status": "Santo, Mártir",
+    "description": "Veneration spread throughout Cantabria and Gallecia, similar to San Formerio. According to `nuevo4.md`, he was decapitated on August 26, 388, in the Circus of Civita Auka, the same day as Falvio Victor. The text mentions a marked stone of decapitation in Quintanilleja and a Roman mausoleum with a ritual circus at this site."
+  },
+  {
+    "name": "Agripa",
+    "era": "Roman",
+    "status": "General, Amigo de Cesar Augusto",
+    "description": "Described in `nuevo4.md` as Cesar Augusto's 'fiel amigo y general'. He accompanies Augustus in planning the conquest of Hispania. Portrayed as Augustus's best, loyal, and brave commander, sharing many battles. In a narrative section, Augustus tasks him with finding and capturing or killing the Cantabrian leader Corocotta."
+  },
+  {
+    "name": "Corocotta",
+    "era": "Roman (Cantabrian Wars)",
+    "status": "Rey Cántabro, Caudillo Cántabro",
+    "description": "King of Segisamam (Cantabrian capital), described in `nuevo4.md` as a brave and astute leader who united Cantabrian tribes against Rome. The text includes a detailed narrative of his conflict with Cesar Augusto, his family (wife Alba, children Turok, Nerea, Amaia), and his eventual defeat. Also cited from Dión Casio regarding Corocotta claiming the bounty on his own head from Augustus."
+  }
+]
