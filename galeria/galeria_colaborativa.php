@@ -359,7 +359,7 @@ if (is_dir($gallery_dir)) {
                     return;
                 }
                 try {
-                    const url = '/delete_gallery_image.php'; // New endpoint
+                    const url = '/dashboard/delete_gallery_image.php'; // New endpoint
                     const formData = new FormData();
                     formData.append('filename', fotoId);
 

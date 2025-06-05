@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     @session_start();
 }
 
-require_once 'includes/auth.php'; // For require_admin_login()
+require_once __DIR__ . '/../includes/auth.php'; // For require_admin_login()
 
 header('Content-Type: application/json'); // Set content type to JSON for the response
 
@@ -34,7 +34,7 @@ if (!preg_match('/^[a-zA-Z0-9_.-]+$/', $filename) || strpos($filename, '..') !==
 }
 
 // Define the gallery directory
-$gallery_dir = __DIR__ . '/assets/img/galeria_colaborativa/'; // Use absolute path from this script's location
+$gallery_dir = __DIR__ . '/../assets/img/galeria_colaborativa/'; // Use absolute path from this script's location
 $filepath = $gallery_dir . $filename;
 
 // Normalize the path to resolve any '..' (though preg_match should prevent it)
