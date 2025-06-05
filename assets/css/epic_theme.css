@@ -677,6 +677,54 @@ body.sidebar-active {
     outline: none;
 }
 
+/* --- Estilos para Selector de Idioma (Demostración) --- */
+#languageSelectorContainer {
+    /* El contenedor ya tiene estilos inline para margen, padding-bottom y border-bottom.
+       El text-align:center también está inline. */
+}
+
+#languageSelectorContainer h4 {
+    /* El h4 ya tiene estilos inline y usa variables del tema. */
+}
+
+.lang-btn {
+    background-color: var(--epic-alabaster-medium);
+    color: var(--epic-purple-emperor);
+    border: 1px solid var(--epic-gold-secondary);
+    padding: 8px 15px;
+    margin: 0 5px 5px 5px; /* Añadido margen inferior para posible envoltura */
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: 0.9em;
+    font-weight: 600; /* Un poco más de peso */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+}
+
+.lang-btn:hover {
+    background-color: var(--epic-gold-secondary);
+    color: var(--epic-alabaster-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(var(--epic-text-color-rgb), 0.1);
+}
+
+.lang-btn.active {
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+    font-weight: bold; /* Más destacado */
+    border-color: var(--epic-gold-main);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.25); /* Sombra interior para efecto presionado */
+    transform: none;
+}
+
+.lang-btn.active:hover {
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+    /* Mantener el efecto de sombra interior, pero se podría añadir un sutil brillo exterior si se desea */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.25), 0 0 8px rgba(var(--epic-gold-main-rgb), 0.4);
+}
+
 /* --- Estilos para Etiquetas Sugeridas por IA --- */
 .tags-sugeridos-ia {
     /* El contenedor tiene estilos inline para margen y borde superior.
