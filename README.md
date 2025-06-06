@@ -37,3 +37,16 @@ Esto iniciará el servidor en `http://localhost:8000`.
 
 La API del museo está disponible en la ruta `/api/museo/piezas`, gestionada por el script `api_museo.php`. Desde ahí es posible obtener o crear registros de piezas del museo.
 
+
+## Ejemplo de uso de la API de Gemini
+
+Para realizar una prueba con la API de Gemini puedes utilizar el script `scripts/gemini_request.sh`. Este script envía una solicitud al modelo *gemini-2.0-flash* y muestra la respuesta.
+
+Antes de ejecutarlo, define la variable de entorno `GEMINI_API_KEY` con tu clave de API de Google:
+
+```bash
+export GEMINI_API_KEY="tu_clave"
+./scripts/gemini_request.sh
+```
+
+El script realizará una petición sencilla que pregunta *"Explain how AI works in a few words"*.
