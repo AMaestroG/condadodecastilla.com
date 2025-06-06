@@ -98,6 +98,7 @@ function initializeIAChatSidebar() {
     const form = document.getElementById('ia-chat-form');
     const input = document.getElementById('ia-chat-input');
     const messages = document.getElementById('ia-chat-messages');
+    const handle = sidebar ? sidebar.querySelector('.drag-handle') : null;
 
     if (toggle && sidebar) {
         toggle.addEventListener('click', () => {
@@ -106,13 +107,43 @@ function initializeIAChatSidebar() {
         });
     }
 
+    if (handle && sidebar) {
+        let startX, startY, startLeft, startTop;
+        handle.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            startX = e.clientX;
+            startY = e.clientY;
+            startLeft = sidebar.offsetLeft;
+            startTop = sidebar.offsetTop;
+            sidebar.classList.add('dragging');
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+        function onMouseMove(e) {
+            const newLeft = startLeft + (e.clientX - startX);
+            const newTop = startTop + (e.clientY - startY);
+            sidebar.style.left = `${newLeft}px`;
+            sidebar.style.top = `${newTop}px`;
+        }
+        function onMouseUp() {
+            sidebar.classList.remove('dragging');
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+    }
+
     if (form && input && messages) {
+        input.addEventListener('input', () => {
+            input.style.height = 'auto';
+            input.style.height = `${input.scrollHeight}px`;
+        });
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const text = input.value.trim();
             if (!text) return;
             appendMessage('user', text);
             input.value = '';
+            const typingEl = appendMessage('typing', 'Gemini está escribiendo...');
             fetch('/ajax_actions/get_history_chat.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -121,21 +152,31 @@ function initializeIAChatSidebar() {
             .then(res => res.json())
             .then(data => {
                 if (data.success && data.reply) {
-                    appendMessage('ai', data.reply);
+                    typingEl.className = 'chat-ai chat-message';
+                    typingEl.innerHTML = data.reply;
                 } else if (data.error) {
-                    appendMessage('error', data.error);
+                    typingEl.className = 'chat-error chat-message';
+                    typingEl.innerHTML = data.error;
+                } else {
+                    typingEl.className = 'chat-error chat-message';
+                    typingEl.innerHTML = 'Error inesperado';
                 }
+                messages.scrollTop = messages.scrollHeight;
             })
-            .catch(err => appendMessage('error', err.message));
+            .catch(err => {
+                typingEl.className = 'chat-error chat-message';
+                typingEl.textContent = err.message;
+            });
         });
     }
 
     function appendMessage(role, text) {
         const p = document.createElement('p');
-        p.className = `chat-${role}`;
+        p.className = `chat-${role} chat-message`;
         p.innerHTML = text;
         messages.appendChild(p);
         messages.scrollTop = messages.scrollHeight;
+        return p;
     }
 }
 

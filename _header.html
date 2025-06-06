@@ -34,15 +34,17 @@
     </ul>
 </div>
 <div id="ia-chat-sidebar" class="ia-chat-sidebar">
+    <div class="ia-chat-header drag-handle">
+        <form id="ia-chat-form" class="ia-chat-form">
+            <textarea id="ia-chat-input" rows="1" placeholder="Pregunta sobre historia..." required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div id="ia-chat-messages" class="ia-chat-messages"></div>
     <div id="ia-tools-menu" class="ia-tools-container">
         <button id="ia-summary-btn" type="button">Resumen IA</button>
         <button id="ia-translate-btn" type="button">Traducción IA</button>
         <button id="ia-research-btn" type="button">Investigación IA</button>
         <button id="ia-websearch-btn" type="button">Buscar en la Web</button>
     </div>
-    <div id="ia-chat-messages" class="ia-chat-messages"></div>
-    <form id="ia-chat-form" class="ia-chat-form">
-        <input type="text" id="ia-chat-input" placeholder="Pregunta sobre historia..." required />
-        <button type="submit">Enviar</button>
-    </form>
 </div>
