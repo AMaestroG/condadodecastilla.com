@@ -37,6 +37,9 @@ php -S localhost:8000
 
 Esto iniciará el servidor en `http://localhost:8000`.
 
+## Consideraciones de produccion
+
+La muestra de errores PHP se mantiene deshabilitada en `dashboard/db_connect.php` e `dashboard/index.php` para no exponer detalles sensibles en produccion.
 ## API
 
 La API del museo está disponible en la ruta `/api/museo/piezas`, gestionada por el script `api_museo.php`. Desde ahí es posible obtener o crear registros de piezas del museo.
