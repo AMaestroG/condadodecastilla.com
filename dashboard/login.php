@@ -93,11 +93,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f0f2f5; /* Similar to dashboard */
+            background-color: #f0e9e0; /* Alabastro claro */
             margin: 0;
         }
         .login-container {
-            background-color: #ffffff;
+            background-color: #fdfaf6; /* Alabastro muy claro */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .login-container button {
             width: 100%;
             padding: 10px;
-            background-color: #333; /* Primary button color from dashboard example */
+            background-color: #4A0D67; /* Tono púrpura oscuro */
             color: white;
             border: none;
             border-radius: 5px;
@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 16px;
         }
         .login-container button:hover {
-            background-color: #555;
+            background-color: #663399;
         }
         .error-message {
             color: #d9534f; /* Danger color */

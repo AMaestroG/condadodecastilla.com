@@ -21,11 +21,11 @@ require_admin_login();
     <link rel="stylesheet" href="../assets/css/epic_theme.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script> <!-- Specific version for stability -->
     <style>
-        body { 
-            font-family: 'Arial', sans-serif; 
-            margin: 0; 
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
             padding: 0;
-            background-color: #f0f2f5; 
+            background-color: #f0e9e0;
             color: #333; 
             display: flex;
             flex-direction: column;
@@ -33,7 +33,7 @@ require_admin_login();
             min-height: 100vh;
         }
         header {
-            background-color: #333;
+            background-color: #4A0D67;
             color: white;
             padding: 10px 0;
             width: 100%;
@@ -54,11 +54,11 @@ require_admin_login();
             margin: 0;
             font-size: 1.8em;
         }
-        .chart-container { 
-            width: 90%; 
-            max-width: 900px; 
-            margin: 20px auto; 
-            background-color: #ffffff; 
+        .chart-container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fdfaf6;
             padding: 25px; 
             border-radius: 10px; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
