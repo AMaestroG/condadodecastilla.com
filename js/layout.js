@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => console.error('Error fetching _footer.html:', error));
     }
+
+    // Theme toggle initialization
+    initializeThemeToggle();
 });
 
 // NEW: Function to handle sidebar interactions
@@ -50,6 +53,29 @@ function initializeSidebarNavigation() {
     } else {
         console.error("Sidebar toggle, sidebar element, or body not found.");
     }
+}
+
+// Initialize theme toggle button
+function initializeThemeToggle() {
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+    if (!toggleButton) return;
+
+    const icon = toggleButton.querySelector('i');
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        icon.classList.toggle('fa-moon', !isDark);
+        icon.classList.toggle('fa-sun', isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
 }
 
 /*
