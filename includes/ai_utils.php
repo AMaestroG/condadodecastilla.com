@@ -118,38 +118,70 @@ function _call_gemini_api_simulator(array $payload): ?array {
  * @param array $payload Cuerpo de la solicitud para la API.
  * @return array|null Respuesta decodificada o null si hay errores.
  */
-function _call_gemini_api(array $payload): ?array {
+function _call_gemini_api(array $payload, ?string &$error = null): ?array {
     if (GEMINI_API_KEY === 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO' ||
         GEMINI_API_ENDPOINT === 'https://api.gemini.example.com/v1/generateContent') {
         return _call_gemini_api_simulator($payload);
     }
 
-    $ch = curl_init(GEMINI_API_ENDPOINT);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'Authorization: Bearer ' . GEMINI_API_KEY
-    ]);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+    if (function_exists('curl_init')) {
+        $ch = curl_init(GEMINI_API_ENDPOINT);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . GEMINI_API_KEY
+        ]);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 
-    $response = curl_exec($ch);
-    if ($response === false) {
-        error_log('Gemini API curl error: ' . curl_error($ch));
+        $response = curl_exec($ch);
+        if ($response === false) {
+            $error = 'Gemini API curl error: ' . curl_error($ch);
+            error_log($error);
+            curl_close($ch);
+            return null;
+        }
+
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return null;
-    }
+        if ($http_code < 200 || $http_code >= 300) {
+            $error = 'Gemini API HTTP error: ' . $http_code;
+            error_log($error);
+            return null;
+        }
+    } else {
+        // Fallback to file_get_contents if cURL is not available
+        $context = stream_context_create([
+            'http' => [
+                'method'  => 'POST',
+                'header'  => "Content-Type: application/json\r\n" .
+                            'Authorization: Bearer ' . GEMINI_API_KEY . "\r\n",
+                'content' => json_encode($payload),
+                'ignore_errors' => true
+            ]
+        ]);
+        $response = @file_get_contents(GEMINI_API_ENDPOINT, false, $context);
+        if ($response === false) {
+            $error = 'Gemini API fopen error';
+            error_log($error);
+            return null;
+        }
 
-    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    if ($http_code < 200 || $http_code >= 300) {
-        error_log('Gemini API HTTP error: ' . $http_code);
-        return null;
+        if (isset($http_response_header[0]) &&
+            preg_match('#^HTTP/\S+\s+(\d+)#', $http_response_header[0], $m)) {
+            $http_code = (int)$m[1];
+            if ($http_code < 200 || $http_code >= 300) {
+                $error = $http_response_header[0];
+                error_log('Gemini API HTTP error: ' . $error);
+                return null;
+            }
+        }
     }
 
     $decoded = json_decode($response, true);
     if ($decoded === null) {
-        error_log('Gemini API decode error');
+        $error = 'Gemini API decode error';
+        error_log($error);
     }
     return $decoded;
 }
@@ -184,10 +216,12 @@ function get_real_ai_summary(string $text_to_summarize): string {
         // Se podrían añadir 'generationConfig' o 'safetySettings' aquí si el simulador los manejara.
     ];
 
-    $api_response = _call_gemini_api($payload);
+    $error = null;
+    $api_response = _call_gemini_api($payload, $error);
 
     if ($api_response === null) {
-        return "Error: La llamada a la API de IA para el resumen falló.";
+        $msg = $error !== null ? $error : 'La llamada a la API de IA para el resumen falló.';
+        return "Error: " . $msg;
     }
 
     // Procesar la respuesta recibida (adaptar según la estructura real de Gemini si es necesario)
