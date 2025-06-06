@@ -26,27 +26,33 @@ function ensureOutputContainer() {
     if (!cont) {
         cont = document.createElement('div');
         cont.id = 'ia-tools-output';
-        cont.style.position = 'fixed';
-        cont.style.top = '10%';
-        cont.style.left = '10%';
-        cont.style.right = '10%';
-        cont.style.maxHeight = '80vh';
-        cont.style.overflow = 'auto';
-        cont.style.padding = '20px';
-        cont.style.background = 'var(--epic-alabaster-bg)';
-        cont.style.border = '2px solid var(--epic-gold-secondary)';
-        cont.style.borderRadius = 'var(--global-border-radius)';
-        cont.style.boxShadow = 'var(--global-box-shadow-dark)';
-        cont.style.zIndex = '2000';
-        cont.style.display = 'none';
+        cont.className = 'ia-output hidden';
+
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'ia-output-close';
+        closeBtn.innerHTML = '&times;';
+        closeBtn.addEventListener('click', () => cont.classList.add('hidden'));
+        cont.appendChild(closeBtn);
+
+        const content = document.createElement('div');
+        content.className = 'ia-output-content';
+        cont.appendChild(content);
+
+        makeDraggable(cont, closeBtn);
+
         document.body.appendChild(cont);
     }
     return cont;
 }
 
 function showOutput(container, html) {
-    container.innerHTML = html;
-    container.style.display = 'block';
+    const content = container.querySelector('.ia-output-content');
+    if (content) {
+        content.innerHTML = html;
+    } else {
+        container.innerHTML = html;
+    }
+    container.classList.remove('hidden');
 }
 
 function getMainText() {
@@ -126,5 +132,42 @@ function handleCorrection(output) {
     })
     .catch(err => {
         showOutput(output, `<p style="color:red;">${err.message}</p>`);
+    });
+}
+
+function makeDraggable(element, handle) {
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let origX = 0;
+    let origY = 0;
+
+    const dragHandle = handle || element;
+
+    dragHandle.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return; // only left click
+        isDragging = true;
+        const rect = element.getBoundingClientRect();
+        startX = e.clientX;
+        startY = e.clientY;
+        origX = rect.left;
+        origY = rect.top;
+        element.classList.add('dragging');
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        element.style.left = origX + dx + 'px';
+        element.style.top = origY + dy + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            element.classList.remove('dragging');
+        }
     });
 }
