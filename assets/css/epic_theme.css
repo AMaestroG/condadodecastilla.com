@@ -2829,8 +2829,12 @@ body.dark-mode #theme-toggle:hover i {
 #ia-tools-output.ia-output {
     position: fixed;
     top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
     max-width: 600px;
     max-height: 80vh;
     overflow: auto;
