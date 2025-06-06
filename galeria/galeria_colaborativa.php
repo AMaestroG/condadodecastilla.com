@@ -178,7 +178,7 @@ if (is_dir($gallery_dir)) {
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
             
-            const API_BASE_URL_GALERIA = ""; // Nginx hará proxy para /api/galeria/fotos
+            const API_BASE_URL_GALERIA = ""; // Nginx hará proxy para /api/galeria
 
             const phpGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
             let localGalleryPhotos = [];
