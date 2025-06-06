@@ -194,7 +194,12 @@ if (is_dir($gallery_dir)) {
                     const url = `${API_BASE_URL_GALERIA}/fotos`;
                     const response = await fetch(url);
                     if (!response.ok) {
-                        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
+                        let errorMsg = `Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`;
+                        try {
+                            const errData = await response.json();
+                            errorMsg = errData.error || errorMsg;
+                        } catch (e) { /* no JSON */ }
+                        throw new Error(errorMsg);
                     }
                     const photos = await response.json();
                     localGalleryPhotos = photos;
