@@ -198,7 +198,7 @@ if (is_dir($gallery_dir)) {
                         try {
                             const errData = await response.json();
                             errorMsg = errData.error || errorMsg;
-                        } catch (e) { /* no JSON */ }
+                        } catch (e) { /* response not JSON */ }
                         throw new Error(errorMsg);
                     }
                     const photos = await response.json();
