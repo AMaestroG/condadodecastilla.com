@@ -4,8 +4,13 @@
 
 API_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
+# Allow the variable name GeminiAPI as an alternative
 if [ -z "$GEMINI_API_KEY" ]; then
-  echo "GEMINI_API_KEY environment variable not set" >&2
+  GEMINI_API_KEY="$GeminiAPI"
+fi
+
+if [ -z "$GEMINI_API_KEY" ]; then
+  echo "GEMINI_API_KEY or GeminiAPI environment variable not set" >&2
   exit 1
 fi
 
