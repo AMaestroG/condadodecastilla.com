@@ -649,7 +649,7 @@ a:focus-visible {
 .form-condado input[type="file"], .upload-form-container input[type="file"] {
     width: 100%; padding: 0.8rem 1rem; border: 1px solid #ccc; 
     border-radius: var(--border-radius-suave); font-family: var(--condado-font-principal);
-    font-size: 1em; background-color: #fff;
+    font-size: 1em; background-color: var(--condado-blanco-pergamino);
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 .form-condado input[type="file"], .upload-form-container input[type="file"] { padding: 0.5rem; }
