@@ -349,6 +349,17 @@ body.ia-chat-active #ia-chat-toggle {
     text-align: left;
     margin-bottom: 10px;
     color: var(--epic-text-light);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-message {
+    padding: 8px 12px;
+    border-radius: var(--global-border-radius);
+    box-shadow: var(--global-box-shadow-light);
+    margin: 2px 0;
+    line-height: 1.4;
 }
 
 #ia-chat-form {
@@ -378,14 +389,26 @@ body.ia-chat-active #ia-chat-toggle {
 
 .chat-user {
     color: var(--epic-gold-main);
+    background-color: rgba(var(--epic-gold-secondary-rgb), 0.25);
+    align-self: flex-end;
 }
 
 .chat-ai {
     color: var(--epic-alabaster-bg);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.3);
+    align-self: flex-start;
+}
+
+.chat-typing {
+    font-style: italic;
+    color: var(--epic-alabaster-bg);
+    background-color: rgba(var(--epic-gold-main-rgb), 0.15);
+    align-self: flex-start;
 }
 
 .chat-error {
     color: red;
+    align-self: flex-start;
 }
 
 #sidebar-toggle .bar {
