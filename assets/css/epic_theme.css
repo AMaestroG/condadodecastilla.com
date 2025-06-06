@@ -2830,9 +2830,9 @@ body.dark-mode {
     --epic-text-light-rgb: 245,245,245;
     --epic-icon-color: #a0b8d8; /* Base blue-gray for icons */
     --epic-icon-hover: #87cefa; /* Light sky blue for icon hover */
-    background-image: none;
+    background-image: var(--alabaster-background-image);
     background-color: var(--epic-alabaster-bg);
-    filter: none;
+    filter: grayscale(90%) brightness(80%);
 }
 body.dark-mode p {
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
