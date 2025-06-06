@@ -83,3 +83,13 @@ es necesario definir las siguientes variables de entorno:
 Si está disponible, puedes revisar el script opcional `scripts/gemini_request.sh`
 para ver un ejemplo básico de invocación que hace uso de `GEMINI_API_KEY`.
 Encuentra la tienda en [tienda/index.php](tienda/index.php).
+
+### Funciones de IA disponibles
+
+El archivo `includes/ai_utils.php` proporciona utilidades que hacen uso de la API de Gemini. Entre ellas destacan:
+
+- `get_real_ai_summary($texto)`: genera resúmenes concisos.
+- `get_ai_translation($texto, $idioma)`: traduce el texto al idioma indicado.
+- `get_ai_correction($texto)`: devuelve una versión corregida del texto.
+
+Si no se configuran las credenciales reales de la API, se utilizará un simulador que produce textos de demostración.
