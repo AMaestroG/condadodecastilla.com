@@ -89,6 +89,11 @@ body {
     transition: margin-left 0.35s ease-in-out; /* Para el empuje del sidebar */
 }
 
+/* Center all text inside div containers */
+div {
+    text-align: center;
+}
+
 /* Capa de Linterna Dinámica para Luz Mágica */
 #linterna-condado {
     pointer-events: none; 
@@ -204,21 +209,23 @@ a:focus-visible {
 /*------------------------------------------------
 8. Contenedor Principal (Fusionado)
 ------------------------------------------------*/
-.container { 
+.container {
     width: 90%;
     max-width: var(--condado-ancho-max);
-    margin: 0 auto; 
-    padding: 0 clamp(15px, 3vw, 25px); 
+    margin: 0 auto;
+    padding: 0 clamp(15px, 3vw, 25px);
+    text-align: center;
 }
 
 .section > .container {
-    margin-top: 0; 
+    margin-top: 0;
     margin-bottom: 0;
-    padding: clamp(1.5em, 4vw, 2.5em); 
+    padding: clamp(1.5em, 4vw, 2.5em);
     background-color: rgba(var(--condado-blanco-pergamino-rgb), 0.88); /* Ligeramente más opaco */
-    border: 1px solid rgba(var(--condado-primario-rgb), 0.1); 
-    border-radius: var(--border-radius-medio); 
-    box-shadow: 0 5px 20px rgba(var(--condado-texto-rgb), 0.08); 
+    border: 1px solid rgba(var(--condado-primario-rgb), 0.1);
+    border-radius: var(--border-radius-medio);
+    box-shadow: 0 5px 20px rgba(var(--condado-texto-rgb), 0.08);
+    text-align: center;
 }
 
 
