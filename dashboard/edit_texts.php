@@ -94,7 +94,7 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
                     <textarea id="new_text_content" name="text_content" required></textarea>
                 </div>
                 <input type="hidden" name="action" value="create">
-                <button type_submit" class="add-new-button">Añadir Nuevo Texto</button>
+                <button type="submit" class="add-new-button">Añadir Nuevo Texto</button>
             </form>
         </div>
 
