@@ -2,10 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=index.php">
+    <meta http-equiv="refresh" content="0; url=/index.php">
     <title>Redirigiendo...</title>
+    <script>
+        // Fallback in case the meta refresh tag fails
+        window.location.replace('/index.php');
+    </script>
 </head>
 <body>
-    <p>Si no es redirigido automáticamente, haga clic <a href="index.php">aquí</a>.</p>
+    <p>Si no es redirigido automáticamente, haga clic <a href="/index.php">aquí</a>.</p>
 </body>
 </html>
