@@ -163,11 +163,6 @@ function _call_gemini_api(array $payload, ?string &$error = null): ?array {
             ]
         ]);
         $response = @file_get_contents(GEMINI_API_ENDPOINT, false, $context);
-        if ($response === false) {
-            $error = 'Gemini API fopen error';
-            error_log($error);
-            return null;
-        }
 
         if (isset($http_response_header[0]) &&
             preg_match('#^HTTP/\S+\s+(\d+)#', $http_response_header[0], $m)) {
@@ -177,6 +172,12 @@ function _call_gemini_api(array $payload, ?string &$error = null): ?array {
                 error_log('Gemini API HTTP error: ' . $error);
                 return null;
             }
+        }
+
+        if ($response === false) {
+            $error = 'Gemini API fopen error';
+            error_log($error);
+            return null;
         }
     }
 
