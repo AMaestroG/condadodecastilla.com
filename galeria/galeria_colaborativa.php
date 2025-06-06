@@ -189,38 +189,31 @@ if (is_dir($gallery_dir)) {
             //     ];
             // }
             
-            // async function fetchPhotos() { // Commented out or removed and replaced
-            //     try {
-            //         const url = `${API_BASE_URL_GALERIA}/fotos`;
-            //         console.log(`Intentando obtener fotos desde: ${url}`);
-            //         const response = await fetch(url);
-            //         if (!response.ok) {
-            //             throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
-            //         }
-            //         const photos = await response.json();
-            //         localGalleryPhotos = photos;
-            //         renderPhotoGallery(localGalleryPhotos);
-            //     } catch (error) {
-            //         console.error('Error al cargar fotos desde el backend:', error);
-            //         localGalleryPhotos = loadSamplePhotos();
-            //         renderPhotoGallery(localGalleryPhotos);
-            //         if(noPhotosMsg) {
-            //             noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. Mostrando ejemplos. <br><small>Error: ${error.message}</small>`;
-            //             noPhotosMsg.style.display = 'block';
-            //             noPhotosMsg.style.color = 'orange';
-            //             noPhotosMsg.style.textAlign = 'center';
-            //         }
-            //     }
-            // }
-            
-            // fetchPhotos(); // Commented out or removed
-
-            localGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
-            renderPhotoGallery(localGalleryPhotos);
-            if (localGalleryPhotos.length === 0 && noPhotosMsg) {
-                noPhotosMsg.textContent = 'No hay fotografías en la galería todavía, o el directorio está vacío.';
-                noPhotosMsg.style.display = 'block';
+            async function fetchPhotos() {
+                try {
+                    const url = `${API_BASE_URL_GALERIA}/fotos`;
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
+                    }
+                    const photos = await response.json();
+                    localGalleryPhotos = photos;
+                    renderPhotoGallery(localGalleryPhotos);
+                } catch (error) {
+                    console.error('Error al cargar fotos desde el backend:', error);
+                    // Fallback a datos generados por PHP si están disponibles
+                    localGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
+                    renderPhotoGallery(localGalleryPhotos);
+                    if(noPhotosMsg) {
+                        noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. ${(localGalleryPhotos.length === 0) ? '' : 'Mostrando imágenes de ejemplo.'} <br><small>Error: ${error.message}</small>`;
+                        noPhotosMsg.style.display = localGalleryPhotos.length === 0 ? 'block' : 'none';
+                        noPhotosMsg.style.color = 'orange';
+                        noPhotosMsg.style.textAlign = 'center';
+                    }
+                }
             }
+
+            fetchPhotos();
 
             if (photoFileInput) {
                 photoFileInput.addEventListener('change', function(event) {
