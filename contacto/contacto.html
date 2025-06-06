@@ -29,6 +29,8 @@
         <section class="section contact-section"> <div class="container page-content-block"> <div class="contact-info">
                     <p>Puedes enviarnos un mensaje directamente usando el formulario a continuación o escribirnos a nuestra dirección de correo electrónico:</p>
                     <p><i class="fas fa-envelope"></i> <a href="mailto:info@condadodecastilla.com" class="email-link">info@condadodecastilla.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+34600123456" class="email-link">+34&nbsp;600&nbsp;123&nbsp;456</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Plaza Mayor&nbsp;1, 09270 Cerezo de Río Tirón, Burgos</p>
                 </div>
 
                 <div class="contact-form-container">
@@ -53,21 +55,14 @@
                         <button type="submit" class="cta-button submit-button">Enviar Mensaje</button>
                     </form>
                 </div>
+                <div class="map-container" style="margin-top: 40px;">
+                    <iframe title="Mapa de Cerezo de Río Tirón" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-3.1756369%2C42.4719916%2C-3.0956369%2C42.5119916&amp;layer=mapnik&amp;marker=42.4919916%2C-3.1356369"></iframe>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
-            <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/groups/1052427398664069" aria-label="Facebook" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="/en_construccion.html" aria-label="Instagram" title="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="/en_construccion.html" aria-label="Twitter" title="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="/js/layout.js"></script>
     <script>
@@ -87,6 +82,7 @@
                 
                 let mailtoLink = `mailto:info@condadodecastilla.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
                 this.action = mailtoLink;
+                alert('Gracias por tu mensaje. Se abrirá tu correo para enviarlo.');
             });
         }
     </script>
