@@ -265,19 +265,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const descText = pieza.descripcion || "";
             descriptionP.textContent = descText.substring(0, 120) + (descText.length > 120 ? '...' : '');
 
-            // Delete button (assuming admin role or for local management)
-            // The visibility of this button might depend on user roles in a real app.
-            // The new API requires admin auth for deletion.
-            const deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro');
-            deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Delete';
-            deleteButton.setAttribute('data-id', pieza.id); // Ensure 'id' is part of the piece data from API
-            deleteButton.addEventListener('click', handleDeletePiezaMuseo);
+            // Render delete button only when the admin variable is set.
+            // window.IS_ADMIN is defined server-side in museo.php.
+            if (window.IS_ADMIN) {
+                const deleteButton = document.createElement('button');
+                deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro');
+                deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Delete';
+                deleteButton.setAttribute('data-id', pieza.id); // Ensure 'id' is part of the piece data from API
+                deleteButton.addEventListener('click', handleDeletePiezaMuseo);
+                cardContent.appendChild(deleteButton); // Add delete button
+            }
 
             cardContent.appendChild(titleH3);
             cardContent.appendChild(authorP);
             cardContent.appendChild(descriptionP);
-            cardContent.appendChild(deleteButton); // Add delete button
 
             card.appendChild(img);
             card.appendChild(cardContent);
