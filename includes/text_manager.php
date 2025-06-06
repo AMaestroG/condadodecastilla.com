@@ -86,5 +86,3 @@ function editableText(string $text_id, PDO $pdo, string $default_text, string $h
 
 // La línea 101 que causaba el error ha sido eliminada o la lógica ha sido reemplazada por getTextContentFromDB.
 // El error 'gettext() expects exactly 1 argument, 4 given' ya no debería ocurrir.
-?>
-

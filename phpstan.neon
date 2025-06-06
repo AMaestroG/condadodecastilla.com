@@ -1,0 +1,18 @@
+parameters:
+    level: 5
+    paths:
+        - dashboard
+        - ajax_actions
+        - includes
+        - scripts
+        - historia
+        - galeria
+        - citas
+        - tienda
+        - .
+    excludePaths:
+        - vendor
+    ignoreErrors:
+        - '#Negated boolean expression is always false#'
+        - '#Call to an undefined method DOMNode::getAttribute#'
+        - '#Offset .* does not exist#'
