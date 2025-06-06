@@ -13,7 +13,7 @@ $login_success = false;
 // If already logged in as admin, redirect to homepage or admin panel
 if (is_admin_logged_in()) {
     if (!headers_sent()) {
-        header("Location: /index.html"); // Or an admin dashboard if one exists
+        header("Location: /index.php"); // Or an admin dashboard if one exists
     }
     exit;
 }
@@ -49,6 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $login_success = true;
                     if (!headers_sent()) {
                          // Redirect to a meaningful page, e.g., the main site index or an admin panel
+                        // Ensure $redirect_to is not inadvertently /index.html if that was the stored session value
+                        if ($redirect_to === '/index.html') {
+                            $redirect_to = '/index.php';
+                        }
                         header("Location: " . $redirect_to);
                         exit;
                     }
