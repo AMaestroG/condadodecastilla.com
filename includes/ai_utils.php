@@ -364,4 +364,46 @@ function get_ai_correction(string $text): string {
     return "Error: Respuesta inesperada del servicio de corrección de IA.";
 }
 
+/**
+ * Genera una respuesta para el chat histórico utilizando nuevo4.md como contexto.
+ * Si la pregunta no está relacionada con historia, devuelve un aviso.
+ *
+ * @param string $question Pregunta del usuario.
+ * @return string Respuesta generada o mensaje de error.
+ */
+function get_history_chat_response(string $question): string {
+    if (empty(trim($question))) {
+        return "Error: No se proporcionó pregunta.";
+    }
+
+    $context = @file_get_contents(__DIR__ . '/../nuevo4.md');
+    if ($context === false) { $context = ''; }
+    $context = mb_substr($context, 0, 5000);
+
+    $prompt = "Responde únicamente preguntas sobre historia utilizando el siguiente contexto. Si la pregunta no es histórica, indica que solo respondes sobre historia.\n\nContexto:\n" . $context . "\n\nPregunta: \"" . $question . "\"";
+
+    $payload = [
+        'contents' => [
+            [ 'parts' => [ ['text' => $prompt] ] ]
+        ]
+    ];
+
+    $error = null;
+    $api_response = _call_gemini_api($payload, $error);
+
+    if ($api_response === null) {
+        $msg = $error !== null ? $error : 'La llamada a la API de IA para el chat falló.';
+        return "Error: " . $msg;
+    }
+
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $answer = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        return !empty($answer) ? nl2br(htmlspecialchars($answer)) : "Error: La respuesta generada por la IA estaba vacía.";
+    } elseif (isset($api_response['error']['message'])) {
+        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
+    }
+
+    return "Error: Respuesta inesperada del servicio de chat de IA.";
+}
+
 

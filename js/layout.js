@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // The initializeSidebarNavigation function itself checks for element existence.
     initializeSidebarNavigation();
     loadIAToolsScript(); // Ensure IA tools script loads for pages with static headers
+    initializeIAChatSidebar(); // Initialize right sidebar chat
     // IA tools script will also be loaded after the header is inserted dynamically.
 
     const headerPlaceholder = document.getElementById('header-placeholder');
@@ -87,6 +88,54 @@ function loadIAToolsScript() {
         script.id = 'ia-tools-script';
         script.src = '/js/ia-tools.js';
         document.body.appendChild(script);
+    }
+}
+
+// Initialize IA chat sidebar and messaging
+function initializeIAChatSidebar() {
+    const toggle = document.getElementById('ia-chat-toggle');
+    const sidebar = document.getElementById('ia-chat-sidebar');
+    const form = document.getElementById('ia-chat-form');
+    const input = document.getElementById('ia-chat-input');
+    const messages = document.getElementById('ia-chat-messages');
+
+    if (toggle && sidebar) {
+        toggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-visible');
+            document.body.classList.toggle('ia-chat-active');
+        });
+    }
+
+    if (form && input && messages) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = input.value.trim();
+            if (!text) return;
+            appendMessage('user', text);
+            input.value = '';
+            fetch('/ajax_actions/get_history_chat.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ message: text })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.reply) {
+                    appendMessage('ai', data.reply);
+                } else if (data.error) {
+                    appendMessage('error', data.error);
+                }
+            })
+            .catch(err => appendMessage('error', err.message));
+        });
+    }
+
+    function appendMessage(role, text) {
+        const p = document.createElement('p');
+        p.className = `chat-${role}`;
+        p.innerHTML = text;
+        messages.appendChild(p);
+        messages.scrollTop = messages.scrollHeight;
     }
 }
 
