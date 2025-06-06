@@ -17,5 +17,15 @@
     </section>
     <div id="footer-placeholder"></div>
     <script src="/js/layout.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const demoBtn = document.querySelector('.demo-button');
+        if (demoBtn) {
+            demoBtn.addEventListener('click', function() {
+                alert('Demostración de botón exitosa.');
+            });
+        }
+    });
+    </script>
 </body>
 </html>
