@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // in case the elements weren't ready on the first call.
                 initializeSidebarNavigation();
                 loadIAToolsScript();
+                // Ensure chat sidebar is initialized when header is loaded
+                initializeIAChatSidebar();
             })
             .catch(error => console.error('Error fetching _header.html:', error));
     }
