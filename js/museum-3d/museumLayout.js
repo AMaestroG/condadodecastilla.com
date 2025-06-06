@@ -9,11 +9,8 @@ MUSEUM_3D.Layout = (function() {
     let scene; // Will be set by SceneManager
     const wallBoundingBoxes = [];
 
-    // Room definitions - these could be loaded from a config file in a more complex setup
-    // For now, keep them here. Positions are relative to (0,0,0) or each other.
-    const mainRoom = { name: 'MainRoom', x:0, y:0, z:0, width: 20, height: 5, depth: 25, doorWidth: 2, doorHeight: 2.5 };
-    const corridorA = { name: 'CorridorA', width: 4, height: 3.5, depth: 10, doorWidth: 2, doorHeight: 2.2 }; // Connects MainRoom to Room2
-    const room2 = { name: 'Room2', width: 15, height: 4.5, depth: 15, doorWidth: 2, doorHeight: 2.5 };
+    // Room definitions are centralized in MUSEUM_3D.Config
+    const { mainRoom, corridorA, room2 } = MUSEUM_3D.Config;
 
 
     function init(threeScene) {
