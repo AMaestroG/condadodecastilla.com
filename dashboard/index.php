@@ -3,7 +3,13 @@
 //ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ALL);
-// ... resto de tu código PHP ...
+
+if (session_status() == PHP_SESSION_NONE) {
+    @session_start();
+}
+
+require_once __DIR__ . '/../includes/auth.php';
+require_admin_login();
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas de Visitas Web</title>
+    <link rel="stylesheet" href="../assets/css/epic_theme.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script> <!-- Specific version for stability -->
     <style>
         body { 
@@ -33,6 +40,16 @@
             text-align: center;
             margin-bottom: 30px;
         }
+        nav { margin-bottom: 20px; }
+        nav a {
+            text-decoration: none;
+            padding: 8px 15px;
+            background-color: #6c757d;
+            color: white;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        nav a:hover { background-color: #5a6268; }
         header h1 {
             margin: 0;
             font-size: 1.8em;
@@ -67,6 +84,12 @@
     <header>
         <h1>Panel de Estadísticas de Visitas</h1>
     </header>
+    <nav>
+        <a href="../index.php">Inicio</a>
+        <a href="edit_texts.php">Textos</a>
+        <a href="tienda_admin.php">Tienda</a>
+        <a href="logout.php">Cerrar sesión</a>
+    </nav>
     
     <div class="chart-container">
         <canvas id="visitsChart"></canvas>
