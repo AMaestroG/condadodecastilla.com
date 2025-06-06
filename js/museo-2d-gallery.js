@@ -107,7 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
             localMuseumPieces = loadSamplePieces(); // Fallback to sample data
             renderGallery(localMuseumPieces);
             if(noPiecesMessage) {
-                noPiecesMessage.innerHTML = `Could not load pieces from server. Displaying examples. <br><small>Error: ${error.message}</small>`;
+                noPiecesMessage.textContent = 'Could not load pieces from server. Displaying examples.';
+                const br = document.createElement('br');
+                const small = document.createElement('small');
+                small.textContent = `Error: ${error.message}`;
+                noPiecesMessage.appendChild(br);
+                noPiecesMessage.appendChild(small);
                 noPiecesMessage.style.display = 'block';
                 noPiecesMessage.style.color = 'orange';
                 noPiecesMessage.style.textAlign = 'center';
@@ -254,11 +259,17 @@ document.addEventListener('DOMContentLoaded', () => {
             cardContent.classList.add('card-content');
 
             const titleH3 = document.createElement('h3');
-            titleH3.innerHTML = `<i class="fas fa-monument"></i> ${pieza.titulo}`;
+            const icon = document.createElement('i');
+            icon.classList.add('fas', 'fa-monument');
+            titleH3.appendChild(icon);
+            titleH3.appendChild(document.createTextNode(' ' + pieza.titulo));
 
             const authorP = document.createElement('p');
             authorP.classList.add('piece-author');
-            authorP.innerHTML = `<strong>Contributed by:</strong> ${pieza.autor || 'Anonymous'}`;
+            const strong = document.createElement('strong');
+            strong.textContent = 'Contributed by:';
+            authorP.appendChild(strong);
+            authorP.appendChild(document.createTextNode(' ' + (pieza.autor || 'Anonymous')));
 
             const descriptionP = document.createElement('p');
             descriptionP.classList.add('piece-description');
@@ -290,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(modal && modalImage && modalCaption) {
             modal.style.display = "block";
             modalImage.src = src;
-            modalCaption.innerHTML = caption;
+            modalCaption.textContent = caption;
         }
     }
 
