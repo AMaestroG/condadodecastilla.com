@@ -184,15 +184,10 @@ if (is_dir($gallery_dir)) {
             const phpGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
             let localGalleryPhotos = [];
 
-            // function loadSamplePhotos() { // Commented out or removed
-            //     return [
-            //         { id: 'sample_photo1', titulo: "Atardecer en el Alcázar (Ejemplo)", descripcion: "Vista del Alcázar de Cerezo bañado por la luz dorada del atardecer.", autor: "Fotógrafo Local", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg", altText: "Atardecer sobre el Alcázar de Cerezo" },
-            //         { id: 'sample_photo2', titulo: "Detalle Románico (Ejemplo)", descripcion: "Capitel historiado en la portada de una de las iglesias de la comarca.", autor: "Visitante Anónimo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_detalle_romanico.jpg", altText: "Detalle de un capitel románico" },
-            //         { id: 'sample_photo3', titulo: "Paisaje desde las Alturas (Ejemplo)", descripcion: "Panorámica de los campos de Castilla desde un mirador cercano a Lantarón.", autor: "Amante del Senderismo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_paisaje_lantaron.jpg", altText: "Paisaje castellano desde las alturas" }
-            //     ];
-            // }
-
-                   const response = await fetch(url);
+            async function fetchPhotos() {
+                const url = `${API_BASE_URL_GALERIA}/fotos`;
+                try {
+                    const response = await fetch(url);
                     if (!response.ok) {
                         let errorMsg = `Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`;
                         try {
@@ -203,16 +198,14 @@ if (is_dir($gallery_dir)) {
                     }
                     const photos = await response.json();
                     localGalleryPhotos = photos;
-                    renderPhotoGallery(localGalleryPhotos);
                 } catch (error) {
-
-                    }
+                    console.error('Fallo al obtener fotos desde la API:', error);
+                    localGalleryPhotos = phpGalleryPhotos;
                 }
+                renderPhotoGallery(localGalleryPhotos);
             }
             
             // Cargar fotos desde la API; se usará la lista generada por PHP si la llamada falla
-            fetchPhotos();
-
             fetchPhotos();
 
             if (photoFileInput) {
