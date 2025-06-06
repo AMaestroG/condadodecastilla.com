@@ -63,7 +63,7 @@ La API del museo está disponible en la ruta `/api/museo/piezas`, gestionada por
 
 Para realizar una prueba con la API de Gemini puedes utilizar el script `scripts/gemini_request.sh`. Este script envía una solicitud al modelo *gemini-2.0-flash* y muestra la respuesta.
 
-Antes de ejecutarlo, define la variable de entorno `GEMINI_API_KEY` con tu clave de API de Google:
+Antes de ejecutarlo, define la variable de entorno `GEMINI_API_KEY` con tu clave de API de Google (también se acepta la variable `GeminiAPI` como alternativa):
 
 ```bash
 export GEMINI_API_KEY="tu_clave"
@@ -78,6 +78,7 @@ Para que las funciones de IA de `includes/ai_utils.php` puedan comunicarse con l
 es necesario definir las siguientes variables de entorno:
 
 - `GEMINI_API_KEY`: clave de autenticación para las peticiones.
+- `GeminiAPI`: nombre alternativo para la clave de autenticación, útil si tu sistema ya define esta variable.
 - `GEMINI_API_ENDPOINT`: URL del servicio al que se enviarán las solicitudes. Si no se establece,
   se usa un valor de ejemplo que activa un simulador interno.
 
