@@ -1,30 +1,53 @@
 <?php
-echo "Before including text_manager.php\n";
+/**
+ * Simple tests for includes/text_manager.php
+ *
+ * Run with: php dashboard/test_text_manager.php
+ */
+
 require_once __DIR__ . '/../includes/text_manager.php';
-echo "After including text_manager.php\n";
 
-// We still need $pdo for getText, db_connect will be included by text_manager.php if we modify it,
-// or we can include it here. For now, let's assume $pdo might be null.
-// The db_connect.php script is already modified to set $pdo to null on error.
-require_once __DIR__ . '/db_connect.php';
-
-
-if (function_exists('getText')) {
-    echo "getText function IS available. Attempting to call...\n";
-    // Attempt to call getText directly
-    // This will likely fail if $pdo is null and getText doesn't handle it (it doesn't currently)
-    // but the point is to see if the declaration itself causes an error.
-    // getText('test_id_gt', $pdo, 'Default for getText');
-    // Let's avoid calling it if $pdo is null, to prevent other errors.
-    if ($pdo) {
-        getText('test_id_gt', $pdo, 'Default for getText');
-        echo "getText call attempted.\n";
+function assertEqual($expected, $actual, $message)
+{
+    if ($expected === $actual) {
+        echo "[PASS] $message\n";
+        return true;
     } else {
-        echo "Skipping getText call as \$pdo is null.\n";
+        echo "[FAIL] $message\n";
+        echo "  Expected: $expected\n";
+        echo "  Got: $actual\n";
+        return false;
     }
-} else {
-    echo "getText function is NOT available.\n";
 }
 
-echo "Test script finished.\n";
+$tests = 0;
+$passed = 0;
+
+// Create a PDO connection to an in-memory SQLite DB with no tables to simulate
+// an unavailable database/table.
+$pdo = new PDO('sqlite::memory:');
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// Test: getTextContentFromDB should return the default text when the query fails
+$tests++;
+$defaultText = 'Default text';
+$result = getTextContentFromDB('nonexistent', $pdo, $defaultText);
+if (assertEqual($defaultText, $result, 'getTextContentFromDB returns default when DB unavailable')) {
+    $passed++;
+}
+
+// Test: editableText should output the expected HTML string
+$tests++;
+ob_start();
+editableText('sample_id', $pdo, 'Hello', 'span', '', false);
+$output = ob_get_clean();
+$expected = '<span data-text-id="sample_id">Hello</span>';
+if (assertEqual($expected, $output, 'editableText outputs correct HTML')) {
+    $passed++;
+}
+
+echo "\n$passed/$tests tests passed\n";
+
+// Exit with error code if any test failed
+exit($passed === $tests ? 0 : 1);
 ?>
