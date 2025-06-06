@@ -189,31 +189,9 @@ if (is_dir($gallery_dir)) {
             //     ];
             // }
             
-            // async function fetchPhotos() { // Commented out or removed and replaced
-            //     try {
-            //         const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
-            //         console.log(`Intentando obtener fotos desde: ${url}`);
-            //         const response = await fetch(url);
-            //         if (!response.ok) {
-            //             throw new Error(`Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`);
-            //         }
-            //         const photos = await response.json();
-            //         localGalleryPhotos = photos;
-            //         renderPhotoGallery(localGalleryPhotos);
-            //     } catch (error) {
-            //         console.error('Error al cargar fotos desde el backend:', error);
-            //         localGalleryPhotos = loadSamplePhotos();
-            //         renderPhotoGallery(localGalleryPhotos);
-            //         if(noPhotosMsg) {
-            //             noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. Mostrando ejemplos. <br><small>Error: ${error.message}</small>`;
-            //             noPhotosMsg.style.display = 'block';
-            //             noPhotosMsg.style.color = 'orange';
-            //             noPhotosMsg.style.textAlign = 'center';
-            //         }
-            //     }
-            // }
-            
-            // fetchPhotos(); // Commented out or removed
+            // fetchPhotos() se eliminó temporalmente al no disponer de backend
+            // API para recargar las imágenes. Si se implementa, descomenta la
+            // definición de la función y su llamada aquí.
 
             localGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
             renderPhotoGallery(localGalleryPhotos);
@@ -278,7 +256,7 @@ if (is_dir($gallery_dir)) {
                         }
                         const result = await response.json();
                         alert(result.mensaje || '¡Fotografía subida con éxito!');
-                        fetchPhotos(); 
+                        // fetchPhotos();  // Function removed; gallery will show new images on next page load
                         uploadForm.reset();
                         if(photoPreview) photoPreview.src = '#';
                         if(photoPreviewContainer) photoPreviewContainer.style.display = 'none';
