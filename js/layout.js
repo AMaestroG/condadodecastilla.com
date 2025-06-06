@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // For static HTML pages, this will run, and then the header fetch below will populate the necessary elements.
     // The initializeSidebarNavigation function itself checks for element existence.
     initializeSidebarNavigation();
+    loadIAToolsScript(); // Ensure IA tools script loads for pages with static headers
+    // IA tools script will also be loaded after the header is inserted dynamically.
 
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
@@ -13,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Re-initialize sidebar navigation if header was loaded dynamically,
                 // in case the elements weren't ready on the first call.
                 initializeSidebarNavigation();
+                loadIAToolsScript();
             })
             .catch(error => console.error('Error fetching _header.html:', error));
     }
@@ -76,6 +79,15 @@ function initializeThemeToggle() {
         icon.classList.toggle('fa-sun', isDark);
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
+}
+
+function loadIAToolsScript() {
+    if (!document.getElementById('ia-tools-script')) {
+        const script = document.createElement('script');
+        script.id = 'ia-tools-script';
+        script.src = '/js/ia-tools.js';
+        document.body.appendChild(script);
+    }
 }
 
 /*

@@ -1,6 +1,7 @@
 <?php
 // includes/ai_utils.php
 
+// Read Gemini API settings from environment variables when available
 if (!defined('GEMINI_API_KEY')) {
     $envKey = getenv('GEMINI_API_KEY');
     define('GEMINI_API_KEY', $envKey !== false ? $envKey : 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO');
@@ -277,4 +278,5 @@ function translate_with_gemini(string $content_id, string $target_language, stri
     $outputText .= "</div>";
     return $outputText;
 }
+
 
