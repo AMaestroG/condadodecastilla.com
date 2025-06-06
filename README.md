@@ -109,3 +109,15 @@ Inicia el servidor con `php -S localhost:8000` y visita `http://localhost:8000/m
 Algunas acciones (por ejemplo subir piezas o eliminar fotografías) solo están disponibles para administradores.
 Accede a `/dashboard/login.php` e inicia sesión con un usuario registrado en la tabla `users`.
 La conexión a la base de datos requiere que la variable de entorno `CONDADO_DB_PASSWORD` contenga la contraseña correspondiente.
+
+## Almacenamiento de imágenes del museo
+
+Las imágenes subidas a través de la API del museo se guardan en el directorio `uploads_storage/museo_piezas`.
+Antes de ejecutar la API asegúrate de crear esta carpeta y asignar permisos de escritura al usuario que ejecute el servidor web.
+
+Ejemplo de creación del directorio en Linux:
+
+```bash
+mkdir -p uploads_storage/museo_piezas
+chmod 775 uploads_storage/museo_piezas
+```
