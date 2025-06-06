@@ -93,3 +93,19 @@ El archivo `includes/ai_utils.php` proporciona utilidades que hacen uso de la AP
 - `get_ai_correction($texto)`: devuelve una versión corregida del texto.
 
 Si no se configuran las credenciales reales de la API, se utilizará un simulador que produce textos de demostración.
+
+## Galería 2D y Museo 3D
+
+El sitio cuenta con dos formas de visualizar las piezas:
+
+1. **Galería 2D** – disponible en `galeria/galeria_colaborativa.php` y enfocada en las imágenes aportadas por los usuarios.
+2. **Museo 3D** – se accede mediante `museo/museo.php` e incluye un recorrido tridimensional generado con Three.js.
+
+Ambas vistas consumen la API en `/api/museo/piezas` para obtener la lista de elementos del museo.
+Inicia el servidor con `php -S localhost:8000` y visita `http://localhost:8000/museo/museo.php` para probarlo.
+
+### Activar características de administración
+
+Algunas acciones (por ejemplo subir piezas o eliminar fotografías) solo están disponibles para administradores.
+Accede a `/dashboard/login.php` e inicia sesión con un usuario registrado en la tabla `users`.
+La conexión a la base de datos requiere que la variable de entorno `CONDADO_DB_PASSWORD` contenga la contraseña correspondiente.
