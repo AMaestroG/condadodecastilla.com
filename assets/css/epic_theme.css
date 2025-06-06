@@ -287,26 +287,27 @@ th {
 #ia-chat-sidebar {
     position: fixed;
     top: 0;
-    left: calc(100% - 25vw);
+    right: -25vw;
+    left: auto;
     width: 25vw;
     height: 100vh;
     background-color: var(--epic-transparent-overlay-dark);
     backdrop-filter: blur(5px);
     padding: 20px;
     box-shadow: 0 0 15px rgba(var(--epic-text-color-rgb), 0.25);
-    transition: opacity var(--global-transition-speed) ease-in-out;
+    transition: right var(--global-transition-speed) ease-in-out;
     overflow: auto;
     z-index: 1001;
     display: flex;
     flex-direction: column;
     border: 2px solid var(--epic-gold-secondary);
     resize: both;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
 }
 
 #ia-chat-sidebar.sidebar-visible {
-    opacity: 1;
+    right: 0;
     pointer-events: auto;
 }
 
@@ -665,6 +666,11 @@ body.dark-mode #sidebar .nav-links a:hover i {
 body.sidebar-active {
     margin-left: 280px; /* Match sidebar width */
     transition: margin-left var(--global-transition-speed) ease-in-out;
+}
+
+body.ia-chat-active {
+    margin-right: 25vw;
+    transition: margin-right var(--global-transition-speed) ease-in-out;
 }
 
 /* Hide standard navbar and its toggle if sidebar is the primary mobile nav */
