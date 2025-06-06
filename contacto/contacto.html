@@ -33,7 +33,8 @@
 
                 <div class="contact-form-container">
                     <h2 class="section-title">Formulario de Contacto</h2>
-                    <form id="contactForm" action="mailto:info@condadodecastilla.com" method="POST" enctype="text/plain">
+                    <form id="contactForm" action="enviar.php" method="POST">
+                        <input type="hidden" id="csrf_token" name="csrf_token" value="">
                         <div class="form-group">
                             <label for="nombre"><i class="fas fa-user"></i> Nombre Completo:</label>
                             <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellidos">
@@ -73,6 +74,15 @@
     <script>
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
+            // Obtener token CSRF
+            fetch('enviar.php?action=token')
+                .then(resp => resp.text())
+                .then(token => {
+                    const tokenField = document.getElementById('csrf_token');
+                    if (tokenField) tokenField.value = token;
+                })
+                .catch(err => console.error('Error obteniendo token CSRF', err));
+
             contactForm.addEventListener('submit', function(event) {
                 let name = document.getElementById('nombre').value.trim();
                 let email = document.getElementById('email').value.trim();
@@ -81,12 +91,8 @@
 
                 if (!name || !email || !subject || !message) {
                     alert('Por favor, completa todos los campos requeridos.');
-                    event.preventDefault(); 
-                    return;
+                    event.preventDefault();
                 }
-                
-                let mailtoLink = `mailto:ablmaestro@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
-                this.action = mailtoLink;
             });
         }
     </script>
