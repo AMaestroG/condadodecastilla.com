@@ -11,11 +11,13 @@ error_reporting(E_ALL);
 // --- FIN DE SECCIÓN IMPORTANTE PARA PRODUCCIÓN ---
 
 // Configuración de la base de datos PostgreSQL
-$db_host = "localhost";         // Host de la base de datos (PostgreSQL está en el mismo servidor)
-$db_name = "condado_castilla_db"; // Nombre de tu base de datos PostgreSQL
-$db_user = "condado_user";        // Usuario de tu base de datos PostgreSQL
-$db_pass = "tu_contraseña_muy_segura"; // ¡¡¡CRÍTICO: REEMPLAZA ESTO INMEDIATAMENTE CON UNA CONTRASEÑA REAL, ÚNICA Y SEGURA!!!
-$db_port = "5432";                // Puerto estándar de PostgreSQL
+// Se intentan obtener los valores desde variables de entorno.
+// Si no existen, se utilizan los valores por defecto de este archivo.
+$db_host = getenv('DB_HOST') ?: 'localhost';
+$db_name = getenv('DB_NAME') ?: 'condado_castilla_db';
+$db_user = getenv('DB_USER') ?: 'condado_user';
+$db_pass = getenv('DB_PASS') ?: 'tu_contraseña_muy_segura';
+$db_port = getenv('DB_PORT') ?: '5432';
 
 // Cadena de conexión (DSN) para PostgreSQL usando PDO
 $dsn = "pgsql:host=$db_host;port=$db_port;dbname=$db_name;user=$db_user;password=$db_pass";

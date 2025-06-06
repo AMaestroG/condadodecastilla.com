@@ -52,28 +52,12 @@
 <li><strong>Client Internet Access</strong>: The client's web browser needs internet access to load the Chart.js library from the CDN.</li>
 </ol>
 <h2>Configuration</h2>
-<p>The primary configuration file is <code>dashboard/db_connect.php</code>. You <strong>must</strong> update this file with your actual Progress database credentials and connection details.</p>
-<p>Open <code>dashboard/db_connect.php</code> and modify the following placeholder variables:</p>
-<ul>
-<li><code>$db_host</code>: Your Progress database server hostname or IP address.
-    <code>php
-    $db_host = "YOUR_DB_HOST"; // e.g., "localhost" or "192.168.1.100"</code></li>
-<li><code>$db_name</code>: The name of your Progress database.
-    <code>php
-    $db_name = "YOUR_DB_NAME"; // e.g., "sportsdb"</code></li>
-<li><code>$db_user</code>: The username for database access.
-    <code>php
-    $db_user = "YOUR_DB_USER";</code></li>
-<li><code>$db_pass</code>: The password for the database user.
-    <code>php
-    $db_pass = "YOUR_DB_PASSWORD";</code></li>
-<li><code>$db_port</code>: The port number your Progress database is listening on. This is often specific to your Progress setup (e.g., 2050, 5555).
-    <code>php
-    $db_port = "YOUR_DB_PORT"; // e.g., 2050</code></li>
-<li><code>$db_other_params</code> (Optional): If your connection requires other specific parameters (e.g., ServiceName, EncryptionMethod), you can uncomment and set this variable in <code>db_connect.php</code>.
-    <code>php
-    // $db_other_params = "ServiceName=your_service;EncryptionMethod=1;ValidateServerCertificate=0";</code></li>
-</ul>
+<p>The dashboard reads the database connection settings from environment variables. A sample file named <code>.env.example</code> is provided at the project root.</p>
+<ol>
+<li>Copy <code>.env.example</code> to <code>.env</code> at the root of the repository.</li>
+<li>Edit the values of <code>DB_HOST</code>, <code>DB_NAME</code>, <code>DB_USER</code>, <code>DB_PASS</code> and <code>DB_PORT</code> to match your PostgreSQL installation.</li>
+</ol>
+<p>The script <code>dashboard/db_connect.php</code> will automatically load these values using <code>getenv()</code>. If an environment variable is missing, the default value defined in the script will be used.</p>
 <h3>DSN String Configuration</h3>
 <p>The script uses a DSN-less connection string by default. The DSN string is constructed as follows:</p>
 <pre><code class="language-php">$dsn = &quot;odbc:DRIVER={Progress OpenEdge Wire Protocol};HOST=$db_host;PORT=$db_port;DB=$db_name;&quot;;
@@ -106,7 +90,7 @@ ORDER BY total_visits DESC;
 <p>Modify <code>visit_stats</code>, <code>section_name</code>, or <code>visit_count</code> in this query to match your actual schema.</p>
 <h2>Running the Dashboard</h2>
 <ol>
-<li><strong>Configure</strong>: Update <code>dashboard/db_connect.php</code> with your database credentials and DSN details as described above.</li>
+<li><strong>Configure</strong>: Copy <code>.env.example</code> to <code>.env</code> and fill in your database credentials as explained in the Configuration section.</li>
 <li><strong>Modify Query (if needed)</strong>: Adjust the SQL query in <code>dashboard/get_stats.php</code> if your table/column names differ.</li>
 <li><strong>Deploy</strong>: Upload the entire <code>dashboard</code> directory (containing <code>index.php</code>, <code>get_stats.php</code>, <code>db_connect.php</code>, and this <code>README.md</code>) to your PHP-enabled web server.</li>
 <li><strong>Access</strong>: Open your web browser and navigate to the <code>index.php</code> file. For example:
