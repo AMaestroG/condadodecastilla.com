@@ -5,16 +5,16 @@
 // --- IMPORTANTE PARA PRODUCCIÓN ---
 // Las siguientes líneas habilitan la visualización de errores para desarrollo.
 // DEBEN SER COMENTADAS O ELIMINADAS en un entorno de producción para no exponer información sensible.
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 // --- FIN DE SECCIÓN IMPORTANTE PARA PRODUCCIÓN ---
 
 // Configuración de la base de datos PostgreSQL
 $db_host = "localhost";         // Host de la base de datos (PostgreSQL está en el mismo servidor)
 $db_name = "condado_castilla_db"; // Nombre de tu base de datos PostgreSQL
 $db_user = "condado_user";        // Usuario de tu base de datos PostgreSQL
-$db_pass = "tu_contraseña_muy_segura"; // ¡¡¡CRÍTICO: REEMPLAZA ESTO INMEDIATAMENTE CON UNA CONTRASEÑA REAL, ÚNICA Y SEGURA!!!
+$db_pass = getenv('CONDADO_DB_PASSWORD'); // Se obtiene la contraseña de una variable de entorno segura
 $db_port = "5432";                // Puerto estándar de PostgreSQL
 
 // Cadena de conexión (DSN) para PostgreSQL usando PDO

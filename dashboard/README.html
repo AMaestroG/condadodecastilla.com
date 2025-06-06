@@ -66,7 +66,8 @@
     $db_user = "YOUR_DB_USER";</code></li>
 <li><code>$db_pass</code>: The password for the database user.
     <code>php
-    $db_pass = "YOUR_DB_PASSWORD";</code></li>
+    $db_pass = getenv('CONDADO_DB_PASSWORD');</code> <!-- Set this environment variable on the server -->
+</li>
 <li><code>$db_port</code>: The port number your Progress database is listening on. This is often specific to your Progress setup (e.g., 2050, 5555).
     <code>php
     $db_port = "YOUR_DB_PORT"; // e.g., 2050</code></li>
