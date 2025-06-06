@@ -44,6 +44,12 @@ La muestra de errores PHP se mantiene deshabilitada en `dashboard/db_connect.php
 
 La API del museo está disponible en la ruta `/api/museo/piezas`, gestionada por el script `api_museo.php`. Desde ahí es posible obtener o crear registros de piezas del museo.
 
+## Blog colaborativo
+
+El directorio `blog/` ofrece una plataforma básica para publicar artículos y comentarios.
+Las imágenes asociadas se almacenan en `uploads_storage/blog_photos/` y se sirven con `serve_blog_image.php`.
+Cada entrada permite obtener un resumen, una corrección y traducciones de demostración gracias a las funciones de `includes/ai_utils.php`.
+
 
 ## Ejemplo de uso de la API de Gemini
 

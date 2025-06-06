@@ -241,4 +241,34 @@ function translate_with_gemini(string $content_id, string $target_language, stri
     return $outputText;
 }
 
+/**
+ * Devuelve un texto corregido simulando una corrección gramatical por IA.
+ *
+ * @param string $text Texto a corregir.
+ * @return string Texto corregido o mensaje de error.
+ */
+function get_ai_correction(string $text): string {
+    if (empty(trim($text))) {
+        return "Error: No se proporcionó texto para corregir.";
+    }
+
+    $prompt = "Corrige gramaticalmente el siguiente texto manteniendo su significado:";
+    $payload = [
+        'contents' => [
+            [ 'parts' => [ ['text' => $prompt . "\n\n" . $text ] ] ]
+        ]
+    ];
+
+    $response = _call_gemini_api($payload);
+    if ($response === null) {
+        return "Error: La llamada a la API de IA para la corrección falló.";
+    }
+
+    if (isset($response['candidates'][0]['content']['parts'][0]['text'])) {
+        $corr = trim($response['candidates'][0]['content']['parts'][0]['text']);
+        return !empty($corr) ? nl2br(htmlspecialchars($corr)) : "Error: La IA no devolvió texto corregido.";
+    }
+    return "Error: Respuesta inesperada del servicio de corrección de IA.";
+}
+
 ?>
