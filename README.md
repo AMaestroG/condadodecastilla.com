@@ -23,6 +23,10 @@ $db_port = "5432";                // Puerto de PostgreSQL
 
 Ajusta esos valores según tu entorno para que la aplicación pueda acceder a la base de datos.
 
+El script obtiene la contraseña real desde la variable de entorno `CONDADO_DB_PASSWORD`.
+Si dicha variable no está definida, `dashboard/db_connect.php` lanzará una
+`RuntimeException` indicando el problema.
+
 ## Servidor de desarrollo
 
 Para probar el sitio de forma local puedes usar el servidor embebido de PHP. Sitúate en la raíz del repositorio y ejecuta:
