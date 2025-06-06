@@ -69,4 +69,3 @@ Maintaining a coherent and up-to-date knowledge graph is crucial for its accurac
 *   **Probabilistic Link Strength:** Assigning confidence scores to links based on coherence and source reliability.
 
 This strategy aims to create a resilient and adaptive knowledge graph that remains a valuable asset over time.
-```
