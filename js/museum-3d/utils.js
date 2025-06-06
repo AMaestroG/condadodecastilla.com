@@ -20,7 +20,7 @@ MUSEUM_3D.Utils = (function() {
         doorFrame: new THREE.Color("#5c4d3f")
     };
 
-    const API_BASE_URL = ""; // Assuming API is at root, e.g., /api/museo/piezas
+    const API_BASE_URL = window.API_BASE_URL || '';
     const PIEZAS_API_URL = `${API_BASE_URL}/api/museo/piezas`;
 
     const DEBUG_MODE = false; // Set to true for debugging features like Box3Helpers

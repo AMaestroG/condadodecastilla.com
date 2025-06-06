@@ -159,13 +159,13 @@ require_once __DIR__ . '/../includes/ai_utils.php';
         <?php
             // Asegurarse de que la función existe antes de llamarla
             $translation_placeholders = [];
-            if (function_exists('get_simulated_translation_placeholder')) {
+            if (function_exists('translate_with_gemini')) {
                 // Para la demostración, no necesitamos pasar el texto original completo aquí,
-                // la función get_simulated_translation_placeholder ya tiene una lógica de snippet.
+                // la función translate_with_gemini ya tiene una lógica de snippet.
                 // Usaremos un content_id genérico para Atapuerca.
                 $original_text_snippet_for_demo = "Contenido original de la página de Atapuerca..."; // Un snippet muy corto o incluso vacío
-                $translation_placeholders['en-ai'] = get_simulated_translation_placeholder('atapuerca_main_content', 'en-ai', $original_text_snippet_for_demo);
-                $translation_placeholders['fr-ai'] = get_simulated_translation_placeholder('atapuerca_main_content', 'fr-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['en-ai'] = translate_with_gemini('atapuerca_main_content', 'en-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['fr-ai'] = translate_with_gemini('atapuerca_main_content', 'fr-ai', $original_text_snippet_for_demo);
             }
         ?>
         const translations = <?php echo json_encode($translation_placeholders); ?>;

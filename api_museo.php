@@ -4,6 +4,7 @@
 // Include necessary files
 require_once 'dashboard/db_connect.php'; // Adjust path as necessary
 require_once 'includes/auth.php'; // Adjust path as necessary
+require_once 'includes/csrf.php';
 
 // Start session if not already started
 if (session_status() == PHP_SESSION_NONE) {
@@ -29,8 +30,9 @@ function get_base_url() {
     return $protocol . $host;
 }
 
-// Define the upload directory
-define('UPLOAD_DIR_BASE', 'uploads/museo_piezas/');
+// Define the upload directory outside the web root
+define('UPLOAD_DIR_BASE', dirname(__DIR__) . '/uploads_storage/museo_piezas/');
+define('IMAGE_ENDPOINT', '/serve_museo_image.php');
 
 // Ensure the upload directory exists
 if (!is_dir(UPLOAD_DIR_BASE)) {
@@ -71,10 +73,8 @@ switch ($request_method) {
                 $stmt = $pdo->query("SELECT id, titulo, descripcion, autor, imagen_nombre, fecha_subida, notas_adicionales, pos_x, pos_y, pos_z, escala, rotacion_y FROM museo_piezas ORDER BY fecha_subida DESC");
                 $piezas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $base_url = get_base_url();
-                $upload_path_segment = trim(UPLOAD_DIR_BASE, '/');
-
                 foreach ($piezas as &$pieza) {
-                    $pieza['imagenUrl'] = $base_url . '/' . $upload_path_segment . '/' . $pieza['imagen_nombre'];
+                    $pieza['imagenUrl'] = $base_url . IMAGE_ENDPOINT . '?file=' . urlencode($pieza['imagen_nombre']);
                 }
 
                 json_response($piezas);
@@ -88,6 +88,9 @@ switch ($request_method) {
         // POST /api/museo/piezas - Create a new piece
         if (!is_admin_logged_in()) {
             json_response(['error' => 'Admin authentication required'], 403);
+        }
+        if (!verify_csrf_token($_POST['csrf_token'] ?? '')) {
+            json_response(['error' => 'Invalid CSRF token'], 400);
         }
 
         // Validate inputs
@@ -115,7 +118,9 @@ switch ($request_method) {
         $image_tmp_name = $image_file['tmp_name'];
         $image_size = $image_file['size'];
         $image_error = $image_file['error'];
-        $image_type = $image_file['type'];
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $image_type = finfo_file($finfo, $image_tmp_name);
+        finfo_close($finfo);
 
         if ($image_error !== UPLOAD_ERR_OK) {
             json_response(['error' => 'File upload error: ' . $image_error], 400);

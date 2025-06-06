@@ -75,6 +75,7 @@ if (is_dir($gallery_dir)) {
                 </p>
 
                 <form id="uploadPhotoForm" class="upload-form-container">
+                    <input type="hidden" id="csrfGaleryToken" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
                     <div class="form-group">
                         <label for="photoTitulo"><i class="fas fa-heading"></i> Título de la Foto:</label>
                         <input type="text" id="photoTitulo" name="photoTitulo" required placeholder="Ej: Atardecer en el Alcázar">
@@ -179,7 +180,8 @@ if (is_dir($gallery_dir)) {
             
             const API_BASE_URL_GALERIA = '/api/galeria';
 
-            let localGalleryPhotos = []; 
+            const phpGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
+            let localGalleryPhotos = [];
 
             // function loadSamplePhotos() { // Commented out or removed
             //     return [
@@ -188,11 +190,8 @@ if (is_dir($gallery_dir)) {
             //         { id: 'sample_photo3', titulo: "Paisaje desde las Alturas (Ejemplo)", descripcion: "Panorámica de los campos de Castilla desde un mirador cercano a Lantarón.", autor: "Amante del Senderismo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_paisaje_lantaron.jpg", altText: "Paisaje castellano desde las alturas" }
             //     ];
             // }
-            
-            async function fetchPhotos() {
-                try {
-                    const url = `${API_BASE_URL_GALERIA}/fotos`;
-                    const response = await fetch(url);
+
+                   const response = await fetch(url);
                     if (!response.ok) {
                         let errorMsg = `Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`;
                         try {
@@ -205,18 +204,13 @@ if (is_dir($gallery_dir)) {
                     localGalleryPhotos = photos;
                     renderPhotoGallery(localGalleryPhotos);
                 } catch (error) {
-                    console.error('Error al cargar fotos desde el backend:', error);
-                    // Fallback a datos generados por PHP si están disponibles
-                    localGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
-                    renderPhotoGallery(localGalleryPhotos);
-                    if(noPhotosMsg) {
-                        noPhotosMsg.innerHTML = `No se pudieron cargar las fotos del servidor. ${(localGalleryPhotos.length === 0) ? '' : 'Mostrando imágenes de ejemplo.'} <br><small>Error: ${error.message}</small>`;
-                        noPhotosMsg.style.display = localGalleryPhotos.length === 0 ? 'block' : 'none';
-                        noPhotosMsg.style.color = 'orange';
-                        noPhotosMsg.style.textAlign = 'center';
+
                     }
                 }
             }
+            
+            // Cargar fotos desde la API; se usará la lista generada por PHP si la llamada falla
+            fetchPhotos();
 
             fetchPhotos();
 
@@ -262,6 +256,10 @@ if (is_dir($gallery_dir)) {
                     }
 
                     const formData = new FormData();
+                    const csrfInput = document.getElementById('csrfGaleryToken');
+                    if (csrfInput) {
+                        formData.append('csrf_token', csrfInput.value);
+                    }
                     formData.append('photoTitulo', titulo);
                     formData.append('photoDescripcion', descripcion);
                     formData.append('photoAutor', autor);
@@ -276,7 +274,7 @@ if (is_dir($gallery_dir)) {
                         }
                         const result = await response.json();
                         alert(result.mensaje || '¡Fotografía subida con éxito!');
-                        fetchPhotos(); 
+                        // fetchPhotos();  // Descomentar si se desea refrescar la galería tras subir una foto
                         uploadForm.reset();
                         if(photoPreview) photoPreview.src = '#';
                         if(photoPreviewContainer) photoPreviewContainer.style.display = 'none';
