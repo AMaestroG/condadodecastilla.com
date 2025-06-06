@@ -75,6 +75,7 @@ if (is_dir($gallery_dir)) {
                 </p>
 
                 <form id="uploadPhotoForm" class="upload-form-container">
+                    <input type="hidden" id="csrfGaleryToken" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
                     <div class="form-group">
                         <label for="photoTitulo"><i class="fas fa-heading"></i> Título de la Foto:</label>
                         <input type="text" id="photoTitulo" name="photoTitulo" required placeholder="Ej: Atardecer en el Alcázar">
@@ -264,6 +265,10 @@ if (is_dir($gallery_dir)) {
                     }
 
                     const formData = new FormData();
+                    const csrfInput = document.getElementById('csrfGaleryToken');
+                    if (csrfInput) {
+                        formData.append('csrf_token', csrfInput.value);
+                    }
                     formData.append('photoTitulo', titulo);
                     formData.append('photoDescripcion', descripcion);
                     formData.append('photoAutor', autor);

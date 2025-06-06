@@ -48,6 +48,7 @@
                 </p>
 
                 <form id="uploadForm" class="upload-form-container">
+                    <input type="hidden" id="csrfToken" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
                     <div class="form-group">
                         <label for="piezaTitulo"><i class="fas fa-signature"></i> Título de la Pieza:</label>
                         <input type="text" id="piezaTitulo" name="piezaTitulo" required placeholder="Ej: Fragmento de cerámica romana">
