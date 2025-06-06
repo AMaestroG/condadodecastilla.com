@@ -241,4 +241,3 @@ function translate_with_gemini(string $content_id, string $target_language, stri
     return $outputText;
 }
 
-?>
