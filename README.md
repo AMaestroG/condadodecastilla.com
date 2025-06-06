@@ -45,6 +45,7 @@ Esto iniciará el servidor en `http://localhost:8000`.
 ## Consideraciones de produccion
 
 La muestra de errores PHP se mantiene deshabilitada en `dashboard/db_connect.php` e `dashboard/index.php` para no exponer detalles sensibles en produccion.
+
 ## API
 
 La API del museo está disponible en la ruta `/api/museo/piezas`, gestionada por el script `api_museo.php`. Desde ahí es posible obtener o crear registros de piezas del museo.
@@ -76,6 +77,7 @@ Si está disponible, puedes revisar el script opcional `scripts/gemini_request.s
 para ver un ejemplo básico de invocación que hace uso de `GEMINI_API_KEY`.
 Encuentra la tienda en [tienda/index.php](tienda/index.php).
 
-## Licencia
+## Licencia / License
 
 Este proyecto está disponible bajo los términos de la [Licencia MIT](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
