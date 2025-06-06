@@ -26,6 +26,7 @@ Ajusta esos valores según tu entorno para que la aplicación pueda acceder a la
 El script obtiene la contraseña real desde la variable de entorno `CONDADO_DB_PASSWORD`.
 Si dicha variable no está definida, `dashboard/db_connect.php` lanzará una
 `RuntimeException` indicando el problema.
+Para preparar la base de datos ejecuta en orden los scripts de `database_setup`: `01_create_tables.sql`, `02_create_museo_piezas_table.sql` y `03_create_tienda_productos.sql`.
 
 ## Servidor de desarrollo
 
@@ -69,3 +70,4 @@ es necesario definir dos variables de entorno:
 
 Puedes revisar el script opcional `scripts/gemini_request.sh` para ver un ejemplo
 básico de invocación que hace uso de `GEMINI_API_KEY`.
+Encuentra la tienda en [tienda/index.php](tienda/index.php).
