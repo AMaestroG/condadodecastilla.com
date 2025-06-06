@@ -10,9 +10,8 @@ MUSEUM_3D.SceneManager = (function() {
     let composer, bloomPass; // For post-processing
     let ambientLight, hemisphereLight, mainRoomLight, corridorLight, room2Light; // Lights
 
-    const mainRoom = { name: 'MainRoom', x:0, y:0, z:0, width: 20, height: 5, depth: 25 }; // TODO: Move to Layout or Config
-    const room2 = { name: 'Room2', width: 15, height: 4.5, depth: 15 }; // TODO: Move to Layout or Config
-    const corridorA = { name: 'CorridorA', width: 4, height: 3.5, depth: 10 };// TODO: Move to Layout or Config
+    // Room layout values come from the Config module
+    const { mainRoom, room2, corridorA } = MUSEUM_3D.Config;
 
 
     function init() {
