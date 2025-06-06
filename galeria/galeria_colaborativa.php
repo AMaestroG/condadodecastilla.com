@@ -180,7 +180,8 @@ if (is_dir($gallery_dir)) {
             
             const API_BASE_URL_GALERIA = ""; // Nginx hará proxy para /api/galeria/fotos
 
-            let localGalleryPhotos = []; 
+            const phpGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
+            let localGalleryPhotos = [];
 
             // function loadSamplePhotos() { // Commented out or removed
             //     return [
@@ -195,13 +196,20 @@ if (is_dir($gallery_dir)) {
                     const url = `${API_BASE_URL_GALERIA}/fotos`;
                     const response = await fetch(url);
                     if (!response.ok) {
-                        throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+                        let errorMsg = `Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`;
+                        try {
+                            const errData = await response.json();
+                            errorMsg = errData.error || errorMsg;
+                        } catch (e) { /* response not JSON */ }
+                        throw new Error(errorMsg);
                     }
                     const photos = await response.json();
                     localGalleryPhotos = photos;
                     renderPhotoGallery(localGalleryPhotos);
                 } catch (error) {
                     console.error('Error al cargar fotos desde el backend:', error);
+                    localGalleryPhotos = phpGalleryPhotos;
+                    renderPhotoGallery(localGalleryPhotos);
                     if (noPhotosMsg) {
                         noPhotosMsg.textContent = `No se pudieron cargar las fotos del servidor. ${error.message}`;
                         noPhotosMsg.style.display = 'block';
@@ -209,7 +217,7 @@ if (is_dir($gallery_dir)) {
                 }
             }
 
-            localGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
+            localGalleryPhotos = phpGalleryPhotos;
             renderPhotoGallery(localGalleryPhotos);
             fetchPhotos();
             if (localGalleryPhotos.length === 0 && noPhotosMsg) {
