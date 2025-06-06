@@ -37,3 +37,37 @@ Esto iniciará el servidor en `http://localhost:8000`.
 
 La API del museo está disponible en la ruta `/api/museo/piezas`, gestionada por el script `api_museo.php`. Desde ahí es posible obtener o crear registros de piezas del museo.
 
+
+## Scripts de mantenimiento
+
+Este repositorio incluye utilidades en Python dentro del directorio `scripts/`. El script `auto_update.py` ejecuta tres tareas clave:
+
+1. Procesar las fichas de personajes y generar el archivo `characters_enriched.json`.
+2. Crear `sitemap.xml` con todas las páginas del sitio.
+3. Analizar el grafo de conocimiento para verificar su consistencia.
+
+### Instalación de dependencias
+
+Se recomienda usar un entorno virtual de Python. Desde la raíz del proyecto:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Ejecución manual
+
+```bash
+python scripts/auto_update.py
+```
+
+### Programar con cron
+
+Para ejecutar el script automáticamente cada día puedes añadir una entrada al `crontab` del usuario:
+
+```bash
+0 3 * * * /ruta/al/proyecto/venv/bin/python /ruta/al/proyecto/scripts/auto_update.py >> /ruta/al/proyecto/auto_update.log 2>&1
+```
+
+Esto lanzará la actualización a las 3:00 AM y registrará la salida en `auto_update.log`.
