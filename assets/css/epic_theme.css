@@ -2631,3 +2631,28 @@ body.dark-mode #theme-toggle i {
 body.dark-mode #theme-toggle:hover i {
     color: var(--epic-gold-main);
 }
+
+/* === IA Tools Menu === */
+#ia-tools-menu {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--epic-gold-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#ia-tools-menu button {
+    font-family: var(--font-headings);
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    border: 1px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color var(--global-transition-speed);
+}
+
+#ia-tools-menu button:hover {
+    background-color: var(--epic-gold-secondary);
+}

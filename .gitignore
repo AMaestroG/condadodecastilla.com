@@ -1,0 +1,17 @@
+# Ignore sensitive dashboard admin script
+/dashboard/create_admin.php
+
+# Byte-compiled / optimized / cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Backup files
+*.bak
+
+# Temporary files
+*~
+*.swp
+.DS_Store
+Thumbs.db

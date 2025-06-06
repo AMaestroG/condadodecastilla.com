@@ -1,11 +1,14 @@
 <?php
 // includes/ai_utils.php
 
+// Read Gemini API settings from environment variables when available
 if (!defined('GEMINI_API_KEY')) {
-    define('GEMINI_API_KEY', 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO'); // Placeholder
+    $envKey = getenv('GEMINI_API_KEY');
+    define('GEMINI_API_KEY', $envKey !== false ? $envKey : 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO');
 }
 if (!defined('GEMINI_API_ENDPOINT')) {
-    define('GEMINI_API_ENDPOINT', 'https://api.gemini.example.com/v1/generateContent'); // Placeholder
+    $envEndpoint = getenv('GEMINI_API_ENDPOINT');
+    define('GEMINI_API_ENDPOINT', $envEndpoint !== false ? $envEndpoint : 'https://api.gemini.example.com/v1/generateContent');
 }
 
 if (!defined('AI_UTILS_LOADED')) {
@@ -22,7 +25,7 @@ if (!defined('AI_UTILS_LOADED')) {
  * @param string $full_text (Opcional) El texto completo a resumir.
  * @return string El resumen generado (o un placeholder).
  */
-function get_smart_summary_placeholder(string $content_key, string $full_text = ''): string {
+function get_smart_summary(string $content_key, string $full_text = ''): string {
     // Simulación de procesamiento
     $summary = "Resumen inteligente para '" . htmlspecialchars($content_key) . "': ";
 
@@ -112,7 +115,84 @@ function _call_gemini_api_simulator(array $payload): ?array {
 }
 
 /**
- * Genera un resumen de un texto utilizando el simulador de la API de Gemini.
+ * Llama a la API de Gemini utilizando cURL o usa el simulador si la
+ * configuración sigue con valores de ejemplo.
+ *
+ * @param array $payload Cuerpo de la solicitud para la API.
+ * @return array|null Respuesta decodificada o null si hay errores.
+ */
+function _call_gemini_api(array $payload, ?string &$error = null): ?array {
+    if (GEMINI_API_KEY === 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO' ||
+        GEMINI_API_ENDPOINT === 'https://api.gemini.example.com/v1/generateContent') {
+        return _call_gemini_api_simulator($payload);
+    }
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init(GEMINI_API_ENDPOINT);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . GEMINI_API_KEY
+        ]);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+
+        $response = curl_exec($ch);
+        if ($response === false) {
+            $error = 'Gemini API curl error: ' . curl_error($ch);
+            error_log($error);
+            curl_close($ch);
+            return null;
+        }
+
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if ($http_code < 200 || $http_code >= 300) {
+            $error = 'Gemini API HTTP error: ' . $http_code;
+            error_log($error);
+            return null;
+        }
+    } else {
+        // Fallback to file_get_contents if cURL is not available
+        $context = stream_context_create([
+            'http' => [
+                'method'  => 'POST',
+                'header'  => "Content-Type: application/json\r\n" .
+                            'Authorization: Bearer ' . GEMINI_API_KEY . "\r\n",
+                'content' => json_encode($payload),
+                'ignore_errors' => true
+            ]
+        ]);
+        $response = @file_get_contents(GEMINI_API_ENDPOINT, false, $context);
+
+        if (isset($http_response_header[0]) &&
+            preg_match('#^HTTP/\S+\s+(\d+)#', $http_response_header[0], $m)) {
+            $http_code = (int)$m[1];
+            if ($http_code < 200 || $http_code >= 300) {
+                $error = $http_response_header[0];
+                error_log('Gemini API HTTP error: ' . $error);
+                return null;
+            }
+        }
+
+        if ($response === false) {
+            $error = 'Gemini API fopen error';
+            error_log($error);
+            return null;
+        }
+    }
+
+    $decoded = json_decode($response, true);
+    if ($decoded === null) {
+        $error = 'Gemini API decode error';
+        error_log($error);
+    }
+    return $decoded;
+}
+
+/**
+ * Genera un resumen de un texto utilizando la API de Gemini (o el simulador
+ * si la configuración es de ejemplo).
  *
  * @param string $text_to_summarize El texto que se va a resumir.
  * @return string El resumen generado o un mensaje de error.
@@ -140,23 +220,25 @@ function get_real_ai_summary(string $text_to_summarize): string {
         // Se podrían añadir 'generationConfig' o 'safetySettings' aquí si el simulador los manejara.
     ];
 
-    $api_response = _call_gemini_api_simulator($payload);
+    $error = null;
+    $api_response = _call_gemini_api($payload, $error);
 
     if ($api_response === null) {
-        return "Error: La llamada simulada a la API de IA para el resumen falló.";
+        $msg = $error !== null ? $error : 'La llamada a la API de IA para el resumen falló.';
+        return "Error: " . $msg;
     }
 
-    // Procesar la respuesta simulada (adaptar según la estructura real de Gemini si es necesario)
+    // Procesar la respuesta recibida (adaptar según la estructura real de Gemini si es necesario)
     if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
         $summary = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
         // Podría ser necesario un post-procesamiento adicional aquí para limpiar el resumen.
-        return !empty($summary) ? nl2br(htmlspecialchars($summary)) : "Error: El resumen generado por la IA simulada estaba vacío.";
+        return !empty($summary) ? nl2br(htmlspecialchars($summary)) : "Error: El resumen generado por la IA estaba vacío.";
     } elseif (isset($api_response['error']['message'])) { // Manejo de errores de la API si los hubiera
-         return "Error de la API de IA simulada: " . htmlspecialchars($api_response['error']['message']);
+         return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
     } else {
         // Loggear la respuesta inesperada para depuración si es posible en un entorno real.
-        // error_log("Respuesta inesperada de la API de IA simulada: " . print_r($api_response, true));
-        return "Error: Respuesta inesperada del servicio de resumen de IA simulada.";
+        // error_log("Respuesta inesperada de la API de IA: " . print_r($api_response, true));
+        return "Error: Respuesta inesperada del servicio de resumen de IA.";
     }
 }
 
@@ -168,7 +250,7 @@ function get_real_ai_summary(string $text_to_summarize): string {
  * @param string $original_sample_text Un extracto del texto original para incluir en la demo. O el texto completo si se desea devolverlo para 'es'.
  * @return string El texto "traducido" de demostración o el texto original si target_language es 'es'.
  */
-function get_simulated_translation_placeholder(string $content_id, string $target_language, string $original_sample_text = ''): string {
+function translate_with_gemini(string $content_id, string $target_language, string $original_sample_text = ''): string {
     if ($target_language === 'es') {
         // Si el objetivo es español, se asume que se quiere restaurar el original.
         // El JavaScript debería tener el contenido original completo.
@@ -197,4 +279,4 @@ function get_simulated_translation_placeholder(string $content_id, string $targe
     return $outputText;
 }
 
-?>
+

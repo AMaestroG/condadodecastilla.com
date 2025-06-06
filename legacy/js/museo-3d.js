@@ -1,3 +1,4 @@
+// Archivo obsoleto: mantenido solo con fines historicos
 // Ensure Three.js is loaded
 if (typeof THREE === 'undefined') {
     console.error('Three.js not loaded. Make sure the CDN link is correct in museo.html.');

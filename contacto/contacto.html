@@ -33,7 +33,7 @@
 
                 <div class="contact-form-container">
                     <h2 class="section-title">Formulario de Contacto</h2>
-                    <form id="contactForm" action="mailto:info@condadodecastilla.com" method="POST" enctype="text/plain">
+                    <form id="contactForm" action="mailto:info@condadodecastilla.com">
                         <div class="form-group">
                             <label for="nombre"><i class="fas fa-user"></i> Nombre Completo:</label>
                             <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellidos">
@@ -85,7 +85,7 @@
                     return;
                 }
                 
-                let mailtoLink = `mailto:ablmaestro@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
+                let mailtoLink = `mailto:info@condadodecastilla.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
                 this.action = mailtoLink;
             });
         }

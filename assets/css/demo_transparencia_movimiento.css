@@ -1,0 +1,73 @@
+:root {
+    --morado-emperador: #4A0D67;
+    --albastro: #F9F7F4;
+    --oro-viejo: #CFB53B;
+}
+
+.demo-hero {
+    background: linear-gradient(
+        rgba(74, 13, 103, 0.7),
+        rgba(74, 13, 103, 0.7)
+    ), url('/imagenes/alabastro.jpg') center/cover no-repeat;
+    color: var(--albastro);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.demo-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fade-slide-in 1s ease forwards;
+}
+
+.demo-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    border: 2px solid var(--oro-viejo);
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 2rem auto;
+    color: var(--morado-emperador);
+    opacity: 0;
+    animation: fade-up 1s ease forwards 0.5s;
+}
+
+.demo-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--oro-viejo);
+    color: var(--morado-emperador);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s;
+}
+
+.demo-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.demo-button:hover::after {
+    opacity: 1;
+}
+
+@keyframes fade-slide-in {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
