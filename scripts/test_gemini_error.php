@@ -1,5 +1,7 @@
 <?php
-// Simple script to demonstrate _call_gemini_api error reporting
+// Simple script to demonstrate _call_gemini_api error reporting.
+// The endpoint returns a 404 status so the script will display the
+// status line captured by _call_gemini_api.
 
 define('GEMINI_API_KEY', 'dummy');
 define('GEMINI_API_ENDPOINT', 'https://httpstat.us/404');
