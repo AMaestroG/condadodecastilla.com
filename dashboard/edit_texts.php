@@ -6,6 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/db_connect.php'; // Provides $pdo
 require_once __DIR__ . '/../includes/text_manager.php'; // For getText, though not directly used for display here
+require_once __DIR__ . '/../includes/csrf.php';
 
 // Ensure user is admin
 require_admin_login(); // Redirect to login if not admin
@@ -83,6 +84,7 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
         <h2>Añadir Nuevo Texto</h2>
         <div class="add-text-form">
             <form action="save_text.php" method="POST">
+                <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
                 <div>
                     <label for="new_text_id">ID del Texto (único, sin espacios, ej: 'titulo_principal'):</label><br>
                     <input type="text" id="new_text_id" name="text_id" required pattern="[a-zA-Z0-9_\-]+">
@@ -103,6 +105,7 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
             <?php foreach ($texts as $text): ?>
                 <div class="text-item <?php echo ($edit_id_highlight === $text['text_id']) ? 'highlight' : ''; ?>" id="text-<?php echo htmlspecialchars($text['text_id']); ?>">
                     <form action="save_text.php" method="POST">
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
                         <strong>ID: <?php echo htmlspecialchars($text['text_id']); ?></strong>
                         <input type="hidden" name="text_id" value="<?php echo htmlspecialchars($text['text_id']); ?>">
                         <input type="hidden" name="action" value="update">

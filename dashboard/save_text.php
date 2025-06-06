@@ -5,10 +5,11 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/db_connect.php'; // Provides $pdo
+require_once __DIR__ . '/../includes/csrf.php';
 
 // Ensure user is admin and request is POST
 require_admin_login();
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !verify_csrf_token($_POST['csrf_token'] ?? '')) {
     $_SESSION['feedback_message'] = 'Acceso no válido.';
     $_SESSION['feedback_type'] = 'error';
     header("Location: edit_texts.php");

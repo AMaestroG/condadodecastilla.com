@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../includes/csrf.php';
 $appointmentsFile = __DIR__ . '/../datos/citas.json';
 if (!file_exists($appointmentsFile)) {
     file_put_contents($appointmentsFile, json_encode([]));
@@ -6,7 +7,10 @@ if (!file_exists($appointmentsFile)) {
 $successMessage = "";
 $errorMessage = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nombre = trim($_POST['nombre'] ?? '');
+    if (!verify_csrf_token($_POST['csrf_token'] ?? '')) {
+        $errorMessage = 'Error de verificación CSRF.';
+    } else {
+        $nombre = trim($_POST['nombre'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $fecha = trim($_POST['fecha'] ?? '');
     $hora = trim($_POST['hora'] ?? '');
@@ -32,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $errorMessage = "Por favor completa todos los campos obligatorios.";
     }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -49,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p style="color:red;"><?php echo htmlspecialchars($errorMessage); ?></p>
     <?php endif; ?>
     <form method="POST">
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
         <label>Nombre:<br><input type="text" name="nombre" required></label><br>
         <label>Email:<br><input type="email" name="email" required></label><br>
         <label>Fecha:<br><input type="date" name="fecha" required></label><br>
