@@ -69,3 +69,7 @@ es necesario definir dos variables de entorno:
 
 Puedes revisar el script opcional `scripts/gemini_request.sh` para ver un ejemplo
 básico de invocación que hace uso de `GEMINI_API_KEY`.
+
+## Subidas de la galeria
+
+Las fotografias que los usuarios suben para la Galeria Colaborativa se guardan en `uploads/galeria/`. El repositorio incluye un archivo marcador para que exista el directorio.
