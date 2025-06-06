@@ -280,4 +280,88 @@ function translate_with_gemini(string $content_id, string $target_language, stri
     return $outputText;
 }
 
+/**
+ * Genera una traducción real mediante la API de Gemini (o el simulador).
+ * Devuelve solo la traducción en el idioma solicitado.
+ *
+ * @param string $text            Texto de origen en castellano.
+ * @param string $target_language Código del idioma de destino, ej. "en".
+ * @return string Traducción generada o mensaje de error.
+ */
+function get_ai_translation(string $text, string $target_language): string {
+    if (empty(trim($text))) {
+        return "Error: No se proporcionó texto a traducir.";
+    }
+
+    $prompt = "Traduce el siguiente texto al idioma '" . $target_language . "'. Devuelve solo la traducción:\n\n\"" . $text . "\"";
+
+    $payload = [
+        'contents' => [
+            [
+                'parts' => [
+                    ['text' => $prompt]
+                ]
+            ]
+        ]
+    ];
+
+    $error = null;
+    $api_response = _call_gemini_api($payload, $error);
+
+    if ($api_response === null) {
+        $msg = $error !== null ? $error : 'La llamada a la API de IA para la traducción falló.';
+        return "Error: " . $msg;
+    }
+
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $translation = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        return !empty($translation) ? nl2br(htmlspecialchars($translation)) : "Error: La traducción generada por la IA estaba vacía.";
+    } elseif (isset($api_response['error']['message'])) {
+        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
+    }
+
+    return "Error: Respuesta inesperada del servicio de traducción de IA.";
+}
+
+/**
+ * Genera una versión corregida de un texto usando la API de Gemini.
+ *
+ * @param string $text Texto original en castellano.
+ * @return string Texto corregido o mensaje de error.
+ */
+function get_ai_correction(string $text): string {
+    if (empty(trim($text))) {
+        return "Error: No se proporcionó texto a corregir.";
+    }
+
+    $prompt = "Corrige ortografía y gramática del siguiente texto. Devuelve solo la versión corregida:\n\n\"" . $text . "\"";
+
+    $payload = [
+        'contents' => [
+            [
+                'parts' => [
+                    ['text' => $prompt]
+                ]
+            ]
+        ]
+    ];
+
+    $error = null;
+    $api_response = _call_gemini_api($payload, $error);
+
+    if ($api_response === null) {
+        $msg = $error !== null ? $error : 'La llamada a la API de IA para la corrección falló.';
+        return "Error: " . $msg;
+    }
+
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $correction = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        return !empty($correction) ? nl2br(htmlspecialchars($correction)) : "Error: La corrección generada por la IA estaba vacía.";
+    } elseif (isset($api_response['error']['message'])) {
+        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
+    }
+
+    return "Error: Respuesta inesperada del servicio de corrección de IA.";
+}
+
 
