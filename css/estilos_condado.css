@@ -184,7 +184,16 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: var(--border-radius-medio); 
+    border-radius: var(--border-radius-medio);
+}
+.image-gallery-intro img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.image-gallery-intro figure {
+    overflow: hidden;
 }
 
 /*------------------------------------------------

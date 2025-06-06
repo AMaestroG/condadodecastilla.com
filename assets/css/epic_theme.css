@@ -1471,11 +1471,18 @@ body.dark-mode .footer .social-links a:focus-visible {
     gap: 25px;
     margin-top: 40px;
 }
+.image-gallery-intro figure {
+    overflow: hidden;
+}
 .image-gallery-intro img {
     border: 6px solid var(--color-piedra-media, #D2B48C); /* Mapped */
     box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); /* Mapped */
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, filter 0.4s ease-in-out;
     margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 .image-gallery-intro img:hover {
     transform: scale(1.08) rotate(-2deg);
