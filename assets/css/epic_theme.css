@@ -7,10 +7,10 @@
     --epic-gold-main-rgb: 255, 215, 0;
     --epic-gold-secondary: #B8860B;
     --epic-gold-secondary-rgb: 184, 134, 11;
-    --epic-alabaster-bg: #EAEBF0; /* Cool greyish-white */
-    --epic-alabaster-bg-rgb: 234, 235, 240; /* RGB for the new color */
-    --epic-alabaster-medium: #D8D9E0; /* Derived from new --epic-alabaster-bg */
-    --epic-alabaster-medium-rgb: 216, 217, 224; /* RGB for new medium alabaster */
+    --epic-alabaster-bg: #F3F8FF; /* Very light celeste */
+    --epic-alabaster-bg-rgb: 243, 248, 255; /* RGB for new light tone */
+    --epic-alabaster-medium: #E6EEF9; /* Slightly darker celeste */
+    --epic-alabaster-medium-rgb: 230, 238, 249; /* RGB for new medium tone */
     --epic-text-color: #2c1d12;
     --epic-text-color-rgb: 44, 29, 18;
     --epic-text-light: #EAE0C8;
@@ -2776,10 +2776,10 @@ main p {
 
 /* ===== Dark Mode Theme Variables ===== */
 body.dark-mode {
-    --epic-alabaster-bg: #1b1b1b;
-    --epic-alabaster-bg-rgb: 27,27,27;
-    --epic-alabaster-medium: #333333;
-    --epic-alabaster-medium-rgb: 51,51,51;
+    --epic-alabaster-bg: #1c2029;
+    --epic-alabaster-bg-rgb: 28, 32, 41;
+    --epic-alabaster-medium: #2a2f39;
+    --epic-alabaster-medium-rgb: 42, 47, 57;
     --epic-text-color: #e5e5e5;
     --epic-text-color-rgb: 229,229,229;
     --epic-text-light: #b0b0b0;
