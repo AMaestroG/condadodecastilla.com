@@ -1,6 +1,7 @@
 <?php
 // includes/ai_utils.php
 
+// Read Gemini API settings from environment variables when available
 if (!defined('GEMINI_API_KEY')) {
     $envKey = getenv('GEMINI_API_KEY');
     define('GEMINI_API_KEY', $envKey !== false ? $envKey : 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO');
@@ -281,3 +282,4 @@ function get_ai_correction(string $text): string {
     return "<p><strong>Corrección IA (demo):</strong> {$snippet}...</p><p><em>Funcionalidad real pendiente de implementación.</em></p>";
 }
 
+?>
