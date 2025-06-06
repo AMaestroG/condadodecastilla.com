@@ -281,23 +281,32 @@ th {
 #ia-chat-sidebar {
     position: fixed;
     top: 0;
-    right: -320px;
-    width: 320px;
+    left: calc(100% - 25vw);
+    width: 25vw;
     height: 100vh;
     background-color: var(--epic-transparent-overlay-dark);
     backdrop-filter: blur(5px);
     padding: 20px;
-    box-shadow: -3px 0 15px rgba(var(--epic-text-color-rgb), 0.25);
-    transition: right var(--global-transition-speed) ease-in-out;
-    overflow-y: auto;
+    box-shadow: 0 0 15px rgba(var(--epic-text-color-rgb), 0.25);
+    transition: opacity var(--global-transition-speed) ease-in-out;
+    overflow: auto;
     z-index: 1001;
     display: flex;
     flex-direction: column;
-    border-left: 2px solid var(--epic-gold-secondary);
+    border: 2px solid var(--epic-gold-secondary);
+    resize: both;
+    opacity: 0;
+    pointer-events: none;
 }
 
 #ia-chat-sidebar.sidebar-visible {
-    right: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#ia-chat-sidebar.dragging {
+    opacity: 0.9;
+    cursor: move;
 }
 
 #ia-chat-toggle {
@@ -332,7 +341,15 @@ th {
 }
 
 body.ia-chat-active #ia-chat-toggle {
-    right: 335px;
+    /* Keep toggle in place when chat is active */
+    right: 65px;
+}
+
+.ia-chat-header {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    cursor: move;
 }
 
 #ia-chat-sidebar .ia-tools-container {
@@ -372,6 +389,8 @@ body.ia-chat-active #ia-chat-toggle {
     padding: 6px;
     border-radius: var(--global-border-radius);
     border: 1px solid var(--epic-gold-secondary);
+    resize: none;
+    overflow-y: hidden;
 }
 
 #ia-chat-form button {

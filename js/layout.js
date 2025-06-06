@@ -98,6 +98,7 @@ function initializeIAChatSidebar() {
     const form = document.getElementById('ia-chat-form');
     const input = document.getElementById('ia-chat-input');
     const messages = document.getElementById('ia-chat-messages');
+    const handle = sidebar ? sidebar.querySelector('.drag-handle') : null;
 
     if (toggle && sidebar) {
         toggle.addEventListener('click', () => {
@@ -106,7 +107,36 @@ function initializeIAChatSidebar() {
         });
     }
 
+    if (handle && sidebar) {
+        let startX, startY, startLeft, startTop;
+        handle.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            startX = e.clientX;
+            startY = e.clientY;
+            startLeft = sidebar.offsetLeft;
+            startTop = sidebar.offsetTop;
+            sidebar.classList.add('dragging');
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+        function onMouseMove(e) {
+            const newLeft = startLeft + (e.clientX - startX);
+            const newTop = startTop + (e.clientY - startY);
+            sidebar.style.left = `${newLeft}px`;
+            sidebar.style.top = `${newTop}px`;
+        }
+        function onMouseUp() {
+            sidebar.classList.remove('dragging');
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+    }
+
     if (form && input && messages) {
+        input.addEventListener('input', () => {
+            input.style.height = 'auto';
+            input.style.height = `${input.scrollHeight}px`;
+        });
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const text = input.value.trim();
