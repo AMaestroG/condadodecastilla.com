@@ -16,7 +16,6 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
 
-    <div id="crosshair" style="position: fixed; top: 50%; left: 50%; width: 6px; height: 6px; background-color: rgba(255,255,255,0.6); border-radius: 50%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none; display: none;"></div>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +25,8 @@
     <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>
 <body>
-    <div id="linterna-condado"></div> 
+    <div id="crosshair" style="position: fixed; top: 50%; left: 50%; width: 6px; height: 6px; background-color: rgba(255,255,255,0.6); border-radius: 50%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none; display: none;"></div>
+    <div id="linterna-condado"></div>
     
     <div id="header-placeholder"></div> 
 
