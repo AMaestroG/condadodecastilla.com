@@ -2552,3 +2552,24 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     text-decoration: none;
     outline: none;
 }
+
+/* ============================================= */
+/* == ESTANDARIZACIÓN DE ALINEACIÓN DE TEXTO == */
+/* ============================================= */
+/*
+ * Regla para centrar titulares (h1-h6) y justificar párrafos (p)
+ * dentro del contenedor principal (<main>) de cada página.
+ * Esto unifica el diseño en todo el sitio.
+*/
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+    text-align: center;
+}
+
+main p {
+    text-align: justify;
+}
