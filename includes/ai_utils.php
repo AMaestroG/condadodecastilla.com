@@ -1,11 +1,66 @@
 <?php
 // includes/ai_utils.php
 
-if (!defined('GEMINI_API_KEY')) {
-    define('GEMINI_API_KEY', 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO'); // Placeholder
+/**
+ * Obtiene la clave API de Gemini desde variables de entorno.
+ *
+ * @return string|null
+ */
+function get_gemini_api_key(): ?string {
+    $key = getenv('GEMINI_API_KEY');
+    return $key !== false ? $key : null;
 }
-if (!defined('GEMINI_API_ENDPOINT')) {
-    define('GEMINI_API_ENDPOINT', 'https://api.gemini.example.com/v1/generateContent'); // Placeholder
+
+/**
+ * Obtiene el endpoint de la API de Gemini desde variables de entorno.
+ *
+ * @return string|null
+ */
+function get_gemini_api_endpoint(): ?string {
+    $endpoint = getenv('GEMINI_API_ENDPOINT');
+    return $endpoint !== false ? $endpoint : null;
+}
+
+/**
+ * Realiza una llamada HTTP POST a la API de Gemini.
+ *
+ * @param array $payload Datos que se enviarán como JSON.
+ * @param string &$error Mensaje de error en caso de fallo.
+ * @return array|null Respuesta decodificada o null si ocurre un error.
+ */
+function call_gemini_api(array $payload, string &$error = ''): ?array {
+    $api_key = get_gemini_api_key();
+    $endpoint = get_gemini_api_endpoint();
+
+    if (empty($api_key) || empty($endpoint)) {
+        $error = 'Variables de entorno GEMINI_API_KEY o GEMINI_API_ENDPOINT no definidas.';
+        return null;
+    }
+
+    $context = stream_context_create([
+        'http' => [
+            'method'  => 'POST',
+            'header'  => "Content-Type: application/json\r\n" .
+                        'Authorization: Bearer ' . $api_key,
+            'content' => json_encode($payload),
+            'timeout' => 30,
+        ]
+    ]);
+
+    $response_json = @file_get_contents($endpoint, false, $context);
+    if ($response_json === false) {
+        $last_error = error_get_last();
+        $error = $last_error['message'] ?? 'Error desconocido al conectar con la API.';
+        return null;
+    }
+
+    $decoded = json_decode($response_json, true);
+    if ($decoded === null) {
+        $error = 'La respuesta de la API no es JSON válido.';
+        return null;
+    }
+
+    return $decoded;
 }
 
 if (!defined('AI_UTILS_LOADED')) {
@@ -13,28 +68,48 @@ if (!defined('AI_UTILS_LOADED')) {
 }
 
 /**
- * Placeholder para una función que generaría un resumen inteligente.
- * En una implementación real, esto podría llamar a una API de IA,
- * procesar el texto localmente con un modelo, etc.
+ * Genera un resumen inteligente utilizando la API de Gemini.
  *
  * @param string $content_key Un identificador para el contenido a resumir,
  *                            o potencialmente el texto completo si es corto.
  * @param string $full_text (Opcional) El texto completo a resumir.
- * @return string El resumen generado (o un placeholder).
+ * @return string El resumen generado o un mensaje de error.
  */
 function get_smart_summary_placeholder(string $content_key, string $full_text = ''): string {
-    // Simulación de procesamiento
-    $summary = "Resumen inteligente para '" . htmlspecialchars($content_key) . "': ";
+    $text = !empty($full_text) ? $full_text : $content_key;
+    $text = trim($text);
 
-    if (!empty($full_text)) {
-        // Tomar las primeras ~250 caracteres como un resumen muy básico si se proporciona el texto completo.
-        // strip_tags para evitar problemas si el contenido tiene HTML.
-        $summary .= substr(strip_tags($full_text), 0, 250) . "...";
-    } else {
-        $summary .= "Este es un resumen de demostración generado por IA. En el futuro, aquí aparecería un extracto conciso y relevante del contenido principal, procesado por un modelo de lenguaje avanzado para destacar los puntos clave de la sección sobre " . htmlspecialchars($content_key) . ".";
+    if ($text === '') {
+        return 'Error: No se proporcionó texto para resumir.';
     }
 
-    return "<p><strong>" . $summary . "</strong></p><p><em>(Funcionalidad de resumen real con IA pendiente de implementación completa).</em></p>";
+    $prompt = "Resume el siguiente texto en español:\n\n\"{$text}\"";
+    $payload = [
+        'contents' => [
+            [
+                'parts' => [
+                    ['text' => $prompt]
+                ]
+            ]
+        ]
+    ];
+
+    $error = '';
+    $api_response = call_gemini_api($payload, $error);
+    if ($api_response === null) {
+        return 'Error al obtener resumen: ' . $error;
+    }
+
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $summary = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        return nl2br(htmlspecialchars($summary));
+    }
+
+    if (isset($api_response['error']['message'])) {
+        return 'Error de la API: ' . htmlspecialchars($api_response['error']['message']);
+    }
+
+    return 'Error: Respuesta inesperada de la API de resumen.';
 }
 
 /**
@@ -161,40 +236,51 @@ function get_real_ai_summary(string $text_to_summarize): string {
 }
 
 /**
- * Placeholder para una función que simularía una traducción inteligente.
+ * Realiza una traducción utilizando la API de Gemini.
  *
  * @param string $content_id Identificador del contenido (ej. 'atapuerca_main_text').
  * @param string $target_language Código del idioma objetivo (ej. 'en-ai', 'fr-ai').
  * @param string $original_sample_text Un extracto del texto original para incluir en la demo. O el texto completo si se desea devolverlo para 'es'.
- * @return string El texto "traducido" de demostración o el texto original si target_language es 'es'.
+ * @return string El texto traducido o un mensaje de error.
  */
 function get_simulated_translation_placeholder(string $content_id, string $target_language, string $original_sample_text = ''): string {
+    $text = trim($original_sample_text);
+
     if ($target_language === 'es') {
-        // Si el objetivo es español, se asume que se quiere restaurar el original.
-        // El JavaScript debería tener el contenido original completo.
-        // Esta función, si es llamada con 'es', simplemente devuelve el sample/original que se le pasó.
-        return $original_sample_text;
+        return $text;
     }
 
-    $original_snippet = !empty($original_sample_text) ? htmlspecialchars(substr(strip_tags($original_sample_text), 0, 70)) . "..." : "el contenido original";
-
-    $outputText = "<div style='padding:15px; background-color:#e3f2fd; border:1px solid #bbdefb; border-radius:4px; margin-top:10px;'>";
-    $outputText .= "<p style='font-size:0.9em; color:#0d47a1;'><em>Traducción IA (Demostración) para: " . htmlspecialchars($content_id) . "</em></p>";
-
-    switch ($target_language) {
-        case 'en-ai':
-            $outputText .= "<p><strong>Simulated English Translation:</strong> This demonstrates where AI-generated English text would appear. The original Spanish content started with: '<em>" . $original_snippet . "</em>'.</p>";
-            $outputText .= "<p>In a production system, the full text would be processed by an advanced neural machine translation model to provide an accurate and nuanced English version.</p>";
-            break;
-        case 'fr-ai':
-            $outputText .= "<p><strong>Traduction Française Simulée :</strong> Ceci montre où le texte français généré par l'IA apparaîtrait. Le contenu original en espagnol commençait par : '<em>" . $original_snippet . "</em>'.</p>";
-            $outputText .= "<p>Dans un système de production, le texte intégral serait traité par un modèle avancé de traduction automatique neuronale pour fournir une version française précise et nuancée.</p>";
-            break;
-        // No hay caso 'default' o 'es' aquí porque ya se manejó al inicio de la función.
+    if ($text === '') {
+        return 'Error: No se proporcionó texto para traducir.';
     }
-    $outputText .= "<p style='font-size:0.8em; color:#1976d2; margin-top:10px;'><em>(Esta es una simulación. La funcionalidad de traducción real con IA está pendiente de implementación).</em></p>";
-    $outputText .= "</div>";
-    return $outputText;
+
+    $prompt = "Traduce al idioma {$target_language} el siguiente texto conservando el significado:\n\n\"{$text}\"";
+    $payload = [
+        'contents' => [
+            [
+                'parts' => [
+                    ['text' => $prompt]
+                ]
+            ]
+        ]
+    ];
+
+    $error = '';
+    $api_response = call_gemini_api($payload, $error);
+    if ($api_response === null) {
+        return 'Error al traducir: ' . $error;
+    }
+
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $translation = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        return nl2br(htmlspecialchars($translation));
+    }
+
+    if (isset($api_response['error']['message'])) {
+        return 'Error de la API: ' . htmlspecialchars($api_response['error']['message']);
+    }
+
+    return 'Error: Respuesta inesperada de la API de traducción.';
 }
 
 ?>
