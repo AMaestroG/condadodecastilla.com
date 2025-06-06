@@ -1694,7 +1694,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     .hero h1 { font-size: clamp(2.4em, 7vw, 3.5em); }
     .hero p { font-size: clamp(1.05em, 3.5vw, 1.4em); max-width: 90%;}
 
-    .detailed-intro-section p { text-align: center !important; }
+    .detailed-intro-section p { text-align: justify !important; }
     .section-title::after { width: 40px; height: 40px; margin: 20px auto 35px auto; }
 
     /* Timeline responsive from estilos.css */
