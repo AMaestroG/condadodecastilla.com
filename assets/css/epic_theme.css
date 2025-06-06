@@ -246,7 +246,8 @@ th {
 #theme-toggle {
     position: fixed;
     top: 15px;
-    right: 15px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: var(--epic-purple-emperor);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
@@ -312,7 +313,7 @@ th {
 #ia-chat-toggle {
     position: fixed;
     top: 15px;
-    right: 65px;
+    right: 15px;
     background-color: var(--epic-purple-emperor);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
@@ -350,7 +351,7 @@ body.dark-mode #ia-chat-toggle:hover i {
 
 body.ia-chat-active #ia-chat-toggle {
     /* Keep toggle in place when chat is active */
-    right: 65px;
+    right: 15px;
 }
 
 .ia-chat-header {
