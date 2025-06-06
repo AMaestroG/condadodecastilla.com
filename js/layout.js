@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // For static HTML pages, this will run, and then the header fetch below will populate the necessary elements.
     // The initializeSidebarNavigation function itself checks for element existence.
     initializeSidebarNavigation();
-    // IA tools script will be loaded after the header is inserted dynamically.
+    loadIAToolsScript(); // Ensure IA tools script loads for pages with static headers
+    // IA tools script will also be loaded after the header is inserted dynamically.
 
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
