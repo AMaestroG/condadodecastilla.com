@@ -1,0 +1,2 @@
+# Ignore sensitive dashboard admin script
+/dashboard/create_admin.php
