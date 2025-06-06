@@ -287,9 +287,9 @@ th {
 #ia-chat-sidebar {
     position: fixed;
     top: 0;
-    right: -25vw;
+    right: -25vw; /* Initial hidden state, JS will change to 0 */
     left: auto;
-    width: 25vw;
+    width: clamp(280px, 70vw, 400px);
     height: 100vh;
     background-color: var(--epic-transparent-overlay-dark);
     backdrop-filter: blur(5px);
@@ -405,7 +405,9 @@ body.ia-chat-active #ia-chat-toggle {
     border-radius: var(--global-border-radius);
     border: 1px solid var(--epic-gold-secondary);
     resize: none;
-    overflow-y: hidden;
+    overflow-y: auto; /* Changed from hidden */
+    min-height: calc(1.4em + 12px + 2px); /* Added */
+    max-height: 100px; /* Added */
 }
 
 #ia-chat-form button {
@@ -669,7 +671,7 @@ body.sidebar-active {
 }
 
 body.ia-chat-active {
-    margin-right: 25vw;
+    margin-right: clamp(280px, 70vw, 400px); /* Match sidebar width */
     transition: margin-right var(--global-transition-speed) ease-in-out;
 }
 
@@ -680,7 +682,21 @@ body.ia-chat-active {
         /* display: none !important; /* Assuming sidebar takes over */
     }
     /* If sidebar overlaps on mobile instead of pushing content */
-    /* body.sidebar-active { margin-left: 0; } */
+    body.sidebar-active { margin-left: 0; }
+
+    body.sidebar-active #sidebar-toggle {
+        left: 15px; /* Keep original position on mobile when sidebar overlays */
+    }
+
+    /* AI Chat Sidebar Mobile Overlay */
+    body.ia-chat-active {
+        margin-right: 0; /* Overlay content */
+    }
+
+    #ia-chat-sidebar {
+        width: clamp(280px, 85vw, 320px); /* Adjusted for mobile overlay */
+        resize: none; /* Disable resize on mobile */
+    }
 }
 
 
