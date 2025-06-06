@@ -3,7 +3,9 @@
 
 # Byte-compiled / optimized / cache
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
+*.pyd
 
 # Backup files
 *.bak
