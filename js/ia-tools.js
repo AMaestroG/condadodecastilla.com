@@ -1,9 +1,10 @@
 // js/ia-tools.js
-// Handles IA tool actions: summary, correction placeholder and translation.
+// Handles IA tool actions: summary, translation, research and web search.
 
 document.addEventListener('DOMContentLoaded', () => {
     const summaryBtn = document.getElementById('ia-summary-btn');
-    const correctionBtn = document.getElementById('ia-correction-btn');
+    const researchBtn = document.getElementById('ia-research-btn');
+    const websearchBtn = document.getElementById('ia-websearch-btn');
     const translateBtn = document.getElementById('ia-translate-btn');
 
     const output = ensureOutputContainer();
@@ -16,8 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         translateBtn.addEventListener('click', () => handleTranslation(output));
     }
 
-    if (correctionBtn) {
-        correctionBtn.addEventListener('click', () => handleCorrection(output));
+    if (researchBtn) {
+        researchBtn.addEventListener('click', () => handleResearch(output));
+    }
+
+    if (websearchBtn) {
+        websearchBtn.addEventListener('click', () => handleWebSearch(output));
     }
 });
 
@@ -112,18 +117,43 @@ function handleTranslation(output) {
     });
 }
 
-function handleCorrection(output) {
-    const text = getMainText();
-    showOutput(output, '<p><em>Generando corrección...</em></p>');
-    fetch('/ajax_actions/get_correction.php', {
+function handleResearch(output) {
+    const query = prompt('Tema o pregunta a investigar:');
+    if (!query) return;
+    showOutput(output, '<p><em>Buscando información...</em></p>');
+    fetch('/ajax_actions/get_research.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ text_to_correct: text })
+        body: JSON.stringify({ query })
     })
     .then(res => res.json())
     .then(data => {
-        if (data.success && data.correction) {
-            showOutput(output, data.correction);
+        if (data.success && data.research) {
+            showOutput(output, data.research);
+        } else if (data.error) {
+            showOutput(output, `<p style="color:red;">${data.error}</p>`);
+        } else {
+            showOutput(output, '<p style="color:red;">Respuesta inesperada.</p>');
+        }
+    })
+    .catch(err => {
+        showOutput(output, `<p style="color:red;">${err.message}</p>`);
+    });
+}
+
+function handleWebSearch(output) {
+    const query = prompt('Búsqueda en la web:');
+    if (!query) return;
+    showOutput(output, '<p><em>Generando búsqueda...</em></p>');
+    fetch('/ajax_actions/get_web_search.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ query })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success && data.results) {
+            showOutput(output, data.results);
         } else if (data.error) {
             showOutput(output, `<p style="color:red;">${data.error}</p>`);
         } else {

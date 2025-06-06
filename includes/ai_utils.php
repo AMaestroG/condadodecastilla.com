@@ -407,3 +407,45 @@ function get_history_chat_response(string $question): string {
 }
 
 
+
+/**
+ * Genera un breve informe de investigación sobre un tema.
+ * @param string $query Tema o pregunta a investigar.
+ * @return string Resumen generado o mensaje de error.
+ */
+function get_ai_research(string $query): string {
+    if (empty(trim($query))) {
+        return "Error: No se proporcionó tema de investigación.";
+    }
+    $prompt = "Investiga brevemente el siguiente tema y ofrece un resumen conciso con datos clave. Tema: \"" . $query . "\"";
+    $payload = [ 'contents' => [[ 'parts' => [[ 'text' => $prompt ]] ]] ];
+    $error = null;
+    $api_response = _call_gemini_api($payload, $error);
+    if ($api_response === null) {
+        $msg = $error !== null ? $error : 'La llamada a la API de IA para la investigación falló.';
+        return "Error: " . $msg;
+    }
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $text = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        return !empty($text) ? nl2br(htmlspecialchars($text)) : "Error: La investigación generada por la IA estaba vacía.";
+    } elseif (isset($api_response['error']['message'])) {
+        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
+    }
+    return "Error: Respuesta inesperada del servicio de investigación de IA.";
+}
+
+/**
+ * Devuelve un enlace de búsqueda web para la consulta dada.
+ * @param string $query Consulta a buscar en la web.
+ * @return string HTML con el enlace de búsqueda.
+ */
+function get_web_search_results(string $query): string {
+    if (empty(trim($query))) {
+        return "Error: No se proporcionó consulta de búsqueda.";
+    }
+    $url = 'https://www.google.com/search?q=' . rawurlencode($query);
+    $html = '<p>Resultados de búsqueda disponibles en <a href="' . $url . '" target="_blank" rel="noopener">Google</a>.</p>';
+    return $html;
+}
+
+?>
