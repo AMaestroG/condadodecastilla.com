@@ -2634,12 +2634,19 @@ body.dark-mode #theme-toggle:hover i {
 
 /* === IA Tools Menu === */
 #ia-tools-menu {
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px dashed var(--epic-gold-secondary);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    margin: 0;
+    padding: 10px;
+    border: 1px solid var(--epic-gold-secondary);
+    background-color: var(--epic-alabaster-bg);
+    box-shadow: var(--global-box-shadow-dark);
+    border-radius: var(--global-border-radius);
     display: flex;
     flex-direction: column;
     gap: 8px;
+    z-index: 1000;
 }
 
 #ia-tools-menu button {
