@@ -1,0 +1,42 @@
+# Ignore config directory to protect API keys
+config/
+
+# Ignore common database files
+*.sqlite
+*.sqlite3
+
+# Ignore other sensitive or large files
+uploads/
+*.bak
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+# Thumbs.db for Windows
+Thumbs.db
+# IDE-specific files
+.idea/
+.vscode/
+nbproject/
+*.sublime-project
+*.sublime-workspace
+
+# PHP Composer dependencies
+vendor/
+composer.lock
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Python virtual environment and cache
+venv/
+__pycache__/
+*.pyc
+.env
+
+# Specific to this project - if there are large data files not suitable for git
+assets/data/large_datasets/
