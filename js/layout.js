@@ -173,7 +173,11 @@ function initializeIAChatSidebar() {
     function appendMessage(role, text) {
         const p = document.createElement('p');
         p.className = `chat-${role} chat-message`;
-        p.innerHTML = text;
+        if (role === 'user') {
+            p.textContent = text;
+        } else {
+            p.innerHTML = text;
+        }
         messages.appendChild(p);
         messages.scrollTop = messages.scrollHeight;
         return p;
