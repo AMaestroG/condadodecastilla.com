@@ -340,6 +340,14 @@ th {
     color: var(--epic-purple-emperor);
 }
 
+body.dark-mode #ia-chat-toggle i {
+    color: var(--epic-icon-color);
+}
+
+body.dark-mode #ia-chat-toggle:hover i {
+    color: var(--epic-icon-hover);
+}
+
 body.ia-chat-active #ia-chat-toggle {
     /* Keep toggle in place when chat is active */
     right: 65px;
@@ -639,6 +647,14 @@ body.sidebar-active #sidebar-toggle:hover .bar {
     text-align: center;
 }
 
+body.dark-mode #sidebar .nav-links a i {
+    color: var(--epic-icon-color);
+}
+
+body.dark-mode #sidebar .nav-links a:hover i {
+    color: var(--epic-icon-hover);
+}
+
 /* Main content adjustment when sidebar is active */
 body.sidebar-active {
     margin-left: 280px; /* Match sidebar width */
@@ -712,6 +728,15 @@ body.sidebar-active {
 .footer .social-links a:hover, .footer .social-links a:focus-visible {
     color: var(--epic-gold-main);
     transform: scale(1.2);
+}
+
+body.dark-mode .footer .social-links a {
+    color: var(--epic-icon-color);
+}
+
+body.dark-mode .footer .social-links a:hover,
+body.dark-mode .footer .social-links a:focus-visible {
+    color: var(--epic-icon-hover);
 }
 
 /* Style for social links that are placeholders */
@@ -2784,17 +2809,19 @@ body.dark-mode {
     --epic-text-color-rgb: 229,229,229;
     --epic-text-light: #b0b0b0;
     --epic-text-light-rgb: 176,176,176;
+    --epic-icon-color: #a0b8d8; /* Base blue-gray for icons */
+    --epic-icon-hover: #87cefa; /* Light sky blue for icon hover */
     background-image: none;
     background-color: var(--epic-alabaster-bg);
     filter: none;
 }
 
 body.dark-mode #theme-toggle i {
-    color: var(--epic-purple-emperor);
+    color: var(--epic-icon-color);
 }
 
 body.dark-mode #theme-toggle:hover i {
-    color: var(--epic-gold-main);
+    color: var(--epic-icon-hover);
 }
 
 /* === IA Tools Menu === */
@@ -2860,4 +2887,12 @@ body.dark-mode #theme-toggle:hover i {
     color: var(--epic-text-color);
     font-size: 1.2em;
     cursor: pointer;
+}
+
+body.dark-mode #ia-tools-output .ia-output-close {
+    color: var(--epic-icon-color);
+}
+
+body.dark-mode #ia-tools-output .ia-output-close:hover {
+    color: var(--epic-icon-hover);
 }
