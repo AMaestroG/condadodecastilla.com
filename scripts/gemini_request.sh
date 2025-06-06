@@ -2,7 +2,8 @@
 
 # Usage: GEMINI_API_KEY=your_api_key ./gemini_request.sh
 
-API_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+MODEL="${GEMINI_MODEL:-gemini-2.5-pro}"
+API_URL="https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent"
 
 if [ -z "$GEMINI_API_KEY" ]; then
   echo "GEMINI_API_KEY environment variable not set" >&2

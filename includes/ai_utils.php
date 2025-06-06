@@ -6,9 +6,20 @@ if (!defined('GEMINI_API_KEY')) {
     $envKey = getenv('GEMINI_API_KEY');
     define('GEMINI_API_KEY', $envKey !== false ? $envKey : 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO');
 }
+
+// Model can be defined separately to easily switch versions (e.g. gemini-2.5-pro)
+if (!defined('GEMINI_MODEL')) {
+    $envModel = getenv('GEMINI_MODEL');
+    define('GEMINI_MODEL', $envModel !== false ? $envModel : 'gemini-2.5-pro');
+}
+
 if (!defined('GEMINI_API_ENDPOINT')) {
     $envEndpoint = getenv('GEMINI_API_ENDPOINT');
-    define('GEMINI_API_ENDPOINT', $envEndpoint !== false ? $envEndpoint : 'https://api.gemini.example.com/v1/generateContent');
+    if ($envEndpoint !== false) {
+        define('GEMINI_API_ENDPOINT', $envEndpoint);
+    } else {
+        define('GEMINI_API_ENDPOINT', 'https://generativelanguage.googleapis.com/v1beta/models/' . GEMINI_MODEL . ':generateContent');
+    }
 }
 
 if (!defined('AI_UTILS_LOADED')) {
