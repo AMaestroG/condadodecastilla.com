@@ -27,6 +27,7 @@ El script obtiene la contraseña real desde la variable de entorno `CONDADO_DB_P
 Si dicha variable no está definida, el sitio seguirá funcionando con los textos por defecto
 y se registrará un aviso en el log del servidor.
 Para preparar la base de datos ejecuta en orden los scripts de `database_setup`: `01_create_tables.sql`, `02_create_museo_piezas_table.sql` y `03_create_tienda_productos.sql`.
+Si quieres cargar algunos ejemplos iniciales para el museo, puedes lanzar de forma opcional `04_insert_sample_museo_piezas.sql` tras crear la tabla correspondiente.
 
 ## Comprobacion de la base de datos
 
