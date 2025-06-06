@@ -62,12 +62,12 @@ El script realizará una petición sencilla que pregunta *"Explain how AI works 
 ## Gemini API configuration
 
 Para que las funciones de IA de `includes/ai_utils.php` puedan comunicarse con la API de Gemini
-es necesario definir dos variables de entorno:
+es necesario definir las siguientes variables de entorno:
 
 - `GEMINI_API_KEY`: clave de autenticación para las peticiones.
-- `GEMINI_API_ENDPOINT`: URL del servicio al que se enviarán las solicitudes. Si no
-  se establece, se usa un valor de ejemplo que activa un simulador interno.
+- `GEMINI_API_ENDPOINT`: URL del servicio al que se enviarán las solicitudes. Si no se establece,
+  se usa un valor de ejemplo que activa un simulador interno.
 
-Puedes revisar el script opcional `scripts/gemini_request.sh` para ver un ejemplo
-básico de invocación que hace uso de `GEMINI_API_KEY`.
+Si está disponible, puedes revisar el script opcional `scripts/gemini_request.sh`
+para ver un ejemplo básico de invocación que hace uso de `GEMINI_API_KEY`.
 Encuentra la tienda en [tienda/index.php](tienda/index.php).
