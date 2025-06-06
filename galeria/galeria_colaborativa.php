@@ -190,12 +190,28 @@ if (is_dir($gallery_dir)) {
             //     ];
             // }
             
-            // fetchPhotos() se eliminó temporalmente al no disponer de backend
-            // API para recargar las imágenes. Si se implementa, descomenta la
-            // definición de la función y su llamada aquí.
+            async function fetchPhotos() {
+                try {
+                    const url = `${API_BASE_URL_GALERIA}/fotos`;
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+                    }
+                    const photos = await response.json();
+                    localGalleryPhotos = photos;
+                    renderPhotoGallery(localGalleryPhotos);
+                } catch (error) {
+                    console.error('Error al cargar fotos desde el backend:', error);
+                    if (noPhotosMsg) {
+                        noPhotosMsg.textContent = `No se pudieron cargar las fotos del servidor. ${error.message}`;
+                        noPhotosMsg.style.display = 'block';
+                    }
+                }
+            }
 
             localGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
             renderPhotoGallery(localGalleryPhotos);
+            fetchPhotos();
             if (localGalleryPhotos.length === 0 && noPhotosMsg) {
                 noPhotosMsg.textContent = 'No hay fotografías en la galería todavía, o el directorio está vacío.';
                 noPhotosMsg.style.display = 'block';
@@ -261,7 +277,7 @@ if (is_dir($gallery_dir)) {
                         }
                         const result = await response.json();
                         alert(result.mensaje || '¡Fotografía subida con éxito!');
-                        // fetchPhotos();  // Function removed; gallery will show new images on next page load
+                        fetchPhotos();
                         uploadForm.reset();
                         if(photoPreview) photoPreview.src = '#';
                         if(photoPreviewContainer) photoPreviewContainer.style.display = 'none';
