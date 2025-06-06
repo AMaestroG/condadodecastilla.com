@@ -241,4 +241,42 @@ function translate_with_gemini(string $content_id, string $target_language, stri
     return $outputText;
 }
 
+/**
+ * Traduce un texto al idioma indicado utilizando la API o el simulador.
+ */
+function get_ai_translation(string $text, string $target_language = 'en-ai'): string {
+    if (empty(trim($text))) {
+        return "Error: No se proporcionó texto para traducir.";
+    }
+
+    $prompt = "Traduce el siguiente texto al idioma {$target_language}:\n\"{$text}\"";
+    $payload = [
+        'contents' => [ [ 'parts' => [ ['text' => $prompt] ] ] ]
+    ];
+
+    $api_response = _call_gemini_api($payload);
+    if ($api_response === null) {
+        return "Error: La llamada a la API de IA para la traducción falló.";
+    }
+
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $translated = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        return !empty($translated) ? nl2br(htmlspecialchars($translated)) : "Error: La traducción generada estaba vacía.";
+    }
+
+    return "Error: Respuesta inesperada del servicio de traducción.";
+}
+
+/**
+ * Devuelve una corrección simulada del texto dado.
+ */
+function get_ai_correction(string $text): string {
+    if (empty(trim($text))) {
+        return "Error: No se proporcionó texto para corregir.";
+    }
+
+    $snippet = htmlspecialchars(substr(strip_tags($text), 0, 80));
+    return "<p><strong>Corrección IA (demo):</strong> {$snippet}...</p><p><em>Funcionalidad real pendiente de implementación.</em></p>";
+}
+
 ?>
