@@ -265,8 +265,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const descText = pieza.descripcion || "";
             descriptionP.textContent = descText.substring(0, 120) + (descText.length > 120 ? '...' : '');
 
-            // Render delete button only when the admin variable is set.
-            // window.IS_ADMIN is defined server-side in museo.php.
+            // Only admins can delete pieces. The flag
+            // `window.IS_ADMIN`, defined server-side in
+            // museo.php, determines whether we render the
+            // delete button.
             if (window.IS_ADMIN) {
                 const deleteButton = document.createElement('button');
                 deleteButton.classList.add('delete-button', 'btn-condado', 'btn-condado-peligro');

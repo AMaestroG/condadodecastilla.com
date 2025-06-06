@@ -158,7 +158,7 @@ $is_admin = is_admin_logged_in();
     </footer>
 
     <script src="/js/config.js"></script>
-    <script>window.IS_ADMIN = <?php echo $is_admin ? "true" : "false"; ?>;</script>
+    <script>window.IS_ADMIN = <?php echo json_encode($is_admin); ?>;</script>
     <script src="/js/layout.js"></script>
     <script src="/js/museo-2d-gallery.js"></script>
     <!-- Museo 3D Modules -->
