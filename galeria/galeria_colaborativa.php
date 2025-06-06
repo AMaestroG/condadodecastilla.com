@@ -180,7 +180,8 @@ if (is_dir($gallery_dir)) {
             
             const API_BASE_URL_GALERIA = ""; // Nginx hará proxy para /api/galeria/fotos
 
-            let localGalleryPhotos = []; 
+            const phpGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
+            let localGalleryPhotos = [];
 
             // function loadSamplePhotos() { // Commented out or removed
             //     return [
@@ -189,17 +190,35 @@ if (is_dir($gallery_dir)) {
             //         { id: 'sample_photo3', titulo: "Paisaje desde las Alturas (Ejemplo)", descripcion: "Panorámica de los campos de Castilla desde un mirador cercano a Lantarón.", autor: "Amante del Senderismo", imagenUrl: "/imagenes/galeria_colaborativa/ejemplo_paisaje_lantaron.jpg", altText: "Paisaje castellano desde las alturas" }
             //     ];
             // }
-            
-            // fetchPhotos() se eliminó temporalmente al no disponer de backend
-            // API para recargar las imágenes. Si se implementa, descomenta la
-            // definición de la función y su llamada aquí.
 
-            localGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
-            renderPhotoGallery(localGalleryPhotos);
-            if (localGalleryPhotos.length === 0 && noPhotosMsg) {
-                noPhotosMsg.textContent = 'No hay fotografías en la galería todavía, o el directorio está vacío.';
-                noPhotosMsg.style.display = 'block';
+            async function fetchPhotos() {
+                try {
+                    const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        let errorMsg = `Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`;
+                        try {
+                            const errData = await response.json();
+                            errorMsg = errData.error || errorMsg;
+                        } catch (e) { /* response not JSON */ }
+                        throw new Error(errorMsg);
+                    }
+                    const photos = await response.json();
+                    localGalleryPhotos = photos;
+                    renderPhotoGallery(localGalleryPhotos);
+                } catch (error) {
+                    console.error('Error fetching photos from backend:', error);
+                    localGalleryPhotos = phpGalleryPhotos;
+                    renderPhotoGallery(localGalleryPhotos);
+                    if (localGalleryPhotos.length === 0 && noPhotosMsg) {
+                        noPhotosMsg.textContent = 'No hay fotografías en la galería todavía, o el directorio está vacío.';
+                        noPhotosMsg.style.display = 'block';
+                    }
+                }
             }
+            
+            // Cargar fotos desde la API; se usará la lista generada por PHP si la llamada falla
+            fetchPhotos();
 
             if (photoFileInput) {
                 photoFileInput.addEventListener('change', function(event) {
@@ -261,7 +280,7 @@ if (is_dir($gallery_dir)) {
                         }
                         const result = await response.json();
                         alert(result.mensaje || '¡Fotografía subida con éxito!');
-                        // fetchPhotos();  // Function removed; gallery will show new images on next page load
+                        // fetchPhotos();  // Descomentar si se desea refrescar la galería tras subir una foto
                         uploadForm.reset();
                         if(photoPreview) photoPreview.src = '#';
                         if(photoPreviewContainer) photoPreviewContainer.style.display = 'none';

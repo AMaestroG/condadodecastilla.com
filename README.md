@@ -26,6 +26,7 @@ Ajusta esos valores según tu entorno para que la aplicación pueda acceder a la
 El script obtiene la contraseña real desde la variable de entorno `CONDADO_DB_PASSWORD`.
 Si dicha variable no está definida, `dashboard/db_connect.php` lanzará una
 `RuntimeException` indicando el problema.
+Para preparar la base de datos ejecuta en orden los scripts de `database_setup`: `01_create_tables.sql`, `02_create_museo_piezas_table.sql` y `03_create_tienda_productos.sql`.
 
 ## Servidor de desarrollo
 
@@ -57,3 +58,16 @@ export GEMINI_API_KEY="tu_clave"
 ```
 
 El script realizará una petición sencilla que pregunta *"Explain how AI works in a few words"*.
+
+## Gemini API configuration
+
+Para que las funciones de IA de `includes/ai_utils.php` puedan comunicarse con la API de Gemini
+es necesario definir las siguientes variables de entorno:
+
+- `GEMINI_API_KEY`: clave de autenticación para las peticiones.
+- `GEMINI_API_ENDPOINT`: URL del servicio al que se enviarán las solicitudes. Si no se establece,
+  se usa un valor de ejemplo que activa un simulador interno.
+
+Si está disponible, puedes revisar el script opcional `scripts/gemini_request.sh`
+para ver un ejemplo básico de invocación que hace uso de `GEMINI_API_KEY`.
+Encuentra la tienda en [tienda/index.php](tienda/index.php).
