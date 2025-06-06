@@ -4,6 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/db_connect.php';
+/** @var PDO $pdo */
 require_once __DIR__ . '/../includes/csrf.php';
 
 require_admin_login();

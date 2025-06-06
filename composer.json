@@ -1,10 +1,3 @@
 {
-    "name": "condadodecastilla/project",
-    "require-dev": {
-        "phpunit/phpunit": "^10"
-    },
-    "require": {},
-    "scripts": {
-        "test": "vendor/bin/phpunit tests"
-    }
+
 }

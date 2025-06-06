@@ -7,9 +7,11 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/csrf.php';
 require_once __DIR__ . '/db_connect.php'; // Assumes db_connect.php is in the dashboard directory
+/** @var PDO $pdo */
 
 $error_message = '';
 $login_success = false;
+$redirect_to = '';
 
 // If already logged in as admin, redirect to homepage or admin panel
 if (is_admin_logged_in()) {
@@ -73,6 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // $error_message = "Database Error: " . $e->getMessage();
         }
     }
+}
+
 }
 ?>
 <!DOCTYPE html>

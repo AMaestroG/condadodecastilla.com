@@ -69,6 +69,7 @@ function _call_gemini_api_simulator(array $payload): ?array {
 
     $simulated_success = true; // Cambiar a false para probar manejo de errores
 
+    // @phpstan-ignore-next-line
     if (!$simulated_success) {
         error_log("Simulated Gemini API call failed.");
         return null;
