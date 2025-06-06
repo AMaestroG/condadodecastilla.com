@@ -14,7 +14,11 @@ if (!function_exists('is_admin_logged_in')) { // Evitar re-declaración si ya es
  * Obtiene el contenido de un texto desde la base de datos.
  * Si no se encuentra, inserta el texto por defecto y lo devuelve.
  */
-function getTextContentFromDB(string $text_id, PDO $pdo, string $default_text): string {
+function getTextContentFromDB(string $text_id, ?PDO $pdo, string $default_text): string {
+    if ($pdo === null) {
+        // Si no hay conexión a la base de datos, usar el valor por defecto
+        return $default_text;
+    }
     try {
         $stmt = $pdo->prepare("SELECT text_content FROM site_texts WHERE text_id = :text_id");
         $stmt->bindParam(':text_id', $text_id);
@@ -54,9 +58,13 @@ function getTextContentFromDB(string $text_id, PDO $pdo, string $default_text): 
  * @param string $css_classes Clases CSS adicionales para la etiqueta HTML contenedora.
  * @param bool $allow_html Si se permite HTML en el contenido (default: false, se usa htmlspecialchars).
  */
-function editableText(string $text_id, PDO $pdo, string $default_text, string $html_tag = 'span', string $css_classes = '', bool $allow_html = false) {
-    // Obtener el contenido del texto. Esta función ahora maneja la creación si no existe.
-    $content = getTextContentFromDB($text_id, $pdo, $default_text);
+function editableText(string $text_id, ?PDO $pdo, string $default_text, string $html_tag = 'span', string $css_classes = '', bool $allow_html = false) {
+    if ($pdo === null) {
+        $content = $default_text;
+    } else {
+        // Obtener el contenido del texto. Esta función ahora maneja la creación si no existe.
+        $content = getTextContentFromDB($text_id, $pdo, $default_text);
+    }
 
     // Escapar HTML si no está permitido, para prevenir XSS
     $display_content = $allow_html ? $content : htmlspecialchars($content);

@@ -24,8 +24,8 @@ $db_port = "5432";                // Puerto de PostgreSQL
 Ajusta esos valores según tu entorno para que la aplicación pueda acceder a la base de datos.
 
 El script obtiene la contraseña real desde la variable de entorno `CONDADO_DB_PASSWORD`.
-Si dicha variable no está definida, `dashboard/db_connect.php` lanzará una
-`RuntimeException` indicando el problema.
+Si dicha variable no está definida, el sitio seguirá funcionando con los textos por defecto
+y se registrará un aviso en el log del servidor.
 Para preparar la base de datos ejecuta en orden los scripts de `database_setup`: `01_create_tables.sql`, `02_create_museo_piezas_table.sql` y `03_create_tienda_productos.sql`.
 
 ## Comprobacion de la base de datos
