@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const show2DGalleryBtn = document.getElementById('show-2d-gallery-btn');
     const show3DMuseumBtn = document.getElementById('show-3d-museum-btn');
 
-    const API_BASE_URL = ""; // API is at the root, e.g., /api/museo/piezas
+    const API_BASE_URL = window.API_BASE_URL || '';
 
     let localMuseumPieces = []; // Cache for fetched pieces
 
