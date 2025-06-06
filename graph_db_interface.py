@@ -70,10 +70,12 @@ class GraphDBInterface:
             if "id" not in resource_data:
                 resource_data["id"] = str(uuid.uuid4())
             if "last_crawled_at" not in resource_data:
-                 resource_data["last_crawled_at"] = datetime.utcnow().isoformat()
+                resource_data["last_crawled_at"] = datetime.utcnow().isoformat()
             self._nodes[url] = resource_data
             print(f"Added new resource: {url}")
-            self._save_to_file() # Save after adding/updating
+
+        # Persist changes after either adding or updating
+        self._save_to_file()
 
     def get_resource(self, url: str) -> dict | None:
         """Retrieves a resource from self._nodes by URL."""
