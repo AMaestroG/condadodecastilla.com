@@ -51,7 +51,7 @@ if __name__ == '__main__':
         <script>alert('This is a script');</script>
         <main>
             <p>This is the main content of the page. It has <b>bold text</b> and <i>italic text</i>.</p>
-            <p>Another paragraph here with a <a href="#">link</a>.</p>
+            <p>Another paragraph here with a <a href="/en_construccion.html">link</a>.</p>
             <ul>
                 <li>Item 1</li>
                 <li>Item 2</li>
