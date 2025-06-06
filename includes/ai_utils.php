@@ -279,4 +279,3 @@ function get_ai_correction(string $text): string {
     return "<p><strong>Corrección IA (demo):</strong> {$snippet}...</p><p><em>Funcionalidad real pendiente de implementación.</em></p>";
 }
 
-?>
