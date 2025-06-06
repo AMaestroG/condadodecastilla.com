@@ -62,6 +62,13 @@ MUSEUM_3D.PlayerControls = (function() {
             controlsFPS.lock();
         });
 
+        // Manual ESC handler in case the browser doesn't automatically unlock
+        document.addEventListener('keydown', function (event) {
+            if (event.code === 'Escape' && controlsFPS.isLocked) {
+                controlsFPS.unlock();
+            }
+        });
+
         controlsFPS.addEventListener('lock', function () {
             instructionsElement.style.display = 'none';
             if (crosshairElement) crosshairElement.style.display = 'block';

@@ -101,6 +101,7 @@ El sitio cuenta con dos formas de visualizar las piezas:
 
 1. **Galería 2D** – disponible en `galeria/galeria_colaborativa.php` y enfocada en las imágenes aportadas por los usuarios.
 2. **Museo 3D** – se accede mediante `museo/museo.php` e incluye un recorrido tridimensional generado con Three.js.
+   Pulsa la tecla **ESC** para salir del modo de control en primera persona. El script ahora gestiona manualmente esta tecla por si el navegador no desbloquea automáticamente el puntero.
 
 Ambas vistas consumen la API en `/api/museo/piezas` para obtener la lista de elementos del museo.
 Inicia el servidor con `php -S localhost:8000` y visita `http://localhost:8000/museo/museo.php` para probarlo.
