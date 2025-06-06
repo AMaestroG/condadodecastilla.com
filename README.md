@@ -1,8 +1,6 @@
-# Condado de Castilla
+# condadodecastilla.com
 
 This repository contains the source code and assets for the Condado de Castilla website.
-
-# condadodecastilla.com
 
 Este repositorio contiene el código del sitio web del proyecto **Condado de Castilla**.
 
