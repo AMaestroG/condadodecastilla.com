@@ -28,6 +28,18 @@ Si dicha variable no está definida, `dashboard/db_connect.php` lanzará una
 `RuntimeException` indicando el problema.
 Para preparar la base de datos ejecuta en orden los scripts de `database_setup`: `01_create_tables.sql`, `02_create_museo_piezas_table.sql` y `03_create_tienda_productos.sql`.
 
+## Comprobacion de la base de datos
+
+Para verificar que PostgreSQL esta disponible y que la variable `CONDADO_DB_PASSWORD` se ha definido, ejecuta:
+
+```bash
+export CONDADO_DB_PASSWORD="tu_contrasena"
+./scripts/check_db.sh
+```
+
+El script usa `pg_isready` para comprobar la conexion y mostrara un mensaje de exito o error.
+
+
 ## Servidor de desarrollo
 
 Para probar el sitio de forma local puedes usar el servidor embebido de PHP. Sitúate en la raíz del repositorio y ejecuta:
