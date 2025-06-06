@@ -58,7 +58,34 @@ MUSEUM_3D.ExhibitManager = (function() {
             }
         } catch (error) {
             console.error('Error fetching museum pieces:', error);
-            // Optionally, load sample pieces or display an error in the 3D scene
+
+            const container = document.getElementById('museo-3d-container');
+            if (container) {
+                const msg = document.createElement('p');
+                msg.style.color = 'red';
+                msg.style.textAlign = 'center';
+                msg.textContent = 'No se pudieron cargar las piezas del museo.';
+                container.appendChild(msg);
+            }
+
+            const samplePieces = [
+                {
+                    id: 'sample1',
+                    titulo: 'Muralla',
+                    autor: 'Museo',
+                    descripcion: 'Muro histórico de ejemplo',
+                    imagenUrl: '/assets/img/Muralla.jpg'
+                },
+                {
+                    id: 'sample2',
+                    titulo: 'Escudo',
+                    autor: 'Museo',
+                    descripcion: 'Escudo heráldico de ejemplo',
+                    imagenUrl: '/assets/img/escudo.jpg'
+                }
+            ];
+
+            create3DRepresentations(samplePieces);
         }
     }
 
