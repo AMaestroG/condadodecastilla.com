@@ -6,6 +6,7 @@ require_once 'includes/auth.php';      // For is_admin_logged_in()
 require_once 'dashboard/db_connect.php'; // Provides $pdo
 /** @var PDO $pdo */
 require_once 'includes/text_manager.php';// For editableText()
+require_once 'includes/ai_utils.php';
 ?>
 <!--
     IMPORTANTE: Este archivo ha sido convertido a PHP para permitir contenido editable.
@@ -48,6 +49,10 @@ require_once 'includes/text_manager.php';// For editableText()
         </div>
         <a href="/historia/historia.html" class="cta-button">Descubre la Historia</a>
     </header>
+    <?php
+        $hero_text = getTextContentFromDB('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.');
+        echo get_smart_summary('index_hero', $hero_text);
+    ?>
 
     <section class="video-section section spotlight-active">
         <div class="container">
