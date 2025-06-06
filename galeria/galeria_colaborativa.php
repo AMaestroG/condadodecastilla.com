@@ -177,7 +177,7 @@ if (is_dir($gallery_dir)) {
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
             
-            const API_BASE_URL_GALERIA = ""; // Nginx hará proxy para /api/galeria/fotos
+            const API_BASE_URL_GALERIA = '/api/galeria';
 
             let localGalleryPhotos = []; 
 
@@ -191,7 +191,7 @@ if (is_dir($gallery_dir)) {
             
             // async function fetchPhotos() { // Commented out or removed and replaced
             //     try {
-            //         const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
+            //         const url = `${API_BASE_URL_GALERIA}/fotos`;
             //         console.log(`Intentando obtener fotos desde: ${url}`);
             //         const response = await fetch(url);
             //         if (!response.ok) {
@@ -270,7 +270,7 @@ if (is_dir($gallery_dir)) {
                     formData.append('photoFile', imagenFile);
 
                     try {
-                        const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
+                        const url = `${API_BASE_URL_GALERIA}/fotos`;
                         const response = await fetch(url, { method: 'POST', body: formData });
                         if (!response.ok) {
                             const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status} ${response.statusText}` }));
