@@ -9,10 +9,10 @@
     "name": "Máximo",
     "era": "Roman",
     "status": "Emperador",
-    "description": "Roman Emperor (also referred to as Magno Clemente Máximo). His coins, and his son Falvio Victor's, feature a city or Roman camp gate like a castle tower with a star. Mentioned as one of three Roman emperors of Hispanic origin. His coins are linked to the Pendón de Castilla. Described as very devout of San Martín de Tours."
+    "description": "Roman Emperor (also referred to as Magno Clemente Máximo). His coins, and his son Flavio Victor's, feature a city or Roman camp gate like a castle tower with a star. Mentioned as one of three Roman emperors of Hispanic origin. His coins are linked to the Pendón de Castilla. Described as very devout of San Martín de Tours."
   },
   {
-    "name": "Falvio Victor",
+    "name": "Flavio Victor",
     "era": "Roman",
     "status": "Hijo de Emperador Máximo, Emperador",
     "description": "Son of Emperor Máximo, and also referred to as an Emperor. His coins (like his father's) show a city/camp gate resembling a castle tower with a star. Mentioned as one of three Roman emperors of Hispanic origin. The Pendón de Castilla is described as a Roman camp gate similar to those on his coins. Allegedly decapitated on August 26, 388, in the Circus of Civita Auka."
@@ -33,7 +33,7 @@
     "name": "Flavio Teodosio I el Grande",
     "era": "Roman",
     "status": "Emperador",
-    "description": "One of three Roman emperors of Hispanic origin mentioned, family with Máximo and Falvio Victor. Reportedly born in Gallecia. Tradition, as per the text, places his birth and death in Cerezo. His mother is named as Santa Elena."
+    "description": "One of three Roman emperors of Hispanic origin mentioned, family with Máximo and Flavio Victor. Reportedly born in Gallecia. Tradition, as per the text, places his birth and death in Cerezo. His mother is named as Santa Elena."
   },
   {
     "name": "Ramiro I",

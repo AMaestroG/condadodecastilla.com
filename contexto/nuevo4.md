@@ -9,12 +9,12 @@ Algo curioso muy curioso del escudo de Cerezo es su estrella, fijaros como las
 monedas romanas que tienen una puerta romana de campamento romano llevan una
 estrella arriba, algunas se han visto por los campos de Cerezo con la cabeza
 de Constantino. Pero lo curioso es que las monedas de los emperadores Máximo y
-su hijo Falvio Victor tienen una puerta de ciudad o campamento romano que
+su hijo Flavio Victor tienen una puerta de ciudad o campamento romano que
 
 ¿Coincidencias...??? Es posible, pero van muchas ya... ¿Tú teoría cuántas
 coincidencias tiene dices?
 de Constantino.  
-Pero lo curioso es que las monedas de los emperadores Máximo y su hijo Falvio
+Pero lo curioso es que las monedas de los emperadores Máximo y su hijo Flavio
 Victor tienen una puerta de ciudad o campamento romano que parece una torre de
 un castillo con su estrella arriba...  
 
@@ -184,7 +184,7 @@ y la Cantábrica. Decapitado como [San Vitores
 de Agosto del 388 en el Circo de la [civita Auka
 Aun tenemos marcada la piedra de la decapitación en Quintanilleja. Añadir que
 el Pendón de Castilla es una puerta de un Campamento romano como las monedas
-de [Falvio
+de [Flavio
 con un fondo purpura color de los Emperadores Romanos. La madre de [Flavio
 es [Santa Elena de
 LUz9U3MM4xKbFQ4gAxc8qN0rQks5Ot9AtS8wtyUoFUUXF-
@@ -201,7 +201,7 @@ que nos guie al Mausoleo Imperial Romano de [Magno Clemente
 muchos secretos enterrados en mausoleos por San Martín en el Área Paterniani.
 Grande]( ),
 ]( )y
-su hijo [Falvio
+su hijo [Flavio
 los tres emperadores romanos de cuna Hispana familia entre ellos.  
 De [Flavio Teodosio I
 nació en la Galleecia en
@@ -4044,7 +4044,7 @@ A palabras:
 Auca 3 palabras
 Cauca 1 palabra
 No se, quizás es que me enseñaron a contar y leer en la escuela y no lo hicieron bien.
-Ni decir tiene que los tres emperadores hispanos que también eran familia de Falvio Teodosio el Grande tenemos que a Falvio Victor que la tradición lo da a nacer en Cerezo y decapitado el 26 de Agosto del 388...
+Ni decir tiene que los tres emperadores hispanos que también eran familia de Flavio Teodosio el Grande tenemos que a Flavio Victor que la tradición lo da a nacer en Cerezo y decapitado el 26 de Agosto del 388...
 Y en Cerezo dentro de la civitate tenemos Palacios Romanos, Palacios imperiales.
 Me gustaría que porfavor calculen por si me he equivocado, que seguro es posible, soy humano.
 No se olviden que el escudo bien viejo que tenemos de Cerezo tiene una puerta de una ciudad o campamento Romano con el lucero del alba arriba, la estrella de 8 puntas, gritando a los 4 vientos su título de civitate Romana.
@@ -4066,7 +4066,7 @@ relativos a la administración y cargos que parecen de época romana en el
 Pasionario, cuya redacción sería bastante más antigua, pudiendo situarse entre
 los siglos IV y V, nos podemos plantear la hipótesis de que quienes le
 hubieran martirizado pudieran haber sido los romanos, y no los árabes.  
-Así que el Emperador hispano Falvio Victor nacido en la Civitate de Auca
+Así que el Emperador hispano Flavio Victor nacido en la Civitate de Auca
 Patricia en la Gallecia, decapitado el 26 de agosto del 388 queda por poca
 duda que es uno de nuestros San Vitores.  
 Cuna e Origen de Castilla su Cultura e idioma. De este Alcázar con y su Alfoz
@@ -4244,7 +4244,7 @@ Túnel en el Túnel, mal reconstruido con hormigón del siglo XX
 Los puentes romanos de Auca Patricia en Cerezo de Río Tirón por los que pasaba
 la calzada romana que después sirvió para progresivas invasiones, hay mucho
 mas aunque nunca se han excavado los palacios Imperiales romanos de los
-Emperadores de la familia de los Falvios, Flavio Teodosio I el Grande, Magno
+Emperadores de la familia de los Flavios, Flavio Teodosio I el Grande, Magno
 Clemente Máximo, Flavio Victor (Decapitado en el Circo de Auca Patricia el 26
 de agosto del 388), Flavio Arcadio. Pues estos cuatro emperadores nacieron en
 Cerezo de Río Tirón, en la civitate de la Aucam Patricia capital de la
