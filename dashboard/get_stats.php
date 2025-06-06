@@ -19,8 +19,8 @@ try {
 
     $stats_data = [];
 
-    // Contar piezas del museo
-    $stmt_museo = $pdo->query("SELECT COUNT(*) as total_items FROM piezas_museo");
+    // Contar piezas del museo (tabla museo_piezas)
+    $stmt_museo = $pdo->query("SELECT COUNT(*) as total_items FROM museo_piezas");
     $count_museo = $stmt_museo->fetchColumn();
     if ($count_museo !== false) {
         $stats_data[] = ["section_name" => "Piezas del Museo", "total_visits" => (int)$count_museo];
@@ -29,15 +29,23 @@ try {
         error_log("get_stats.php: No se pudo obtener el conteo de piezas_museo.");
     }
 
-    // Contar fotos de la galería
-    $stmt_galeria = $pdo->query("SELECT COUNT(*) as total_items FROM fotos_galeria");
-    $count_galeria = $stmt_galeria->fetchColumn();
-    if ($count_galeria !== false) {
-        $stats_data[] = ["section_name" => "Fotos de Galería", "total_visits" => (int)$count_galeria];
-    } else {
-        $stats_data[] = ["section_name" => "Fotos de Galería", "total_visits" => 0];
-        error_log("get_stats.php: No se pudo obtener el conteo de fotos_galeria.");
+    // Contar fotos de la galería. Si la tabla 'fotos_galeria' no existe se 
+    // intentará contar las imágenes del directorio de la galería colaborativa.
+    $count_galeria = 0;
+    try {
+        $stmt_galeria = $pdo->query("SELECT COUNT(*) as total_items FROM fotos_galeria");
+        $count_galeria = (int)$stmt_galeria->fetchColumn();
+    } catch (PDOException $e) {
+        error_log("get_stats.php: Tabla fotos_galeria no disponible - " . $e->getMessage());
+        $gallery_dir = __DIR__ . '/../assets/img/galeria_colaborativa/';
+        if (is_dir($gallery_dir)) {
+            $images = glob($gallery_dir . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+            if ($images !== false) {
+                $count_galeria = count($images);
+            }
+        }
     }
+    $stats_data[] = ["section_name" => "Fotos de Galería", "total_visits" => $count_galeria];
     
     // Podrías añadir más "secciones" si tienes otras tablas o formas de medir visitas
     // Ejemplo de datos estáticos si tus tablas están vacías:
