@@ -2782,3 +2782,40 @@ body.dark-mode #theme-toggle:hover i {
 #ia-tools-menu button:hover {
     background-color: var(--epic-gold-secondary);
 }
+
+/* === IA Tools Output Overlay === */
+#ia-tools-output.ia-output {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: auto;
+    padding: 20px;
+    background-color: var(--epic-alabaster-bg);
+    border: 2px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    box-shadow: var(--global-box-shadow-dark);
+    z-index: 2000;
+}
+
+#ia-tools-output.hidden {
+    display: none;
+}
+
+#ia-tools-output.dragging {
+    opacity: 0.9;
+    cursor: move;
+}
+
+#ia-tools-output .ia-output-close {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--epic-text-color);
+    font-size: 1.2em;
+    cursor: pointer;
+}
