@@ -89,10 +89,6 @@ body {
     transition: margin-left 0.35s ease-in-out; /* Para el empuje del sidebar */
 }
 
-/* Center all text inside div containers */
-div {
-    text-align: center;
-}
 
 /* Capa de Linterna Dinámica para Luz Mágica */
 #linterna-condado {
@@ -160,9 +156,9 @@ h6 { font-size: clamp(1em, 2.5vw, 1.3em); text-align: center; }
 ------------------------------------------------*/
 p {
     margin-bottom: 1.2em;
-    line-height: 1.75; 
-    max-width: 70ch; 
-    text-align: center;
+    line-height: 1.75;
+    max-width: 70ch;
+    text-align: justify;
 }
 
 ul, ol {
@@ -174,7 +170,14 @@ ul, ol {
 
 li {
     margin-bottom: 0.5em;
+}
+
+/* Utilidades de alineación */
+.text-center {
     text-align: center;
+}
+.text-justify {
+    text-align: justify;
 }
 
 img {

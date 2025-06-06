@@ -65,10 +65,6 @@ body {
     animation: fadeInPage 0.7s ease-out forwards;
 }
 
-/* Center all text inside div containers */
-div {
-    text-align: center;
-}
 
 @keyframes fadeInPage {
     from { opacity: 0; transform: translateY(15px); }
@@ -99,6 +95,7 @@ p {
     max-width: 70ch; /* Limit width for readability, even if centered */
     /* margin-left: auto; and margin-right: auto; removed for default left align */
     text-shadow: 0 1px 2px rgba(var(--epic-alabaster-medium-rgb), 0.4); /* Subtle shadow for depth/readability */
+    text-align: justify;
 }
 
 /* --- Links --- */
@@ -198,6 +195,14 @@ th {
     text-align: right !important;
     margin-left: 0;
     margin-right: 0;
+}
+
+/* Alignment utility classes */
+.text-center {
+    text-align: center;
+}
+.text-justify {
+    text-align: justify;
 }
 
 /* --- Sidebar Navigation (#sidebar, #sidebar-toggle from _header.html) --- */
