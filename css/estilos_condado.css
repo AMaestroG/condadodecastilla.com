@@ -53,9 +53,9 @@
     --mouse-x: 50%;
     --mouse-y: 50%;
     --linterna-radio: 220px; 
-    --linterna-color-centro: rgba(255, 255, 240, 0.35); 
-    --linterna-color-medio: rgba(255, 255, 230, 0.15);
-    --linterna-color-borde: rgba(255, 255, 220, 0.02);
+    --linterna-color-centro: rgba(190, 210, 255, 0.35); /* Azul tenue */
+    --linterna-color-medio: rgba(170, 190, 235, 0.15);
+    --linterna-color-borde: rgba(160, 180, 220, 0.02);
     --linterna-opacity: 0; /* Inicia apagada, JS la activará */
 }
 
@@ -82,12 +82,13 @@ body {
     font-family: var(--condado-font-principal);
     color: var(--condado-texto);
     background: var(--condado-fondo) url('/imagenes/alabastro.jpg') center center / cover no-repeat fixed;
-    line-height: 1.7; 
+    line-height: 1.7;
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
     transition: margin-left 0.35s ease-in-out; /* Para el empuje del sidebar */
 }
+
 
 
 /* Capa de Linterna Dinámica para Luz Mágica */
@@ -98,14 +99,21 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 9998; 
-    mix-blend-mode: lighten; 
-    background: radial-gradient(
-        circle var(--linterna-radio) at var(--mouse-x) var(--mouse-y),
-        var(--linterna-color-centro) 0%,
-        var(--linterna-color-medio) 35%, 
-        var(--linterna-color-borde) 65%, 
-        transparent 75% 
-    );
+    mix-blend-mode: lighten;
+    background-image:
+        radial-gradient(
+            circle var(--linterna-radio) at var(--mouse-x) var(--mouse-y),
+            var(--linterna-color-centro) 0%,
+            var(--linterna-color-medio) 35%,
+            var(--linterna-color-borde) 65%,
+            transparent 75%
+        ),
+        url('/imagenes/alabastro.jpg');
+    background-size: var(--linterna-radio) var(--linterna-radio), cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: screen;
+    filter: grayscale(100%);
     opacity: var(--linterna-opacity);
     transition: opacity 0.4s ease-out; /* Transición más suave para encender/apagar */
 }
