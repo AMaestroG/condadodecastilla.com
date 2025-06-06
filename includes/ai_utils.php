@@ -2,10 +2,12 @@
 // includes/ai_utils.php
 
 if (!defined('GEMINI_API_KEY')) {
-    define('GEMINI_API_KEY', 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO'); // Placeholder
+    $envKey = getenv('GEMINI_API_KEY');
+    define('GEMINI_API_KEY', $envKey !== false ? $envKey : 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO');
 }
 if (!defined('GEMINI_API_ENDPOINT')) {
-    define('GEMINI_API_ENDPOINT', 'https://api.gemini.example.com/v1/generateContent'); // Placeholder
+    $envEndpoint = getenv('GEMINI_API_ENDPOINT');
+    define('GEMINI_API_ENDPOINT', $envEndpoint !== false ? $envEndpoint : 'https://api.gemini.example.com/v1/generateContent');
 }
 
 if (!defined('AI_UTILS_LOADED')) {
