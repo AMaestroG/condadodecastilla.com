@@ -52,17 +52,26 @@ if (mb_strlen($text_to_summarize) > MAX_TEXT_LENGTH_FOR_SUMMARY) {
 if (function_exists('get_real_ai_summary')) {
     $summary_html = get_real_ai_summary($text_to_summarize);
 
-    // La función get_real_ai_summary ya formatea con nl2br(htmlspecialchars()) y devuelve "Error: ..."
-    // así que podemos confiar en su salida. Si empieza con "Error:", es un error.
     if (stripos($summary_html, "Error:") === 0) {
-        http_response_code(500); // O un código más específico si la función de resumen da más detalles.
-        echo json_encode(['success' => false, 'error' => $summary_html]);
-    } else {
-        echo json_encode(['success' => true, 'summary' => $summary_html]);
+        // Fallback to simple placeholder summary
+        if (function_exists('get_smart_summary')) {
+            $summary_html = get_smart_summary('fallback', $text_to_summarize);
+        } else {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'error' => $summary_html]);
+            exit;
+        }
     }
+    echo json_encode(['success' => true, 'summary' => $summary_html]);
 } else {
-    http_response_code(500); // Internal Server Error
-    echo json_encode(['success' => false, 'error' => 'La funcionalidad de resumen IA no está disponible en el servidor.']);
+    // If real AI summary not available, use the placeholder if possible
+    if (function_exists('get_smart_summary')) {
+        $summary_html = get_smart_summary('fallback', $text_to_summarize);
+        echo json_encode(['success' => true, 'summary' => $summary_html]);
+    } else {
+        http_response_code(500);
+        echo json_encode(['success' => false, 'error' => 'La funcionalidad de resumen IA no está disponible en el servidor.']);
+    }
 }
 
 exit;
