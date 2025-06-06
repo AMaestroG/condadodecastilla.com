@@ -1,6 +1,9 @@
 import uuid
 from datetime import datetime
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 class GraphDBInterface:
     def __init__(self, config=None):
@@ -13,7 +16,7 @@ class GraphDBInterface:
         self._edges = []  # List of link_data dictionaries
         self.db_filepath = "knowledge_graph_db.json"
         # Config is not used for now, but can be for future DB connections
-        print("GraphDBInterface initializing...")
+        logger.info("GraphDBInterface initializing...")
         self._load_from_file() # Load data on initialization
 
     def _save_to_file(self):
@@ -21,9 +24,9 @@ class GraphDBInterface:
         try:
             with open(self.db_filepath, 'w') as f:
                 json.dump({"nodes": self._nodes, "edges": self._edges}, f, indent=2)
-            print(f"Database state saved to {self.db_filepath}")
+            logger.info(f"Database state saved to {self.db_filepath}")
         except IOError as e:
-            print(f"Error saving database state to {self.db_filepath}: {e}")
+            logger.error(f"Error saving database state to {self.db_filepath}: {e}")
 
     def _load_from_file(self):
         """Loads the state of nodes and edges from a JSON file if it exists."""
@@ -32,24 +35,24 @@ class GraphDBInterface:
                 data = json.load(f)
                 self._nodes = data.get("nodes", {})
                 self._edges = data.get("edges", [])
-            print(f"Database state loaded from {self.db_filepath}")
+            logger.info(f"Database state loaded from {self.db_filepath}")
         except FileNotFoundError:
-            print(f"Database file {self.db_filepath} not found. Starting with an empty database.")
+            logger.info(f"Database file {self.db_filepath} not found. Starting with an empty database.")
         except json.JSONDecodeError as e:
-            print(f"Error decoding JSON from {self.db_filepath}: {e}. Starting with an empty database.")
+            logger.error(f"Error decoding JSON from {self.db_filepath}: {e}. Starting with an empty database.")
         except IOError as e:
-            print(f"Error loading database state from {self.db_filepath}: {e}. Starting with an empty database.")
+            logger.error(f"Error loading database state from {self.db_filepath}: {e}. Starting with an empty database.")
 
 
     def _create_placeholder_resource(self, url: str) -> dict:
         """Helper to create a basic resource if it doesn't exist."""
-        print(f"Creating placeholder resource for URL: {url}")
+        logger.info(f"Creating placeholder resource for URL: {url}")
         return {
             "id": str(uuid.uuid4()),
             "url": url,
-            "content": "N/A (placeholder)",
-            "last_crawled_at": datetime.utcnow().isoformat(),
-            "metadata": {"status": "placeholder"}
+            "content": "N/A (placeholder)", # Default content for placeholder
+            "last_crawled_at": datetime.utcnow().isoformat(), # Timestamp of placeholder creation
+            "metadata": {"status": "placeholder"} # Metadata indicating it's a placeholder
         }
 
     def add_or_update_resource(self, resource_data: dict) -> None:
@@ -59,35 +62,35 @@ class GraphDBInterface:
         """
         url = resource_data.get("url")
         if not url:
-            print("Error: 'url' is required to add or update a resource.")
+            logger.error("Error: 'url' is required to add or update a resource.")
             return
 
         if url in self._nodes:
             self._nodes[url].update(resource_data)
-            print(f"Updated resource: {url}")
+            logger.info(f"Updated resource: {url}")
         else:
             # Ensure essential fields like 'id' are present if new
             if "id" not in resource_data:
                 resource_data["id"] = str(uuid.uuid4())
-            if "last_crawled_at" not in resource_data:
+            if "last_crawled_at" not in resource_data: # Ensure timestamp, could be creation or last update
                  resource_data["last_crawled_at"] = datetime.utcnow().isoformat()
             self._nodes[url] = resource_data
-            print(f"Added new resource: {url}")
-            self._save_to_file() # Save after adding/updating
+            logger.info(f"Added new resource: {url}")
+        self._save_to_file() # Save after adding/updating
 
     def get_resource(self, url: str) -> dict | None:
         """Retrieves a resource from self._nodes by URL."""
         resource = self._nodes.get(url)
         if resource:
-            print(f"Retrieved resource: {url}")
+            logger.info(f"Retrieved resource: {url}")
         else:
-            print(f"Resource not found: {url}")
+            logger.info(f"Resource not found: {url}")
         return resource
 
     def resource_exists(self, url: str) -> bool:
         """Checks if a resource URL exists in self._nodes."""
         exists = url in self._nodes
-        print(f"Resource exists check for {url}: {exists}")
+        logger.debug(f"Resource exists check for {url}: {exists}") # Changed to debug as it's very frequent
         return exists
 
     def add_link(self, link_data: dict) -> None:
@@ -101,32 +104,30 @@ class GraphDBInterface:
         target_url = link_data.get("target_url")
 
         if not source_url or not target_url:
-            print("Error: 'source_url' and 'target_url' are required to add a link.")
+            logger.error("Error: 'source_url' and 'target_url' are required to add a link.")
             return
 
         # Check for duplicate links
         for edge in self._edges:
             if edge.get("source_url") == source_url and edge.get("target_url") == target_url:
-                print(f"Link from {source_url} to {target_url} already exists. Skipping.")
+                logger.info(f"Link from {source_url} to {target_url} already exists. Skipping.")
                 return
 
         # Ensure source resource exists or create a placeholder
-        if not self.resource_exists(source_url):
-            print(f"Source resource {source_url} not found. Creating placeholder.")
+        if not self.resource_exists(source_url): # resource_exists uses logger.debug
+            logger.info(f"Source resource {source_url} not found. Creating placeholder.")
             placeholder_source = self._create_placeholder_resource(source_url)
-            self.add_or_update_resource(placeholder_source)
+            self.add_or_update_resource(placeholder_source) # add_or_update_resource uses logger.info/error
         # Update link_data with the actual source resource ID
         link_data["source_resource_id"] = self._nodes[source_url]["id"]
 
 
         # Ensure target resource exists or create a placeholder
-        if not self.resource_exists(target_url):
-            print(f"Target resource {target_url} not found. Creating placeholder.")
+        if not self.resource_exists(target_url): # resource_exists uses logger.debug
+            logger.info(f"Target resource {target_url} not found. Creating placeholder.")
             placeholder_target = self._create_placeholder_resource(target_url)
-            self.add_or_update_resource(placeholder_target)
+            self.add_or_update_resource(placeholder_target) # add_or_update_resource uses logger.info/error
         # Update link_data with the actual target resource ID (if it was a placeholder)
-        # In a real system, this might be just the URL, and ID resolution happens later.
-        # For now, we'll assume we might want to store the target's ID if known.
         link_data["target_resource_id"] = self._nodes[target_url]["id"]
 
 
@@ -137,35 +138,39 @@ class GraphDBInterface:
             link_data["created_at"] = datetime.utcnow().isoformat()
 
         self._edges.append(link_data)
-        print(f"Added link: {source_url} -> {target_url}")
+        logger.info(f"Added link: {source_url} -> {target_url}")
         self._save_to_file() # Save after adding a link
 
     def get_links_from_resource(self, url: str) -> list[dict]:
         """Returns a list of links where source_url matches the given URL."""
         links = [edge for edge in self._edges if edge.get("source_url") == url]
-        print(f"Found {len(links)} links from resource: {url}")
+        logger.debug(f"Found {len(links)} links from resource: {url}") # Changed to debug
         return links
 
     def get_links_to_resource(self, url: str) -> list[dict]:
         """Returns a list of links where target_url matches the given URL."""
         links = [edge for edge in self._edges if edge.get("target_url") == url]
-        print(f"Found {len(links)} links to resource: {url}")
+        logger.debug(f"Found {len(links)} links to resource: {url}") # Changed to debug
         return links
 
     def get_all_resources(self) -> list[dict]:
         """Returns a list of all resource dictionaries."""
         all_nodes = list(self._nodes.values())
-        print(f"Retrieved {len(all_nodes)} resources.")
+        logger.info(f"Retrieved {len(all_nodes)} resources.")
         return all_nodes
 
     def get_all_links(self) -> list[dict]:
         """Returns a list of all link dictionaries."""
-        print(f"Retrieved {len(self._edges)} links.")
+        logger.info(f"Retrieved {len(self._edges)} links.")
         return list(self._edges)
 
 if __name__ == "__main__":
-    db = GraphDBInterface()
+    # Basic logging setup for standalone script execution
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    db = GraphDBInterface() # Logger inside will pick up this basicConfig
 
+    # The print statements in __main__ are kept for direct console output during individual script testing.
+    # They are not part of the library's operational logging.
     print("\n--- Testing Resource Operations ---")
     # Add resources
     res1_data = {"url": "http://example.com/page1", "content": "Content of page 1", "metadata": {"title": "Page 1"}}

@@ -1,6 +1,11 @@
 from graph_db_interface import GraphDBInterface # Assuming graph_db_interface.py is in the same directory
 from datetime import datetime
 import uuid
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import logging
+
+logger = logging.getLogger(__name__)
 
 class ConsistencyAnalyzer:
     def __init__(self, db_interface: GraphDBInterface):
@@ -8,7 +13,7 @@ class ConsistencyAnalyzer:
         Initializes the analyzer with a GraphDBInterface instance.
         """
         self.db = db_interface
-        print("ConsistencyAnalyzer initialized.")
+        logger.info("ConsistencyAnalyzer initialized.")
 
     def check_resource_completeness(self, resource_data: dict) -> dict:
         """
@@ -79,21 +84,39 @@ class ConsistencyAnalyzer:
             return result
 
         # Using 'content' as placeholder for 'processed_content'
-        source_content = source_resource.get("content", "")
-        target_content = target_resource.get("content", "")
+        source_text = source_resource.get("content", "")
+        target_text = target_resource.get("content", "")
 
-        if not source_content or source_content.strip() == "" or source_content == "N/A (placeholder)":
-            result["reason"] = f"Missing or placeholder content for source resource {source_url}."
+        MIN_TEXT_LENGTH = 20  # Minimum characters for content to be considered for TF-IDF
+        MIN_WORD_COUNT = 3    # Minimum words for content
+
+        if not source_text or len(source_text.strip()) < MIN_TEXT_LENGTH or len(source_text.strip().split()) < MIN_WORD_COUNT:
+            result["reason"] = f"Source resource {source_url} content is missing or too short for meaningful comparison."
+            result["score"] = 0.0
+            result["consistent"] = False
             return result
-        if not target_content or target_content.strip() == "" or target_content == "N/A (placeholder)":
-            result["reason"] = f"Missing or placeholder content for target resource {target_url}."
+        if not target_text or len(target_text.strip()) < MIN_TEXT_LENGTH or len(target_text.strip().split()) < MIN_WORD_COUNT:
+            result["reason"] = f"Target resource {target_url} content is missing or too short for meaningful comparison."
+            result["score"] = 0.0
+            result["consistent"] = False
             return result
 
-        # Future: Implement actual NLP similarity check here (e.g., TF-IDF, word embeddings, sentence transformers).
-        # For now, if both have content, consider it coherent.
-        result["consistent"] = True
-        result["score"] = 1.0
-        result["reason"] = "Placeholder: Both source and target pages have content. Actual NLP similarity check needed."
+        try:
+            vectorizer = TfidfVectorizer()
+            tfidf_matrix = vectorizer.fit_transform([source_text, target_text])
+            similarity_score = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
+
+            result["score"] = float(similarity_score)
+            # threshold is already a parameter, defaults to 0.1
+            result["consistent"] = similarity_score >= threshold
+            if result["consistent"]:
+                result["reason"] = f"Coherence score: {similarity_score:.2f} meets threshold ({threshold})."
+            else:
+                result["reason"] = f"Coherence score: {similarity_score:.2f} is below threshold ({threshold})."
+        except Exception as e:
+            result["reason"] = f"Error during TF-IDF calculation: {e}"
+            result["score"] = 0.0
+            result["consistent"] = False
 
         return result
 
@@ -104,46 +127,65 @@ class ConsistencyAnalyzer:
         """
         all_issues = []
 
-        print("\nAnalyzing resource completeness...")
-        all_resources = self.db.get_all_resources()
+        logger.info("Starting analysis of resource completeness...")
+        all_resources = self.db.get_all_resources() # db methods now use logging
+        logger.info(f"Retrieved {len(all_resources)} resources for completeness check.")
         for resource in all_resources:
             completeness_check = self.check_resource_completeness(resource)
             if not completeness_check["complete"]:
                 all_issues.append(completeness_check)
+                logger.debug(f"Resource completeness issue found for {resource.get('url')}: {completeness_check['reason']}")
 
-        print("\nAnalyzing link topical coherence...")
-        all_links = self.db.get_all_links()
+        logger.info("Starting analysis of link topical coherence...")
+        all_links = self.db.get_all_links() # db methods now use logging
+        logger.info(f"Retrieved {len(all_links)} links for coherence check.")
         for link in all_links:
             # Skip coherence check if source or target content is known to be insufficient
             # This pre-check can be based on resource completeness status if available
             # For now, check_link_topical_coherence handles missing content internally
+            logger.debug(f"Checking link coherence for: {link.get('source_url')} -> {link.get('target_url')}")
             coherence_check = self.check_link_topical_coherence(link)
             if not coherence_check["consistent"]:
                 all_issues.append(coherence_check)
+                logger.debug(f"Link coherence issue found for {link.get('source_url')} -> {link.get('target_url')}: {coherence_check['reason']} (Score: {coherence_check['score']})")
 
-        print(f"\nConsistency analysis complete. Found {len(all_issues)} issues.")
+        logger.info(f"Consistency analysis complete. Found {len(all_issues)} issues.")
         return all_issues
 
 if __name__ == "__main__":
+    # Basic logging setup for standalone script execution
+    # This allows seeing logs from this script and from GraphDBInterface when run directly
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
     # 1. Instantiate GraphDBInterface and populate with sample data
+    # GraphDBInterface will use its own logger, but output will be handled by basicConfig here.
     db = GraphDBInterface()
 
     # Resources
     res_comp_valid_id = str(uuid.uuid4())
     res_comp_valid = {
-        "id": res_comp_valid_id, "url": "http://example.com/valid",
-        "content": "This is a valid resource with sufficient processed content for analysis.",
-        "metadata": {"title": "Valid Page"}, "last_crawled_at": datetime.utcnow().isoformat()
+        "id": res_comp_valid_id, "url": "http://example.com/valid-apples", # Changed URL for clarity
+        "content": "Detailed guide on apple harvesting techniques and best seasons for picking delicious apples.",
+        "metadata": {"title": "Apple Harvesting Guide"}, "last_crawled_at": datetime.utcnow().isoformat()
     }
     db.add_or_update_resource(res_comp_valid)
 
-    res_inc_no_title_id = str(uuid.uuid4())
+    res_inc_no_title_id = str(uuid.uuid4()) # This resource will be linked to res_comp_valid
     res_inc_no_title = {
-        "id": res_inc_no_title_id, "url": "http://example.com/no-title",
-        "content": "This page has content but is missing a title for the check.",
+        "id": res_inc_no_title_id, "url": "http://example.com/bananas-no-title", # Changed URL
+        "content": "Information about banana cultivation methods and the ideal climate for growing bananas.",
         "metadata": {}, "last_crawled_at": datetime.utcnow().isoformat() # No title
     }
     db.add_or_update_resource(res_inc_no_title)
+
+    # New resource with similar content to res_comp_valid for testing high coherence
+    res_similar_apples_id = str(uuid.uuid4())
+    res_similar_apples = {
+        "id": res_similar_apples_id, "url": "http://example.com/similar-apples",
+        "content": "This article discusses apple farming, covering various picking season tips and apple types.",
+        "metadata": {"title": "Apple Farming Tips"}, "last_crawled_at": datetime.utcnow().isoformat()
+    }
+    db.add_or_update_resource(res_similar_apples)
 
     res_inc_short_content_id = str(uuid.uuid4())
     res_inc_short_content = {
@@ -154,44 +196,50 @@ if __name__ == "__main__":
     db.add_or_update_resource(res_inc_short_content)
 
     # Placeholder resource, created implicitly by a link later or explicitly
-    # This one will have "N/A (placeholder)" content
+    # This one will have "N/A (placeholder)" content, now explicitly created before linking
     res_placeholder_id = str(uuid.uuid4())
     res_placeholder = {
         "id": res_placeholder_id, "url": "http://example.com/placeholder-page",
-        "content": "N/A (placeholder)",
+        "content": "N/A (placeholder)", # Explicitly set for clarity in tests
         "metadata": {"title": "Placeholder Page", "status": "placeholder"}, "last_crawled_at": datetime.utcnow().isoformat()
     }
     db.add_or_update_resource(res_placeholder)
 
 
     # Links
-    # Link 1: Valid source and target with content
+    # Link 1: Apples (valid) to Bananas (no-title) - Expect LOW coherence
     db.add_link({
-        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid", "target_url": "http://example.com/no-title",
-        "anchor_text": "Link to no-title page", "created_at": datetime.utcnow().isoformat()
+        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid-apples", "target_url": "http://example.com/bananas-no-title",
+        "anchor_text": "Link from Apples to Bananas", "created_at": datetime.utcnow().isoformat()
     })
 
-    # Link 2: Source has content, target has short/insufficient content
+    # Link 2: Apples (valid) to Similar Apples - Expect HIGH coherence
     db.add_link({
-        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid", "target_url": "http://example.com/short-content",
+        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid-apples", "target_url": "http://example.com/similar-apples",
+        "anchor_text": "Link from Apples to Similar Apples", "created_at": datetime.utcnow().isoformat()
+    })
+
+    # Link 3: Apples (valid) to Short Content - Expect INCONSISTENT (due to short content)
+    db.add_link({
+        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid-apples", "target_url": "http://example.com/short-content",
         "anchor_text": "Link to short-content page", "created_at": datetime.utcnow().isoformat()
     })
 
-    # Link 3: Source has content, target is a placeholder page
+    # Link 4: Apples (valid) to Placeholder Page - Expect INCONSISTENT (due to placeholder content)
     db.add_link({
-        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid", "target_url": "http://example.com/placeholder-page",
+        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid-apples", "target_url": "http://example.com/placeholder-page",
         "anchor_text": "Link to placeholder page", "created_at": datetime.utcnow().isoformat()
     })
 
-    # Link 4: Source is a placeholder page
+    # Link 5: Placeholder Page to Apples (valid) - Expect INCONSISTENT (due to source placeholder content)
     db.add_link({
-        "id": str(uuid.uuid4()), "source_url": "http://example.com/placeholder-page", "target_url": "http://example.com/valid",
+        "id": str(uuid.uuid4()), "source_url": "http://example.com/placeholder-page", "target_url": "http://example.com/valid-apples",
         "anchor_text": "Link from placeholder page", "created_at": datetime.utcnow().isoformat()
     })
 
-    # Link 5: Target resource does not exist at all (will be created as placeholder by add_link)
+    # Link 6: Apples (valid) to Non-Existent Target - Expect INCONSISTENT (target becomes placeholder)
     db.add_link({
-        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid", "target_url": "http://example.com/non-existent-target",
+        "id": str(uuid.uuid4()), "source_url": "http://example.com/valid-apples", "target_url": "http://example.com/non-existent-target",
         "anchor_text": "Link to non-existent page", "created_at": datetime.utcnow().isoformat()
     })
 

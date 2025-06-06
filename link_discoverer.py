@@ -1,6 +1,9 @@
 from graph_db_interface import GraphDBInterface # Assuming graph_db_interface.py is in the same directory
 from datetime import datetime
 import uuid
+import logging
+
+logger = logging.getLogger(__name__)
 
 class LinkDiscoverer:
     def __init__(self, db_interface: GraphDBInterface):
@@ -8,7 +11,7 @@ class LinkDiscoverer:
         Initializes the discoverer with a GraphDBInterface instance.
         """
         self.db = db_interface
-        print("LinkDiscoverer initialized.")
+        logger.info("LinkDiscoverer initialized.")
 
     def find_uncrawled_links(self, limit: int = 10) -> list[str]:
         """
@@ -17,37 +20,38 @@ class LinkDiscoverer:
         or if it is, but its 'content' field (used as proxy for processed_content)
         is empty, 'N/A (placeholder)', or missing.
         """
-        all_links = self.db.get_all_links()
+        all_links = self.db.get_all_links() # db methods use their own logging
         uncrawled_urls = set() # Use a set to store unique URLs
 
-        print(f"\nFinding uncrawled links (limit: {limit})...")
+        logger.info(f"Finding uncrawled links (limit: {limit})...")
         for link_data in all_links:
             target_url = link_data.get("target_url")
             if not target_url:
                 continue
 
-            resource = self.db.get_resource(target_url)
+            resource = self.db.get_resource(target_url) # db methods use their own logging
 
             is_uncrawled = False
             if not resource:
                 is_uncrawled = True
-                print(f"  Target URL {target_url} not found in DB (considered uncrawled).")
+                logger.debug(f"  Target URL {target_url} not found in DB (considered uncrawled).")
             else:
                 # Using 'content' as a proxy for 'processed_content' as per problem description
                 content = resource.get("content")
                 if not content or content.strip() == "" or content == "N/A (placeholder)":
                     is_uncrawled = True
-                    print(f"  Target URL {target_url} found but content is missing/placeholder (considered uncrawled).")
+                    logger.debug(f"  Target URL {target_url} found but content is missing/placeholder (considered uncrawled).")
                 else:
-                    print(f"  Target URL {target_url} found and has content (considered crawled).")
+                    logger.debug(f"  Target URL {target_url} found and has content (considered crawled).")
 
             if is_uncrawled:
                 uncrawled_urls.add(target_url)
                 if len(uncrawled_urls) >= limit:
+                    logger.info(f"Reached limit of {limit} uncrawled URLs.")
                     break
 
         result_list = list(uncrawled_urls)
-        print(f"Found {len(result_list)} unique uncrawled URLs.")
+        logger.info(f"Found {len(result_list)} unique uncrawled URLs.")
         return result_list
 
     def suggest_search_queries_from_topics(self, top_n_resources: int = 3) -> list[str]:
@@ -61,28 +65,36 @@ class LinkDiscoverer:
 
         # Retrieve all resources and sort them, e.g., by last_crawled_at or a future 'importance' score
         # For now, just take the first N resources as they come from get_all_resources()
-        all_resources = self.db.get_all_resources()
+        all_resources = self.db.get_all_resources() # db methods use their own logging
 
         resources_to_consider = all_resources[:top_n_resources]
 
-        print(f"\nSuggesting search queries from top {top_n_resources} resources...")
+        logger.info(f"Suggesting search queries from top {top_n_resources} resources...")
         for resource_data in resources_to_consider:
             metadata = resource_data.get("metadata", {})
             title = metadata.get("title")
             if title and title.strip() != "":
                 suggested_queries.append(f"More about {title}")
-                print(f"  Generated query from title: '{title}'")
+                logger.debug(f"  Generated query from title: '{title}'")
 
-        if not suggested_queries:
-            default_query = "latest technology trends"
+        if not suggested_queries and resources_to_consider: # Only add default if there were resources but no titles
+            default_query = "general information" # Changed default query
             suggested_queries.append(default_query)
-            print(f"  No suitable titles found, using default query: '{default_query}'")
+            logger.info(f"  No suitable titles found from considered resources, using default query: '{default_query}'")
+        elif not resources_to_consider:
+            logger.info("No resources found to suggest queries from.")
 
-        print(f"Suggested {len(suggested_queries)} queries.")
+
+        logger.info(f"Suggested {len(suggested_queries)} queries.")
         return suggested_queries
 
 if __name__ == "__main__":
+    # Basic logging setup for standalone script execution
+    logging.basicConfig(level=logging.DEBUG, # Set to DEBUG to see all logs from this module
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
     # 1. Instantiate GraphDBInterface and populate with sample data
+    # GraphDBInterface will use its own logger, output handled by basicConfig here.
     db = GraphDBInterface()
 
     # Resource 1: Fully "crawled" (has URL and content)

@@ -1,4 +1,8 @@
 from bs4 import BeautifulSoup
+from readability import Document
+import logging
+
+logger = logging.getLogger(__name__)
 
 class ContentProcessor:
     def extract_text_from_html(self, html_content: str) -> str:
@@ -24,20 +28,29 @@ class ContentProcessor:
         """
         # Future: Enhance with more advanced techniques (e.g., using libraries
         # like newspaper3k or readability-lxml) for better main content identification.
-        return self.extract_text_from_html(html_content)
+        if not html_content:
+            return ""
+        doc = Document(html_content)
+        main_content_html = doc.summary()
+        # Use the existing method to strip tags and get clean text from the summary HTML
+        return self.extract_text_from_html(main_content_html)
 
     def process_content(self, html_content: str) -> dict:
         """
         Processes HTML content to extract text.
         The returned dictionary can be expanded with more NLP features in the future.
         """
+        logger.info(f"Processing content for HTML of length: {len(html_content)}")
         extracted_text = self.extract_main_content(html_content)
+        logger.info(f"Extracted main content length: {len(extracted_text)}")
 
         # Future: Add more keys like "summary", "topics", "entities"
         # from NLP processing steps.
         return {"processed_text": extracted_text}
 
 if __name__ == '__main__':
+    # Basic logging setup for standalone script execution
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     processor = ContentProcessor()
 
     sample_html = """

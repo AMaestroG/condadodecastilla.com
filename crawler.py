@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import uuid
 from datetime import datetime
+import logging
+
+logger = logging.getLogger(__name__)
 
 class WebCrawler:
     def __init__(self, user_agent="KnowledgeGraphBot/0.1"):
@@ -15,40 +18,23 @@ class WebCrawler:
 
     def fetch_page(self, url: str) -> tuple[str | None, str | None]:
         """
-        Simulates fetching a page.
-        For now, it returns dummy HTML for 'http://example.com' and an error for others.
+        Fetches a page using the configured session.
+        Handles basic errors and HTTP status codes.
         """
-        # Future: Implement actual HTTP GET requests.
         # Future: Implement robots.txt checking before fetching.
-        # Future: Implement comprehensive error handling (timeouts, status codes, etc.).
-        if url == "http://example.com":
-            dummy_html = """
-            <html>
-            <head><title>Example Domain</title></head>
-            <body>
-            <h1>Example Domain</h1>
-            <p>This domain is for use in illustrative examples in documents. You may use this
-            domain in literature without prior coordination or asking for permission.</p>
-            <p><a href="http://www.iana.org/domains/example">More information...</a></p>
-            <a href="/another-page">Another Page</a>
-            <a href="https://example.net/different-site">Different Site</a>
-            </body>
-            </html>
-            """
-            return dummy_html, None
-        elif url == "http://example.com/another-page":
-            dummy_html = """
-            <html>
-            <head><title>Another Page</title></head>
-            <body>
-            <h1>Another Page on Example Domain</h1>
-            <p>This is another page for testing.</p>
-            <a href="/">Back to Home</a>
-            </body>
-            </html>
-            """
-            return dummy_html, None
-        return None, "Page not found or not implemented for this URL."
+        try:
+            logger.info(f"Fetching URL: {url}")
+            response = self.session.get(url, timeout=10)
+            response.raise_for_status()  # Raises an HTTPError for bad responses (4XX or 5XX)
+            logger.info(f"Successfully fetched URL: {url}, status: {response.status_code}")
+            return response.text, None
+        except requests.exceptions.HTTPError as e:
+            logger.error(f"HTTP error for {url}: {e.response.status_code} - {e}")
+            return None, f"HTTP error: {e.response.status_code}"
+        except requests.exceptions.RequestException as e:
+            # This catches other exceptions like ConnectionError, Timeout, etc.
+            logger.error(f"Error fetching URL {url}: {e}")
+            return None, f"Error fetching URL: {e}"
 
     def parse_html(self, html_content: str, base_url: str) -> tuple[str | None, list[dict]]:
         """
@@ -84,7 +70,7 @@ class WebCrawler:
         Orchestrates the crawling of a single URL.
         Fetches and parses the page, then transforms data into WebResource and Link structures.
         """
-        # Future: Add logging throughout the process.
+        logger.info(f"Starting crawl for URL: {url}")
         # Future: Handle redirects.
 
         html_content, error = self.fetch_page(url)
@@ -128,6 +114,8 @@ class WebCrawler:
         return web_resource_data, links_data, None
 
 if __name__ == '__main__':
+    # Basic logging setup for standalone script execution
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # Example Usage (for testing purposes)
     crawler = WebCrawler()
 
@@ -145,21 +133,7 @@ if __name__ == '__main__':
 
     print("\n" + "="*50 + "\n")
 
-    # Test with another example.com URL
-    print("Crawling http://example.com/another-page...")
-    resource, links, error = crawler.crawl("http://example.com/another-page")
-    if error:
-        print(f"Error: {error}")
-    else:
-        print("\nWebResource Data:")
-        print(resource)
-        print("\nLinks Data:")
-        for link in links:
-            print(link)
-
-    print("\n" + "="*50 + "\n")
-
-    # Test with a non-implemented URL
+    # Test with a non-existent URL
     print("Crawling http://nonexistentpage.com...")
     resource, links, error = crawler.crawl("http://nonexistentpage.com")
     if error:

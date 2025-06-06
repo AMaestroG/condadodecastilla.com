@@ -1,37 +1,226 @@
 {
   "nodes": {
     "http://example.com": {
-      "id": "19ef8a36-0c2c-4c10-97c5-51e5552ee75c",
+      "id": "38276912-dd1d-4068-8ca8-e5b5bc19bf5e",
       "url": "http://example.com",
-      "content": "Example Domain Example Domain This domain is for use in illustrative examples in documents. You may use this\n            domain in literature without prior coordination or asking for permission. More information... Another Page Different Site",
-      "last_crawled_at": "2025-06-05T19:34:34.839750",
+      "content": "Example Domain This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission. More information...",
+      "last_crawled_at": "2025-06-05T20:12:06.535662",
       "metadata": {
         "title": "Example Domain"
       }
     },
-    "http://www.iana.org/domains/example": {
-      "id": "7e51ec9a-20a8-4146-89df-e55afe231128",
-      "url": "http://www.iana.org/domains/example",
+    "https://www.iana.org/domains/example": {
+      "id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "url": "https://www.iana.org/domains/example",
+      "content": "Example Domains As described in RFC 2606 and RFC 6761 , a\nnumber of domains such as example.com and example.org are maintained\nfor documentation purposes. These domains may be used as illustrative\nexamples in documents without prior coordination with us. They are not\navailable for registration or transfer. We provide a web service on the example domain hosts to provide basic\ninformation on the purpose of the domain. These web services are\nprovided as best effort, but are not designed to support production\napplications. While incidental traffic for incorrectly configured\napplications is expected, please do not design applications that require\nthe example domains to have operating HTTP service. Further Reading Last revised 2017-05-13.",
+      "last_crawled_at": "2025-06-05T20:12:14.036268",
+      "metadata": {
+        "title": "Example Domains"
+      }
+    },
+    "https://www.iana.org/": {
+      "id": "c11b61c5-415e-43c4-b78e-4d53631a4b56",
+      "url": "https://www.iana.org/",
       "content": "N/A (placeholder)",
-      "last_crawled_at": "2025-06-05T19:34:34.840051",
+      "last_crawled_at": "2025-06-05T20:12:14.036997",
       "metadata": {
         "status": "placeholder"
       }
     },
-    "http://example.com/another-page": {
-      "id": "e4044d2b-d2b2-494c-a554-296a3adfcffb",
-      "url": "http://example.com/another-page",
+    "https://www.iana.org/domains": {
+      "id": "724ef74d-e553-4841-9492-b121f81a98f6",
+      "url": "https://www.iana.org/domains",
       "content": "N/A (placeholder)",
-      "last_crawled_at": "2025-06-05T19:34:34.840907",
+      "last_crawled_at": "2025-06-05T20:12:14.043514",
       "metadata": {
         "status": "placeholder"
       }
     },
-    "https://example.net/different-site": {
-      "id": "69664712-40ef-42d9-9231-3ce05244f4b6",
-      "url": "https://example.net/different-site",
+    "https://www.iana.org/protocols": {
+      "id": "bbf66578-8797-44bb-81ac-888da83b510c",
+      "url": "https://www.iana.org/protocols",
       "content": "N/A (placeholder)",
-      "last_crawled_at": "2025-06-05T19:34:34.842084",
+      "last_crawled_at": "2025-06-05T20:12:14.044705",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/numbers": {
+      "id": "7094f163-4513-4631-9572-6992b5018b52",
+      "url": "https://www.iana.org/numbers",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.045765",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/about": {
+      "id": "75385ace-925c-42e4-afcf-738db2e2ebca",
+      "url": "https://www.iana.org/about",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.047155",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/go/rfc2606": {
+      "id": "2caedc85-2e8f-4df3-a8f2-b7b926d64d5e",
+      "url": "https://www.iana.org/go/rfc2606",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.048369",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/go/rfc6761": {
+      "id": "7aadd201-8154-4057-8dec-6250af418ad3",
+      "url": "https://www.iana.org/go/rfc6761",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.049770",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/domains/reserved": {
+      "id": "b9f259b3-064a-4934-99d0-2198e05f5882",
+      "url": "https://www.iana.org/domains/reserved",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.051151",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/domains/root": {
+      "id": "cf57f629-85f0-4960-a8c1-ddb20f93ea40",
+      "url": "https://www.iana.org/domains/root",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.052789",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/domains/int": {
+      "id": "eb4e7118-e8ae-4572-82b8-b6b0c17b7d41",
+      "url": "https://www.iana.org/domains/int",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.054290",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/domains/arpa": {
+      "id": "32278142-5e16-453f-be5b-8843cf0b4610",
+      "url": "https://www.iana.org/domains/arpa",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.055607",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/domains/idn-tables": {
+      "id": "e104c511-215d-45d9-b58e-0bc76409661a",
+      "url": "https://www.iana.org/domains/idn-tables",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.057123",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/abuse": {
+      "id": "e7974db3-0347-40d4-af59-390cdd141985",
+      "url": "https://www.iana.org/abuse",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.058694",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/time-zones": {
+      "id": "220fb20a-7206-4033-9139-10fb4a9f0b67",
+      "url": "https://www.iana.org/time-zones",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.060286",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/news": {
+      "id": "8d613430-46f5-49ee-819a-d92ece8e9309",
+      "url": "https://www.iana.org/news",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.062361",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/performance": {
+      "id": "1784f8aa-403f-473b-a538-9bef4ebd27e4",
+      "url": "https://www.iana.org/performance",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.064247",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/about/excellence": {
+      "id": "a1222716-6ef7-4db9-92be-958ef52c1f75",
+      "url": "https://www.iana.org/about/excellence",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.066240",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/archive": {
+      "id": "21b88bf0-47cd-4c3d-a9fd-1bbca73f7aff",
+      "url": "https://www.iana.org/archive",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.068175",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.iana.org/contact": {
+      "id": "bd5a2662-b021-42c6-a1db-b3d6d154bfcd",
+      "url": "https://www.iana.org/contact",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.070319",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://pti.icann.org": {
+      "id": "956d2a34-54f4-431c-825d-fe93fa3e758c",
+      "url": "https://pti.icann.org",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.072424",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "http://www.icann.org/": {
+      "id": "2a43c861-08d1-4f4d-95ae-e93aca665fd3",
+      "url": "http://www.icann.org/",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.076166",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.icann.org/privacy/policy": {
+      "id": "021ff099-1d9e-4107-b24e-d3b0291b6ef4",
+      "url": "https://www.icann.org/privacy/policy",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.080357",
+      "metadata": {
+        "status": "placeholder"
+      }
+    },
+    "https://www.icann.org/privacy/tos": {
+      "id": "76be5e97-2c1d-429a-bf33-6fbf2e80d264",
+      "url": "https://www.icann.org/privacy/tos",
+      "content": "N/A (placeholder)",
+      "last_crawled_at": "2025-06-05T20:12:14.083020",
       "metadata": {
         "status": "placeholder"
       }
@@ -39,31 +228,220 @@
   },
   "edges": [
     {
-      "id": "ba8894db-55bc-44f3-941e-f4eb6094927b",
+      "id": "6246259d-8f81-4e1d-ae5c-73f4cf760b37",
       "source_url": "http://example.com",
-      "target_url": "http://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/domains/example",
       "anchor_text": "More information...",
-      "created_at": "2025-06-05T19:34:34.840028",
-      "source_resource_id": "19ef8a36-0c2c-4c10-97c5-51e5552ee75c",
-      "target_resource_id": "7e51ec9a-20a8-4146-89df-e55afe231128"
+      "created_at": "2025-06-05T20:12:06.536133",
+      "source_resource_id": "38276912-dd1d-4068-8ca8-e5b5bc19bf5e",
+      "target_resource_id": "4f526ba0-e0a5-4757-8bcd-2256f120c54c"
     },
     {
-      "id": "91a45c0d-a6ae-43d5-970b-2e2fdc1fa9d5",
-      "source_url": "http://example.com",
-      "target_url": "http://example.com/another-page",
-      "anchor_text": "Another Page",
-      "created_at": "2025-06-05T19:34:34.840853",
-      "source_resource_id": "19ef8a36-0c2c-4c10-97c5-51e5552ee75c",
-      "target_resource_id": "e4044d2b-d2b2-494c-a554-296a3adfcffb"
+      "id": "4ad6fdc5-f78e-42de-9a6c-7b49833aee46",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/",
+      "anchor_text": "",
+      "created_at": "2025-06-05T20:12:14.036915",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "c11b61c5-415e-43c4-b78e-4d53631a4b56"
     },
     {
-      "id": "d935898b-0374-4919-859b-df8947224598",
-      "source_url": "http://example.com",
-      "target_url": "https://example.net/different-site",
-      "anchor_text": "Different Site",
-      "created_at": "2025-06-05T19:34:34.842063",
-      "source_resource_id": "19ef8a36-0c2c-4c10-97c5-51e5552ee75c",
-      "target_resource_id": "69664712-40ef-42d9-9231-3ce05244f4b6"
+      "id": "56fe1fe5-2c0d-40d0-902a-3338b761eec9",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/domains",
+      "anchor_text": "Domains",
+      "created_at": "2025-06-05T20:12:14.043392",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "724ef74d-e553-4841-9492-b121f81a98f6"
+    },
+    {
+      "id": "eb596a10-dff7-4f43-904d-5d7166570555",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/protocols",
+      "anchor_text": "Protocols",
+      "created_at": "2025-06-05T20:12:14.044545",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "bbf66578-8797-44bb-81ac-888da83b510c"
+    },
+    {
+      "id": "c9244916-0f27-4895-bed0-537cd782c992",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/numbers",
+      "anchor_text": "Numbers",
+      "created_at": "2025-06-05T20:12:14.045691",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "7094f163-4513-4631-9572-6992b5018b52"
+    },
+    {
+      "id": "37bfd19a-f14e-4987-881a-a0b360507f5b",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/about",
+      "anchor_text": "About",
+      "created_at": "2025-06-05T20:12:14.047020",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "75385ace-925c-42e4-afcf-738db2e2ebca"
+    },
+    {
+      "id": "96da0dac-e248-4528-8e7e-6e5777bae5ef",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/go/rfc2606",
+      "anchor_text": "RFC 2606",
+      "created_at": "2025-06-05T20:12:14.048293",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "2caedc85-2e8f-4df3-a8f2-b7b926d64d5e"
+    },
+    {
+      "id": "2cdafe0a-e5da-4037-b8e8-9bfa7ee6ccfc",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/go/rfc6761",
+      "anchor_text": "RFC 6761",
+      "created_at": "2025-06-05T20:12:14.049690",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "7aadd201-8154-4057-8dec-6250af418ad3"
+    },
+    {
+      "id": "5070287b-333a-4add-8649-fdc508c1f507",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/domains/reserved",
+      "anchor_text": "IANA-managed Reserved Domains",
+      "created_at": "2025-06-05T20:12:14.051070",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "b9f259b3-064a-4934-99d0-2198e05f5882"
+    },
+    {
+      "id": "34106ea0-1312-4b46-b0ad-ea7eb21bcf07",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/domains/root",
+      "anchor_text": "Root Zone Registry",
+      "created_at": "2025-06-05T20:12:14.052593",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "cf57f629-85f0-4960-a8c1-ddb20f93ea40"
+    },
+    {
+      "id": "9b3ebaf7-50d1-4d07-b851-0e90bc25b5e6",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/domains/int",
+      "anchor_text": ".INT Registry",
+      "created_at": "2025-06-05T20:12:14.054140",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "eb4e7118-e8ae-4572-82b8-b6b0c17b7d41"
+    },
+    {
+      "id": "4350d0ee-3bba-4492-92ba-40e317dbc5d5",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/domains/arpa",
+      "anchor_text": ".ARPA Registry",
+      "created_at": "2025-06-05T20:12:14.055532",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "32278142-5e16-453f-be5b-8843cf0b4610"
+    },
+    {
+      "id": "e230588d-c0bb-474f-8ae0-842716b40e1f",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/domains/idn-tables",
+      "anchor_text": "IDN Repository",
+      "created_at": "2025-06-05T20:12:14.057046",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "e104c511-215d-45d9-b58e-0bc76409661a"
+    },
+    {
+      "id": "61798b00-694b-4fc1-a80d-52f922064b88",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/abuse",
+      "anchor_text": "Abuse Information",
+      "created_at": "2025-06-05T20:12:14.058627",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "e7974db3-0347-40d4-af59-390cdd141985"
+    },
+    {
+      "id": "8362d567-69ce-48cf-b806-4cdfac8fb92a",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/time-zones",
+      "anchor_text": "Time Zone Database",
+      "created_at": "2025-06-05T20:12:14.060162",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "220fb20a-7206-4033-9139-10fb4a9f0b67"
+    },
+    {
+      "id": "aa09f92d-96bc-4a89-81ab-bc70ea9db48e",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/news",
+      "anchor_text": "News",
+      "created_at": "2025-06-05T20:12:14.062164",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "8d613430-46f5-49ee-819a-d92ece8e9309"
+    },
+    {
+      "id": "866525ba-ab07-4300-81ae-5a37e85e85eb",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/performance",
+      "anchor_text": "Performance",
+      "created_at": "2025-06-05T20:12:14.064110",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "1784f8aa-403f-473b-a538-9bef4ebd27e4"
+    },
+    {
+      "id": "2cc312b5-e810-401a-b1db-daf80f73b409",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/about/excellence",
+      "anchor_text": "Excellence",
+      "created_at": "2025-06-05T20:12:14.066119",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "a1222716-6ef7-4db9-92be-958ef52c1f75"
+    },
+    {
+      "id": "b00e1b86-7624-4ee8-ab62-5730b5e69aaf",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/archive",
+      "anchor_text": "Archive",
+      "created_at": "2025-06-05T20:12:14.068091",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "21b88bf0-47cd-4c3d-a9fd-1bbca73f7aff"
+    },
+    {
+      "id": "1deaf41d-65f5-4ce4-b34b-4644b89039f0",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.iana.org/contact",
+      "anchor_text": "Contact Us",
+      "created_at": "2025-06-05T20:12:14.070223",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "bd5a2662-b021-42c6-a1db-b3d6d154bfcd"
+    },
+    {
+      "id": "8e88aebe-2445-4fec-a6c6-4da5173de280",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://pti.icann.org",
+      "anchor_text": "Public Technical Identifiers",
+      "created_at": "2025-06-05T20:12:14.072327",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "956d2a34-54f4-431c-825d-fe93fa3e758c"
+    },
+    {
+      "id": "e91fa0df-6c38-46f1-8e55-b93d8fe0cf71",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "http://www.icann.org/",
+      "anchor_text": "ICANN",
+      "created_at": "2025-06-05T20:12:14.076076",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "2a43c861-08d1-4f4d-95ae-e93aca665fd3"
+    },
+    {
+      "id": "a1b1be0c-4b17-474f-915d-9e59d87e654b",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.icann.org/privacy/policy",
+      "anchor_text": "Privacy Policy",
+      "created_at": "2025-06-05T20:12:14.080142",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "021ff099-1d9e-4107-b24e-d3b0291b6ef4"
+    },
+    {
+      "id": "a402bf9b-9e34-44b3-ba28-5a0af66afc0e",
+      "source_url": "https://www.iana.org/domains/example",
+      "target_url": "https://www.icann.org/privacy/tos",
+      "anchor_text": "Terms of Service",
+      "created_at": "2025-06-05T20:12:14.082932",
+      "source_resource_id": "40431d94-6efe-4095-b2bb-a8963154f582",
+      "target_resource_id": "76be5e97-2c1d-429a-bf33-6fbf2e80d264"
     }
   ]
 }
