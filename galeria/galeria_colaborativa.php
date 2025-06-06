@@ -178,7 +178,7 @@ if (is_dir($gallery_dir)) {
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
             
-            const API_BASE_URL_GALERIA = ""; // Nginx hará proxy para /api/galeria/fotos
+            const API_BASE_URL_GALERIA = '/api/galeria';
 
             const phpGalleryPhotos = <?php echo json_encode($gallery_images_data); ?>;
             let localGalleryPhotos = [];
@@ -191,10 +191,7 @@ if (is_dir($gallery_dir)) {
             //     ];
             // }
 
-            async function fetchPhotos() {
-                try {
-                    const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
-                    const response = await fetch(url);
+                   const response = await fetch(url);
                     if (!response.ok) {
                         let errorMsg = `Error HTTP: ${response.status} - ${response.statusText}. URL: ${url}`;
                         try {
@@ -207,17 +204,14 @@ if (is_dir($gallery_dir)) {
                     localGalleryPhotos = photos;
                     renderPhotoGallery(localGalleryPhotos);
                 } catch (error) {
-                    console.error('Error fetching photos from backend:', error);
-                    localGalleryPhotos = phpGalleryPhotos;
-                    renderPhotoGallery(localGalleryPhotos);
-                    if (localGalleryPhotos.length === 0 && noPhotosMsg) {
-                        noPhotosMsg.textContent = 'No hay fotografías en la galería todavía, o el directorio está vacío.';
-                        noPhotosMsg.style.display = 'block';
+
                     }
                 }
             }
             
             // Cargar fotos desde la API; se usará la lista generada por PHP si la llamada falla
+            fetchPhotos();
+
             fetchPhotos();
 
             if (photoFileInput) {
@@ -272,7 +266,7 @@ if (is_dir($gallery_dir)) {
                     formData.append('photoFile', imagenFile);
 
                     try {
-                        const url = `${API_BASE_URL_GALERIA}/api/galeria/fotos`;
+                        const url = `${API_BASE_URL_GALERIA}/fotos`;
                         const response = await fetch(url, { method: 'POST', body: formData });
                         if (!response.ok) {
                             const errorData = await response.json().catch(() => ({ error: `Error del servidor: ${response.status} ${response.statusText}` }));
