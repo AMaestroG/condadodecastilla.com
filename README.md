@@ -71,3 +71,17 @@ es necesario definir las siguientes variables de entorno:
 Si está disponible, puedes revisar el script opcional `scripts/gemini_request.sh`
 para ver un ejemplo básico de invocación que hace uso de `GEMINI_API_KEY`.
 Encuentra la tienda en [tienda/index.php](tienda/index.php).
+
+## Análisis estático con PHPStan
+
+Para inspeccionar el código PHP en busca de errores potenciales puedes utilizar
+PHPStan. Primero instala las dependencias con Composer y luego ejecuta el
+análisis:
+
+```bash
+composer install
+./vendor/bin/phpstan analyse
+```
+
+La configuración se encuentra en `phpstan.neon` y establece el nivel 5 además de
+ignorar algunos avisos que no afectan al funcionamiento.

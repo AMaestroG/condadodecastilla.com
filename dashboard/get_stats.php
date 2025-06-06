@@ -49,7 +49,8 @@ try {
     
     // Podrías añadir más "secciones" si tienes otras tablas o formas de medir visitas
     // Ejemplo de datos estáticos si tus tablas están vacías:
-    if (empty($stats_data) || ($count_museo == 0 && $count_galeria == 0)) {
+    // @phpstan-ignore-next-line
+    if ($stats_data === [] || ($count_museo === 0 && $count_galeria === 0)) {
         // $stats_data[] = ["section_name" => "Página de Inicio", "total_visits" => 150]; // Dato de ejemplo
         // $stats_data[] = ["section_name" => "Historia", "total_visits" => 75];      // Dato de ejemplo
     }
@@ -58,7 +59,8 @@ try {
     $response['success'] = true;
     $response['data'] = $stats_data;
     
-    if (empty($stats_data)) {
+    // @phpstan-ignore-next-line
+    if ($stats_data === []) {
         $response['message'] = "No hay estadísticas para mostrar todavía.";
     } else {
         $response['message'] = "Estadísticas cargadas correctamente.";

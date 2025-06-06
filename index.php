@@ -4,6 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 require_once 'includes/auth.php';      // For is_admin_logged_in()
 require_once 'dashboard/db_connect.php'; // Provides $pdo
+/** @var PDO $pdo */
 require_once 'includes/text_manager.php';// For editableText()
 ?>
 <!--

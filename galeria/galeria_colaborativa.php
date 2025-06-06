@@ -5,6 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once __DIR__ . '/../includes/auth.php';      // For is_admin_logged_in()
 // dashboard/db_connect.php ya podría estar comentado, asegurarse que se incluye para $pdo
 require_once __DIR__ . '/../dashboard/db_connect.php'; // Necesario para $pdo
+/** @var PDO $pdo */
 require_once __DIR__ . '/../includes/text_manager.php'; // Necesario para editableText()
 
 $is_admin = is_admin_logged_in();
