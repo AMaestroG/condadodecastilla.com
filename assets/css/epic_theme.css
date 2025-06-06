@@ -65,6 +65,11 @@ body {
     animation: fadeInPage 0.7s ease-out forwards;
 }
 
+/* Center all text inside div containers */
+div {
+    text-align: center;
+}
+
 @keyframes fadeInPage {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
@@ -166,6 +171,7 @@ th {
     margin-left: auto;
     margin-right: auto;
     padding: clamp(1.5em, 3vw, 2.5em); /* Adjusted padding */
+    text-align: center;
 }
 
 /* --- Helper class for forced left alignment if needed --- */
@@ -720,6 +726,7 @@ body.sidebar-active {
     box-shadow: var(--global-box-shadow-medium);
     margin-top: 0; /* Reset if inside .section */
     margin-bottom: 0; /* Reset if inside .section */
+    text-align: center;
 }
 
 .page-content-block { /* .page-content-block is another common content wrapper */
@@ -2415,6 +2422,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .section > .container-epic {
     position: relative;
     z-index: 2; /* Content above spotlight and overlays */
+    text-align: center;
 }
 
 /* Variables for JS to control the spotlight position and size */
