@@ -6,6 +6,9 @@
 <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
     <i class="fas fa-moon"></i>
 </button>
+<button id="ia-chat-toggle" class="ia-chat-toggle" aria-label="Abrir chat IA">
+    <i class="fas fa-comments"></i>
+</button>
 <div id="sidebar" class="sidebar">
     <a href="/index.php" class="logo-link">
         <img src="/assets/img/AlfozCerasioLantaron.jpg" alt="Logo Alfoz de Cerasio y Lantarón" class="logo-image">
@@ -30,8 +33,15 @@
         <li><a href="https://chat.whatsapp.com/JWJ6mWXPuekIBZ8HJSSsZx" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
     </ul>
 </div>
-<div id="ia-tools-menu">
-    <button id="ia-summary-btn" type="button">Resumen IA</button>
-    <button id="ia-correction-btn" type="button">Corrección IA</button>
-    <button id="ia-translate-btn" type="button">Traducción IA</button>
+<div id="ia-chat-sidebar" class="ia-chat-sidebar">
+    <div id="ia-tools-menu" class="ia-tools-container">
+        <button id="ia-summary-btn" type="button">Resumen IA</button>
+        <button id="ia-correction-btn" type="button">Corrección IA</button>
+        <button id="ia-translate-btn" type="button">Traducción IA</button>
+    </div>
+    <div id="ia-chat-messages" class="ia-chat-messages"></div>
+    <form id="ia-chat-form" class="ia-chat-form">
+        <input type="text" id="ia-chat-input" placeholder="Pregunta sobre historia..." required />
+        <button type="submit">Enviar</button>
+    </form>
 </div>
