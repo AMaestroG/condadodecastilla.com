@@ -53,9 +53,9 @@ class GraphDBInterface:
         }
 
     def add_or_update_resource(self, resource_data: dict) -> None:
-        """
-        Adds or updates a resource in self._nodes.
-        Requires 'url' in resource_data.
+        """Adds or updates a resource in ``self._nodes`` and persists changes.
+
+        ``resource_data`` must contain a ``url`` key.
         """
         url = resource_data.get("url")
         if not url:
@@ -65,6 +65,7 @@ class GraphDBInterface:
         if url in self._nodes:
             self._nodes[url].update(resource_data)
             print(f"Updated resource: {url}")
+            self._save_to_file()
         else:
             # Ensure essential fields like 'id' are present if new
             if "id" not in resource_data:
@@ -73,9 +74,8 @@ class GraphDBInterface:
                 resource_data["last_crawled_at"] = datetime.utcnow().isoformat()
             self._nodes[url] = resource_data
             print(f"Added new resource: {url}")
-
-        # Persist changes after either adding or updating
-        self._save_to_file()
+            # Persist changes for newly added resources
+            self._save_to_file()
 
     def get_resource(self, url: str) -> dict | None:
         """Retrieves a resource from self._nodes by URL."""
