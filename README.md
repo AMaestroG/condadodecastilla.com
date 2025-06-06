@@ -111,6 +111,10 @@ Algunas acciones (por ejemplo subir piezas o eliminar fotografías) solo están 
 Accede a `/dashboard/login.php` e inicia sesión con un usuario registrado en la tabla `users`.
 La conexión a la base de datos requiere que la variable de entorno `CONDADO_DB_PASSWORD` contenga la contraseña correspondiente.
 
+## Foro
+
+Se ha añadido una sección de foro en `foro/index.html`. Por el momento funciona como una página de aviso mientras se desarrolla el espacio de discusión.
+
 ## Almacenamiento de imágenes del museo
 
 Las imágenes subidas a través de la API del museo se guardan en el directorio `uploads_storage/museo_piezas`.
