@@ -228,7 +228,7 @@ switch ($request_method) {
                     json_response(['error' => 'Piece not found or already deleted.'], 404);
                 }
             } else {
-                json_response(['error'_ => 'Failed to delete piece from database.'], 500);
+                json_response(['error' => 'Failed to delete piece from database.'], 500);
             }
         } catch (PDOException $e) {
             json_response(['error' => 'Database error during deletion', 'details' => $e->getMessage()], 500);
