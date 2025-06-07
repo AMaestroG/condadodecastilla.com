@@ -96,6 +96,8 @@ El archivo `includes/ai_utils.php` proporciona utilidades que hacen uso de la AP
 
 Si no se configuran las credenciales reales de la API, se utilizará un simulador que produce textos de demostración.
 
+La página `historia/atapuerca.php` incluye un selector de idioma de demostración que muestra traducciones simuladas generadas por IA. Actualmente se ofrecen versiones en inglés, francés y **alemán**.
+
 ## Galería 2D y Museo 3D
 
 El sitio cuenta con dos formas de visualizar las piezas:

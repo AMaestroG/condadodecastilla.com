@@ -277,6 +277,10 @@ function translate_with_gemini(string $content_id, string $target_language, stri
             $outputText .= "<p><strong>Traduction Française Simulée :</strong> Ceci montre où le texte français généré par l'IA apparaîtrait. Le contenu original en espagnol commençait par : '<em>" . $original_snippet . "</em>'.</p>";
             $outputText .= "<p>Dans un système de production, le texte intégral serait traité par un modèle avancé de traduction automatique neuronale pour fournir une version française précise et nuancée.</p>";
             break;
+        case 'de-ai':
+            $outputText .= "<p><strong>Simulierte Deutsche Übersetzung:</strong> Hier würde der von KI generierte deutsche Text erscheinen. Der ursprüngliche spanische Inhalt begann mit: '<em>" . $original_snippet . "</em>'.</p>";
+            $outputText .= "<p>In einem Produktivsystem würde der vollständige Text von einem fortgeschrittenen neuronalen Übersetzungsmodell verarbeitet, um eine präzise und nuancierte deutsche Version bereitzustellen.</p>";
+            break;
         // No hay caso 'default' o 'es' aquí porque ya se manejó al inicio de la función.
     }
     $outputText .= "<p style='font-size:0.8em; color:#1976d2; margin-top:10px;'><em>(Esta es una simulación. La funcionalidad de traducción real con IA está pendiente de implementación).</em></p>";
