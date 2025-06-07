@@ -11,6 +11,7 @@ require_once __DIR__ . '/../includes/auth.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda</title>
     <link rel="stylesheet" href="/assets/css/epic_theme.css">
+    <?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
 </head>
 <body>
 <?php require_once __DIR__ . '/../_header.html'; ?>
@@ -44,5 +45,6 @@ require_once __DIR__ . '/../includes/auth.php';
     </div>
 </main>
 <?php require_once __DIR__ . '/../_footer.html'; ?>
+<script src="/js/layout.js"></script>
 </body>
 </html>
