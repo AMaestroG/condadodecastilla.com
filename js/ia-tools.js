@@ -27,36 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function ensureOutputContainer() {
-    let cont = document.getElementById('ia-tools-output');
+    let cont = document.getElementById('ia-tools-response');
     if (!cont) {
         cont = document.createElement('div');
-        cont.id = 'ia-tools-output';
-        cont.className = 'ia-output hidden';
-
-        const closeBtn = document.createElement('button');
-        closeBtn.className = 'ia-output-close';
-        closeBtn.innerHTML = '&times;';
-        closeBtn.addEventListener('click', () => cont.classList.add('hidden'));
-        cont.appendChild(closeBtn);
-
-        const content = document.createElement('div');
-        content.className = 'ia-output-content';
-        cont.appendChild(content);
-
-        makeDraggable(cont, closeBtn);
-
-        document.body.appendChild(cont);
+        cont.id = 'ia-tools-response';
+        cont.className = 'ia-tools-response hidden';
+        const sidebar = document.getElementById('ia-chat-sidebar');
+        if (sidebar) {
+            sidebar.insertBefore(cont, sidebar.querySelector('#ia-tools-menu'));
+        } else {
+            document.body.appendChild(cont);
+        }
     }
     return cont;
 }
 
 function showOutput(container, html) {
-    const content = container.querySelector('.ia-output-content');
-    if (content) {
-        content.innerHTML = html;
-    } else {
-        container.innerHTML = html;
-    }
+    container.innerHTML = html;
     container.classList.remove('hidden');
 }
 
