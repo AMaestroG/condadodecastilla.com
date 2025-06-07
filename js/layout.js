@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
+    loadPageCss();
     // Always initialize sidebar navigation. For PHP pages, elements are already there.
     // For static HTML pages, this will run, and then the header fetch below will populate the necessary elements.
     // The initializeSidebarNavigation function itself checks for element existence.
@@ -291,3 +292,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function loadPageCss() {
+    let page = window.location.pathname.split('/').pop();
+    if (!page) { page = 'index'; }
+    page = page.split('.')[0];
+    const cssPath = `/assets/css/pages/${page}.css`;
+    fetch(cssPath, { method: 'HEAD' }).then(res => {
+        if (res.ok) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = cssPath;
+            document.head.appendChild(link);
+        }
+    }).catch(() => {});
+}

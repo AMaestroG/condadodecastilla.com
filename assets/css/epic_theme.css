@@ -33,6 +33,19 @@
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
 }
 
+@media (prefers-color-scheme: dark) {
+    :root:not(.light-mode) {
+        --epic-alabaster-bg: #1c2029;
+        --epic-alabaster-bg-rgb: 28, 32, 41;
+        --epic-alabaster-medium: #2a2f39;
+        --epic-alabaster-medium-rgb: 42, 47, 57;
+        --epic-text-color: #ffffff;
+        --epic-text-color-rgb: 255, 255, 255;
+        --epic-text-light: #f5f5f5;
+        --epic-text-light-rgb: 245, 245, 245;
+    }
+}
+
 /* --- Global Reset & Box Sizing --- */
 *,
 *::before,
