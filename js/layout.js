@@ -293,17 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// All individual page styles have been consolidated into epic_theme.css.
+// This function now intentionally left blank to avoid loading per-page files.
 function loadPageCss() {
-    let page = window.location.pathname.split('/').pop();
-    if (!page) { page = 'index'; }
-    page = page.split('.')[0];
-    const cssPath = `/assets/css/pages/${page}.css`;
-    fetch(cssPath, { method: 'HEAD' }).then(res => {
-        if (res.ok) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = cssPath;
-            document.head.appendChild(link);
-        }
-    }).catch(() => {});
+    // no-op
 }

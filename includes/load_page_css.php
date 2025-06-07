@@ -1,7 +1,5 @@
 <?php
-$cssFile = '/assets/css/pages/' . basename($_SERVER['SCRIPT_NAME'], '.php') . '.css';
-$root = dirname(__DIR__);
-if (file_exists($root . $cssFile)) {
-    echo "<link rel=\"stylesheet\" href=\"{$cssFile}\">\n";
-}
+// Legacy loader kept for backward compatibility.
+// All page-specific styles are now bundled into epic_theme.css,
+// so this script intentionally outputs nothing.
 ?>
