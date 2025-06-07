@@ -277,6 +277,30 @@ function translate_with_gemini(string $content_id, string $target_language, stri
             $outputText .= "<p><strong>Traduction Française Simulée :</strong> Ceci montre où le texte français généré par l'IA apparaîtrait. Le contenu original en espagnol commençait par : '<em>" . $original_snippet . "</em>'.</p>";
             $outputText .= "<p>Dans un système de production, le texte intégral serait traité par un modèle avancé de traduction automatique neuronale pour fournir une version française précise et nuancée.</p>";
             break;
+        case 'de-ai':
+            $outputText .= "<p><strong>Simulierte Deutsche Übersetzung:</strong> Hier würde der von KI generierte deutsche Text erscheinen. Der ursprüngliche spanische Inhalt begann mit: '<em>" . $original_snippet . "</em>'.</p>";
+            $outputText .= "<p>In einem Produktivsystem würde der vollständige Text von einem fortgeschrittenen neuronalen Übersetzungsmodell verarbeitet, um eine präzise und nuancierte deutsche Version bereitzustellen.</p>";
+            break;
+        case 'pt-ai':
+            $outputText .= "<p><strong>Tradução Simulada para Português:</strong> Aqui apareceria o texto em português gerado pela IA. O conteúdo original em espanhol começava assim: '<em>" . $original_snippet . "</em>'.</p>";
+            $outputText .= "<p>Em um sistema de produção, todo o texto seria processado por um modelo avançado de tradução automática para fornecer uma versão em português precisa e rica em nuances.</p>";
+            break;
+        case 'it-ai':
+            $outputText .= "<p><strong>Traduzione Italiana Simulata:</strong> Qui comparirebbe il testo italiano generato dall'IA. Il contenuto originale in spagnolo iniziava con: '<em>" . $original_snippet . "</em>'.</p>";
+            $outputText .= "<p>In un sistema di produzione, l'intero testo sarebbe elaborato da un avanzato modello di traduzione automatica neurale per fornire una versione italiana accurata e sfumata.</p>";
+            break;
+        case 'zh-ai':
+            $outputText .= "<p><strong>模拟中文翻译：</strong> 这里将显示由AI生成的中文文本。西班牙语原文的开头是: '<em>" . $original_snippet . "</em>'。</p>";
+            $outputText .= "<p>在生产环境中，完整文本会由先进的神经机器翻译模型处理，以提供准确而细致的中文版本。</p>";
+            break;
+        case 'ko-ai':
+            $outputText .= "<p><strong>AI가 생성한 한국어 번역 예시:</strong> 이곳에 한국어 번역 내용이 표시됩니다. 스페인어 원문은 다음과 같이 시작했습니다: '<em>" . $original_snippet . "</em>'.</p>";
+            $outputText .= "<p>실제 서비스에서는 전체 텍스트가 고급 신경망 번역 모델을 거쳐 정확하고 자연스러운 한국어로 제공될 것입니다.</p>";
+            break;
+        case 'hi-ai':
+            $outputText .= "<p><strong>हिंदी अनुवाद का डेमो:</strong> यहाँ AI द्वारा उत्पन्न हिंदी पाठ दिखाई देगा। मूल स्पेनिश सामग्री इस प्रकार शुरू हुई थी: '<em>" . $original_snippet . "</em>'।</p>";
+            $outputText .= "<p>उत्पादन प्रणाली में, पूर्ण पाठ को एक उन्नत न्यूरल मशीन अनुवाद मॉडल द्वारा संसाधित किया जाएगा ताकि सटीक और सहज हिंदी संस्करण प्रदान किया जा सके।</p>";
+            break;
         // No hay caso 'default' o 'es' aquí porque ya se manejó al inicio de la función.
     }
     $outputText .= "<p style='font-size:0.8em; color:#1976d2; margin-top:10px;'><em>(Esta es una simulación. La funcionalidad de traducción real con IA está pendiente de implementación).</em></p>";

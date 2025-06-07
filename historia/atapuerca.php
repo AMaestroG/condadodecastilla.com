@@ -39,6 +39,12 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                     <button class="lang-btn active" data-lang="es" title="Ver contenido en Español (original)">Español (Original)</button>
                     <button class="lang-btn" data-lang="en-ai" title="Simular traducción al Inglés por IA">Inglés (Traducción IA)</button>
                     <button class="lang-btn" data-lang="fr-ai" title="Simular traducción al Francés por IA">Francés (Traducción IA)</button>
+                    <button class="lang-btn" data-lang="de-ai" title="Simular traducción al Alemán por IA">Alemán (Traducción IA)</button>
+                    <button class="lang-btn" data-lang="pt-ai" title="Simular traducción al Portugués por IA">Portugués (Traducción IA)</button>
+                    <button class="lang-btn" data-lang="it-ai" title="Simular traducción al Italiano por IA">Italiano (Traducción IA)</button>
+                    <button class="lang-btn" data-lang="zh-ai" title="Simular traducción al Chino por IA">Chino (Traducción IA)</button>
+                    <button class="lang-btn" data-lang="ko-ai" title="Simular traducción al Coreano por IA">Coreano (Traducción IA)</button>
+                    <button class="lang-btn" data-lang="hi-ai" title="Simular traducción al Hindi por IA">Hindi (Traducción IA)</button>
                 </div>
                 <article class="content-article"> <!-- Using a generic class for content styling -->
                     <div id="textoPrincipalAtapuerca">
@@ -167,6 +173,12 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                 $original_text_snippet_for_demo = "Contenido original de la página de Atapuerca..."; // Un snippet muy corto o incluso vacío
                 $translation_placeholders['en-ai'] = translate_with_gemini('atapuerca_main_content', 'en-ai', $original_text_snippet_for_demo);
                 $translation_placeholders['fr-ai'] = translate_with_gemini('atapuerca_main_content', 'fr-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['de-ai'] = translate_with_gemini('atapuerca_main_content', 'de-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['pt-ai'] = translate_with_gemini('atapuerca_main_content', 'pt-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['it-ai'] = translate_with_gemini('atapuerca_main_content', 'it-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['zh-ai'] = translate_with_gemini('atapuerca_main_content', 'zh-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['ko-ai'] = translate_with_gemini('atapuerca_main_content', 'ko-ai', $original_text_snippet_for_demo);
+                $translation_placeholders['hi-ai'] = translate_with_gemini('atapuerca_main_content', 'hi-ai', $original_text_snippet_for_demo);
             }
         ?>
         const translations = <?php echo json_encode($translation_placeholders); ?>;

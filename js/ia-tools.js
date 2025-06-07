@@ -81,7 +81,7 @@ function handleSummary(output) {
 
 function handleTranslation(output) {
     const text = getMainText();
-    const target = prompt('Código de idioma destino (ej. en-ai, fr-ai):', 'en-ai');
+    const target = prompt('Código de idioma destino (ej. en-ai, fr-ai, de-ai, pt-ai, it-ai, zh-ai, ko-ai, hi-ai):', 'en-ai');
     if (!target) return;
     showOutput(output, '<p><em>Generando traducción...</em></p>');
     fetch('/ajax_actions/get_translation.php', {
