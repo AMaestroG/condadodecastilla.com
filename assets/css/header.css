@@ -1,3 +1,4 @@
-@import url('header/nav.css');
-@import url('header/ia-chat.css');
-@import url('header/topbar.css');
+@import url('header/layout.css');
+@import url('header/sidebar/menu.css');
+@import url('header/ia/chat.css');
+@import url('header/topbar/bar.css');

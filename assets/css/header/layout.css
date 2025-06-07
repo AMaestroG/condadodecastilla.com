@@ -1,0 +1,10 @@
+/* Layout styles for header container */
+#main-header {
+    position: relative;
+    z-index: 3000;
+}
+
+#main-header button {
+    z-index: 3001;
+}
+
