@@ -59,6 +59,11 @@ MUSEUM_3D.PlayerControls = (function() {
         // ^ This line should be called from museo-3d-main.js after scene is available.
 
         instructionsElement.addEventListener('click', function () {
+            if (!document.fullscreenElement && document.body.requestFullscreen) {
+                document.body.requestFullscreen().catch(function(err) {
+                    console.warn('Fullscreen request failed:', err);
+                });
+            }
             controlsFPS.lock();
         });
 
@@ -83,6 +88,11 @@ MUSEUM_3D.PlayerControls = (function() {
             if (crosshairElement) crosshairElement.style.display = 'none';
             document.removeEventListener('keydown', onKeyDown);
             document.removeEventListener('keyup', onKeyUp);
+            if (document.fullscreenElement && document.exitFullscreen) {
+                document.exitFullscreen().catch(function(err) {
+                    console.warn('Exiting fullscreen failed:', err);
+                });
+            }
             // Clear any interaction highlights when controls are unlocked
             if (MUSEUM_3D.ExhibitManager) {
                 MUSEUM_3D.ExhibitManager.clearFocus();
