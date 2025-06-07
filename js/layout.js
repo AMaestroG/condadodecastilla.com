@@ -100,7 +100,40 @@ function initializeIAChatSidebar() {
     const form = document.getElementById('ia-chat-form');
     const input = document.getElementById('ia-chat-input');
     const messages = document.getElementById('ia-chat-messages');
+    const responseBox = document.getElementById('ia-chat-response');
+    const CHAT_STORAGE_KEY = 'iaChatHistory';
+
+    function saveChatHistory() {
+        if (!messages) return;
+        const history = Array.from(messages.children).map(p => ({
+            role: p.dataset.role,
+            html: p.innerHTML
+        }));
+        localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(history));
+    }
+
+    function loadChatHistory() {
+        if (!messages) return;
+        const data = localStorage.getItem(CHAT_STORAGE_KEY);
+        if (!data) return;
+        try {
+            const history = JSON.parse(data);
+            history.forEach(m => {
+                const p = document.createElement('p');
+                p.className = `chat-${m.role} chat-message`;
+                p.dataset.role = m.role;
+                p.contentEditable = 'true';
+                p.innerHTML = m.html;
+                messages.appendChild(p);
+            });
+            messages.scrollTop = messages.scrollHeight;
+        } catch (e) {
+            console.error('Failed to load chat history', e);
+        }
+    }
     const handle = sidebar ? sidebar.querySelector('.drag-handle') : null;
+
+    loadChatHistory();
 
     if (toggle && sidebar) {
         toggle.addEventListener('click', () => {
@@ -156,18 +189,30 @@ function initializeIAChatSidebar() {
                 if (data.success && data.reply) {
                     typingEl.className = 'chat-ai chat-message';
                     typingEl.innerHTML = data.reply;
+                    if (responseBox) {
+                        responseBox.innerHTML = data.reply;
+                    }
                 } else if (data.error) {
                     typingEl.className = 'chat-error chat-message';
                     typingEl.innerHTML = data.error;
+                    if (responseBox) {
+                        responseBox.innerHTML = data.error;
+                    }
                 } else {
                     typingEl.className = 'chat-error chat-message';
                     typingEl.innerHTML = 'Error inesperado';
+                    if (responseBox) {
+                        responseBox.innerHTML = 'Error inesperado';
+                    }
                 }
                 messages.scrollTop = messages.scrollHeight;
             })
             .catch(err => {
                 typingEl.className = 'chat-error chat-message';
                 typingEl.textContent = err.message;
+                if (responseBox) {
+                    responseBox.textContent = err.message;
+                }
             });
         });
     }
@@ -175,6 +220,7 @@ function initializeIAChatSidebar() {
     function appendMessage(role, text) {
         const p = document.createElement('p');
         p.className = `chat-${role} chat-message`;
+        p.dataset.role = role;
         p.contentEditable = 'true';
         if (role === 'user') {
             p.textContent = text;
@@ -183,6 +229,7 @@ function initializeIAChatSidebar() {
         }
         messages.appendChild(p);
         messages.scrollTop = messages.scrollHeight;
+        saveChatHistory();
         return p;
     }
 }
