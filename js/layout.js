@@ -58,6 +58,25 @@ function initializeSidebarNavigation() {
                 // sidebarToggle.textContent = '☰'; // Example: Change back to burger
             }
         });
+
+        const links = sidebar.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && sidebar.classList.contains('sidebar-visible')) {
+                    sidebar.classList.remove('sidebar-visible');
+                    body.classList.remove('sidebar-active');
+                    sidebarToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && sidebar.classList.contains('sidebar-visible')) {
+                sidebar.classList.remove('sidebar-visible');
+                body.classList.remove('sidebar-active');
+                sidebarToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
     } else {
         console.error("Sidebar toggle, sidebar element, or body not found.");
     }
