@@ -1,0 +1,14 @@
+/* Responsive adjustments for header elements */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 80vw;
+        left: -80vw;
+    }
+    body.sidebar-active #sidebar-toggle {
+        left: calc(80vw + 20px);
+    }
+    #ia-chat-sidebar {
+        width: 90vw;
+        right: -90vw;
+    }
+}

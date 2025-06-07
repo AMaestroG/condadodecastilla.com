@@ -43,19 +43,46 @@ document.addEventListener("DOMContentLoaded", function() {
 function initializeSidebarNavigation() {
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('screen-overlay');
     const body = document.body;
 
     if (sidebarToggle && sidebar && body) { // Added body check
         sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-visible');
-            body.classList.toggle('sidebar-active'); // For main content shift
-            // Optional: Change toggle button text/icon and ARIA attribute
-            if (sidebar.classList.contains('sidebar-visible')) {
-                sidebarToggle.setAttribute('aria-expanded', 'true');
-                // sidebarToggle.textContent = '✕'; // Example: Change to X
-            } else {
+            const visible = sidebar.classList.toggle('sidebar-visible');
+            body.classList.toggle('sidebar-active', visible);
+            body.classList.toggle('overlay-active', visible || body.classList.contains('ia-chat-active'));
+            sidebarToggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
+        });
+
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                if (sidebar.classList.contains('sidebar-visible')) {
+                    sidebar.classList.remove('sidebar-visible');
+                    body.classList.remove('sidebar-active');
+                    sidebarToggle.setAttribute('aria-expanded', 'false');
+                }
+                body.classList.remove('overlay-active');
+            });
+        }
+
+        const links = sidebar.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && sidebar.classList.contains('sidebar-visible')) {
+                    sidebar.classList.remove('sidebar-visible');
+                    body.classList.remove('sidebar-active');
+                    sidebarToggle.setAttribute('aria-expanded', 'false');
+                    body.classList.remove('overlay-active');
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && sidebar.classList.contains('sidebar-visible')) {
+                sidebar.classList.remove('sidebar-visible');
+                body.classList.remove('sidebar-active');
                 sidebarToggle.setAttribute('aria-expanded', 'false');
-                // sidebarToggle.textContent = '☰'; // Example: Change back to burger
+                body.classList.remove('overlay-active');
             }
         });
     } else {
@@ -99,6 +126,7 @@ function loadIAToolsScript() {
 function initializeIAChatSidebar() {
     const toggle = document.getElementById('ia-chat-toggle');
     const sidebar = document.getElementById('ia-chat-sidebar');
+    const overlay = document.getElementById('screen-overlay');
     const form = document.getElementById('ia-chat-form');
     const input = document.getElementById('ia-chat-input');
     const messages = document.getElementById('ia-chat-messages');
@@ -139,15 +167,29 @@ function initializeIAChatSidebar() {
 
     if (toggle && sidebar) {
         toggle.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-visible');
-            document.body.classList.toggle('ia-chat-active');
+            const visible = sidebar.classList.toggle('sidebar-visible');
+            document.body.classList.toggle('ia-chat-active', visible);
+            document.body.classList.toggle('overlay-active', visible || document.body.classList.contains('sidebar-active'));
+            toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
         });
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && sidebar.classList.contains('sidebar-visible')) {
                 sidebar.classList.remove('sidebar-visible');
                 document.body.classList.remove('ia-chat-active');
+                document.body.classList.remove('overlay-active');
+                toggle.setAttribute('aria-expanded', 'false');
             }
         });
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                if (sidebar.classList.contains('sidebar-visible')) {
+                    sidebar.classList.remove('sidebar-visible');
+                    document.body.classList.remove('ia-chat-active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+                document.body.classList.remove('overlay-active');
+            });
+        }
     }
 
     if (handle && sidebar) {
