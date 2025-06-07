@@ -1,0 +1,60 @@
+/* Theme Toggle Button */
+#theme-toggle {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--epic-alabaster-bg);
+    border: 2px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 10px;
+    cursor: pointer;
+    z-index: 3001;
+    transition: background-color var(--global-transition-speed) ease,
+                color var(--global-transition-speed) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+}
+
+#theme-toggle i {
+    color: var(--epic-gold-main);
+    font-size: 1.2em;
+    transition: transform var(--global-transition-speed) ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--epic-gold-main);
+}
+
+#theme-toggle:hover i {
+    color: var(--epic-purple-emperor);
+    transform: rotate(20deg);
+}
+/* Language selection bar */
+.language-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--epic-alabaster-medium);
+    padding: 2px 8px;
+    text-align: right;
+    z-index: 3000;
+    font-size: 1.2em;
+}
+
+.language-bar .lang-flag {
+    margin-left: 8px;
+    text-decoration: none;
+}
+
+/* Hide Google translate banner */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0 !important;
+}
