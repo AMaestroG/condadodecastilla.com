@@ -175,6 +175,7 @@ function initializeIAChatSidebar() {
     function appendMessage(role, text) {
         const p = document.createElement('p');
         p.className = `chat-${role} chat-message`;
+        p.contentEditable = 'true';
         if (role === 'user') {
             p.textContent = text;
         } else {
