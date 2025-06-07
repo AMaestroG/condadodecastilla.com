@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     loadPageCss();
+    loadHeaderCss();
     // Always initialize sidebar navigation. For PHP pages, elements are already there.
     // For static HTML pages, this will run, and then the header fetch below will populate the necessary elements.
     // The initializeSidebarNavigation function itself checks for element existence.
@@ -140,6 +141,12 @@ function initializeIAChatSidebar() {
         toggle.addEventListener('click', () => {
             sidebar.classList.toggle('sidebar-visible');
             document.body.classList.toggle('ia-chat-active');
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebar.classList.contains('sidebar-visible')) {
+                sidebar.classList.remove('sidebar-visible');
+                document.body.classList.remove('ia-chat-active');
+            }
         });
     }
 
@@ -306,4 +313,14 @@ function loadPageCss() {
             document.head.appendChild(link);
         }
     }).catch(() => {});
+}
+
+function loadHeaderCss() {
+    if (!document.getElementById('header-css')) {
+        const link = document.createElement('link');
+        link.id = 'header-css';
+        link.rel = 'stylesheet';
+        link.href = '/assets/css/header.css';
+        document.head.appendChild(link);
+    }
 }
