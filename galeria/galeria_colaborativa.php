@@ -51,6 +51,7 @@ if (is_dir($gallery_dir)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="/assets/css/epic_theme.css">
+    <?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
 </head>
 <body>
     <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->

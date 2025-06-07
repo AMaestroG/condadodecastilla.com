@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
+    loadPageCss();
+    loadCommonCss();
     // Always initialize sidebar navigation. For PHP pages, elements are already there.
     // For static HTML pages, this will run, and then the header fetch below will populate the necessary elements.
     // The initializeSidebarNavigation function itself checks for element existence.
@@ -291,3 +293,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function loadPageCss() {
+    let path = window.location.pathname;
+    if (path.endsWith('/')) path += 'index.php';
+    const segments = path.split('/').filter(Boolean);
+    let base = segments.pop() || 'index.php';
+    base = base.replace('.php', '');
+    const dir = segments.pop();
+
+    let cssPath;
+    if (base === 'index' && dir) {
+        cssPath = `/assets/css/pages/${dir}.css`;
+    } else {
+        cssPath = `/assets/css/pages/${base}.css`;
+    }
+
+    fetch(cssPath, { method: 'HEAD' }).then(res => {
+        if (res.ok) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = cssPath;
+            document.head.appendChild(link);
+        }
+    }).catch(() => {});
+}
+
+function loadCommonCss() {
+    const files = [
+        '/assets/css/components/header.css',
+        '/assets/css/components/footer.css'
+    ];
+    files.forEach(path => {
+        fetch(path, { method: 'HEAD' }).then(res => {
+            if (res.ok) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = path;
+                document.head.appendChild(link);
+            }
+        }).catch(() => {});
+    });
+}
