@@ -128,3 +128,13 @@ Ejemplo de creación del directorio en Linux:
 mkdir -p uploads_storage/museo_piezas
 chmod 775 uploads_storage/museo_piezas
 ```
+
+## Agente diario
+
+Se incluye el script `scripts/daily_agent.py` que ejecuta tareas de mantenimiento automáticas:
+
+- Generación del `sitemap.xml`.
+- Comprobación de enlaces internos.
+- Opcionalmente, verificación de la base de datos y una solicitud de prueba a la API de Gemini.
+
+Puede programarse con `cron` o utilizar el *workflow* de GitHub en `.github/workflows/daily_agent.yml`, el cual se ejecuta cada día de forma automática.
