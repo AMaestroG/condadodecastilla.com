@@ -16,9 +16,10 @@
     --epic-text-light: #EAE0C8;
     --epic-text-light-rgb: 234, 224, 208;
 
-    --epic-transparent-overlay-dark: rgba(var(--epic-purple-emperor-rgb), 0.65);
-    --epic-transparent-overlay-medium: rgba(var(--epic-purple-emperor-rgb), 0.45);
-    --epic-transparent-overlay-light: rgba(var(--epic-alabaster-medium-rgb), 0.85);
+    /* Use alabaster tones for all overlay backgrounds */
+    --epic-transparent-overlay-dark: rgba(var(--epic-alabaster-bg-rgb), 0.95);
+    --epic-transparent-overlay-medium: rgba(var(--epic-alabaster-bg-rgb), 0.9);
+    --epic-transparent-overlay-light: rgba(var(--epic-alabaster-bg-rgb), 0.85);
     --epic-transparent-black-overlay: rgba(10, 10, 10, 0.75);
 
     --font-primary: 'Lora', serif;
@@ -212,13 +213,13 @@ th {
     left: -280px; /* Initial hidden state */
     width: 280px;
     height: 100vh;
-    background-color: var(--epic-transparent-overlay-dark); /* Purple with transparency */
+    background-color: var(--epic-alabaster-bg);
     backdrop-filter: blur(5px); /* Optional: frosted glass effect */
     padding: 25px 15px; /* Refined padding */
     box-shadow: 3px 0 15px rgba(var(--epic-text-color-rgb), 0.25);
     transition: left var(--global-transition-speed) ease-in-out;
     overflow-y: auto;
-    z-index: 1001; /* High z-index */
+    z-index: 3000;
     display: flex;
     flex-direction: column;
     border-right: 2px solid var(--epic-gold-secondary);
@@ -233,12 +234,12 @@ th {
     top: 15px;
     left: 15px;
     /* font-size: 1.8em; Removed as icon is no longer text */
-    background-color: var(--epic-purple-emperor);
+    background-color: var(--epic-alabaster-bg);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     padding: 10px; /* Adjusted padding for icon */
     cursor: pointer;
-    z-index: 1002; /* Above sidebar */
+    z-index: 3001;
     transition: left var(--global-transition-speed) ease-in-out, background-color var(--global-transition-speed) ease, color var(--global-transition-speed) ease;
     display: flex; /* For centering bars if needed, or for layout of bars */
     flex-direction: column;
@@ -253,12 +254,12 @@ th {
     top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--epic-purple-emperor);
+    background-color: var(--epic-alabaster-bg);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     padding: 10px;
     cursor: pointer;
-    z-index: 1002;
+    z-index: 3001;
     transition: background-color var(--global-transition-speed) ease,
                 color var(--global-transition-speed) ease;
     display: flex;
@@ -291,13 +292,13 @@ th {
     left: auto;
     width: clamp(280px, 70vw, 400px);
     height: 100vh;
-    background-color: var(--epic-transparent-overlay-dark);
+    background-color: var(--epic-alabaster-bg);
     backdrop-filter: blur(5px);
     padding: 20px;
     box-shadow: 0 0 15px rgba(var(--epic-text-color-rgb), 0.25);
     transition: right var(--global-transition-speed) ease-in-out;
     overflow: auto;
-    z-index: 1001;
+    z-index: 3000;
     display: flex;
     flex-direction: column;
     border: 2px solid var(--epic-gold-secondary);
@@ -320,12 +321,12 @@ th {
     position: fixed;
     top: 15px;
     right: 15px;
-    background-color: var(--epic-purple-emperor);
+    background-color: var(--epic-alabaster-bg);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     padding: 10px;
     cursor: pointer;
-    z-index: 1002;
+    z-index: 3001;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -423,28 +424,44 @@ body.ia-chat-active #ia-chat-toggle {
     background-color: var(--epic-gold-secondary);
 }
 
+
 .chat-user {
-    color: var(--epic-gold-main);
-    background-color: rgba(var(--epic-gold-secondary-rgb), 0.25);
+    color: var(--epic-text-color);
+    background-color: var(--epic-alabaster-bg);
     align-self: flex-end;
 }
 
 .chat-ai {
-    color: var(--epic-alabaster-bg);
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.3);
+    color: var(--epic-text-color);
+    background-color: var(--epic-alabaster-bg);
     align-self: flex-start;
 }
 
 .chat-typing {
     font-style: italic;
-    color: var(--epic-alabaster-bg);
-    background-color: rgba(var(--epic-gold-main-rgb), 0.15);
+    color: var(--epic-text-color);
+    background-color: var(--epic-alabaster-bg);
     align-self: flex-start;
 }
 
 .chat-error {
     color: red;
     align-self: flex-start;
+}
+
+/* Container to display IA tool responses inside the chat sidebar */
+#ia-tools-response {
+    background-color: var(--epic-alabaster-bg);
+    border: 1px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+#ia-tools-response.hidden {
+    display: none;
 }
 
 #sidebar-toggle .bar {
