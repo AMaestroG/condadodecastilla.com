@@ -1,0 +1,30 @@
+/* Styles specific to the shared header and sidebars */
+
+#sidebar,
+#ia-chat-sidebar {
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.95);
+    box-shadow: 0 0 20px rgba(var(--epic-gold-main-rgb), 0.2);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode #sidebar,
+body.dark-mode #ia-chat-sidebar {
+    background-color: rgba(var(--epic-alabaster-medium-rgb), 0.9);
+}
+
+#sidebar-toggle,
+#theme-toggle,
+#ia-chat-toggle {
+    backdrop-filter: blur(4px);
+    background-color: rgba(var(--epic-alabaster-medium-rgb), 0.8);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#sidebar-toggle:hover,
+#theme-toggle:hover,
+#ia-chat-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+}

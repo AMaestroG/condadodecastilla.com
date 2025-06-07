@@ -1,0 +1,28 @@
+/* Dedicated footer styles with subtle animations */
+
+.footer {
+    background: linear-gradient(180deg, var(--epic-purple-emperor), var(--epic-gold-secondary));
+    color: var(--epic-text-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(circle at center, rgba(var(--epic-gold-main-rgb),0.2), transparent 70%);
+    animation: footerGlow 8s infinite linear;
+}
+
+@keyframes footerGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+body.dark-mode .footer {
+    background: linear-gradient(180deg, var(--epic-purple-emperor), var(--epic-alabaster-medium));
+}
