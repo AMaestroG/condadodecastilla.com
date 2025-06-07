@@ -1,0 +1,189 @@
+/* --- IA Chat Sidebar and Toggle --- */
+#ia-chat-sidebar {
+    position: fixed;
+    top: 0;
+    right: -25vw; /* Initial hidden state, JS will change to 0 */
+    left: auto;
+    width: clamp(280px, 70vw, 400px);
+    height: 100vh;
+    background-color: var(--epic-alabaster-bg);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(var(--epic-text-color-rgb), 0.25);
+    transition: right var(--global-transition-speed) ease-in-out;
+    overflow: auto;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--epic-gold-secondary);
+    resize: both;
+    opacity: 1;
+    pointer-events: none;
+}
+
+#ia-chat-sidebar.sidebar-visible {
+    right: 0;
+    pointer-events: auto;
+}
+
+#ia-chat-sidebar.dragging {
+    opacity: 0.9;
+    cursor: move;
+}
+
+#ia-chat-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background-color: var(--epic-alabaster-bg);
+    border: 2px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 10px;
+    cursor: pointer;
+    z-index: 3001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    transition: right var(--global-transition-speed) ease-in-out,
+                background-color var(--global-transition-speed) ease;
+}
+
+#ia-chat-toggle i {
+    color: var(--epic-gold-main);
+}
+
+#ia-chat-toggle:hover {
+    background-color: var(--epic-gold-main);
+}
+
+#ia-chat-toggle:hover i {
+    color: var(--epic-purple-emperor);
+}
+
+body.dark-mode #ia-chat-toggle i {
+    color: var(--epic-icon-color);
+}
+
+body.dark-mode #ia-chat-toggle:hover i {
+    color: var(--epic-icon-hover);
+}
+
+body.ia-chat-active #ia-chat-toggle {
+    /* Keep toggle in place when chat is active */
+    right: 15px;
+}
+
+.ia-chat-header {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    cursor: move;
+}
+
+#ia-chat-sidebar .ia-tools-container {
+    position: static;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#ia-chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    text-align: left;
+    margin-bottom: 10px;
+    color: var(--epic-text-light);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-message {
+    padding: 8px 12px;
+    border-radius: var(--global-border-radius);
+    box-shadow: var(--global-box-shadow-light);
+    margin: 2px 0;
+    line-height: 1.4;
+}
+
+#ia-chat-form {
+    display: flex;
+    gap: 6px;
+}
+
+#ia-chat-input {
+    flex-grow: 1;
+    padding: 6px;
+    border-radius: var(--global-border-radius);
+    border: 1px solid var(--epic-gold-secondary);
+    resize: none;
+    overflow-y: auto; /* Changed from hidden */
+    min-height: calc(1.4em + 12px + 2px); /* Added */
+    max-height: 100px; /* Added */
+}
+
+#ia-chat-response {
+    border: 1px solid var(--epic-gold-secondary);
+    background-color: var(--epic-alabaster-bg);
+    border-radius: var(--global-border-radius);
+    padding: 8px;
+    margin: 6px 0;
+    min-height: 50px;
+    overflow-y: auto;
+}
+
+#ia-chat-form button {
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    border: 1px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#ia-chat-form button:hover {
+    background-color: var(--epic-gold-secondary);
+}
+
+
+.chat-user {
+    color: var(--epic-text-color);
+    background-color: var(--epic-alabaster-bg);
+    align-self: flex-end;
+}
+
+.chat-ai {
+    color: var(--epic-text-color);
+    background-color: var(--epic-alabaster-bg);
+    align-self: flex-start;
+}
+
+.chat-typing {
+    font-style: italic;
+    color: var(--epic-text-color);
+    background-color: var(--epic-alabaster-bg);
+    align-self: flex-start;
+}
+
+.chat-error {
+    color: red;
+    align-self: flex-start;
+}
+
+/* Container to display IA tool responses inside the chat sidebar */
+#ia-tools-response {
+    background-color: var(--epic-alabaster-bg);
+    border: 1px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+#ia-tools-response.hidden {
+    display: none;
+}
