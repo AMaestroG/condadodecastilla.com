@@ -411,6 +411,16 @@ body.ia-chat-active #ia-chat-toggle {
     max-height: 100px; /* Added */
 }
 
+#ia-chat-response {
+    border: 1px solid var(--epic-gold-secondary);
+    background-color: var(--epic-alabaster-bg);
+    border-radius: var(--global-border-radius);
+    padding: 8px;
+    margin: 6px 0;
+    min-height: 50px;
+    overflow-y: auto;
+}
+
 #ia-chat-form button {
     background-color: var(--epic-gold-main);
     color: var(--epic-purple-emperor);
