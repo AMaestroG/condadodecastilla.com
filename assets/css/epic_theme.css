@@ -77,6 +77,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     animation: fadeInPage 0.7s ease-out forwards;
+    padding-top: 30px;
 }
 
 
@@ -2889,6 +2890,7 @@ body.dark-mode {
     background-image: var(--alabaster-background-image);
     background-color: var(--epic-alabaster-bg);
     filter: grayscale(90%) brightness(80%);
+    padding-top: 30px;
 }
 body.dark-mode p {
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
@@ -2977,4 +2979,30 @@ body.dark-mode #ia-tools-output .ia-output-close {
 
 body.dark-mode #ia-tools-output .ia-output-close:hover {
     color: var(--epic-icon-hover);
+}
+
+/* Language selection bar */
+.language-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--epic-alabaster-medium);
+    padding: 2px 8px;
+    text-align: right;
+    z-index: 3000;
+    font-size: 1.2em;
+}
+
+.language-bar .lang-flag {
+    margin-left: 8px;
+    text-decoration: none;
+}
+
+/* Hide Google translate banner */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0 !important;
 }

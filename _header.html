@@ -1,3 +1,8 @@
+<div class="language-bar">
+    <a href="?lang=es" class="lang-flag" title="Español">🇪🇸</a>
+    <a href="?lang=en" class="lang-flag" title="English">🇬🇧</a>
+</div>
+<div id="google_translate_element" style="display:none;"></div>
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Menu" aria-expanded="false">
     <span class="bar"></span>
     <span class="bar"></span>
@@ -36,11 +41,11 @@
         <li><a href="https://chat.whatsapp.com/JWJ6mWXPuekIBZ8HJSSsZx" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
     </ul>
 </div>
-<div id="ia-chat-sidebar" class="ia-chat-sidebar">
-    <div class="ia-chat-header drag-handle">
-        <form id="ia-chat-form" class="ia-chat-form">
-            <textarea id="ia-chat-input" rows="1" placeholder="Pregunta sobre historia..." required></textarea>
-            <button type="submit">Enviar</button>
+    <div id="ia-chat-sidebar" class="ia-chat-sidebar">
+        <div class="ia-chat-header drag-handle">
+            <form id="ia-chat-form" class="ia-chat-form">
+                <textarea id="ia-chat-input" rows="1" placeholder="Pregunta sobre historia..." required></textarea>
+                <button type="submit">Enviar</button>
         </form>
         <div id="ia-chat-response" class="ia-chat-response" contenteditable="true"></div>
     </div>
@@ -53,3 +58,4 @@
         <button id="ia-websearch-btn" type="button">Buscar en la Web</button>
     </div>
 </div>
+<script src="/js/lang-bar.js"></script>
