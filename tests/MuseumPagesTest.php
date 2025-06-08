@@ -17,9 +17,9 @@ class MuseumPagesTest extends TestCase {
 
     public function pageProvider(): array {
         return [
-            [__DIR__ . '/../subir_pieza.php'],
-            [__DIR__ . '/../galeria.php'],
-            [__DIR__ . '/../museo_3d.php'],
+            [__DIR__ . '/../museo/subir_pieza.php'],
+            [__DIR__ . '/../museo/galeria.php'],
+            [__DIR__ . '/../museo/museo_3d.php'],
         ];
     }
 
