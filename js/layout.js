@@ -21,6 +21,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 loadIAToolsScript();
                 // Ensure chat sidebar is initialized when header is loaded
                 initializeIAChatSidebar();
+                if (typeof loadHeaderFragments === 'function') {
+                    loadHeaderFragments();
+                } else {
+                    const script = document.createElement('script');
+                    script.src = '/js/load_header_parts.js';
+                    script.onload = () => {
+                        if (typeof loadHeaderFragments === 'function') {
+                            loadHeaderFragments();
+                        }
+                    };
+                    document.body.appendChild(script);
+                }
             })
             .catch(error => console.error('Error fetching _header.html:', error));
     }
