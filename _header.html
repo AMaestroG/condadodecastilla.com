@@ -1,74 +1,8 @@
 <header id="main-header">
-    <div class="language-bar">
-        <a href="?lang=es" class="lang-flag" title="Español">🇪🇸</a>
-        <a href="?lang=en" class="lang-flag" title="English">🇬🇧</a>
-        <a href="?lang=fr" class="lang-flag" title="Français">🇫🇷</a>
-        <a href="?lang=de" class="lang-flag" title="Deutsch">🇩🇪</a>
-        <a href="?lang=it" class="lang-flag" title="Italiano">🇮🇹</a>
-    <a href="?lang=pt" class="lang-flag" title="Português">🇵🇹</a>
-    <a href="?lang=ru" class="lang-flag" title="Русский">🇷🇺</a>
-    <a href="?lang=zh-CN" class="lang-flag" title="中文">🇨🇳</a>
-    <a href="?lang=ja" class="lang-flag" title="日本語">🇯🇵</a>
-    <a href="?lang=ko" class="lang-flag" title="한국어">🇰🇷</a>
-    <a href="?lang=ar" class="lang-flag" title="العربية">🇸🇦</a>
-    <a href="?lang=hi" class="lang-flag" title="हिन्दी">🇮🇳</a>
-</div>
-    </div>
-    <div id="google_translate_element" style="display:none;"></div>
-    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-</button>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-        <i class="fas fa-moon"></i>
-</button>
-    <button id="ia-chat-toggle" class="ia-chat-toggle" aria-label="Abrir chat IA">
-        <i class="fas fa-comments"></i>
-</button>
-    <nav id="sidebar" class="sidebar" role="navigation">
-        <a href="/index.php" class="logo-link">
-            <img src="/assets/img/AlfozCerasioLantaron.jpg" alt="Logo Alfoz de Cerasio y Lantarón" class="logo-image">
-        </a>
-        <ul class="nav-links">
-            <li><a href="/index.php" class="active-link">Inicio</a></li>
-        <li><a href="/historia/historia.html">Nuestra Historia</a></li>
-        <li><a href="/historia_cerezo/index.html">Historia de Cerezo</a></li>
-        <li><a href="/alfoz/alfoz.html">El Alfoz</a></li>
-        <li><a href="/lugares/lugares.html">Lugares Emblemáticos</a></li>
-        <li><a href="/camino_santiago/camino_santiago.html">Camino de Santiago</a></li>
-        <li><a href="/museo/galeria.php">Museo Colaborativo</a></li>
-        <li><a href="/museo/museo_3d.php">Museo 3D</a></li>
-        <li><a href="/museo/subir_pieza.php">Subir Pieza</a></li>
-        <li><a href="/galeria/galeria_colaborativa.php">Galería Colaborativa</a></li>
-        <li><a href="/tienda/index.php">Tienda</a></li>
-        <li><a href="/visitas/visitas.html">Planifica Tu Visita</a></li>
-        <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
-        <li><a href="/personajes/indice_personajes.html">Personajes</a></li>
-        <li><a href="/empresa/index.php">Gestión de Yacimientos</a></li>
-        <li><a href="/foro/index.html">Foro</a></li>
-        <li><a href="/contacto/contacto.html">Contacto</a></li>
-        <li><a href="/dashboard/login.php">Admin</a></li>
-        <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li>
-        <li><a href="https://chat.whatsapp.com/JWJ6mWXPuekIBZ8HJSSsZx" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-        </ul>
-    </nav>
+    <div id="header-language-bar-placeholder"></div>
+    <div id="header-toggles-placeholder"></div>
+    <div id="header-navigation-placeholder"></div>
 </header>
-<div id="ia-chat-sidebar" class="ia-chat-sidebar">
-        <div class="ia-chat-header drag-handle">
-            <form id="ia-chat-form" class="ia-chat-form">
-                <textarea id="ia-chat-input" rows="1" placeholder="Pregunta sobre historia..." required></textarea>
-                <button type="submit">Enviar</button>
-        </form>
-        <div id="ia-chat-response" class="ia-chat-response" contenteditable="true"></div>
-    </div>
-    <div id="ia-chat-messages" class="ia-chat-messages"></div>
-    <div id="ia-tools-response" class="ia-tools-response hidden"></div>
-    <div id="ia-tools-menu" class="ia-tools-container">
-        <button id="ia-summary-btn" type="button">Resumen IA</button>
-        <button id="ia-translate-btn" type="button">Traducción IA</button>
-        <button id="ia-research-btn" type="button">Investigación IA</button>
-        <button id="ia-websearch-btn" type="button">Buscar en la Web</button>
-    </div>
-</div>
+<div id="header-ia-chat-placeholder"></div>
+<script src="/js/load_header_parts.js"></script>
 <script src="/js/lang-bar.js"></script>
