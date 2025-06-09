@@ -54,6 +54,8 @@ function initializeSidebarNavigation() {
             const opening = !sidebar.classList.contains('sidebar-visible');
             sidebar.classList.toggle('sidebar-visible');
             body.classList.toggle('sidebar-active'); // For main content shift
+            const iaToggle = document.getElementById('ia-chat-toggle');
+            if (iaToggle) iaToggle.click();
             if (window.gsap) {
                 if (opening) {
                     gsap.fromTo(sidebar, { x: '-100%' }, { x: '0%', duration: 0.35, ease: 'power2.out', clearProps: 'transform' });
