@@ -72,20 +72,29 @@ MUSEUM_3D.SceneManager = (function() {
         scene.add(mainRoomLight);
         scene.add(mainRoomLight.target);
 
-        // TODO: These light positions should be updated if room positions change via Layout module
-        const corridorAPosXCenter = mainRoom.x + mainRoom.width / 2 + corridorA.depth / 2;
         corridorLight = new THREE.PointLight(MUSEUM_3D.Utils.THEME_COLORS.goldMain, 0.6, corridorA.depth * 1.1, 1.5);
-        corridorLight.position.set(corridorAPosXCenter, mainRoom.y + corridorA.height * 0.8, mainRoom.z);
         corridorLight.castShadow = false; // Point lights can be expensive with shadows
         scene.add(corridorLight);
 
-        const room2PosXCenter = mainRoom.x + mainRoom.width / 2 + corridorA.depth + MUSEUM_3D.Utils.WALL_THICKNESS + room2.width / 2;
         room2Light = new THREE.SpotLight(0xfff0e0, 0.5, room2.width * 1.8, Math.PI / 3.8, 0.2, 1.0);
-        room2Light.position.set(room2PosXCenter, mainRoom.y + room2.height * 0.95, mainRoom.z);
-        room2Light.target.position.set(room2PosXCenter, mainRoom.y, mainRoom.z);
         room2Light.castShadow = false; // Spotlights can also be expensive
         scene.add(room2Light);
         scene.add(room2Light.target);
+
+        updateLayoutDependentLights();
+    }
+
+    function updateLayoutDependentLights() {
+        if (!corridorLight || !room2Light) return;
+
+        const { mainRoom, corridorA, room2 } = MUSEUM_3D.Config;
+
+        const corridorAPosXCenter = mainRoom.x + mainRoom.width / 2 + corridorA.depth / 2;
+        corridorLight.position.set(corridorAPosXCenter, mainRoom.y + corridorA.height * 0.8, mainRoom.z);
+
+        const room2PosXCenter = mainRoom.x + mainRoom.width / 2 + corridorA.depth + MUSEUM_3D.Utils.WALL_THICKNESS + room2.width / 2;
+        room2Light.position.set(room2PosXCenter, mainRoom.y + room2.height * 0.95, mainRoom.z);
+        room2Light.target.position.set(room2PosXCenter, mainRoom.y, mainRoom.z);
     }
 
     function initPostprocessing() {
@@ -172,7 +181,8 @@ MUSEUM_3D.SceneManager = (function() {
         getScene: () => scene,
         getCamera: () => camera,
         getRenderer: () => renderer,
-        getDomElement: () => renderer ? renderer.domElement : null
+        getDomElement: () => renderer ? renderer.domElement : null,
+        updateLayoutDependentLights
         // No need to expose animate directly if startAnimationLoop is used
     };
 })();
