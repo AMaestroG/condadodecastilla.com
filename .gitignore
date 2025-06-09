@@ -18,3 +18,13 @@ Thumbs.db
 vendor/
 !assets/vendor/
 .phpunit.result.cache
+
+# Uploaded files
+uploads/**
+!uploads/**/
+!uploads/.gitkeep
+!uploads/**/.gitkeep
+uploads_storage/**
+!uploads_storage/**/
+!uploads_storage/.gitkeep
+!uploads_storage/**/.gitkeep
