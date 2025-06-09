@@ -1,0 +1,37 @@
+:root {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --linterna-radio: 220px;
+    --linterna-color-centro: rgba(190, 210, 255, 0.35);
+    --linterna-color-medio: rgba(170, 190, 235, 0.15);
+    --linterna-color-borde: rgba(160, 180, 220, 0.02);
+    --linterna-opacity: 0;
+}
+
+#linterna-condado {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    mix-blend-mode: lighten;
+    background-image:
+        radial-gradient(
+            circle var(--linterna-radio) at var(--mouse-x) var(--mouse-y),
+            var(--linterna-color-centro) 0%,
+            var(--linterna-color-medio) 35%,
+            var(--linterna-color-borde) 65%,
+            transparent 75%
+        ),
+        url('/assets/img/alabastro.jpg');
+    background-size: var(--linterna-radio) var(--linterna-radio), cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: screen;
+    filter: grayscale(100%);
+    opacity: var(--linterna-opacity);
+    transition: opacity 0.4s ease-out;
+}
+
