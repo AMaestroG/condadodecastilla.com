@@ -182,6 +182,7 @@ function initializeIAChatSidebar() {
         if (sidebar && sidebar.classList.contains('sidebar-visible')) {
             sidebar.classList.remove('sidebar-visible');
             document.body.classList.remove('ia-chat-active');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
         }
     }
 
@@ -223,6 +224,7 @@ function initializeIAChatSidebar() {
         const toggleSidebar = () => {
             const visible = sidebar.classList.toggle('sidebar-visible');
             document.body.classList.toggle('ia-chat-active', visible);
+            toggle.setAttribute('aria-expanded', visible);
             if (visible) startAutoHide();
         };
         toggle.addEventListener('click', toggleSidebar);
