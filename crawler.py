@@ -1,8 +1,10 @@
-import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
 import uuid
 from datetime import datetime
+from urllib.parse import urljoin, urlparse
+
+import requests
+from bs4 import BeautifulSoup
+
 
 class WebCrawler:
     def __init__(self, user_agent="KnowledgeGraphBot/0.1"):
@@ -10,7 +12,7 @@ class WebCrawler:
         Initializes a requests session with a user agent.
         """
         self.session = requests.Session()
-        self.session.headers.update({'User-Agent': user_agent})
+        self.session.headers.update({"User-Agent": user_agent})
         # Future: Add more sophisticated session configuration (e.g., retries, proxies)
 
     def fetch_page(self, url: str) -> tuple[str | None, str | None]:
@@ -50,7 +52,9 @@ class WebCrawler:
             return dummy_html, None
         return None, "Page not found or not implemented for this URL."
 
-    def parse_html(self, html_content: str, base_url: str) -> tuple[str | None, list[dict]]:
+    def parse_html(
+        self, html_content: str, base_url: str
+    ) -> tuple[str | None, list[dict]]:
         """
         Parses HTML content to extract title and links.
         Uses BeautifulSoup for basic parsing.
@@ -60,23 +64,25 @@ class WebCrawler:
         if not html_content:
             return None, []
 
-        soup = BeautifulSoup(html_content, 'html.parser')
+        soup = BeautifulSoup(html_content, "html.parser")
 
-        title_tag = soup.find('title')
+        title_tag = soup.find("title")
         title = title_tag.string.strip() if title_tag else None
 
         links = []
-        for a_tag in soup.find_all('a', href=True):
-            href = a_tag['href']
+        for a_tag in soup.find_all("a", href=True):
+            href = a_tag["href"]
             # Resolve relative URLs
             absolute_url = urljoin(base_url, href)
             # Basic validation to ensure it's a web link and not mailto: or js:
             parsed_url = urlparse(absolute_url)
-            if parsed_url.scheme in ['http', 'https']:
-                links.append({
-                    "anchor_text": a_tag.string.strip() if a_tag.string else "",
-                    "target_url": absolute_url
-                })
+            if parsed_url.scheme in ["http", "https"]:
+                links.append(
+                    {
+                        "anchor_text": a_tag.string.strip() if a_tag.string else "",
+                        "target_url": absolute_url,
+                    }
+                )
         return title, links
 
     def crawl(self, url: str) -> tuple[dict | None, list[dict] | None, str | None]:
@@ -105,29 +111,38 @@ class WebCrawler:
         # For now, content will be the page title.
         # In a real scenario, this would be the main textual content of the page.
         web_resource_data = {
-            "id": str(uuid.uuid4()), # Generate a unique ID
+            "id": str(uuid.uuid4()),  # Generate a unique ID
             "url": url,
-            "content": page_title if page_title else "N/A", # Simplified: using title as content
+            "content": (
+                page_title if page_title else "N/A"
+            ),  # Simplified: using title as content
             "last_crawled_at": datetime.utcnow().isoformat(),
-            "metadata": {"title": page_title if page_title else "N/A"} # Example metadata
+            "metadata": {
+                "title": page_title if page_title else "N/A"
+            },  # Example metadata
         }
 
         links_data = []
-        source_resource_id = web_resource_data["id"] # The ID of the page we just crawled
+        source_resource_id = web_resource_data[
+            "id"
+        ]  # The ID of the page we just crawled
 
         for link_info in extracted_links:
-            links_data.append({
-                "id": str(uuid.uuid4()), # Generate a unique ID for the link
-                "source_resource_id": source_resource_id,
-                # target_resource_id will be resolved when the target URL is crawled and gets its own WebResource ID
-                "target_url": link_info["target_url"],
-                "anchor_text": link_info["anchor_text"],
-                "created_at": datetime.utcnow().isoformat()
-            })
+            links_data.append(
+                {
+                    "id": str(uuid.uuid4()),  # Generate a unique ID for the link
+                    "source_resource_id": source_resource_id,
+                    # target_resource_id will be resolved when the target URL is crawled and gets its own WebResource ID
+                    "target_url": link_info["target_url"],
+                    "anchor_text": link_info["anchor_text"],
+                    "created_at": datetime.utcnow().isoformat(),
+                }
+            )
 
         return web_resource_data, links_data, None
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Example Usage (for testing purposes)
     crawler = WebCrawler()
 
@@ -143,7 +158,7 @@ if __name__ == '__main__':
         for link in links:
             print(link)
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test with another example.com URL
     print("Crawling http://example.com/another-page...")
@@ -157,7 +172,7 @@ if __name__ == '__main__':
         for link in links:
             print(link)
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test with a non-implemented URL
     print("Crawling http://nonexistentpage.com...")

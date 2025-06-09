@@ -1,11 +1,12 @@
 from bs4 import BeautifulSoup
 
+
 class ContentProcessor:
     def extract_text_from_html(self, html_content: str) -> str:
         """
         Extracts all text from HTML content, removing script and style tags.
         """
-        soup = BeautifulSoup(html_content, 'html.parser')
+        soup = BeautifulSoup(html_content, "html.parser")
 
         # Remove script and style tags
         for script_or_style in soup(["script", "style"]):
@@ -37,7 +38,8 @@ class ContentProcessor:
         # from NLP processing steps.
         return {"processed_text": extracted_text}
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     processor = ContentProcessor()
 
     sample_html = """
