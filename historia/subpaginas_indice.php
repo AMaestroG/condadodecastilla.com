@@ -64,7 +64,7 @@ $temas_detallados = $page_data['temas_detallados'] ?? [];
         .read-more {
             display: inline-block;
             padding: 0.6em 1.2em;
-            background-color: var(--color-acento-rojo);
+            background-color: var(--epic-gold-main);
             color: var(--color-blanco-fondo);
             text-decoration: none;
             border-radius: 5px;
