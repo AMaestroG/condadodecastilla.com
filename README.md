@@ -157,10 +157,17 @@ Puede programarse con `cron` o utilizar el *workflow* de GitHub en `.github/work
 
 ## Testing
 
-Para ejecutar la batería de pruebas es necesario disponer de **PHP 7.4 o superior** y tener habilitadas las extensiones `pdo_pgsql`, `pdo_sqlite` y `xml` (por ejemplo mediante los paquetes `php-pgsql`, `php-sqlite3` y `php-xml`). Tras instalar las dependencias con `composer install`, lanza:
+Para ejecutar la batería de pruebas es necesario disponer de **PHP 7.4 o superior** y tener habilitadas las extensiones `pdo_pgsql`, `pdo_sqlite` y `xml` (por ejemplo mediante los paquetes `php-pgsql`, `php-sqlite3` y `php-xml`). PHPUnit no funcionará hasta instalar las dependencias del proyecto mediante `composer install`.
+
+Ejemplo de preparación del entorno:
 
 ```bash
+sudo apt-get install php php-cli
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
 vendor/bin/phpunit
 ```
+
+Recuerda definir las variables de entorno necesarias para las pruebas, como `CONDADO_DB_PASSWORD`, que utiliza el script `scripts/check_db.sh`.
 
 Las pruebas hacen uso de los *fixtures* incluidos en `tests/fixtures/`, por lo que deben mantenerse para que los resultados sean coherentes.
