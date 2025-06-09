@@ -9,6 +9,6 @@
     };
 
     loadFragment('#main-menu-placeholder', '/fragments/menus/main-menu.html');
-    loadFragment('#admin-menu-placeholder', '/fragments/menus/admin-menu.html');
+    loadFragment('#admin-menu-placeholder', '/fragments/menus/admin-menu.php');
     loadFragment('#social-menu-placeholder', '/fragments/menus/social-menu.html');
 })();

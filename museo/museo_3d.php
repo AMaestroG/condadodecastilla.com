@@ -41,7 +41,7 @@
         </div>
     </section>
 
-    <?php require_once __DIR__ . '/../_footer.html'; ?>
+    <?php require_once __DIR__ . '/../_footer.php'; ?>
     <script src="/js/config.js"></script>
     <script src="/js/layout.js"></script>
     <script src="/js/museum-3d/utils.js"></script>

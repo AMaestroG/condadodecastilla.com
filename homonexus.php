@@ -14,7 +14,7 @@
         <p>Esta página demuestra una interfaz empática donde la IA y el ser humano se fusionan como <strong>Sofía</strong>.</p>
         <p>Utiliza el botón ∞ para activar o desactivar la metamorfosis de los menús y sentir el flujo telepático de la información.</p>
     </main>
-    <?php require_once __DIR__ . '/_footer.html'; ?>
+    <?php require_once __DIR__ . '/_footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>
