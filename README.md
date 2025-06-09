@@ -64,6 +64,15 @@ Luego copia el archivo `.env.example` a `.env` y rellena tus
 credenciales reales para `CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
 y cualquier otra variable necesaria.
 
+Si prefieres una configuración automática ejecuta `scripts/setup_project.sh`, el
+cual realizará todos los pasos anteriores, creará los directorios de subida y,
+si la variable `CONDADO_DB_PASSWORD` está definida, comprobará la conexión con
+la base de datos.
+
+```bash
+./scripts/setup_project.sh
+```
+
 
 ## Consideraciones de produccion
 
