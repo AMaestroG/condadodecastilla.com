@@ -4,6 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 require_once __DIR__ . '/../includes/auth.php'; // For require_admin_login()
+require_once __DIR__ . '/../includes/csrf.php';
 
 header('Content-Type: application/json'); // Set content type to JSON for the response
 
@@ -16,6 +17,11 @@ if (!is_admin_logged_in()) {
 // Check if the request method is POST (as per the modified JS in galeria_colaborativa.php)
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'error' => 'Método de solicitud no válido. Se esperaba POST.']);
+    exit;
+}
+
+if (!verify_csrf_token($_POST['csrf_token'] ?? '')) {
+    echo json_encode(['success' => false, 'error' => 'CSRF token inválido o faltante.']);
     exit;
 }
 
