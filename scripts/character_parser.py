@@ -1,4 +1,3 @@
-# pip install beautifulsoup4
 import os
 from bs4 import BeautifulSoup
 
@@ -157,21 +156,6 @@ def parse_character_html(file_path):
     return character_data
 
 if __name__ == '__main__':
-    # Attempt to install BeautifulSoup if not present and in an environment where this is allowed.
-    # This is primarily for the subtask runner; direct execution might need manual installation.
-    try:
-        import bs4
-    except ImportError:
-        print("BeautifulSoup4 not found. Attempting to install...")
-        try:
-            import subprocess
-            import sys
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "beautifulsoup4"])
-            print("BeautifulSoup4 installed successfully.")
-        except Exception as e:
-            print(f"Failed to install beautifulsoup4: {e}")
-            print("Please install it manually: pip install beautifulsoup4")
-            exit(1)
 
     # Example usage:
     # Ensure this path is relative to the root of the repository where the script is run from,
