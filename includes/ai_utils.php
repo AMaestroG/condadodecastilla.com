@@ -373,7 +373,7 @@ function get_ai_correction(string $text): string {
 }
 
 /**
- * Genera una respuesta para el chat histórico utilizando nuevo4.md como contexto.
+ * Genera una respuesta para el chat histórico utilizando contexto/nuevo4.md como contexto.
  * Si la pregunta no está relacionada con historia, devuelve un aviso.
  *
  * @param string $question Pregunta del usuario.
@@ -384,7 +384,7 @@ function get_history_chat_response(string $question): string {
         return "Error: No se proporcionó pregunta.";
     }
 
-    $context = @file_get_contents(__DIR__ . '/../nuevo4.md');
+    $context = @file_get_contents(__DIR__ . '/../contexto/nuevo4.md');
     if ($context === false) { $context = ''; }
     $context = mb_substr($context, 0, 5000);
 
