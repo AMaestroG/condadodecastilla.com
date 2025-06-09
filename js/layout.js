@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Theme toggle initialization
     initializeThemeToggle();
+    // New Homonexus mode initialization
+    initializeHomonexusToggle();
 });
 
 // NEW: Function to handle sidebar interactions
@@ -128,6 +130,25 @@ function initializeThemeToggle() {
         icon.classList.toggle('fa-moon', !isDark);
         icon.classList.toggle('fa-sun', isDark);
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+}
+
+// Initialize Homonexus toggle button
+function initializeHomonexusToggle() {
+    const toggleButton = document.getElementById('homonexus-toggle');
+    const body = document.body;
+    if (!toggleButton) return;
+    const stored = localStorage.getItem('homonexus');
+    if (stored === 'on') {
+        body.classList.add('homonexus-active');
+    }
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('homonexus-active');
+        const active = body.classList.contains('homonexus-active');
+        localStorage.setItem('homonexus', active ? 'on' : 'off');
+        const expire = new Date();
+        expire.setFullYear(expire.getFullYear() + 1);
+        document.cookie = `homonexus=${active ? 'on' : 'off'}; expires=${expire.toUTCString()}; path=/`;
     });
 }
 

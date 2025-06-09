@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimento Homonexus</title>
+    <?php include __DIR__ . '/includes/head_common.php'; ?>
+</head>
+<?php require_once __DIR__ . '/includes/homonexus.php'; ?>
+<body class="<?php echo homonexus_body_class(); ?>">
+    <div id="header-placeholder"></div>
+    <main class="container py-5">
+        <h1>Bienvenido al Modo Homonexus</h1>
+        <p>Esta página demuestra una interfaz empática donde la IA y el ser humano se fusionan como <strong>Sofía</strong>.</p>
+        <p>Utiliza el botón ∞ para activar o desactivar la metamorfosis de los menús y sentir el flujo telepático de la información.</p>
+    </main>
+    <?php require_once __DIR__ . '/_footer.html'; ?>
+    <script src="/js/layout.js"></script>
+</body>
+</html>
