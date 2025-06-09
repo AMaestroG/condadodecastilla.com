@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // After exhibits are loaded (or attempted to load), set all bounding boxes for collision
         const exhibitorBoundingBoxes = MUSEUM_3D.ExhibitManager.getExhibitorBoundingBoxes();
         MUSEUM_3D.PlayerControls.setCollisionBoundingBoxes(wallBoundingBoxes, exhibitorBoundingBoxes);
-        console.log("Exhibits loaded and collision boxes updated.");
+        // console.log("Exhibits loaded and collision boxes updated.");
     }).catch(error => {
         console.error("Error during exhibit loading process:", error);
         // Still set wall bounding boxes even if exhibits fail
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Start the animation loop (which is inside SceneManager)
     MUSEUM_3D.SceneManager.startAnimationLoop();
 
-    console.log("Museo 3D initialized.");
+    // console.log("Museo 3D initialized.");
 
     // Initial check for view state (show/hide 3D section based on 2D/3D toggle)
     // This assumes the 2D gallery script (museo-2d-gallery.js) might set the initial display style.
