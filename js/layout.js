@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     loadGsap();
+    loadAos();
     loadPageCss();
     loadHeaderCss();
     // Always initialize sidebar navigation. For PHP pages, elements are already there.
@@ -374,5 +375,20 @@ function loadGsap() {
         const script = document.createElement('script');
         script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
         document.head.appendChild(script);
+    }
+}
+
+function loadAos() {
+    if (!window.AOS) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css';
+        document.head.appendChild(link);
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js';
+        script.onload = () => { if (window.AOS) AOS.init({ once: true }); };
+        document.head.appendChild(script);
+    } else {
+        AOS.init({ once: true });
     }
 }
