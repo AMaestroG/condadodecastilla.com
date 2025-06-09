@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Simple check for PostgreSQL connectivity and environment variable
 
