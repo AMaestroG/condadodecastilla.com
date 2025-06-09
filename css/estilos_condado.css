@@ -86,7 +86,6 @@ body {
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
-    transition: margin-left 0.35s ease-in-out; /* Para el empuje del sidebar */
 }
 
 
@@ -248,115 +247,6 @@ a:focus-visible {
     text-align: center;
 }
 
-
-/*------------------------------------------------
-9. Navegación Principal (Clase .navbar del HTML existente)
-------------------------------------------------*/
-.navbar {
-    background-color: rgba(var(--condado-primario-rgb), 0.97); 
-    padding: 0.6em 0; 
-    box-shadow: 0 4px 15px var(--condado-sombra); /* Sombra más pronunciada */
-    position: sticky; 
-    top: 0;
-    z-index: 1000; /* Asegurar que esté sobre la linterna si es necesario, pero la linterna tiene 9998 */
-    border-bottom: 3px solid var(--condado-secundario); 
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar .logo-link { 
-    display: inline-block; 
-    line-height: 0; 
-}
-.navbar .logo-image { 
-    max-height: 45px; 
-    width: auto; 
-    max-width: 180px; /* Un poco más de espacio si el logo lo permite */
-    transition: transform var(--transition-speed-fast) ease, filter var(--transition-speed-fast) ease;
-}
-.navbar .logo-link:hover .logo-image {
-    transform: scale(1.04); 
-    filter: brightness(1.1);
-}
-
-/* Estilos para el logo como TEXTO (si se usa en algunas páginas) */
-.navbar .logo-text {
-    font-family: var(--condado-font-titulos);
-    color: var(--condado-blanco-pergamino);
-    text-decoration: none;
-    font-weight: 900; 
-    transition: transform var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease;
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    text-align: left; 
-    line-height: 1.05; /* Ajustado */
-    padding: 5px 0; 
-}
-.navbar .logo-text .logo-line { display: block; white-space: nowrap; }
-.navbar .logo-text .logo-line-1 { font-size: clamp(1em, 1.8vw, 1.2em); } /* Ajustado */
-.navbar .logo-text .logo-line-2 { font-size: clamp(0.7em, 1.3vw, 0.9em); font-weight: normal; margin: -0.05em 0 -0.05em 0.5em; color: var(--condado-acento); } /* Ajustado */
-.navbar .logo-text .logo-line-3 { font-size: clamp(1em, 1.8vw, 1.2em); } /* Ajustado */
-.navbar .logo-text:hover, .navbar .logo-text:focus-visible {
-    transform: scale(1.02); color: var(--condado-acento); outline: none; 
-}
-.navbar .logo-text:hover .logo-line-2 { color: var(--condado-blanco-pergamino); }
-
-
-.nav-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li {
-    margin-left: clamp(8px, 1.2vw, 18px); 
-}
-
-.nav-links a {
-    color: var(--condado-blanco-pergamino);
-    font-weight: 600; /* Ligeramente más peso */
-    font-family: var(--condado-font-titulos);
-    font-size: clamp(0.75em, 1.3vw, 0.85em); 
-    text-transform: uppercase;
-    padding: 0.5em 0.4em; 
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s, border-bottom-color 0.3s;
-    letter-spacing: 0.8px; /* Añadido letter-spacing */
-}
-.nav-links a i.fab { 
-    font-size: 1.2em;
-    margin-right: 0.3em;
-    vertical-align: middle; /* Mejor alineación del icono */
-}
-
-.nav-links a:hover, 
-.nav-links a:focus, 
-.nav-links a.active-link {
-    color: var(--condado-acento);
-    border-bottom-color: var(--condado-acento);
-    text-decoration: none;
-}
-
-/* Botón hamburguesa para .navbar (del CSS anterior) */
-.nav-toggle { 
-    display: none; 
-    font-size: 1.8em; 
-    color: var(--condado-blanco-pergamino);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.3em;
-}
-.nav-toggle:focus-visible {
-    outline: 2px solid var(--condado-acento);
-}
 
 /*------------------------------------------------
 10. Sección Hero (Adaptada a .page-header.hero y .hero)
@@ -864,23 +754,6 @@ a:focus-visible {
 18. Responsividad y Medias Queries (Fusionadas y Ajustadas)
 ------------------------------------------------*/
 @media (max-width: 992px) { 
-    .navbar .container { flex-wrap: wrap; }
-    .nav-toggle { display: block; }
-    .nav-links {
-        flex-direction: column; width: 100%;
-        background-color: rgba(var(--condado-primario-rgb), 0.98); 
-        position: absolute; top: 100%; left: 0;
-        max-height: 0; overflow: hidden;
-        transition: max-height 0.4s ease-in-out, padding 0.3s ease-in-out;
-        border-top: 1px solid rgba(var(--condado-secundario-rgb), 0.3);
-    }
-    .nav-links.active { max-height: 70vh; padding: 10px 0; }
-    .nav-links li { margin: 0; width: 100%; text-align: center; }
-    .nav-links li a { display: block; padding: 1em; border-bottom: 1px solid rgba(var(--condado-blanco-pergamino-rgb), 0.1); }
-    .nav-links li:last-child a { border-bottom: none; }
-    .nav-links a:hover, .nav-links a.active-link {
-        background-color: rgba(var(--condado-acento-rgb), 0.2);
-        border-bottom-color: transparent; 
     }
 }
 
@@ -902,7 +775,6 @@ a:focus-visible {
     .page-header.hero h1, .hero .hero-content h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
     .page-header.hero p, .hero .hero-content p { font-size: clamp(0.9rem, 3.5vw, 1.1rem); }
     .form-condado, .form-contacto, .upload-form-container { padding: 1.5rem 1rem; }
-    .nav-links a { font-size: 1.1em; }
 }
 
 /* Estilos específicos de páginas anteriores que se mantienen y adaptan */
@@ -1023,140 +895,3 @@ a:focus-visible {
     text-decoration: none;
 }
 
-/* Estilos para Sidebar (basado en HTML de museo/galeria) */
-#sidebar {
-    position: fixed;
-    top: 0;
-    left: -280px; /* Initial hidden state */
-    width: 280px;
-    height: 100vh;
-    background-color: rgba(var(--condado-primario-rgb), 0.98); /* Ligeramente más opaco */
-    padding: 20px;
-    box-shadow: 3px 0 12px rgba(var(--condado-texto-rgb), 0.25);
-    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más suave */
-    overflow-y: auto;
-    z-index: 1001; /* Encima de la linterna pero debajo de modales de muy alto z-index */
-    display: flex;
-    flex-direction: column;
-}
-
-#sidebar.sidebar-visible {
-    left: 0;
-}
-
-#sidebar-toggle {
-    position: fixed;
-    top: 18px; /* Ajustado para mejor alineación vertical con navbar típica */
-    left: 18px;
-    font-size: 1.6em; /* Ajustado */
-    color: var(--condado-blanco-pergamino);
-    background-color: var(--condado-primario);
-    border: 2px solid var(--condado-secundario);
-    border-radius: var(--border-radius-suave);
-    padding: 6px 10px; /* Ajustado */
-    cursor: pointer;
-    z-index: 1002; /* Encima del sidebar */
-    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, color 0.3s ease;
-}
-#sidebar-toggle:hover {
-    background-color: var(--condado-secundario);
-    color: var(--condado-primario);
-}
-
-/* Ajustar posición del botón cuando el sidebar está visible */
-body.sidebar-active #sidebar-toggle {
-    left: 295px; /* sidebar width (280px) + padding (20px) - button_padding_approx (5px) */
-}
-
-#sidebar .logo-link {
-    display: block;
-    text-align: center;
-    margin-bottom: 25px;
-    padding: 8px 0;
-}
-
-#sidebar .logo-image {
-    max-width: 75%; /* Ajustado */
-    height: auto;
-    border-radius: var(--border-radius-suave);
-    margin: 0 auto;
-    border: 2px solid var(--condado-secundario); /* Borde más sutil para el logo del sidebar */
-}
-
-#sidebar .nav-links { /* Reutilizando .nav-links para el sidebar */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    width: 100%;
-}
-
-#sidebar .nav-links li {
-    width: 100%; 
-    margin-bottom: 5px; 
-}
-
-#sidebar .nav-links a {
-    display: block; 
-    padding: 10px 12px; /* Ajustado */
-    color: var(--condado-piedra-clara);
-    font-family: var(--condado-font-titulos);
-    font-size: 1em; /* Ajustado */
-    font-weight: 500; /* Ajustado */
-    text-decoration: none;
-    border-radius: var(--border-radius-suave);
-    transition: background-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease, padding-left var(--transition-speed-fast) ease;
-}
-
-#sidebar .nav-links a:hover,
-#sidebar .nav-links a:focus-visible,
-#sidebar .nav-links a.active-link { /* El .active-link aquí se refiere al de la página actual, no necesariamente el del sidebar */
-    background-color: var(--condado-acento);
-    color: var(--condado-primario);
-    padding-left: 20px; 
-    outline: none;
-}
-
-#sidebar .nav-links a i {
-    margin-right: 10px; 
-    font-size: 1.05em; /* Ajustado */
-    width: 20px; /* Para alinear texto si algunos enlaces no tienen icono */
-    text-align: center;
-}
-
-/* Ajuste del contenido principal cuando el sidebar está activo */
-body.sidebar-active main, 
-body.sidebar-active .navbar, /* Empujar también el navbar si no es el que contiene el toggle */
-body.sidebar-active .footer,
-body.sidebar-active .page-header.hero { /* Empujar también los page-headers */
-    margin-left: 280px; /* Debe coincidir con el ancho del sidebar */
-}
-
-/* Ocultar el .nav-toggle del .navbar si el #sidebar-toggle está presente/activo */
-/* Esto es una suposición; si ambos coexisten, se necesitaría una lógica más específica o un solo sistema de menú móvil */
-@media (max-width: 992px) {
-    .navbar .nav-toggle {
-        /* Si #sidebar-toggle está presente y funcional, considera ocultar el .nav-toggle original */
-        /* display: none; */ 
-    }
-    .navbar .nav-links {
-        /* Si se usa el sidebar, el menú desplegable del navbar original podría no ser necesario en estos anchos */
-        /* display: none !important; */ /* Ocultar si el sidebar es el menú principal en móvil */
-    }
-     body.sidebar-active #sidebar-toggle {
-        /* No es necesario mover el botón si el contenido principal ya se desplaza */
-        /* left: 15px;  */ /* Mantenerlo fijo o ajustarlo según diseño */
-    }
-    body.sidebar-active {
-        margin-left: 0; /* En pantallas más pequeñas, el sidebar podría superponerse en lugar de empujar */
-    }
-    #sidebar.sidebar-visible {
-        /* Asegurar que el sidebar sea visible */
-    }
-     #sidebar-toggle { /* Asegurar que el botón hamburguesa del sidebar sea visible en móvil */
-        display: block;
-    }
-}
-/* --- Fin de la Fusión --- */

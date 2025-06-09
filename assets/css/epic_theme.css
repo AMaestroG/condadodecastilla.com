@@ -335,55 +335,6 @@ th {
 }
 */
 
-#sidebar .nav-links a i { /* FontAwesome icons */
-    margin-right: 10px;
-    font-size: 1.1em;
-    width: 20px; /* For alignment */
-    text-align: center;
-}
-
-body.dark-mode #sidebar .nav-links a i {
-    color: var(--epic-icon-color);
-}
-
-body.dark-mode #sidebar .nav-links a:hover i {
-    color: var(--epic-icon-hover);
-}
-
-/* Main content adjustment when sidebar is active */
-body.sidebar-active {
-    margin-left: 280px; /* Match sidebar width */
-    transition: margin-left var(--global-transition-speed) ease-in-out;
-}
-
-body.ia-chat-active {
-    margin-right: clamp(280px, 70vw, 400px); /* Match sidebar width */
-    transition: margin-right var(--global-transition-speed) ease-in-out;
-}
-
-/* Hide standard navbar and its toggle if sidebar is the primary mobile nav */
-@media (max-width: 768px) {
-    .navbar .nav-toggle, /* Standard navbar toggle */
-    .navbar .nav-links { /* Standard navbar links container */
-        /* display: none !important; /* Assuming sidebar takes over */
-    }
-    /* If sidebar overlaps on mobile instead of pushing content */
-    body.sidebar-active { margin-left: 0; }
-
-    body.sidebar-active #sidebar-toggle {
-        left: 15px; /* Keep original position on mobile when sidebar overlays */
-    }
-
-    /* AI Chat Sidebar Mobile Overlay */
-    body.ia-chat-active {
-        margin-right: 0; /* Overlay content */
-    }
-
-    #ia-chat-sidebar {
-        width: clamp(280px, 85vw, 320px); /* Adjusted for mobile overlay */
-        resize: none; /* Disable resize on mobile */
-    }
-}
 
 
 /* --- Footer Styling (.footer from _footer.html) --- */
