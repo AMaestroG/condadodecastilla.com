@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 JS_DIR="assets/vendor/js"
 CSS_DIR="assets/vendor/css"

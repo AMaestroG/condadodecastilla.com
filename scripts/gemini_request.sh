@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Usage: GEMINI_API_KEY=your_api_key ./gemini_request.sh
 
@@ -6,7 +7,7 @@ API_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flas
 
 # Allow the variable name GeminiAPI as an alternative
 if [ -z "$GEMINI_API_KEY" ]; then
-  GEMINI_API_KEY="$GeminiAPI"
+  GEMINI_API_KEY="${GeminiAPI:-}"
 fi
 
 if [ -z "$GEMINI_API_KEY" ]; then
