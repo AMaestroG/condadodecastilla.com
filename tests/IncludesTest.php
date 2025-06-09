@@ -7,9 +7,7 @@ require_once __DIR__ . '/../includes/text_manager.php';
 
 class IncludesTest extends TestCase {
     protected function setUp(): void {
-        if (session_status() == PHP_SESSION_NONE) {
-            @session_start();
-        }
+        ensure_session_started();
         $_SESSION = [];
     }
 

@@ -1,9 +1,8 @@
 <?php
 // /includes/auth.php
 
-if (session_status() == PHP_SESSION_NONE) {
-    @session_start(); // El @ suprime errores si la sesión ya está iniciada, aunque es mejor verificar.
-}
+require_once __DIR__ . '/session.php';
+ensure_session_started();
 
 define('ADMIN_ROLE', 'admin'); // Define el rol de administrador
 

@@ -1,7 +1,6 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    @session_start();
-}
+require_once __DIR__ . '/includes/session.php';
+ensure_session_started();
 require_once 'includes/auth.php';      // For is_admin_logged_in()
 require_once 'dashboard/db_connect.php'; // Provides $pdo
 /** @var PDO $pdo */
