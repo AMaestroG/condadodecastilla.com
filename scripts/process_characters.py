@@ -18,21 +18,7 @@ except ImportError as e:
     print("If running from a different directory, ensure 'scripts' is in PYTHONPATH or adjust imports.")
     exit(1)
 
-# Attempt to install BeautifulSoup if not present (for character_parser)
-# This is primarily for the subtask runner; direct execution might need manual installation.
-try:
-    import bs4
-except ImportError:
-    print("BeautifulSoup4 not found for character_parser. Attempting to install...")
-    try:
-        import subprocess
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "beautifulsoup4"])
-        print("BeautifulSoup4 installed successfully.")
-        # Re-check import after installation attempt (though script would need restart for it to be available)
-    except Exception as e:
-        print(f"Failed to install beautifulsoup4: {e}")
-        print("Please install it manually: pip install beautifulsoup4")
-        # We don't exit here, character_parser might handle its own import error if installation fails mid-run.
+
 
 def get_character_html_files(base_dir):
     """
