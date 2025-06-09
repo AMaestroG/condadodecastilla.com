@@ -56,7 +56,7 @@ Esto iniciará el servidor en `http://localhost:8000`.
 Antes de ejecutar el sitio por primera vez descarga las librerías necesarias:
 
 ```bash
-composer install --ignore-platform-req=ext-dom,ext-xmlwriter
+composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwriter --ignore-platform-req=ext-xml
 ./scripts/setup_frontend_libs.sh
 ```
 
@@ -157,7 +157,7 @@ Puede programarse con `cron` o utilizar el *workflow* de GitHub en `.github/work
 
 ## Testing
 
-Para ejecutar la batería de pruebas es necesario disponer de **PHP 7.4 o superior**. Tras instalar las dependencias con `composer install`, lanza:
+Para ejecutar la batería de pruebas es necesario disponer de **PHP 7.4 o superior** y tener habilitadas las extensiones `pdo_pgsql`, `pdo_sqlite` y `xml` (por ejemplo mediante los paquetes `php-pgsql`, `php-sqlite3` y `php-xml`). Tras instalar las dependencias con `composer install`, lanza:
 
 ```bash
 vendor/bin/phpunit
