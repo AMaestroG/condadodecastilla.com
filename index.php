@@ -31,7 +31,15 @@ require_once 'includes/ai_utils.php';
 </head>
 <?php require_once __DIR__ . '/includes/homonexus.php'; ?>
 <body class="<?php echo homonexus_body_class(); ?>">
-    <?php require_once __DIR__ . '/_header.html'; ?>
+<?php
+// Use dynamic PHP header if available so menu fragments can contain
+// server-side logic like the admin login menu.
+if (file_exists(__DIR__ . '/_header.php')) {
+    require_once __DIR__ . '/_header.php';
+} else {
+    require_once __DIR__ . '/_header.html';
+}
+?>
 
     <header class="hero">
         <div class="hero-content">
