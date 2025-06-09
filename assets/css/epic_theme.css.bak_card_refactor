@@ -1192,7 +1192,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     gap: 40px;
 }
 
-.card--legacy-hover-effect {
+.card {
     background-color: var(--color-fondo-pagina, #fdfaf6); /* Mapped */
     border: 2px solid var(--color-piedra-media, #D2B48C); /* Mapped */
     border-radius: var(--border-radius-medio, 10px); /* Mapped */
@@ -1205,7 +1205,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     flex-direction: column;
 }
 
-.card--legacy-hover-effect:hover {
+.card:hover {
     transform: translateY(-18px) translateX(-9px) rotate(1.5deg);
     box-shadow: 12px 12px 0px -2px var(--color-secundario-dorado, #B8860B), 22px 22px 35px rgba(var(--color-morado-emperador-rgb, 74, 13, 103), 0.25); /* Mapped */
 }
