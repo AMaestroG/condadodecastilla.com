@@ -1,0 +1,24 @@
+body {
+  font-family: "Lora", serif;
+  background-color: #F0E9E0;
+}
+
+.hero {
+  background-color: #5B1A7D;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.cta-button {
+  background-color: #FFD700;
+  color: #2C1D12;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+.cta-button:hover {
+  background-color: #ccac00;
+}
+
+/*# sourceMappingURL=custom.css.map */

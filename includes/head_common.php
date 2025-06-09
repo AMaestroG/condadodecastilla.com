@@ -12,6 +12,9 @@ if (session_status() == PHP_SESSION_NONE) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="/assets/css/epic_theme.css">
 <link rel="stylesheet" href="/assets/css/header.css">
+<link rel="stylesheet" href="/assets/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/custom.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script defer src="/assets/vendor/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
