@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. MuseumLayout: Creates static parts of the museum (walls, floor)
     MUSEUM_3D.Layout.init(scene); // Pass the scene to the Layout module
     MUSEUM_3D.Layout.create();
+    // After creating or updating the layout, ensure lights are positioned correctly
+    if (MUSEUM_3D.SceneManager.updateLightPositions) {
+        MUSEUM_3D.SceneManager.updateLightPositions();
+    }
     const wallBoundingBoxes = MUSEUM_3D.Layout.getWallBoundingBoxes();
 
     // 3. PlayerControls: Sets up PointerLockControls, movement, collision

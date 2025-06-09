@@ -72,7 +72,7 @@ MUSEUM_3D.SceneManager = (function() {
         scene.add(mainRoomLight);
         scene.add(mainRoomLight.target);
 
-        // TODO: These light positions should be updated if room positions change via Layout module
+        // Initial corridor and Room2 lights. Use updateLightPositions() if layout values change later
         const corridorAPosXCenter = mainRoom.x + mainRoom.width / 2 + corridorA.depth / 2;
         corridorLight = new THREE.PointLight(MUSEUM_3D.Utils.THEME_COLORS.goldMain, 0.6, corridorA.depth * 1.1, 1.5);
         corridorLight.position.set(corridorAPosXCenter, mainRoom.y + corridorA.height * 0.8, mainRoom.z);
@@ -86,6 +86,22 @@ MUSEUM_3D.SceneManager = (function() {
         room2Light.castShadow = false; // Spotlights can also be expensive
         scene.add(room2Light);
         scene.add(room2Light.target);
+    }
+
+    // Recalculate dynamic light positions when room coordinates change
+    function updateLightPositions() {
+        const { mainRoom, corridorA, room2 } = MUSEUM_3D.Config;
+        if (corridorLight) {
+            const corridorAPosXCenter = mainRoom.x + mainRoom.width / 2 + corridorA.depth / 2;
+            corridorLight.position.set(corridorAPosXCenter, mainRoom.y + corridorA.height * 0.8, mainRoom.z);
+        }
+        if (room2Light) {
+            const room2PosXCenter = mainRoom.x + mainRoom.width / 2 + corridorA.depth + MUSEUM_3D.Utils.WALL_THICKNESS + room2.width / 2;
+            room2Light.position.set(room2PosXCenter, mainRoom.y + room2.height * 0.95, mainRoom.z);
+            if (room2Light.target) {
+                room2Light.target.position.set(room2PosXCenter, mainRoom.y, mainRoom.z);
+            }
+        }
     }
 
     function initPostprocessing() {
@@ -172,7 +188,8 @@ MUSEUM_3D.SceneManager = (function() {
         getScene: () => scene,
         getCamera: () => camera,
         getRenderer: () => renderer,
-        getDomElement: () => renderer ? renderer.domElement : null
+        getDomElement: () => renderer ? renderer.domElement : null,
+        updateLightPositions
         // No need to expose animate directly if startAnimationLoop is used
     };
 })();
