@@ -1,3 +1,58 @@
+/* --- Base Navigation Menu Styles --------------------------------------- */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: clamp(8px, 1.2vw, 18px);
+}
+
+.nav-links a {
+    color: var(--epic-text-light);
+    font-family: var(--font-headings);
+    font-weight: 600;
+    font-size: clamp(0.75em, 1.3vw, 0.85em);
+    text-transform: uppercase;
+    padding: 0.5em 0.4em;
+    border-bottom: 2px solid transparent;
+    transition: color var(--global-transition-speed) ease-in-out,
+                border-bottom-color var(--global-transition-speed) ease-in-out;
+    letter-spacing: 0.8px;
+}
+
+.nav-links a i.fab {
+    font-size: 1.2em;
+    margin-right: 0.3em;
+    vertical-align: middle;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-links a.active-link {
+    color: var(--epic-gold-main);
+    border-bottom-color: var(--epic-gold-main);
+    text-decoration: none;
+    outline: none;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.8em;
+    color: var(--epic-text-light);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.3em;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--epic-gold-main);
+}
+
 /* --- Sidebar Navigation (#sidebar, #sidebar-toggle from _header.html) --- */
 #sidebar {
     position: fixed;
