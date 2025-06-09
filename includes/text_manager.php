@@ -1,14 +1,10 @@
 <?php
 // /includes/text_manager.php
 
-// Asegurarse de que auth.php (para is_admin_logged_in) está incluido.
-// Esto podría hacerse en cada página que usa editableText, o aquí condicionalmente.
-if (session_status() == PHP_SESSION_NONE) {
-    @session_start();
-}
-if (!function_exists('is_admin_logged_in')) { // Evitar re-declaración si ya está incluido
-    require_once __DIR__ . '/auth.php';
-}
+// Asegurarse de que las utilidades de sesión y autenticación están cargadas.
+require_once __DIR__ . '/session.php';
+ensure_session_started();
+require_once __DIR__ . '/auth.php';
 
 /**
  * Obtiene el contenido de un texto desde la base de datos.

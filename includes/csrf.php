@@ -1,7 +1,6 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    @session_start();
-}
+require_once __DIR__ . '/session.php';
+ensure_session_started();
 
 function get_csrf_token() {
     if (empty($_SESSION['csrf_token'])) {
