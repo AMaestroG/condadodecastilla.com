@@ -13,6 +13,7 @@ ensure_session_started();
 <link rel="stylesheet" href="/assets/css/header.css">
 <link rel="stylesheet" href="/assets/vendor/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/css/custom.css">
+<link rel="stylesheet" href="/assets/css/lighting.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="/assets/vendor/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
