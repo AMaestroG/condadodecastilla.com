@@ -80,6 +80,16 @@ body.ia-chat-active #ia-chat-toggle {
     gap: 6px;
     margin-bottom: 10px;
     cursor: move;
+    align-items: center;
+}
+
+#ia-chat-close {
+    background: transparent;
+    border: none;
+    color: var(--epic-text-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-right: auto;
 }
 
 #ia-chat-sidebar .ia-tools-container {
