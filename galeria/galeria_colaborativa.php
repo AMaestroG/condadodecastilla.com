@@ -354,6 +354,10 @@ if (is_dir($gallery_dir)) {
                     const url = '/dashboard/delete_gallery_image.php'; // New endpoint
                     const formData = new FormData();
                     formData.append('filename', fotoId);
+                    const csrfInput = document.getElementById('csrfGaleryToken');
+                    if (csrfInput) {
+                        formData.append('csrf_token', csrfInput.value);
+                    }
 
                     const response = await fetch(url, { method: 'POST', body: formData }); // Changed to POST, can also be DELETE with FormData for some servers
                     if (!response.ok) {
