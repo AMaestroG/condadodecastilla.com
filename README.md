@@ -60,6 +60,10 @@ composer install --ignore-platform-req=ext-dom,ext-xmlwriter
 ./scripts/setup_frontend_libs.sh
 ```
 
+Luego copia el archivo `.env.example` a `.env` y rellena tus
+credenciales reales para `CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
+y cualquier otra variable necesaria.
+
 
 ## Consideraciones de produccion
 
