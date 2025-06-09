@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
 
 require_once __DIR__ . '/../includes/auth.php';
-require_once __DIR__ . '/db_connect.php'; // Provides $pdo
+require_once 'db_connect.php'; // Use include_path to allow test override
 /** @var PDO $pdo */
 require_once __DIR__ . '/../includes/text_manager.php'; // For getText, though not directly used for display here
 require_once __DIR__ . '/../includes/csrf.php';
