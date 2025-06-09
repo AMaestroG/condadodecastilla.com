@@ -15,7 +15,3 @@ body {
     from { filter: brightness(1); }
     to { filter: brightness(1.1) saturate(1.2); }
 }
-
-.cta-group {
-  margin-top: 2.5em;
-}

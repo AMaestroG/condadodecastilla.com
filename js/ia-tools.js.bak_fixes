@@ -55,7 +55,7 @@ function getMainText() {
 function handleSummary(output) {
     const text = getMainText();
     if (!text) {
-        showOutput(output, '<p class="ia-tool-error">No se encontró texto para resumir.</p>');
+        showOutput(output, '<p style="color:red;">No se encontró texto para resumir.</p>');
         return;
     }
     showOutput(output, '<p><em>Generando resumen...</em></p>');
@@ -69,13 +69,13 @@ function handleSummary(output) {
         if (data.success && data.summary) {
             showOutput(output, data.summary);
         } else if (data.error) {
-            showOutput(output, `<p class="ia-tool-error">${data.error}</p>`);
+            showOutput(output, `<p style="color:red;">${data.error}</p>`);
         } else {
-            showOutput(output, '<p class="ia-tool-error">Respuesta inesperada.</p>');
+            showOutput(output, '<p style="color:red;">Respuesta inesperada.</p>');
         }
     })
     .catch(err => {
-        showOutput(output, `<p class="ia-tool-error">${err.message}</p>`);
+        showOutput(output, `<p style="color:red;">${err.message}</p>`);
     });
 }
 
@@ -94,13 +94,13 @@ function handleTranslation(output) {
         if (data.success && data.translation) {
             showOutput(output, data.translation);
         } else if (data.error) {
-            showOutput(output, `<p class="ia-tool-error">${data.error}</p>`);
+            showOutput(output, `<p style="color:red;">${data.error}</p>`);
         } else {
-            showOutput(output, '<p class="ia-tool-error">Respuesta inesperada.</p>');
+            showOutput(output, '<p style="color:red;">Respuesta inesperada.</p>');
         }
     })
     .catch(err => {
-        showOutput(output, `<p class="ia-tool-error">${err.message}</p>`);
+        showOutput(output, `<p style="color:red;">${err.message}</p>`);
     });
 }
 
@@ -118,13 +118,13 @@ function handleResearch(output) {
         if (data.success && data.research) {
             showOutput(output, data.research);
         } else if (data.error) {
-            showOutput(output, `<p class="ia-tool-error">${data.error}</p>`);
+            showOutput(output, `<p style="color:red;">${data.error}</p>`);
         } else {
-            showOutput(output, '<p class="ia-tool-error">Respuesta inesperada.</p>');
+            showOutput(output, '<p style="color:red;">Respuesta inesperada.</p>');
         }
     })
     .catch(err => {
-        showOutput(output, `<p class="ia-tool-error">${err.message}</p>`);
+        showOutput(output, `<p style="color:red;">${err.message}</p>`);
     });
 }
 
@@ -142,12 +142,49 @@ function handleWebSearch(output) {
         if (data.success && data.results) {
             showOutput(output, data.results);
         } else if (data.error) {
-            showOutput(output, `<p class="ia-tool-error">${data.error}</p>`);
+            showOutput(output, `<p style="color:red;">${data.error}</p>`);
         } else {
-            showOutput(output, '<p class="ia-tool-error">Respuesta inesperada.</p>');
+            showOutput(output, '<p style="color:red;">Respuesta inesperada.</p>');
         }
     })
     .catch(err => {
-        showOutput(output, `<p class="ia-tool-error">${err.message}</p>`);
+        showOutput(output, `<p style="color:red;">${err.message}</p>`);
+    });
+}
+
+function makeDraggable(element, handle) {
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let origX = 0;
+    let origY = 0;
+
+    const dragHandle = handle || element;
+
+    dragHandle.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return; // only left click
+        isDragging = true;
+        const rect = element.getBoundingClientRect();
+        startX = e.clientX;
+        startY = e.clientY;
+        origX = rect.left;
+        origY = rect.top;
+        element.classList.add('dragging');
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        element.style.left = origX + dx + 'px';
+        element.style.top = origY + dy + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            element.classList.remove('dragging');
+        }
     });
 }

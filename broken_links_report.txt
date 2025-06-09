@@ -1,0 +1,22 @@
+Broken Link Report:
+---------------------
+Checking links in: index.php
+  OK: /historia/historia.html (points to historia/historia.html)
+  OK: /secciones_index/memoria_hispanidad.html (points to secciones_index/memoria_hispanidad.html)
+  OK: /historia/historia.html (points to historia/historia.html)
+  OK: /lugares/lugares.html (points to lugares/lugares.html)
+  OK: /visitas/visitas.html (points to visitas/visitas.html)
+  OK: /personajes/Militares_y_Gobernantes/conde_casio_cerasio.html (points to personajes/Militares_y_Gobernantes/conde_casio_cerasio.html)
+  OK: /personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html (points to personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html)
+  OK: /personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html (points to personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html)
+  OK: /personajes/indice_personajes.html (points to personajes/indice_personajes.html)
+  OK: /secciones_index/historia_tiempo_resumen.html (points to secciones_index/historia_tiempo_resumen.html)
+  OK: /cultura/cultura.html (points to cultura/cultura.html)
+
+Checking links in: _header.html
+No internal page/file links found to check in _header.html.
+Checking links in: _footer.php
+  OK: /dashboard/logout.php (points to dashboard/logout.php)
+  OK: /dashboard/login.php (points to dashboard/login.php)
+  OK: /en_construccion.html (points to en_construccion.html)
+  OK: /en_construccion.html (points to en_construccion.html)
