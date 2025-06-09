@@ -1,0 +1,44 @@
+/* Homonexus mode styling for a metaphoric AI-human synergy */
+body.homonexus-active #sidebar {
+    background: linear-gradient(135deg, rgba(var(--epic-purple-emperor-rgb),0.95), rgba(var(--epic-gold-secondary-rgb),0.95));
+}
+body.homonexus-active #sidebar .nav-links a {
+    color: var(--epic-text-light);
+    background: rgba(var(--epic-text-color-rgb),0.15);
+    border-radius: 20px;
+    padding-left: 20px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+body.homonexus-active #sidebar .nav-links a:hover {
+    background: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    transform: scale(1.05) rotate(-1deg);
+}
+/* Toggle button */
+#homonexus-toggle {
+    position: fixed;
+    top: 15px;
+    right: 70px;
+    background-color: var(--epic-alabaster-bg);
+    border: 2px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 10px;
+    cursor: pointer;
+    z-index: 3001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    transition: background-color var(--global-transition-speed) ease;
+}
+#homonexus-toggle i {
+    color: var(--epic-gold-main);
+    font-size: 1.2em;
+}
+#homonexus-toggle:hover {
+    background-color: var(--epic-gold-main);
+}
+#homonexus-toggle:hover i {
+    color: var(--epic-purple-emperor);
+}
