@@ -90,25 +90,7 @@ $temas_detallados = $page_data['temas_detallados'] ?? [];
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="/index.html" class="logo-link">
-                <img src="/imagenes/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas dorada encima." class="logo-image">
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-            <ul class="nav-links">
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/historia/historia.html">Nuestra Historia</a></li>
-                <li><a href="/historia/nuestra_historia_nuevo4.html">Reflexiones sobre Auca</a></li>
-                <li><a href="/historia/subpaginas_indice.php" class="active-link">Índice Detallado</a></li>
-                <li><a href="/lugares/lugares.html">Lugares Emblemáticos</a></li>
-                <li><a href="/visitas/visitas.html">Planifica Tu Visita</a></li>
-                <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
-                <li><a href="/contacto/contacto.html">Contacto</a></li>
-                <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li>
-            </ul>
-        </div>
-    </nav>
+    <?php require_once __DIR__ . '/../_header.html'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/imagenes/mapa_antiguo_detalle.jpg');">
         <div class="hero-content">
@@ -152,39 +134,8 @@ $temas_detallados = $page_data['temas_detallados'] ?? [];
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
-            <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="/en_construccion.html" aria-label="Instagram" title="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="/en_construccion.html" aria-label="Twitter" title="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Script para el menú de navegación móvil
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        navToggle.addEventListener('click', () => {
-            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-            navToggle.setAttribute('aria-expanded', !isExpanded);
-            navLinks.classList.toggle('active');
-        });
-
-        // Opcional: Cerrar menú al hacer clic en un enlace
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <div id="footer-placeholder"></div>
+    <script src="/js/layout.js"></script>
 
 </body>
 </html>
