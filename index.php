@@ -30,7 +30,8 @@ require_once 'includes/ai_utils.php';
     <?php require_once __DIR__ . '/includes/load_page_css.php'; ?>
 
 </head>
-<body>
+<?php require_once __DIR__ . '/includes/homonexus.php'; ?>
+<body class="<?php echo homonexus_body_class(); ?>">
     <?php require_once __DIR__ . '/_header.html'; ?>
 
     <header class="hero">
