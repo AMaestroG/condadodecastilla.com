@@ -150,3 +150,13 @@ Se incluye el script `scripts/daily_agent.py` que ejecuta tareas de mantenimient
 - Opcionalmente, verificación de la base de datos y una solicitud de prueba a la API de Gemini.
 
 Puede programarse con `cron` o utilizar el *workflow* de GitHub en `.github/workflows/daily_agent.yml`, el cual se ejecuta cada día de forma automática.
+
+## Testing
+
+Para ejecutar la batería de pruebas es necesario disponer de **PHP 7.4 o superior**. Tras instalar las dependencias con `composer install`, lanza:
+
+```bash
+vendor/bin/phpunit
+```
+
+Las pruebas hacen uso de los *fixtures* incluidos en `tests/fixtures/`, por lo que deben mantenerse para que los resultados sean coherentes.
