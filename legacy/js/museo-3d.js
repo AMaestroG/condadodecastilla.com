@@ -3,7 +3,7 @@
 if (typeof THREE === 'undefined') {
     console.error('Three.js not loaded. Make sure the CDN link is correct in museo.html.');
 } else {
-    console.log('Three.js loaded successfully. Version: ' + THREE.REVISION);
+    // console.log('Three.js loaded successfully. Version: ' + THREE.REVISION);
     window.DEBUG_MODE = false; // Disable Box3Helpers for final output
 
     let scene, camera, renderer;
