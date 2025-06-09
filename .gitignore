@@ -28,3 +28,4 @@ uploads_storage/**
 !uploads_storage/**/
 !uploads_storage/.gitkeep
 !uploads_storage/**/.gitkeep
+.env
