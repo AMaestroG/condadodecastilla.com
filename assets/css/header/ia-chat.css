@@ -80,6 +80,25 @@ body.ia-chat-active #ia-chat-toggle {
     gap: 6px;
     margin-bottom: 10px;
     cursor: move;
+    align-items: center;
+}
+
+#ia-chat-close {
+    background: transparent;
+    border: none;
+    color: var(--epic-text-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+#ia-tools-toggle {
+    background: transparent;
+    border: none;
+    color: var(--epic-text-color);
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-left: 4px;
 }
 
 #ia-chat-sidebar .ia-tools-container {
@@ -88,6 +107,10 @@ body.ia-chat-active #ia-chat-toggle {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+#ia-chat-sidebar .ia-tools-container.hidden {
+    display: none;
 }
 
 #ia-chat-messages {
@@ -103,7 +126,7 @@ body.ia-chat-active #ia-chat-toggle {
 
 .chat-message {
     padding: 8px 12px;
-    border-radius: var(--global-border-radius);
+    border-radius: 18px;
     box-shadow: var(--global-box-shadow-light);
     margin: 2px 0;
     line-height: 1.4;
@@ -151,14 +174,16 @@ body.ia-chat-active #ia-chat-toggle {
 
 .chat-user {
     color: var(--epic-text-color);
-    background-color: var(--epic-alabaster-bg);
+    background: linear-gradient(to bottom right, #d9fdd3, #c8f7c5);
     align-self: flex-end;
+    border-bottom-right-radius: 0;
 }
 
 .chat-ai {
     color: var(--epic-text-color);
-    background-color: var(--epic-alabaster-bg);
+    background: linear-gradient(to bottom right, #ececec, #dadada);
     align-self: flex-start;
+    border-bottom-left-radius: 0;
 }
 
 .chat-typing {

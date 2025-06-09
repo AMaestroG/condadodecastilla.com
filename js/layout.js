@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     loadGsap();
     loadAos();
+    loadMarked();
     loadPageCss();
     loadHeaderCss();
     // Always initialize sidebar navigation. For PHP pages, elements are already there.
@@ -144,11 +145,29 @@ function loadIAToolsScript() {
 function initializeIAChatSidebar() {
     const toggle = document.getElementById('ia-chat-toggle');
     const sidebar = document.getElementById('ia-chat-sidebar');
+    const closeBtn = document.getElementById('ia-chat-close');
+    const toolsToggle = document.getElementById('ia-tools-toggle');
+    const toolsMenu = document.getElementById('ia-tools-menu');
     const form = document.getElementById('ia-chat-form');
     const input = document.getElementById('ia-chat-input');
     const messages = document.getElementById('ia-chat-messages');
     const responseBox = document.getElementById('ia-chat-response');
     const CHAT_STORAGE_KEY = 'iaChatHistory';
+    let hideTimer;
+
+    function startAutoHide() {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(hideSidebar, 30000); // 30s
+    }
+
+    function hideSidebar() {
+        if (sidebar && sidebar.classList.contains('sidebar-visible')) {
+            sidebar.classList.remove('sidebar-visible');
+            document.body.classList.remove('ia-chat-active');
+        }
+    }
+
+    function resetAutoHide() { startAutoHide(); }
 
     function saveChatHistory() {
         if (!messages) return;
@@ -183,14 +202,24 @@ function initializeIAChatSidebar() {
     loadChatHistory();
 
     if (toggle && sidebar) {
-        toggle.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-visible');
-            document.body.classList.toggle('ia-chat-active');
+        const toggleSidebar = () => {
+            const visible = sidebar.classList.toggle('sidebar-visible');
+            document.body.classList.toggle('ia-chat-active', visible);
+            if (visible) startAutoHide();
+        };
+        toggle.addEventListener('click', toggleSidebar);
+        if (closeBtn) closeBtn.addEventListener('click', hideSidebar);
+        if (toolsToggle && toolsMenu) {
+            toolsToggle.addEventListener('click', () => toolsMenu.classList.toggle('hidden'));
+        }
+        document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('sidebar-visible') && !sidebar.contains(e.target) && e.target !== toggle) {
+                hideSidebar();
+            }
         });
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && sidebar.classList.contains('sidebar-visible')) {
-                sidebar.classList.remove('sidebar-visible');
-                document.body.classList.remove('ia-chat-active');
+                hideSidebar();
             }
         });
     }
@@ -224,6 +253,7 @@ function initializeIAChatSidebar() {
         input.addEventListener('input', () => {
             input.style.height = 'auto';
             input.style.height = `${input.scrollHeight}px`;
+            resetAutoHide();
         });
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -231,6 +261,7 @@ function initializeIAChatSidebar() {
             if (!text) return;
             appendMessage('user', text);
             input.value = '';
+            resetAutoHide();
             const typingEl = appendMessage('typing', 'Gemini está escribiendo...');
             fetch('/ajax_actions/get_history_chat.php', {
                 method: 'POST',
@@ -241,9 +272,10 @@ function initializeIAChatSidebar() {
             .then(data => {
                 if (data.success && data.reply) {
                     typingEl.className = 'chat-ai chat-message';
-                    typingEl.innerHTML = data.reply;
+                    const html = window.marked ? marked.parse(data.reply) : data.reply;
+                    typingEl.innerHTML = html;
                     if (responseBox) {
-                        responseBox.innerHTML = data.reply;
+                        responseBox.innerHTML = html;
                     }
                 } else if (data.error) {
                     typingEl.className = 'chat-error chat-message';
@@ -268,6 +300,9 @@ function initializeIAChatSidebar() {
                 }
             });
         });
+        sidebar.addEventListener('mousemove', resetAutoHide);
+        sidebar.addEventListener('mousedown', resetAutoHide);
+        messages.addEventListener('scroll', resetAutoHide);
     }
 
     function appendMessage(role, text) {
@@ -278,7 +313,7 @@ function initializeIAChatSidebar() {
         if (role === 'user') {
             p.textContent = text;
         } else {
-            p.innerHTML = text;
+            p.innerHTML = window.marked ? marked.parse(text) : text;
         }
         messages.appendChild(p);
         messages.scrollTop = messages.scrollHeight;
@@ -390,5 +425,13 @@ function loadAos() {
         document.head.appendChild(script);
     } else {
         AOS.init({ once: true });
+    }
+}
+
+function loadMarked() {
+    if (!window.marked) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+        document.head.appendChild(script);
     }
 }
