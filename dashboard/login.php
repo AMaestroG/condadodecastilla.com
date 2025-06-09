@@ -5,7 +5,7 @@ ensure_session_started();
 
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/csrf.php';
-require_once __DIR__ . '/db_connect.php'; // Assumes db_connect.php is in the dashboard directory
+require_once 'dashboard/db_connect.php'; // Use include_path to allow test override
 /** @var PDO $pdo */
 
 $error_message = '';
@@ -17,7 +17,9 @@ if (is_admin_logged_in()) {
     if (!headers_sent()) {
         header("Location: /index.php"); // Or an admin dashboard if one exists
     }
-    exit;
+    if (empty($GLOBALS['TESTING'])) {
+        exit;
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -59,7 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $redirect_to = '/index.php';
                         }
                         header("Location: " . $redirect_to);
-                        exit;
+                        if (empty($GLOBALS['TESTING'])) {
+                            exit;
+                        }
                     }
                 } else {
                     $error_message = "El usuario no tiene permisos de administrador.";
