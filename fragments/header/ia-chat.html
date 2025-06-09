@@ -1,17 +1,17 @@
-<div id="ia-chat-sidebar" class="ia-chat-sidebar">
+<div id="ia-chat-sidebar" class="ia-chat-sidebar bg-white dark:bg-gray-900 p-4 shadow-lg">
     <div class="ia-chat-header drag-handle">
-        <form id="ia-chat-form" class="ia-chat-form">
-            <textarea id="ia-chat-input" rows="1" placeholder="Pregunta sobre historia..." required></textarea>
-            <button type="submit">Enviar</button>
+        <form id="ia-chat-form" class="ia-chat-form flex gap-2">
+            <textarea id="ia-chat-input" class="flex-grow border rounded p-1" rows="1" placeholder="Pregunta sobre historia..." required></textarea>
+            <button type="submit" class="bg-purple-600 text-white px-3 py-1 rounded">Enviar</button>
         </form>
         <div id="ia-chat-response" class="ia-chat-response" contenteditable="true"></div>
     </div>
     <div id="ia-chat-messages" class="ia-chat-messages"></div>
     <div id="ia-tools-response" class="ia-tools-response hidden"></div>
-    <div id="ia-tools-menu" class="ia-tools-container">
-        <button id="ia-summary-btn" type="button">Resumen IA</button>
-        <button id="ia-translate-btn" type="button">Traducción IA</button>
-        <button id="ia-research-btn" type="button">Investigación IA</button>
-        <button id="ia-websearch-btn" type="button">Buscar en la Web</button>
+    <div id="ia-tools-menu" class="ia-tools-container flex flex-col gap-2 mt-2">
+        <button id="ia-summary-btn" type="button" class="bg-purple-600 text-white px-2 py-1 rounded">Resumen IA</button>
+        <button id="ia-translate-btn" type="button" class="bg-purple-600 text-white px-2 py-1 rounded">Traducción IA</button>
+        <button id="ia-research-btn" type="button" class="bg-purple-600 text-white px-2 py-1 rounded">Investigación IA</button>
+        <button id="ia-websearch-btn" type="button" class="bg-purple-600 text-white px-2 py-1 rounded">Buscar en la Web</button>
     </div>
 </div>

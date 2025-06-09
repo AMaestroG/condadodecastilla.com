@@ -48,7 +48,7 @@ require_once 'includes/ai_utils.php';
         echo get_smart_summary('index_hero', $hero_text);
     ?>
 
-    <section class="video-section section spotlight-active">
+    <section class="video-section section spotlight-active" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">Un Vistazo a Nuestra Tierra</h2>
             <div class="video-container">
@@ -65,7 +65,7 @@ require_once 'includes/ai_utils.php';
     </section>
 
     <main>
-        <section class="section detailed-intro-section spotlight-active">
+        <section class="section detailed-intro-section spotlight-active" data-aos="fade-up">
             <div class="container">
                 <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', ''); ?>
                 <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', ''); ?>
@@ -75,7 +75,7 @@ require_once 'includes/ai_utils.php';
             </div>
         </section>
 
-        <section class="section alternate-bg spotlight-active">
+        <section class="section alternate-bg spotlight-active" data-aos="fade-up">
             <div class="container">
                 <h2 class="section-title">Explora Nuestro Legado</h2>
                 <div class="card-grid">
@@ -107,7 +107,7 @@ require_once 'includes/ai_utils.php';
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" data-aos="fade-up">
             <div class="container">
                 <h2 class="section-title">Personajes de la Historia</h2>
                 <div class="card-grid">
@@ -142,7 +142,7 @@ require_once 'includes/ai_utils.php';
             </div>
         </section>
         
-        <section class="section timeline-section-summary alternate-bg">
+        <section class="section timeline-section-summary alternate-bg" data-aos="fade-up">
             <div class="container">
                 <h2 class="section-title">Nuestra Historia en el Tiempo</h2>
                 <p class="timeline-intro">Un recorrido conciso por los momentos más determinantes de nuestra región, desde la prehistoria hasta la consolidación del Condado. Cada época ha dejado una huella imborrable.</p>
@@ -152,7 +152,7 @@ require_once 'includes/ai_utils.php';
             </div>
         </section>
 
-        <section class="section immersion-section">
+        <section class="section immersion-section" data-aos="fade-up">
             <div class="container">
                 <h2>Sumérgete en la Historia Viva de Tu Cultura</h2>
                 <p>
