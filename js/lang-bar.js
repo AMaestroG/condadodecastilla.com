@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+function setupLanguageBar() {
     const lang = new URLSearchParams(window.location.search).get('lang');
     const flagLinks = document.querySelectorAll('.language-bar .lang-flag');
 
@@ -19,7 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (lang && lang !== 'es') {
         loadGoogleTranslate(lang);
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupLanguageBar);
+} else {
+    setupLanguageBar();
+}
+
+window.initLanguageBar = setupLanguageBar;
 
 function loadGoogleTranslate(targetLang) {
     window._targetLang = targetLang;
