@@ -300,7 +300,7 @@ body.ia-chat-active {
     .navbar .nav-toggle,
     .navbar .nav-links {
         /* Sidebar handles mobile navigation */
-        /* display: none !important; */
+        display: none !important;
     }
     body.sidebar-active { margin-left: 0; }
     body.sidebar-active #sidebar-toggle { left: 15px; }
