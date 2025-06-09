@@ -4965,8 +4965,7 @@ de las Dueñas y del Monte, se refiere, siempre pensaremos que en los contornos
 de estos cuatro pueblecitos, muy cercanos entre sí y colocados entre Grañón y
 Cerezo de Río Tirón, habrá que situar el valle de Assur, abandonando la
 corriente del Arlanzón, señalada por Sandoval, por la del Tirón, fijada por el
-documento de 1035.  
-files/HistoriadeCerezo2_881853795897104.html](files/HistoriadeCerezo2_881853795897104.html)
+documento de 1035.
 Cesar Augusto pone el Cuartel General de sus tropas en las Guerras Cántabras
 en el Gurugu de Cerezo de Río Tirón en la antigua Segisamam en el ultimo
 puerto navegable del río Ebro que se junta con la Calzada de Tarragona –
