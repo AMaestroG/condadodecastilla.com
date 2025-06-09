@@ -51,6 +51,16 @@ php -S localhost:8000
 
 Esto iniciará el servidor en `http://localhost:8000`.
 
+## Instalación de dependencias
+
+Antes de ejecutar el sitio por primera vez descarga las librerías necesarias:
+
+```bash
+composer install --ignore-platform-req=ext-dom,ext-xmlwriter
+./scripts/setup_frontend_libs.sh
+```
+
+
 ## Consideraciones de produccion
 
 La muestra de errores PHP se mantiene deshabilitada en `dashboard/db_connect.php` e `dashboard/index.php` para no exponer detalles sensibles en produccion.
