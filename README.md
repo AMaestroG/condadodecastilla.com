@@ -64,6 +64,13 @@ Luego copia el archivo `.env.example` a `.env` y rellena tus
 credenciales reales para `CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
 y cualquier otra variable necesaria.
 
+Para ejecutar los scripts de mantenimiento escritos en Python
+asegúrate de instalar también sus dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
 
 ## Consideraciones de produccion
 
