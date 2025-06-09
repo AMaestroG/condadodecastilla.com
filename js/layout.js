@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    loadGsap();
     loadPageCss();
     loadHeaderCss();
     // Always initialize sidebar navigation. For PHP pages, elements are already there.
@@ -47,8 +48,16 @@ function initializeSidebarNavigation() {
 
     if (sidebarToggle && sidebar && body) { // Added body check
         sidebarToggle.addEventListener('click', () => {
+            const opening = !sidebar.classList.contains('sidebar-visible');
             sidebar.classList.toggle('sidebar-visible');
             body.classList.toggle('sidebar-active'); // For main content shift
+            if (window.gsap) {
+                if (opening) {
+                    gsap.fromTo(sidebar, { x: '-100%' }, { x: '0%', duration: 0.35, ease: 'power2.out', clearProps: 'transform' });
+                } else {
+                    gsap.to(sidebar, { x: '-100%', duration: 0.35, ease: 'power2.in', onComplete: () => { sidebar.style.transform = ''; } });
+                }
+            }
             // Optional: Change toggle button text/icon and ARIA attribute
             if (sidebar.classList.contains('sidebar-visible')) {
                 sidebarToggle.setAttribute('aria-expanded', 'true');
@@ -65,7 +74,20 @@ function initializeSidebarNavigation() {
                 if (window.innerWidth <= 768 && sidebar.classList.contains('sidebar-visible')) {
                     sidebar.classList.remove('sidebar-visible');
                     body.classList.remove('sidebar-active');
+                    if (window.gsap) {
+                        gsap.to(sidebar, { x: '-100%', duration: 0.35, ease: 'power2.in', onComplete: () => { sidebar.style.transform = ''; } });
+                    }
                     sidebarToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+            link.addEventListener('mouseenter', () => {
+                if (window.gsap) {
+                    gsap.to(link, { paddingLeft: '20px', duration: 0.2, ease: 'power2.out' });
+                }
+            });
+            link.addEventListener('mouseleave', () => {
+                if (window.gsap) {
+                    gsap.to(link, { paddingLeft: '12px', duration: 0.2, ease: 'power2.in' });
                 }
             });
         });
@@ -74,6 +96,9 @@ function initializeSidebarNavigation() {
             if (window.innerWidth > 768 && sidebar.classList.contains('sidebar-visible')) {
                 sidebar.classList.remove('sidebar-visible');
                 body.classList.remove('sidebar-active');
+                if (window.gsap) {
+                    gsap.to(sidebar, { x: '-100%', duration: 0.35, ease: 'power2.in', onComplete: () => { sidebar.style.transform = ''; } });
+                }
                 sidebarToggle.setAttribute('aria-expanded', 'false');
             }
         });
@@ -341,5 +366,13 @@ function loadHeaderCss() {
         link.rel = 'stylesheet';
         link.href = '/assets/css/header.css';
         document.head.appendChild(link);
+    }
+}
+
+function loadGsap() {
+    if (!window.gsap) {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+        document.head.appendChild(script);
     }
 }
