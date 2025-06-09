@@ -164,7 +164,7 @@ require_once 'includes/ai_utils.php';
         </section>
     </main>
 
-    <?php require_once __DIR__ . '/_footer.html'; ?>
+    <?php require_once __DIR__ . '/_footer.php'; ?>
 
     <script src="/js/layout.js"></script>
 

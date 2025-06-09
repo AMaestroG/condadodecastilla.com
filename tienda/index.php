@@ -43,6 +43,6 @@ require_once __DIR__ . '/../includes/auth.php';
         </div>
     </div>
 </main>
-<?php require_once __DIR__ . '/../_footer.html'; ?>
+<?php require_once __DIR__ . '/../_footer.php'; ?>
 </body>
 </html>
