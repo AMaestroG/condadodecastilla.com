@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeThemeToggle();
     // New Homonexus mode initialization
     initializeHomonexusToggle();
+    initializeLinterna();
+    initializeSectionLighting();
 });
 
 // NEW: Function to handle sidebar interactions
@@ -152,6 +154,48 @@ function initializeHomonexusToggle() {
         expire.setFullYear(expire.getFullYear() + 1);
         document.cookie = `homonexus=${active ? 'on' : 'off'}; expires=${expire.toUTCString()}; path=/`;
     });
+}
+
+function initializeLinterna() {
+    const linterna = document.getElementById('linterna-condado');
+    if (!linterna) return;
+    const sections = document.querySelectorAll('.section');
+    function update(e) {
+        requestAnimationFrame(() => {
+            linterna.style.setProperty('--mouse-x', e.clientX + 'px');
+            linterna.style.setProperty('--mouse-y', e.clientY + 'px');
+        });
+    }
+    function activate() {
+        requestAnimationFrame(() => {
+            linterna.style.setProperty('--linterna-opacity', '0.65');
+            linterna.style.setProperty('--linterna-radio', '250px');
+        });
+    }
+    function deactivate() {
+        requestAnimationFrame(() => {
+            linterna.style.setProperty('--linterna-opacity', '0');
+        });
+    }
+    document.body.addEventListener('mousemove', update);
+    sections.forEach(s => {
+        s.addEventListener('mouseenter', activate);
+        s.addEventListener('mouseleave', deactivate);
+    });
+}
+
+function initializeSectionLighting() {
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            } else {
+                entry.target.classList.remove('in-view');
+            }
+        });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
 }
 
 function loadIAToolsScript() {
@@ -419,6 +463,13 @@ function loadHeaderCss() {
         link.id = 'header-css';
         link.rel = 'stylesheet';
         link.href = '/assets/css/header.css';
+        document.head.appendChild(link);
+    }
+    if (!document.getElementById('lighting-css')) {
+        const link = document.createElement('link');
+        link.id = 'lighting-css';
+        link.rel = 'stylesheet';
+        link.href = '/assets/css/lighting.css';
         document.head.appendChild(link);
     }
 }
