@@ -16,8 +16,9 @@ class LinkExtractor(HTMLParser):
                 if not (href.startswith('http://') or \
                         href.startswith('https://') or \
                         href.startswith('mailto:') or \
-                        href.startswith('#') # Ignore pure fragment links
-                        ):
+                        href.startswith('tel:') or \
+                        href.startswith('#') or \
+                        href.startswith('?')):
                     self.links.append(href)
 
 def find_html_files(repo_root):
