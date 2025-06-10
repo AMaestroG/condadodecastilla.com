@@ -1,12 +1,22 @@
 /* assets/css/header/topbar.css */
 
+.top-empty-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: var(--epic-transparent-overlay-medium);
+    z-index: 3000;
+}
+
 /* Theme Toggle Button - Original Position (will be adjusted for mobile) */
 #theme-toggle {
     position: fixed;
-    top: 55px; /* Was 15px, add 40px for spacer */
+    top: 88px; /* lowered position */
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--epic-alabaster-bg);
+    background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     padding: 10px;
@@ -39,10 +49,10 @@
 /* Language selection bar */
 .language-bar {
     position: fixed;
-    top: 40px; /* Lowered to create space above it */
+    top: 48px; /* below empty top bar */
     left: 0;
     right: 0;
-    background: var(--epic-alabaster-medium);
+    background: var(--epic-transparent-overlay-light);
     padding: 2px 8px;
     text-align: right;
     z-index: 3000; /* Below toggles if they overlap, but above content */
@@ -65,9 +75,9 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 /* Sidebar Toggle (Hamburger) */
 #sidebar-toggle {
     position: fixed;
-    top: 55px; /* Was 15px, add 40px for spacer */
+    top: 88px; /* moved lower */
     left: 15px;
-    background-color: var(--epic-alabaster-bg);
+    background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     padding: 8px;
@@ -105,9 +115,9 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 /* IA Chat Toggle */
 #ia-chat-toggle {
     position: fixed;
-    top: 55px; /* Was 15px, add 40px for spacer */
+    top: 88px; /* moved lower */
     right: 15px;
-    background-color: var(--epic-alabaster-bg);
+    background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     padding: 10px;
@@ -137,9 +147,9 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 /* Homonexus Toggle */
 #homonexus-toggle {
     position: fixed;
-    top: 55px; /* Was 15px, add 40px for spacer */
+    top: 88px; /* moved lower */
     right: 65px; /* (ia-chat-toggle width 44px + right 15px = 59px) + 6px gap */
-    background-color: var(--epic-alabaster-bg);
+    background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     padding: 10px;
@@ -181,9 +191,9 @@ body.dark-mode #homonexus-toggle:hover i {
         right: 115px; /* (homonexus-toggle right 65px + width 44px = 109px) + 6px gap */
         /* Note: Ensure #ia-chat-toggle is at right: 15px and #homonexus-toggle at right: 65px */
     }
-    /* #sidebar-toggle remains top: 55px; left: 15px; */
-    /* #ia-chat-toggle remains top: 55px; right: 15px; */
-    /* #homonexus-toggle remains top: 55px; right: 65px; */
+    /* #sidebar-toggle remains top: 88px; left: 15px; */
+    /* #ia-chat-toggle remains top: 88px; right: 15px; */
+    /* #homonexus-toggle remains top: 88px; right: 65px; */
 }
 
 /* Consider further adjustments for very small screens if needed, e.g., hiding some toggles */
