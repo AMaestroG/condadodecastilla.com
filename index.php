@@ -23,7 +23,8 @@ require_once 'includes/text_manager.php';// For editableText()
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Condado de Castilla - Cuna de tu Cultura y Lengua</title>
+    <title>Condado de Castilla | Recreación Histórica Medieval</title>
+    <meta name="description" content="Somos el Condado de Castilla, una asociación dedicada a la divulgación y recreación histórica del siglo X. Descubre nuestros eventos, talleres y campamentos.">
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
