@@ -66,7 +66,6 @@
                 console.error("Error loading IA tools script:", e);
             }
         }
-        alert("header_loader.js init() completed. Test PC.");
     }
 
     if (document.readyState === 'loading') {
