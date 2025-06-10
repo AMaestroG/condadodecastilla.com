@@ -3,13 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     loadAos();
     loadPageCss();
     loadHeaderCss();
-    // Always initialize sidebar navigation. For PHP pages, elements are already there.
-    // For static HTML pages, this will run, and then the header fetch below will populate the necessary elements.
-    // The initializeSidebarNavigation function itself checks for element existence.
-    initializeSidebarNavigation();
-    loadIAToolsScript(); // Ensure IA tools script loads for pages with static headers
-    initializeIAChatSidebar(); // Initialize right sidebar chat
-    // IA tools script will also be loaded after the header is inserted dynamically.
+    // initializeSidebarNavigation(); // Now called by header_loader.js
+    // loadIAToolsScript(); // Now called by header_loader.js
+    // initializeIAChatSidebar(); // Now called by header_loader.js
 
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
@@ -19,10 +15,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 headerPlaceholder.innerHTML = data;
                 // Re-initialize sidebar navigation if header was loaded dynamically,
                 // in case the elements weren't ready on the first call.
-                initializeSidebarNavigation();
-                loadIAToolsScript();
+                // initializeSidebarNavigation(); // Now called by header_loader.js
+                // loadIAToolsScript(); // Now called by header_loader.js
                 // Ensure chat sidebar is initialized when header is loaded
-                initializeIAChatSidebar();
+                // initializeIAChatSidebar(); // Now called by header_loader.js
             })
             .catch(error => console.error('Error fetching _header.html:', error));
     }
@@ -55,8 +51,8 @@ function initializeSidebarNavigation() {
             const opening = !sidebar.classList.contains('sidebar-visible');
             sidebar.classList.toggle('sidebar-visible');
             body.classList.toggle('sidebar-active'); // For main content shift
-            const iaToggle = document.getElementById('ia-chat-toggle');
-            if (iaToggle) iaToggle.click();
+            // const iaToggle = document.getElementById('ia-chat-toggle');
+            // if (iaToggle) iaToggle.click(); // Prevent AI chat from opening with main sidebar
             if (window.gsap) {
                 if (opening) {
                     gsap.fromTo(sidebar, { x: '-100%' }, { x: '0%', duration: 0.35, ease: 'power2.out', clearProps: 'transform' });

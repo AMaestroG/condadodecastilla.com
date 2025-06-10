@@ -65,15 +65,11 @@ html {
 body {
     font-family: var(--font-primary);
     color: var(--epic-text-color);
-    background-image: var(--alabaster-background-image);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* For parallax-like effect */
-    background-position: center center;
-    background-color: var(--epic-alabaster-bg); /* Fallback color */
-    /* filter: grayscale(70%) brightness(110%) contrast(105%); */ /* Cooler, greyish tone for alabastro.jpg */
+    background-color: var(--epic-alabaster-bg); /* Fallback color, light or dark via variable */
     line-height: 1.7;
     text-align: left; /* Default text alignment */
+    position: relative; /* For z-index stacking with pseudo-element */
+    z-index: 1; /* Content above background pseudo-element */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -81,6 +77,21 @@ body {
     padding-top: 30px;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Behind the body content */
+    background-image: var(--alabaster-background-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    filter: grayscale(70%) brightness(110%) contrast(105%); /* Original light mode filter */
+}
 
 @keyframes fadeInPage {
     from { opacity: 0; transform: translateY(15px); }
@@ -2486,11 +2497,19 @@ body.dark-mode {
     --epic-text-light-rgb: 245,245,245;
     --epic-icon-color: #a0b8d8; /* Base blue-gray for icons */
     --epic-icon-hover: #87cefa; /* Light sky blue for icon hover */
-    background-image: var(--alabaster-background-image);
-    background-color: var(--epic-alabaster-bg);
-    /* filter: grayscale(90%) brightness(80%); */
+    /* background-image is inherited from body::before via cascading */
+    background-color: var(--epic-alabaster-bg); /* This will be the dark version of the variable */
+    /* filter property is now on body.dark-mode::before */
     padding-top: 30px;
 }
+
+body.dark-mode::before {
+    content: ''; /* Must be redeclared for pseudo-elements in combined selectors if overriding */
+    /* Inherits background-image, size, repeat, attachment, position from body::before */
+    /* Only apply the dark mode specific filter */
+    filter: grayscale(90%) brightness(80%); /* Original dark mode filter */
+}
+
 body.dark-mode p {
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
 }
