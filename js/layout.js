@@ -48,6 +48,7 @@ function initializeSidebarNavigation() {
 
     if (sidebarToggle && sidebar && body) { // Added body check
         sidebarToggle.addEventListener('click', () => {
+            alert("Sidebar toggle clicked! Test PC."); // Temporary debug
             const opening = !sidebar.classList.contains('sidebar-visible');
             sidebar.classList.toggle('sidebar-visible');
             body.classList.toggle('sidebar-active'); // For main content shift
