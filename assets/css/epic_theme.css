@@ -71,7 +71,7 @@ body {
     background-attachment: fixed; /* For parallax-like effect */
     background-position: center center;
     background-color: var(--epic-alabaster-bg); /* Fallback color */
-    filter: grayscale(70%) brightness(110%) contrast(105%); /* Cooler, greyish tone for alabastro.jpg */
+    /* filter: grayscale(70%) brightness(110%) contrast(105%); */ /* Cooler, greyish tone for alabastro.jpg */
     line-height: 1.7;
     text-align: left; /* Default text alignment */
     -webkit-font-smoothing: antialiased;
@@ -2488,7 +2488,7 @@ body.dark-mode {
     --epic-icon-hover: #87cefa; /* Light sky blue for icon hover */
     background-image: var(--alabaster-background-image);
     background-color: var(--epic-alabaster-bg);
-    filter: grayscale(90%) brightness(80%);
+    /* filter: grayscale(90%) brightness(80%); */
     padding-top: 30px;
 }
 body.dark-mode p {
