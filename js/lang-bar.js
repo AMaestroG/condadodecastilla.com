@@ -21,14 +21,6 @@ function setupLanguageBar() {
     }
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupLanguageBar);
-} else {
-    setupLanguageBar();
-}
-
-window.initLanguageBar = setupLanguageBar;
-
 function loadGoogleTranslate(targetLang) {
     window._targetLang = targetLang;
     if (!window.googleTranslateElementInit) {
@@ -51,3 +43,17 @@ function translatePage(lang) {
         combo.dispatchEvent(new Event('change'));
     }
 }
+
+try {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupLanguageBar);
+    } else {
+        setupLanguageBar();
+    }
+} catch (e) {
+    console.error("Error during initial execution/setup of lang-bar.js:", e);
+    // Optionally, a user-facing alert for diagnostics if this phase is critical
+    // alert("Critical error in language bar initial setup. Some features might be affected.");
+}
+
+window.initLanguageBar = setupLanguageBar; // Ensure this is always assigned
