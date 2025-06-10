@@ -352,7 +352,7 @@ function initializeIAChatSidebar() {
         const p = document.createElement('p');
         p.className = `chat-${role} chat-message`;
         p.dataset.role = role;
-        p.contentEditable = 'true';
+        // p.contentEditable = 'true'; // Removed for simplification
         if (role === 'user') {
             p.textContent = text;
         } else {

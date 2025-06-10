@@ -33,7 +33,89 @@
     color: var(--epic-purple-emperor);
     transform: rotate(20deg);
 }
-/* Language selection bar */
+
+/* Sidebar Toggle Button (Hamburger) */
+#sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: var(--epic-alabaster-bg);
+    border: 2px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 8px; /* Adjusted for bar spacing */
+    cursor: pointer;
+    z-index: 3001;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Distribute space for bars */
+    width: 44px;
+    height: 44px;
+}
+
+#sidebar-toggle .bar {
+    display: block;
+    width: 80%; /* Relative to button padding */
+    height: 3px;
+    background-color: var(--epic-gold-main);
+    border-radius: 1px;
+    transition: all 0.3s ease-in-out;
+    margin: 2px auto; /* Centering bars, adjust vertical margin via justify-content */
+}
+
+#sidebar-toggle.active .bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg); /* Adjusted for 3px bar height + 2px margin */
+}
+
+#sidebar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+#sidebar-toggle.active .bar:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg); /* Adjusted */
+}
+
+
+/* Homonexus Toggle Button */
+#homonexus-toggle {
+    position: fixed;
+    top: 15px;
+    right: 65px; /* (ia-chat-toggle width 44px + right 15px = 59px) + 6px gap */
+    background-color: var(--epic-alabaster-bg);
+    border: 2px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 10px;
+    cursor: pointer;
+    z-index: 3001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+}
+
+#homonexus-toggle i {
+    color: var(--epic-gold-main);
+    font-size: 1.2em; /* Match theme-toggle icon size */
+}
+
+#homonexus-toggle:hover {
+     background-color: var(--epic-gold-main);
+}
+
+#homonexus-toggle:hover i {
+     color: var(--epic-purple-emperor);
+}
+
+body.dark-mode #homonexus-toggle i {
+     color: var(--epic-icon-color);
+}
+
+body.dark-mode #homonexus-toggle:hover i {
+     color: var(--epic-icon-hover);
+}
+
+
+/* Language selection bar - No changes, kept for context */
 .language-bar {
     position: fixed;
     top: 0;
@@ -42,7 +124,7 @@
     background: var(--epic-alabaster-medium);
     padding: 2px 8px;
     text-align: right;
-    z-index: 3000;
+    z-index: 3000; /* Lower than toggles */
     font-size: 1.2em;
 }
 
@@ -56,5 +138,29 @@
     display: none !important;
 }
 body {
-    top: 0 !important;
+    top: 0 !important; /* Note: This can sometimes conflict with Google Translate's own adjustments. Monitor if issues arise. */
+}
+
+/* Responsive adjustments for toggle buttons */
+@media (max-width: 768px) {
+    #theme-toggle {
+        left: auto; /* Override PC centering */
+        right: 115px; /* (homonexus-toggle right 65px + width 44px = 109px) + 6px gap */
+        /* If #ia-chat-toggle is also present on mobile, this might need further adjustment
+           Currently, ia-chat-toggle is fixed at right: 15px.
+           So, homonexus-toggle at right: 65px (15 + 44 + 6)
+           And theme-toggle at right: 115px (65 + 44 + 6)
+        */
+    }
+
+    #homonexus-toggle {
+        right: 65px; /* (ia-chat-toggle width 44px + right 15px = 59) + 6px gap */
+    }
+
+    /* #ia-chat-toggle is assumed to be fixed at right: 15px (from ia-chat.css) */
+
+    /* Ensure sidebar-toggle remains top-left */
+    #sidebar-toggle {
+        left: 15px;
+    }
 }

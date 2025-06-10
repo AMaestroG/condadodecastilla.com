@@ -2,7 +2,7 @@
 #ia-chat-sidebar {
     position: fixed;
     top: 0;
-    right: -25vw; /* Initial hidden state, JS will change to 0 */
+    right: 0; /* Initial position on screen before transform */
     left: auto;
     width: clamp(280px, 70vw, 400px);
     height: 100vh;
@@ -10,7 +10,8 @@
     backdrop-filter: blur(5px);
     padding: 20px;
     box-shadow: 0 0 15px rgba(var(--epic-text-color-rgb), 0.25);
-    transition: right var(--global-transition-speed) ease-in-out;
+    transform: translateX(100%); /* Initially hidden off-screen to the right */
+    transition: transform var(--global-transition-speed) ease-in-out; /* Animate transform property */
     overflow: auto;
     z-index: 3000;
     display: flex;
@@ -22,7 +23,7 @@
 }
 
 #ia-chat-sidebar.sidebar-visible {
-    right: 0;
+    transform: translateX(0); /* Slide in to view */
     pointer-events: auto;
 }
 
