@@ -74,7 +74,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     animation: fadeInPage 0.7s ease-out forwards;
-    padding-top: 30px;
+    padding-top: 110px;
 }
 
 body::before {
@@ -2500,7 +2500,7 @@ body.dark-mode {
     /* background-image is inherited from body::before via cascading */
     background-color: var(--epic-alabaster-bg); /* This will be the dark version of the variable */
     /* filter property is now on body.dark-mode::before */
-    padding-top: 30px;
+    padding-top: 110px;
 }
 
 body.dark-mode::before {
