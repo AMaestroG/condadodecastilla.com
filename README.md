@@ -74,6 +74,9 @@ la base de datos.
 ./scripts/setup_project.sh
 ```
 
+El script puede ejecutarse desde cualquier directorio siempre que estés
+dentro del repositorio, ya que detecta automáticamente la raíz del proyecto.
+
 
 ## Consideraciones de produccion
 
