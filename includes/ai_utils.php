@@ -2,8 +2,6 @@
 // includes/ai_utils.php
 
 // Cargar variables de entorno desde .env
-require_once __DIR__ . '/../vendor/autoload.php';
-Dotenv\Dotenv::createImmutable(__DIR__ . '/..')->load();
 
 // Read Gemini API settings from environment variables when available
 if (!defined('GEMINI_API_KEY')) {

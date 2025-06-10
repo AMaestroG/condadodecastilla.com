@@ -4,8 +4,6 @@
 // La contraseña se obtiene desde la variable de entorno CONDADO_DB_PASSWORD
 
 // Cargar variables de entorno desde .env
-require_once __DIR__ . '/../vendor/autoload.php';
-Dotenv\Dotenv::createImmutable(__DIR__ . '/..')->load();
 
 // --- IMPORTANTE PARA PRODUCCIÓN ---
 // Las siguientes líneas habilitan la visualización de errores para desarrollo.
