@@ -62,8 +62,9 @@ composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwrit
 
 A continuación copia el archivo de ejemplo `.env.example` a `.env`
 y sustituye sus valores por tus credenciales reales para
-`CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
-y cualquier otra variable necesaria.
+`CONDADO_DB_PASSWORD`, `GEMINI_API_KEY` y, si lo deseas,
+ajusta las rutas de `MUSEO_UPLOAD_DIR` y `TIENDA_UPLOAD_DIR` u
+otras variables que necesites.
 
 Si prefieres una configuración automática ejecuta `scripts/setup_project.sh`, el
 cual realizará todos los pasos anteriores, creará los directorios de subida y,
@@ -109,6 +110,9 @@ es necesario definir las siguientes variables de entorno:
 - `GEMINI_API_ENDPOINT`: URL del servicio al que se enviarán las solicitudes. Si no se establece,
   se usa un valor de ejemplo que activa un simulador interno.
 
+Además puedes definir `MUSEO_UPLOAD_DIR` y `TIENDA_UPLOAD_DIR` para ajustar las
+carpetas donde se guardarán las imágenes subidas por las APIs.
+
 Si está disponible, puedes revisar el script opcional `scripts/gemini_request.sh`
 para ver un ejemplo básico de invocación que hace uso de `GEMINI_API_KEY`.
 Encuentra la tienda en [tienda/index.php](tienda/index.php).
@@ -146,16 +150,22 @@ La conexión a la base de datos requiere que la variable de entorno `CONDADO_DB_
 
 Se ha añadido una sección de foro en `foro/index.html`. Por el momento funciona como una página de aviso mientras se desarrolla el espacio de discusión.
 
-## Almacenamiento de imágenes del museo
+## Almacenamiento de imágenes del museo y la tienda
 
-Las imágenes subidas a través de la API del museo se guardan en el directorio `uploads_storage/museo_piezas`.
-Antes de ejecutar la API asegúrate de crear esta carpeta y asignar permisos de escritura al usuario que ejecute el servidor web.
+Las APIs guardan sus ficheros en rutas externas a la carpeta pública. Por defecto
+se utilizan `uploads_storage/museo_piezas` para el museo y
+`uploads_storage/tienda_productos` para la tienda. Puedes modificar estas rutas
+con las variables de entorno `MUSEO_UPLOAD_DIR` y `TIENDA_UPLOAD_DIR`.
 
-Ejemplo de creación del directorio en Linux:
+Si las carpetas no existen se crearán automáticamente cuando se ejecute la API,
+pero es recomendable prepararlas de antemano y otorgar permisos de escritura al
+usuario del servidor web.
+
+Ejemplo de creación en Linux:
 
 ```bash
-mkdir -p uploads_storage/museo_piezas
-chmod 775 uploads_storage/museo_piezas
+mkdir -p uploads_storage/museo_piezas uploads_storage/tienda_productos
+chmod 775 uploads_storage/museo_piezas uploads_storage/tienda_productos
 ```
 
 ## Agente diario
