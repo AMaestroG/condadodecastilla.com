@@ -1053,8 +1053,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 /* SECCIÓN DE INTRODUCCIÓN DETALLADA y Bloques de Contenido de Página Interna */
 /* .detailed-intro-section .container uses .container, so the rule above applies. */
 /* .page-content-block is defined in both. epic_theme.css provides a base. Appended styles from estilos.css are more specific. */
-.detailed-intro-section .container,
-.page-content-block {
+.detailed-intro-section .container {
     /* epic_theme.css .page-content-block provides base: bg, backdrop-filter, padding, border-radius, box-shadow */
     /* estilos.css version adds more specific background and padding, potentially overriding epic_theme.css */
     background-color: rgba(var(--epic-alabaster-bg-rgb), 0.96); /* Mapped & slightly more opaque */
@@ -1164,11 +1163,6 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 /* --- Tarjetas (Cards) --- */
 /* epic_theme.css has .card-grid and .card. estilos.css also has these. Appending for now. */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
 
 .card--legacy-hover-effect {
     background-color: var(--color-fondo-pagina, #fdfaf6); /* Mapped */
@@ -1186,57 +1180,6 @@ body.dark-mode .footer .social-links a:focus-visible {
 .card--legacy-hover-effect:hover {
     transform: translateY(-18px) translateX(-9px) rotate(1.5deg);
     box-shadow: 12px 12px 0px -2px var(--color-secundario-dorado, #B8860B), 22px 22px 35px rgba(var(--color-morado-emperador-rgb, 74, 13, 103), 0.25); /* Mapped */
-}
-
-.card img {
-    border-bottom: 6px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
-    border-radius: var(--border-radius-medio, 10px) var(--border-radius-medio, 10px) 0 0; /* Mapped */
-    filter: grayscale(70%) sepia(40%) contrast(1.1) brightness(0.85);
-    transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.45s ease-out;
-    margin: 0;
-    width: 100%;
-}
-.card:hover img {
-    transform: scale(1.15);
-    filter: grayscale(10%) sepia(10%) contrast(1.05) brightness(1);
-}
-
-.card-content { /* epic_theme.css has .card-content. Appending. */
-    padding: 30px;
-    /* text-align: center; */ /* Already centered by previous rule */
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-.card-content h3::before { /* epic_theme.css has .card-content h3::before. Appending. */
-    content: '';
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-image: url('/assets/img/estrella.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: 10px;
-    vertical-align: middle;
-    opacity: 0.75;
-    transform: translateY(-2px) rotate(-12deg);
-}
-
-
-.card-content h3 { /* epic_theme.css has .card-content h3. Appending. */
-    font-size: clamp(1.4em, 3vw, 1.8em);
-    margin-bottom: 15px;
-    color: var(--color-primario-purpura, #4A0D67); /* Mapped */
-}
-
-.card-content p { /* epic_theme.css has .card-content p. Appending. */
-    font-size: clamp(1em, 2vw, 1.05em);
-    line-height: 1.7;
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped to --epic-text-color or similar */
-    /* text-align: center; */ /* Inherits from .card-content */
-    margin-bottom: 1.5em;
-    flex-grow: 1;
 }
 
 /* --- Sección de Inmersión --- */
