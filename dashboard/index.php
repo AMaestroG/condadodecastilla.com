@@ -87,6 +87,7 @@ require_admin_login();
         <a href="../index.php">Inicio</a>
         <a href="edit_texts.php">Textos</a>
         <a href="tienda_admin.php">Tienda</a>
+        <a href="../museo/editar_pieza.php">Piezas Museo</a>
         <a href="logout.php">Cerrar sesión</a>
     </nav>
     
