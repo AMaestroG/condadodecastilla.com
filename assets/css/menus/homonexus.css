@@ -16,9 +16,6 @@ body.homonexus-active #sidebar .nav-links a:hover {
 }
 /* Toggle button */
 #homonexus-toggle {
-    position: fixed;
-    top: 15px;
-    right: 70px;
     background-color: var(--epic-alabaster-bg);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
