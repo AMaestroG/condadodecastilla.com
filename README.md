@@ -184,3 +184,7 @@ vendor/bin/phpunit
 Recuerda definir las variables de entorno necesarias para las pruebas, como `CONDADO_DB_PASSWORD`, que utiliza el script `scripts/check_db.sh`.
 
 Las pruebas hacen uso de los *fixtures* incluidos en `tests/fixtures/`, por lo que deben mantenerse para que los resultados sean coherentes.
+
+## Licencia
+
+Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más información.
