@@ -25,7 +25,7 @@ function loadGoogleTranslate(targetLang) {
     window._targetLang = targetLang;
     if (!window.googleTranslateElementInit) {
         window.googleTranslateElementInit = function() {
-            new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr,de,it,pt,ru,zh-CN,ja,ko,ar,hi'}, 'google_translate_element');
+            new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr,de,it,pt,ru,zh-CN,ja,ko,ar,hi,tr,id,vi,bn,ur,fa,nl,pl,uk,sw'}, 'google_translate_element');
             translatePage(window._targetLang);
         };
         const script = document.createElement('script');

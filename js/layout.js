@@ -7,31 +7,37 @@ document.addEventListener("DOMContentLoaded", function() {
     // loadIAToolsScript(); // Now called by header_loader.js
     // initializeIAChatSidebar(); // Now called by header_loader.js
 
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder) {
-        fetch('/_header.html')
-            .then(response => response.text())
-            .then(data => {
-                headerPlaceholder.innerHTML = data;
-                // Re-initialize sidebar navigation if header was loaded dynamically,
-                // in case the elements weren't ready on the first call.
-                // initializeSidebarNavigation(); // Now called by header_loader.js
-                // loadIAToolsScript(); // Now called by header_loader.js
-                // Ensure chat sidebar is initialized when header is loaded
-                // initializeIAChatSidebar(); // Now called by header_loader.js
-            })
-            .catch(error => console.error('Error fetching _header.html:', error));
+    let headerPlaceholder = document.getElementById('header-placeholder');
+    if (!headerPlaceholder) {
+        headerPlaceholder = document.createElement('div');
+        headerPlaceholder.id = 'header-placeholder';
+        document.body.insertBefore(headerPlaceholder, document.body.firstChild);
     }
+    fetch('/_header.html')
+        .then(response => response.text())
+        .then(data => {
+            headerPlaceholder.innerHTML = data;
+            // Re-initialize sidebar navigation if header was loaded dynamically,
+            // in case the elements weren't ready on the first call.
+            // initializeSidebarNavigation(); // Now called by header_loader.js
+            // loadIAToolsScript(); // Now called by header_loader.js
+            // Ensure chat sidebar is initialized when header is loaded
+            // initializeIAChatSidebar(); // Now called by header_loader.js
+        })
+        .catch(error => console.error('Error fetching _header.html:', error));
 
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) {
-        fetch('/_footer.php')
-            .then(response => response.text())
-            .then(data => {
-                footerPlaceholder.innerHTML = data;
-            })
-            .catch(error => console.error('Error fetching _footer.php:', error));
+    let footerPlaceholder = document.getElementById('footer-placeholder');
+    if (!footerPlaceholder) {
+        footerPlaceholder = document.createElement('div');
+        footerPlaceholder.id = 'footer-placeholder';
+        document.body.appendChild(footerPlaceholder);
     }
+    fetch('/_footer.php')
+        .then(response => response.text())
+        .then(data => {
+            footerPlaceholder.innerHTML = data;
+        })
+        .catch(error => console.error('Error fetching _footer.php:', error));
 
     // Theme toggle initialization
     initializeThemeToggle();
