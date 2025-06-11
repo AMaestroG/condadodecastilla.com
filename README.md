@@ -90,10 +90,30 @@ La API del museo está disponible en la ruta `/api/museo/piezas`, gestionada por
 
 Para realizar una prueba con la API de Gemini puedes utilizar el script `scripts/gemini_request.sh`. Este script envía una solicitud al modelo *gemini-2.0-flash* y muestra la respuesta.
 
-Antes de ejecutarlo, define la variable de entorno `GEMINI_API_KEY` con tu clave de API de Google (también se acepta la variable `GeminiAPI` como alternativa):
+Sigue estos pasos para configurar las variables necesarias antes de ejecutarlo:
+
+1. Abre una terminal en la raíz del proyecto.
+2. Define tu clave de API con `GEMINI_API_KEY`:
 
 ```bash
 export GEMINI_API_KEY="tu_clave"
+```
+
+3. (Opcional) Si tu sistema utiliza el nombre alternativo `GeminiAPI`, asígnale el mismo valor:
+
+```bash
+export GeminiAPI="$GEMINI_API_KEY"
+```
+
+4. (Opcional) Establece la URL del servicio si no quieres usar el endpoint de ejemplo:
+
+```bash
+export GEMINI_API_ENDPOINT="https://tu-endpoint-real.example.com/v1/generateContent"
+```
+
+5. Ejecuta el script de prueba:
+
+```bash
 ./scripts/gemini_request.sh
 ```
 
@@ -109,8 +129,19 @@ es necesario definir las siguientes variables de entorno:
 - `GEMINI_API_ENDPOINT`: URL del servicio al que se enviarán las solicitudes. Si no se establece,
   se usa un valor de ejemplo que activa un simulador interno.
 
+`includes/ai_utils.php` lee estas variables con `getenv`. Cuando `GEMINI_API_KEY`
+o `GEMINI_API_ENDPOINT` no están definidos (o conservan los valores de ejemplo),
+la función `_call_gemini_api()` recurre automáticamente al simulador interno y
+devuelve textos de demostración.
+
 Si está disponible, puedes revisar el script opcional `scripts/gemini_request.sh`
 para ver un ejemplo básico de invocación que hace uso de `GEMINI_API_KEY`.
+
+**Seguridad:** nunca publiques tu clave real en el repositorio. Almacénala en un
+fichero `.env` fuera de control de versiones o configúrala mediante las
+variables de entorno del servidor (o un gestor de secretos) para mantenerla
+protegida.
+
 Encuentra la tienda en [tienda/index.php](tienda/index.php).
 
 ### Funciones de IA disponibles
