@@ -184,3 +184,71 @@ vendor/bin/phpunit
 Recuerda definir las variables de entorno necesarias para las pruebas, como `CONDADO_DB_PASSWORD`, que utiliza el script `scripts/check_db.sh`.
 
 Las pruebas hacen uso de los *fixtures* incluidos en `tests/fixtures/`, por lo que deben mantenerse para que los resultados sean coherentes.
+
+## CLI de la base de conocimiento
+
+El script `cli.py` permite gestionar las URLs almacenadas en el archivo `knowledge_graph_db.json`.
+
+### Requisitos previos
+
+- Python 3.10 o superior.
+- Instalar las dependencias de `requirements.txt`:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+### Comandos basicos
+
+**add_url**
+
+Rastrea la URL indicada y guarda los datos en la base de conocimiento.
+
+```bash
+python3 cli.py add_url http://example.com
+```
+
+Salida resumida:
+
+```
+Attempting to crawl and process URL: http://example.com...
+Resource for http://example.com added/updated...
+Processing complete for http://example.com.
+```
+
+**list_resources**
+
+Muestra todas las páginas almacenadas.
+
+```bash
+python3 cli.py list_resources
+```
+
+Ejemplo de salida:
+
+```
+[
+  {
+    "url": "http://example.com",
+    "metadata": {"title": "Example Domain"}
+  }
+]
+```
+
+**run_consistency**
+
+Ejecuta las comprobaciones definidas en `consistency_analyzer.py`.
+
+```bash
+python3 cli.py run_consistency
+```
+
+Resultado típico:
+
+```
+Running consistency analysis on the graph...
+Consistency issues found:
+[
+  {"check_name": "link_topical_coherence", ...}
+]
+```
