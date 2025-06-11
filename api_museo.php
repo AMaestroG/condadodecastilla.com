@@ -30,8 +30,13 @@ function get_base_url() {
     return $protocol . $host;
 }
 
-// Define the upload directory outside the web root
-define('UPLOAD_DIR_BASE', dirname(__DIR__) . '/uploads_storage/museo_piezas/');
+// Define the upload directory outside the web root, configurable via env var
+$museoUpload = getenv('MUSEO_UPLOAD_DIR');
+if (!$museoUpload) {
+    $museoUpload = dirname(__DIR__) . '/uploads_storage/museo_piezas';
+}
+$museoUpload = rtrim($museoUpload, '/') . '/';
+define('UPLOAD_DIR_BASE', $museoUpload);
 define('IMAGE_ENDPOINT', '/serve_museo_image.php');
 
 // Ensure the upload directory exists

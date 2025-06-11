@@ -1,7 +1,12 @@
 <?php
 require_once __DIR__ . '/includes/csrf.php';
-// Use same upload dir definition as API
-define('UPLOAD_DIR_BASE', dirname(__DIR__) . '/uploads_storage/museo_piezas/');
+// Use same upload dir definition as API, configurable via env var
+$museoUpload = getenv('MUSEO_UPLOAD_DIR');
+if (!$museoUpload) {
+    $museoUpload = dirname(__DIR__) . '/uploads_storage/museo_piezas';
+}
+$museoUpload = rtrim($museoUpload, '/') . '/';
+define('UPLOAD_DIR_BASE', $museoUpload);
 
 $filename = basename($_GET['file'] ?? '');
 $path = UPLOAD_DIR_BASE . $filename;

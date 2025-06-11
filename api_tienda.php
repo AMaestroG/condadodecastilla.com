@@ -17,7 +17,12 @@ function json_response($data, $status = 200) {
     exit;
 }
 
-define('UPLOAD_DIR_BASE', dirname(__DIR__) . '/uploads_storage/tienda_productos/');
+$tiendaUpload = getenv('TIENDA_UPLOAD_DIR');
+if (!$tiendaUpload) {
+    $tiendaUpload = dirname(__DIR__) . '/uploads_storage/tienda_productos';
+}
+$tiendaUpload = rtrim($tiendaUpload, '/') . '/';
+define('UPLOAD_DIR_BASE', $tiendaUpload);
 
 if (!is_dir(UPLOAD_DIR_BASE)) {
     @mkdir(UPLOAD_DIR_BASE, 0775, true);
