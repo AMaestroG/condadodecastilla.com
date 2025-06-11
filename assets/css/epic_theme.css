@@ -321,26 +321,6 @@ th {
     outline: none;
 }
 
-/* Alternative close button as an 'X' in the corner */
-/*
-#overlay-cerrar.corner-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: transparent;
-    border: none;
-    font-size: 2em;
-    color: var(--epic-text-color);
-    padding: 0;
-    line-height: 1;
-}
-#overlay-cerrar.corner-close:hover {
-    color: var(--epic-purple-emperor);
-}
-*/
-
-
-
 /* --- Footer Styling (.footer from _footer.html) --- */
 .footer {
     background-color: var(--epic-purple-emperor);
@@ -616,19 +596,6 @@ body.dark-mode .footer .social-links a:focus-visible {
     font-size: clamp(2em, 5vw, 3em);
     margin-bottom: 1.5em;
     color: var(--epic-purple-emperor);
-}
-.section-title::after { /* Decorative element after section titles */
-    content: '';
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-image: url('/assets/img/estrella.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 20px auto 40px auto;
-    opacity: 0.8;
-    filter: drop-shadow(0 0 8px var(--epic-gold-main));
 }
 
 /* --- Cards (.card) --- */
@@ -1270,24 +1237,6 @@ body.dark-mode .footer .social-links a:focus-visible {
     /* text-align: center; */ /* Inherits from .card-content */
     margin-bottom: 1.5em;
     flex-grow: 1;
-}
-
-.card-content .read-more { /* epic_theme.css has .card-content .read-more. Appending. */
-    background-color: transparent;
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped */
-    border: 2px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
-    padding: 10px 20px;
-    font-size: 0.9em;
-    font-weight: 700;
-    margin-top: auto;
-    align-self: center;
-    text-decoration: none;
-}
-.card-content .read-more:hover, .card-content .read-more:focus-visible {
-    background-color: var(--color-secundario-dorado, #B8860B); /* Mapped */
-    color: var(--color-primario-purpura, #4A0D67); /* Mapped */
-    text-decoration: none;
-    outline: none;
 }
 
 /* --- Sección de Inmersión --- */
