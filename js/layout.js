@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadAos();
     loadPageCss();
     loadHeaderCss();
+    loadFixedTogglesCss();
     // initializeSidebarNavigation(); // Now called by header_loader.js
     // loadIAToolsScript(); // Now called by header_loader.js
     // initializeIAChatSidebar(); // Now called by header_loader.js
@@ -41,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Theme toggle initialization
     initializeThemeToggle();
-    // New Homonexus mode initialization
-    initializeHomonexusToggle();
     initializeLinterna();
 });
 
@@ -136,25 +135,6 @@ function initializeThemeToggle() {
         icon.classList.toggle('fa-moon', !isDark);
         icon.classList.toggle('fa-sun', isDark);
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-}
-
-// Initialize Homonexus toggle button
-function initializeHomonexusToggle() {
-    const toggleButton = document.getElementById('homonexus-toggle');
-    const body = document.body;
-    if (!toggleButton) return;
-    const stored = localStorage.getItem('homonexus');
-    if (stored === 'on') {
-        body.classList.add('homonexus-active');
-    }
-    toggleButton.addEventListener('click', () => {
-        body.classList.toggle('homonexus-active');
-        const active = body.classList.contains('homonexus-active');
-        localStorage.setItem('homonexus', active ? 'on' : 'off');
-        const expire = new Date();
-        expire.setFullYear(expire.getFullYear() + 1);
-        document.cookie = `homonexus=${active ? 'on' : 'off'}; expires=${expire.toUTCString()}; path=/`;
     });
 }
 
@@ -458,6 +438,16 @@ function loadHeaderCss() {
         link.id = 'lighting-css';
         link.rel = 'stylesheet';
         link.href = '/assets/css/lighting.css';
+        document.head.appendChild(link);
+    }
+}
+
+function loadFixedTogglesCss() {
+    if (!document.getElementById('fixed-toggles-css')) {
+        const link = document.createElement('link');
+        link.id = 'fixed-toggles-css';
+        link.rel = 'stylesheet';
+        link.href = '/assets/css/header/fixed-toggles.css';
         document.head.appendChild(link);
     }
 }

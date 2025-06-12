@@ -1,0 +1,18 @@
+.fixed-vertical-toggles {
+    position: fixed;
+    top: 15px; /* Adjust as needed */
+    right: 15px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons, adjust as needed */
+    z-index: 3002; /* Ensure it's above other header elements if necessary */
+}
+
+.fixed-vertical-toggles button {
+    /* You might want to add some specific styling for these buttons if needed,
+       or they can inherit from existing styles. For example: */
+    padding: 8px;
+    background-color: rgba(var(--epic-alabaster-rgb), 0.8); /* Example background */
+    border: 1px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+}
