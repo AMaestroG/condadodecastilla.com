@@ -1,0 +1,92 @@
+<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
+<head>
+    <style>
+        .article-content p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+        .article-content h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--color-secundario-dorado);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        .article-content h4 {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: var(--color-primario-purpura);
+            margin-top: 1em;
+            margin-bottom: 0.3em;
+        }
+        .article-content a {
+            color: var(--epic-gold-main);
+            text-decoration: underline;
+        }
+        .article-content a:hover {
+            color: var(--color-secundario-dorado);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2em;
+            font-size: 0.9em;
+            color: var(--color-primario-purpura);
+            text-decoration: none;
+            border: 1px solid var(--color-primario-purpura);
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .back-link:hover {
+            background-color: var(--color-primario-purpura);
+            color: var(--color-blanco-fondo);
+        }
+        .highlight {
+            background-color: rgba(var(--color-secundario-dorado-rgb), 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <?php require_once __DIR__ . '/../../_header.html'; ?>
+
+
+    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/condes_hero.jpg'); min-height: 40vh;">
+        <div class="hero-content" style="padding: clamp(20px, 4vw, 40px);">
+            <h1 style="font-size: clamp(2.2em, 5vw, 3.5em);">Condes de Castilla y Álava en el Alcázar de Cerasio</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container article-content">
+                <p><a href="/historia/historia.php" class="back-link">&laquo; Volver a Nuestra Historia</a></p>
+
+                <h3>El Gobierno desde Cerasio</h3>
+                <p>Y ver cómo Pancorvo del Alfoz de cerezo, Valpuesta del Alfoz de cerezo, y Auca se vinculan al origen de Castilla que es el Alcázar de Alabastro puro de Cerasio con sus <span class="highlight">documentados condes de Castilla y Alava</span> y sus 1200 metros de largo con capacidad para albergar el Palacio o Alcázar su corte condal de funcionarios y sus soldados.</p>
+                <p>Desde Cerezo se gobernaba las Bardulias, dese la cuidad de Auka Patricia (patriniani) con nuestra episcopi de San Martín con 116 metros de largo, toda la provincia Cantábrica en tiempos visigodos (los montes de Cantabria en la Rioja). Somos el Origen de Castilla y del Idioma Castellano y la ciudad de Auka Patricia. Con los restos de la ciudad construyeron el Alcázar con el el Alfoz de Castilla, y sus <span class="highlight">Condes de Castilla y Álava gobernando desde su Alcazar en la Alcazaba</span>.</p>
+                <p>En Cerezo de Río Tirón existen y se pueden tocar aún hoy unas monumentales ruinas que recogen la historia y las tumbas de los <span class="highlight">5 primeros condes de Castilla y Álava anteriores a Fernán González</span>, el cual regenta los títulos de Cerezo y Lantaron que hereda de su mujer Doña Sancha viuda del Conde de Castilla Álvaro Herramelluriz (conde de Cerezo y Lantaron por lo tanto Conde de Castilla y Álava)...</p>
+
+                <h4>Linaje de los Condes</h4>
+                <p>Fernán González es Conde de Lara y Burgos por parte de su padre <span class="highlight">Gonzalo Fernández</span> hijo de <span class="highlight">Fernando Díaz</span> Conde de Cerezo y Lantarón – Conde de Castilla y Álava que a su vez es hijo de <span class="highlight">Diego Rodríguez Porcelos</span> – Conde de Cerezo y Lantarón – Conde de Castilla (Esta vez no esta claro que lo sea de Álava por haber perdido la Batalla de la Morcuera desarrollada toda ella en el Alfoz de Cerezo y Lantarón), Hijo de <span class="highlight">Rodrigo</span> Primer Conde de Cerezo y Lantarón – Conde de Castilla y Álava.</p>
+                <p>El Hijo de Diego Rodríguez Porcelos, <span class="highlight">Fernando Díaz</span> Conde de Cerezo y Lantarón – Conde de Castilla y de Álava ya se le situó con la corte Condal Gobernando desde el Alcázar de Cerasio como a los Condes <span class="highlight">Gonzalo Téllez</span> y <span class="highlight">Álvaro Herramelliz</span>.</p>
+                <p>La condesa de Castilla <span class="highlight">Doña Sancha</span> que hereda los títulos de Cerezo y Lantarón – Castilla y Álava de su marido muerto <span class="highlight">Álvaro Herramelliz</span> se casa con el Conde Fernán González Conde de Lara y Burgos y a partir de ahí Frenan González se hace con los títulos de Conde de Lara, Burgos, Cerezo y Lantarón – Conde de Castilla y de Álava.</p>
+
+                <h4>Documentación y Testimonios</h4>
+                <p>El Conde de Castilla y Álava <span class="highlight">Gonzalo Téllez</span>.</p>
+                <p>El conde de Castilla y Álava <span class="highlight">Fernando Diaz</span>.</p>
+                <p>Y el Conde de Castilla y Álava <span class="highlight">Álvaro herarméliz</span> que a su muerte su viuda Doña Sancha se casa con Fernán González y desde entonces Fernán González regenta los títulos que hereda su mujer de Conde de Castilla y Álava, llevando este Conde la capitalidad del Alcázar de Cerasio al Castillo de Burgos.</p>
+                <p>Los condes de Cerezo y Lantarón fueron los primeros condes de Castilla y Álava. Cerezo de río Tirón y Miranda de Ebro son el auténtico origen de Castilla y del Idioma Castellano.</p>
+                <p>En la episcopi de San Martín en Auca están enterrados todos los condes y condesas de Castilla hasta Fernán González incluido el padre de Fernán González que dice Fray Luis Perez Urbiel que fue enterrado en Cerezo por su mujer Munaidona.</p>
+
+            </div>
+        </section>
+    </main>
+
+
+
+    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <script src="/js/layout.js"></script>
+</body>
+</html>
