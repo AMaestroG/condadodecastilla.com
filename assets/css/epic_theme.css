@@ -8,8 +8,8 @@
     --epic-gold-main-rgb: 255, 215, 0;
     --epic-gold-secondary: #B8860B;
     --epic-gold-secondary-rgb: 184, 134, 11;
-    --epic-alabaster-bg: #F3F8FF; /* Very light celeste */
-    --epic-alabaster-bg-rgb: 243, 248, 255; /* RGB for new light tone */
+    --epic-alabaster-bg: #E8EFF9; /* Very light celeste */
+    --epic-alabaster-bg-rgb: 232, 239, 249; /* RGB for new light tone */
     --epic-alabaster-medium: #E6EEF9; /* Slightly darker celeste */
     --epic-alabaster-medium-rgb: 230, 238, 249; /* RGB for new medium tone */
     --epic-text-color: #2c1d12;
@@ -20,7 +20,7 @@
     /* Use alabaster tones for all overlay backgrounds */
     --epic-transparent-overlay-dark: rgba(var(--epic-alabaster-bg-rgb), 0.95);
     --epic-transparent-overlay-medium: rgba(var(--epic-alabaster-bg-rgb), 0.9);
-    --epic-transparent-overlay-light: rgba(var(--epic-alabaster-bg-rgb), 0.85);
+    --epic-transparent-overlay-light: rgba(var(--epic-alabaster-bg-rgb), 0.90);
     --epic-transparent-black-overlay: rgba(10, 10, 10, 0.75);
 
     --font-primary: 'Lora', serif;
@@ -36,13 +36,13 @@
 
 @media (prefers-color-scheme: dark) {
     :root:not(.light-mode) {
-        --epic-alabaster-bg: #1c2029;
-        --epic-alabaster-bg-rgb: 28, 32, 41;
+        --epic-alabaster-bg: #252B38;
+        --epic-alabaster-bg-rgb: 37, 43, 56;
         --epic-alabaster-medium: #2a2f39;
         --epic-alabaster-medium-rgb: 42, 47, 57;
-        --epic-text-color: #ffffff;
-        --epic-text-color-rgb: 255, 255, 255;
-        --epic-text-light: #f5f5f5;
+        --epic-text-color: #F0F0F0;
+        --epic-text-color-rgb: 240, 240, 240;
+        --epic-text-light: #D8D8D8;
         --epic-text-light-rgb: 245, 245, 245;
     }
 }
@@ -2364,6 +2364,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
  * dentro del contenedor principal (<main>) de cada página.
  * Esto unifica el diseño en todo el sitio.
 */
+/*
 main h1,
 main h2,
 main h3,
@@ -2376,16 +2377,16 @@ main h6 {
 main p {
     text-align: justify;
 }
-
+*/
 /* ===== Dark Mode Theme Variables ===== */
 body.dark-mode {
-    --epic-alabaster-bg: #1c2029;
-    --epic-alabaster-bg-rgb: 28, 32, 41;
+    --epic-alabaster-bg: #252B38;
+    --epic-alabaster-bg-rgb: 37, 43, 56;
     --epic-alabaster-medium: #2a2f39;
     --epic-alabaster-medium-rgb: 42, 47, 57;
-    --epic-text-color: #ffffff; /* Increased contrast */
-    --epic-text-color-rgb: 255,255,255; /* Increased contrast */
-    --epic-text-light: #f5f5f5; /* Lighter secondary text */
+    --epic-text-color: #F0F0F0; /* Increased contrast */
+    --epic-text-color-rgb: 240, 240, 240; /* Increased contrast */
+    --epic-text-light: #D8D8D8; /* Lighter secondary text */
     --epic-text-light-rgb: 245,245,245;
     --epic-icon-color: #a0b8d8; /* Base blue-gray for icons */
     --epic-icon-hover: #87cefa; /* Light sky blue for icon hover */
@@ -2399,11 +2400,16 @@ body.dark-mode::before {
     content: ''; /* Must be redeclared for pseudo-elements in combined selectors if overriding */
     /* Inherits background-image, size, repeat, attachment, position from body::before */
     /* Only apply the dark mode specific filter */
-    filter: grayscale(90%) brightness(80%); /* Original dark mode filter */
+    filter: grayscale(80%) brightness(85%); /* Original dark mode filter */
 }
 
 body.dark-mode p {
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .card,
+body.dark-mode #overlay-content {
+    background-color: var(--epic-alabaster-medium); /* Uses the dark mode version of --epic-alabaster-medium, e.g., #2a2f39 */
 }
 
 body.dark-mode #theme-toggle i {
