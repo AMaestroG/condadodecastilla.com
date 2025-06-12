@@ -122,6 +122,57 @@ function _call_gemini_api_simulator(array $payload): ?array {
 }
 
 /**
+ * Builds the payload for the Gemini API.
+ *
+ * @param string $prompt The prompt string.
+ * @return array The payload structure.
+ */
+function _build_gemini_payload(string $prompt): array {
+    return [
+        'contents' => [
+            [
+                'parts' => [
+                    ['text' => $prompt]
+                ]
+            ]
+        ]
+        // Consider if 'generationConfig' or 'safetySettings' should be default or parameterizable
+        // For now, keep it simple as per existing usage.
+    ];
+}
+
+/**
+ * Parses the response from the Gemini API.
+ *
+ * @param array|null $api_response The decoded API response.
+ * @param string|null $call_error Error message from the API call itself (e.g., cURL error).
+ * @return string The extracted text content or an error message prefixed with "Error:".
+ */
+function _parse_gemini_response(?array $api_response, ?string $call_error): string {
+    if ($call_error !== null) {
+        return "Error: " . $call_error;
+    }
+
+    if ($api_response === null) {
+        return "Error: API call failed without a specific message.";
+    }
+
+    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
+        $text = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+        if (empty($text)) {
+            return "Error: El texto generado por la IA estaba vacío.";
+        }
+        return $text; // Return raw text
+    }
+
+    if (isset($api_response['error']['message'])) {
+        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
+    }
+
+    return "Error: Respuesta inesperada del servicio de IA.";
+}
+
+/**
  * Llama a la API de Gemini utilizando cURL o usa el simulador si la
  * configuración sigue con valores de ejemplo.
  *
@@ -176,8 +227,8 @@ function _call_gemini_api(array $payload, ?string &$error = null): ?array {
             preg_match('#^HTTP/\S+\s+(\d+)#', $http_response_header[0], $m)) {
             $http_code = (int)$m[1];
             if ($http_code < 200 || $http_code >= 300) {
-                $error = $http_response_header[0];
-                error_log('Gemini API HTTP error: ' . $error);
+                $error = 'Gemini API HTTP error: ' . $http_code;
+                error_log('Gemini API HTTP error: ' . $http_code . ' (using file_get_contents)');
                 return null;
             }
         }
@@ -214,39 +265,17 @@ function get_real_ai_summary(string $text_to_summarize): string {
 
 \"" . $text_to_summarize . "\"";
 
-    // Estructura del payload para la API de Gemini (simplificada para el simulador)
-    // Ver: https://ai.google.dev/docs/gemini_api_overview?hl=es-419#text-generation-prompt
-    $payload = [
-        'contents' => [
-            [
-                'parts' => [
-                    ['text' => $prompt]
-                ]
-            ]
-        ],
-        // Se podrían añadir 'generationConfig' o 'safetySettings' aquí si el simulador los manejara.
-    ];
+    $payload = _build_gemini_payload($prompt);
 
     $error = null;
     $api_response = _call_gemini_api($payload, $error);
+    $parsed_text = _parse_gemini_response($api_response, $error);
 
-    if ($api_response === null) {
-        $msg = $error !== null ? $error : 'La llamada a la API de IA para el resumen falló.';
-        return "Error: " . $msg;
+    if (strpos($parsed_text, "Error:") === 0) {
+        return $parsed_text; // It's an error message, return as is.
     }
-
-    // Procesar la respuesta recibida (adaptar según la estructura real de Gemini si es necesario)
-    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
-        $summary = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
-        // Podría ser necesario un post-procesamiento adicional aquí para limpiar el resumen.
-        return !empty($summary) ? nl2br(htmlspecialchars($summary)) : "Error: El resumen generado por la IA estaba vacío.";
-    } elseif (isset($api_response['error']['message'])) { // Manejo de errores de la API si los hubiera
-         return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
-    } else {
-        // Loggear la respuesta inesperada para depuración si es posible en un entorno real.
-        // error_log("Respuesta inesperada de la API de IA: " . print_r($api_response, true));
-        return "Error: Respuesta inesperada del servicio de resumen de IA.";
-    }
+    // It's successful, non-empty text
+    return nl2br(htmlspecialchars($parsed_text));
 }
 
 /**
@@ -305,32 +334,17 @@ function get_ai_translation(string $text, string $target_language): string {
 
     $prompt = "Traduce el siguiente texto al idioma '" . $target_language . "'. Devuelve solo la traducción:\n\n\"" . $text . "\"";
 
-    $payload = [
-        'contents' => [
-            [
-                'parts' => [
-                    ['text' => $prompt]
-                ]
-            ]
-        ]
-    ];
+    $payload = _build_gemini_payload($prompt);
 
     $error = null;
     $api_response = _call_gemini_api($payload, $error);
+    $parsed_text = _parse_gemini_response($api_response, $error);
 
-    if ($api_response === null) {
-        $msg = $error !== null ? $error : 'La llamada a la API de IA para la traducción falló.';
-        return "Error: " . $msg;
+    if (strpos($parsed_text, "Error:") === 0) {
+        return $parsed_text; // It's an error message, return as is.
     }
-
-    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
-        $translation = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
-        return !empty($translation) ? nl2br(htmlspecialchars($translation)) : "Error: La traducción generada por la IA estaba vacía.";
-    } elseif (isset($api_response['error']['message'])) {
-        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
-    }
-
-    return "Error: Respuesta inesperada del servicio de traducción de IA.";
+    // It's successful, non-empty text
+    return nl2br(htmlspecialchars($parsed_text));
 }
 
 /**
@@ -346,32 +360,17 @@ function get_ai_correction(string $text): string {
 
     $prompt = "Corrige ortografía y gramática del siguiente texto. Devuelve solo la versión corregida:\n\n\"" . $text . "\"";
 
-    $payload = [
-        'contents' => [
-            [
-                'parts' => [
-                    ['text' => $prompt]
-                ]
-            ]
-        ]
-    ];
+    $payload = _build_gemini_payload($prompt);
 
     $error = null;
     $api_response = _call_gemini_api($payload, $error);
+    $parsed_text = _parse_gemini_response($api_response, $error);
 
-    if ($api_response === null) {
-        $msg = $error !== null ? $error : 'La llamada a la API de IA para la corrección falló.';
-        return "Error: " . $msg;
+    if (strpos($parsed_text, "Error:") === 0) {
+        return $parsed_text; // It's an error message, return as is.
     }
-
-    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
-        $correction = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
-        return !empty($correction) ? nl2br(htmlspecialchars($correction)) : "Error: La corrección generada por la IA estaba vacía.";
-    } elseif (isset($api_response['error']['message'])) {
-        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
-    }
-
-    return "Error: Respuesta inesperada del servicio de corrección de IA.";
+    // It's successful, non-empty text
+    return nl2br(htmlspecialchars($parsed_text));
 }
 
 /**
@@ -392,28 +391,17 @@ function get_history_chat_response(string $question): string {
 
     $prompt = "Responde únicamente preguntas sobre historia utilizando el siguiente contexto. Si la pregunta no es histórica, indica que solo respondes sobre historia.\n\nContexto:\n" . $context . "\n\nPregunta: \"" . $question . "\"";
 
-    $payload = [
-        'contents' => [
-            [ 'parts' => [ ['text' => $prompt] ] ]
-        ]
-    ];
+    $payload = _build_gemini_payload($prompt);
 
     $error = null;
     $api_response = _call_gemini_api($payload, $error);
+    $parsed_text = _parse_gemini_response($api_response, $error);
 
-    if ($api_response === null) {
-        $msg = $error !== null ? $error : 'La llamada a la API de IA para el chat falló.';
-        return "Error: " . $msg;
+    if (strpos($parsed_text, "Error:") === 0) {
+        return $parsed_text; // It's an error message, return as is.
     }
-
-    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
-        $answer = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
-        return !empty($answer) ? nl2br(htmlspecialchars($answer)) : "Error: La respuesta generada por la IA estaba vacía.";
-    } elseif (isset($api_response['error']['message'])) {
-        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
-    }
-
-    return "Error: Respuesta inesperada del servicio de chat de IA.";
+    // It's successful, non-empty text
+    return nl2br(htmlspecialchars($parsed_text));
 }
 
 
@@ -428,20 +416,16 @@ function get_ai_research(string $query): string {
         return "Error: No se proporcionó tema de investigación.";
     }
     $prompt = "Investiga brevemente el siguiente tema y ofrece un resumen conciso con datos clave. Tema: \"" . $query . "\"";
-    $payload = [ 'contents' => [[ 'parts' => [[ 'text' => $prompt ]] ]] ];
+    $payload = _build_gemini_payload($prompt);
     $error = null;
     $api_response = _call_gemini_api($payload, $error);
-    if ($api_response === null) {
-        $msg = $error !== null ? $error : 'La llamada a la API de IA para la investigación falló.';
-        return "Error: " . $msg;
+    $parsed_text = _parse_gemini_response($api_response, $error);
+
+    if (strpos($parsed_text, "Error:") === 0) {
+        return $parsed_text; // It's an error message, return as is.
     }
-    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
-        $text = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
-        return !empty($text) ? nl2br(htmlspecialchars($text)) : "Error: La investigación generada por la IA estaba vacía.";
-    } elseif (isset($api_response['error']['message'])) {
-        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
-    }
-    return "Error: Respuesta inesperada del servicio de investigación de IA.";
+    // It's successful, non-empty text
+    return nl2br(htmlspecialchars($parsed_text));
 }
 
 /**
