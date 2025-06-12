@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museo Colaborativo del Condado - Condado de Castilla</title>
@@ -16,19 +17,13 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
+    <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
 <body>
     <div id="crosshair" style="position: fixed; top: 50%; left: 50%; width: 6px; height: 6px; background-color: rgba(255,255,255,0.6); border-radius: 50%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none; display: none;"></div>
     <div id="linterna-condado"></div>
     
-    <div id="header-placeholder"></div> 
+    <?php require_once __DIR__ . '/../_header.html'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg');">
         <div class="hero-content">
@@ -138,17 +133,7 @@
         <div id="modalCaption"></div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
-            <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/groups/1052427398664069" aria-label="Facebook" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="/en_construccion.html" aria-label="Instagram" title="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="/en_construccion.html" aria-label="Twitter" title="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </footer>
+    <?php require_once __DIR__ . '/../_footer.php'; ?>
 
     <script src="/js/config.js"></script>
     <script src="/js/layout.js"></script>

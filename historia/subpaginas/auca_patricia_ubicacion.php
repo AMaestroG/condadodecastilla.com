@@ -71,17 +71,13 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($titulo_pagina_actual); ?> - Cerezo de Río Tirón</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
+    <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
     <style>
         .article-content p {
             margin-bottom: 1em;
@@ -164,24 +160,7 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
     </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="container">
-            <a href="/index.html" class="logo-link">
-                <img src="/imagenes/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas dorada encima." class="logo-image">
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-            <ul class="nav-links">
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/historia/historia.html" class="active-link">Nuestra Historia</a></li>
-                <li><a href="/lugares/lugares.html">Lugares Emblemáticos</a></li>
-                <li><a href="/visitas/visitas.html">Planifica Tu Visita</a></li>
-                <li><a href="/cultura/cultura.html">Cultura y Legado</a></li>
-                <li><a href="/contacto/contacto.html">Contacto</a></li>
-                <li><a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i> Comunidad</a></li>
-            </ul>
-        </div>
-    </nav>
+    <?php require_once __DIR__ . '/../../../_header.html'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/paisaje_cerezo.jpg'); min-height: 40vh;">
         <div class="hero-content" style="padding: clamp(20px, 4vw, 40px);">
@@ -235,17 +214,7 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
-            <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/groups/1052427398664069" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="/en_construccion.html" aria-label="Instagram" title="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="/en_construccion.html" aria-label="Twitter" title="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </footer>
+    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
 
     <script>
         // Script para el menú de navegación móvil
@@ -268,6 +237,6 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
             });
         });
     </script>
-
+    <!-- Removed navbar script, as navbar is replaced by _header.html -->
 </body>
 </html>
