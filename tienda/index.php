@@ -6,10 +6,10 @@ require_once __DIR__ . '/../includes/auth.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda</title>
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
     <?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
 </head>
 <body>

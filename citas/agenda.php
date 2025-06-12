@@ -42,11 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <meta charset="UTF-8">
     <title>Programa de Citas para Visitas</title>
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>
 <body>
+    <?php require_once __DIR__ . '/../_header.html'; ?>
     <h1>Programa de Citas para Visitas</h1>
     <?php if ($successMessage): ?>
         <p style="color:green;"><?php echo htmlspecialchars($successMessage); ?></p>
@@ -72,5 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "</ul>";
     }
     ?>
+    <?php require_once __DIR__ . '/../_footer.php'; ?>
 </body>
 </html>
