@@ -198,3 +198,31 @@ body.ia-chat-active #ia-chat-toggle {
 #ia-tools-response.hidden {
     display: none;
 }
+
+@media (max-width: 600px) {
+    #ia-chat-sidebar {
+        width: 90vw; /* Use viewport width for smaller screens */
+        max-width: 350px; /* Maintain a max width */
+    }
+
+    #ia-chat-form {
+        flex-direction: column; /* Stack form elements vertically */
+        gap: 8px; /* Add some space between stacked elements */
+    }
+
+    #ia-chat-input {
+        width: 100%; /* Make input take full width of its container */
+        min-height: 40px; /* Ensure a decent tap target size */
+        font-size: 16px; /* Improve readability on mobile */
+    }
+
+    #ia-chat-form button {
+        width: 100%; /* Make button take full width */
+        padding: 10px; /* Increase padding for easier tapping */
+        font-size: 16px; /* Improve readability on mobile */
+    }
+
+    .ia-chat-header {
+      flex-wrap: wrap; /* Allow header items to wrap if needed */
+    }
+}
