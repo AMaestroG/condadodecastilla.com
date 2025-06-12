@@ -216,6 +216,25 @@ Recuerda definir las variables de entorno necesarias para las pruebas, como `CON
 
 Las pruebas hacen uso de los *fixtures* incluidos en `tests/fixtures/`, por lo que deben mantenerse para que los resultados sean coherentes.
 
+## Estrategia de Ramas
+
+Este proyecto utiliza un flujo de trabajo basado en Gitflow simplificado para gestionar el desarrollo y los lanzamientos:
+
+- **`produccion`**: Esta rama contiene el código que está actualmente en producción. Solo se fusionan en esta rama los cambios que han sido probados y aprobados. Es la rama por defecto del repositorio. Se recomienda proteger esta rama contra pushes directos.
+- **`pruebas`**: En esta rama se integran las características desarrolladas en `desarrollo` para realizar pruebas exhaustivas antes de pasar a producción. Se recomienda proteger esta rama contra pushes directos y requerir pull requests para las fusiones desde `desarrollo`.
+- **`desarrollo`**: Es la rama principal de desarrollo. Todas las nuevas características y correcciones de errores se desarrollan en ramas que parten de `desarrollo` y se fusionan de nuevo en ella una vez completadas y revisadas (mediante Pull Requests).
+- **Ramas de característica (`feature/...`)**: Para cada nueva funcionalidad o cambio significativo, se crea una rama a partir de `desarrollo` (por ejemplo, `feature/nueva-pagina-contacto`). Una vez finalizado el trabajo y las pruebas unitarias, se fusiona de nuevo en `desarrollo`.
+- **Ramas de corrección (`fix/...`)**: Para correcciones de errores urgentes en `produccion`, se puede crear una rama a partir de `produccion` (por ejemplo, `fix/error-login-urgente`). Una vez corregido y probado, se fusiona tanto en `produccion` como en `desarrollo`.
+
+**Flujo general:**
+
+1.  Se crea una rama de característica desde `desarrollo`.
+2.  Se realizan los cambios en la rama de característica.
+3.  Se abre un Pull Request de la rama de característica hacia `desarrollo`.
+4.  Tras la revisión y aprobación, se fusiona en `desarrollo`.
+5.  Periódicamente, los cambios de `desarrollo` se fusionan en `pruebas` para el testing de integración.
+6.  Una vez que la versión en `pruebas` es estable y ha sido aprobada, se fusiona en `produccion` para el despliegue.
+
 ## Licencia
 
 Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más información.
