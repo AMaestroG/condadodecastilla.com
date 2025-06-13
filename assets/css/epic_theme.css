@@ -6,8 +6,8 @@
     --epic-purple-emperor-rgb: 74, 13, 103;
     --epic-gold-main: #FFD700;
     --epic-gold-main-rgb: 255, 215, 0;
-    --epic-gold-secondary: #B8860B;
-    --epic-gold-secondary-rgb: 184, 134, 11;
+    --epic-gold-secondary: #9A6700;
+    --epic-gold-secondary-rgb: 154, 103, 0;
     --epic-alabaster-bg: #E8EFF9; /* Very light celeste */
     --epic-alabaster-bg-rgb: 232, 239, 249; /* RGB for new light tone */
     --epic-alabaster-medium: #E6EEF9; /* Slightly darker celeste */
@@ -57,7 +57,7 @@
 }
 
 html {
-    font-size: 100%;
+    font-size: 102.5%;
     scroll-behavior: smooth;
 }
 
@@ -98,6 +98,17 @@ body::before {
     to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* --- Headings --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headings);
@@ -107,9 +118,24 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.3;
     font-weight: 700;
     text-wrap: balance; /* Improves text wrapping for titles */
+    text-shadow: 1px 1px 3px rgba(var(--epic-text-color-rgb), 0.15);
+}
+
+h1, h2, h3 {
+    animation: slideUpFadeIn 0.6s ease-out forwards;
 }
 
 h1 { font-size: clamp(2.8em, 6vw, 4.2em); }
+
+/* Gradient Text for H1 */
+h1 {
+    background-image: linear-gradient(45deg, var(--epic-gold-main), var(--epic-purple-emperor));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent !important; /* Ensure this overrides other color settings */
+}
+
 h2 { font-size: clamp(2.2em, 5vw, 3.2em); color: var(--epic-gold-secondary); } /* Secondary gold for H2 for variety */
 h3 { font-size: clamp(1.8em, 4vw, 2.5em); }
 h4 { font-size: clamp(1.4em, 3.5vw, 2em); }
@@ -122,7 +148,7 @@ p {
     max-width: 70ch; /* Limit width for readability, even if centered */
     /* margin-left: auto; and margin-right: auto; removed for default left align */
     text-shadow: 0 1px 2px rgba(var(--epic-alabaster-medium-rgb), 0.4); /* Subtle shadow for depth/readability */
-    text-align: justify;
+    text-align: left;
 }
 
 /* --- Links --- */
@@ -2401,6 +2427,30 @@ body.dark-mode::before {
     /* Inherits background-image, size, repeat, attachment, position from body::before */
     /* Only apply the dark mode specific filter */
     filter: grayscale(80%) brightness(85%); /* Original dark mode filter */
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(--epic-text-color); /* Default dark mode heading color */
+    text-shadow: 1px 1px 3px rgba(0,0,0, 0.5); /* Dark mode text shadow for smaller headings */
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    text-shadow: 1px 1px 3px rgba(0,0,0, 0.5); /* Dark mode text shadow for larger headings */
+}
+
+body.dark-mode h1 {
+    color: var(--epic-gold-main);
+}
+
+body.dark-mode h2 {
+    color: var(--epic-gold-main); /* Changed from epic-gold-secondary for better contrast */
 }
 
 body.dark-mode p {
