@@ -4,10 +4,10 @@
     --epic-error-red: #D9534F; /* Default error red */
     --epic-purple-emperor: #4A0D67;
     --epic-purple-emperor-rgb: 74, 13, 103;
-    --epic-gold-main: #FFD700;
-    --epic-gold-main-rgb: 255, 215, 0;
-    --epic-gold-secondary: #B8860B;
-    --epic-gold-secondary-rgb: 184, 134, 11;
+    --epic-gold-main: #cfb53b;
+    --epic-gold-main-rgb: 207, 181, 59;
+    --epic-gold-secondary: #a58f2b;
+    --epic-gold-secondary-rgb: 165, 143, 43;
     --epic-alabaster-bg: #E8EFF9; /* Very light celeste */
     --epic-alabaster-bg-rgb: 232, 239, 249; /* RGB for new light tone */
     --epic-alabaster-medium: #E6EEF9; /* Slightly darker celeste */
