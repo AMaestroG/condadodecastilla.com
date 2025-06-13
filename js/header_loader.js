@@ -22,8 +22,7 @@
         await Promise.all([
             loadFragment('#header-language-bar-placeholder', '/fragments/header/language-bar.html'),
             loadFragment('#header-toggles-placeholder', '/fragments/header/toggles.html'),
-            loadFragment('#header-navigation-placeholder', '/fragments/header/navigation.html'),
-            loadFragment('#header-ia-chat-placeholder', '/fragments/header/ia-chat.html')
+            loadFragment('#header-navigation-placeholder', '/fragments/header/navigation.html')
         ]);
 
         // alert("AFTER_FIRST_PROMISE_ALL"); // Removed
@@ -87,32 +86,6 @@
             }
         } else {
             // alert("NO_INIT_HOMONEXUS_TOGGLE_FUNCTION"); // Removed
-        }
-
-        if (window.initializeIAChatSidebar) {
-            // alert("BEFORE_INIT_IA_CHAT_SIDEBAR"); // Removed
-            try {
-                window.initializeIAChatSidebar();
-                // alert("AFTER_INIT_IA_CHAT_SIDEBAR_SUCCESS"); // Removed
-            } catch (e) {
-                console.error("Error initializing IA chat sidebar:", e);
-                // alert("ERROR_INIT_IA_CHAT_SIDEBAR: " + e.message); // Removed
-            }
-        } else {
-            // alert("NO_INIT_IA_CHAT_SIDEBAR_FUNCTION"); // Removed
-        }
-
-        if (window.loadIAToolsScript) {
-            // alert("BEFORE_LOAD_IA_TOOLS_SCRIPT"); // Removed
-            try {
-                window.loadIAToolsScript();
-                // alert("AFTER_LOAD_IA_TOOLS_SCRIPT_SUCCESS"); // Removed
-            } catch (e) {
-                console.error("Error loading IA tools script:", e);
-                // alert("ERROR_LOAD_IA_TOOLS_SCRIPT: " + e.message); // Removed
-            }
-        } else {
-            // alert("NO_LOAD_IA_TOOLS_SCRIPT_FUNCTION"); // Removed
         }
 
         // alert("INIT_COMPLETED_FULLY"); // Removed
