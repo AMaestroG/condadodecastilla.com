@@ -89,28 +89,46 @@ def condense_tree(node):
     if not node or not isinstance(node, dict) or 'children' not in node:
         return node
 
-    # Recursively condense children first (post-order traversal for modification)
-    for child in node['children']:
+    # Helper for URL comparison
+    def urls_are_pseudo_identical(url1, url2):
+        return url1.rstrip('/') == url2.rstrip('/')
+
+    # Rule 3: Detect and remove redundant index pattern (current node vs its first child)
+    # This rule is applied before recursing to children of the current node,
+    # as it might restructure the direct children list of the current node.
+    if len(node.get('children', [])) > 0:
+        first_child = node['children'][0]
+        if (node.get('title') == first_child.get('title') and
+                urls_are_pseudo_identical(node.get('url', ''), first_child.get('url', ''))):
+            # print(f"Condensing: Applying redundant index pattern fix for node: {node.get('url')}")
+            # The children of the first_child become the new children of the current node.
+            # Any other children of the current node (beyond the first) are discarded under this rule.
+            # This assumes the pattern implies the first child is the *true* representation
+            # and other direct children of 'node' at this point are less relevant or duplicates.
+            # If other children should be preserved, this logic would need adjustment.
+            # For now, strictly interpreting "replace the node['children'] with node['children'][0]['children']"
+            node['children'] = first_child.get('children', [])
+            # After this, the 'node' itself is preserved, but its children list is updated.
+            # The old first_child is gone.
+
+    # Recursively condense children first (post-order traversal for modification for other rules)
+    # This ensures that deeper nodes are processed before applying rules 1 and 2 to the current node's children list.
+    for child in node.get('children', []): # Iterate over potentially modified children list
         condense_tree(child)
 
-    # Rule 1: Remove empty leaf nodes titled 'Visited Link'
-    # Rule 2: Merge single-child 'Visited Link' parent nodes
-
+    # Rules 1 & 2 are applied to the children of the current 'node'
     new_children = []
-    for child in node['children']:
+    for child in node.get('children', []): # Iterate again, as children list could have been changed by recursive calls
         # Check Rule 1: Is it an empty 'Visited Link' leaf?
         if child.get('title') == 'Visited Link' and not child.get('children'):
-            # Skip adding this child to new_children, effectively removing it
             # print(f"Condensing: Removing empty 'Visited Link' leaf: {child.get('url')}")
             continue
 
         # Check Rule 2: Is it a 'Visited Link' node with exactly one child?
         if child.get('title') == 'Visited Link' and len(child.get('children', [])) == 1:
-            # Replace this child with its own child
             # print(f"Condensing: Merging single-child 'Visited Link' node: {child.get('url')} with its child {child['children'][0].get('url')}")
+            # The child of the 'Visited Link' node has already been condensed because of the recursion above.
             new_children.append(child['children'][0])
-            # Important: We've already called condense_tree on child['children'][0]
-            # so it's already as condensed as it can be from its perspective.
             continue
 
         new_children.append(child)
@@ -118,22 +136,56 @@ def condense_tree(node):
     node['children'] = new_children
     return node
 
-
 if __name__ == '__main__':
+    import argparse
+    import sys
+
+    parser = argparse.ArgumentParser(description="Build and condense a website tree.")
+    parser.add_argument(
+        "--test-condensation",
+        metavar="JSON_FILE",
+        type=str,
+        help="Load a JSON tree from a file, condense it, and print to console. Bypasses crawling."
+    )
+    args = parser.parse_args()
+
+    if args.test_condensation:
+        print(f"--- Test Condensation Mode ---")
+        filepath = args.test_condensation
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                loaded_data = json.load(f)
+            print(f"Successfully loaded tree data from {filepath}")
+
+            print("\n--- Condensing loaded tree ---")
+            condensed_from_file = condense_tree(loaded_data) # Assumes condense_tree modifies in place or returns the modified tree
+
+            print("\n--- Result of Condensation (from file) ---")
+            print(json.dumps(condensed_from_file, indent=2, ensure_ascii=False))
+
+        except FileNotFoundError:
+            print(f"Error: File not found at {filepath}", file=sys.stderr)
+            sys.exit(1)
+        except json.JSONDecodeError as e:
+            print(f"Error: Invalid JSON in {filepath} - {e}", file=sys.stderr)
+            sys.exit(1)
+        except Exception as e:
+            print(f"An unexpected error occurred during test condensation: {e}", file=sys.stderr)
+            sys.exit(1)
+        sys.exit(0) # Successfully exit after test mode
+
+    # --- Normal Crawling Mode ---
     main_url = "https://www.condadodecastilla.es/"
-    # Initialize visited_urls for the entire crawl session
     visited_urls_global = set()
-    # Define max_depth for the crawl
-    crawl_max_depth = 0 # Minimum depth to ensure script completion
+    crawl_max_depth = 2 # Set depth to 2 for this run
 
     print(f"--- Processing Main URL (max_depth={crawl_max_depth}): {main_url} ---")
 
-    # Pass visited_urls_global to the main call
     homepage_tree = build_tree(main_url, visited_urls=visited_urls_global, max_depth=crawl_max_depth, current_depth=0)
 
     if homepage_tree:
         print("\n--- Condensing Tree ---")
-        condensed_tree = condense_tree(homepage_tree) # Modifies in place
+        condensed_tree = condense_tree(homepage_tree)
 
         output_filename = "condensed_website_tree.json"
         try:
@@ -141,14 +193,9 @@ if __name__ == '__main__':
                 json.dump(condensed_tree, f, indent=2, ensure_ascii=False)
             print(f"\n--- Condensed tree successfully written to {output_filename} ---")
         except IOError as e:
-            print(f"\n--- Error writing condensed tree to file: {e} ---")
-            # Optionally, print to console if writing to file fails
-            # print("\n--- Condensed Homepage Tree Structure (fallback to console) ---")
-            # print(json.dumps(condensed_tree, indent=2, ensure_ascii=False))
+            print(f"\n--- Error writing condensed tree to file: {e} ---", file=sys.stderr)
     else:
         print(f"Failed to retrieve data for {main_url}")
-
-    # Commenting out section processing for brevity in recursive test
     # print("\n--- Processing Main Sections (individually, not recursively from homepage) ---")
     # section_urls = [
     #     "https://www.condadodecastilla.es/historia/",
