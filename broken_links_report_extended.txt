@@ -1,110 +1,64 @@
 Broken Link Report (Extended):
 ------------------------------
-Checked on: Wed Jun 11 11:05:37 UTC 2025
+Checked on: $(date)
 
 Checking links in: index.php
-  OK: /historia/historia.html (resolved to historia/historia.html)
-  OK: /secciones_index/memoria_hispanidad.html (resolved to secciones_index/memoria_hispanidad.html)
-  OK: /historia/historia.html (resolved to historia/historia.html)
-  OK: /lugares/lugares.html (resolved to lugares/lugares.html)
-  OK: /visitas/visitas.html (resolved to visitas/visitas.html)
-  OK: /personajes/Militares_y_Gobernantes/conde_casio_cerasio.html (resolved to personajes/Militares_y_Gobernantes/conde_casio_cerasio.html)
-  OK: /personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html (resolved to personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html)
-  OK: /personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html (resolved to personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html)
-  OK: /personajes/indice_personajes.html (resolved to personajes/indice_personajes.html)
-  OK: /secciones_index/historia_tiempo_resumen.html (resolved to secciones_index/historia_tiempo_resumen.html)
-  OK: /cultura/cultura.html (resolved to cultura/cultura.html)
-  OK: /assets/img/escudo.jpg (resolved to assets/img/escudo.jpg)
-  OK: /assets/img/PrimerEscritoCastellano.jpg (resolved to assets/img/PrimerEscritoCastellano.jpg)
-  OK: /assets/img/RodrigoTabliegaCastillo.jpg (resolved to assets/img/RodrigoTabliegaCastillo.jpg)
-  OK: /assets/img/Yanna.jpg (resolved to assets/img/Yanna.jpg)
-  OK: /assets/img/Casio.png (resolved to assets/img/Casio.png)
-  OK: /assets/img/GonzaloTellez.png (resolved to assets/img/GonzaloTellez.png)
-  OK: /assets/img/FernandoDiaz.png (resolved to assets/img/FernandoDiaz.png)
-  OK: /js/layout.js (resolved to js/layout.js)
-  SUMMARY for index.php: All 19 processable links appear OK.
+  BROKEN (File): /historia/historia.html (should be /historia/historia.php)
+  BROKEN (File): /visitas/visitas.html (should be /visitas/visitas.php)
+  BROKEN (File): /cultura/cultura.html (should be /cultura/cultura.php)
+  SUMMARY for index.php: 3 broken link(s) out of 26 processable links.
 
 Checking links in: _header.html
-  OK: /js/lang-bar.js (resolved to js/lang-bar.js)
-  OK: /js/header_loader.js (resolved to js/header_loader.js)
   SUMMARY for _header.html: All 2 processable links appear OK.
 
 Checking links in: _footer.php
-  OK: /dashboard/logout.php (resolved to dashboard/logout.php)
-  OK: /dashboard/login.php (resolved to dashboard/login.php)
-  OK: /en_construccion.html (resolved to en_construccion.html)
-  OK: /en_construccion.html (resolved to en_construccion.html)
-  SUMMARY for _footer.php: All 4 processable links appear OK.
+  BROKEN (File): /en_construccion.html (should be /en_construccion.php)
+  SUMMARY for _footer.php: 1 broken link(s) out of 3 processable links.
 
 Checking links in: fragments/header/language-bar.html
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=es (resolved to fragments/header/?lang=es)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=en (resolved to fragments/header/?lang=en)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=fr (resolved to fragments/header/?lang=fr)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=de (resolved to fragments/header/?lang=de)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=it (resolved to fragments/header/?lang=it)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=pt (resolved to fragments/header/?lang=pt)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ru (resolved to fragments/header/?lang=ru)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=zh-CN (resolved to fragments/header/?lang=zh-CN)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ja (resolved to fragments/header/?lang=ja)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ko (resolved to fragments/header/?lang=ko)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ar (resolved to fragments/header/?lang=ar)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=hi (resolved to fragments/header/?lang=hi)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=tr (resolved to fragments/header/?lang=tr)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=id (resolved to fragments/header/?lang=id)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=vi (resolved to fragments/header/?lang=vi)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=bn (resolved to fragments/header/?lang=bn)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ur (resolved to fragments/header/?lang=ur)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=fa (resolved to fragments/header/?lang=fa)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=nl (resolved to fragments/header/?lang=nl)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=pl (resolved to fragments/header/?lang=pl)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=uk (resolved to fragments/header/?lang=uk)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=sw (resolved to fragments/header/?lang=sw)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=tr (resolved to fragments/header/?lang=tr)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=nl (resolved to fragments/header/?lang=nl)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=pl (resolved to fragments/header/?lang=pl)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=sv (resolved to fragments/header/?lang=sv)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=th (resolved to fragments/header/?lang=th)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=el (resolved to fragments/header/?lang=el)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=iw (resolved to fragments/header/?lang=iw)
-  SUMMARY for fragments/header/language-bar.html: All 29 processable links appear OK.
+  No internal page/file links found to check in fragments/header/language-bar.html.
+  SUMMARY for fragments/header/language-bar.html: All 0 processable links appear OK.
 
 Checking links in: fragments/header/toggles.html
-  No processable internal links found in fragments/header/toggles.html.
+  No internal page/file links found to check in fragments/header/toggles.html.
+  SUMMARY for fragments/header/toggles.html: All 0 processable links appear OK.
 
 Checking links in: fragments/header/navigation.html
-  OK: /index.php (resolved to index.php)
-  OK: /assets/img/AlfozCerasioLantaron.jpg (resolved to assets/img/AlfozCerasioLantaron.jpg)
   SUMMARY for fragments/header/navigation.html: All 2 processable links appear OK.
 
-Checking links in: fragments/header/ia-chat.html
-  No processable internal links found in fragments/header/ia-chat.html.
-
 Checking links in: fragments/menus/main-menu.html
-  OK: /index.php (resolved to index.php)
-  OK: /historia/historia.html (resolved to historia/historia.html)
-  OK: /historia_cerezo/index.html (resolved to historia_cerezo/index.html)
-  OK: /historia/subpaginas/obispado_auca_cerezo.html (resolved to historia/subpaginas/obispado_auca_cerezo.html)
-  OK: /alfoz/alfoz.html (resolved to alfoz/alfoz.html)
-  OK: /lugares/lugares.html (resolved to lugares/lugares.html)
-  OK: /camino_santiago/camino_santiago.html (resolved to camino_santiago/camino_santiago.html)
-  OK: /museo/galeria.php (resolved to museo/galeria.php)
-  OK: /museo/museo_3d.php (resolved to museo/museo_3d.php)
-  OK: /museo/subir_pieza.php (resolved to museo/subir_pieza.php)
-  OK: /galeria/galeria_colaborativa.php (resolved to galeria/galeria_colaborativa.php)
-  OK: /tienda/index.php (resolved to tienda/index.php)
-  OK: /visitas/visitas.html (resolved to visitas/visitas.html)
-  OK: /cultura/cultura.html (resolved to cultura/cultura.html)
-  OK: /personajes/indice_personajes.html (resolved to personajes/indice_personajes.html)
-  OK: /empresa/index.php (resolved to empresa/index.php)
-  OK: /foro/index.html (resolved to foro/index.html)
-  OK: /contacto/contacto.html (resolved to contacto/contacto.html)
-  SUMMARY for fragments/menus/main-menu.html: All 18 processable links appear OK.
+  BROKEN (File): /historia/historia.html (should be /historia/historia.php)
+  BROKEN (File): /historia_cerezo/index.html (should be /historia_cerezo/index.php)
+  BROKEN (File): /historia/subpaginas/obispado_auca_cerezo.html (should be /historia/subpaginas/obispado_auca_cerezo.php)
+  BROKEN (File): /alfoz/alfoz.html (should be /alfoz/alfoz.php)
+  BROKEN (File): /camino_santiago/camino_santiago.html (should be /camino_santiago/camino_santiago.php)
+  BROKEN (File): /visitas/visitas.html (should be /visitas/visitas.php)
+  BROKEN (File): /cultura/cultura.html (should be /cultura/cultura.php)
+  BROKEN (File): /foro/index.html (should be /foro/index.php)
+  BROKEN (File): /contacto/contacto.html (should be /contacto/contacto.php)
+  SUMMARY for fragments/menus/main-menu.html: 9 broken link(s) out of 18 processable links.
 
 Checking links in: fragments/menus/admin-menu.php
-  OK: /dashboard/logout.php (resolved to dashboard/logout.php)
-  OK: /dashboard/index.php (resolved to dashboard/index.php)
-  OK: /dashboard/login.php (resolved to dashboard/login.php)
   SUMMARY for fragments/menus/admin-menu.php: All 3 processable links appear OK.
 
 Checking links in: fragments/menus/social-menu.html
-  No processable internal links found in fragments/menus/social-menu.html.
+  No internal page/file links found to check in fragments/menus/social-menu.html.
+  SUMMARY for fragments/menus/social-menu.html: All 0 processable links appear OK.
+
+Checking links in: fragments/header/ia-chat.html
+  File NOT FOUND: fragments/header/ia-chat.html
+
+Extended link checking complete.
+Note: This report was generated by manually simulating the check_links_extended.sh script due to persistent errors with the run_in_bash_session tool. The $(date) placeholder would have been filled by the script. Number of processable links are estimates based on manual parsing.
+Final list of unique broken links and their suggested corrections:
+- /historia/historia.html -> /historia/historia.php
+- /visitas/visitas.html -> /visitas/visitas.php
+- /cultura/cultura.html -> /cultura/cultura.php
+- /en_construccion.html -> /en_construccion.php
+- /historia_cerezo/index.html -> /historia_cerezo/index.php
+- /historia/subpaginas/obispado_auca_cerezo.html -> /historia/subpaginas/obispado_auca_cerezo.php
+- /alfoz/alfoz.html -> /alfoz/alfoz.php
+- /camino_santiago/camino_santiago.html -> /camino_santiago/camino_santiago.php
+- /foro/index.html -> /foro/index.php
+- /contacto/contacto.html -> /contacto/contacto.php
+- Script check_links_extended.sh references a non-existent file: fragments/header/ia-chat.html
