@@ -161,9 +161,9 @@
 }
 
 #sidebar-toggle {
-    position: fixed;
-    top: 15px;
-    left: 15px;
+    /* position: fixed; */
+    /* top: 15px; */
+    /* left: 15px; */
     /* font-size: 1.8em; Removed as icon is no longer text */
     background-color: var(--epic-alabaster-bg);
     border: 2px solid var(--epic-gold-secondary);
@@ -198,9 +198,9 @@
 }
 
 /* Adjust toggle button position and icon animation when sidebar is visible */
-body.sidebar-active #sidebar-toggle {
-    left: 300px; /* sidebar width + desired offset */
-}
+/* body.sidebar-active #sidebar-toggle {
+    left: 300px; / * sidebar width + desired offset * /
+} */
 
 body.sidebar-active #sidebar-toggle .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg); /* height (3px) + margin (4px from example, using 2px*2=4 + 3/2 for center = ~7) */
@@ -306,7 +306,7 @@ body.ia-chat-active {
         display: none !important;
     }
     body.sidebar-active { margin-left: 0; }
-    body.sidebar-active #sidebar-toggle { left: 15px; }
+    /* body.sidebar-active #sidebar-toggle { left: 15px; } */
     body.ia-chat-active { margin-right: 0; }
     #ia-chat-sidebar {
         width: clamp(280px, 85vw, 320px);

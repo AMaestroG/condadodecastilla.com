@@ -73,9 +73,10 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 }
 
 /* Sidebar Toggle (Hamburger) */
+/*
 #sidebar-toggle {
     position: fixed;
-    top: 88px; /* moved lower */
+    top: 88px; / * moved lower * /
     left: 15px;
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
@@ -111,7 +112,7 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 #sidebar-toggle.active .bar:nth-child(3) {
     transform: translateY(-6.5px) rotate(-45deg);
 }
-
+*/
 /* IA Chat Toggle */
 #ia-chat-toggle {
     position: fixed;
@@ -186,11 +187,13 @@ body.dark-mode #homonexus-toggle:hover i {
 
 /* Mobile Adjustments for Toggles */
 @media (max-width: 768px) {
+    /*
     #theme-toggle {
-        left: auto; /* Override PC centering */
-        right: 115px; /* (homonexus-toggle right 65px + width 44px = 109px) + 6px gap */
-        /* Note: Ensure #ia-chat-toggle is at right: 15px and #homonexus-toggle at right: 65px */
+        left: auto; / * Override PC centering * /
+        right: 115px; / * (homonexus-toggle right 65px + width 44px = 109px) + 6px gap * /
+        / * Note: Ensure #ia-chat-toggle is at right: 15px and #homonexus-toggle at right: 65px * /
     }
+    */
     /* #sidebar-toggle remains top: 88px; left: 15px; */
     /* #ia-chat-toggle remains top: 88px; right: 15px; */
     /* #homonexus-toggle remains top: 88px; right: 65px; */
