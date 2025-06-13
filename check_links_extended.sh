@@ -10,7 +10,6 @@ html_fragments=(
     "fragments/header/language-bar.html"
     "fragments/header/toggles.html"
     "fragments/header/navigation.html"
-    "fragments/header/ia-chat.html"
     "fragments/menus/main-menu.html"
     "fragments/menus/admin-menu.php"
     "fragments/menus/social-menu.html"

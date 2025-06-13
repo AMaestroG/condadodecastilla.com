@@ -49,7 +49,7 @@ if (file_exists(__DIR__ . '/_header.php')) {
                 <?php editableText('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.', 'p', ''); ?>
             </div>
         </div>
-        <a href="/historia/historia.html" class="cta-button">Descubre la Historia</a>
+        <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
     </header>
     <?php
         $hero_text = getTextContentFromDB('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.');
@@ -92,7 +92,7 @@ if (file_exists(__DIR__ . '/_header.php')) {
                         <div class="card-content">
                             <h3>Nuestra Historia</h3>
                             <p>Desde los Concanos y la Civitate Auca Patricia hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
-                            <a href="/historia/historia.html" class="read-more">Leer Más</a>
+                            <a href="/historia/historia.php" class="read-more">Leer Más</a>
                         </div>
                     </div>
                     <div class="card">
@@ -108,7 +108,7 @@ if (file_exists(__DIR__ . '/_header.php')) {
                         <div class="card-content">
                             <h3>Planifica Tu Visita</h3>
                             <p>Encuentra toda la información que necesitas para tu aventura en Cerezo de Río Tirón: cómo llegar, dónde alojarte y qué no te puedes perder.</p>
-                            <a href="/visitas/visitas.html" class="read-more">Organizar Viaje</a>
+                            <a href="/visitas/visitas.php" class="read-more">Organizar Viaje</a>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@ if (file_exists(__DIR__ . '/_header.php')) {
                     Esta web es más que información; es una puerta a tus raíces. Un viaje al origen del castellano y la identidad hispana te espera.
                     Siente la llamada de la historia y conecta con el legado que nos une.
                 </p>
-                <a href="/cultura/cultura.html" class="cta-button">Cultura</a>
+                <a href="/cultura/cultura.php" class="cta-button">Cultura</a>
             </div>
         </section>
     </main>

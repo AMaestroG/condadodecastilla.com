@@ -12,8 +12,8 @@
         ?>
         <div class="social-links">
             <a href="https://www.facebook.com/groups/1052427398664069" aria-label="Facebook" title="Síguenos en Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-            <a href="/en_construccion.html" aria-label="Instagram" title="Síguenos en Instagram (Próximamente)" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-            <a href="/en_construccion.html" aria-label="Twitter" title="Síguenos en Twitter (Próximamente)" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            <a href="/en_construccion.php" aria-label="Instagram" title="Síguenos en Instagram (Próximamente)" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="/en_construccion.php" aria-label="Twitter" title="Síguenos en Twitter (Próximamente)" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
             <a href="https://chat.whatsapp.com/JWJ6mWXPuekIBZ8HJSSsZx" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="Únete a nuestro grupo de WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
