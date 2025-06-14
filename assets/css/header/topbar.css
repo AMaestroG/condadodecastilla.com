@@ -200,4 +200,26 @@ body.dark-mode #homonexus-toggle:hover i {
 }
 
 /* Consider further adjustments for very small screens if needed, e.g., hiding some toggles */
-/* @media (max-width: 480px) { ... } */
+
+@media (max-width: 480px) {
+    /* Reduce toggle button size so icons do not overlap */
+    #theme-toggle,
+    #ia-chat-toggle,
+    #homonexus-toggle {
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+        top: 76px;
+    }
+
+    /* Slightly smaller icons for tiny screens */
+    #theme-toggle i,
+    #ia-chat-toggle i,
+    #homonexus-toggle i {
+        font-size: 0.9em;
+    }
+
+    /* Adjust right offsets so buttons remain separated */
+    #ia-chat-toggle { right: 10px; }
+    #homonexus-toggle { right: 50px; }
+}
