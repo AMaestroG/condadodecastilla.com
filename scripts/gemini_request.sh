@@ -3,7 +3,8 @@ set -euo pipefail
 
 # Usage: GEMINI_API_KEY=your_api_key ./gemini_request.sh
 
-API_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+# Use the endpoint from GEMINI_API_ENDPOINT when available
+API_URL="${GEMINI_API_ENDPOINT:-https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent}"
 
 # Allow the variable name GeminiAPI as an alternative
 if [ -z "$GEMINI_API_KEY" ]; then

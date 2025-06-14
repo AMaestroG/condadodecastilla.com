@@ -105,7 +105,8 @@ export GEMINI_API_KEY="tu_clave"
 export GeminiAPI="$GEMINI_API_KEY"
 ```
 
-4. (Opcional) Establece la URL del servicio si no quieres usar el endpoint de ejemplo:
+4. (Opcional) Define `GEMINI_API_ENDPOINT` con la URL de tu servicio. 
+   El script la usará si está presente, de lo contrario mantendrá el endpoint de ejemplo:
 
 ```bash
 export GEMINI_API_ENDPOINT="https://tu-endpoint-real.example.com/v1/generateContent"
