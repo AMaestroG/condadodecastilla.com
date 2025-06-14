@@ -3,7 +3,7 @@
 // Configuración para conectar a la base de datos PostgreSQL
 // La contraseña se obtiene desde la variable de entorno CONDADO_DB_PASSWORD
 
-// Cargar variables de entorno desde .env
+// La configuración puede provenir de variables de entorno del servidor.
 
 // --- IMPORTANTE PARA PRODUCCIÓN ---
 // Las siguientes líneas habilitan la visualización de errores para desarrollo.
@@ -19,10 +19,9 @@ $db_name = "condado_castilla_db"; // Nombre de tu base de datos PostgreSQL
 $db_user = "condado_user";        // Usuario de tu base de datos PostgreSQL
 $db_pass = getenv('CONDADO_DB_PASSWORD'); // Definido vía variable de entorno
 if ($db_pass === false) {
-    // Si la variable no existe, deja $pdo como null y registra el problema
-    error_log('dashboard/db_connect.php - CONDADO_DB_PASSWORD not set');
-    $pdo = null;
-    return;
+    // Valor por defecto para desarrollo local (cámbialo por tu contraseña real)
+    $db_pass = 'YOUR_DB_PASSWORD';
+    error_log('dashboard/db_connect.php - CONDADO_DB_PASSWORD not set, using fallback password');
 }
 $db_port = "5432";                // Puerto estándar de PostgreSQL
 
