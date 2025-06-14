@@ -1,6 +1,7 @@
 <?php
 // api_galeria.php - Endpoint para manejar la galeria colaborativa
 
+require_once __DIR__ . '/includes/env_loader.php';
 require_once 'dashboard/db_connect.php';
 require_once 'includes/auth.php';
 

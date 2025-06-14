@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../includes/env_loader.php';
 if (session_status() == PHP_SESSION_NONE) {
     // Usar session_start() solo si no hay una sesión activa.
     // Es preferible no usar @ para suprimir errores aquí.

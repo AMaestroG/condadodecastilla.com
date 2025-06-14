@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/includes/env_loader.php';
 require_once 'dashboard/db_connect.php';
 require_once 'includes/auth.php';
 require_once 'includes/csrf.php';

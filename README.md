@@ -50,6 +50,7 @@ php -S localhost:8000
 ```
 
 Esto iniciará el servidor en `http://localhost:8000`.
+Abre tu navegador y visita `http://localhost:8000` para ver el sitio.
 
 ## Instalación de dependencias
 
@@ -63,7 +64,13 @@ composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwrit
 A continuación copia el archivo de ejemplo `.env.example` a `.env`
 y sustituye sus valores por tus credenciales reales para
 `CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
-y cualquier otra variable necesaria.
+y cualquier otra variable necesaria. El fichero se
+carga automáticamente mediante `env_loader.php`, por lo que no es
+necesario exportar las variables de entorno de forma manual. Si no se
+usa este cargador (por ejemplo en versiones anteriores) tendrás que
+definir cada variable con `export` para que PHP pueda leerla.
+El cargador se incluye desde `includes/session.php`, de modo que las
+variables se aplican en todas las páginas que usan esa cabecera.
 
 Si prefieres una configuración automática ejecuta `scripts/setup_project.sh`, el
 cual realizará todos los pasos anteriores, creará los directorios de subida y,

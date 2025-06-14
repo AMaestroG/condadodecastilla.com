@@ -1,6 +1,7 @@
 <?php
 // api_museo.php
 
+require_once __DIR__ . '/includes/env_loader.php';
 // Include necessary files
 require_once 'dashboard/db_connect.php'; // Adjust path as necessary
 require_once 'includes/auth.php'; // Adjust path as necessary
