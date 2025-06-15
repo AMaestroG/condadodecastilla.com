@@ -1,24 +1,36 @@
 body {
   font-family: "Lora", serif;
   background-color: #F0E9E0;
+  background-image: url('../img/alabastro.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: grayscale(50%) brightness(150%);
 }
 
 .hero {
-  background-color: #5B1A7D;
-  color: white;
+  background-color: rgba(128, 0, 128, 0.8);
+  color: #FFFFFF;
   padding: 2rem;
   text-align: center;
 }
 
 .cta-button {
-  background-color: #FFD700;
-  color: #2C1D12;
+  background-color: #800080;
+  color: #FFFFFF;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   text-decoration: none;
 }
 .cta-button:hover {
-  background-color: #ccac00;
+  background-color: #A040A0;
+}
+
+.content-area {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1rem;
 }
 
 /*# sourceMappingURL=custom.css.map */
