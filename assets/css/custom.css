@@ -6,31 +6,81 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  filter: grayscale(50%) brightness(150%);
 }
 
 .hero {
-  background-color: rgba(128, 0, 128, 0.8);
-  color: #FFFFFF;
   padding: 2rem;
   text-align: center;
 }
 
 .cta-button {
-  background-color: #800080;
-  color: #FFFFFF;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   text-decoration: none;
 }
 .cta-button:hover {
-  background-color: #A040A0;
 }
 
 .content-area {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
   padding: 1rem;
+}
+
+/* Estilos para Modo Oscuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    filter: grayscale(70%) brightness(80%) contrast(110%);
+  }
+  .hero {
+    background-color: rgba(76, 17, 104, 0.85); /* Púrpura con menor transparencia */
+    color: #FFFFFF; /* Asegurar contraste */
+  }
+  .cta-button {
+    background-color: rgba(96, 37, 124, 0.9); /* Menor transparencia */
+    color: #FFFFFF;
+  }
+  .cta-button:hover {
+    background-color: rgba(116, 57, 144, 0.95);
+  }
+  .content-area {
+    background-color: rgba(56, 0, 84, 0.75); /* Menor transparencia para contenido general */
+    color: #F8F9FA; /* Texto claro para contraste sobre fondo oscuro/transparente */
+  }
+  h1, h2 {
+    background-image: linear-gradient(to right, #CE93D8, #F3E5F5); /* Púrpura claro a Púrpura muy claro/casi blanco */
+    background-clip: text;
+    -webkit-background-clip: text; /* Para compatibilidad con Webkit */
+    color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra oscura para legibilidad */
+  }
+}
+
+/* Estilos para Modo Claro */
+@media (prefers-color-scheme: light) {
+  body {
+    filter: grayscale(30%) brightness(150%) contrast(100%);
+  }
+  .hero {
+    background-color: rgba(106, 27, 154, 0.6); /* Púrpura con mayor transparencia */
+    color: #FFFFFF; /* Asegurar contraste */
+  }
+  .cta-button {
+    background-color: rgba(106, 27, 154, 0.7); /* Un poco menos transparente que el hero para destacar */
+    color: #FFFFFF;
+  }
+  .cta-button:hover {
+    background-color: rgba(126, 47, 174, 0.8);
+  }
+  .content-area {
+    background-color: rgba(106, 27, 154, 0.5); /* Mayor transparencia para contenido general */
+    color: #212529; /* Texto oscuro para contraste sobre fondo claro/transparente */
+  }
+  h1, h2 {
+    background-image: linear-gradient(to right, #6A1B9A, #AB47BC); /* Púrpura oscuro a Púrpura medio */
+    background-clip: text;
+    -webkit-background-clip: text; /* Para compatibilidad con Webkit */
+    color: transparent;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Sombra clara para legibilidad */
+  }
 }
 
 /*# sourceMappingURL=custom.css.map */
