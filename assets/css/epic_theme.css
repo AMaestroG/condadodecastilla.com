@@ -65,7 +65,7 @@ html {
 body {
     font-family: var(--font-primary);
     color: var(--epic-text-color);
-    background-color: var(--epic-alabaster-bg); /* Fallback color, light or dark via variable */
+    background-color: transparent; /* MODIFIED: Was var(--epic-alabaster-bg) */
     line-height: 1.7;
     text-align: left; /* Default text alignment */
     position: relative; /* For z-index stacking with pseudo-element */
