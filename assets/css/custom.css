@@ -1,7 +1,7 @@
 body {
   font-family: "Lora", serif;
-  background-color: #F0E9E0;
-  background-image: url('../img/alabastro.jpg');
+  background-color: transparent; /* MODIFIED: Was #F0E9E0 */
+  /* background-image: url('../img/alabastro.jpg'); REMOVED */
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
