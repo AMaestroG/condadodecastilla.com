@@ -21,18 +21,18 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Error fetching _header.html:', error));
 
-    let footerPlaceholder = document.getElementById('footer-placeholder');
-    if (!footerPlaceholder) {
-        footerPlaceholder = document.createElement('div');
-        footerPlaceholder.id = 'footer-placeholder';
-        document.body.appendChild(footerPlaceholder);
-    }
-    fetch('/_footer.php')
-        .then(response => response.text())
-        .then(data => {
-            footerPlaceholder.innerHTML = data;
-        })
-        .catch(error => console.error('Error fetching _footer.php:', error));
+    // let footerPlaceholder = document.getElementById('footer-placeholder');
+    // if (!footerPlaceholder) {
+    //     footerPlaceholder = document.createElement('div');
+    //     footerPlaceholder.id = 'footer-placeholder';
+    //     document.body.appendChild(footerPlaceholder);
+    // }
+    // fetch('/_footer.php')
+    //     .then(response => response.text())
+    //     .then(data => {
+    //         footerPlaceholder.innerHTML = data;
+    //     })
+    //     .catch(error => console.error('Error fetching _footer.php:', error));
 
     // Theme toggle initialization
     initializeThemeToggle();
