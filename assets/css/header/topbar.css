@@ -1,5 +1,18 @@
 /* assets/css/header/topbar.css */
 
+#fixed-header-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4000;
+    background-color: var(--epic-transparent-overlay-medium);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .top-empty-bar {
     position: fixed;
     top: 0;

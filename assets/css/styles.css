@@ -300,8 +300,8 @@ header { /* New header for hamburger only */
 .left-control-panel {
     position: fixed; /* Clave para que no se mueva con el scroll */
     left: 15px;      /* Distancia desde la izquierda */
-    top: 15px;       /* Distancia desde arriba */
-    z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+    top: 60px;       /* Distancia desde arriba - Adjusted to be below #fixed-header-elements */
+    z-index: 1000;   /* Asegura que esté por encima de otros elementos, but below #fixed-header-elements */
 
     /* Diseño del panel */
     display: flex;
@@ -318,11 +318,13 @@ header { /* New header for hamburger only */
 
 /* --- Estilos de los elementos dentro del panel --- */
 
-/* Contenedor de las banderas */
-.language-selector {
+/* Contenedor de las banderas dentro de #fixed-header-elements */
+#fixed-header-elements .language-selector {
     display: flex;
-    justify-content: center;
+    /* justify-content will be handled by #fixed-header-elements */
     gap: 8px; /* Espacio entre banderas */
+    margin: 0; /* Reset margins if any */
+    padding: 0; /* Reset padding if any */
 }
 
 .language-selector img {
@@ -346,16 +348,16 @@ header { /* New header for hamburger only */
     margin: 0;
 }
 
-/* Contenedor de los botones de acción */
-.action-buttons {
+/* Contenedor de los botones de acción (original, si aún se usa para otros botones) */
+.left-control-panel .action-buttons {
     display: flex;
     flex-direction: column; /* Apila los botones en vertical */
     gap: 10px; /* Espacio entre cada botón */
     align-items: center; /* Centra los botones en el panel */
 }
 
-/* Estilo para cada botón individual */
-.action-buttons button {
+/* Estilo para cada botón individual en el panel izquierdo original */
+.left-control-panel .action-buttons button {
     background-color: var(--old-gold);
     border: none;
     border-radius: 5px;
@@ -369,12 +371,38 @@ header { /* New header for hamburger only */
     transition: all 0.2s ease;
 }
 
-.action-buttons button:hover {
+.left-control-panel .action-buttons button:hover {
     background-color: #fff; /* Un color de resaltado al pasar el ratón */
     transform: scale(1.05);
 }
 
-.action-buttons button img {
+.left-control-panel .action-buttons button img {
+    width: 24px; /* Tamaño del icono dentro del botón */
+    height: 24px;
+}
+
+/* Estilo para el #menu-toggle dentro de #fixed-header-elements */
+#fixed-header-elements #menu-toggle {
+    background-color: var(--old-gold);
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    width: 40px; /* Ancho fijo para los botones */
+    height: 40px; /* Alto fijo para los botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    margin: 0; /* Reset margins */
+}
+
+#fixed-header-elements #menu-toggle:hover {
+    background-color: #fff; /* Un color de resaltado al pasar el ratón */
+    transform: scale(1.05);
+}
+
+#fixed-header-elements #menu-toggle img {
     width: 24px; /* Tamaño del icono dentro del botón */
     height: 24px;
 }
