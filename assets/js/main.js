@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Menu Toggle Logic ---
-    const menuToggle = document.getElementById('menu-toggle');
+    const menuToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
     const mainContent = document.getElementById('main-content');
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- AI Drawer Logic ---
     const aiDrawer = document.getElementById('ai-drawer');
-    const aiDrawerToggle = document.getElementById('ai-drawer-toggle'); // New button in sidebar
+    const aiDrawerToggle = document.getElementById('ai-menu-button'); // New button in sidebar
     const closeAiDrawerButton = document.getElementById('close-ai-drawer');
     const aiSubmit = document.getElementById('ai-submit');
     const aiInput = document.getElementById('ai-input');
