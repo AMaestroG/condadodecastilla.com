@@ -84,3 +84,136 @@ body {
 }
 
 /*# sourceMappingURL=custom.css.map */
+
+/* Sidebar flex layout */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; /* Ensure sidebar takes full height if not already - this should be handled by main.css or other global styles if needed */
+}
+
+#sidebar .sidebar-menu-content {
+    flex-grow: 1; /* Allows this section to take available space */
+    overflow-y: auto; /* Add scroll if menu content is too long */
+}
+
+/* Sidebar button styling */
+#sidebar .theme-toggle {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color); /* Assuming CSS variables are used for theme colors */
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: auto; /* Pushes button to bottom */
+    border-top: 1px solid var(--border-color, #ccc); /* Separator line */
+}
+
+#sidebar .theme-toggle i {
+    margin-right: 8px;
+}
+
+#sidebar .theme-toggle:hover {
+    background-color: var(--hover-color, #f0f0f0); /* Provide a fallback hover color */
+}
+
+/* Sidebar AI button styling */
+#sidebar .ai-menu-button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color); /* Assuming CSS variables are used for theme colors */
+    cursor: pointer;
+    font-size: 1em;
+    border-top: 1px solid var(--border-color, #ccc); /* Separator line */
+}
+
+#sidebar .ai-menu-button img {
+    /* Styles already applied inline for now, can be moved here if preferred */
+    filter: var(--icon-filter, none); /* Optional: if you use filters for icons based on theme */
+}
+
+#sidebar .ai-menu-button:hover {
+    background-color: var(--hover-color, #f0f0f0); /* Provide a fallback hover color */
+}
+
+/* AI Drawer as Modal */
+#ai-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#ai-drawer.active {
+    display: flex; /* Show when active */
+}
+
+#ai-drawer-content { /* Assuming there's an inner container */
+    background-color: var(--background-color, #fff);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative; /* For positioning close button if needed */
+}
+
+#ai-drawer #close-ai-drawer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+#ai-drawer #ai-response {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid var(--border-color, #ccc);
+    min-height: 100px;
+    background-color: var(--input-background, #f9f9f9);
+    white-space: pre-wrap; /* To respect newlines from API response */
+    overflow-y: auto;
+    max-height: 300px; /* Limit response height before scroll */
+}
+
+#ai-drawer #ai-input {
+   width: calc(100% - 22px); /* Adjust based on padding/border */
+   padding: 10px;
+   margin-bottom: 10px;
+   border: 1px solid var(--border-color, #ccc);
+   border-radius: 4px;
+}
+
+#ai-drawer #ai-submit {
+   padding: 10px 15px;
+   background-color: var(--primary-color, #007bff);
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+#ai-drawer #ai-submit:hover {
+   background-color: var(--primary-hover-color, #0056b3);
+}
