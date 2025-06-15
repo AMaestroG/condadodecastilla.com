@@ -40,7 +40,7 @@
 
 body {
     font-family: 'Lora', serif;
-    background-color: var(--current-bg);
+    background-color: transparent; /* MODIFIED: Was var(--current-bg) */
     color: var(--current-text);
     margin: 0;
     padding: 0;
