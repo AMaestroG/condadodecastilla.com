@@ -1,4 +1,5 @@
 (function(){
+    // Deprecated: header is now rendered server-side via includes/header.php
     async function loadFragment(selector, url) {
         const container = document.querySelector(selector);
         if (!container) {

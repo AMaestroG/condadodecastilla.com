@@ -34,11 +34,7 @@ require_once 'includes/ai_utils.php';
 <?php
 // Use dynamic PHP header if available so menu fragments can contain
 // server-side logic like the admin login menu.
-if (file_exists(__DIR__ . '/_header.php')) {
-    require_once __DIR__ . '/_header.php';
-} else {
-    require_once __DIR__ . '/_header.html';
-}
+require_once __DIR__ . '/_header.php';
 ?>
 
     <header class="hero">
