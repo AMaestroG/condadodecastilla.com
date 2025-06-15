@@ -292,3 +292,89 @@ header { /* New header for hamburger only */
     /* Aquí se podría cambiar el comportamiento del menú si se desea que cubra toda la pantalla, etc. */
     /* Por ahora, el comportamiento de empuje se mantiene, pero se podría necesitar ajustar */
 }
+
+/* ================================================== */
+/* ESTILOS DEL PANEL DE CONTROL IZQUIERDO      */
+/* ================================================== */
+
+.left-control-panel {
+    position: fixed; /* Clave para que no se mueva con el scroll */
+    left: 15px;      /* Distancia desde la izquierda */
+    top: 15px;       /* Distancia desde arriba */
+    z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+
+    /* Diseño del panel */
+    display: flex;
+    flex-direction: column; /* Apila los elementos en vertical */
+    gap: 10px; /* Espacio entre la sección de idiomas y la de botones */
+
+    /* Estilo visual tipo "cristal" (opcional pero moderno) */
+    background-color: rgba(93, 58, 153, 0.8); /* Tu morado emperador con transparencia */
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--old-gold);
+}
+
+/* --- Estilos de los elementos dentro del panel --- */
+
+/* Contenedor de las banderas */
+.language-selector {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Espacio entre banderas */
+}
+
+.language-selector img {
+    width: 30px; /* Un tamaño más pequeño y discreto */
+    height: auto;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.language-selector img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px var(--old-gold);
+}
+
+/* Línea separadora */
+.panel-separator {
+    border: none;
+    height: 1px;
+    background-color: var(--old-gold);
+    width: 100%;
+    margin: 0;
+}
+
+/* Contenedor de los botones de acción */
+.action-buttons {
+    display: flex;
+    flex-direction: column; /* Apila los botones en vertical */
+    gap: 10px; /* Espacio entre cada botón */
+    align-items: center; /* Centra los botones en el panel */
+}
+
+/* Estilo para cada botón individual */
+.action-buttons button {
+    background-color: var(--old-gold);
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    width: 40px; /* Ancho fijo para los botones */
+    height: 40px; /* Alto fijo para los botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.action-buttons button:hover {
+    background-color: #fff; /* Un color de resaltado al pasar el ratón */
+    transform: scale(1.05);
+}
+
+.action-buttons button img {
+    width: 24px; /* Tamaño del icono dentro del botón */
+    height: 24px;
+}
