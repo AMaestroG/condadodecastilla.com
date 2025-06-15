@@ -1,0 +1,127 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    /* Define other variables for your theme if needed */
+}
+
+[data-theme="dark"] {
+    --background-color: #333333;
+    --text-color: #ffffff;
+    /* Define dark versions of other variables if needed */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Add any other elements you want to theme with these variables */
+/* For example:
+   a { color: var(--text-color); }
+   .card { background-color: var(--background-color-secondary); }
+*/
+.ai-drawer {
+    position: fixed;
+    right: -350px; /* Start off-screen, adjust width if changed */
+    top: 0;
+    width: 350px; /* Drawer width */
+    height: 100%;
+    background-color: var(--background-color, #ffffff);
+    color: var(--text-color, #333333);
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1050;
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ccc; /* Fallback border color */
+}
+/* Use theme variables for border if defined, e.g. var(--border-color, #ccc) */
+[data-theme="dark"] .ai-drawer {
+    border-left: 1px solid #555;
+}
+
+
+.ai-drawer.active {
+    right: 0; /* Slide in */
+}
+
+.ai-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--background-color-secondary, #f0f0f0); /* Assuming a secondary bg color variable */
+    border-bottom: 1px solid var(--border-color, #ddd); /* Theme variable or default */
+    color: var(--text-color, #333333);
+}
+[data-theme="dark"] .ai-drawer-header {
+     background-color: var(--background-color-secondary, #222); /* Darker secondary */
+     border-bottom: 1px solid var(--border-color, #555);
+}
+
+
+.ai-drawer-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#close-ai-drawer {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--text-color, #333333);
+}
+
+.ai-drawer-content {
+    padding: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#ai-response {
+    flex-grow: 1;
+    min-height: 100px;
+    border: 1px solid var(--border-color, #eee);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--background-color-tertiary, #f9f9f9); /* Assuming a tertiary bg for input areas */
+    color: var(--text-color, #333333);
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+[data-theme="dark"] #ai-response {
+    background-color: var(--background-color-tertiary, #2a2a2a);
+    border: 1px solid var(--border-color, #444);
+}
+
+
+#ai-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color, #ccc);
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    background-color: var(--background-color, #ffffff);
+    color: var(--text-color, #333333);
+}
+[data-theme="dark"] #ai-input {
+    background-color: var(--background-color-secondary, #333);
+    border: 1px solid var(--border-color, #555);
+}
+
+
+#ai-submit {
+    padding: 10px 15px;
+    background-color: #007bff; /* Primary button color, can be a variable */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#ai-submit:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+}
