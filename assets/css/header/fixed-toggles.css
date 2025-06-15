@@ -9,10 +9,24 @@
 }
 
 .fixed-vertical-toggles button {
-    /* You might want to add some specific styling for these buttons if needed,
-       or they can inherit from existing styles. For example: */
     padding: 8px;
-    background-color: rgba(var(--epic-alabaster-rgb), 0.8); /* Example background */
+    /* Attempt to use the variable opaquely, with a fallback */
+    background-color: #f8f9fa; /* Fallback solid light color */
+    background-color: rgb(var(--epic-alabaster-rgb)); /* Try to use the variable, now opaque */
     border: 1px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
+    opacity: 0.95; /* Slightly less than full opacity if alabaster is very light, to ensure visibility */
+    cursor: pointer; /* Ensure cursor indicates interactivity */
+}
+
+.fixed-vertical-toggles button:hover {
+    opacity: 1; /* Fully opaque on hover */
+    /* Consider a slight background change if possible, e.g., darken or a shadow */
+    box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Example shadow for hover */
+}
+
+.fixed-vertical-toggles button:focus {
+    opacity: 1;
+    outline: 2px solid var(--epic-gold-secondary); /* Focus outline */
+    outline-offset: 1px;
 }

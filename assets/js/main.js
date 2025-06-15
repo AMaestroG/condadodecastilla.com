@@ -2,12 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Menu Toggle Logic ---
     const menuToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
-    const mainContent = document.getElementById('main-content');
+    const mainContent = document.getElementById('main-content'); // This line remains to define mainContent
 
-    if (menuToggle && sidebar && mainContent) {
+    if (menuToggle && sidebar) { // Condition changed here
         menuToggle.addEventListener('click', () => {
             sidebar.classList.toggle('open');
-            mainContent.classList.toggle('pushed');
+            if (mainContent) { // Added check for mainContent here
+                mainContent.classList.toggle('pushed');
+            }
             // Update aria-expanded attribute for accessibility
             const isExpanded = sidebar.classList.contains('open');
             menuToggle.setAttribute('aria-expanded', isExpanded);
