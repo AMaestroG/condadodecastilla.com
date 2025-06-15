@@ -1,48 +1,191 @@
 :root {
-    --background-color: #ffffff;
-    --text-color: #333333;
-    /* Define other variables for your theme if needed */
+    --emperador-purple: #5D3A99; /* Morado Emperador */
+    --old-gold: #CFB53B; /* Ouro Vello */
+    --light-text: #F5F5F5; /* Texto claro para fondos oscuros */
+    --dark-text: #2A2A2A; /* Texto oscuro para fondos claros */
+    --background-light: #FFFFFF;
+    --background-dark: #1E1E1E; /* Un gris oscuro casi negro */
+    --sidebar-bg-light: #F8F9FA;
+    --sidebar-bg-dark: #2C2C2C; /* Un poco más claro que el fondo principal oscuro */
+    --separator-light: #D1D1D1;
+    --separator-dark: #4A4A4A;
+    --button-bg-light: var(--emperador-purple);
+    --button-text-light: var(--light-text);
+    --button-bg-dark: var(--old-gold);
+    --button-text-dark: var(--dark-text); /* Oro sobre fondo oscuro puede necesitar texto oscuro */
+
+    /* Default to light theme */
+    --current-bg: var(--background-light);
+    --current-text: var(--dark-text);
+    --current-sidebar-bg: var(--sidebar-bg-light);
+    --current-separator: var(--separator-light);
+    --current-button-bg: var(--button-bg-light);
+    --current-button-text: var(--button-text-light);
+    --current-link-color: #442970;
+    --current-link-hover-color: #301C4E;
+    --current-icon-filter: none; /* Para invertir iconos en modo oscuro si son negros */
 }
 
 [data-theme="dark"] {
-    --background-color: #333333;
-    --text-color: #ffffff;
-    /* Define dark versions of other variables if needed */
+    --current-bg: var(--background-dark);
+    --current-text: var(--light-text);
+    --current-sidebar-bg: var(--sidebar-bg-dark);
+    --current-separator: var(--separator-dark);
+    --current-button-bg: var(--button-bg-dark);
+    --current-button-text: var(--dark-text); /* Texto oscuro en botones dorados */
+    --current-link-color: var(--old-gold);
+    --current-link-hover-color: var(--emperador-purple);
+    --current-icon-filter: invert(1) hue-rotate(180deg); /* Ejemplo para invertir y colorear iconos SVG/PNG */
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: 'Lora', serif;
+    background-color: var(--current-bg);
+    color: var(--current-text);
+    margin: 0;
+    padding: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Prevent horizontal scrollbar during push */
 }
-/* Add any other elements you want to theme with these variables */
-/* For example:
-   a { color: var(--text-color); }
-   .card { background-color: var(--background-color-secondary); }
-*/
+
+header { /* New header for hamburger only */
+    background-color: var(--current-sidebar-bg); /* Match sidebar or be distinct */
+    padding: 0.5rem 1rem;
+    position: fixed; /* Keep it at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* Above sidebar but below modals if any */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#menu-toggle {
+    background: none;
+    border: none;
+    color: var(--current-text);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+#sidebar {
+    height: 100%;
+    width: 280px; /* Ancho del menú lateral */
+    position: fixed;
+    z-index: 1000; /* Debajo del header del menú hamburguesa si es fijo */
+    top: 0;
+    left: -280px; /* Comienza oculto */
+    background-color: var(--current-sidebar-bg);
+    color: var(--current-text);
+    padding-top: 60px; /* Espacio para el header fijo */
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+#sidebar.open {
+    left: 0; /* Muestra el menú */
+}
+
+#sidebar .main-menu, #sidebar .tools-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar .main-menu a, #sidebar .tools-menu button {
+    display: flex; /* Para alinear icono y texto */
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: var(--current-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+#sidebar .main-menu a:hover, #sidebar .tools-menu button:hover {
+    background-color: var(--current-link-hover-color);
+    color: var(--current-button-text); /* Ajustar si el hover cambia mucho el fondo */
+}
+/* Específico para el texto del botón cuando hover */
+[data-theme="dark"] #sidebar .main-menu a:hover,
+[data-theme="dark"] #sidebar .tools-menu button:hover {
+    color: var(--dark-text); /* Asegurar contraste en modo oscuro */
+}
+[data-theme="light"] #sidebar .main-menu a:hover,
+[data-theme="light"] #sidebar .tools-menu button:hover {
+    color: var(--light-text); /* Asegurar contraste en modo claro */
+}
+
+
+#sidebar .main-menu a img, #sidebar .tools-menu button img {
+    margin-right: 10px;
+    width: 20px; /* Tamaño de los iconos */
+    height: 20px;
+    filter: var(--current-icon-filter); /* Aplicar filtro para tema oscuro */
+}
+
+#sidebar .separator {
+    border: none;
+    height: 1px;
+    background-color: var(--current-separator);
+    margin: 10px 20px;
+}
+
+#sidebar .language-selector {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 20px;
+}
+
+#sidebar .language-selector img {
+    width: 30px; /* Tamaño de las banderas */
+    height: auto;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.2s ease;
+}
+
+#sidebar .language-selector img:hover {
+    transform: scale(1.1);
+}
+
+#main-content {
+    margin-top: 60px; /* Ajustar si el header cambia de altura */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#main-content.pushed {
+    margin-left: 280px; /* Mismo ancho que el sidebar */
+}
+
+/* Estilos del AI Drawer (manteniendo y adaptando los existentes) */
 .ai-drawer {
     position: fixed;
-    right: -350px; /* Start off-screen, adjust width if changed */
+    right: -380px; /* Ancho + un poco más para que no se vea el borde */
     top: 0;
-    width: 350px; /* Drawer width */
+    width: 360px; /* Ancho del cajón de IA */
     height: 100%;
-    background-color: var(--background-color, #ffffff);
-    color: var(--text-color, #333333);
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    z-index: 1050;
-    transition: right 0.3s ease-in-out;
+    background-color: var(--current-sidebar-bg); /* Usar el mismo fondo que el sidebar */
+    color: var(--current-text);
+    box-shadow: -3px 0 8px rgba(0,0,0,0.15);
+    z-index: 1050; /* Encima de otros elementos */
+    transition: right 0.35s ease-in-out;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid #ccc; /* Fallback border color */
+    border-left: 1px solid var(--current-separator);
 }
-/* Use theme variables for border if defined, e.g. var(--border-color, #ccc) */
-[data-theme="dark"] .ai-drawer {
-    border-left: 1px solid #555;
-}
-
 
 .ai-drawer.active {
-    right: 0; /* Slide in */
+    right: 0; /* Deslizar para mostrar */
 }
 
 .ai-drawer-header {
@@ -50,27 +193,30 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: var(--background-color-secondary, #f0f0f0); /* Assuming a secondary bg color variable */
-    border-bottom: 1px solid var(--border-color, #ddd); /* Theme variable or default */
-    color: var(--text-color, #333333);
+    background-color: var(--emperador-purple); /* Color distintivo para el header del AI */
+    color: var(--light-text);
+    border-bottom: 1px solid var(--old-gold); /* Detalle con el otro color de la paleta */
 }
 [data-theme="dark"] .ai-drawer-header {
-     background-color: var(--background-color-secondary, #222); /* Darker secondary */
-     border-bottom: 1px solid var(--border-color, #555);
+    background-color: var(--old-gold);
+    color: var(--dark-text);
+    border-bottom: 1px solid var(--emperador-purple);
 }
 
 
 .ai-drawer-header h3 {
     margin: 0;
     font-size: 1.2em;
+    font-family: 'Cinzel', serif; /* Fuente más temática si se desea */
 }
 
 #close-ai-drawer {
     background: none;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.6em;
     cursor: pointer;
-    color: var(--text-color, #333333);
+    color: inherit; /* Hereda el color del header del drawer */
+    padding: 0.2rem 0.5rem;
 }
 
 .ai-drawer-content {
@@ -83,45 +229,66 @@ body {
 
 #ai-response {
     flex-grow: 1;
-    min-height: 100px;
-    border: 1px solid var(--border-color, #eee);
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--background-color-tertiary, #f9f9f9); /* Assuming a tertiary bg for input areas */
-    color: var(--text-color, #333333);
+    min-height: 150px; /* Más espacio para respuestas */
+    border: 1px solid var(--current-separator);
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: var(--current-bg); /* Fondo principal para el área de respuesta */
+    color: var(--current-text);
     overflow-y: auto;
-    white-space: pre-wrap;
+    white-space: pre-wrap; /* Para mantener saltos de línea */
+    border-radius: 4px;
 }
-[data-theme="dark"] #ai-response {
-    background-color: var(--background-color-tertiary, #2a2a2a);
-    border: 1px solid var(--border-color, #444);
-}
-
 
 #ai-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--border-color, #ccc);
+    width: calc(100% - 24px); /* Ajustar por padding */
+    padding: 12px;
+    border: 1px solid var(--current-separator);
     margin-bottom: 10px;
     box-sizing: border-box;
-    background-color: var(--background-color, #ffffff);
-    color: var(--text-color, #333333);
+    background-color: var(--current-bg);
+    color: var(--current-text);
+    border-radius: 4px;
+    font-size: 1rem;
 }
-[data-theme="dark"] #ai-input {
-    background-color: var(--background-color-secondary, #333);
-    border: 1px solid var(--border-color, #555);
-}
-
 
 #ai-submit {
-    padding: 10px 15px;
-    background-color: #007bff; /* Primary button color, can be a variable */
-    color: white;
+    padding: 12px 18px;
+    background-color: var(--current-button-bg);
+    color: var(--current-button-text);
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #ai-submit:hover {
-    background-color: #0056b3; /* Darker shade for hover */
+    opacity: 0.85;
+}
+
+/* Ajustes para que el contenido del main no se solape con el header fijo */
+/* El #main-content ya tiene margin-top, pero si hay otros headers fijos, se necesitaría más */
+
+/* Estilos adicionales para los elementos movidos a main-content si es necesario */
+#main-content .hero {
+    /* ... estilos para la sección hero si necesitan ajuste ... */
+    padding-top: 2rem; /* Ejemplo: más espacio arriba si es necesario */
+}
+
+#main-content .footer {
+    /* ... estilos para el footer si necesitan ajuste ... */
+    border-top: 1px solid var(--current-separator);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Media query para responsividad del menú */
+@media (max-width: 768px) {
+    #main-content.pushed {
+        margin-left: 0; /* En móvil, el menú podría superponerse en lugar de empujar */
+    }
+    /* Aquí se podría cambiar el comportamiento del menú si se desea que cubra toda la pantalla, etc. */
+    /* Por ahora, el comportamiento de empuje se mantiene, pero se podría necesitar ajustar */
 }

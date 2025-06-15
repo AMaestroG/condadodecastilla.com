@@ -1,36 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('sidebar-toggle');
-    const navMenuContainer = document.getElementById('sidebar'); // This is the <nav> element
+    // --- Menu Toggle Logic ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
 
-    if (navToggle && navMenuContainer) {
-        navToggle.addEventListener('click', () => {
-            navMenuContainer.classList.toggle('active'); // This class will control visibility of the nav
-
+    if (menuToggle && sidebar && mainContent) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            mainContent.classList.toggle('pushed');
             // Update aria-expanded attribute for accessibility
-            const isExpanded = navMenuContainer.classList.contains('active');
-            navToggle.setAttribute('aria-expanded', isExpanded);
+            const isExpanded = sidebar.classList.contains('open');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
         });
     }
-});
 
-// Theme Toggle Logic (Enhanced)
-document.addEventListener('DOMContentLoaded', () => { // Ensure DOM is loaded for theme toggle too
-    const themeToggleButton = document.getElementById('theme-toggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // --- Theme Toggle Logic ---
+    const themeToggleButton = document.getElementById('theme-toggle'); // New button in sidebar
+    const themeIcon = themeToggleButton ? themeToggleButton.querySelector('img') : null;
+    const themeSpan = themeToggleButton ? themeToggleButton.querySelector('span') : null;
 
     function applyTheme(theme) {
         if (theme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            if (themeToggleButton) themeToggleButton.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
+            if (themeIcon) themeIcon.src = 'assets/icons/sun-icon.svg';
+            if (themeSpan) themeSpan.textContent = 'Modo Claro';
             localStorage.setItem('theme', 'dark');
-        } else {
+        } else { // Light theme
             document.documentElement.setAttribute('data-theme', 'light');
-            if (themeToggleButton) themeToggleButton.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode
+            if (themeIcon) themeIcon.src = 'assets/icons/moon-icon.svg';
+            if (themeSpan) themeSpan.textContent = 'Modo Escuro';
             localStorage.setItem('theme', 'light');
         }
     }
 
+    // Initialize theme based on localStorage or preference
     const currentTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     if (currentTheme) {
         applyTheme(currentTheme);
     } else if (prefersDark) {
@@ -45,36 +51,36 @@ document.addEventListener('DOMContentLoaded', () => { // Ensure DOM is loaded fo
             applyTheme(newTheme);
         });
     }
-});
 
-// AI Drawer Logic
-document.addEventListener('DOMContentLoaded', () => {
+    // --- AI Drawer Logic ---
+    const aiDrawer = document.getElementById('ai-drawer');
+    const aiDrawerToggle = document.getElementById('ai-drawer-toggle'); // New button in sidebar
+    const closeAiDrawerButton = document.getElementById('close-ai-drawer');
     const aiSubmit = document.getElementById('ai-submit');
     const aiInput = document.getElementById('ai-input');
     const aiResponse = document.getElementById('ai-response');
-    const aiDrawer = document.getElementById('ai-drawer');
-    const closeAiDrawerButton = document.getElementById('close-ai-drawer');
-    const iaChatToggle = document.getElementById('ia-chat-toggle');
 
-    if (iaChatToggle && aiDrawer) {
-        iaChatToggle.addEventListener('click', () => {
+    if (aiDrawerToggle && aiDrawer) {
+        aiDrawerToggle.addEventListener('click', () => {
             aiDrawer.classList.toggle('active');
             const isExpanded = aiDrawer.classList.contains('active');
-            iaChatToggle.setAttribute('aria-expanded', isExpanded);
+            aiDrawerToggle.setAttribute('aria-expanded', isExpanded);
         });
     }
 
     if (closeAiDrawerButton && aiDrawer) {
         closeAiDrawerButton.addEventListener('click', () => {
             aiDrawer.classList.remove('active');
-            if (iaChatToggle) iaChatToggle.setAttribute('aria-expanded', 'false');
+            if (aiDrawerToggle) aiDrawerToggle.setAttribute('aria-expanded', 'false');
         });
     }
 
     if (aiSubmit && aiInput && aiResponse) {
         aiSubmit.addEventListener('click', async () => {
-            const prompt = aiInput.value;
-            const apiKey = 'A_TUA_CLAVE_DE_API_DE_GEMINI'; // Placeholder - User must replace
+            const prompt = aiInput.value.trim();
+            if (!prompt) return; // Don't send empty prompts
+
+            const apiKey = 'A_TUA_CLAVE_DE_API_DE_GEMINI'; // Placeholder
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
 
             aiResponse.innerHTML = 'Procesando...';
@@ -113,7 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     aiResponse.innerHTML = feedbackMsg;
                 } else {
-                    aiResponse.innerHTML = 'No se recibió una respuesta válida o el contenido fue bloqueado sin detalles adicionales.';
+                    // Check for other possible valid responses or more detailed error messages
+                    if (data.candidates && data.candidates.length > 0 && data.candidates[0].finishReason === "SAFETY") {
+                         aiResponse.innerHTML = 'La respuesta fue bloqueada por motivos de seguridad. Intenta reformular tu pregunta.';
+                    } else {
+                         aiResponse.innerHTML = 'No se recibió una respuesta válida o el contenido fue bloqueado.';
+                    }
                 }
             } catch (error) {
                 console.error('Error llamando a la API de Gemini:', error);
@@ -121,5 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             aiInput.value = ''; // Clear input
         });
+
+        // Allow submitting with Enter key in the input field
+        aiInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent default form submission if it were in a form
+                aiSubmit.click();
+            }
+        });
+    }
+
+    // Initialize AOS (Animate On Scroll) if it's used and loaded
+    if (typeof AOS !== 'undefined') {
+        AOS.init();
     }
 });
