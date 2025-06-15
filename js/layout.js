@@ -17,13 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('/_header.html')
         .then(response => response.text())
         .then(data => {
-            headerPlaceholder.innerHTML = data;
-            // Re-initialize sidebar navigation if header was loaded dynamically,
-            // in case the elements weren't ready on the first call.
-            // initializeSidebarNavigation(); // Now called by header_loader.js
-            // loadIAToolsScript(); // Now called by header_loader.js
-            // Ensure chat sidebar is initialized when header is loaded
-            // initializeIAChatSidebar(); // Now called by header_loader.js
+            insertHtmlWithScripts(headerPlaceholder, data);
         })
         .catch(error => console.error('Error fetching _header.html:', error));
 
@@ -287,4 +281,18 @@ function loadAos() {
     } else {
         AOS.init({ once: true });
     }
+}
+
+function insertHtmlWithScripts(container, html) {
+    container.innerHTML = html;
+    const scripts = container.querySelectorAll('script');
+    scripts.forEach(oldScript => {
+        const newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(attr => {
+            newScript.setAttribute(attr.name, attr.value);
+        });
+        newScript.textContent = oldScript.textContent;
+        document.head.appendChild(newScript);
+        oldScript.remove();
+    });
 }
