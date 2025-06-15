@@ -3,208 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Condado de Castilla - Cuna de tu Cultura y Lengua</title>
-    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/vendor/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/custom.css">
-    <link rel="stylesheet" href="/assets/css/lighting.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/pages/index.css">
-    <link rel="stylesheet" href="assets/css/styles.css"> <!-- As per issue -->
+    <title>Condado de Castilla</title>
+
+    <style>
+        /* Reseteo básico y configuración de la fuente */
+        :root {
+            --emperador-purple: #5D3A99;
+            --old-gold: #CFB53B;
+            --dark-background: #282c34; /* Un gris oscuro azulado */
+            --light-text: #F5F5F5;
+            --sidebar-width: 280px;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-background);
+            color: var(--light-text);
+            transition: margin-left 0.4s ease; /* Transición para el contenido principal */
+        }
+
+        /* Contenido principal de la página */
+        #main-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        #main-content.pushed {
+            margin-left: var(--sidebar-width);
+        }
+
+        .escudo-container {
+            border: 3px solid var(--old-gold);
+            padding: 20px;
+            background-color: #000;
+            max-width: 500px;
+        }
+
+        .escudo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* =============================================
+           PANEL DE CONTROL FIJO A LA IZQUIERDA
+        ============================================= */
+        .left-control-panel {
+            position: fixed;
+            left: 15px;
+            top: 15px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: rgba(44, 44, 44, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--old-gold);
+        }
+
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .language-selector img {
+            width: 30px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .language-selector img:hover {
+            transform: scale(1.1);
+        }
+
+        .panel-separator {
+            border: none;
+            height: 1px;
+            background-color: var(--old-gold);
+            width: 100%;
+            margin: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            background-color: var(--old-gold);
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .action-buttons button:hover {
+            background-color: #fff;
+        }
+
+        .action-buttons button img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* =============================================
+           MENÚ LATERAL DESLIZABLE (SIDEBAR)
+        ============================================= */
+        #sidebar {
+            height: 100%;
+            width: var(--sidebar-width);
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            background-color: var(--emperador-purple);
+            transform: translateX(calc(-1 * var(--sidebar-width)));
+            transition: transform 0.4s ease;
+            padding-top: 20px;
+        }
+
+        #sidebar.open {
+            transform: translateX(0);
+        }
+
+        #sidebar ul {
+            list-style: none;
+            padding: 20px;
+            margin: 0;
+        }
+
+        #sidebar a {
+            color: var(--light-text);
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #sidebar a:hover {
+            background-color: var(--old-gold);
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <button id="menu-toggle" aria-label="Abrir menú">☰</button>
-    </header>
-    <nav id="sidebar">
-        <ul class="main-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="cultura.html">Cultura</a></li>
-            <li><a href="camino_santiago.html">Camino de Santiago</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-        <hr class="separator">
-        <div class="tools-menu">
-            <button id="theme-toggle" title="Cambiar tema">
-                <img src="assets/icons/moon-icon.svg" alt="Icona de tema">
-                <span>Modo Escuro</span>
-            </button>
-            <button id="ai-drawer-toggle" title="Abrir asistente IA">
-                <img src="assets/icons/ai-icon.svg" alt="Icona de IA">
-                <span>Asistente IA</span>
-            </button>
-        </div>
-        <hr class="separator">
+
+    <div class="left-control-panel">
         <div class="language-selector">
-            <img src="assets/flags/es.svg" alt="Español" title="Español">
-            <img src="assets/flags/gl.svg" alt="Galego" title="Galego">
-            <img src="assets/flags/gb.svg" alt="English" title="English">
-            <!-- Add other flags as needed -->
+            <a href="#es" title="Español"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Bandera de España"></a>
+            <a href="#en" title="English"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="Bandera del Reino Unido"></a>
         </div>
-    </nav>
-    <main id="main-content">
-        <header class="hero">
-            <div class="hero-content">
-                <img src="/assets/img/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas dorada encima." class="hero-escudo">
-                <div>
-                    <h1>Condado de Castilla: Cuna de Tu Cultura e Idioma</h1>
-                    <p>Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.</p>
-                </div>
-            </div>
-            <a href="/historia/historia.html" class="cta-button">Descubre la Historia</a>
-        </header>
-
-        <section class="video-section section spotlight-active" data-aos="fade-up">
-            <div class="container">
-                <h2 class="section-title">Un Vistazo a Nuestra Tierra</h2>
-                <div class="video-container">
-                    <iframe
-                        src="https://drive.google.com/file/d/1wm74VmKH21Nz7zFUkY8a8Z9672D4cyHN/preview"
-                        title="Video promocional del Condado de Castilla y Cerezo de Río Tirón"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </section>
-
-        <main>
-            <section class="section detailed-intro-section spotlight-active" data-aos="fade-up">
-                <div class="container">
-                    <h2>Recuperando la Memoria de la Hispanidad Castellana</h2>
-                    <p>Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.</p>
-                    <p class="cta-group">
-                        <a href="/secciones_index/memoria_hispanidad.html" class="cta-button">Leer Más Sobre Nuestra Memoria</a>
-                    </p>
-                </div>
-            </section>
-
-            <section class="section alternate-bg spotlight-active" data-aos="fade-up">
-                <div class="container">
-                    <h2 class="section-title">Explora Nuestro Legado</h2>
-                    <div class="card-grid">
-                        <div class="card">
-                            <img src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
-                            <div class="card-content">
-                                <h3>Nuestra Historia</h3>
-                                <p>Desde los Concanos y la Civitate Auca Patricia hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
-                                <a href="/historia/historia.html" class="read-more">Leer Más</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
-                            <div class="card-content">
-                                <h3>Lugares Emblemáticos</h3>
-                                <p>Descubre el imponente Alcázar de Casio, los secretos de la Civitate Auca y otros tesoros arqueológicos que esperan ser explorados.</p>
-                                <a href="/lugares/lugares.html" class="read-more">Explorar Sitios</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
-                            <div class="card-content">
-                                <h3>Planifica Tu Visita</h3>
-                                <p>Encuentra toda la información que necesitas para tu aventura en Cerezo de Río Tirón: cómo llegar, dónde alojarte y qué no te puedes perder.</p>
-                                <a href="/visitas/visitas.html" class="read-more">Organizar Viaje</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" data-aos="fade-up">
-                <div class="container">
-                    <h2 class="section-title">Personajes de la Historia</h2>
-                    <div class="card-grid">
-                        <div class="card">
-                            <img src="/assets/img/Casio.png" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII">
-                            <div class="card-content">
-                                <h3>Conde Casio</h3>
-                                <p>Figura fundamental del siglo VIII, se le atribuye la construcción o refuerzo del Alcázar de Cerezo.</p>
-                                <a href="/personajes/Militares_y_Gobernantes/conde_casio_cerasio.html" class="read-more">Saber Más</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/assets/img/GonzaloTellez.png" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo">
-                            <div class="card-content">
-                                <h3>Gonzalo Téllez</h3>
-                                <p>Conde de Lantarón y Cerezo (c. 897 - c. 913), personaje clave en la consolidación de los territorios.</p>
-                                <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html" class="read-more">Saber Más</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/assets/img/FernandoDiaz.png" alt="Representación artística de Fernando Díaz, conde castellano">
-                            <div class="card-content">
-                                <h3>Fernando Díaz</h3>
-                                <p>Sucesor de Gonzalo Téllez, continuó la labor de defensa y organización en la primitiva Castilla.</p>
-                                <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html" class="read-more">Saber Más</a>
-                            </div>
-                        </div>
-                    </div>
-                     <p class="cta-group">
-                        <a href="/personajes/indice_personajes.html" class="cta-button">Personajes</a>
-                    </p>
-                </div>
-            </section>
-
-            <section class="section timeline-section-summary alternate-bg" data-aos="fade-up">
-                <div class="container">
-                    <h2 class="section-title">Nuestra Historia en el Tiempo</h2>
-                    <p class="timeline-intro">Un recorrido conciso por los momentos más determinantes de nuestra región, desde la prehistoria hasta la consolidación del Condado. Cada época ha dejado una huella imborrable.</p>
-                    <p class="cta-group">
-                        <a href="/secciones_index/historia_tiempo_resumen.html" class="cta-button">Explorar Resumen de la Historia</a>
-                    </p>
-                </div>
-            </section>
-
-            <section class="section immersion-section" data-aos="fade-up">
-                <div class="container">
-                    <h2>Sumérgete en la Historia Viva de Tu Cultura</h2>
-                    <p>
-                        Esta web es más que información; es una puerta a tus raíces. Un viaje al origen del castellano y la identidad hispana te espera.
-                        Siente la llamada de la historia y conecta con el legado que nos une.
-                    </p>
-                    <a href="/cultura/cultura.html" class="cta-button">Cultura</a>
-                </div>
-            </section>
-        </main>
-        <footer class="footer">
-        <div class="container-epic">
-            <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
-            <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
-            <p><a href="/dashboard/login.php">Acceso Administrador</a></p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/groups/1052427398664069" aria-label="Facebook" title="Síguenos en Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                <a href="/en_construccion.html" aria-label="Instagram" title="Síguenos en Instagram (Próximamente)" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                <a href="/en_construccion.html" aria-label="Twitter" title="Síguenos en Twitter (Próximamente)" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                <a href="https://chat.whatsapp.com/JWJ6mWXPuekIBZ8HJSSsZx" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="Únete a nuestro grupo de WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </footer>
-    </main>
-    <div id="ai-drawer" class="ai-drawer">
-        <div class="ai-drawer-header">
-            <h3>Asistente de IA</h3>
-            <button id="close-ai-drawer">X</button>
-        </div>
-        <div class="ai-drawer-content">
-            <div id="ai-response"></div>
-            <input type="text" id="ai-input" placeholder="Pregúntame algo...">
-            <button id="ai-submit">Enviar</button>
+        <hr class="panel-separator">
+        <div class="action-buttons">
+            <button id="menu-toggle" title="Abrir menú">
+                <svg viewBox="0 0 100 80" width="24" height="24" fill="#5D3A99"><rect width="100" height="15" rx="8"></rect><rect y="30" width="100" height="15" rx="8"></rect><rect y="60" width="100" height="15" rx="8"></rect></svg>
+            </button>
+            <button id="theme-toggle" title="Cambiar tema">
+                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5D3A99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <button id="ai-drawer-toggle" title="Asistente IA">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5D3A99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9zM9 1v2M15 1v2M9 21v2M15 21v2M1 9h2M1 15h2M21 9h2M21 15h2"/></svg>
+            </button>
         </div>
     </div>
-    <!-- Scripts will be re-evaluated, ensure main.js and any other essential scripts are linked at the end of body -->
-    <script src="/js/layout.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script defer src="/assets/vendor/js/bootstrap.bundle.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <nav id="sidebar">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Cultura</a></li>
+            <li><a href="#">Camino de Santiago</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <div class="escudo-container">
+            <img src="https://raw.githubusercontent.com/AMaestroG/condadodecastilla.com/main/assets/img/logo/condado-de-castilla.png" alt="Escudo del Condado de Castilla">
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+
+            // Lógica para abrir/cerrar el menú lateral
+            if (menuToggle && sidebar && mainContent) {
+                menuToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('open');
+                    mainContent.classList.toggle('pushed');
+                });
+            }
+
+            // Lógica para el botón de tema (ejemplo)
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    alert("Aquí irá la lógica para cambiar el tema a claro/oscuro.");
+                    // document.body.classList.toggle('light-mode');
+                });
+            }
+
+            // Lógica para el botón de IA (ejemplo)
+            const aiToggle = document.getElementById('ai-drawer-toggle');
+            if (aiToggle) {
+                aiToggle.addEventListener('click', () => {
+                    alert("Aquí se abrirá el asistente de Inteligencia Artificial.");
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
