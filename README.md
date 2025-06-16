@@ -129,3 +129,8 @@ esperadas para cada elemento del menú principal:
 
 Mantén esta lista actualizada cuando se añadan o eliminen páginas para que se
 pueda validar fácilmente el contenido del menú.
+
+## Cambios recientes
+
+- Eliminado `js/header_loader.js` y referencias a dicho script, ya que la cabecera se carga ahora de forma estática.
+

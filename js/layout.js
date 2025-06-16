@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     loadHeaderCss();
     loadFixedTogglesCss();
     loadIAToolsScript();
-    // initializeSidebarNavigation(); // Now called by header_loader.js
-    // initializeIAChatSidebar(); // Now called by header_loader.js
+    // initializeSidebarNavigation();
+    // initializeIAChatSidebar();
 
     let headerPlaceholder = document.getElementById('header-placeholder');
     if (!headerPlaceholder) {
