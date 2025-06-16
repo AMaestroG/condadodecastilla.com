@@ -4,7 +4,7 @@
 # Files to check initially
 files_to_check=("index.php" "_header.html" "_footer.php")
 
-# HTML Fragments to also check (from header_loader.js)
+# HTML Fragments to also check (header components)
 # Note: admin-menu.php is PHP; static analysis might be limited.
 html_fragments=(
     "fragments/header/language-bar.html"
@@ -17,7 +17,7 @@ html_fragments=(
 # Combine the arrays
 all_files_to_check=("${files_to_check[@]}" "${html_fragments[@]}")
 
-# Files that may appear in header_loader.js but no longer exist should be skipped
+# Files that were previously loaded dynamically but no longer exist should be skipped
 skip_files=("fragments/header/ia-chat.html")
 
 # Output file for broken links
