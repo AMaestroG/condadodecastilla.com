@@ -1,7 +1,7 @@
 body {
   font-family: "Lora", serif;
-  background-color: transparent; /* MODIFIED: Was #F0E9E0 */
-  /* background-image: url('../img/alabastro.jpg'); REMOVED */
+  background-color: var(--epic-alabaster-bg);
+  background-image: var(--alabaster-background-image);
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
