@@ -65,12 +65,12 @@
                 <div class="camino-cta-block">
                     <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-cta">
                     <p>Planifica tu desvío para conocer la rica historia jacobea de Cerezo de Río Tirón.</p>
-                    <a href="/visitas/visitas.html" class="cta-button">Información para Visitar Cerezo</a>
+                    <a href="/visitas/visitas.php" class="cta-button">Información para Visitar Cerezo</a>
                 </div>
                 <div class="camino-cta-block">
                     <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-cta">
                     <p>Te invitamos a recorrer los senderos que una vez hollaron los peregrinos y a descubrir los vestigios de esta importante etapa jacobea en Cerezo de Río Tirón.</p>
-                    <a href="/visitas/visitas.html" class="cta-button">Planifica Tu Visita a Cerezo</a>
+                    <a href="/visitas/visitas.php" class="cta-button">Planifica Tu Visita a Cerezo</a>
                 </div>
 
             </div>

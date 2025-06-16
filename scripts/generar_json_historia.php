@@ -339,7 +339,7 @@ function procesar_subpagina_detallada(string $ruta_html_subpagina, string $id_te
     echo "Preparando para guardar subpágina JSON para id_tema '".$id_tema."' en: " . $ruta_json_salida_esperada . "\n"; // DEBUG
 }
 
-// 3. Procesamiento de historia/historia.html (Línea de Tiempo)
+// 3. Procesamiento de historia/historia.php (Línea de Tiempo)
 function procesar_linea_tiempo(DOMXPath $xpath, DOMDocument $doc, string $ruta_html_original) {
     global $archivos_procesados;
     echo "Procesando: " . $ruta_html_original . "\n";
@@ -507,13 +507,13 @@ if (!empty($temas_detallados_a_procesar)) {
 }
 
 
-// Procesar historia/historia.html (Línea de Tiempo)
+// Procesar historia/historia.php (Línea de Tiempo)
 $ruta_linea_tiempo_html = DIR_BASE_HTML . 'historia.html';
 if (file_exists($ruta_linea_tiempo_html)) {
     $doc_lt = new DOMDocument();
     if (@$doc_lt->loadHTMLFile($ruta_linea_tiempo_html)) {
         $xpath_lt = new DOMXPath($doc_lt);
-        procesar_linea_tiempo($xpath_lt, $doc_lt, 'historia/historia.html');
+        procesar_linea_tiempo($xpath_lt, $doc_lt, 'historia/historia.php');
     } else {
         echo "Error: No se pudo parsear el archivo HTML: " . $ruta_linea_tiempo_html . "\n";
         foreach (libxml_get_errors() as $error) {
