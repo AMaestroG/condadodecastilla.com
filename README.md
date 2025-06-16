@@ -60,6 +60,17 @@ python flask_app.py
 
 Esto iniciará la API en `http://localhost:5000`, que puede ejecutarse en paralelo al servidor PHP.
 
+### Variable de entorno `FLASK_DEBUG`
+
+Establece `FLASK_DEBUG=1` para arrancar la API en modo depuración:
+
+```bash
+export FLASK_DEBUG=1
+python flask_app.py
+```
+
+Si no defines la variable, `flask_app.py` ejecutará `app.run(debug=False)` por defecto.
+
 ## Instalación de dependencias
 
 Tras clonar el repositorio instala las dependencias de PHP y descarga las
