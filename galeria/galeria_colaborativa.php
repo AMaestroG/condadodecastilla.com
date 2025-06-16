@@ -6,6 +6,7 @@ require_once __DIR__ . '/../includes/auth.php';      // For is_admin_logged_in()
 require_once __DIR__ . '/../dashboard/db_connect.php'; // Necesario para $pdo
 /** @var PDO $pdo */
 require_once __DIR__ . '/../includes/text_manager.php'; // Necesario para editableText()
+require_once __DIR__ . '/../includes/csrf.php';
 
 $is_admin = is_admin_logged_in();
 $gallery_images_data = [];
