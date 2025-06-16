@@ -386,7 +386,7 @@ function get_history_chat_response(string $question): string {
         return "Error: No se proporcionó pregunta.";
     }
 
-    $context = @file_get_contents(__DIR__ . '/../nuevo4.md');
+    $context = @file_get_contents(__DIR__ . '/../docs/historia.md');
     if ($context === false) { $context = ''; }
     $context = mb_substr($context, 0, 5000);
 
