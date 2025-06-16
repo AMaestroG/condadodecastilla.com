@@ -1,15 +1,16 @@
 <header id="fixed-header" role="banner">
-    <button id="menu-button" aria-label="Abrir menú">☰</button>
+    <button id="menu-button" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <a href="/index.php" class="site-title">Condado de Castilla</a>
-    <button id="tools-button" aria-label="Herramientas">⚙</button>
+    <button id="tools-button" aria-label="Herramientas" aria-expanded="false">⚙</button>
 </header>
-<nav id="slide-menu-left" class="slide-menu left" role="navigation">
+<nav id="slide-menu-left" class="slide-menu left" role="navigation" aria-hidden="true">
     <?php require __DIR__ . '/includes/header.php'; ?>
 </nav>
-<nav id="slide-menu-right" class="slide-menu right" aria-label="Herramientas">
+<nav id="slide-menu-right" class="slide-menu right" aria-label="Herramientas" aria-hidden="true">
     <div style="padding:1rem;">
         <button id="theme-toggle" title="Cambiar tema" style="margin-bottom:1rem;">Tema</button>
         <button id="ai-drawer-toggle" title="Asistente IA">IA</button>
     </div>
 </nav>
+<div id="menu-overlay" class="menu-overlay" tabindex="-1" aria-hidden="true"></div>
 <script defer src="/assets/js/header.js"></script>
