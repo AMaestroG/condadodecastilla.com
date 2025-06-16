@@ -80,9 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const prompt = aiInput.value.trim();
             if (!prompt) return; // Don't send empty prompts
 
-            const apiKeyMeta = document.querySelector('meta[name="gemini-api-key"]');
-            const apiKey = apiKeyMeta ? apiKeyMeta.getAttribute('content') : '';
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+            const url = '/api/chat';
 
             aiResponse.innerHTML = 'Procesando...';
 
@@ -90,9 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        "contents": [{ "parts": [{ "text": prompt }] }]
-                    })
+                    body: JSON.stringify({ prompt })
                 });
 
                 if (!response.ok) {
@@ -105,27 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const data = await response.json();
-                if (data.candidates && data.candidates.length > 0 &&
-                    data.candidates[0].content && data.candidates[0].content.parts &&
-                    data.candidates[0].content.parts.length > 0) {
-                    aiResponse.innerHTML = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
-                } else if (data.promptFeedback && data.promptFeedback.blockReason) {
-                    let feedbackMsg = `Pregunta bloqueada: ${data.promptFeedback.blockReason}`;
-                    if (data.promptFeedback.safetyRatings) {
-                        data.promptFeedback.safetyRatings.forEach(rating => {
-                            if (rating.blocked) {
-                                feedbackMsg += `<br>- Categoría: ${rating.category}, Probabilidad: ${rating.probability}`;
-                            }
-                        });
-                    }
-                    aiResponse.innerHTML = feedbackMsg;
+                if (data.response) {
+                    aiResponse.innerHTML = data.response;
+                } else if (data.error) {
+                    aiResponse.innerHTML = data.error;
                 } else {
-                    // Check for other possible valid responses or more detailed error messages
-                    if (data.candidates && data.candidates.length > 0 && data.candidates[0].finishReason === "SAFETY") {
-                         aiResponse.innerHTML = 'La respuesta fue bloqueada por motivos de seguridad. Intenta reformular tu pregunta.';
-                    } else {
-                         aiResponse.innerHTML = 'No se recibió una respuesta válida o el contenido fue bloqueado.';
-                    }
+                    aiResponse.innerHTML = 'No se recibió respuesta válida.';
                 }
             } catch (error) {
                 console.error('Error llamando a la API de Gemini:', error);

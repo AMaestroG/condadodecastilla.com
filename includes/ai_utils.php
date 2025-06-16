@@ -405,6 +405,30 @@ function get_history_chat_response(string $question): string {
     return nl2br(htmlspecialchars($parsed_text));
 }
 
+/**
+ * Genera una respuesta genérica para el chat utilizando Gemini.
+ *
+ * @param string $prompt Texto introducido por el usuario.
+ * @return string Respuesta generada o mensaje de error.
+ */
+function get_ai_chat_response(string $prompt): string {
+    if (empty(trim($prompt))) {
+        return "Error: No se proporcionó prompt.";
+    }
+
+    $payload = _build_gemini_payload($prompt);
+
+    $error = null;
+    $api_response = _call_gemini_api($payload, $error);
+    $parsed_text = _parse_gemini_response($api_response, $error);
+
+    if (strpos($parsed_text, "Error:") === 0) {
+        return $parsed_text; // It's an error message, return as is.
+    }
+    // It's successful, non-empty text
+    return nl2br(htmlspecialchars($parsed_text));
+}
+
 
 
 /**
