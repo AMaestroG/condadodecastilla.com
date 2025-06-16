@@ -60,6 +60,10 @@ composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwrit
 ./scripts/setup_frontend_libs.sh
 ```
 
+Tras clonar el repositorio ejecuta `./scripts/setup_frontend_libs.sh` para
+descargar las versiones actuales de **jQuery** y **Bootstrap** en el directorio
+`assets/vendor`.
+
 A continuación copia el archivo de ejemplo `.env.example` a `.env`
 y sustituye sus valores por tus credenciales reales para
 `CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
@@ -77,3 +81,13 @@ GEMINI_API_KEY=tu_clave_personal
 ```
 
 El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y será leído por `assets/js/main.js` para realizar las peticiones.
+
+## Ejecución de pruebas
+
+Para instalar las dependencias de desarrollo y ejecutar la batería de pruebas
+usa **Composer** y **PHPUnit**:
+
+```bash
+composer install
+vendor/bin/phpunit
+```
