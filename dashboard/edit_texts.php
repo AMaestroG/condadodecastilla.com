@@ -72,7 +72,7 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
 <body>
     <div class="container">
         <nav>
-            <a href="../index.php">Volver al Inicio</a> <?php // TODO: Link to index.php if it becomes dynamic ?>
+            <a href="../index.php">Volver al Inicio</a>
             <a href="logout.php">Cerrar Sesión</a>
         </nav>
         <h1>Editor de Textos del Sitio</h1>
