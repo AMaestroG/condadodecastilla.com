@@ -7,18 +7,6 @@ require_once 'dashboard/db_connect.php'; // Provides $pdo
 require_once 'includes/text_manager.php';// For editableText()
 require_once 'includes/ai_utils.php';
 ?>
-<!--
-    IMPORTANTE: Este archivo ha sido convertido a PHP para permitir contenido editable.
-    Las llamadas a `editableText()` que verá en este archivo son ejemplos. Usted necesitará:
-    1. Identificar los elementos de texto específicos que desea hacer editables en esta página.
-    2. Elegir 'text_id' únicos y descriptivos para cada elemento editable.
-    3. Proporcionar el contenido por defecto apropiado para su sitio dentro de la función `editableText()`.
-    4. Asegurarse de que la etiqueta HTML contenedora (ej: 'h1', 'p', 'div') y cualquier clase CSS sean correctas para su diseño.
-    5. Verificar que 'dashboard/db_connect.php' tenga credenciales de base de datos válidas.
-    6. Iniciar sesión con el usuario administrador (ej: Rodrigo Tabliega / Rudericus) para ver los enlaces de edición (✏️).
-    7. La tabla `site_texts` debe existir en su base de datos (creada por `01_create_tables.sql`).
-    8. Puede que necesite ajustar las rutas de CSS/JS si la conversión a .php afecta las rutas relativas.
--->
 <!DOCTYPE html>
 <html lang="es">
 <head>
