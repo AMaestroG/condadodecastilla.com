@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from graph_db_interface import GraphDBInterface
 import os
+import subprocess
 
 app = Flask(__name__)
 
@@ -17,6 +18,29 @@ def resource_collection():
     else:  # GET
         resources = db.get_all_resources()
         return jsonify(resources)
+
+
+@app.route('/api/chat', methods=['POST'])
+def chat_handler():
+    data = request.get_json(silent=True) or {}
+    prompt = str(data.get('prompt', '')).strip()
+    if not prompt:
+        return jsonify({'error': "'prompt' field is required"}), 400
+
+    script_path = os.path.join(os.path.dirname(__file__), 'scripts', 'chat_cli.php')
+    try:
+        result = subprocess.run(
+            ['php', script_path, prompt],
+            capture_output=True,
+            text=True,
+            check=False
+        )
+        if result.returncode != 0:
+            error_msg = result.stderr.strip() or 'Unknown error'
+            return jsonify({'error': f'PHP error: {error_msg}'}), 500
+        return jsonify({'response': result.stdout.strip()})
+    except Exception as exc:
+        return jsonify({'error': str(exc)}), 500
 
 if __name__ == '__main__':
     debug_env = os.getenv('FLASK_DEBUG')
