@@ -1,27 +1,15 @@
-<div class="left-control-panel">
-    <div id="fixed-header-elements">
-
-        <button id="menu-toggle" title="Abrir menú">
-            <img src="assets/icons/menu-icon.svg" alt="Menú">
-        </button>
-    </div>
-
-    <hr class="panel-separator">
-
-    <div class="action-buttons">
-        <button id="theme-toggle" title="Cambiar tema">
-            <img src="assets/icons/moon-icon.svg" alt="Tema">
-        </button>
-
-        <button id="ai-drawer-toggle" title="Asistente IA">
-            <img src="assets/icons/ai-icon.svg" alt="IA">
-        </button>
-    </div>
-
-</div>
-<div id="linterna-condado"></div>
-<header id="main-header" role="banner">
-    <div class="top-empty-bar"></div>
-    <?php require __DIR__ . '/includes/header.php'; ?>
+<header id="fixed-header" role="banner">
+    <button id="menu-button" aria-label="Abrir menú">☰</button>
+    <a href="/index.php" class="site-title">Condado de Castilla</a>
+    <button id="tools-button" aria-label="Herramientas">⚙</button>
 </header>
-<script defer src="/js/lang-bar.js"></script>
+<nav id="slide-menu-left" class="slide-menu left" role="navigation">
+    <?php require __DIR__ . '/includes/header.php'; ?>
+</nav>
+<nav id="slide-menu-right" class="slide-menu right" aria-label="Herramientas">
+    <div style="padding:1rem;">
+        <button id="theme-toggle" title="Cambiar tema" style="margin-bottom:1rem;">Tema</button>
+        <button id="ai-drawer-toggle" title="Asistente IA">IA</button>
+    </div>
+</nav>
+<script defer src="/assets/js/header.js"></script>
