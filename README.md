@@ -78,6 +78,12 @@ y cualquier otra variable necesaria.
 
 Las variables definidas en `.env` se cargan de forma automática gracias a `includes/env_loader.php`.
 
+### Dependencia opcional: Tailwind CSS
+
+El sitio no utiliza clases propias de Tailwind CSS y el script que cargaba la librería
+se ha eliminado de `includes/head_common.php`. Actualmente no es necesario descargar
+ni servir Tailwind en local.
+
 ## Configuración de la clave Gemini
 
 Define la variable `GEMINI_API_KEY` en tu archivo `.env` con la clave proporcionada por el servicio Gemini:
