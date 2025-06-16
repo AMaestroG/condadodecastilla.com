@@ -37,6 +37,15 @@
     cursor: pointer;
     border-radius: 4px;
 }
+.tools-group {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+}
 .menu-btn:focus {
     outline: 3px solid var(--old-gold);
     outline-offset: 2px;

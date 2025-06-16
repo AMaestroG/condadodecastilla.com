@@ -25,10 +25,6 @@
 
 /* Theme Toggle Button - Original Position (will be adjusted for mobile) */
 #theme-toggle {
-    position: fixed;
-    top: 88px; /* lowered position */
-    left: 50%;
-    transform: translateX(-50%);
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
