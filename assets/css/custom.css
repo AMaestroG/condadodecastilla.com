@@ -14,38 +14,38 @@ body {
 }
 
 body {
-  background-color: #F0E9E0;
-  color: #2C1D12;
+  background-color: var(--epic-alabaster-bg);
+  color: var(--epic-text-color);
 }
 
 .hero {
-  background-color: #5B1A7D;
-  color: #FFFFFF;
+  background-color: var(--epic-purple-emperor);
+  color: var(--epic-text-light);
 }
 
 .cta-button {
-  background-color: #FFD700;
-  color: #2C1D12;
+  background-color: var(--epic-gold-main);
+  color: var(--epic-text-color);
 }
 .cta-button:hover {
-  background-color: #ccac00;
+  background-color: var(--epic-gold-secondary);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #252B38;
-    color: #FFFFFF;
+    background-color: var(--epic-alabaster-bg);
+    color: var(--epic-text-light);
   }
   .hero {
-    background-color: #361245;
-    color: #FFFFFF;
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-text-light);
   }
   .cta-button {
-    background-color: #9A6700;
-    color: #2C1D12;
+    background-color: var(--epic-gold-secondary);
+    color: var(--epic-text-color);
   }
   .cta-button:hover {
-    background-color: rgb(103, 68.8896103896, 0);
+    background-color: var(--epic-purple-emperor);
   }
 }
 
