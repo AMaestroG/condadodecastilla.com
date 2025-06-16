@@ -69,56 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 <head>
     <title>Foro de Expertos</title>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
-    <style>
-        body { background-color: rgba(245,235,220,0.95); }
-        .agent-profile {
-            background-color: rgba(255,255,255,0.6);
-            padding: 1em;
-            margin: 2em 0;
-            border-left: 5px solid var(--color-primario-purpura, #4A0D67);
-            backdrop-filter: blur(3px);
-        }
-        .agent-profile h2 {
-            background: linear-gradient(45deg, var(--color-primario-purpura, #4A0D67), var(--color-secundario-dorado, #B8860B));
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .agent-profile textarea { width: 100%; margin: 0.5em 0; }
-        .feedback { padding: 10px; margin: 10px 0; border-radius: 4px; }
-        .feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .slide-menu {
-            position: fixed;
-            left: -230px;
-            top: 0;
-            width: 220px;
-            height: 100%;
-            background-color: rgba(74,13,103,0.9);
-            transition: left 0.3s ease;
-            padding-top: 60px;
-            z-index: 1000;
-        }
-        .slide-menu.open { left: 0; }
-        .slide-menu a { display: block; padding: 10px; color: var(--color-secundario-dorado, #B8860B); text-decoration: none; font-weight: bold; }
-        .menu-btn {
-            position: fixed;
-            left: 10px;
-            top: 10px;
-            z-index: 1010;
-            background-color: var(--color-primario-purpura, #4A0D67);
-            color: #fff;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-        }
-    </style>
-    <script>
-    document.addEventListener('DOMContentLoaded', function(){
-        const menu = document.getElementById('slide-menu');
-        document.getElementById('menu-btn').addEventListener('click', function(){
-            menu.classList.toggle('open');
-        });
-    });
-    </script>
+    <link rel="stylesheet" href="/assets/css/pages/foro.css">
 </head>
 <body>
 <?php require_once __DIR__ . '/../_header.php'; ?>
@@ -160,5 +111,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 </main>
 <?php require_once __DIR__ . '/../_footer.php'; ?>
 <script src="/js/layout.js"></script>
+<script src="/assets/js/foro.js"></script>
 </body>
 </html>
