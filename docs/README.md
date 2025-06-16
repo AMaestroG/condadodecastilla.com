@@ -1,0 +1,7 @@
+# Documentación
+
+Este directorio contiene una división del antiguo `nuevo4.md` en varios documentos más manejables.
+
+- [Historia](historia.md)
+- [Arqueología](arqueologia.md)
+- [Tradición](tradicion.md)
