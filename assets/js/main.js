@@ -148,4 +148,3 @@ document.addEventListener('DOMContentLoaded', () => {
         AOS.init();
     }
 });
-// Re-submitting to ensure branch is pushed.
