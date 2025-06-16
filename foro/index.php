@@ -47,10 +47,19 @@ function fetchComments(string $agent, ?PDO $pdo): array {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $agent = $_POST['agent'] ?? '';
     $comment = trim($_POST['comment'] ?? '');
-    if ($agent && $comment && isset($agents[$agent])) {
+    $maxLength = 500;
+    $rateLimit = 60; // seconds
+
+    if (strlen($comment) > $maxLength) {
+        $_SESSION['forum_error'] = 'Comentario demasiado largo.';
+    } elseif (isset($_SESSION['last_comment_time']) && (time() - $_SESSION['last_comment_time']) < $rateLimit) {
+        $_SESSION['forum_error'] = 'Espera unos segundos antes de comentar de nuevo.';
+    } elseif ($agent && $comment && isset($agents[$agent])) {
         $stmt = $pdo->prepare('INSERT INTO forum_comments (agent, comment) VALUES (:agent, :comment)');
         $stmt->execute([':agent' => $agent, ':comment' => $comment]);
+        $_SESSION['last_comment_time'] = time();
     }
+
     header('Location: ' . $_SERVER['PHP_SELF'] . '#' . $agent);
     exit;
 }
@@ -75,6 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
             color: transparent;
         }
         .agent-profile textarea { width: 100%; margin: 0.5em 0; }
+        .feedback { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
         .slide-menu {
             position: fixed;
             left: -230px;
@@ -119,6 +130,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 </nav>
 <main class="container page-content-block">
     <h1 style="text-align:center;">Foro de Expertos</h1>
+    <?php if (!empty($_SESSION['forum_error'])): ?>
+        <p class="feedback error"><?php echo htmlspecialchars($_SESSION['forum_error']); unset($_SESSION['forum_error']); ?></p>
+    <?php endif; ?>
     <?php foreach ($agents as $id => $ag): ?>
     <section id="<?php echo $id; ?>" class="agent-profile">
         <h2><?php echo htmlspecialchars($ag['name']); ?></h2>
