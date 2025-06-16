@@ -31,6 +31,12 @@ body {
   background-color: var(--epic-gold-secondary);
 }
 
+.hero h1 {
+  background: linear-gradient(90deg, var(--epic-purple-emperor), var(--epic-gold-main));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--epic-alabaster-bg);

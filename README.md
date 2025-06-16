@@ -55,8 +55,11 @@ Para exponer la API Flask primero instala las dependencias de Python y lanza el 
 
 ```bash
 pip install -r requirements.txt
-python flask_app.py
+./scripts/start_flask_service.sh
 ```
+
+El script deja la API ejecutándose en segundo plano y escribe los logs en `logs/flask_app.log`.
+Podrás detenerla con `kill \$(cat logs/flask_app.pid)`.
 
 Esto iniciará la API en `http://localhost:5000`, que puede ejecutarse en paralelo al servidor PHP.
 
@@ -129,3 +132,18 @@ esperadas para cada elemento del menú principal:
 
 Mantén esta lista actualizada cuando se añadan o eliminen páginas para que se
 pueda validar fácilmente el contenido del menú.
+
+## Uso de AJAX
+
+Para actualizar o recuperar recursos desde el frontend puedes emplear `fetch` y
+consumir `api_galeria.php`, que a su vez contacta con la API Flask.
+
+Ejemplo básico para obtener datos:
+
+```javascript
+fetch('/api/galeria/fotos')
+  .then(r => r.json())
+  .then(data => console.log(data));
+```
+
+Para crear una entrada se envía un formulario con `FormData` al mismo endpoint.

@@ -18,6 +18,29 @@ function json_response($data, $status_code = 200) {
     exit;
 }
 
+/**
+ * Realiza una petición al API de Flask.
+ * Se utiliza cURL y en caso de error devuelve null.
+ */
+function call_flask_api(string $url, string $method = 'GET', array $payload = null) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $headers = ['Content-Type: application/json'];
+    if ($method === 'POST') {
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+    }
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($ch);
+    if ($response === false) {
+        error_log('Flask API error: ' . curl_error($ch));
+        curl_close($ch);
+        return null;
+    }
+    curl_close($ch);
+    return $response;
+}
+
 function get_base_url() {
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
     $host = $_SERVER['HTTP_HOST'];
@@ -60,7 +83,12 @@ switch ($request_method) {
                 foreach ($fotos as &$foto) {
                     $foto['imagenUrl'] = $base_url . '/' . $upload_path_segment . '/' . $foto['imagen_nombre'];
                 }
-                json_response($fotos);
+
+                // Obtener también los recursos del grafo almacenados por Flask
+                $flaskData = call_flask_api('http://localhost:5000/api/resource');
+                $resources = $flaskData ? json_decode($flaskData, true) : null;
+
+                json_response(['fotos' => $fotos, 'resources' => $resources]);
             } catch (PDOException $e) {
                 json_response(['error' => 'Failed to fetch photos', 'details' => $e->getMessage()], 500);
             }
@@ -118,6 +146,13 @@ switch ($request_method) {
             $stmt->bindParam(':imagen_nombre', $unique_image_name);
             if ($stmt->execute()) {
                 $new_id = $pdo->lastInsertId();
+
+                // Notificar al servicio Flask para registrar el recurso
+                $base_url = get_base_url();
+                $upload_path_segment = trim(UPLOAD_DIR_BASE, '/');
+                $imagen_url = $base_url . '/' . $upload_path_segment . '/' . $unique_image_name;
+                call_flask_api('http://localhost:5000/api/resource', 'POST', [ 'url' => $imagen_url ]);
+
                 json_response(['mensaje' => 'Foto subida correctamente', 'id' => $new_id, 'imagen_nombre' => $unique_image_name], 201);
             } else {
                 if (file_exists($upload_path)) {
