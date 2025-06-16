@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from graph_db_interface import GraphDBInterface
+import os
 
 app = Flask(__name__)
 
@@ -18,4 +19,6 @@ def resource_collection():
         return jsonify(resources)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    debug_env = os.getenv('FLASK_DEBUG')
+    debug_mode = str(debug_env).lower() in ('1', 'true')
+    app.run(debug=debug_mode)
