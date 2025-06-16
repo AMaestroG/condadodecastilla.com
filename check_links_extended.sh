@@ -17,6 +17,9 @@ html_fragments=(
 # Combine the arrays
 all_files_to_check=("${files_to_check[@]}" "${html_fragments[@]}")
 
+# Files that may appear in header_loader.js but no longer exist should be skipped
+skip_files=("fragments/header/ia-chat.html")
+
 # Output file for broken links
 output_file="broken_links_report_extended.txt"
 echo "Broken Link Report (Extended):" > "$output_file"
@@ -140,6 +143,16 @@ check_links_in_file() {
 
 # Check each file
 for f in "${all_files_to_check[@]}"; do
+    skip=false
+    for s in "${skip_files[@]}"; do
+        if [[ "$f" == "$s" ]]; then
+            skip=true
+            break
+        fi
+    done
+    if [ "$skip" = true ]; then
+        continue
+    fi
     check_links_in_file "$f"
 done
 
