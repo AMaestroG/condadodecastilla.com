@@ -8,18 +8,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // initializeSidebarNavigation(); // Now called by header_loader.js
     // initializeIAChatSidebar(); // Now called by header_loader.js
 
-    let headerPlaceholder = document.getElementById('header-placeholder');
-    if (!headerPlaceholder) {
-        headerPlaceholder = document.createElement('div');
-        headerPlaceholder.id = 'header-placeholder';
-        document.body.insertBefore(headerPlaceholder, document.body.firstChild);
+    if (!document.getElementById('fixed-header')) {
+        let headerPlaceholder = document.getElementById('header-placeholder');
+        if (!headerPlaceholder) {
+            headerPlaceholder = document.createElement('div');
+            headerPlaceholder.id = 'header-placeholder';
+            document.body.insertBefore(headerPlaceholder, document.body.firstChild);
+        }
+        fetch('/_header.html')
+            .then(response => response.text())
+            .then(data => {
+                insertHtmlWithScripts(headerPlaceholder, data);
+            })
+            .catch(error => console.error('Error fetching _header.html:', error));
     }
-    fetch('/_header.html')
-        .then(response => response.text())
-        .then(data => {
-            insertHtmlWithScripts(headerPlaceholder, data);
-        })
-        .catch(error => console.error('Error fetching _header.html:', error));
 
     // let footerPlaceholder = document.getElementById('footer-placeholder');
     // if (!footerPlaceholder) {

@@ -84,7 +84,7 @@ require_once __DIR__ . '/_header.php';
                         <div class="card-content">
                             <h3>Lugares Emblemáticos</h3>
                             <p>Descubre el imponente Alcázar de Casio, los secretos de la Civitate Auca y otros tesoros arqueológicos que esperan ser explorados.</p>
-                            <a href="/lugares/lugares.html" class="read-more">Explorar Sitios</a>
+                            <a href="/lugares/lugares.php" class="read-more">Explorar Sitios</a>
                         </div>
                     </div>
                     <div class="card">
