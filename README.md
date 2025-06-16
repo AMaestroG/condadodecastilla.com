@@ -125,6 +125,7 @@ esperadas para cada elemento del menú principal:
 - `/personajes/indice_personajes.html` – Personajes
 - `/empresa/index.php` – Gestión de Yacimientos
 - `/foro/index.php` – Foro
+- `/blog.php` – Blog
 - `/contacto/contacto.php` – Contacto
 
 Mantén esta lista actualizada cuando se añadan o eliminen páginas para que se
