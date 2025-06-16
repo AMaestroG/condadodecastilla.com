@@ -37,6 +37,10 @@
     cursor: pointer;
     border-radius: 4px;
 }
+.menu-btn:focus {
+    outline: 3px solid var(--old-gold);
+    outline-offset: 2px;
+}
 
 .slide-menu {
     position: fixed;
