@@ -70,6 +70,12 @@ composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwrit
 ./scripts/setup_frontend_libs.sh
 ```
 
+El script `scripts/setup_frontend_libs.sh` descarga o actualiza las dependencias de
+JavaScript y CSS (por ejemplo jQuery y Bootstrap) en `assets/vendor`. Ejecuta este
+comando siempre tras clonar el repositorio o cuando necesites actualizar estas
+bibliotecas a versiones más recientes, como ocurriría al lanzar una nueva versión
+de `three.js` u otra librería.
+
 A continuación copia el archivo de ejemplo `.env.example` a `.env`
 y sustituye sus valores por tus credenciales reales para
 `CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
