@@ -6,6 +6,8 @@ files_to_check=("index.php" "_header.html" "_footer.php")
 
 # HTML Fragments to also check (from header_loader.js)
 # Note: admin-menu.php is PHP; static analysis might be limited.
+# HTML Fragments to check. fragments/header/ia-chat.html used to be listed
+# here but the file does not exist, so we omit it to avoid false errors.
 html_fragments=(
     "fragments/header/language-bar.html"
     "fragments/header/navigation.html"
