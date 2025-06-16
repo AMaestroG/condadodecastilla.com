@@ -5,7 +5,7 @@ $id_tema_actual = "auca_patricia_ubicacion"; // ID de esta página específica
 $breadcrumb_inicio_url = "/index.php"; // O la URL correcta de tu página de inicio
 $breadcrumb_inicio_texto = "Inicio";
 
-$breadcrumb_historia_url = "/historia/historia.html"; // Enlace a la página principal de historia
+$breadcrumb_historia_url = "/historia/historia.php"; // Enlace a la página principal de historia
 $breadcrumb_historia_texto = "Nuestra Historia"; // Texto por defecto
 
 $breadcrumb_indice_url = "/historia/subpaginas_indice.php";

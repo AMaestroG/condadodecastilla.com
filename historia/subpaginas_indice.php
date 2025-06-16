@@ -105,7 +105,7 @@ $temas_detallados = $page_data['temas_detallados'] ?? [];
                     </div>
                 <?php else: ?>
                     <p style="text-align: center; max-width: 80ch; margin-left: auto; margin-right: auto; margin-bottom: 2em;"><?php echo htmlspecialchars($descripcion_general); ?></p>
-                    <p style="text-align: center; margin-bottom: 2.5em;"><a href="/historia/nuestra_historia_nuevo4.html" class="read-more" style="background-color: var(--color-primario-purpura);">&laquo; Volver a la página principal de Nuestra Historia</a></p>
+                    <p style="text-align: center; margin-bottom: 2.5em;"><a href="/historia/nuestra_historia_nuevo4.php" class="read-more" style="background-color: var(--color-primario-purpura);">&laquo; Volver a la página principal de Nuestra Historia</a></p>
 
                     <?php if (!empty($temas_detallados)): ?>
                         <ul class="subpage-index-list">

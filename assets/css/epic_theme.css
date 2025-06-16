@@ -415,13 +415,13 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 
 /* Style for social links that are placeholders */
-.footer .social-links a[href="/en_construccion.html"] {
+.footer .social-links a[href="/en_construccion.php"] {
     opacity: 0.4;
     pointer-events: none; /* Make them non-interactive */
     filter: grayscale(90%);
     cursor: default;
 }
-.footer .social-links a[href="/en_construccion.html"]:hover { /* Override hover effect for disabled links */
+.footer .social-links a[href="/en_construccion.php"]:hover { /* Override hover effect for disabled links */
     transform: none;
     color: var(--epic-gold-secondary); /* Keep original color or a muted one */
 }

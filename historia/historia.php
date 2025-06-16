@@ -106,7 +106,7 @@
                         <div class="timeline-content">
                             <h3>Galería Visual de la Historia</h3>
                             <p>Descubre imágenes, mapas antiguos, fotografías de artefactos y otras representaciones visuales que ilustran la rica herencia histórica de nuestra región. Cada elemento incluye una descripción detallada.</p>
-                            <a href="/historia/galeria_historica/index.html" class="read-more timeline-read-more">Visitar Galería</a>
+                            <a href="/historia/galeria_historica/index.php" class="read-more timeline-read-more">Visitar Galería</a>
                         </div>
                     </li>
                     <li class="timeline-item">

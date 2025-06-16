@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://condadodecastilla.com/_footer.html</loc>
+    <loc>https://condadodecastilla.com/_footer.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/_header.html</loc>
+    <loc>https://condadodecastilla.com/_header.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
@@ -13,11 +13,11 @@
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/alfoz/alfoz.html</loc>
+    <loc>https://condadodecastilla.com/alfoz/alfoz.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/alfoz/indexalfoz.html</loc>
+    <loc>https://condadodecastilla.com/alfoz/indexalfoz.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
@@ -105,7 +105,7 @@
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/cultura/cultura.html</loc>
+    <loc>https://condadodecastilla.com/cultura/cultura.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
@@ -117,7 +117,7 @@
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/en_construccion.html</loc>
+    <loc>https://condadodecastilla.com/en_construccion.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
@@ -125,27 +125,23 @@
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia/atapuerca.html</loc>
-    <lastmod>2025-06-06</lastmod>
-  </url>
-  <url>
     <loc>https://condadodecastilla.com/historia/atapuerca.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia/documentos/index.html</loc>
+    <loc>https://condadodecastilla.com/historia/documentos/index.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia/galeria_historica/index.html</loc>
+    <loc>https://condadodecastilla.com/historia/galeria_historica/index.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia/historia.html</loc>
+    <loc>https://condadodecastilla.com/historia/historia.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia/nuestra_historia_nuevo4.html</loc>
+    <loc>https://condadodecastilla.com/historia/nuestra_historia_nuevo4.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
@@ -193,43 +189,43 @@
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo1/capitulo1.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo1/capitulo1.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo10.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo10.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo11.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo11.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo2/capitulo2.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo2/capitulo2.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo3/capitulo3.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo3/capitulo3.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo4/capitulo4.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo4/capitulo4.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo5.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo5.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo6.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo6.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo7.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo7.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/historia_cerezo/capitulo8.html</loc>
+    <loc>https://condadodecastilla.com/historia_cerezo/capitulo8.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
@@ -517,11 +513,11 @@
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/alfoz.html</loc>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/alfoz.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/indexalfoz.html</loc>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/indexalfoz.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
@@ -829,7 +825,7 @@
     <lastmod>2025-06-06</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/visitas/visitas.html</loc>
+    <loc>https://condadodecastilla.com/visitas/visitas.php</loc>
     <lastmod>2025-06-06</lastmod>
   </url>
 </urlset>
