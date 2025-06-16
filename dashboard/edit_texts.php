@@ -44,33 +44,10 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Textos del Sitio</title>
     <link rel="stylesheet" href="../assets/css/epic_theme.css"> <!-- Main theme -->
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
-        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1, h2 { color: #333; }
-        .feedback { padding: 10px; margin-bottom: 15px; border-radius: 4px; }
-        .feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .feedback.info { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
-        .text-item { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; background-color: #f9f9f9; }
-        .text-item.highlight { border-color: #007bff; background-color: #e7f3ff; }
-        .text-item strong { display: block; margin-bottom: 5px; color: #0056b3; }
-        textarea { width: 98%; min-height: 100px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; font-family: inherit; font-size: inherit; }
-        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background-color: #0056b3; }
-        button.add-new-button { background-color: #28a745; margin-bottom:20px}
-        button.add-new-button:hover { background-color: #1e7e34; }
-        .text-meta { font-size: 0.8em; color: #666; margin-top: 5px; }
-        label { font-weight: bold; margin-bottom: 5px; display: inline-block; }
-        input[type="text"] { width: calc(98% - 100px); padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
-        .add-text-form { margin-bottom: 30px; padding: 15px; border: 1px solid #28a745; border-radius: 5px; background-color: #f0fff0; }
-        nav { margin-bottom: 20px; }
-        nav a { text-decoration: none; padding: 8px 15px; background-color: #6c757d; color: white; border-radius: 4px; margin-right: 10px; }
-        nav a:hover { background-color: #5a6268; }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin_overrides.css">
 </head>
-<body>
-    <div class="container">
+<body class="admin-body">
+    <div class="admin-container">
         <nav>
             <a href="../index.php">Volver al Inicio</a> <?php // TODO: Link to index.php if it becomes dynamic ?>
             <a href="logout.php">Cerrar Sesión</a>
@@ -115,7 +92,7 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
                         </div>
                         <button type="submit">Guardar Cambios</button>
                         <span class="text-meta">Última actualización: <?php echo htmlspecialchars($text['updated_at'] ? date('d/m/Y H:i:s', strtotime($text['updated_at'])) : 'N/A'); ?></span>
-                         <button type="submit" name="action" value="delete" style="background-color: #dc3545; margin-left: 10px;" onclick="return confirm('¿Está seguro de que desea eliminar este texto? Esta acción no se puede deshacer.');">Eliminar</button>
+                        <button type="submit" name="action" value="delete" class="delete-button" onclick="return confirm('¿Está seguro de que desea eliminar este texto? Esta acción no se puede deshacer.');">Eliminar</button>
                     </form>
                 </div>
             <?php endforeach; ?>

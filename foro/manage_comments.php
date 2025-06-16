@@ -48,16 +48,9 @@ if ($pdo) {
     <meta charset="UTF-8">
     <title>Administrar Comentarios</title>
     <link rel="stylesheet" href="../assets/css/epic_theme.css">
-    <style>
-        body { background-color: #f4f4f4; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 8px; border: 1px solid #ccc; }
-        .feedback { padding: 10px; margin: 10px 0; border-radius: 4px; }
-        .feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin_overrides.css">
 </head>
-<body>
+<body class="admin-body">
     <h1>Administrar Comentarios del Foro</h1>
     <nav>
         <a href="../index.php">Inicio</a>
@@ -70,7 +63,7 @@ if ($pdo) {
     <?php if (empty($comments)): ?>
         <p>No hay comentarios para mostrar.</p>
     <?php else: ?>
-        <table>
+        <table class="admin-table">
             <tr><th>Agente</th><th>Comentario</th><th>Fecha</th><th>Acciones</th></tr>
             <?php foreach ($comments as $c): ?>
                 <tr>

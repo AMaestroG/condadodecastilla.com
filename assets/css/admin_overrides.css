@@ -1,0 +1,57 @@
+/* Admin specific overrides using theme variables */
+
+:root {
+    --epic-success-green: var(--epic-success-green, #d4edda);
+}
+
+body.admin-body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: var(--epic-alabaster-bg);
+    color: var(--epic-text-color);
+}
+
+.admin-container {
+    max-width: 900px;
+    margin: auto;
+    background-color: var(--epic-alabaster-bg);
+    padding: 20px;
+    border-radius: var(--global-border-radius);
+    box-shadow: var(--global-box-shadow-light);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.admin-table th, .admin-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: var(--epic-alabaster-medium);
+}
+
+.feedback {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: var(--global-border-radius);
+}
+
+.feedback.success {
+    background-color: var(--epic-success-green);
+}
+
+.feedback.error {
+    background-color: var(--epic-error-red);
+    color: var(--epic-alabaster-bg);
+}
+
+.delete-button {
+    background-color: var(--epic-error-red);
+    margin-left: 10px;
+}

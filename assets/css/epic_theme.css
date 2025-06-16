@@ -12,6 +12,8 @@
     --epic-alabaster-bg-rgb: 232, 239, 249; /* RGB for new light tone */
     --epic-alabaster-medium: #E6EEF9; /* Slightly darker celeste */
     --epic-alabaster-medium-rgb: 230, 238, 249; /* RGB for new medium tone */
+    --epic-success-green: #d4edda; /* Success notifications */
+    --epic-success-green-rgb: 212, 237, 218;
     --epic-text-color: #2c1d12;
     --epic-text-color-rgb: 44, 29, 18;
     --epic-text-light: #EAE0C8;

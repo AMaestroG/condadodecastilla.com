@@ -102,18 +102,10 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrar Tienda</title>
     <link rel="stylesheet" href="../assets/css/epic_theme.css">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { max-width: 900px; margin: auto; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .feedback.success { background:#d4edda; padding:10px; margin-bottom:10px; }
-        .feedback.error { background:#f8d7da; padding:10px; margin-bottom:10px; }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin_overrides.css">
 </head>
-<body>
-<div class="container">
+<body class="admin-body">
+<div class="admin-container">
     <nav>
         <a href="../index.php">Inicio</a>
         <a href="logout.php">Cerrar sesión</a>
@@ -151,7 +143,7 @@ try {
         <button type="submit">Agregar</button>
     </form>
     <h2>Productos Existentes</h2>
-    <table>
+    <table class="admin-table">
         <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
         <?php foreach ($productos as $p): ?>
             <tr>

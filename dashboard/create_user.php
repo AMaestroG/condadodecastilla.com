@@ -52,40 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Nuevo Usuario</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; }
-        .container { background-color: #fff; padding: 20px 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
-        h2 { text-align: center; color: #333; margin-bottom: 20px; }
-        .message { padding: 10px; margin-bottom: 15px; border-radius: 4px; text-align: center; }
-        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        label { display: block; margin-bottom: 5px; color: #555; }
-        input[type="text"], input[type="password"], select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button[type="submit"]:hover { background-color: #0056b3; }
-        .navigation-link { text-align: center; margin-top: 15px; }
-        .navigation-link a { color: #007bff; text-decoration: none; }
-        .navigation-link a:hover { text-decoration: underline; }
-    </style>
+    <link rel="stylesheet" href="../assets/css/epic_theme.css">
+    <link rel="stylesheet" href="../assets/css/admin_overrides.css">
 </head>
-<body>
-    <div class="container">
+<body class="admin-body">
+    <div class="admin-container">
         <h2>Crear Nuevo Usuario</h2>
 
         <?php if ($error_message): ?>

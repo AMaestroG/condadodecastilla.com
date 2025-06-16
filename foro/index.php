@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
         }
         .agent-profile textarea { width: 100%; margin: 0.5em 0; }
         .feedback { padding: 10px; margin: 10px 0; border-radius: 4px; }
-        .feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .feedback.error { background-color: var(--epic-error-red); color: var(--epic-alabaster-bg); border: 1px solid #f5c6cb; }
         .slide-menu {
             position: fixed;
             left: -230px;
