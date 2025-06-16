@@ -67,3 +67,22 @@ body.menu-open-left {
 body.menu-open-right {
     transform: translateX(-260px);
 }
+
+#slide-menu-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#slide-menu-right a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--primary-purple);
+    text-decoration: none;
+}
+
+#slide-menu-right a:hover,
+#slide-menu-right a:focus-visible {
+    background: var(--old-gold);
+    color: var(--primary-purple);
+}
