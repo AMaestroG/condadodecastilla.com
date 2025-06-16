@@ -1,0 +1,29 @@
+@mixin theme($mode: light) {
+  $bg: $base-bg;
+  $primary: $primary-color;
+  $accent: $accent-color;
+  $text: $base-text;
+
+  @if $mode == 'dark' {
+    $bg: $dark-bg;
+    $primary: $dark-primary-color;
+    $accent: $dark-accent-color;
+    $text: $light-text;
+  }
+
+  body {
+    background-color: $bg;
+    color: $text;
+  }
+
+  .hero {
+    background-color: $primary;
+    color: $light-text;
+  }
+
+  .cta-button {
+    background-color: $accent;
+    color: $base-text;
+    &:hover { background-color: darken($accent, 10%); }
+  }
+}

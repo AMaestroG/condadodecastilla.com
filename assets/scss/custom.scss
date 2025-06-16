@@ -1,25 +1,12 @@
-$primary-color: #5B1A7D;
-$accent-color: #FFD700;
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/base';
+@import 'components/hero';
+@import 'components/cta-button';
 
-body {
-  font-family: 'Lora', serif;
-  background-color: #F0E9E0;
-}
+// Default (light) theme
+@include theme(light);
 
-.hero {
-  background-color: $primary-color;
-  color: white;
-  padding: 2rem;
-  text-align: center;
-}
-
-.cta-button {
-  background-color: $accent-color;
-  color: #2C1D12;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  &:hover {
-    background-color: darken($accent-color, 10%);
-  }
+@media (prefers-color-scheme: dark) {
+  @include theme(dark);
 }
