@@ -1,0 +1,12 @@
+:root {
+    --primary-purple: #4A0D67;
+    --old-gold: #CFB53B;
+    --alabaster-bg: #F9F7F4;
+}
+
+.gradient-title {
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--primary-purple), var(--old-gold));
+    -webkit-background-clip: text;
+    color: transparent;
+}

@@ -1,6 +1,6 @@
 /* Homonexus mode styling for a metaphoric AI-human synergy */
 body.homonexus-active #sidebar {
-    background: linear-gradient(135deg, rgba(var(--epic-purple-emperor-rgb),0.95), rgba(var(--epic-gold-secondary-rgb),0.95));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--primary-purple) 95%, transparent), color-mix(in srgb, var(--old-gold) 95%, transparent));
 }
 body.homonexus-active #sidebar .nav-links a {
     color: var(--epic-text-light);
@@ -10,14 +10,14 @@ body.homonexus-active #sidebar .nav-links a {
     transition: transform 0.3s ease, background 0.3s ease;
 }
 body.homonexus-active #sidebar .nav-links a:hover {
-    background: var(--epic-gold-main);
-    color: var(--epic-purple-emperor);
+    background: var(--old-gold);
+    color: var(--primary-purple);
     transform: scale(1.05) rotate(-1deg);
 }
 /* Toggle button */
 #homonexus-toggle {
-    background-color: var(--epic-alabaster-bg);
-    border: 2px solid var(--epic-gold-secondary);
+    background-color: var(--alabaster-bg);
+    border: 2px solid var(--old-gold);
     border-radius: var(--global-border-radius);
     padding: 10px;
     cursor: pointer;
@@ -30,12 +30,12 @@ body.homonexus-active #sidebar .nav-links a:hover {
     transition: background-color var(--global-transition-speed) ease;
 }
 #homonexus-toggle i {
-    color: var(--epic-gold-main);
+    color: var(--old-gold);
     font-size: 1.2em;
 }
 #homonexus-toggle:hover {
-    background-color: var(--epic-gold-main);
+    background-color: var(--old-gold);
 }
 #homonexus-toggle:hover i {
-    color: var(--epic-purple-emperor);
+    color: var(--primary-purple);
 }
