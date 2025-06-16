@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     <link rel="stylesheet" href="/assets/css/pages/foro.css">
 </head>
 <body>
-<?php require_once __DIR__ . '/../_header.php'; ?>
+<?php require_once __DIR__ . '/../includes/components/header/header.php'; ?>
 <button id="menu-btn" class="menu-btn">☰ Expertos</button>
 <nav id="slide-menu" class="slide-menu">
 <?php foreach ($agents as $id => $ag): ?>
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     </section>
     <?php endforeach; ?>
 </main>
-<?php require_once __DIR__ . '/../_footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/components/footer/footer.php'; ?>
 <script src="/js/layout.js"></script>
 <script src="/assets/js/foro.js"></script>
 </body>

@@ -22,7 +22,8 @@ require_once 'includes/ai_utils.php';
 <?php
 // Use dynamic PHP header if available so menu fragments can contain
 // server-side logic like the admin login menu.
-require_once __DIR__ . '/_header.php';
+// Include header component
+require_once __DIR__ . '/includes/components/header/header.php';
 ?>
 
     <header class="hero">
@@ -156,7 +157,7 @@ require_once __DIR__ . '/_header.php';
         </section>
     </main>
 
-    <?php require_once __DIR__ . '/_footer.php'; ?>
+    <?php require_once __DIR__ . '/includes/components/footer/footer.php'; ?>
 
     <script src="/js/layout.js"></script>
 

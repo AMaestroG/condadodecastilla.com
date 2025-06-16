@@ -25,7 +25,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 <body>
 
     <?php
-    require_once __DIR__ . '/../_header.php';
+    require_once __DIR__ . '/../includes/components/header/header.php';
     ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_contacto_background.jpg');">
@@ -73,7 +73,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
         </section>
     </main>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../includes/components/footer/footer.php'; ?>
 
     <script src="/js/layout.js"></script>
     <script>
