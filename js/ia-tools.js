@@ -150,4 +150,11 @@ function handleWebSearch(output) {
     .catch(err => {
         showOutput(output, `<p class="ia-tool-error">${err.message}</p>`);
     });
+
+// Simple demo request to the Flask API
+function demoFlaskRequest() {
+    fetch('http://localhost:5000/api/resource')
+        .then(res => res.json())
+        .then(data => console.log('API resources', data))
+        .catch(err => console.error('API error', err));
 }

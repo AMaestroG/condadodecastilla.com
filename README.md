@@ -51,6 +51,15 @@ php -S localhost:8000
 
 Esto iniciará el servidor en `http://localhost:8000`.
 
+Para exponer la API Flask primero instala las dependencias de Python y lanza el servicio:
+
+```bash
+pip install -r requirements.txt
+python flask_app.py
+```
+
+Esto iniciará la API en `http://localhost:5000`, que puede ejecutarse en paralelo al servidor PHP.
+
 ## Instalación de dependencias
 
 Antes de ejecutar el sitio por primera vez descarga las librerías necesarias:
