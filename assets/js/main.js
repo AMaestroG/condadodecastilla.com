@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Theme Toggle Logic ---
-    const themeToggleButton = document.getElementById('theme-toggle'); // New button in sidebar
+    const themeToggleButton = document.getElementById('theme-toggle'); // Theme toggle button
     const themeIcon = themeToggleButton ? themeToggleButton.querySelector('img') : null;
     const themeSpan = themeToggleButton ? themeToggleButton.querySelector('span') : null;
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- AI Drawer Logic ---
     const aiDrawer = document.getElementById('ai-drawer');
-    const aiDrawerToggle = document.getElementById('ai-drawer-toggle'); // New button in sidebar
+    const aiDrawerToggle = document.getElementById('ai-drawer-toggle'); // AI drawer toggle button
     const closeAiDrawerButton = document.getElementById('close-ai-drawer');
     const aiSubmit = document.getElementById('ai-submit');
     const aiInput = document.getElementById('ai-input');
