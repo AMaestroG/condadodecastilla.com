@@ -14,6 +14,11 @@ html_fragments=(
     "fragments/menus/social-menu.html"
 )
 
+# Add new fragments by appending their relative path to the array above.
+# Ensure the referenced file exists in the repository before running the script.
+# Example:
+#   html_fragments+=("fragments/header/new-widget.html")
+
 # Combine the arrays
 all_files_to_check=("${files_to_check[@]}" "${html_fragments[@]}")
 

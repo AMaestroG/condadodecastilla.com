@@ -99,3 +99,21 @@ vendor/bin/phpunit
 
 El primer comando descargará las dependencias necesarias, incluido PHPUnit, y el
 segundo lanzará todos los tests definidos en `phpunit.xml`.
+
+## Verificación de enlaces internos
+
+El script `check_links_extended.sh` permite detectar rutas rotas en los principales archivos y en los fragmentos HTML que se cargan dinámicamente. Antes de ejecutarlo conviene asegurarse de que todos los fragmentos listados existen en `fragments/`.
+
+Para añadir un nuevo fragmento solo hay que crear el archivo correspondiente y añadir su ruta relativa al array `html_fragments` dentro del script. Por ejemplo:
+
+```bash
+html_fragments+=("fragments/header/new-widget.html")
+```
+
+A continuación se puede lanzar el script:
+
+```bash
+./check_links_extended.sh
+```
+
+Se generará un reporte llamado `broken_links_report_extended.txt` con los enlaces rotos encontrados.
