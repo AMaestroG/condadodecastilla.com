@@ -1,14 +1,14 @@
 :root {
-    --emperador-purple: #5D3A99; /* Morado Emperador */
-    --old-gold: #CFB53B; /* Ouro Vello */
-    --light-text: #F5F5F5; /* Texto claro para fondos oscuros */
-    --dark-text: #2A2A2A; /* Texto oscuro para fondos claros */
-    --background-light: #FFFFFF;
-    --background-dark: #1E1E1E; /* Un gris oscuro casi negro */
-    --sidebar-bg-light: #F8F9FA;
-    --sidebar-bg-dark: #2C2C2C; /* Un poco más claro que el fondo principal oscuro */
-    --separator-light: #D1D1D1;
-    --separator-dark: #4A4A4A;
+    --emperador-purple: var(--epic-purple-emperor); /* Morado Emperador */
+    --old-gold: var(--epic-gold-main); /* Ouro Vello */
+    --light-text: var(--epic-text-light); /* Texto claro para fondos oscuros */
+    --dark-text: var(--epic-text-color); /* Texto oscuro para fondos claros */
+    --background-light: var(--epic-alabaster-bg);
+    --background-dark: var(--epic-alabaster-medium); /* Tono más oscuro para fondos */
+    --sidebar-bg-light: var(--epic-alabaster-bg);
+    --sidebar-bg-dark: var(--epic-alabaster-medium); /* Un poco más oscuro que el fondo principal */
+    --separator-light: var(--epic-gold-main);
+    --separator-dark: var(--epic-gold-secondary);
     --button-bg-light: var(--emperador-purple);
     --button-text-light: var(--light-text);
     --button-bg-dark: var(--old-gold);
@@ -21,8 +21,8 @@
     --current-separator: var(--separator-light);
     --current-button-bg: var(--button-bg-light);
     --current-button-text: var(--button-text-light);
-    --current-link-color: #442970;
-    --current-link-hover-color: #301C4E;
+    --current-link-color: var(--epic-purple-emperor);
+    --current-link-hover-color: var(--epic-gold-secondary);
     --current-icon-filter: none; /* Para invertir iconos en modo oscuro si son negros */
 }
 
@@ -372,7 +372,7 @@ header { /* New header for hamburger only */
 }
 
 .left-control-panel .action-buttons button:hover {
-    background-color: #fff; /* Un color de resaltado al pasar el ratón */
+    background-color: var(--epic-gold-main); /* Resalta con oro principal */
     transform: scale(1.05);
 }
 
@@ -398,7 +398,7 @@ header { /* New header for hamburger only */
 }
 
 #fixed-header-elements #menu-toggle:hover {
-    background-color: #fff; /* Un color de resaltado al pasar el ratón */
+    background-color: var(--epic-gold-main); /* Resalta con oro principal */
     transform: scale(1.05);
 }
 

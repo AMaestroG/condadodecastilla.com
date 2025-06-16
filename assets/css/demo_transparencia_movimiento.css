@@ -1,7 +1,7 @@
 :root {
-    --morado-emperador: #4A0D67;
-    --albastro: #F9F7F4;
-    --oro-viejo: #CFB53B;
+    --morado-emperador: var(--epic-purple-emperor);
+    --albastro: var(--epic-alabaster-bg);
+    --oro-viejo: var(--epic-gold-main);
 }
 
 .demo-hero {
