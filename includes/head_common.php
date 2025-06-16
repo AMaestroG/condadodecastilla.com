@@ -14,6 +14,7 @@ $geminiKey = getenv('GEMINI_API_KEY') ?: '';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="/assets/css/epic_theme.css">
 <link rel="stylesheet" href="/assets/css/header.css">
+<link rel="stylesheet" href="/assets/css/sliding_menu.css">
 <link rel="stylesheet" href="/assets/vendor/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/css/custom.css">
 <link rel="stylesheet" href="/assets/css/lighting.css">

@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Menu Toggle Logic ---
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
+    const menuToggle = document.getElementById('menu-button');
+    const sidebar = document.getElementById('slide-menu-left');
     const mainContent = document.getElementById('main-content');
 
     if (menuToggle && sidebar && mainContent) {
         menuToggle.addEventListener('click', () => {
             sidebar.classList.toggle('open');
-            mainContent.classList.toggle('pushed');
+            document.body.classList.toggle('menu-open-left');
             // Update aria-expanded attribute for accessibility
             const isExpanded = sidebar.classList.contains('open');
             menuToggle.setAttribute('aria-expanded', isExpanded);
