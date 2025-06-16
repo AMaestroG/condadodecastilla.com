@@ -23,52 +23,64 @@
     z-index: 3000;
 }
 
-/* Theme Toggle Button - Original Position (will be adjusted for mobile) */
-#theme-toggle {
+/* Container for toggle buttons */
+.topbar-toggles {
     position: fixed;
-    top: 88px; /* lowered position */
-    left: 50%;
-    transform: translateX(-50%);
+    top: clamp(3rem, 5vh, 5.5rem);
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 3001;
+}
+
+.topbar-toggles button {
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
-    padding: 10px;
+    padding: 0.5rem;
     cursor: pointer;
-    z-index: 3001;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 2.75rem;
+    height: 2.75rem;
     transition: background-color var(--global-transition-speed) ease,
                 color var(--global-transition-speed) ease;
 }
 
-#theme-toggle i {
+.topbar-toggles button i {
     color: var(--epic-gold-main);
     font-size: 1.2em;
     transition: transform var(--global-transition-speed) ease;
 }
 
-#theme-toggle:hover {
+.topbar-toggles button:hover {
     background-color: var(--epic-gold-main);
 }
 
-#theme-toggle:hover i {
+.topbar-toggles button:hover i {
     color: var(--epic-purple-emperor);
     transform: rotate(20deg);
+}
+
+body.dark-mode .topbar-toggles button i {
+    color: var(--epic-icon-color);
+}
+
+body.dark-mode .topbar-toggles button:hover i {
+    color: var(--epic-icon-hover);
 }
 
 /* Language selection bar */
 .language-bar {
     position: fixed;
-    top: 48px; /* below empty top bar */
+    top: 48px;
     left: 0;
     right: 0;
     background: var(--epic-transparent-overlay-light);
     padding: 5px 8px;
     text-align: right;
-    z-index: 3000; /* Below toggles if they overlap, but above content */
+    z-index: 3000;
     font-size: 1.2em;
 }
 
@@ -81,158 +93,25 @@
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
 }
-body { /* This rule might be better in a global CSS if it's for Google Translate */
+body {
     top: 0 !important;
 }
 
-/* Sidebar Toggle (Hamburger) */
-/*
-#sidebar-toggle {
-    position: fixed;
-    top: 88px; / * moved lower * /
-    left: 15px;
-    background-color: var(--epic-transparent-overlay-medium);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 8px;
-    cursor: pointer;
-    z-index: 3001;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 44px;
-    height: 44px;
-}
-
-#sidebar-toggle .bar {
-    display: block;
-    width: 80%;
-    margin: auto;
-    height: 3px;
-    background-color: var(--epic-gold-main);
-    border-radius: 1px;
-    transition: all 0.3s ease-in-out;
-}
-
-#sidebar-toggle.active .bar:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg);
-}
-
-#sidebar-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-#sidebar-toggle.active .bar:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg);
-}
-*/
-/* IA Chat Toggle */
-#ia-chat-toggle {
-    position: fixed;
-    top: 88px; /* moved lower */
-    right: 15px;
-    background-color: var(--epic-transparent-overlay-medium);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 10px;
-    cursor: pointer;
-    z-index: 3001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    transition: right var(--global-transition-speed) ease-in-out,
-                background-color var(--global-transition-speed) ease;
-}
-
-#ia-chat-toggle i {
-    color: var(--epic-gold-main);
-}
-
-#ia-chat-toggle:hover {
-    background-color: var(--epic-gold-main);
-}
-
-#ia-chat-toggle:hover i {
-    color: var(--epic-purple-emperor);
-}
-
-/* Homonexus Toggle */
-#homonexus-toggle {
-    position: fixed;
-    top: 88px; /* moved lower */
-    right: 65px; /* (ia-chat-toggle width 44px + right 15px = 59px) + 6px gap */
-    background-color: var(--epic-transparent-overlay-medium);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 10px;
-    cursor: pointer;
-    z-index: 3001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-}
-#homonexus-toggle i {
-    color: var(--epic-gold-main);
-}
-#homonexus-toggle:hover {
-    background-color: var(--epic-gold-main);
-}
-#homonexus-toggle:hover i {
-    color: var(--epic-purple-emperor);
-}
-
-/* Dark Mode Icon Colors for Toggles */
-body.dark-mode #theme-toggle i,
-body.dark-mode #ia-chat-toggle i, /* Added for consistency */
-body.dark-mode #homonexus-toggle i {
-    color: var(--epic-icon-color);
-}
-
-body.dark-mode #theme-toggle:hover i,
-body.dark-mode #ia-chat-toggle:hover i, /* Added for consistency */
-body.dark-mode #homonexus-toggle:hover i {
-    color: var(--epic-icon-hover);
-}
-
-/* Mobile Adjustments for Toggles */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    /*
-    #theme-toggle {
-        left: auto; / * Override PC centering * /
-        right: 115px; / * (homonexus-toggle right 65px + width 44px = 109px) + 6px gap * /
-        / * Note: Ensure #ia-chat-toggle is at right: 15px and #homonexus-toggle at right: 65px * /
+    .topbar-toggles {
+        top: clamp(2.5rem, 6vh, 4.5rem);
+        right: 0.5rem;
     }
-    */
-    /* #sidebar-toggle remains top: 88px; left: 15px; */
-    /* #ia-chat-toggle remains top: 88px; right: 15px; */
-    /* #homonexus-toggle remains top: 88px; right: 65px; */
 }
-
-/* Consider further adjustments for very small screens if needed, e.g., hiding some toggles */
 
 @media (max-width: 480px) {
-    /* Reduce toggle button size so icons do not overlap */
-    #theme-toggle,
-    #ia-chat-toggle,
-    #homonexus-toggle {
-        width: 36px;
-        height: 36px;
-        padding: 6px;
-        top: 76px;
+    .topbar-toggles button {
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0.25rem;
     }
-
-    /* Slightly smaller icons for tiny screens */
-    #theme-toggle i,
-    #ia-chat-toggle i,
-    #homonexus-toggle i {
+    .topbar-toggles button i {
         font-size: 0.9em;
     }
-
-    /* Adjust right offsets so buttons remain separated */
-    #ia-chat-toggle { right: 10px; }
-    #homonexus-toggle { right: 50px; }
 }
