@@ -4,8 +4,6 @@ $baseDir = dirname(__DIR__);
 // Output language bar
 echo file_get_contents($baseDir . '/fragments/header/language-bar.html');
 
-// Output toggle buttons
-echo file_get_contents($baseDir . '/fragments/header/toggles.html');
 
 // Load navigation fragment with menu placeholders
 $navigation = file_get_contents($baseDir . '/fragments/header/navigation.html');

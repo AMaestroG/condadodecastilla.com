@@ -22,7 +22,6 @@
 
         await Promise.all([
             loadFragment('#header-language-bar-placeholder', '/fragments/header/language-bar.html'),
-            loadFragment('#header-toggles-placeholder', '/fragments/header/toggles.html'),
             loadFragment('#header-navigation-placeholder', '/fragments/header/navigation.html')
         ]);
 
