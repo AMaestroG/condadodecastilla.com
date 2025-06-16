@@ -164,34 +164,7 @@
     </style>
 </head>
 <body>
-
-    <div class="left-control-panel">
-        <div class="language-selector">
-            <a href="#es" title="Español"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Bandera de España"></a>
-            <a href="#en" title="English"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="Bandera del Reino Unido"></a>
-        </div>
-        <hr class="panel-separator">
-        <div class="action-buttons">
-            <button id="menu-toggle" title="Abrir menú">
-                <svg viewBox="0 0 100 80" width="24" height="24" fill="#5D3A99"><rect width="100" height="15" rx="8"></rect><rect y="30" width="100" height="15" rx="8"></rect><rect y="60" width="100" height="15" rx="8"></rect></svg>
-            </button>
-            <button id="theme-toggle" title="Cambiar tema">
-                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5D3A99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
-            <button id="ai-drawer-toggle" title="Asistente IA">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5D3A99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9zM9 1v2M15 1v2M9 21v2M15 21v2M1 9h2M1 15h2M21 9h2M21 15h2"/></svg>
-            </button>
-        </div>
-    </div>
-
-    <nav id="sidebar">
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Cultura</a></li>
-            <li><a href="#">Camino de Santiago</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </nav>
+<?php require_once __DIR__ . '/_header.php'; ?>
 
     <main id="main-content">
         <div class="escudo-container">
@@ -199,38 +172,8 @@
         </div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const sidebar = document.getElementById('sidebar');
-            const mainContent = document.getElementById('main-content');
-
-            // Lógica para abrir/cerrar el menú lateral
-            if (menuToggle && sidebar && mainContent) {
-                menuToggle.addEventListener('click', function() {
-                    sidebar.classList.toggle('open');
-                    mainContent.classList.toggle('pushed');
-                });
-            }
-
-            // Lógica para el botón de tema (ejemplo)
-            const themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    alert("Aquí irá la lógica para cambiar el tema a claro/oscuro.");
-                    // document.body.classList.toggle('light-mode');
-                });
-            }
-
-            // Lógica para el botón de IA (ejemplo)
-            const aiToggle = document.getElementById('ai-drawer-toggle');
-            if (aiToggle) {
-                aiToggle.addEventListener('click', () => {
-                    alert("Aquí se abrirá el asistente de Inteligencia Artificial.");
-                });
-            }
-        });
-    </script>
+    <?php require_once __DIR__ . '/_footer.php'; ?>
+    <script src="/js/layout.js"></script>
 
 </body>
 </html>
