@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
         headerPlaceholder.id = 'header-placeholder';
         document.body.insertBefore(headerPlaceholder, document.body.firstChild);
     }
-    fetch('/_header.html')
+    fetch('/_header_template.php')
         .then(response => response.text())
         .then(data => {
             insertHtmlWithScripts(headerPlaceholder, data);
         })
-        .catch(error => console.error('Error fetching _header.html:', error));
+        .catch(error => console.error('Error fetching _header_template.php:', error));
 
     // let footerPlaceholder = document.getElementById('footer-placeholder');
     // if (!footerPlaceholder) {

@@ -14,7 +14,7 @@ require_admin_login();
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.html'; ?>
+    <?php require_once __DIR__ . '/../_header_template.php'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_contacto_background.jpg');">
         <div class="hero-content">

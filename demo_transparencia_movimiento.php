@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/includes/head_common.php'; ?>
 <body>
-    <?php require_once __DIR__ . '/_header.html'; ?>
+    <?php require_once __DIR__ . '/_header_template.php'; ?>
     <section class="demo-hero">
         <h1>Efectos Visuales</h1>
         <div class="demo-card">

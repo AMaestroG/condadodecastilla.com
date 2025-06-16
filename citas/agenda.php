@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Programa de Citas para Visitas</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.html'; ?>
+    <?php require_once __DIR__ . '/../_header_template.php'; ?>
     <h1>Programa de Citas para Visitas</h1>
     <?php if ($successMessage): ?>
         <p style="color:green;"><?php echo htmlspecialchars($successMessage); ?></p>

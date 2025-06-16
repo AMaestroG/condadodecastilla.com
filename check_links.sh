@@ -2,7 +2,7 @@
 # Subtask to check for broken internal links in key files
 
 # Files to check
-files_to_check=("index.php" "_header.html" "_footer.php")
+files_to_check=("index.php" "_header_template.php" "_footer.php")
 
 # Output file for broken links
 output_file="broken_links_report.txt"

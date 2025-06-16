@@ -3,7 +3,7 @@
     <title>Capítulo 1: Auca Patricia, la Ciudad Perdida</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header_template.php'; ?>
     <h1>Capítulo 1: Auca Patricia, la Ciudad Perdida</h1>
 
     <section id="evidencias-romanas">

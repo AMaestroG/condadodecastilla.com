@@ -3,7 +3,7 @@
     <title>Capítulo 3: Vestigios y Legado en Cerezo de Río Tirón</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header_template.php'; ?>
     <h1>Capítulo 3: Vestigios y Legado en Cerezo de Río Tirón</h1>
 
     <section>

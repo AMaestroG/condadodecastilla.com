@@ -3,7 +3,7 @@
     <title>Capítulo 5: Cerezo en la Alta Edad Media: Entre Condes y Reyes</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.html'; ?>
+    <?php require_once __DIR__ . '/../_header_template.php'; ?>
     <h1>Capítulo 5: Cerezo en la Alta Edad Media: Entre Condes y Reyes</h1>
 
     <section id="introduccion-baluarte">

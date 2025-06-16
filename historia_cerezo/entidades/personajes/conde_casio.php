@@ -3,7 +3,7 @@
     <title>El Conde Casio</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../../_header_template.php'; ?>
     <h1>El Conde Casio</h1>
 
     <section>

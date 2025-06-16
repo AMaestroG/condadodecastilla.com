@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 <body>
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header_template.php'; ?>
 
     <main class="container page-content-block">
         <h3>La Sede Episcopal de Auca</h3>

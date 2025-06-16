@@ -1,3 +1,3 @@
 <?php
-require_once __DIR__ . '/_header.html';
+require_once __DIR__ . '/_header_template.php';
 

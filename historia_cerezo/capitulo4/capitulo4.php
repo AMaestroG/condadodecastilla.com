@@ -3,7 +3,7 @@
     <title>Capítulo 4: Interpretaciones y Debate Histórico (Trazas Cruzadas)</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header_template.php'; ?>
     <h1>Capítulo 4: Interpretaciones y Debate Histórico (Trazas Cruzadas)</h1>
 
     <section>

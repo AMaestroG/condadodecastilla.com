@@ -3,7 +3,7 @@
     <title>El Becerro Galicano y la Mención de Auca/Area Paterniani</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../../_header_template.php'; ?>
     <h1>El Becerro Galicano y la Mención de Auca/Area Paterniani</h1>
 
     <section>

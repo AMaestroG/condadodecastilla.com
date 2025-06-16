@@ -24,10 +24,10 @@ Checking links in: index.php
   OK: /js/layout.js (resolved to js/layout.js)
   SUMMARY for index.php: All 19 processable links appear OK.
 
-Checking links in: _header.html
+Checking links in: _header_template.php
   OK: /index.php (resolved to index.php)
   OK: /js/menu-controller.js (resolved to js/menu-controller.js)
-  SUMMARY for _header.html: All 2 processable links appear OK.
+  SUMMARY for _header_template.php: All 2 processable links appear OK.
 
 Checking links in: _footer.php
   OK: /dashboard/logout.php (resolved to dashboard/logout.php)

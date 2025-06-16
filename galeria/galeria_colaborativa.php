@@ -51,7 +51,7 @@ if (is_dir($gallery_dir)) {
 <body>
     <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->
     
-    <?php require_once __DIR__ . '/../_header.html'; ?>
+    <?php require_once __DIR__ . '/../_header_template.php'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_galeria_background.jpg');">
         <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->

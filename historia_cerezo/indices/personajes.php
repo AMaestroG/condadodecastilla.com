@@ -3,7 +3,7 @@
     <title>Índice de Personajes - Historia de Cerezo</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header_template.php'; ?>
     <h1>Índice de Personajes Relevantes</h1>
     <ul>
         <li>Conde Casio: <a href="../entidades/personajes/conde_casio.php">Ver módulo del Conde Casio</a></li>
