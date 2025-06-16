@@ -6,16 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museo Colaborativo del Condado - Condado de Castilla</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script> <!-- Will be commented out in JS -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.177.0/build/three.core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!-- Postprocessing -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script type="module">
+        import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/controls/OrbitControls.js';
+        import { PointerLockControls } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/controls/PointerLockControls.js';
+        import { EffectComposer } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/postprocessing/UnrealBloomPass.js';
+        import { LuminosityHighPassShader } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/shaders/LuminosityHighPassShader.js';
+        import { CopyShader } from 'https://cdn.jsdelivr.net/npm/three@0.177.0/examples/jsm/shaders/CopyShader.js';
+
+        window.THREE.OrbitControls = OrbitControls;
+        window.THREE.PointerLockControls = PointerLockControls;
+        window.THREE.EffectComposer = EffectComposer;
+        window.THREE.RenderPass = RenderPass;
+        window.THREE.UnrealBloomPass = UnrealBloomPass;
+        window.THREE.LuminosityHighPassShader = LuminosityHighPassShader;
+        window.THREE.CopyShader = CopyShader;
+    </script>
 
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
