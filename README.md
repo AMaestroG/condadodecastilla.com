@@ -67,3 +67,13 @@ y cualquier otra variable necesaria.
 
 
 Las variables definidas en `.env` se cargan de forma automática gracias a `includes/env_loader.php`.
+
+## Configuración de la clave Gemini
+
+Define la variable `GEMINI_API_KEY` en tu archivo `.env` con la clave proporcionada por el servicio Gemini:
+
+```bash
+GEMINI_API_KEY=tu_clave_personal
+```
+
+El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y será leído por `assets/js/main.js` para realizar las peticiones.
