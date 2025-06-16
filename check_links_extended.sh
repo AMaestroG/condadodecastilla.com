@@ -18,7 +18,7 @@ html_fragments=(
 all_files_to_check=("${files_to_check[@]}" "${html_fragments[@]}")
 
 # Files that were previously loaded dynamically but no longer exist should be skipped
-skip_files=("fragments/header/ia-chat.html")
+skip_files=()
 
 # Output file for broken links
 output_file="broken_links_report_extended.txt"
