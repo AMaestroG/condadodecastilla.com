@@ -8,7 +8,6 @@ files_to_check=("index.php" "_header.html" "_footer.php")
 # Note: admin-menu.php is PHP; static analysis might be limited.
 html_fragments=(
     "fragments/header/language-bar.html"
-    "fragments/header/toggles.html"
     "fragments/header/navigation.html"
     "fragments/menus/main-menu.html"
     "fragments/menus/admin-menu.php"
