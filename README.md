@@ -53,7 +53,8 @@ Esto iniciará el servidor en `http://localhost:8000`.
 
 ## Instalación de dependencias
 
-Antes de ejecutar el sitio por primera vez descarga las librerías necesarias:
+Tras clonar el repositorio instala las dependencias de PHP y descarga las
+bibliotecas de JavaScript necesarias ejecutando:
 
 ```bash
 composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwriter --ignore-platform-req=ext-xml
@@ -77,3 +78,15 @@ GEMINI_API_KEY=tu_clave_personal
 ```
 
 El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y será leído por `assets/js/main.js` para realizar las peticiones.
+
+## Ejecución de pruebas
+
+Para instalar PHPUnit y ejecutar la suite de tests ejecuta:
+
+```bash
+composer install
+vendor/bin/phpunit
+```
+
+El primer comando descargará las dependencias necesarias, incluido PHPUnit, y el
+segundo lanzará todos los tests definidos en `phpunit.xml`.
