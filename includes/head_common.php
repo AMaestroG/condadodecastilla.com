@@ -17,6 +17,7 @@ $geminiKey = getenv('GEMINI_API_KEY') ?: '';
 <link rel="stylesheet" href="/assets/css/sliding_menu.css">
 <link rel="stylesheet" href="/assets/vendor/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/css/custom.css">
+<link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="stylesheet" href="/assets/css/lighting.css">
 <link rel="stylesheet" href="/assets/vendor/css/tailwind.min.css">
 <script defer src="/assets/vendor/js/bootstrap.bundle.min.js"></script>
