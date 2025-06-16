@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     loadPageCss();
     loadHeaderCss();
     loadFixedTogglesCss();
+    loadIAToolsScript();
     // initializeSidebarNavigation(); // Now called by header_loader.js
-    // loadIAToolsScript(); // Now called by header_loader.js
     // initializeIAChatSidebar(); // Now called by header_loader.js
 
     let headerPlaceholder = document.getElementById('header-placeholder');
@@ -295,4 +295,12 @@ function insertHtmlWithScripts(container, html) {
         document.head.appendChild(newScript);
         oldScript.remove();
     });
+}
+
+function loadIAToolsScript() {
+    if (!document.querySelector('script[src="/js/ia-tools.js"]')) {
+        const script = document.createElement('script');
+        script.src = '/js/ia-tools.js';
+        document.head.appendChild(script);
+    }
 }
