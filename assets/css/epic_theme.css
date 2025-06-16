@@ -2406,10 +2406,7 @@ main p {
 */
 /* ===== Dark Mode Theme Variables ===== */
 body.dark-mode {
-    --epic-alabaster-bg: #252B38;
-    --epic-alabaster-bg-rgb: 37, 43, 56;
-    --epic-alabaster-medium: #2a2f39;
-    --epic-alabaster-medium-rgb: 42, 47, 57;
+    /* Alabaster colors remain unchanged in dark mode */
     --epic-text-color: #F0F0F0; /* Increased contrast */
     --epic-text-color-rgb: 240, 240, 240; /* Increased contrast */
     --epic-text-light: #D8D8D8; /* Lighter secondary text */
@@ -2425,6 +2422,7 @@ body.dark-mode {
 body.dark-mode::before {
     content: ''; /* Must be redeclared for pseudo-elements in combined selectors if overriding */
     /* Inherits background-image, size, repeat, attachment, position from body::before */
+    background-image: var(--alabaster-background-image); /* Ensure same alabaster backdrop */
     /* Only apply the dark mode specific filter */
     filter: grayscale(80%) brightness(85%); /* Original dark mode filter */
 }
