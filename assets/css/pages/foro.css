@@ -8,7 +8,7 @@ body { background-color: rgba(245,235,220,0.95); }
     backdrop-filter: blur(3px);
 }
 .agent-profile h2 {
-    background: linear-gradient(45deg, var(--color-primario-purpura, #4A0D67), var(--color-secundario-dorado, #B8860B));
+    background: linear-gradient(45deg, var(--color-primario-purpura, #4A0D67), var(--color-secundario-dorado, var(--epic-gold-old)));
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -27,7 +27,7 @@ body { background-color: rgba(245,235,220,0.95); }
     z-index: 1000;
 }
 .slide-menu.open { left: 0; }
-.slide-menu a { display: block; padding: 10px; color: var(--color-secundario-dorado, #B8860B); text-decoration: none; font-weight: bold; }
+.slide-menu a { display: block; padding: 10px; color: var(--color-secundario-dorado, var(--epic-gold-old)); text-decoration: none; font-weight: bold; }
 .menu-btn {
     position: fixed;
     left: 10px;
