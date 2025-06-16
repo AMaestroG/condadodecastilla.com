@@ -1,0 +1,25 @@
+# Minimal styles for IA chat sidebar and toggle
+#ia-chat-sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: clamp(280px, 70vw, 320px);
+    height: 100vh;
+    background-color: var(--epic-alabaster-bg);
+    border-left: 2px solid var(--epic-gold-secondary);
+    box-shadow: -3px 0 15px rgba(var(--epic-text-color-rgb), 0.25);
+    padding: 1rem;
+    overflow-y: auto;
+    transition: right var(--global-transition-speed) ease-in-out;
+    z-index: 3000;
+}
+
+body.menu-open-right #ia-chat-sidebar  {
+    right: 0;
+}
+
+#ia-chat-toggle {
+    position: fixed;
+    top: 88px;
+    right: 15px;
+}
