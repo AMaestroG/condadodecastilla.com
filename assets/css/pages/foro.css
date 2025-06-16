@@ -7,7 +7,7 @@ body { background-color: rgba(245,235,220,0.95); }
     border-left: 5px solid var(--color-primario-purpura, #4A0D67);
     backdrop-filter: blur(3px);
 }
-.agent-profile h2 {
+.gradient-title {
     background: linear-gradient(45deg, var(--color-primario-purpura, #4A0D67), var(--color-secundario-dorado, #B8860B));
     -webkit-background-clip: text;
     color: transparent;
@@ -15,19 +15,13 @@ body { background-color: rgba(245,235,220,0.95); }
 .agent-profile textarea { width: 100%; margin: 0.5em 0; }
 .feedback { padding: 10px; margin: 10px 0; border-radius: 4px; }
 .feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-.slide-menu {
-    position: fixed;
-    left: -230px;
-    top: 0;
-    width: 220px;
-    height: 100%;
-    background-color: rgba(74,13,103,0.9);
-    transition: left 0.3s ease;
-    padding-top: 60px;
-    z-index: 1000;
+.slide-menu a {
+    display: block;
+    padding: 10px;
+    color: var(--color-secundario-dorado, #B8860B);
+    text-decoration: none;
+    font-weight: bold;
 }
-.slide-menu.open { left: 0; }
-.slide-menu a { display: block; padding: 10px; color: var(--color-secundario-dorado, #B8860B); text-decoration: none; font-weight: bold; }
 .menu-btn {
     position: fixed;
     left: 10px;

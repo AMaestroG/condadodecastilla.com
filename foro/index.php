@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
 require_once __DIR__ . '/../dashboard/db_connect.php';
+require_once __DIR__ . '/../includes/config.php';
 /** @var PDO $pdo */
 
 // Ensure comments table exists
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $agent = $_POST['agent'] ?? '';
     $comment = trim($_POST['comment'] ?? '');
     $maxLength = 500;
-    $rateLimit = 60; // seconds
+    $rateLimit = FORUM_COMMENT_COOLDOWN; // seconds
 
     if (strlen($comment) > $maxLength) {
         $_SESSION['forum_error'] = 'Comentario demasiado largo.';
@@ -73,10 +74,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 </head>
 <body>
 <?php require_once __DIR__ . '/../_header.php'; ?>
-<button id="menu-btn" class="menu-btn">☰ Expertos</button>
-<nav id="slide-menu" class="slide-menu">
+<button id="menu-btn" class="menu-btn" data-menu-target="agents-menu">☰ Expertos</button>
+<nav id="agents-menu" class="slide-menu left">
 <?php foreach ($agents as $id => $ag): ?>
-    <a href="#<?php echo $id; ?>"><?php echo htmlspecialchars($ag['name']); ?></a>
+    <a href="#<?php echo $id; ?>" class="gradient-title"><?php echo htmlspecialchars($ag['name']); ?></a>
 <?php endforeach; ?>
 </nav>
 <main class="container page-content-block">
@@ -86,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     <?php endif; ?>
     <?php foreach ($agents as $id => $ag): ?>
     <section id="<?php echo $id; ?>" class="agent-profile">
-        <h2><?php echo htmlspecialchars($ag['name']); ?></h2>
+        <h2 class="gradient-title"><?php echo htmlspecialchars($ag['name']); ?></h2>
         <p><?php echo htmlspecialchars($ag['bio']); ?></p>
         <form method="post">
             <input type="hidden" name="agent" value="<?php echo $id; ?>">
@@ -111,6 +112,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 </main>
 <?php require_once __DIR__ . '/../_footer.php'; ?>
 <script src="/js/layout.js"></script>
-<script src="/assets/js/foro.js"></script>
 </body>
 </html>
