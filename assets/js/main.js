@@ -80,7 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const prompt = aiInput.value.trim();
             if (!prompt) return; // Don't send empty prompts
 
-            const apiKey = 'A_TUA_CLAVE_DE_API_DE_GEMINI'; // Placeholder
+            const apiKeyMeta = document.querySelector('meta[name="gemini-api-key"]');
+            const apiKey = apiKeyMeta ? apiKeyMeta.getAttribute('content') : '';
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
 
             aiResponse.innerHTML = 'Procesando...';

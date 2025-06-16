@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__ . '/session.php';
 ensure_session_started();
+require_once __DIR__ . '/env_loader.php';
+$geminiKey = getenv('GEMINI_API_KEY') ?: '';
 ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="gemini-api-key" content="<?php echo htmlspecialchars($geminiKey, ENT_QUOTES, 'UTF-8'); ?>">
 <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
