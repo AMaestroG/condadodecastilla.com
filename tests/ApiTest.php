@@ -8,10 +8,14 @@ class ApiTest extends TestCase {
             'REQUEST_URI' => $server['REQUEST_URI'],
             'HTTP_HOST' => 'localhost',
         ];
-        $cmd = sprintf('php -d auto_prepend_file=%s %s',
-            escapeshellarg(__DIR__.'/fixtures/prepend.php'),
+        $prepend = realpath(__DIR__.'/fixtures/prepend.php');
+        $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
+            escapeshellarg($prepend),
             escapeshellarg($script)
         );
+        $env['PATH'] = getenv('PATH');
+        $env['REDIRECT_STATUS'] = '1';
+        $env['SCRIPT_FILENAME'] = $script;
         $descriptor = [1 => ['pipe','w'], 2 => ['pipe','w']];
         $proc = proc_open($cmd, $descriptor, $pipes, null, $env);
         $output = stream_get_contents($pipes[1]);

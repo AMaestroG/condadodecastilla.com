@@ -3,8 +3,9 @@ use PHPUnit\Framework\TestCase;
 
 class LoginLogoutTest extends TestCase {
     private function runScript(string $script, array $env): array {
-        $cmd = sprintf('php -d auto_prepend_file=%s %s',
-            escapeshellarg(__DIR__.'/fixtures/login_prepend.php'),
+        $prepend = realpath(__DIR__.'/fixtures/login_prepend.php');
+        $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
+            escapeshellarg($prepend),
             escapeshellarg($script)
         );
         $env['PATH'] = getenv('PATH');
