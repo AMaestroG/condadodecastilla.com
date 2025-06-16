@@ -21,9 +21,6 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 
     <?php include __DIR__ . '/../includes/head_common.php'; ?>
     <?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
-    <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/css/custom.css">
-    <link rel="stylesheet" href="/assets/vendor/css/bootstrap.min.css">
 </head>
 <body>
 
