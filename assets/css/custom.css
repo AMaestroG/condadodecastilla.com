@@ -1,11 +1,5 @@
 body {
   font-family: "Lora", serif;
-  background-color: var(--epic-alabaster-bg);
-  background-image: var(--alabaster-background-image);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 
 .hero {
@@ -18,158 +12,41 @@ body {
   border-radius: 0.25rem;
   text-decoration: none;
 }
+
+body {
+  background-color: #F0E9E0;
+  color: #2C1D12;
+}
+
+.hero {
+  background-color: #5B1A7D;
+  color: #FFFFFF;
+}
+
+.cta-button {
+  background-color: #FFD700;
+  color: #2C1D12;
+}
 .cta-button:hover {
+  background-color: #ccac00;
 }
 
-.content-area {
-  padding: 1rem;
-}
-
-/* Estilos para Modo Oscuro */
 @media (prefers-color-scheme: dark) {
   body {
-    filter: grayscale(70%) brightness(80%) contrast(110%);
-  }
-  .hero {
-    background-color: rgba(76, 17, 104, 0.85); /* Púrpura con menor transparencia */
-    color: #FFFFFF; /* Asegurar contraste */
-  }
-  .cta-button {
-    background-color: rgba(96, 37, 124, 0.9); /* Menor transparencia */
+    background-color: #252B38;
     color: #FFFFFF;
   }
-  .cta-button:hover {
-    background-color: rgba(116, 57, 144, 0.95);
-  }
-  .content-area {
-    background-color: rgba(56, 0, 84, 0.75); /* Menor transparencia para contenido general */
-    color: #F8F9FA; /* Texto claro para contraste sobre fondo oscuro/transparente */
-  }
-  h1, h2 {
-    background-image: linear-gradient(to right, #CE93D8, #F3E5F5); /* Púrpura claro a Púrpura muy claro/casi blanco */
-    background-clip: text;
-    -webkit-background-clip: text; /* Para compatibilidad con Webkit */
-    color: transparent;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra oscura para legibilidad */
-  }
-}
-
-/* Estilos para Modo Claro */
-@media (prefers-color-scheme: light) {
-  body {
-    filter: grayscale(30%) brightness(150%) contrast(100%);
-  }
   .hero {
-    background-color: rgba(106, 27, 154, 0.6); /* Púrpura con mayor transparencia */
-    color: #FFFFFF; /* Asegurar contraste */
-  }
-  .cta-button {
-    background-color: rgba(106, 27, 154, 0.7); /* Un poco menos transparente que el hero para destacar */
+    background-color: #361245;
     color: #FFFFFF;
   }
+  .cta-button {
+    background-color: #9A6700;
+    color: #2C1D12;
+  }
   .cta-button:hover {
-    background-color: rgba(126, 47, 174, 0.8);
-  }
-  .content-area {
-    background-color: rgba(106, 27, 154, 0.5); /* Mayor transparencia para contenido general */
-    color: #212529; /* Texto oscuro para contraste sobre fondo claro/transparente */
-  }
-  h1, h2 {
-    background-image: linear-gradient(to right, #6A1B9A, #AB47BC); /* Púrpura oscuro a Púrpura medio */
-    background-clip: text;
-    -webkit-background-clip: text; /* Para compatibilidad con Webkit */
-    color: transparent;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Sombra clara para legibilidad */
+    background-color: rgb(103, 68.8896103896, 0);
   }
 }
 
 /*# sourceMappingURL=custom.css.map */
-
-/* Sidebar flex layout */
-#sidebar {
-    display: flex;
-    flex-direction: column;
-    /* height: 100%; /* Ensure sidebar takes full height if not already - this should be handled by main.css or other global styles if needed */
-}
-
-#sidebar .sidebar-menu-content {
-    flex-grow: 1; /* Allows this section to take available space */
-    overflow-y: auto; /* Add scroll if menu content is too long */
-}
-
-/* Sidebar button styling removed as controls are now in the header */
-
-/* AI Drawer as Modal */
-#ai-drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: none; /* Hidden by default */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure it's on top */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-#ai-drawer.active {
-    display: flex; /* Show when active */
-}
-
-#ai-drawer-content { /* Assuming there's an inner container */
-    background-color: var(--background-color, #fff);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    max-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative; /* For positioning close button if needed */
-}
-
-#ai-drawer #close-ai-drawer {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: var(--text-color);
-}
-
-#ai-drawer #ai-response {
-    margin-top: 15px;
-    padding: 10px;
-    border: 1px solid var(--border-color, #ccc);
-    min-height: 100px;
-    background-color: var(--input-background, #f9f9f9);
-    white-space: pre-wrap; /* To respect newlines from API response */
-    overflow-y: auto;
-    max-height: 300px; /* Limit response height before scroll */
-}
-
-#ai-drawer #ai-input {
-   width: calc(100% - 22px); /* Adjust based on padding/border */
-   padding: 10px;
-   margin-bottom: 10px;
-   border: 1px solid var(--border-color, #ccc);
-   border-radius: 4px;
-}
-
-#ai-drawer #ai-submit {
-   padding: 10px 15px;
-   background-color: var(--primary-color, #007bff);
-   color: white;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
-}
-
-#ai-drawer #ai-submit:hover {
-   background-color: var(--primary-hover-color, #0056b3);
-}
