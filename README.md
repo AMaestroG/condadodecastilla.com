@@ -2,6 +2,10 @@
 
 Este repositorio contiene el código del sitio web del proyecto **Condado de Castilla**.
 
+## Misión
+
+Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa su patrimonio arqueológico y cultural.
+
 ## Requisitos
 
 - **PHP** 7.4 o superior con la extensión PDO habilitada.
@@ -29,16 +33,16 @@ y se registrará un aviso en el log del servidor.
 Para preparar la base de datos ejecuta en orden los scripts de `database_setup`: `01_create_tables.sql`, `02_create_museo_piezas_table.sql` y `03_create_tienda_productos.sql`.
 Si quieres cargar algunos ejemplos iniciales para el museo, puedes lanzar de forma opcional `04_insert_sample_museo_piezas.sql` tras crear la tabla correspondiente.
 
-## Comprobacion de la base de datos
+## Comprobación de la base de datos
 
-Para verificar que PostgreSQL esta disponible y que la variable `CONDADO_DB_PASSWORD` se ha definido, ejecuta:
+Para verificar que PostgreSQL está disponible y que la variable `CONDADO_DB_PASSWORD` se ha definido, ejecuta:
 
 ```bash
 export CONDADO_DB_PASSWORD="tu_contrasena"
 ./scripts/check_db.sh
 ```
 
-El script usa `pg_isready` para comprobar la conexion y mostrara un mensaje de exito o error.
+El script usa `pg_isready` para comprobar la conexión y mostrará un mensaje de éxito o error.
 
 
 ## Servidor de desarrollo
@@ -153,4 +157,5 @@ pueda validar fácilmente el contenido del menú.
 ## Cambios recientes
 
 - Eliminado `js/header_loader.js` y referencias a dicho script, ya que la cabecera se carga ahora de forma estática.
+
 
