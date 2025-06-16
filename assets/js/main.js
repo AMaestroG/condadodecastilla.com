@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else { // Light theme
             document.documentElement.setAttribute('data-theme', 'light');
             if (themeIcon) themeIcon.src = 'assets/icons/moon-icon.svg';
-            if (themeSpan) themeSpan.textContent = 'Modo Escuro';
+            if (themeSpan) themeSpan.textContent = 'Modo Oscuro';
             localStorage.setItem('theme', 'light');
         }
     }
