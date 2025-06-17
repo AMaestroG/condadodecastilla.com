@@ -62,10 +62,10 @@ body.menu-open-right {
     transition: transform 0.3s ease;
 }
 body.menu-open-left {
-    transform: translateX(260px);
+    transform: translateX(260px) scale(0.97);
 }
 body.menu-open-right {
-    transform: translateX(-260px);
+    transform: translateX(-260px) scale(0.97);
 }
 
 #slide-menu-right ul {
