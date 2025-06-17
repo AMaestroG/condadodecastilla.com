@@ -446,8 +446,8 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 /* Default background if no inline style is set - a purple gradient */
 .hero, .page-header {
-    /* background-image: linear-gradient(var(--epic-transparent-overlay-dark), var(--epic-transparent-black-overlay)); */
-    background-color: transparent; /* Fallback */
+    background-image: none !important;
+    background: transparent !important; /* Fallback */
 }
 
 /* Specific hero for homepage */
@@ -461,12 +461,12 @@ body.dark-mode .footer .social-links a:focus-visible {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: transparent; /* Default dark purple overlay */
+    background-color: transparent !important; /* Default dark purple overlay */
     z-index: 1; /* Below content, above background image */
 }
 /* If a specific background image is set via inline style, this ensures the overlay is still there */
 [style*="background-image"]::before {
-    background-color: transparent; /* Ensure consistency */
+    background-color: transparent !important; /* Ensure consistency */
 }
 
 
@@ -474,11 +474,11 @@ body.dark-mode .footer .social-links a:focus-visible {
     position: relative;
     z-index: 2; /* Above the overlay */
     max-width: 900px;
-    background-color: transparent; /* Semi-transparent black for content box */
+    background: transparent !important; /* Semi-transparent black for content box */
     padding: clamp(1.5em, 5vw, 3em);
     border-radius: var(--global-border-radius);
     box-shadow: var(--global-box-shadow-dark);
-    border: 2px solid transparent;
+    border: 2px solid transparent !important;
     text-align: center; /* Content within hero-content should be centered */
 }
 
@@ -540,7 +540,8 @@ body.dark-mode .footer .social-links a:focus-visible {
 .section {
     padding: clamp(3em, 8vh, 5em) 0;
     position: relative;
-    /* background-image: var(--alabaster-background-image); */ /* Default alabaster texture for sections */
+    background-image: none !important; /* Default alabaster texture for sections */
+    background-color: transparent !important;
     background-size: cover;
     background-position: center center;
     background-attachment: scroll; /* Parallax within section, not fixed to viewport like body */
@@ -556,7 +557,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-color: transparent; /* Dark purple overlay */
+    background-color: transparent !important; /* Dark purple overlay */
     opacity: 0; /* Hidden by default, only show if .section has a specific bg image or class */
     transition: opacity var(--global-transition-speed) ease-out;
     z-index: 0;
@@ -573,11 +574,11 @@ body.dark-mode .footer .social-links a:focus-visible {
 .section > .container-epic { /* Using the .container-epic defined in base styles */
     position: relative;
     z-index: 1; /* Above section's ::before overlay */
-    background-color: transparent; /* Semi-transparent alabaster */
+    background-color: transparent !important; /* Semi-transparent alabaster */
     /* backdrop-filter: blur(3px); */ /* Subtle blur for content background */
     padding: clamp(1.5em, 4vw, 3em);
     border-radius: var(--global-border-radius);
-    box-shadow: none;
+    box-shadow: none !important;
     margin-top: 0; /* Reset if inside .section */
     margin-bottom: 0; /* Reset if inside .section */
     text-align: center;
@@ -586,11 +587,11 @@ body.dark-mode .footer .social-links a:focus-visible {
 .page-content-block { /* .page-content-block is another common content wrapper */
     position: relative;
     z-index: 1; /* Above section's ::before overlay */
-    background-color: transparent; /* Semi-transparent alabaster */
+    background-color: transparent !important; /* Semi-transparent alabaster */
     /* backdrop-filter: blur(3px); */ /* Subtle blur for content background */
     padding: clamp(1.5em, 4vw, 3em);
     border-radius: var(--global-border-radius);
-    box-shadow: none;
+    box-shadow: none !important;
     margin-top: 2em; /* General margin for page-content-block */
     margin-bottom: 2em; /* General margin for page-content-block */
 }
@@ -631,7 +632,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 
 .card {
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75);
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important;
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     box-shadow: var(--global-box-shadow-medium);
@@ -1652,7 +1653,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .contact-form-container {
     max-width: 700px;
     margin: 0 auto;
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75); /* Mapped */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; /* Mapped */
     padding: 30px 40px;
     border-radius: var(--border-radius-medio, 10px); /* Mapped */
     box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
@@ -1726,7 +1727,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .upload-form-container {
     max-width: 750px;
     margin: 0 auto;
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75); /* Mapped */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; /* Mapped */
     padding: 30px 40px;
     border-radius: var(--border-radius-medio, 10px); /* Mapped */
     box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
@@ -1985,7 +1986,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 
 .comment-item {
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75); /* Mapped */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; /* Mapped */
     padding: 15px;
     border-radius: var(--border-radius-suave, 5px); /* Mapped */
     margin-bottom: 15px;
@@ -2026,7 +2027,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 
 .quiz-container {
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75); /* Mapped */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; /* Mapped */
     padding: 20px;
     border-radius: var(--border-radius-suave, 5px); /* Mapped */
     border: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.4); /* Mapped */

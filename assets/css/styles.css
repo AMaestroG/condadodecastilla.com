@@ -55,7 +55,7 @@ header { /* New header for hamburger only */
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1001; /* Above sidebar but below modals if any */
+    z-index: 1030; /* Above sidebar but below modals if any */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -72,7 +72,7 @@ header { /* New header for hamburger only */
     height: 100%;
     width: 280px; /* Ancho del menú lateral */
     position: fixed;
-    z-index: 1000; /* Debajo del header del menú hamburguesa si es fijo */
+    z-index: 1040; /* Debajo del header del menú hamburguesa si es fijo */
     top: 0;
     left: -280px; /* Comienza oculto */
     background-color: var(--current-sidebar-bg);
@@ -156,9 +156,9 @@ header { /* New header for hamburger only */
 }
 
 #main-content {
-    margin-top: 60px; /* Ajustar si el header cambia de altura */
     padding: 20px;
     transition: margin-left 0.3s ease-in-out;
+    background: transparent !important;
     width: 100%;
     box-sizing: border-box;
 }
@@ -301,7 +301,7 @@ header { /* New header for hamburger only */
     position: fixed; /* Clave para que no se mueva con el scroll */
     left: 15px;      /* Distancia desde la izquierda */
     top: 60px;       /* Distancia desde arriba - Adjusted to be below #fixed-header-elements */
-    z-index: 1000;   /* Asegura que esté por encima de otros elementos, but below #fixed-header-elements */
+    z-index: 1020;   /* Asegura que esté por encima de otros elementos, but below #fixed-header-elements */
 
     /* Diseño del panel */
     display: flex;
