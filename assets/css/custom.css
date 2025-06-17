@@ -14,12 +14,11 @@ body {
 }
 
 body {
-  background-color: var(--epic-alabaster-bg);
   color: var(--epic-text-color);
 }
 
 .hero {
-  background-color: var(--epic-purple-emperor);
+  background-color: transparent;
   color: var(--epic-text-light);
 }
 
@@ -33,11 +32,10 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: var(--epic-alabaster-bg);
     color: var(--epic-text-light);
   }
   .hero {
-    background-color: var(--epic-purple-emperor);
+    background-color: transparent;
     color: var(--epic-text-light);
   }
   .cta-button {
