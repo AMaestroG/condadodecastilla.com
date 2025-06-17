@@ -6,13 +6,16 @@
 // Cargar variables de entorno desde .env
 require_once __DIR__ . '/../includes/env_loader.php';
 
-// --- IMPORTANTE PARA PRODUCCIÓN ---
-// Las siguientes líneas habilitan la visualización de errores para desarrollo.
-// DEBEN SER COMENTADAS O ELIMINADAS en un entorno de producción para no exponer información sensible.
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-// --- FIN DE SECCIÓN IMPORTANTE PARA PRODUCCIÓN ---
+// --- Manejo de modo debug ---
+// Activa la visualización de errores solo cuando la variable de entorno
+// APP_DEBUG esté establecida a 'true'. Por defecto esta variable es falsa.
+$app_debug = filter_var($_ENV['APP_DEBUG'] ?? false, FILTER_VALIDATE_BOOLEAN);
+if ($app_debug) {
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+}
+// --- Fin de manejo de modo debug ---
 
 // Configuración de la base de datos PostgreSQL
 $db_host = "localhost";         // Host de la base de datos (PostgreSQL está en el mismo servidor)
