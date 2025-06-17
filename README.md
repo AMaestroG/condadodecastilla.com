@@ -124,6 +124,14 @@ vendor/bin/phpunit
 El primer comando descargará las dependencias necesarias, incluido PHPUnit, y el
 segundo lanzará todos los tests definidos en `phpunit.xml`.
 
+### Pruebas de la API Flask
+
+Para ejecutar las pruebas escritas en Python que validan la API Flask utiliza:
+
+```bash
+python -m unittest tests/test_flask_api.py
+```
+
 ## Elementos del menú principal
 
 El archivo `fragments/menus/main-menu.html` define los enlaces de navegación que
