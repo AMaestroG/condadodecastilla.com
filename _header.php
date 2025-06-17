@@ -1,36 +1,52 @@
-<?php
-// require_once __DIR__ . '/_header.html';
-// Load AI assistant drawer so it is available on every page
-// echo file_get_contents(__DIR__ . '/fragments/header/ai-drawer.html'); // AI drawer is loaded via js/layout.js or specific pages.
-// We need to ensure the actual AI drawer HTML is loaded on the page for the toggle to work.
-// For now, let's assume fragments/header/ai-drawer.html is loaded elsewhere or add it if necessary.
-// One option is to include it here conditionally or ensure it's in a global include.
-if (file_exists(__DIR__ . '/fragments/header/ai-drawer.html')) {
-    echo file_get_contents(__DIR__ . '/fragments/header/ai-drawer.html');
-}
-?>
-<button id="consolidated-menu-button" class="menu-btn dark-mode menu-open-right menu-open-left" aria-label="Abrir menú consolidado" aria-expanded="false">☰</button>
-<div id="consolidated-menu-items" style="display: none;">
-    <button id="theme-toggle" class="menu-item-button" aria-label="Toggle theme"><i class="fas fa-moon"></i> <span>Tema</span></button>
-    <button id="ai-drawer-toggle" class="menu-item-button" aria-label="Toggle AI Assistant"><i class="fas fa-robot"></i> <span>Asistente IA</span></button>
+<button id="consolidated-menu-button" aria-label="Abrir menú principal" aria-expanded="false">☰</button>
+
+<!-- Right Sliding Panel for Main Menu -->
+<div id="consolidated-menu-items" class="menu-panel right-panel">
+    <button id="theme-toggle" class="menu-item-button" aria-label="Cambiar tema"><i class="fas fa-lightbulb"></i> <span>Tema</span></button>
+    <button id="ai-chat-trigger" class="menu-item-button" aria-label="Abrir chat IA"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
 
     <div class="menu-section">
-        <h3>Principal</h3>
-        <?php echo file_get_contents(__DIR__ . '/fragments/menus/main-menu.html'); ?>
+        <h4>Navegación Principal</h4>
+        <?php
+        if (file_exists(__DIR__ . '/fragments/menus/main-menu.html')) {
+            echo file_get_contents(__DIR__ . '/fragments/menus/main-menu.html');
+        }
+        ?>
     </div>
-
     <div class="menu-section">
-        <h3>Admin</h3>
+        <h4>Herramientas</h4>
+        <?php
+        if (file_exists(__DIR__ . '/fragments/menus/tools-menu.html')) {
+            echo file_get_contents(__DIR__ . '/fragments/menus/tools-menu.html');
+        }
+        ?>
+    </div>
+    <div class="menu-section">
+        <h4>Admin</h4>
         <?php include __DIR__ . '/fragments/menus/admin-menu.php'; ?>
     </div>
-
     <div class="menu-section">
-        <h3>Social</h3>
-        <?php echo file_get_contents(__DIR__ . '/fragments/menus/social-menu.html'); ?>
+        <h4>Social</h4>
+        <?php
+        if (file_exists(__DIR__ . '/fragments/menus/social-menu.html')) {
+            echo file_get_contents(__DIR__ . '/fragments/menus/social-menu.html');
+        }
+        ?>
     </div>
+    <!-- Add other menu items or buttons here as needed -->
+</div>
 
-    <div class="menu-section">
-        <h3>Herramientas</h3>
-        <?php echo file_get_contents(__DIR__ . '/fragments/menus/tools-menu.html'); ?>
-    </div>
+<!-- Left Sliding Panel for AI Chat -->
+<div id="ai-chat-panel" class="menu-panel left-panel">
+    <?php
+    // Content from ai-drawer.html will go here
+    // It includes the header, response area, input, and submit button for AI chat
+    if (file_exists(__DIR__ . '/fragments/header/ai-drawer.html')) {
+        // We might need to wrap or modify ai-drawer.html if its root element isn't suitable
+        // For now, directly include it.
+        echo file_get_contents(__DIR__ . '/fragments/header/ai-drawer.html');
+    } else {
+        echo '<p>Error: AI Chat interface not found.</p>';
+    }
+    ?>
 </div>
