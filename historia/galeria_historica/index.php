@@ -66,7 +66,7 @@
 </head>
 <body>
 
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_historia_background.jpg');">
         <div class="hero-content">
@@ -106,14 +106,14 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-center" style="margin-top: 30px;"><em>Esta galería se irá enriqueciendo con más elementos visuales y documentales. Se recomienda usar Font Awesome para los iconos de archivo (PDF, TXT, DOC), por lo que el CSS de la página principal o _header.html debería incluir la biblioteca.</em></p>
+                <p class="text-center" style="margin-top: 30px;"><em>Esta galería se irá enriqueciendo con más elementos visuales y documentales. Se recomienda usar Font Awesome para los iconos de archivo (PDF, TXT, DOC), por lo que el CSS de la página principal o _header.php debería incluir la biblioteca.</em></p>
             </div>
         </section>
     </main>
 
     <?php require_once __DIR__ . '/../../_footer.php'; ?>
     <script src="/js/layout.js"></script>
-    <!-- Consider adding a link to Font Awesome if not already included globally, e.g., in _header.html or main CSS -->
+    <!-- Consider adding a link to Font Awesome if not already included globally, e.g., in _header.php or main CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
 </body>
 </html>

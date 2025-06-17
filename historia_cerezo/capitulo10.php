@@ -3,7 +3,7 @@
     <title>Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.html'; ?>
+    <?php require_once __DIR__ . '/../_header.php'; ?>
     <h1>Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</h1>
 
     <section id="introduccion-antiguo-regimen">

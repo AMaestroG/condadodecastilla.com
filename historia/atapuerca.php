@@ -22,7 +22,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
     <title>Atapuerca</title>
 </head>
 <body>
-<?php require_once __DIR__ . '/../_header.html'; ?>
+<?php require_once __DIR__ . '/../_header.php'; ?>
     <header class="page-header hero" style="background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url('../assets/img/placeholder.jpg');"> <!-- Basic hero style -->
         <div class="hero-content">
             <h1><?php editableText('atapuerca_titulo_hero', $pdo, 'Los Yacimientos de la Sierra de Atapuerca'); ?></h1>

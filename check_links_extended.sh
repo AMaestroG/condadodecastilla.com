@@ -2,7 +2,7 @@
 # Subtask to check for broken internal links in key files AND HTML FRAGMENTS
 
 # Files to check initially
-files_to_check=("index.php" "_header.html" "_footer.php")
+files_to_check=("index.php" "_header.php" "_footer.php")
 
 # HTML Fragments to also check (header components)
 # Note: admin-menu.php is PHP; static analysis might be limited.

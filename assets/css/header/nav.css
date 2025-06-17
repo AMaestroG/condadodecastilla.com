@@ -137,7 +137,7 @@
     outline: 2px solid var(--epic-gold-main);
 }
 
-/* --- Sidebar Navigation (#sidebar, #sidebar-toggle from _header.html) --- */
+/* --- Sidebar Navigation (#sidebar, #sidebar-toggle from _header.php) --- */
 #sidebar {
     position: fixed;
     top: 0;

@@ -13,7 +13,7 @@ require_once __DIR__ . '/../includes/auth.php';
     <?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
 </head>
 <body>
-<?php require_once __DIR__ . '/../_header.html'; ?>
+<?php require_once __DIR__ . '/../_header.php'; ?>
 <main class="container page-content-block">
     <h1 class="section-title">Tienda</h1>
     <div class="card-grid">

@@ -3,7 +3,7 @@
     <title>Capítulo 2: El Alcázar de Cerasio y los Inicios de Castilla</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header.php'; ?>
     <h1>Capítulo 2: El Alcázar de Cerasio y los Inicios de Castilla</h1>
 
     <section>
