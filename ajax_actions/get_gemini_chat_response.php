@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../includes/ai_utils.php'; // For GOOGLE_API_KEY and Gemini functions
+require_once __DIR__ . '/../includes/ai_utils.php'; // For GEMINI_API_KEY and Gemini functions
 require_once __DIR__ . '/../includes/env_loader.php'; // Ensure environment variables are loaded
 
 header('Content-Type: application/json');
@@ -14,7 +14,7 @@ if (empty(trim($prompt))) {
 }
 
 // Call the function from ai_utils.php that interacts with Gemini for chat
-// (This function should already be set up to use GOOGLE_API_KEY)
+// (This function should already be set up to use GEMINI_API_KEY)
 $ai_response_text = get_ai_chat_response($prompt); // Assumes get_ai_chat_response handles errors internally and prefixes with "Error:"
 
 $response = [];
