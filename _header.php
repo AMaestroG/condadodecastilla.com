@@ -1,12 +1,12 @@
-<button id="consolidated-menu-button" aria-label="Abrir menú principal" aria-expanded="false">☰</button>
+<button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false">☰</button>
 
 <!-- Right Sliding Panel for Main Menu -->
 <div id="consolidated-menu-items" class="menu-panel right-panel">
     <button id="theme-toggle" class="menu-item-button" aria-label="Cambiar tema"><i class="fas fa-lightbulb"></i> <span>Tema</span></button>
-    <button id="ai-chat-trigger" class="menu-item-button" aria-label="Abrir chat IA"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
+    <button id="ai-chat-trigger" class="menu-item-button" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
 
     <div class="menu-section">
-        <h4>Navegación Principal</h4>
+        <h4 class="gradient-text">Navegación Principal</h4>
         <?php
         if (file_exists(__DIR__ . '/fragments/menus/main-menu.html')) {
             echo file_get_contents(__DIR__ . '/fragments/menus/main-menu.html');
@@ -14,7 +14,7 @@
         ?>
     </div>
     <div class="menu-section">
-        <h4>Herramientas</h4>
+        <h4 class="gradient-text">Herramientas</h4>
         <?php
         if (file_exists(__DIR__ . '/fragments/menus/tools-menu.html')) {
             echo file_get_contents(__DIR__ . '/fragments/menus/tools-menu.html');
@@ -22,11 +22,11 @@
         ?>
     </div>
     <div class="menu-section">
-        <h4>Admin</h4>
+        <h4 class="gradient-text">Admin</h4>
         <?php include __DIR__ . '/fragments/menus/admin-menu.php'; ?>
     </div>
     <div class="menu-section">
-        <h4>Social</h4>
+        <h4 class="gradient-text">Social</h4>
         <?php
         if (file_exists(__DIR__ . '/fragments/menus/social-menu.html')) {
             echo file_get_contents(__DIR__ . '/fragments/menus/social-menu.html');
