@@ -57,6 +57,12 @@
 .slide-menu.right { right: 0; transform: translateX(100%); }
 .slide-menu.open { transform: translateX(0); }
 
+/* When any sliding menu is open, compress content slightly */
+body.menu-compressed {
+    transform: scale(0.97);
+    transition: transform 0.3s ease;
+}
+
 body.menu-open-left,
 body.menu-open-right {
     transition: transform 0.3s ease;
