@@ -159,10 +159,11 @@ body {
 /* Language Options inside Dropdown */
 .fixed-right-toolbar .frt-lang-option {
     display: block;
-    padding: 8px 15px;
+    padding: 8px 10px 8px 15px; /* Ajustado para text-align: right */
     color: #ecf0f1;
     text-decoration: none;
     font-size: 14px;
+    text-align: right; /* Alineación a la derecha */
 }
 
 .fixed-right-toolbar .frt-lang-option:hover,
