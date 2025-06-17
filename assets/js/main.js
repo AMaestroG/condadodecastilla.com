@@ -1,28 +1,28 @@
 // assets/js/main.js
-alert('main.js loaded'); // Alerta 1: Script cargado
+// alert('main.js loaded'); // Alerta 1: Script cargado
 
 document.addEventListener('DOMContentLoaded', () => {
-    alert('DOM fully loaded and parsed'); // Alerta 2: DOM listo
+    // alert('DOM fully loaded and parsed'); // Alerta 2: DOM listo
 
     // Main Consolidated Menu (Right Panel)
     const consolidatedMenuButton = document.getElementById('consolidated-menu-button');
     const consolidatedMenuItems = document.getElementById('consolidated-menu-items');
 
     if (!consolidatedMenuButton) {
-        alert('Error: consolidatedMenuButton not found!'); // Alerta 3a
+        // alert('Error: consolidatedMenuButton not found!'); // Alerta 3a
     }
     if (!consolidatedMenuItems) {
-        alert('Error: consolidatedMenuItems not found!'); // Alerta 3b
+        // alert('Error: consolidatedMenuItems not found!'); // Alerta 3b
     }
 
     if (consolidatedMenuButton && consolidatedMenuItems) {
-        alert('Menu button and items panel FOUND.'); // Alerta 4: Elementos encontrados
+        // alert('Menu button and items panel FOUND.'); // Alerta 4: Elementos encontrados
         consolidatedMenuButton.addEventListener('click', () => {
-            alert('Consolidated menu button CLICKED!'); // Alerta 5: Clic en el botón
+            // alert('Consolidated menu button CLICKED!'); // Alerta 5: Clic en el botón
             consolidatedMenuItems.classList.toggle('active');
             const isExpanded = consolidatedMenuItems.classList.contains('active');
             consolidatedMenuButton.setAttribute('aria-expanded', isExpanded.toString());
-            alert('Active class toggled. Panel should be ' + (isExpanded ? 'visible' : 'hidden')); // Alerta 6
+            // alert('Active class toggled. Panel should be ' + (isExpanded ? 'visible' : 'hidden')); // Alerta 6
         });
     } else {
         console.error('Consolidated menu button or items panel not found (logged to console).');
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (aiChatTriggerButton && aiChatPanel) {
         aiChatTriggerButton.addEventListener('click', () => {
-            alert('AI Chat trigger button CLICKED!'); // Alerta para el trigger del chat IA
+            // alert('AI Chat trigger button CLICKED!'); // Alerta para el trigger del chat IA
             aiChatPanel.classList.toggle('active');
             const isAIExpanded = aiChatPanel.classList.contains('active');
             aiChatTriggerButton.setAttribute('aria-expanded', isAIExpanded.toString());
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeAiDrawerButton = document.getElementById('close-ai-drawer');
     if (closeAiDrawerButton && aiChatPanel) {
         closeAiDrawerButton.addEventListener('click', () => {
-            alert('AI Chat CLOSE button CLICKED!'); // Alerta para el botón de cerrar chat IA
+            // alert('AI Chat CLOSE button CLICKED!'); // Alerta para el botón de cerrar chat IA
             aiChatPanel.classList.remove('active');
             if (aiChatTriggerButton) {
                 aiChatTriggerButton.setAttribute('aria-expanded', 'false');
@@ -102,5 +102,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-    alert('main.js event listeners attached.'); // Alerta 7: Fin de la configuración
+    // alert('main.js event listeners attached.'); // Alerta 7: Fin de la configuración
 });
