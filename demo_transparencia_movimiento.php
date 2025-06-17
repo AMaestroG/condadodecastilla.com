@@ -5,7 +5,7 @@
         <h1>Efectos Visuales</h1>
         <div class="demo-card">
             <p>Esta tarjeta emplea un sutil efecto de vidrio esmerilado con movimiento de aparición.</p>
-            <button class="demo-button">Acción</button>
+            <button class="demo-button"><span>Acción</span></button>
         </div>
     </section>
     <?php require_once __DIR__ . '/_footer.php'; ?>

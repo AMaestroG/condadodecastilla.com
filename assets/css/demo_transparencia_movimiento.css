@@ -33,10 +33,12 @@
     color: var(--morado-emperador);
     opacity: 0;
     animation: fade-up 1s ease forwards 0.5s;
+    text-align: right; /* move inner content to the right */
 }
 
 .demo-button {
-    display: inline-block;
+    display: block; /* allow margin auto */
+    margin-left: auto; /* align button to right */
     padding: 0.75rem 1.5rem;
     background: var(--oro-viejo);
     color: var(--morado-emperador);
@@ -47,6 +49,17 @@
     position: relative;
     overflow: hidden;
     transition: color 0.3s;
+}
+
+.demo-button span {
+    display: block;
+    background: linear-gradient(45deg, var(--morado-emperador), var(--oro-viejo));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.demo-button:hover span {
+    background: linear-gradient(45deg, var(--oro-viejo), var(--morado-emperador));
 }
 
 .demo-button::after {
