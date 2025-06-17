@@ -47,6 +47,11 @@
     transform: translateX(100%); /* Initially off-screen to the right */
 }
 
+#demo-info-panel.right-panel {
+    right: 0;
+    transform: translateX(100%); /* Initially off-screen to the right */
+}
+
 #ai-chat-panel.left-panel {
     left: 0;
     transform: translateX(-100%); /* Initially off-screen to the left */
@@ -56,7 +61,8 @@
 
 /* Active states for panels (toggled by JavaScript) */
 #consolidated-menu-items.right-panel.active,
-#ai-chat-panel.left-panel.active {
+#ai-chat-panel.left-panel.active,
+#demo-info-panel.right-panel.active {
     transform: translateX(0);
     opacity: 1;
 }
