@@ -3,6 +3,7 @@ require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
 require_once __DIR__ . '/../dashboard/db_connect.php';
 require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/csrf.php';
 /** @var PDO $pdo */
 
 // Ensure comments table exists
@@ -48,10 +49,13 @@ function fetchComments(string $agent, ?PDO $pdo): array {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $agent = $_POST['agent'] ?? '';
     $comment = trim($_POST['comment'] ?? '');
+    $token = $_POST['csrf_token'] ?? '';
     $maxLength = 500;
     $rateLimit = FORUM_COMMENT_COOLDOWN; // seconds
 
-    if (strlen($comment) > $maxLength) {
+    if (!verify_csrf_token($token)) {
+        $_SESSION['forum_error'] = 'CSRF token inválido.';
+    } elseif (strlen($comment) > $maxLength) {
         $_SESSION['forum_error'] = 'Comentario demasiado largo.';
     } elseif (isset($_SESSION['last_comment_time']) && (time() - $_SESSION['last_comment_time']) < $rateLimit) {
         $_SESSION['forum_error'] = 'Espera unos segundos antes de comentar de nuevo.';
@@ -91,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
         <p><?php echo htmlspecialchars($ag['bio']); ?></p>
         <form method="post">
             <input type="hidden" name="agent" value="<?php echo $id; ?>">
+            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
             <textarea name="comment" rows="3" required placeholder="Comparte tu consejo o comentario"></textarea>
             <button type="submit" class="cta-button submit-button">Publicar</button>
         </form>
