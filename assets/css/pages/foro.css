@@ -11,6 +11,7 @@ body { background-color: rgba(245,235,220,0.95); }
     background: linear-gradient(45deg, var(--color-primario-purpura, #4A0D67), var(--color-secundario-dorado, #B8860B));
     -webkit-background-clip: text;
     color: transparent;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
 }
 .agent-profile textarea { width: 100%; margin: 0.5em 0; }
 .feedback { padding: 10px; margin: 10px 0; border-radius: 4px; }

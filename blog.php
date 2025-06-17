@@ -60,7 +60,6 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
 </main>
 <?php include __DIR__.'/_footer.php'; ?>
 <?php include __DIR__.'/fragments/ai-drawer.html'; ?>
-<script src="/assets/js/main.js"></script>
 <script src="/js/layout.js"></script>
 </body>
 </html>

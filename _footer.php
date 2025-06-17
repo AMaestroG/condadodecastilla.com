@@ -18,4 +18,5 @@
         </div>
 </div>
 </footer>
+<script src="/js/menu-controller.js"></script>
 <script src="/assets/js/main.js"></script>
