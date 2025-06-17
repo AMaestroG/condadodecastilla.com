@@ -38,6 +38,16 @@
     --current-icon-filter: invert(1) hue-rotate(180deg); /* Ejemplo para invertir y colorear iconos SVG/PNG */
 }
 
+html {
+    background-image: url('/assets/img/alabastro.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+}
+
 body {
     font-family: 'Lora', serif;
     background-color: transparent; /* MODIFIED: Was var(--current-bg) */

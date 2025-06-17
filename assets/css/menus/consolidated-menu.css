@@ -1,0 +1,225 @@
+/* assets/css/menus/consolidated-menu.css */
+
+/* Main toggle button for the consolidated menu */
+#consolidated-menu-button {
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Positioned to the right as menu slides from right */
+    z-index: 1005; /* Above panels but below modals if any */
+    padding: 8px 12px; /* Slightly more compact */
+    background-color: rgba(50, 50, 50, 0.8); /* Semi-transparent background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em; /* Slightly more compact */
+    transition: background-color 0.3s ease;
+}
+
+#consolidated-menu-button:hover {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+/* Common styles for both sliding panels */
+.menu-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0; /* Make panel full height */
+    width: 300px; /* Adjust width as needed */
+    max-width: 80%; /* Max width for smaller screens */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blur effect for transparency */
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    overflow-y: hidden; /* STRICT NO-SCROLL as per user feedback refinement */
+    display: flex; /* Added for flex-direction */
+    flex-direction: column; /* Added to manage content flow */
+    padding: 15px; /* Reduced padding */
+    padding-top: 50px; /* Space for a close button or header within panel, reduced */
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0; /* Start hidden for transition */
+}
+
+/* Specific panel positioning and initial hidden state */
+#consolidated-menu-items.right-panel {
+    right: 0;
+    transform: translateX(100%); /* Initially off-screen to the right */
+}
+
+#ai-chat-panel.left-panel {
+    left: 0;
+    transform: translateX(-100%); /* Initially off-screen to the left */
+    /* AI chat panel might need its own content scroll if chat history grows */
+    /* For now, its direct content (input, header) is small. */
+}
+
+/* Active states for panels (toggled by JavaScript) */
+#consolidated-menu-items.right-panel.active,
+#ai-chat-panel.left-panel.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Styling for buttons and content within panels */
+.menu-panel .menu-item-button {
+    display: block;
+    width: 100%;
+    padding: 10px 12px; /* Compacted */
+    margin-bottom: 8px; /* Compacted */
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: left;
+    cursor: pointer;
+    color: #333;
+    font-size: 0.9em; /* Compacted */
+    transition: background-color 0.2s ease;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.menu-panel .menu-item-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu-panel .menu-item-button i {
+    margin-right: 8px; /* Reduced */
+    width: 18px; /* Align icons, reduced */
+    text-align: center;
+}
+
+.menu-panel .menu-section {
+    margin-top: 10px; /* Compacted */
+    padding-top: 10px; /* Compacted */
+    border-top: 1px solid rgba(0,0,0,0.1);
+    /* If using flex-direction: column on .menu-panel, control shrinking/growing if needed */
+    flex-shrink: 0; /* Prevent sections from shrinking if panel has fixed height and content overflows */
+}
+/* This targets the content area of the main menu to allow scrolling IF absolutely necessary,
+   while the panel itself remains fixed. This is a compromise for long lists.
+   If strict no-scroll for everything, this should be removed and lists shortened. */
+#consolidated-menu-items .menu-content-wrapper {
+    flex-grow: 1;
+    overflow-y: auto; /* Allow scroll only for this inner wrapper if content is too long */
+}
+
+
+.menu-panel .menu-section:first-of-type {
+     margin-top: 0;
+     border-top: none;
+     padding-top: 0;
+}
+
+.menu-panel .menu-section h4 {
+    font-size: 0.85em; /* Compacted */
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px; /* Compacted */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.menu-panel .menu-section ul.nav-links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.menu-panel .menu-section ul.nav-links li a {
+    display: block;
+    padding: 8px 12px; /* Compacted */
+    text-decoration: none;
+    color: #1a73e8; /* Google Blue */
+    border-radius: 3px;
+    font-size: 0.85em; /* Compacted */
+    transition: background-color 0.2s ease;
+}
+
+.menu-panel .menu-section ul.nav-links li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #0056b3;
+}
+
+/* AI Chat Panel Specifics */
+#ai-chat-panel {
+    display: flex; /* ensure ai-drawer inside behaves as expected */
+    flex-direction: column;
+}
+
+#ai-chat-panel .ai-drawer-header { /* From ai-drawer.html */
+    padding-bottom: 8px; /* Compacted */
+    margin-bottom: 10px; /* Compacted */
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Header should not shrink */
+}
+#ai-chat-panel .ai-drawer-header h3 {
+    margin:0;
+    font-size: 1em; /* Compacted */
+    color: #333;
+}
+#ai-chat-panel #close-ai-drawer {
+    background: none;
+    border: none;
+    font-size: 1.4em; /* Compacted */
+    color: #777;
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    top: 10px; /* Adjusted for new panel padding */
+    right: 10px; /* Adjusted for new panel padding */
+}
+#ai-chat-panel #close-ai-drawer:hover {
+    color: #333;
+}
+
+#ai-chat-panel .ai-drawer-content {
+    flex-grow: 1; /* Allows content (chat messages + input) to fill space */
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden; /* Main content area of AI chat does not scroll by default */
+}
+
+#ai-chat-panel #ai-response { /* The actual chat message area */
+    flex-grow: 1;
+    overflow-y: auto; /* Chat messages themselves should scroll */
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+    background-color: rgba(0,0,0,0.02);
+}
+
+#ai-chat-panel #ai-input { /* Text input */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 5px; /* Compacted */
+    flex-shrink: 0; /* Input should not shrink */
+}
+#ai-chat-panel #ai-submit { /* Submit button */
+    padding: 8px 12px;
+    background-color: #1a73e8;
+    color: white;
+    border:none;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-shrink: 0; /* Button should not shrink */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .menu-panel {
+        width: 280px; /* Slightly narrower for mobile */
+        padding: 10px; /* Compacted */
+        padding-top: 45px; /* Compacted */
+    }
+    #consolidated-menu-button {
+        top: 10px; /* Compacted */
+        right: 10px; /* Compacted */
+        font-size: 1em; /* Compacted */
+        padding: 6px 10px; /* Compacted */
+    }
+    #ai-chat-panel #close-ai-drawer {
+        top: 8px;
+        right: 8px;
+    }
+}

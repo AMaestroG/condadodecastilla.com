@@ -1,131 +1,97 @@
+// assets/js/main.js
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Menu Toggle Logic ---
-    const menuToggle = document.getElementById('menu-button');
-    const sidebar = document.getElementById('slide-menu-left');
-    const mainContent = document.getElementById('main-content');
+    // Main Consolidated Menu (Right Panel)
+    const consolidatedMenuButton = document.getElementById('consolidated-menu-button');
+    const consolidatedMenuItems = document.getElementById('consolidated-menu-items');
 
-    if (menuToggle && sidebar && mainContent) {
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            document.body.classList.toggle('menu-open-left');
-            // Update aria-expanded attribute for accessibility
-            const isExpanded = sidebar.classList.contains('open');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
+    if (consolidatedMenuButton && consolidatedMenuItems) {
+        consolidatedMenuButton.addEventListener('click', () => {
+            consolidatedMenuItems.classList.toggle('active');
+            const isExpanded = consolidatedMenuItems.classList.contains('active');
+            consolidatedMenuButton.setAttribute('aria-expanded', isExpanded.toString());
+            // Optional: If AI panel should close when main menu closes, add logic here
+            // if (!isExpanded && aiChatPanel && aiChatPanel.classList.contains('active')) {
+            //    aiChatPanel.classList.remove('active');
+            //    // Also update ai-chat-trigger's aria-expanded if it exists
+            // }
         });
-    }
-
-    // --- Theme Toggle Logic ---
-    const themeToggleButton = document.getElementById('theme-toggle'); // Theme toggle button
-    const themeIcon = themeToggleButton ? themeToggleButton.querySelector('img') : null;
-    const themeSpan = themeToggleButton ? themeToggleButton.querySelector('span') : null;
-
-    function applyTheme(theme) {
-        if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            if (themeIcon) themeIcon.src = 'assets/icons/sun-icon.svg';
-            if (themeSpan) themeSpan.textContent = 'Modo Claro';
-            localStorage.setItem('theme', 'dark');
-        } else { // Light theme
-            document.documentElement.setAttribute('data-theme', 'light');
-            if (themeIcon) themeIcon.src = 'assets/icons/moon-icon.svg';
-            if (themeSpan) themeSpan.textContent = 'Modo Oscuro';
-            localStorage.setItem('theme', 'light');
-        }
-    }
-
-    // Initialize theme based on localStorage or preference
-    const currentTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (currentTheme) {
-        applyTheme(currentTheme);
-    } else if (prefersDark) {
-        applyTheme('dark');
     } else {
-        applyTheme('light'); // Default to light
+        console.error('Consolidated menu button or items panel not found.');
     }
 
-    if (themeToggleButton) {
-        themeToggleButton.addEventListener('click', () => {
-            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
+    // AI Chat Panel (Left Panel) - Triggered from within the consolidated menu
+    const aiChatTriggerButton = document.getElementById('ai-chat-trigger');
+    const aiChatPanel = document.getElementById('ai-chat-panel');
+
+    if (aiChatTriggerButton && aiChatPanel) {
+        aiChatTriggerButton.addEventListener('click', () => {
+            aiChatPanel.classList.toggle('active');
+            const isAIExpanded = aiChatPanel.classList.contains('active');
+            aiChatTriggerButton.setAttribute('aria-expanded', isAIExpanded.toString());
+
+            // Optional: Close main consolidated menu when AI chat opens
+            // if (isAIExpanded && consolidatedMenuItems && consolidatedMenuItems.classList.contains('active')) {
+            //     consolidatedMenuItems.classList.remove('active');
+            //     consolidatedMenuButton.setAttribute('aria-expanded', 'false');
+            // }
         });
+    } else {
+        console.error('AI chat trigger button or AI chat panel not found.');
     }
 
-    // --- AI Drawer Logic ---
-    const aiDrawer = document.getElementById('ai-drawer');
-    const aiDrawerToggle = document.getElementById('ai-drawer-toggle'); // AI drawer toggle button
-    const closeAiDrawerButton = document.getElementById('close-ai-drawer');
-    const aiSubmit = document.getElementById('ai-submit');
-    const aiInput = document.getElementById('ai-input');
-    const aiResponse = document.getElementById('ai-response');
-
-    if (aiDrawerToggle && aiDrawer) {
-        aiDrawerToggle.addEventListener('click', () => {
-            aiDrawer.classList.toggle('active');
-            const isExpanded = aiDrawer.classList.contains('active');
-            aiDrawerToggle.setAttribute('aria-expanded', isExpanded);
-        });
-    }
-
-    if (closeAiDrawerButton && aiDrawer) {
+    // AI Chat Panel - Internal Close Button (from ai-drawer.html)
+    const closeAiDrawerButton = document.getElementById('close-ai-drawer'); // ID is from ai-drawer.html
+    if (closeAiDrawerButton && aiChatPanel) {
         closeAiDrawerButton.addEventListener('click', () => {
-            aiDrawer.classList.remove('active');
-            if (aiDrawerToggle) aiDrawerToggle.setAttribute('aria-expanded', 'false');
-        });
-    }
-
-    if (aiSubmit && aiInput && aiResponse) {
-        aiSubmit.addEventListener('click', async () => {
-            const prompt = aiInput.value.trim();
-            if (!prompt) return; // Don't send empty prompts
-
-            const url = '/api/chat';
-
-            aiResponse.innerHTML = 'Procesando...';
-
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt })
-                });
-
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => null);
-                    let errorMessage = `Error: ${response.status} ${response.statusText}`;
-                    if (errorData && errorData.error && errorData.error.message) {
-                        errorMessage += ` - ${errorData.error.message}`;
-                    }
-                    throw new Error(errorMessage);
-                }
-
-                const data = await response.json();
-                if (data.response) {
-                    aiResponse.innerHTML = data.response;
-                } else if (data.error) {
-                    aiResponse.innerHTML = data.error;
-                } else {
-                    aiResponse.innerHTML = 'No se recibió respuesta válida.';
-                }
-            } catch (error) {
-                console.error('Error llamando a la API de Gemini:', error);
-                aiResponse.innerHTML = `Error al contactar el asistente de IA: ${error.message}`;
-            }
-            aiInput.value = ''; // Clear input
-        });
-
-        // Allow submitting with Enter key in the input field
-        aiInput.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault(); // Prevent default form submission if it were in a form
-                aiSubmit.click();
+            aiChatPanel.classList.remove('active');
+            if (aiChatTriggerButton) {
+                aiChatTriggerButton.setAttribute('aria-expanded', 'false');
             }
         });
+    } else {
+        // Note: #close-ai-drawer is inside #ai-chat-panel, so it might not be found if panel is empty
+        // console.warn('AI drawer close button not found. This is normal if AI chat panel content is not loaded.');
     }
 
-    // Initialize AOS (Animate On Scroll) if it's used and loaded
-    if (typeof AOS !== 'undefined') {
-        AOS.init();
+    // Theme Toggle Button - Functionality is in js/layout.js (initializeThemeToggle)
+    // No new JS needed here for theme toggle, just ensure the button #theme-toggle exists in HTML.
+    const themeToggleButton = document.getElementById('theme-toggle');
+    if (!themeToggleButton) {
+        console.error('Theme toggle button not found.');
     }
+
+    // Optional: Close menus when clicking outside
+    document.addEventListener('click', (event) => {
+        // Close consolidated menu if click is outside
+        if (consolidatedMenuItems && consolidatedMenuItems.classList.contains('active') &&
+            !consolidatedMenuItems.contains(event.target) && !consolidatedMenuButton.contains(event.target)) {
+            consolidatedMenuItems.classList.remove('active');
+            consolidatedMenuButton.setAttribute('aria-expanded', 'false');
+        }
+
+        // Close AI chat panel if click is outside
+        // (and not on its trigger, which would toggle it back open immediately)
+        if (aiChatPanel && aiChatPanel.classList.contains('active') &&
+            !aiChatPanel.contains(event.target) &&
+            aiChatTriggerButton && !aiChatTriggerButton.contains(event.target)) {
+            aiChatPanel.classList.remove('active');
+            aiChatTriggerButton.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Optional: Close menus with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            if (consolidatedMenuItems && consolidatedMenuItems.classList.contains('active')) {
+                consolidatedMenuItems.classList.remove('active');
+                consolidatedMenuButton.setAttribute('aria-expanded', 'false');
+            }
+            if (aiChatPanel && aiChatPanel.classList.contains('active')) {
+                aiChatPanel.classList.remove('active');
+                if (aiChatTriggerButton) {
+                    aiChatTriggerButton.setAttribute('aria-expanded', 'false');
+                }
+            }
+        }
+    });
 });

@@ -35,10 +35,6 @@ require_once __DIR__ . '/_header.php';
         </div>
         <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
     </header>
-    <?php
-        $hero_text = getTextContentFromDB('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.');
-        echo get_smart_summary('index_hero', $hero_text);
-    ?>
 
     <section class="video-section section spotlight-active" data-aos="fade-up">
         <div class="container">

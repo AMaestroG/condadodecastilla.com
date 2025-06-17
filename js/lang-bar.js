@@ -6,6 +6,10 @@ function setupLanguageBar() {
         const flagLinks = document.querySelectorAll('.language-bar .lang-flag');
 
         flagLinks.forEach(link => {
+            link.classList.remove('active-lang');
+        });
+
+        flagLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = this.getAttribute('href').split('lang=')[1];
@@ -16,10 +20,21 @@ function setupLanguageBar() {
             });
         });
 
-        if (lang) { // Simplified condition, relying on loadGoogleTranslate to handle 'es' if necessary, or adjust if 'es' means "no translation"
+        if (lang) {
+            flagLinks.forEach(link => {
+                if (link.getAttribute('href').includes(`lang=${lang}`)) {
+                    link.classList.add('active-lang');
+                }
+            });
             console.log(`setupLanguageBar: Determined language for translation: ${lang}`);
             loadGoogleTranslate(lang);
         } else {
+            // Optional: if no 'lang', highlight 'es' by default if that flag exists
+            flagLinks.forEach(link => {
+                if (link.getAttribute('href').includes('lang=es')) {
+                    link.classList.add('active-lang');
+                }
+            });
             console.log("setupLanguageBar: No language parameter in URL, or default language selected.");
         }
     } catch (error) {

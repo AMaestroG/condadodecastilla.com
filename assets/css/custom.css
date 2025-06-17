@@ -48,3 +48,37 @@ body {
 }
 
 /*# sourceMappingURL=custom.css.map */
+
+/* Hide the Google Translate toolbar */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+/* Prevent page content from shifting down */
+body {
+    top: 0px !important;
+}
+
+/* Ensure the Google Translate widget itself is not accidentally shown if not already hidden by inline style */
+#google_translate_element {
+    display: none !important;
+}
+
+/* Estilos para la bandera del idioma activo */
+.language-bar .lang-flag.active-lang {
+    border: 2px solid #007bff; /* Un borde azul distintivo */
+    opacity: 1 !important; /* Asegurar que sea completamente opaco */
+    transform: scale(1.1); /* Un ligero aumento de tamaño */
+    border-radius: 3px; /* Bordes redondeados para el borde */
+}
+
+/* Estilo opcional para las banderas inactivas */
+.language-bar .lang-flag {
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Transición suave */
+}
+
+.language-bar .lang-flag:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Aumentar también en hover para consistencia */
+}

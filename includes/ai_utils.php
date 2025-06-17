@@ -6,16 +6,13 @@ require_once __DIR__ . '/env_loader.php';
 
 // Read Gemini API settings from environment variables when available
 if (!defined('GEMINI_API_KEY')) {
-    $envKey = getenv('GEMINI_API_KEY');
-    if ($envKey === false) {
-        // Compatibility: allow the variable name 'GeminiAPI'
-        $envKey = getenv('GeminiAPI');
-    }
-    define('GEMINI_API_KEY', $envKey !== false ? $envKey : 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO');
+    $envKey = getenv('GOOGLE_API_KEY');
+    // Fallback to 'GeminiAPI' removed to keep it specific to GOOGLE_API_KEY
+    define('GEMINI_API_KEY', $envKey !== false ? $envKey : 'YOUR_GOOGLE_API_KEY_NOT_SET');
 }
 if (!defined('GEMINI_API_ENDPOINT')) {
     $envEndpoint = getenv('GEMINI_API_ENDPOINT');
-    define('GEMINI_API_ENDPOINT', $envEndpoint !== false ? $envEndpoint : 'https://api.gemini.example.com/v1/generateContent');
+    define('GEMINI_API_ENDPOINT', $envEndpoint !== false ? $envEndpoint : 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent');
 }
 
 if (!defined('AI_UTILS_LOADED')) {
@@ -181,8 +178,9 @@ function _parse_gemini_response(?array $api_response, ?string $call_error): stri
  * @return array|null Respuesta decodificada o null si hay errores.
  */
 function _call_gemini_api(array $payload, ?string &$error = null): ?array {
-    if (GEMINI_API_KEY === 'TU_API_KEY_AQUI_CONFIGURACION_ENTORNO' ||
-        GEMINI_API_ENDPOINT === 'https://api.gemini.example.com/v1/generateContent') {
+    // Use simulator only if the API key is the placeholder "not set" value.
+    // If a key is provided, attempt a real call, regardless of the endpoint value.
+    if (GEMINI_API_KEY === 'YOUR_GOOGLE_API_KEY_NOT_SET') {
         return _call_gemini_api_simulator($payload);
     }
 
