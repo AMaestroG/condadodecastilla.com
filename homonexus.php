@@ -15,7 +15,6 @@
         <p>Utiliza el botón ∞ para activar o desactivar la metamorfosis de los menús y sentir el flujo telepático de la información.</p>
     </main>
     <?php require_once __DIR__ . '/_footer.php'; ?>
-    <?php include __DIR__ . '/fragments/ai-drawer.html'; ?>
     <script src="/assets/js/main.js"></script>
     <script src="/js/layout.js"></script>
 </body>
