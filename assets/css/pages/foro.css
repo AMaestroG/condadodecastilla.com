@@ -24,7 +24,8 @@ body { background-color: rgba(245,235,220,0.95); }
 }
 .menu-btn {
     position: fixed;
-    left: 10px;
+    right: 10px;
+    left: auto;
     top: 10px;
     z-index: 1010;
     background-color: var(--color-primario-purpura, #4A0D67);
