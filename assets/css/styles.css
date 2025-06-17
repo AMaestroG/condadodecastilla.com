@@ -9,7 +9,7 @@
     --sidebar-bg-dark: var(--epic-alabaster-medium); /* Un poco más oscuro que el fondo principal */
     --separator-light: var(--epic-gold-main);
     --separator-dark: var(--epic-gold-secondary);
-    --button-bg-light: var(--emperador-purple);
+    --button-bg-light: rgba(var(--epic-purple-emperor-rgb), 0.75);
     --button-text-light: var(--light-text);
     --button-bg-dark: var(--old-gold);
     --button-text-dark: var(--dark-text); /* Oro sobre fondo oscuro puede necesitar texto oscuro */
@@ -196,7 +196,7 @@ header { /* New header for hamburger only */
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: var(--emperador-purple); /* Color distintivo para el header del AI */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.85); /* Color distintivo para el header del AI */
     color: var(--light-text);
     border-bottom: 1px solid var(--old-gold); /* Detalle con el otro color de la paleta */
 }
@@ -312,7 +312,7 @@ header { /* New header for hamburger only */
     gap: 10px; /* Espacio entre la sección de idiomas y la de botones */
 
     /* Estilo visual tipo "cristal" (opcional pero moderno) */
-    background-color: rgba(93, 58, 153, 0.8); /* Tu morado emperador con transparencia */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.8); /* Tu morado emperador con transparencia */
     backdrop-filter: blur(5px);
     padding: 10px;
     border-radius: 8px;
