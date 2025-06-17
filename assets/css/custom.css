@@ -50,3 +50,18 @@ body {
 }
 
 /*# sourceMappingURL=custom.css.map */
+
+/* Hide the Google Translate toolbar */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+/* Prevent page content from shifting down */
+body {
+    top: 0px !important;
+}
+
+/* Ensure the Google Translate widget itself is not accidentally shown if not already hidden by inline style */
+#google_translate_element {
+    display: none !important;
+}
