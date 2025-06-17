@@ -38,7 +38,7 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 <body>
 <?php include __DIR__.'/_header.php'; ?>
