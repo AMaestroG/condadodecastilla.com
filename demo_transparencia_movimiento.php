@@ -10,7 +10,6 @@
     </section>
     <?php require_once __DIR__ . '/_footer.php'; ?>
     <?php include __DIR__ . '/fragments/ai-drawer.html'; ?>
-    <script src="/assets/js/main.js"></script>
     <script src="/js/layout.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
