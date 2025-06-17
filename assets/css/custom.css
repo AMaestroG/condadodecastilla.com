@@ -18,7 +18,7 @@ body {
 }
 
 .hero {
-  background-color: transparent;
+  background: linear-gradient(to bottom, rgba(var(--epic-purple-emperor-rgb), 0.3), rgba(var(--epic-purple-emperor-rgb), 0.1));
   color: var(--epic-text-light);
 }
 
@@ -35,7 +35,7 @@ body {
     color: var(--epic-text-light);
   }
   .hero {
-    background-color: transparent;
+    background: linear-gradient(to bottom, rgba(var(--epic-purple-emperor-rgb), 0.3), rgba(var(--epic-purple-emperor-rgb), 0.1));
     color: var(--epic-text-light);
   }
   .cta-button {
@@ -43,7 +43,7 @@ body {
     color: var(--epic-text-color);
   }
   .cta-button:hover {
-    background-color: var(--epic-purple-emperor);
+    background: linear-gradient(145deg, rgba(var(--epic-purple-emperor-rgb), 0.85), rgba(56, 10, 84, 0.7));
   }
 }
 
