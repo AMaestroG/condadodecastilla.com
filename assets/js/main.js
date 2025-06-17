@@ -1,131 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Menu Toggle Logic ---
-    const menuToggle = document.getElementById('menu-button');
-    const sidebar = document.getElementById('slide-menu-left');
-    const mainContent = document.getElementById('main-content');
+    // Consolidated Menu Toggle
+    const consolidatedMenuButton = document.getElementById('consolidated-menu-button');
+    const consolidatedMenuItems = document.getElementById('consolidated-menu-items');
 
-    if (menuToggle && sidebar && mainContent) {
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            document.body.classList.toggle('menu-open-left');
-            // Update aria-expanded attribute for accessibility
-            const isExpanded = sidebar.classList.contains('open');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
+    if (consolidatedMenuButton && consolidatedMenuItems) {
+        consolidatedMenuButton.addEventListener('click', () => {
+            const isExpanded = consolidatedMenuButton.getAttribute('aria-expanded') === 'true';
+            if (consolidatedMenuItems.style.display === 'block') {
+                consolidatedMenuItems.style.display = 'none';
+                consolidatedMenuButton.setAttribute('aria-expanded', 'false');
+            } else {
+                consolidatedMenuItems.style.display = 'block'; // Or 'flex' if that's better for layout
+                consolidatedMenuButton.setAttribute('aria-expanded', 'true');
+            }
         });
-    }
-
-    // --- Theme Toggle Logic ---
-    const themeToggleButton = document.getElementById('theme-toggle'); // Theme toggle button
-    const themeIcon = themeToggleButton ? themeToggleButton.querySelector('img') : null;
-    const themeSpan = themeToggleButton ? themeToggleButton.querySelector('span') : null;
-
-    function applyTheme(theme) {
-        if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            if (themeIcon) themeIcon.src = 'assets/icons/sun-icon.svg';
-            if (themeSpan) themeSpan.textContent = 'Modo Claro';
-            localStorage.setItem('theme', 'dark');
-        } else { // Light theme
-            document.documentElement.setAttribute('data-theme', 'light');
-            if (themeIcon) themeIcon.src = 'assets/icons/moon-icon.svg';
-            if (themeSpan) themeSpan.textContent = 'Modo Oscuro';
-            localStorage.setItem('theme', 'light');
-        }
-    }
-
-    // Initialize theme based on localStorage or preference
-    const currentTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (currentTheme) {
-        applyTheme(currentTheme);
-    } else if (prefersDark) {
-        applyTheme('dark');
     } else {
-        applyTheme('light'); // Default to light
+        console.error('Consolidated menu button or items not found.');
     }
 
-    if (themeToggleButton) {
-        themeToggleButton.addEventListener('click', () => {
-            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-        });
-    }
-
-    // --- AI Drawer Logic ---
-    const aiDrawer = document.getElementById('ai-drawer');
-    const aiDrawerToggle = document.getElementById('ai-drawer-toggle'); // AI drawer toggle button
-    const closeAiDrawerButton = document.getElementById('close-ai-drawer');
-    const aiSubmit = document.getElementById('ai-submit');
-    const aiInput = document.getElementById('ai-input');
-    const aiResponse = document.getElementById('ai-response');
+    // AI Drawer Toggle
+    const aiDrawerToggle = document.getElementById('ai-drawer-toggle');
+    const aiDrawer = document.getElementById('ai-drawer'); // Assuming this is the ID of the main AI drawer container
 
     if (aiDrawerToggle && aiDrawer) {
         aiDrawerToggle.addEventListener('click', () => {
-            aiDrawer.classList.toggle('active');
-            const isExpanded = aiDrawer.classList.contains('active');
-            aiDrawerToggle.setAttribute('aria-expanded', isExpanded);
+            // Toggle a class that controls visibility (e.g., 'ai-drawer-open')
+            // The specific class and its CSS definition will be handled in the CSS step.
+            // For now, let's use a simple display toggle, assuming CSS will refine this.
+            if (aiDrawer.style.display === 'flex' || aiDrawer.classList.contains('ai-drawer-open')) { // Check for class if already styled that way
+                aiDrawer.style.display = 'none';
+                aiDrawer.classList.remove('ai-drawer-open');
+                // Consider updating aria-expanded if the button controls the drawer directly
+            } else {
+                aiDrawer.style.display = 'flex'; // Or 'block', depending on drawer's CSS
+                aiDrawer.classList.add('ai-drawer-open');
+            }
         });
+    } else {
+        console.error('AI drawer toggle button or AI drawer element not found.');
     }
 
+    // Existing close button for AI drawer (from fragments/header/ai-drawer.html)
+    const closeAiDrawerButton = document.getElementById('close-ai-drawer');
     if (closeAiDrawerButton && aiDrawer) {
         closeAiDrawerButton.addEventListener('click', () => {
-            aiDrawer.classList.remove('active');
-            if (aiDrawerToggle) aiDrawerToggle.setAttribute('aria-expanded', 'false');
+            aiDrawer.style.display = 'none';
+            aiDrawer.classList.remove('ai-drawer-open');
         });
     }
 
-    if (aiSubmit && aiInput && aiResponse) {
-        aiSubmit.addEventListener('click', async () => {
-            const prompt = aiInput.value.trim();
-            if (!prompt) return; // Don't send empty prompts
-
-            const url = '/api/chat';
-
-            aiResponse.innerHTML = 'Procesando...';
-
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt })
-                });
-
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => null);
-                    let errorMessage = `Error: ${response.status} ${response.statusText}`;
-                    if (errorData && errorData.error && errorData.error.message) {
-                        errorMessage += ` - ${errorData.error.message}`;
-                    }
-                    throw new Error(errorMessage);
-                }
-
-                const data = await response.json();
-                if (data.response) {
-                    aiResponse.innerHTML = data.response;
-                } else if (data.error) {
-                    aiResponse.innerHTML = data.error;
-                } else {
-                    aiResponse.innerHTML = 'No se recibió respuesta válida.';
-                }
-            } catch (error) {
-                console.error('Error llamando a la API de Gemini:', error);
-                aiResponse.innerHTML = `Error al contactar el asistente de IA: ${error.message}`;
-            }
-            aiInput.value = ''; // Clear input
-        });
-
-        // Allow submitting with Enter key in the input field
-        aiInput.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault(); // Prevent default form submission if it were in a form
-                aiSubmit.click();
-            }
-        });
-    }
-
-    // Initialize AOS (Animate On Scroll) if it's used and loaded
-    if (typeof AOS !== 'undefined') {
-        AOS.init();
+    // Ensure theme toggle is initialized (it's in layout.js but good to ensure it's called after DOM is ready)
+    // Check if initializeThemeToggle is available globally, otherwise this might need to be in layout.js
+    if (typeof initializeThemeToggle === 'function') {
+        // initializeThemeToggle(); // This is already called in layout.js
     }
 });

@@ -8,18 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // initializeSidebarNavigation();
     // initializeIAChatSidebar();
 
-    let headerPlaceholder = document.getElementById('header-placeholder');
-    if (!headerPlaceholder) {
-        headerPlaceholder = document.createElement('div');
-        headerPlaceholder.id = 'header-placeholder';
-        document.body.insertBefore(headerPlaceholder, document.body.firstChild);
-    }
-    fetch('/_header.html')
-        .then(response => response.text())
-        .then(data => {
-            insertHtmlWithScripts(headerPlaceholder, data);
-        })
-        .catch(error => console.error('Error fetching _header.html:', error));
+    // let headerPlaceholder = document.getElementById('header-placeholder');
+    // if (!headerPlaceholder) {
+    //     headerPlaceholder = document.createElement('div');
+    //     headerPlaceholder.id = 'header-placeholder';
+    //     document.body.insertBefore(headerPlaceholder, document.body.firstChild);
+    // }
+    // fetch('/_header.html')
+    //     .then(response => response.text())
+    //     .then(data => {
+    //         insertHtmlWithScripts(headerPlaceholder, data);
+    //     })
+    //     .catch(error => console.error('Error fetching _header.html:', error));
 
     // let footerPlaceholder = document.getElementById('footer-placeholder');
     // if (!footerPlaceholder) {
