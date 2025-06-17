@@ -41,9 +41,6 @@
 body {
     font-family: 'Lora', serif;
     background-color: transparent; /* MODIFIED: Was var(--current-bg) */
-    background-image: var(--alabaster-background-image, url('/assets/img/alabastro.jpg'));
-    background-size: cover;
-    background-attachment: fixed;
     color: var(--current-text);
     margin: 0;
     padding: 0;
