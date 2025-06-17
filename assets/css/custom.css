@@ -18,7 +18,7 @@ body {
 }
 
 .hero {
-  background: transparent;
+  background: transparent !important;
   color: var(--epic-text-light);
 }
 
@@ -35,7 +35,7 @@ body {
     color: var(--epic-text-light);
   }
   .hero {
-    background: transparent;
+    background: transparent !important;
     color: var(--epic-text-light);
   }
   .cta-button {
