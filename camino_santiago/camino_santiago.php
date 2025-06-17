@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
 <body>
 
-    <?php require_once __DIR__ . '/../_header.html'; ?>
+    <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_camino_santiago.jpg');">
         <div class="hero-content">

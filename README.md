@@ -157,7 +157,7 @@ pueda validar fácilmente el contenido del menú.
 
 El menú lateral derecho se genera a partir de `fragments/menus/tools-menu.html` y
 ofrece accesos rápidos a páginas clave. Se incluye dentro del elemento
-`<nav id="slide-menu-right">` en `_header.html` y comparte la misma temática de
+`<nav id="slide-menu-right">` en `_header.php` y comparte la misma temática de
 colores morado y oro viejo que el resto de la cabecera.
 
 ## Cambios recientes

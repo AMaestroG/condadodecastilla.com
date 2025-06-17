@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header.php'; ?>
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/iglesia_detalle.jpg'); min-height: 40vh;">
         <div class="hero-content" style="padding: clamp(20px, 4vw, 40px);">
             <h1 style="font-size: clamp(2.2em, 5vw, 3.5em);">El Obispado de Auca en Cerezo de Río Tirón</h1>

@@ -3,7 +3,7 @@
     <title>Índice de Lugares - Historia de Cerezo</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.html'; ?>
+    <?php require_once __DIR__ . '/../../_header.php'; ?>
     <h1>Índice de Lugares Relevantes</h1>
     <ul>
         <li>Auca Patricia / Ciudad de Oca: <a href="../capitulo1/capitulo1.php">Ver Capítulo 1: Auca Patricia, la Ciudad Perdida</a></li>
