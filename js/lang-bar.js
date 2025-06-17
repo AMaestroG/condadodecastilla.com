@@ -1,44 +1,84 @@
 function setupLanguageBar() {
-    console.log("setupLanguageBar: Initializing language bar setup.");
+    console.log("setupLanguageBar: Initializing new language bar setup.");
     try {
-        const lang = new URLSearchParams(window.location.search).get('lang');
-        console.log(`setupLanguageBar: Initial language from URL: ${lang}`);
-        const flagLinks = document.querySelectorAll('.language-bar .lang-flag');
+        const langButton = document.getElementById('frt-language-button');
+        const langDropdown = document.getElementById('frt-language-dropdown');
 
-        flagLinks.forEach(link => {
-            link.classList.remove('active-lang');
+        if (!langButton || !langDropdown) {
+            console.error("Elementos del selector de idioma (botón o dropdown) no encontrados.");
+            return;
+        }
+
+        const langOptions = langDropdown.querySelectorAll('.frt-lang-option');
+        if (!langOptions.length) {
+            console.error("Opciones de idioma (frt-lang-option) no encontradas en el dropdown.");
+            return;
+        }
+
+        // Controlar visibilidad del dropdown
+        langButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Evitar que el clic se propague al document listener inmediatamente
+            const isOpen = langDropdown.style.display === 'block';
+            langDropdown.style.display = isOpen ? 'none' : 'block';
+            langButton.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
         });
 
-        flagLinks.forEach(link => {
+        // Cerrar dropdown si se hace clic fuera
+        document.addEventListener('click', (event) => {
+            if (langDropdown.style.display === 'block' && !langDropdown.contains(event.target) && !langButton.contains(event.target)) {
+                langDropdown.style.display = 'none';
+                langButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        const currentLangParam = new URLSearchParams(window.location.search).get('lang');
+        console.log(`setupLanguageBar: Initial language from URL: ${currentLangParam}`);
+
+        langOptions.forEach(link => {
+            link.classList.remove('active-lang'); // Limpiar active-lang de todos
+
+            const linkLang = link.getAttribute('href').split('lang=')[1];
+
+            // Aplicar active-lang al idioma actual
+            if (linkLang === currentLangParam) {
+                link.classList.add('active-lang');
+            } else if (!currentLangParam && linkLang === 'es') { // Si no hay lang en URL, 'es' es activo
+                link.classList.add('active-lang');
+            }
+
+            // Event listener de clic para cambiar idioma (recarga la página)
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = this.getAttribute('href').split('lang=')[1];
-                console.log(`setupLanguageBar: Flag clicked, target language: ${target}`);
+                const targetLang = this.getAttribute('href').split('lang=')[1];
+                console.log(`setupLanguageBar: Language option clicked, target language: ${targetLang}`);
                 const params = new URLSearchParams(window.location.search);
-                params.set('lang', target); // Always use params.set as requested
+                params.set('lang', targetLang);
                 window.location.search = params.toString();
+                // Ocultar dropdown después del clic (opcional, pero bueno para UX)
+                // langDropdown.style.display = 'none';
+                // langButton.setAttribute('aria-expanded', 'false');
             });
         });
 
-        if (lang) {
-            flagLinks.forEach(link => {
-                if (link.getAttribute('href').includes(`lang=${lang}`)) {
-                    link.classList.add('active-lang');
-                }
-            });
-            console.log(`setupLanguageBar: Determined language for translation: ${lang}`);
-            loadGoogleTranslate(lang);
+        // Cargar Google Translate si hay un idioma en la URL (o el idioma por defecto si es necesario)
+        // const effectiveLang = currentLangParam || 'es'; // Traducir a español si no hay lang (o mantener original)
+        // La lógica original llamaba a loadGoogleTranslate(lang) solo si lang existía.
+        // Si 'es' es el idioma original y no queremos auto-traducir a 'es',
+        // podríamos necesitar una condición aquí. Por ahora, si hay un currentLangParam, lo usamos.
+        if (currentLangParam) {
+             console.log(`setupLanguageBar: Determined language for translation: ${currentLangParam}`);
+            loadGoogleTranslate(currentLangParam);
         } else {
-            // Optional: if no 'lang', highlight 'es' by default if that flag exists
-            flagLinks.forEach(link => {
-                if (link.getAttribute('href').includes('lang=es')) {
-                    link.classList.add('active-lang');
-                }
-            });
-            console.log("setupLanguageBar: No language parameter in URL, or default language selected.");
+            console.log("setupLanguageBar: No language parameter in URL. Defaulting to 'es' or page's original language.");
+            // Si 'es' es el idioma original, no es necesario llamar a loadGoogleTranslate('es')
+            // a menos que la página no esté en español y queramos forzarla.
+            // Si se quiere que la interfaz muestre 'es' como activo pero no fuerce traducción si la página ya está en 'es':
+            // La clase 'active-lang' ya está puesta en 'es'.
+            // La función `loadGoogleTranslate` se encarga de la lógica de `pageLanguage`.
         }
+
     } catch (error) {
-        console.error("setupLanguageBar: Error during setup:", error);
+        console.error("setupLanguageBar: Error during new setup:", error);
     }
 }
 

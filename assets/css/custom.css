@@ -84,3 +84,110 @@ body {
     opacity: 1;
     transform: scale(1.1); /* Aumentar también en hover para consistencia */
 }
+
+/* Fixed Right Toolbar Container */
+.fixed-right-toolbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 60px; /* Ancho de la barra, ajustar según sea necesario */
+    background-color: #2c3e50; /* Color de fondo oscuro, ajustar */
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinea los items desde el inicio, puedes usar space-around, etc. */
+    z-index: 1050; /* Encima de otros elementos, ajustar si es necesario */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+
+/* General Styles for Buttons in the Toolbar */
+.fixed-right-toolbar .frt-btn {
+    background-color: transparent;
+    border: none;
+    color: #ecf0f1; /* Color de icono claro */
+    font-size: 20px; /* Tamaño del icono, ajustar */
+    padding: 12px; /* Espaciado interno del botón */
+    margin: 8px 0; /* Espaciado vertical entre botones */
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 4px; /* Bordes redondeados sutiles */
+    width: 100%; /* Hace que el área de clic ocupe el ancho */
+    text-align: center;
+}
+
+.fixed-right-toolbar .frt-btn:hover {
+    background-color: #34495e; /* Color de fondo al pasar el cursor */
+    color: #1abc9c; /* Color de icono al pasar el cursor (turquesa) */
+}
+
+.fixed-right-toolbar .frt-btn:focus {
+    outline: 2px solid #1abc9c;
+    outline-offset: -2px;
+}
+
+/* Language Selector Group (para posicionar el dropdown) */
+.fixed-right-toolbar .frt-btn-group {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Language Dropdown Menu */
+.fixed-right-toolbar .frt-dropdown {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    right: 100%; /* Se posiciona a la izquierda del botón/grupo */
+    top: 0;
+    background-color: #34495e; /* Fondo del dropdown */
+    border-radius: 4px;
+    box-shadow: -3px 3px 8px rgba(0,0,0,0.2);
+    padding: 5px 0;
+    min-width: 180px; /* Ancho mínimo del dropdown */
+    z-index: 1051; /* Encima de la barra misma */
+}
+
+.fixed-right-toolbar .frt-btn-group:hover .frt-dropdown, /* Mostrar en hover del grupo */
+.fixed-right-toolbar .frt-btn-group .frt-btn:focus + .frt-dropdown, /* Mostrar si el botón tiene foco */
+.fixed-right-toolbar .frt-btn-group .frt-dropdown:hover { /* Mantener visible si el cursor está sobre el dropdown */
+    display: block;
+}
+
+
+/* Language Options inside Dropdown */
+.fixed-right-toolbar .frt-lang-option {
+    display: block;
+    padding: 8px 15px;
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.fixed-right-toolbar .frt-lang-option:hover,
+.fixed-right-toolbar .frt-lang-option.active-lang {
+    background-color: #1abc9c;
+    color: #2c3e50;
+}
+
+/* Específico para el icono de tema (si se cambia dinámicamente) */
+#frt-theme-toggle .fa-moon { display: none; } /* Ocultar icono de luna por defecto */
+/* body.dark-theme #frt-theme-toggle .fa-sun { display: none; } */ /* En tema oscuro, ocultar sol */
+/* body.dark-theme #frt-theme-toggle .fa-moon { display: inline-block; } */ /* En tema oscuro, mostrar luna */
+
+/* Responsive adjustments (ejemplo) */
+@media (max-width: 768px) {
+    .fixed-right-toolbar {
+        width: 50px; /* Barra más delgada en móviles */
+    }
+    .fixed-right-toolbar .frt-btn {
+        font-size: 18px; /* Iconos ligeramente más pequeños */
+        padding: 10px;
+    }
+    /* Ajustar dropdown de idiomas para que no se salga de pantalla en móvil si es necesario */
+    .fixed-right-toolbar .frt-dropdown {
+        /* Podría necesitar ajustes de posición o hacerlo full-width modal en móvil */
+        right: calc(100% - 10px); /* Ejemplo para que no esté pegado al borde */
+    }
+}

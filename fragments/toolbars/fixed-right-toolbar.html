@@ -1,0 +1,44 @@
+<div id="fixed-right-toolbar" class="fixed-right-toolbar">
+    <!-- Botón para el Menú Principal (Hamburguesa) -->
+    <button id="frt-menu-button" class="frt-btn" aria-label="Abrir menú principal" aria-controls="slide-menu-left" aria-expanded="false" data-menu-target="slide-menu-left">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Botón para Idiomas -->
+    <div id="frt-language-selector" class="frt-btn-group">
+        <button id="frt-language-button" class="frt-btn" aria-label="Seleccionar idioma" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-globe"></i>
+        </button>
+        <div id="frt-language-dropdown" class="frt-dropdown" aria-labelledby="frt-language-button" role="menu">
+            <a href="?lang=es" class="frt-lang-option" role="menuitem" data-lang="es">🇪🇸 Español</a>
+            <a href="?lang=en" class="frt-lang-option" role="menuitem" data-lang="en">🇬🇧 English</a>
+            <a href="?lang=fr" class="frt-lang-option" role="menuitem" data-lang="fr">🇫🇷 Français</a>
+            <a href="?lang=de" class="frt-lang-option" role="menuitem" data-lang="de">🇩🇪 Deutsch</a>
+            <a href="?lang=it" class="frt-lang-option" role="menuitem" data-lang="it">🇮🇹 Italiano</a>
+            <a href="?lang=pt" class="frt-lang-option" role="menuitem" data-lang="pt">🇵🇹 Português</a>
+            <a href="?lang=ru" class="frt-lang-option" role="menuitem" data-lang="ru">🇷🇺 Русский</a>
+            <a href="?lang=zh-CN" class="frt-lang-option" role="menuitem" data-lang="zh-CN">🇨🇳 中文</a>
+            <a href="?lang=ja" class="frt-lang-option" role="menuitem" data-lang="ja">🇯🇵 日本語</a>
+            <a href="?lang=ko" class="frt-lang-option" role="menuitem" data-lang="ko">🇰🇷 한국어</a>
+            <a href="?lang=ar" class="frt-lang-option" role="menuitem" data-lang="ar">🇸🇦 العربية</a>
+            <a href="?lang=hi" class="frt-lang-option" role="menuitem" data-lang="hi">🇮🇳 हिन्दी</a>
+            <!-- Añadir más idiomas según sea necesario, replicando el patrón de los existentes -->
+        </div>
+    </div>
+
+    <!-- Botón para Cambio de Tema -->
+    <button id="frt-theme-toggle" class="frt-btn" aria-label="Cambiar tema">
+        <i class="fas fa-sun"></i> <!-- Icono inicial, cambiará a luna con JS -->
+    </button>
+
+    <!-- Botón Unificado para IA -->
+    <button id="frt-ia-chat-toggle" class="frt-btn" aria-label="Abrir chat IA" aria-controls="ia-chat-sidebar" aria-expanded="false" data-menu-target="ia-chat-sidebar">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Botón para Herramientas (que despliega el menú de enlaces) -->
+    <button id="frt-tools-button" class="frt-btn" aria-label="Abrir herramientas" aria-controls="slide-menu-right" aria-expanded="false" data-menu-target="slide-menu-right">
+        <i class="fas fa-cog"></i>
+    </button>
+    <div id="google_translate_element" style="display:none;"></div>
+</div>
