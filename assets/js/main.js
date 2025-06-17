@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const open = menu.classList.toggle('active');
         btn.setAttribute('aria-expanded', open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
+        document.body.classList.toggle('menu-compressed', open);
     };
 
     document.querySelectorAll('[data-menu-target]').forEach(btn => {
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const side = menu.classList.contains('left-panel') ? 'left'
                             : (menu.classList.contains('right-panel') ? 'right' : '');
                 if (side) document.body.classList.remove(`menu-open-${side}`);
+                document.body.classList.remove('menu-compressed');
             }
         });
     });
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const side = menu.classList.contains('left-panel') ? 'left'
                             : (menu.classList.contains('right-panel') ? 'right' : '');
                 if (side) document.body.classList.remove(`menu-open-${side}`);
+                document.body.classList.remove('menu-compressed');
             });
         }
     });
@@ -50,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (panel) {
                 panel.classList.remove('active');
                 document.body.classList.remove('menu-open-left');
+                document.body.classList.remove('menu-compressed');
             }
             const btn = document.querySelector('[data-menu-target="ai-chat-panel"]');
             if (btn) btn.setAttribute('aria-expanded', 'false');
