@@ -108,6 +108,7 @@ Define la variable `GEMINI_API_KEY` en tu archivo `.env` con la clave proporcion
 ```bash
 GEMINI_API_KEY=tu_clave_personal
 ```
+Solo se admite la variable `GEMINI_API_KEY`; otros nombres anteriores han sido eliminados.
 
 El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y será leído por `assets/js/main.js` para realizar las peticiones.
 
