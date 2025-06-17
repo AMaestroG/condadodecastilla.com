@@ -39,25 +39,31 @@
     padding-top: 50px; /* Space for a close button or header within panel, reduced */
     transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
     opacity: 0; /* Start hidden for transition */
+    transform-origin: center center;
 }
 
 /* Specific panel positioning and initial hidden state */
 #consolidated-menu-items.right-panel {
     right: 0;
-    transform: translateX(100%); /* Initially off-screen to the right */
+    transform: translateX(100%) scaleX(0); /* Initially compressed off-screen to the right */
+    transform-origin: right center;
 }
 
 #ai-chat-panel.left-panel {
     left: 0;
-    transform: translateX(-100%); /* Initially off-screen to the left */
+    transform: translateX(-100%) scaleX(0); /* Initially compressed off-screen to the left */
+    transform-origin: left center;
     /* AI chat panel might need its own content scroll if chat history grows */
     /* For now, its direct content (input, header) is small. */
 }
 
 /* Active states for panels (toggled by JavaScript) */
+#consolidated-menu-items.right-panel.open,
+#ai-chat-panel.left-panel.open,
+/* Fallback for legacy class */
 #consolidated-menu-items.right-panel.active,
 #ai-chat-panel.left-panel.active {
-    transform: translateX(0);
+    transform: translateX(0) scaleX(1);
     opacity: 1;
 }
 
