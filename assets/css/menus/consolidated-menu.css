@@ -2,10 +2,11 @@
 
 /* Main toggle button for the consolidated menu */
 #consolidated-menu-button {
-    position: fixed;
-    top: 20px;
-    right: 20px; /* Positioned to the right as menu slides from right */
-    z-index: 1005; /* Above panels but below modals if any */
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    z-index: 1005 !important; /* También z-index por si acaso */
     padding: 8px 12px; /* Slightly more compact */
     background-color: rgba(50, 50, 50, 0.8); /* Semi-transparent background */
     color: white;
