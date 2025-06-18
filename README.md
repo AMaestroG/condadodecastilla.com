@@ -143,12 +143,16 @@ El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada po
 
 ## Ejecución de pruebas
 
-Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pruebas dependen de PHP, Composer y las extensiones indicadas, por lo que no se ejecutarán si alguno de estos componentes falta:
+Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pruebas dependen de PHP, Composer y las extensiones indicadas, por lo que no se ejecutarán si alguno de estos componentes falta. Ejecuta primero:
 
 ```bash
 composer install
 pip install -r requirements.txt
 ```
+
+`composer install` debe ejecutarse **antes** de usar `vendor/bin/phpunit` y
+`pip install -r requirements.txt` debe lanzarse **antes** de ejecutar las
+pruebas de Python.
 
 Con las dependencias ya presentes, ejecuta cada conjunto de tests de forma explícita:
 
