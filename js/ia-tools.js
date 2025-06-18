@@ -1,5 +1,7 @@
 // js/ia-tools.js
 // Handles IA tool actions: summary, translation, research and web search.
+// Import the base URL for API requests from config.js
+const API_BASE_URL = window.API_BASE_URL || '';
 
 document.addEventListener('DOMContentLoaded', () => {
     const summaryBtn = document.getElementById('ia-summary-btn');
@@ -173,9 +175,10 @@ function handleWebSearch(output) {
         showOutput(output, `<p class="ia-tool-error">${err.message}</p>`);
     });
 
-// Simple demo request to the Flask API
+// Simple demo request to the Flask API.
+// Example: call demoFlaskRequest() from the browser console to test connectivity.
 function demoFlaskRequest() {
-    fetch('http://localhost:5000/api/resource')
+    fetch(`${API_BASE_URL}/api/resource`)
         .then(res => res.json())
         .then(data => console.log('API resources', data))
         .catch(err => console.error('API error', err));
