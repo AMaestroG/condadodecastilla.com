@@ -44,12 +44,9 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Textos del Sitio</title>
-    <link rel="stylesheet" href="../assets/css/epic_theme.css"> <!-- Main theme -->
+    <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
-
 </head>
 <body class="admin-page">
     <div class="admin-container wide">

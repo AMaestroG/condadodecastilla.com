@@ -42,9 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
     <title>Envío de Contacto</title>
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
+    <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
 </head>
 <body>
 <div class="container-epic">

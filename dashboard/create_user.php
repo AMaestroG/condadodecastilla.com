@@ -53,10 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Nuevo Usuario</title>
-    <link rel="stylesheet" href="../assets/css/epic_theme.css">
+    <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
 </head>
 <body class="admin-page centered">
