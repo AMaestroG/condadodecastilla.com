@@ -1,7 +1,7 @@
-<button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false">☰</button>
+<button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
 
 <!-- Left Sliding Panel for Main Menu -->
-<div id="consolidated-menu-items" class="menu-panel left-panel">
+<div id="consolidated-menu-items" class="menu-panel left-panel" role="navigation" aria-labelledby="consolidated-menu-button">
     <button id="theme-toggle" class="menu-item-button" aria-label="Cambiar tema"><i class="fas fa-lightbulb"></i> <span>Tema</span></button>
     <button id="ai-chat-trigger" class="menu-item-button" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
 
@@ -37,7 +37,7 @@
 </div>
 
 <!-- Right Sliding Panel for AI Chat -->
-<div id="ai-chat-panel" class="menu-panel right-panel">
+<div id="ai-chat-panel" class="menu-panel right-panel" role="dialog" aria-labelledby="ai-chat-title">
     <?php
     // Content from ai-drawer.html will go here
     // It includes the header, response area, input, and submit button for AI chat
