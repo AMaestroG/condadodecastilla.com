@@ -1,18 +1,12 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
 <head>
     <title>Historia de Cerezo: Cuna y Origen de Castilla</title>
-    <style>
-        body { font-family: sans-serif; margin: 20px; }
-        nav ul { list-style-type: none; padding: 0; }
-        nav ul li { margin-bottom: 10px; }
-        nav h2 { margin-top: 30px; }
-    </style>
 </head>
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <h1>Historia de Cerezo: Cuna y Origen de Castilla</h1>
-
     <nav>
         <h2>Índice de Capítulos</h2>
         <ul>
@@ -28,17 +22,12 @@
             <li><a href="capitulo10.php">Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</a></li>
             <li><a href="capitulo11.php">Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</a></li>
         </ul>
-
         <h2>Exploración Temática</h2>
-        <ul>
             <li><a href="indices/personajes.php">Índice de Personajes</a></li>
             <li><a href="indices/lugares.php">Índice de Lugares</a></li>
             <li><a href="indices/temas_clave.php">Índice de Temas Clave</a></li>
-        </ul>
     </nav>
-
     <?php require_once __DIR__ . '/../_footer.php'; ?>
-
     <script src="/js/layout.js"></script>
 </body>
 </html>
