@@ -122,7 +122,7 @@ GEMINI_API_KEY=tu_clave_personal
 ```
 Solo se admite la variable `GEMINI_API_KEY`; otros nombres anteriores han sido eliminados.
 
-El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y será leído por `assets/js/main.js` para realizar las peticiones.
+El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y será utilizado por las funciones del servidor definidas en `includes/ai_utils.php` para realizar las peticiones.
 
 ## Ejecución de pruebas
 
