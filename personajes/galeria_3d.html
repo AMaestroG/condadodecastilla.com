@@ -25,14 +25,14 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: clamp(300px, 80%, 450px); /* Responsive width */
-            background-color: rgba(26, 38, 57, 0.95); /* Dark Sapphire Blue, more opaque */
-            color: #e0e0e0; /* Light grey text */
+            background-color: rgba(var(--epic-purple-emperor-rgb), 0.95); /* Themed purple overlay */
+            color: var(--epic-text-light, #e0e0e0); /* Light text */
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.7);
             z-index: 100;
             font-family: 'Lora', serif; /* Match body font or a suitable thematic one */
-            border: 1px solid rgba(138, 175, 255, 0.3); /* Subtle border */
+            border: 1px solid rgba(var(--epic-gold-main-rgb), 0.3); /* Subtle border */
             opacity: 0; /* For fade transition */
             visibility: hidden; /* For fade transition */
             transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
@@ -46,7 +46,7 @@
 
         #character-info-overlay h2 { /* info-name */
             font-family: 'Cinzel', serif; /* Match heading font or a suitable thematic one */
-            color: #ffffff; /* White heading */
+            color: var(--color-alabastro, #fdfaf6); /* Light heading */
             margin-top: 0;
             margin-bottom: 15px;
             border-bottom: 1px solid rgba(138, 175, 255, 0.5); /* Thematic border color */
@@ -62,7 +62,7 @@
             overflow-y: auto;
             margin-bottom: 15px;
             padding-right: 10px; /* For scrollbar spacing */
-            color: #cccccc;
+            color: var(--epic-text-muted, #ccc);
         }
         /* Custom scrollbar for bio (optional, WebKit only) */
         #character-info-overlay #info-bio::-webkit-scrollbar {
@@ -88,19 +88,19 @@
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 0.9em;
-            color: #b0c4de; /* Light Steel Blue */
+            color: var(--epic-text-light, #b0c4de); /* Light text tone */
             text-align: center;
         }
 
         #character-info-overlay #info-link {
-            color: #9acdff; /* Lighter, more prominent blue */
+            color: var(--epic-gold-main);
             text-decoration: none;
             font-weight: bold;
             display: inline-block; /* Allows margin */
             margin-bottom: 10px; /* Corrected from margin-top for spacing before button */
         }
         #character-info-overlay #info-link:hover {
-            color: #ffffff;
+            color: var(--color-alabastro, #fdfaf6);
             text-decoration: underline;
         }
 
@@ -108,8 +108,8 @@
             display: block;
             margin: 20px auto 0;
             padding: 10px 20px;
-            background-color: rgba(138, 175, 255, 0.5); /* Thematic button color */
-            color: white;
+            background-color: rgba(var(--epic-gold-main-rgb), 0.5); /* Thematic button color */
+            color: var(--color-alabastro, #fdfaf6);
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -118,7 +118,7 @@
             transition: background-color 0.2s ease;
         }
         #character-info-overlay #info-close-button:hover {
-            background-color: rgba(138, 175, 255, 0.8);
+            background-color: rgba(var(--epic-gold-main-rgb), 0.8);
         }
     </style>
 </head>

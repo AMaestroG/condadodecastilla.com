@@ -28,7 +28,7 @@ body { background-color: rgba(245,235,220,0.95); }
     top: 10px;
     z-index: 1010;
     background-color: var(--color-primario-purpura, #4A0D67);
-    color: #fff;
+    color: var(--color-alabastro, #fdfaf6);
     border: none;
     padding: 6px 12px;
     border-radius: 4px;
