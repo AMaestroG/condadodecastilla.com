@@ -58,16 +58,9 @@ try {
 <head>
     <title>Editar Piezas del Museo</title>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
-    <style>
-        body { font-family: Arial, sans-serif; margin:20px; }
-        table { width:100%; border-collapse: collapse; margin-bottom:20px; }
-        th, td { border:1px solid #ccc; padding:8px; text-align:left; }
-        th { background-color:#f2f2f2; }
-        .feedback.success { background:#d4edda; padding:10px; margin-bottom:10px; }
-        .feedback.error { background:#f8d7da; padding:10px; margin-bottom:10px; }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin_pages.css">
 </head>
-<body>
+<body class="admin-page">
 <nav>
     <a href="../index.php">Inicio</a>
     <a href="../dashboard/index.php">Dashboard</a>
@@ -79,7 +72,7 @@ try {
         <?php echo htmlspecialchars($feedback_message); ?>
     </div>
 <?php endif; ?>
-<table>
+<table class="admin-table">
     <tr><th>ID</th><th>Título</th><th>Pos X</th><th>Pos Y</th><th>Pos Z</th><th>Escala</th><th>Acción</th></tr>
 <?php foreach ($piezas as $p): ?>
     <tr>

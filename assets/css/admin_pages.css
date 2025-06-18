@@ -1,0 +1,40 @@
+@import url('epic_theme.css');
+
+body.admin-page {
+    background-color: var(--epic-alabaster-bg);
+    padding: 20px;
+    font-family: var(--font-primary);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 8px;
+    border: 1px solid var(--epic-neutral-border);
+}
+
+.admin-table th {
+    background-color: var(--epic-alabaster-medium);
+}
+
+.feedback {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.feedback.success {
+    background-color: var(--epic-success-bg);
+    color: var(--epic-success-text);
+    border: 1px solid var(--epic-success-border);
+}
+
+.feedback.error {
+    background-color: var(--epic-danger-bg);
+    color: var(--epic-danger-text);
+    border: 1px solid var(--epic-danger-border);
+}
