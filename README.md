@@ -6,6 +6,13 @@ Este repositorio contiene el código del sitio web del proyecto **Condado de Cas
 
 Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa su patrimonio arqueológico y cultural.
 
+## Características de diseño
+
+- Paleta en tonos púrpura y oro viejo sobre fondos de alabastro.
+- Menús deslizantes que comprimen el contenido al abrirse.
+- Textos con degradados de alto contraste.
+- Foro con cinco agentes expertos para dinamizar la comunidad.
+
 ## Requisitos
 
 - **PHP** 7.4 o superior con soporte CLI y la extensión PDO habilitada.
