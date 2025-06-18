@@ -63,20 +63,32 @@
 #lang-bar-toggle {
     position: fixed;
     top: var(--language-bar-offset);
-    right: 115px;
+    right: 15px;
     background-color: var(--epic-purple-emperor);
     color: var(--epic-gold-main);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
-    padding: 8px 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
     z-index: 3001;
     transition: background-color var(--global-transition-speed) ease,
                 color var(--global-transition-speed) ease;
 }
 
+#lang-bar-toggle i {
+    color: var(--epic-gold-main);
+}
+
 #lang-bar-toggle:hover {
     background-color: var(--epic-gold-main);
+}
+
+#lang-bar-toggle:hover i {
     color: var(--epic-purple-emperor);
 }
 
