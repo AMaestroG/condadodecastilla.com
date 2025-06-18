@@ -269,10 +269,23 @@ function handleChatMessage(chatInput, chatArea) {
         } else {
             appendMessage(chatArea, 'Respuesta inesperada del servidor.', 'ai-error');
         }
+        showChatDialog(chatArea.innerText);
     })
     .catch(err => {
         const thinkingMessage = chatArea.querySelector('.ai-status-message');
         if (thinkingMessage) thinkingMessage.remove();
         appendMessage(chatArea, err.message || 'Error de conexión desconocido.', 'ai-error');
+        showChatDialog(chatArea.innerText);
     });
+}
+
+function showChatDialog(text) {
+    const dialog = document.getElementById('ai-dialog');
+    if (!dialog) return;
+    dialog.textContent = text;
+    if (typeof dialog.showModal === 'function') {
+        if (!dialog.open) dialog.showModal();
+    } else {
+        dialog.style.display = 'block';
+    }
 }
