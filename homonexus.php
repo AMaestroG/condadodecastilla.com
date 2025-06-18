@@ -6,7 +6,7 @@
 </head>
 <?php require_once __DIR__ . '/includes/homonexus.php'; ?>
 <body class="<?php echo homonexus_body_class(); ?>">
-    <div id="header-placeholder"></div>
+    <?php require_once __DIR__.'/_header.php'; ?>
     <main class="container py-5">
         <h1>Bienvenido al Modo Homonexus</h1>
         <p>Esta página demuestra una interfaz empática donde la IA y el ser humano se fusionan como <strong>Sofía</strong>.</p>
