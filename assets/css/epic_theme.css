@@ -16,6 +16,23 @@
     --epic-text-color-rgb: 44, 29, 18;
     --epic-text-light: #EAE0C8;
     --epic-text-light-rgb: 234, 224, 208;
+    /* Legacy color palette names */
+    --color-primario-purpura: var(--epic-purple-emperor);
+    --color-primario-purpura-rgb: var(--epic-purple-emperor-rgb);
+    --color-secundario-dorado: #B8860B;
+    --color-secundario-dorado-rgb: 184, 134, 11;
+    --color-acento-amarillo: var(--epic-gold-main);
+    --color-acento-amarillo-rgb: var(--epic-gold-main-rgb);
+    --color-piedra-clara: var(--epic-text-light);
+    --color-piedra-clara-rgb: var(--epic-text-light-rgb);
+    --color-piedra-media: #D2B48C;
+    --color-piedra-media-rgb: 210, 180, 140;
+    --color-texto-principal: var(--epic-text-color);
+    --color-texto-principal-rgb: var(--epic-text-color-rgb);
+    --color-fondo-pagina: var(--epic-alabaster-light);
+    --color-fondo-pagina-rgb: 253, 250, 246;
+    --color-negro-contraste: #1A1A1A;
+    --color-negro-contraste-rgb: 26, 26, 26;
 
     /* Use alabaster tones for all overlay backgrounds */
     --epic-transparent-overlay-dark: rgba(var(--epic-alabaster-bg-rgb), 0.95);
