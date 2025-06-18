@@ -108,7 +108,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                     const textoParaResumir = contentContainer.textContent.trim();
 
                     if (!textoParaResumir) {
-                        resumenContenedor.innerHTML = '<p style="color:red;">Error: No se pudo extraer contenido para resumir.</p>';
+                        resumenContenedor.innerHTML = '<p class="ia-tool-error">Error: No se pudo extraer contenido para resumir.</p>';
                         return;
                     }
 
@@ -138,14 +138,14 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                             // El summary ya viene formateado con nl2br(htmlspecialchars()) desde el backend
                             resumenContenedor.innerHTML = data.summary;
                         } else if (data.error) {
-                            resumenContenedor.innerHTML = `<p style="color:red;">Error al generar resumen: ${data.error}</p>`;
+                            resumenContenedor.innerHTML = `<p class="ia-tool-error">Error al generar resumen: ${data.error}</p>`;
                         } else {
-                            resumenContenedor.innerHTML = '<p style="color:red;">Error: Respuesta inesperada del servicio de resumen.</p>';
+                            resumenContenedor.innerHTML = '<p class="ia-tool-error">Error: Respuesta inesperada del servicio de resumen.</p>';
                         }
                     })
                     .catch(error => {
                         console.error('Error en la petición fetch para resumen:', error);
-                        resumenContenedor.innerHTML = `<p style="color:red;">Error de conexión o solicitud: ${error.message}</p>`;
+                        resumenContenedor.innerHTML = `<p class="ia-tool-error">Error de conexión o solicitud: ${error.message}</p>`;
                     });
                 });
             }
