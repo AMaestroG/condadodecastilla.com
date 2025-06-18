@@ -698,6 +698,14 @@ body.dark-mode .footer .social-links a:focus-visible {
     transform: scale(1.05);
 }
 
+/* Responsive images specifically for the Legado section */
+#legado .card img {
+    height: auto;
+    max-height: 350px;
+    -o-object-fit: contain;
+       object-fit: contain;
+}
+
 .card-content {
     padding: 1.5em;
     display: flex;
