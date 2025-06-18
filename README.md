@@ -204,3 +204,15 @@ Ejecuta el script `check_alt_texts.sh` para detectar imágenes sin atributo `alt
 Esta comprobación se ejecuta automáticamente en cada pull request gracias a la configuración de GitHub Actions.
 
 Puedes indicar una ruta concreta como argumento si solo quieres escanear una carpeta determinada. El comando mostrará las líneas problemáticas y devolverá un código de salida distinto de cero si encuentra imágenes sin descripción.
+
+## Foro y agentes expertos
+
+El proyecto define cinco agentes que participan en el foro para orientar las conversaciones:
+
+- **Alicia la Historiadora** – especialista en la historia de Castilla y de Cerezo de Río Tirón.
+- **Bruno el Arqueólogo** – explora y protege el patrimonio arqueológico.
+- **Clara la Guía Turística** – orienta a los visitantes en sus recorridos.
+- **Diego el Gestor Cultural** – coordina eventos y dinamiza la cultura local.
+- **Elena la Tecnóloga** – aplica innovación tecnológica al servicio del patrimonio.
+
+Para ajustar sus biografías o añadir nuevos perfiles edita el archivo `config/forum_agents.php` y actualiza el array de configuración.
