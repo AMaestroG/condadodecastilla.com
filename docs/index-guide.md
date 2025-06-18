@@ -39,3 +39,20 @@ Tras cualquier modificación ejecuta las pruebas de PHP y Python si las dependen
 vendor/bin/phpunit
 python -m unittest tests/test_flask_api.py
 ```
+
+## Contenedor `#fixed-header-elements`
+Este bloque fijo se genera desde `_header.php` justo al comienzo del `<body>` y agrupa los botones principales del sitio. Permite que siempre estén visibles aunque se despliegue el menú.
+
+Botones incluidos:
+- **`consolidated-menu-button`**: abre el panel lateral con la navegación principal y opciones de administrador.
+- **`ai-chat-trigger`**: muestra el panel derecho con el asistente conversacional.
+- **`theme-toggle`**: alterna entre modo claro y oscuro.
+- **`lang-bar-toggle`**: activa o esconde la barra de traducción automática.
+
+Si el panel deslizante debe comenzar por debajo de este contenedor, ajusta la variable CSS `--menu-extra-offset` en tus estilos (por ejemplo en `assets/css/menus/consolidated-menu.css`):
+```css
+:root {
+    --menu-extra-offset: 48px; /* altura del contenedor fijo */
+}
+```
+Esto desplazará el menú tantos píxeles hacia abajo.
