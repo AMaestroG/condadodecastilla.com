@@ -15,5 +15,6 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 | `--alert-bg` | Fondo de mensajes de alerta | `#ffdddd` |
 | `--alert-border` | Borde de mensajes de alerta | `#ff0000` |
 | `--alert-text` | Texto de mensajes de alerta | `#d8000c` |
+| `--menu-extra-offset` | Separación adicional para el menú consolidado | `60px` |
 
 Los equivalentes `-rgb` se encuentran en la misma hoja de estilos para crear transparencias con `rgba()`.
