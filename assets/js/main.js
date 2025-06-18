@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof applyLanguageBarOffset === 'function') {
         applyLanguageBarOffset();
     }
+    if (!document.querySelector('script[src="/assets/js/notes.js"]')) {
+        const script = document.createElement('script');
+        script.src = '/assets/js/notes.js';
+        document.head.appendChild(script);
+    }
     const toggleMenu = (btn) => {
         const targetId = btn.getAttribute('data-menu-target');
         if (!targetId) return;

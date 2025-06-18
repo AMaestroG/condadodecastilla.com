@@ -7,6 +7,7 @@ echo file_get_contents(__DIR__ . "/fragments/header/language-bar.html");
 <!-- Left Sliding Panel for Main Menu -->
 <div id="consolidated-menu-items" class="menu-panel left-panel" role="navigation" aria-labelledby="consolidated-menu-button">
     <button id="ai-chat-trigger" class="menu-item-button" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
+    <button id="notes-trigger" class="menu-item-button" data-menu-target="notes-panel" aria-label="Abrir notas"><i class="fas fa-sticky-note"></i> <span>Notas</span></button>
 
     <div class="menu-section">
         <h4 class="gradient-text">Navegación Principal</h4>
@@ -44,4 +45,13 @@ echo file_get_contents(__DIR__ . "/fragments/header/language-bar.html");
         echo '<p>Error: AI Chat interface not found.</p>';
     }
     ?>
+</div>
+
+<!-- Right Sliding Panel for Notes -->
+<div id="notes-panel" class="menu-panel right-panel" role="dialog" aria-labelledby="notes-title">
+    <div class="ai-drawer-header">
+        <h3 id="notes-title">Notas personales</h3>
+        <button id="close-notes-panel" aria-label="Cerrar notas">✕</button>
+    </div>
+    <textarea id="user-notes" rows="10" style="flex-grow:1;"></textarea>
 </div>

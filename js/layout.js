@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadAos();
     loadPageCss();
     loadHeaderCss();
+    loadNotesCss();
     loadFixedTogglesCss();
     loadIAToolsScript();
     // initializeSidebarNavigation();
@@ -209,6 +210,16 @@ function loadFixedTogglesCss() {
         link.id = 'fixed-toggles-css';
         link.rel = 'stylesheet';
         link.href = '/assets/css/header/fixed-toggles.css';
+        document.head.appendChild(link);
+    }
+}
+
+function loadNotesCss() {
+    if (!document.getElementById('notes-css')) {
+        const link = document.createElement('link');
+        link.id = 'notes-css';
+        link.rel = 'stylesheet';
+        link.href = '/assets/css/notes.css';
         document.head.appendChild(link);
     }
 }

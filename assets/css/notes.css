@@ -1,0 +1,43 @@
+/* assets/css/notes.css */
+#notes-panel {
+    background-color: var(--epic-alabaster-bg);
+}
+
+#notes-panel .ai-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+#notes-panel .ai-drawer-header h3 {
+    margin: 0;
+    font-size: 1em;
+    background: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#close-notes-panel {
+    background: none;
+    border: none;
+    font-size: 1.4em;
+    color: var(--epic-purple-emperor);
+    cursor: pointer;
+}
+
+#close-notes-panel:hover {
+    color: var(--epic-gold-main);
+}
+
+#user-notes {
+    width: 100%;
+    resize: vertical;
+    border: 1px solid var(--epic-purple-emperor);
+    background-color: var(--epic-alabaster-bg);
+    color: var(--epic-purple-emperor);
+    padding: 8px;
+}
