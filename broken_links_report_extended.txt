@@ -6,7 +6,7 @@ Checking links in: index.php
   OK: /historia/historia.php (resolved to historia/historia.php)
   OK: /secciones_index/memoria_hispanidad.html (resolved to secciones_index/memoria_hispanidad.html)
   OK: /historia/historia.php (resolved to historia/historia.php)
-  BROKEN (File): /lugares/lugares.html (resolved to lugares/lugares.html)
+  OK: /lugares/lugares.php (resolved to lugares/lugares.php)
   OK: /visitas/visitas.php (resolved to visitas/visitas.php)
   OK: /personajes/Militares_y_Gobernantes/conde_casio_cerasio.html (resolved to personajes/Militares_y_Gobernantes/conde_casio_cerasio.html)
   OK: /personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html (resolved to personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html)
