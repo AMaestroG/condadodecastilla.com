@@ -94,77 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login - Administración</title>
     <!-- Link to existing stylesheet, assuming one exists in assets/css/ -->
     <link rel="stylesheet" href="../assets/css/epic_theme.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0e9e0; /* Alabastro claro */
-            margin: 0;
-        }
-        .login-container {
-            background-color: #fdfaf6; /* Alabastro muy claro */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-        .login-container h1 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .login-container label {
-            display: block;
-            text-align: left;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4A0D67; /* Tono púrpura oscuro */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .login-container button:hover {
-            background-color: #663399;
-        }
-        .error-message {
-            color: #d9534f; /* Danger color */
-            background-color: #f2dede;
-            border: 1px solid #d9534f;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        .success-message { /* For displaying post-login message if redirect fails */
-            color: #3c763d;
-            background-color: #dff0d8;
-            border: 1px solid #d6e9c6;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin_theme.css">
 </head>
-<body>
-    <div class="login-container">
+<body class="admin-page centered">
+    <div class="admin-container narrow login-container">
         <h1>Acceso de Administrador</h1>
         <?php if ($error_message): ?>
             <p class="error-message"><?php echo htmlspecialchars($error_message); ?></p>
@@ -187,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Entrar</button>
+            <button type="submit" class="btn-primary">Entrar</button>
         </form>
     </div>
 </body>
