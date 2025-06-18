@@ -1,0 +1,23 @@
+<?php
+http_response_code(404);
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada</title>
+    <?php include __DIR__ . '/includes/head_common.php'; ?>
+</head>
+<body>
+<?php require_once __DIR__ . '/_header.php'; ?>
+<main class="container page-content-block" style="text-align: center; padding: 4em 1em;">
+    <h1>Página no encontrada</h1>
+    <p>Lo sentimos, la página que buscas no existe.</p>
+    <p><a href="/index.php" class="cta-button">Volver al inicio</a></p>
+</main>
+<?php require_once __DIR__ . '/_footer.php'; ?>
+<script src="/js/layout.js"></script>
+</body>
+</html>
+

@@ -1,4 +1,5 @@
 DirectoryIndex index.php
+ErrorDocument 404 /404.php
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
