@@ -84,6 +84,9 @@ function applyLanguageBarOffset() {
     const offset = (!isHidden && el.offsetHeight) ? el.offsetHeight : 0;
     document.documentElement.style.setProperty('--language-bar-offset', offset + 'px');
     document.body.style.setProperty('--language-bar-offset', offset + 'px');
+    const extra = getComputedStyle(document.documentElement).getPropertyValue('--menu-extra-offset') || '60px';
+    document.documentElement.style.setProperty('--menu-extra-offset', extra.trim());
+    document.body.style.setProperty('--menu-extra-offset', extra.trim());
 }
 
 if (document.readyState === 'loading') {
