@@ -59,6 +59,27 @@
     transform: rotate(20deg);
 }
 
+/* Language Bar Toggle */
+#lang-bar-toggle {
+    position: fixed;
+    top: var(--language-bar-offset);
+    right: 115px;
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+    border: 2px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 3001;
+    transition: background-color var(--global-transition-speed) ease,
+                color var(--global-transition-speed) ease;
+}
+
+#lang-bar-toggle:hover {
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+}
+
 
 /* Hide Google translate banner */
 .goog-te-banner-frame.skiptranslate {

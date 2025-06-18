@@ -61,8 +61,7 @@ body {
 
 /* Ensure the Google Translate widget itself is not accidentally shown if not already hidden by inline style */
 #google_translate_element {
-    /* Previously hidden to avoid visual clutter; now displayed to allow on-page translation */
-    display: inline-block;
+    display: none;
 }
 
 /* Ocultar visualmente pero mantener accesible */
