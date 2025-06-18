@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
     <title>Capítulo 3: Vestigios y Legado en Cerezo de Río Tirón</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
-    <h1>Capítulo 3: Vestigios y Legado en Cerezo de Río Tirón</h1>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
+
+<h1>Capítulo 3: Vestigios y Legado en Cerezo de Río Tirón</h1>
 
     <section>
         <h2 id="estructuras">Estructuras Defensivas, Religiosas y Civiles: Un Paisaje Histórico</h2>
@@ -40,7 +44,7 @@
     <p><a href="../capitulo4/capitulo4.php">Continuar al Capítulo 4</a></p>
     <p><a href="../index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

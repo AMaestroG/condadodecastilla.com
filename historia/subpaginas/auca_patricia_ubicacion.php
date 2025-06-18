@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
+    <title><?php echo htmlspecialchars($titulo_pagina_actual); ?> - Cerezo de Río Tirón</title>
+</head>
+<body>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
+
 <?php
 $id_tema_actual = "auca_patricia_ubicacion"; // ID de esta página específica
 
@@ -47,7 +57,6 @@ if (file_exists($json_historia_indice_path)) {
         $error_message_breadcrumb .= 'Error al decodificar historia_indice.json o título no encontrado. ';
     $error_message_breadcrumb .= 'No se pudo encontrar historia_indice.json. ';
 // Título de la página actual (podría venir del JSON si esta página también fuera generada por el script)
-$titulo_pagina_actual = $breadcrumb_tema_actual_texto; // Usar el título del tema para el <title>
 // Asumiendo que $pdo no está disponible aún, o para asegurar que sí lo esté.
 require_once __DIR__ . '/../../../dashboard/db_connect.php'; // Ajustar ruta si es necesario
 /** @var PDO $pdo */
@@ -56,22 +65,12 @@ if (!$pdo) {
 }
 require_once __DIR__ . '/../../../includes/text_manager.php';
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
-<?php require_once __DIR__ . '/../../../includes/load_page_css.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($titulo_pagina_actual); ?> - Cerezo de Río Tirón</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
-    <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
-</head>
-<body>
-    <?php require_once __DIR__ . '/../../../_header.php'; ?>
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/paisaje_cerezo.jpg'); min-height: 40vh;">
-        <div class="hero-content" style="padding: clamp(20px, 4vw, 40px);">
-            <h1 style="font-size: clamp(2.2em, 5vw, 3.5em);"><?php echo htmlspecialchars($titulo_pagina_actual); ?></h1>
+    <header id="hero-auca-patricia-ubicacion" class="page-header hero">
+        <div class="hero-content">
+            <h1><?php echo htmlspecialchars($titulo_pagina_actual); ?></h1>
         </div>
     </header>
     <main>
@@ -113,7 +112,6 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
             </div> <!-- Cierre de .container (para la sección) -->
         </section>
     </main>
-    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
     <script>
         // Script para el menú de navegación móvil
         const navToggle = document.querySelector('.nav-toggle');
@@ -131,6 +129,8 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
                     navLinks.classList.remove('active');
             });
     </script>
-    <!-- Removed navbar script, as navbar is replaced by _header.php -->
+
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
+    <script src="/js/layout.js"></script>
 </body>
 </html>

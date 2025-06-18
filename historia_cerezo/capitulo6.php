@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
     <title>Capítulo 6: La Vida Cotidiana en Cerasio: Siglos VIII-XI</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.php'; ?>
-    <h1>Capítulo 6: La Vida Cotidiana en Cerasio: Siglos VIII-XI</h1>
+    <?php require_once __DIR__ . "/../_header.php"; ?>
+
+<h1>Capítulo 6: La Vida Cotidiana en Cerasio: Siglos VIII-XI</h1>
 
     <section id="introduccion-vivir-frontera">
         <h2>Introducción: Vivir en la Frontera de Castilla</h2>
@@ -57,7 +61,7 @@
     <p><a href="capitulo7.php">Continuar al Capítulo 7</a></p>
     <p><a href="index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
     <title>Capítulo 5: Cerezo en la Alta Edad Media: Entre Condes y Reyes</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.php'; ?>
-    <h1>Capítulo 5: Cerezo en la Alta Edad Media: Entre Condes y Reyes</h1>
+    <?php require_once __DIR__ . "/../_header.php"; ?>
+
+<h1>Capítulo 5: Cerezo en la Alta Edad Media: Entre Condes y Reyes</h1>
 
     <section id="introduccion-baluarte">
         <h2>Introducción: Cerasio, Baluarte Consolidado</h2>
@@ -50,7 +54,7 @@
     <p><a href="capitulo6.php">Continuar al Capítulo 6</a></p>
     <p><a href="index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

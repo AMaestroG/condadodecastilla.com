@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
     <title>Capítulo 9: Cerezo en la Plena y Baja Edad Media (Siglos XII-XV): Entre el Esplendor y la Crisis</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.php'; ?>
-    <h1>Capítulo 9: Cerezo en la Plena y Baja Edad Media (Siglos XII-XV): Entre el Esplendor y la Crisis</h1>
+    <?php require_once __DIR__ . "/../_header.php"; ?>
+
+<h1>Capítulo 9: Cerezo en la Plena y Baja Edad Media (Siglos XII-XV): Entre el Esplendor y la Crisis</h1>
 
     <section id="introduccion-villa-consolidada">
         <h2>Introducción: Cerezo, Villa Castellana Consolidada</h2>
@@ -56,7 +60,7 @@
     <p><a href="capitulo8.php">Volver al Capítulo 8</a></p>
     <p><a href="index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

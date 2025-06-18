@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
     <title>Índice de Personajes - Historia de Cerezo</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
-    <h1>Índice de Personajes Relevantes</h1>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
+
+<h1>Índice de Personajes Relevantes</h1>
     <ul>
         <li>Conde Casio: <a href="../entidades/personajes/conde_casio.php">Ver módulo del Conde Casio</a></li>
         <li>Flavio Teodosio I el Grande: <a href="../capitulo1/capitulo1.php#emperadores-romanos">Mencionado en Capítulo 1: Emperadores Romanos</a></li>
@@ -18,7 +22,8 @@
         <li>San Vitores: <a href="../capitulo3/capitulo3.php#toponimia-tradiciones">Mencionado en Capítulo 3: Toponimia y Tradiciones</a></li>
         <li>San Formerio: <a href="../capitulo3/capitulo3.php#toponimia-tradiciones">Mencionado en Capítulo 3: Toponimia y Tradiciones</a></li>
     </ul>
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

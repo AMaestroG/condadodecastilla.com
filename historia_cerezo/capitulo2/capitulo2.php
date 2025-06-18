@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
     <title>Capítulo 2: El Alcázar de Cerasio y los Inicios de Castilla</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
-    <h1>Capítulo 2: El Alcázar de Cerasio y los Inicios de Castilla</h1>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
+
+<h1>Capítulo 2: El Alcázar de Cerasio y los Inicios de Castilla</h1>
 
     <section>
         <h2 id="conde-casio-alcazar">El Conde Casio y la Construcción del Alcázar</h2>
@@ -33,7 +37,7 @@
     <p><a href="../capitulo3/capitulo3.php">Continuar al Capítulo 3</a></p>
     <p><a href="../index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../../includes/load_page_css.php"; ?>
     <title>El Becerro Galicano y la Mención de Auca/Area Paterniani</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../../_header.php'; ?>
-    <h1>El Becerro Galicano y la Mención de Auca/Area Paterniani</h1>
+    <?php require_once __DIR__ . "/../../../_header.php"; ?>
+
+<h1>El Becerro Galicano y la Mención de Auca/Area Paterniani</h1>
 
     <section>
         <h2>Citas Relevantes del Becerro</h2>
@@ -28,7 +32,7 @@
         <p>"Lo que está claro que en el Becerro Galicano de San Millán de la cogolla en el folio 142 y en el folio 190 nos habla que Castilla nace de las ruinas de la Ciudad de Auca Patricia."</p>
     </section>
 
-    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

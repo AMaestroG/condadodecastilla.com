@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
     <title>Capítulo 4: Interpretaciones y Debate Histórico (Trazas Cruzadas)</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
-    <h1>Capítulo 4: Interpretaciones y Debate Histórico (Trazas Cruzadas)</h1>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
+
+<h1>Capítulo 4: Interpretaciones y Debate Histórico (Trazas Cruzadas)</h1>
 
     <section>
         <h2 id="fuentes-primarias">La Crucial Relectura de las Fuentes Primarias</h2>
@@ -41,7 +45,7 @@
     <p><a href="../capitulo5.php">Continuar al Capítulo 5</a></p>
     <p><a href="../index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

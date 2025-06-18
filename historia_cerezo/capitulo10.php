@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
     <title>Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.php'; ?>
-    <h1>Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</h1>
+    <?php require_once __DIR__ . "/../_header.php"; ?>
+
+<h1>Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</h1>
 
     <section id="introduccion-antiguo-regimen">
         <h2>Introducción: Cerezo en el Antiguo Régimen</h2>
@@ -56,7 +60,7 @@
     <p><a href="capitulo9.php">Volver al Capítulo 9</a></p>
     <p><a href="index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

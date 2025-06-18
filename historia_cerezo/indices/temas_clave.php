@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
     <title>Índice de Temas Clave - Historia de Cerezo</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
-    <h1>Índice de Temas Clave</h1>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
+
+<h1>Índice de Temas Clave</h1>
     <ul>
         <li>
             Origen de Castilla:
@@ -66,7 +70,8 @@
             </ul>
         </li>
     </ul>
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>
