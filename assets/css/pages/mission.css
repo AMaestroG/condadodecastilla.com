@@ -1,0 +1,9 @@
+.mission-text {
+    font-size: clamp(1.1em, 2.5vw, 1.4em);
+    line-height: 1.6;
+    max-width: 70ch;
+    margin: 1em auto;
+    background-image: linear-gradient(90deg, var(--epic-gold-main), var(--epic-purple-emperor));
+    -webkit-background-clip: text;
+    color: transparent;
+}
