@@ -13,8 +13,6 @@ require_once 'includes/ai_utils.php';
 require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Condado de Castilla - Cuna de tu Cultura y Lengua</title>
     <?php include __DIR__ . '/includes/head_common.php'; ?>
     <?php require_once __DIR__ . '/includes/load_page_css.php'; ?>
