@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.setAttribute('aria-expanded', open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
         document.body.classList.toggle('menu-compressed', open);
+        if (open && menu.id === 'ai-chat-panel') {
+            const chatArea = document.getElementById('gemini-chat-area');
+            if (chatArea) {
+                chatArea.focus();
+            }
+        }
     };
 
     document.querySelectorAll('[data-menu-target]').forEach(btn => {
