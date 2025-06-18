@@ -7,8 +7,8 @@
             padding: 20px;
         }
         .gallery-item {
-            background-color: #fdfaf6; /* Fondo alabastro claro */
-            border: 1px solid #ddd; /* Light grey border */
+            background-color: var(--color-fondo-pagina, #fdfaf6); /* Fondo alabastro claro */
+            border: 1px solid var(--epic-neutral-border, #ddd); /* Light grey border */
             border-radius: 8px; /* Rounded corners */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
             width: calc(33.333% - 40px); /* Adjust for 3 items per row, considering gap */
@@ -21,15 +21,15 @@
             height: auto; /* Adjust to image height */
             max-height: 200px;
             object-fit: contain; /* Avoid cropping */
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid var(--epic-neutral-border, #ddd);
         }
         .gallery-item .file-placeholder {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f0f0f0; /* Light background for placeholder */
+            background-color: var(--epic-neutral-bg, #f0f0f0); /* Light background for placeholder */
             font-size: 3em; /* Larger icon */
-            color: #aaa; /* Grey icon color */
+            color: var(--epic-text-muted, #aaa); /* Grey icon color */
         }
         .gallery-item-description {
             padding: 15px;
@@ -41,7 +41,7 @@
         }
         .gallery-item-description p {
             font-size: 0.9em;
-            color: #333; /* Darker grey for text */
+            color: var(--color-texto-principal, #2c1d12); /* Main text color */
             margin-bottom: 10px;
         }
         .gallery-item-description a {
