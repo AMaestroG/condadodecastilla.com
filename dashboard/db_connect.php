@@ -6,6 +6,13 @@
 // Cargar variables de entorno desde .env
 require_once __DIR__ . '/../includes/env_loader.php';
 
+// Allow tests to inject an SQLite database via TEST_SQLITE_PATH
+if (!empty($GLOBALS['TESTING']) && getenv('TEST_SQLITE_PATH')) {
+    $pdo = new PDO('sqlite:' . getenv('TEST_SQLITE_PATH'));
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return;
+}
+
 // --- Manejo de modo debug ---
 // Activa la visualización de errores solo cuando la variable de entorno
 // APP_DEBUG esté establecida a 'true'. Por defecto esta variable es falsa.
