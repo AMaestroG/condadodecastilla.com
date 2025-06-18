@@ -27,7 +27,7 @@
 #theme-toggle {
     position: fixed;
     top: var(--language-bar-offset);
-    left: 70px;
+    left: 70px; /* Align horizontally with consolidated menu button */
     transform: none;
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
@@ -184,8 +184,8 @@ body.dark-mode #homonexus-toggle:hover i {
 /* Mobile Adjustments for Toggles */
 @media (max-width: 768px) {
     #theme-toggle {
-        left: auto;
-        right: 60px;
+        left: 60px;  /* Maintain gap next to menu button */
+        right: auto;
         top: var(--language-bar-offset);
     }
 }
@@ -200,7 +200,7 @@ body.dark-mode #homonexus-toggle:hover i {
         width: 36px;
         height: 36px;
         padding: 6px;
-        top: 76px;
+        top: var(--language-bar-offset);
     }
 
     /* Slightly smaller icons for tiny screens */
@@ -213,5 +213,5 @@ body.dark-mode #homonexus-toggle:hover i {
     /* Adjust right offsets so buttons remain separated */
     #ia-chat-toggle { right: 10px; }
     #homonexus-toggle { right: 50px; }
-    #theme-toggle { right: 60px; left: auto; }
+    #theme-toggle { left: 60px; right: auto; }
 }
