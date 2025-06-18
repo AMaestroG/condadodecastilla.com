@@ -25,7 +25,7 @@ require_once 'includes/ai_utils.php';
 require_once __DIR__ . '/_header.php';
 ?>
 
-    <header class="hero">
+    <header id="intro" class="hero">
         <div class="hero-content">
             <img src="/assets/img/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas dorada encima." class="hero-escudo">
             <div>
@@ -36,7 +36,16 @@ require_once __DIR__ . '/_header.php';
         <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
     </header>
 
-    <section class="video-section section spotlight-active" data-aos="fade-up">
+    <nav id="page-nav" class="section-nav cta-group">
+        <a href="#video" class="cta-button-small">Video</a>
+        <a href="#memoria" class="cta-button-small">Memoria</a>
+        <a href="#legado" class="cta-button-small">Legado</a>
+        <a href="#personajes" class="cta-button-small">Personajes</a>
+        <a href="#timeline" class="cta-button-small">Historia</a>
+        <a href="#inmersion" class="cta-button-small">Cultura Viva</a>
+    </nav>
+
+    <section id="video" class="video-section section spotlight-active" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">Un Vistazo a Nuestra Tierra</h2>
             <div class="video-container">
@@ -53,7 +62,7 @@ require_once __DIR__ . '/_header.php';
     </section>
 
     <main>
-        <section class="section detailed-intro-section spotlight-active" data-aos="fade-up">
+        <section id="memoria" class="section detailed-intro-section spotlight-active" data-aos="fade-up">
             <div class="container">
                 <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', ''); ?>
                 <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', ''); ?>
@@ -63,7 +72,7 @@ require_once __DIR__ . '/_header.php';
             </div>
         </section>
 
-        <section class="section alternate-bg spotlight-active" data-aos="fade-up">
+        <section id="legado" class="section alternate-bg spotlight-active" data-aos="fade-up">
             <div class="container">
                 <h2 class="section-title">Explora Nuestro Legado</h2>
                 <div class="card-grid">
@@ -95,7 +104,7 @@ require_once __DIR__ . '/_header.php';
             </div>
         </section>
 
-        <section class="section" data-aos="fade-up">
+        <section id="personajes" class="section" data-aos="fade-up">
             <div class="container">
                 <h2 class="section-title">Personajes de la Historia</h2>
                 <div class="card-grid">
@@ -130,7 +139,7 @@ require_once __DIR__ . '/_header.php';
             </div>
         </section>
         
-        <section class="section timeline-section-summary alternate-bg" data-aos="fade-up">
+        <section id="timeline" class="section timeline-section-summary alternate-bg" data-aos="fade-up">
             <div class="container">
                 <h2 class="section-title">Nuestra Historia en el Tiempo</h2>
                 <p class="timeline-intro">Un recorrido conciso por los momentos más determinantes de nuestra región, desde la prehistoria hasta la consolidación del Condado. Cada época ha dejado una huella imborrable.</p>
@@ -140,7 +149,7 @@ require_once __DIR__ . '/_header.php';
             </div>
         </section>
 
-        <section class="section immersion-section" data-aos="fade-up">
+        <section id="inmersion" class="section immersion-section" data-aos="fade-up">
             <div class="container">
                 <h2>Sumérgete en la Historia Viva de Tu Cultura</h2>
                 <p>
