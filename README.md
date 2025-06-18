@@ -204,3 +204,13 @@ Ejecuta el script `check_alt_texts.sh` para detectar imágenes sin atributo `alt
 Esta comprobación se ejecuta automáticamente en cada pull request gracias a la configuración de GitHub Actions.
 
 Puedes indicar una ruta concreta como argumento si solo quieres escanear una carpeta determinada. El comando mostrará las líneas problemáticas y devolverá un código de salida distinto de cero si encuentra imágenes sin descripción.
+
+### Regenerar el árbol del sitio
+
+El script `tree_builder.py` rastrea https://www.condadodecastilla.es y genera `condensed_website_tree.json` con la estructura de páginas. Ejecuta:
+
+```bash
+python tree_builder.py
+```
+
+para actualizar dicho archivo cuando cambie el contenido del sitio.
