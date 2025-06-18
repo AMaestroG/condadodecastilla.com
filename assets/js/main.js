@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const panel = document.getElementById('ai-chat-panel');
             if (panel) {
                 panel.classList.remove('active');
-                document.body.classList.remove('menu-open-left');
+                document.body.classList.remove('menu-open-right');
                 document.body.classList.remove('menu-compressed');
             }
             const btn = document.querySelector('[data-menu-target="ai-chat-panel"]');
