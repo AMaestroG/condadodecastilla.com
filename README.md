@@ -179,7 +179,7 @@ para evitar enlaces duplicados en la navegación.
 
 ## Cambios recientes
 
-- Eliminado `js/header_loader.js` y referencias a dicho script, ya que la cabecera se carga ahora de forma estática.
+- Eliminado `js/header_loader.js` y su inclusión en `includes/head_common.php`; la cabecera se carga ahora directamente desde `_header.php`.
 
 
 
