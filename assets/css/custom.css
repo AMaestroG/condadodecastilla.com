@@ -78,22 +78,3 @@ body {
     border: 0;
 }
 
-/* Estilos para la bandera del idioma activo */
-.language-bar .lang-flag.active-lang {
-    border: 2px solid var(--epic-gold-main); /* Resalta con color del tema */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.15);
-    opacity: 1 !important; /* Asegurar que sea completamente opaco */
-    transform: scale(1.1); /* Un ligero aumento de tamaño */
-    border-radius: 3px; /* Bordes redondeados para el borde */
-}
-
-/* Estilo opcional para las banderas inactivas */
-.language-bar .lang-flag {
-    opacity: 0.7;
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Transición suave */
-}
-
-.language-bar .lang-flag:hover {
-    opacity: 1;
-    transform: scale(1.1); /* Aumentar también en hover para consistencia */
-}

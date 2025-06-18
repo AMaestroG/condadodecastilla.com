@@ -20,4 +20,3 @@
 </footer>
 <script src="/assets/js/main.js"></script>
 <script src="/js/lang-bar.js"></script>
-<script src="/assets/js/language-bar-offset.js"></script>
