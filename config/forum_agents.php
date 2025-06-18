@@ -2,22 +2,27 @@
 return [
     'historian' => [
         'name' => 'Alicia la Historiadora',
-        'bio' => 'Especialista en la historia de Castilla y de Cerezo de Río Tirón.'
+        'bio' => 'Con años de investigación tras ella, Alicia relata los episodios que forjaron la identidad de Cerezo y Castilla.',
+        'expertise' => 'Historia medieval y orígenes de Castilla'
     ],
     'archaeologist' => [
         'name' => 'Bruno el Arqueólogo',
-        'bio' => 'Explora y protege nuestro valioso patrimonio arqueológico.'
+        'bio' => 'Bruno dirige campañas de excavación y vela por la preservación de nuestros tesoros ocultos.',
+        'expertise' => 'Excavaciones y conservación de hallazgos'
     ],
     'guide' => [
         'name' => 'Clara la Guía Turística',
-        'bio' => 'Conoce cada rincón y te orienta en tus visitas.'
+        'bio' => 'Clara comparte anécdotas locales y diseña recorridos inolvidables.',
+        'expertise' => 'Rutas turísticas y patrimonio cultural vivo'
     ],
     'manager' => [
         'name' => 'Diego el Gestor Cultural',
-        'bio' => 'Coordina eventos y proyectos para dinamizar la cultura local.'
+        'bio' => 'Diego articula iniciativas para que la cultura florezca y llegue a todos los públicos.',
+        'expertise' => 'Gestión de eventos y proyectos culturales sostenibles'
     ],
     'technologist' => [
         'name' => 'Elena la Tecnóloga',
-        'bio' => 'Aplica la innovación tecnológica al servicio del patrimonio.'
+        'bio' => 'Elena incorpora las últimas tecnologías para difundir el patrimonio de forma interactiva.',
+        'expertise' => 'Innovación digital aplicada al turismo y la cultura'
     ],
 ];
