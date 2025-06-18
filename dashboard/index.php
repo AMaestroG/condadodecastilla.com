@@ -14,10 +14,8 @@ require_admin_login();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas de Visitas Web</title>
-    <link rel="stylesheet" href="../assets/css/epic_theme.css">
+    <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script> <!-- Specific version for stability -->
 </head>

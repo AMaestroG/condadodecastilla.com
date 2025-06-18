@@ -45,9 +45,8 @@ if ($pdo) {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
     <title>Administrar Comentarios</title>
-    <link rel="stylesheet" href="../assets/css/epic_theme.css">
+    <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <style>
         body { background-color: #f4f4f4; padding: 20px; }
         table { width: 100%; border-collapse: collapse; }
