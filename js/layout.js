@@ -238,7 +238,7 @@ function loadFixedTogglesCss() {
 function loadGsap() {
     if (!window.gsap) {
         const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js';
         document.head.appendChild(script);
     }
 }
