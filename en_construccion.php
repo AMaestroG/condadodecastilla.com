@@ -7,7 +7,6 @@
         <p><a href="/index.php" class="cta-button">Volver al inicio</a></p>
     </main>
     <?php require_once __DIR__ . '/_footer.php'; ?>
-    <script src="/assets/js/main.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>
