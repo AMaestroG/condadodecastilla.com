@@ -32,6 +32,7 @@
     --global-box-shadow-medium: 0 5px 15px rgba(var(--epic-text-color-rgb), 0.15);
     --global-box-shadow-dark: 0 8px 25px rgba(var(--epic-text-color-rgb), 0.2);
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
+    --language-bar-offset: 88px; /* default fallback */
 }
 
 @media (prefers-color-scheme: dark) {
