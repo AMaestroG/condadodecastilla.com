@@ -1,6 +1,6 @@
 Broken Link Report (Extended):
 ------------------------------
-Checked on: Wed Jun 18 19:22:42 UTC 2025
+Checked on: Wed Jun 18 22:38:10 UTC 2025
 
 Checking links in: index.php
   OK: /historia/historia.php (resolved to historia/historia.php)
@@ -22,7 +22,7 @@ Checking links in: index.php
   OK: /assets/img/GonzaloTellez.png (resolved to assets/img/GonzaloTellez.png)
   OK: /assets/img/FernandoDiaz.png (resolved to assets/img/FernandoDiaz.png)
   OK: /js/layout.js (resolved to js/layout.js)
-  SUMMARY for index.php: 1 broken link(s) out of 19 processable links.
+  SUMMARY for index.php: All 19 processable links appear OK.
 
 Checking links in: _header.php
   No processable internal links found in _header.php.
