@@ -34,6 +34,16 @@ if [ ! -f "$PROJECT_ROOT/.env" ] && [ -f "$PROJECT_ROOT/.env.example" ]; then
     echo "Archivo .env creado a partir de .env.example"
 fi
 
+# Ensure robots.txt exists
+if [ ! -f "$PROJECT_ROOT/robots.txt" ]; then
+    cat > "$PROJECT_ROOT/robots.txt" <<'EOF'
+User-agent: *
+Allow: /
+Sitemap: https://condadodecastilla.com/sitemap.xml
+EOF
+    echo "robots.txt creado"
+fi
+
 # Create upload directories
 mkdir -p "$PROJECT_ROOT"/uploads/galeria \
          "$PROJECT_ROOT"/uploads_storage/museo_piezas \
