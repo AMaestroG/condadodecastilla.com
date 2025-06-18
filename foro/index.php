@@ -6,6 +6,9 @@ require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/csrf.php';
 $agents = require __DIR__ . '/../config/forum_agents.php';
 /** @var PDO $pdo */
+if (!$pdo) {
+    echo "<p class='db-warning'>El foro est\xc3\xa1 en modo solo lectura.</p>";
+}
 
 // Ensure comments table exists
 if ($pdo) {

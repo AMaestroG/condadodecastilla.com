@@ -5,6 +5,9 @@ require_once __DIR__ . '/../includes/auth.php';      // For is_admin_logged_in()
 // dashboard/db_connect.php ya podría estar comentado, asegurarse que se incluye para $pdo
 require_once __DIR__ . '/../dashboard/db_connect.php'; // Necesario para $pdo
 /** @var PDO $pdo */
+if (!$pdo) {
+    echo "<p class='db-warning'>El sitio est\xc3\xa1 en modo solo lectura.</p>";
+}
 require_once __DIR__ . '/../includes/text_manager.php'; // Necesario para editableText()
 require_once __DIR__ . '/../includes/csrf.php';
 

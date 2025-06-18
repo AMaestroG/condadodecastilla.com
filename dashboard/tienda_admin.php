@@ -4,6 +4,10 @@ ensure_session_started();
 require_once __DIR__ . '/../includes/auth.php';
 require_once 'db_connect.php'; // Use include_path to allow test override
 /** @var PDO $pdo */
+if (!$pdo) {
+    echo "<p class='db-warning'>El sitio est\xc3\xa1 en modo solo lectura.</p>";
+    return;
+}
 require_once __DIR__ . '/../includes/csrf.php';
 
 require_admin_login();
