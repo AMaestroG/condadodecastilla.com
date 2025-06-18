@@ -34,12 +34,50 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     z-index: 1000;
     overflow-y: hidden; /* STRICT NO-SCROLL as per user feedback refinement */
-    display: flex; /* Added for flex-direction */
-    flex-direction: column; /* Added to manage content flow */
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Default column flow */
     padding: 15px; /* Reduced padding */
     padding-top: 50px; /* Space for a close button or header within panel, reduced */
     transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
     opacity: 0; /* Start hidden for transition */
+}
+
+/* Vertical tabs layout inside menu panels */
+.menu-panel.vertical-tabs .tab-container {
+    display: flex;
+    height: 100%;
+}
+.menu-panel.vertical-tabs .tab-headers {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    flex-shrink: 0;
+}
+.menu-panel.vertical-tabs .tab-header {
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    border: 1px solid var(--epic-purple-emperor);
+    padding: 8px;
+    cursor: pointer;
+    text-align: left;
+    margin-bottom: 4px;
+    border-radius: 4px;
+}
+.menu-panel.vertical-tabs .tab-header.active,
+.menu-panel.vertical-tabs .tab-header:hover {
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+}
+.menu-panel.vertical-tabs .tab-panels {
+    flex-grow: 1;
+    padding-left: 10px;
+    overflow-y: auto;
+}
+.menu-panel.vertical-tabs .tab-panel {
+    display: none;
+}
+.menu-panel.vertical-tabs .tab-panel.active {
+    display: block;
 }
 
 /* Specific panel positioning and initial hidden state */
