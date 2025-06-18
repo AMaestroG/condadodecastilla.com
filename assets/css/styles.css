@@ -238,7 +238,7 @@ header { /* New header for hamburger only */
     flex-direction: column;
 }
 
-#ai-response {
+#gemini-chat-area {
     flex-grow: 1;
     min-height: 150px; /* Más espacio para respuestas */
     border: 1px solid var(--current-separator);
@@ -251,7 +251,7 @@ header { /* New header for hamburger only */
     border-radius: 4px;
 }
 
-#ai-input {
+#gemini-chat-input {
     width: calc(100% - 24px); /* Ajustar por padding */
     padding: 12px;
     border: 1px solid var(--current-separator);
@@ -263,7 +263,7 @@ header { /* New header for hamburger only */
     font-size: 1rem;
 }
 
-#ai-submit {
+#gemini-chat-submit {
     padding: 12px 18px;
     background-color: var(--current-button-bg);
     color: var(--current-button-text);
@@ -275,7 +275,7 @@ header { /* New header for hamburger only */
     font-weight: bold;
 }
 
-#ai-submit:hover {
+#gemini-chat-submit:hover {
     opacity: 0.85;
 }
 

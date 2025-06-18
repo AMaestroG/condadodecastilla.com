@@ -192,7 +192,7 @@
     overflow-y: hidden; /* Main content area of AI chat does not scroll by default */
 }
 
-#ai-chat-panel #ai-response { /* The actual chat message area */
+#ai-chat-panel #gemini-chat-area { /* The actual chat message area */
     flex-grow: 1;
     overflow-y: auto; /* Chat messages themselves should scroll */
     padding: 5px;
@@ -201,14 +201,14 @@
     background-color: rgba(0,0,0,0.02);
 }
 
-#ai-chat-panel #ai-input { /* Text input */
+#ai-chat-panel #gemini-chat-input { /* Text input */
     padding: 8px;
     border: 1px solid var(--epic-purple-emperor);
     border-radius: 3px;
     margin-bottom: 5px; /* Compacted */
     flex-shrink: 0; /* Input should not shrink */
 }
-#ai-chat-panel #ai-submit { /* Submit button */
+#ai-chat-panel #gemini-chat-submit { /* Submit button */
     padding: 8px 12px;
     background-color: var(--epic-purple-emperor);
     color: var(--epic-gold-main);
@@ -218,7 +218,7 @@
     flex-shrink: 0; /* Button should not shrink */
     transition: background-color 0.2s ease, color 0.2s ease;
 }
-#ai-chat-panel #ai-submit:hover {
+#ai-chat-panel #gemini-chat-submit:hover {
     background-color: var(--epic-gold-main);
     color: var(--epic-purple-emperor);
 }
