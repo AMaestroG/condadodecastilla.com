@@ -31,16 +31,24 @@ check_links_in_file() {
             continue
         fi
 
+        # Skip pure language selector links like ?lang=es
+        if [[ "$link" == \?lang=* ]]; then
+            continue
+        fi
+
+        # Strip query parameters to check actual file path
+        link_no_query="${link%%\?*}"
+
         # Normalize link: remove leading slash for ls compatibility if it's not the root
-        normalized_link="$link"
-        if [[ "$link" == /* ]]; then
+        normalized_link="$link_no_query"
+        if [[ "$link_no_query" == /* ]]; then
             # If link starts with /, treat it as relative to repo root
-            normalized_link="${link:1}"
+            normalized_link="${link_no_query:1}"
         fi
 
         # Handle cases where normalized_link might be empty after stripping leading /
         if [ -z "$normalized_link" ]; then
-            if [ "$link" == "/" ]; then # Special case for root link
+            if [ "$link_no_query" == "/" ]; then # Special case for root link
                  if [ -f "index.php" ] || [ -f "index.html" ]; then
                     echo "  OK: $link (points to root)" >> "$output_file"
                 else
