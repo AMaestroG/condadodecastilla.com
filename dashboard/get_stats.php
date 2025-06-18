@@ -7,7 +7,7 @@ ensure_session_started();
 require_once __DIR__ . '/../includes/auth.php';
 require_admin_login();
 
-require_once 'db_connect.php'; // Establece la conexión $pdo
+require_once __DIR__ . '/../includes/db_connect.php';
 
 $response = ['success' => false, 'message' => 'Error desconocido.', 'data' => []];
 

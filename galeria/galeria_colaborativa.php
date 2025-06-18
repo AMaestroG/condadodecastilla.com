@@ -2,8 +2,8 @@
 require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
 require_once __DIR__ . '/../includes/auth.php';      // For is_admin_logged_in()
-// dashboard/db_connect.php ya podría estar comentado, asegurarse que se incluye para $pdo
-require_once __DIR__ . '/../dashboard/db_connect.php'; // Necesario para $pdo
+// Asegurar que se incluye el módulo de conexión para obtener $pdo
+require_once __DIR__ . '/../includes/db_connect.php'; // Necesario para $pdo
 /** @var PDO $pdo */
 if (!$pdo) {
     echo "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";

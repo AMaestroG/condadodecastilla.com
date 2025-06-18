@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
-require_once __DIR__ . '/../dashboard/db_connect.php';
+require_once __DIR__ . '/../includes/db_connect.php';
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/csrf.php';
 $agents = require __DIR__ . '/../config/forum_agents.php';

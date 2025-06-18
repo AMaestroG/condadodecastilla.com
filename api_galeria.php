@@ -1,7 +1,7 @@
 <?php
 // api_galeria.php - Endpoint para manejar la galeria colaborativa
 
-require_once 'dashboard/db_connect.php';
+require_once __DIR__ . '/includes/db_connect.php';
 require_once 'includes/auth.php';
 
 if (session_status() == PHP_SESSION_NONE) {

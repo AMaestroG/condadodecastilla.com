@@ -15,9 +15,9 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 
 ## Configuración de la base de datos
 
-El archivo `dashboard/db_connect.php` define los parámetros para conectarse a la base de datos PostgreSQL. Se proporciona con valores de ejemplo y **debe** modificarse con las credenciales reales antes de usar el proyecto en producción.
+El archivo `includes/db_connect.php` define los parámetros para conectarse a la base de datos PostgreSQL. Se proporciona con valores de ejemplo y **debe** modificarse con las credenciales reales antes de usar el proyecto en producción.
 
-Fragmento relevante de `dashboard/db_connect.php`:
+Fragmento relevante de `includes/db_connect.php`:
 
 ```php
 $db_host = "localhost";         // Host de la base de datos
