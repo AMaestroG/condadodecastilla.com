@@ -8,7 +8,7 @@
         }
         .gallery-item {
             background-color: #fdfaf6; /* Fondo alabastro claro */
-            border: 1px solid var(--epic-neutral-border); /* Light grey border */
+            border: 1px solid var(--current-separator); /* Light grey border */
             border-radius: 8px; /* Rounded corners */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
             width: calc(33.333% - 40px); /* Adjust for 3 items per row, considering gap */
@@ -21,7 +21,7 @@
             height: auto; /* Adjust to image height */
             max-height: 200px;
             object-fit: contain; /* Avoid cropping */
-            border-bottom: 1px solid var(--epic-neutral-border);
+            border-bottom: 1px solid var(--current-separator);
         }
         .gallery-item .file-placeholder {
             display: flex;
