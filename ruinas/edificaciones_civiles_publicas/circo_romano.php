@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Circo Romano de Auca Patricia</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
                 <h2>El Circo Romano de Auca Patricia (Vega de los Tormentos / Quintanilleja)</h2>
                 <p>Las fuentes antiguas, incluyendo la historia de San Formerio, mencionan un circo romano en la Vega de los Tormentos (posiblemente en la actual Quintanilleja), datado en tiempos del emperador Aureliano (circa 277 d.C.). Este circo habría contado con leones y estaba asociado a un gobernador romano, lo que sugiere la importancia administrativa de Auca Patricia.</p>

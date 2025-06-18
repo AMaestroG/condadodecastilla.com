@@ -12,7 +12,7 @@
     </header>
     <main>
         <section class="section alternate-bg">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Un Tesoro de la Prehistoria</h2>
                 <p class="timeline-intro">
                     La Sierra de Atapuerca, ubicada al norte de Ibeas de Juarros en la provincia de Burgos, es un enclave montañoso de modesta altitud que alberga un extraordinario conjunto de yacimientos arqueológicos y paleontológicos. Reconocida como Patrimonio de la Humanidad por la UNESCO, Espacio de Interés Natural y Bien de Interés Cultural, Atapuerca ha proporcionado al mundo testimonios fósiles de al menos cinco especies distintas de homínidos, arrojando luz invaluable sobre la evolución humana en Europa.

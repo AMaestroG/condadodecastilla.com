@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>
-    <header class="page-header"><div class="container"><h1>Hallazgos y Representaciones</h1></div></header>
+    <header class="page-header"><div class="container-epic"><h1>Hallazgos y Representaciones</h1></div></header>
     <nav aria-label="breadcrumb" class="container breadcrumb-nav">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/index.php">Inicio</a></li>
@@ -15,7 +15,7 @@
         <li class="breadcrumb-item active" aria-current="page">Hallazgos y Representaciones</li>
       </ol>
     </nav>
-    <main><section class="section"><div class="container">
+    <main><section class="section"><div class="container-epic">
         <h2>Páginas en esta categoría:</h2>
         <ul>
             <li><a href="descripciones_generales.php">Descripciones Generales de Ruinas</a></li>

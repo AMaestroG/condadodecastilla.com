@@ -9,7 +9,7 @@
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Alabastro de Cerasio</h1>
         </div>
     </header>
@@ -23,7 +23,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Cerezo de Río Tirón es un pueblo construido casi por completo con <strong>alabastro</strong>. Según <em>nuevo4.md</em>, muchas de sus casas y hasta el propio Alcázar se levantaron con este material translúcido.</p>
                 <p>El texto explica que las piedras de alabastro, hoy desgastadas, antaño estaban pulidas y relucientes. Incluso la tumba de Santo Domingo estaría hecha con alabastro extraído de Cerezo.</p>
                 <p>Se recomienda cuidar estas piedras con delicadeza, ya que su brillo original podría recuperarse con un pulido adecuado. El alabastro local, aunque no sea de la mejor calidad escultórica, da carácter a la villa y testimonio material de su historia.</p>

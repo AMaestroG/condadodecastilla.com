@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Alcázar de Cerasio (Cerezo de Río Tirón)</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
                 <h2>El Gran Alcázar de Cerasio</h2>
                 <p>El Alcázar de Cerasio, también conocido como el Alcázar del Conde Casio, es una estructura fundamental en la historia de Cerezo de Río Tirón y el origen de Castilla. Se describe como un imponente alcázar de alabastro puro, con dimensiones que varían en las descripciones entre 830 y 1200 metros de largo, capaz de albergar no solo la residencia condal sino también a su corte, funcionarios y soldados.</p>

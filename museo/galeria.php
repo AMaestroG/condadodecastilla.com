@@ -20,7 +20,7 @@
 
     <main>
         <section class="section museum-gallery-section alternate-bg" id="gallery-2d-section">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Galería del Museo <i class="fas fa-landmark"></i></h2>
                 <div id="museumGalleryGrid" class="card-grid museum-gallery-grid">
                     <p class="no-pieces-message" id="noPiecesMessage">Cargando piezas del museo...</p>

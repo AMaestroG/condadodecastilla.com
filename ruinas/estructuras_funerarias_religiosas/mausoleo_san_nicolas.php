@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Mausoleo Imperial de San Nicolás (Valdemoros)</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <h2>Mausoleo Imperial y Cuevas de Muertos en San Nicolás</h2>
                 <p>La Iglesia de San Nicolás en Cerezo de Río Tirón alberga importantes vestigios funerarios que sugieren la existencia de un mausoleo, posiblemente de carácter imperial. Debajo de la iglesia se conservan cuevas de muertos, y la estructura general del lugar presenta similitudes con mausoleos imperiales romanos, como el de San Vittore al Corpo en Milán.</p>
                 <p>Se menciona que este sitio, con sus cuevas sepulcrales, fue custodiado en el año 840 por Hospitalarios bajo la bandera de Ramiro I y su mujer Paterna (Banucasi). Esta vigilancia temprana sugiere la importancia que ya entonces tenía el lugar. El documento también propone emplear técnicas modernas como georradar para estudiar los enterramientos situados bajo el pavimento actual.</p>

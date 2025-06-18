@@ -16,7 +16,7 @@
 
     <main>
         <section class="section timeline-section alternate-bg">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title gradient-text">Un Viaje Milenario</h2>
                 <p class="timeline-intro">
                     Desde los primeros homínidos en la Sierra de Atapuerca hasta la configuración actual de nuestra comarca, 

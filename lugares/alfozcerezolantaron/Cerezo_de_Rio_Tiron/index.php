@@ -102,7 +102,7 @@
 
         <!-- Section for Interactive elements - to be added later -->
         <section class="section interactive-section alternate-bg" id="interactive-elements-cerezo" style="display: block;">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Participa y Descubre</h2>
                 <div id="comments-section" class="content-subsection animate-on-scroll">
                     <h3><i class="fas fa-comments"></i> Deja tu Comentario</h3>
@@ -195,7 +195,7 @@
     </div>
 
     <footer class="footer">
-        <div class="container">
+        <div class="container-epic">
             <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
             <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
             <?php

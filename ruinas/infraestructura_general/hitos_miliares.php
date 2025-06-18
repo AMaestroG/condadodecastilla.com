@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Hitos Miliares y Calzadas Romanas</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Información sobre los hitos miliares (miliarios) y las calzadas romanas en el territorio del Condado de Castilla.</p>
                 <p>El texto de <em>nuevo4.md</em> describe la importancia de la
                 calzada que unía Tarragona con Astorga, identificada en la zona

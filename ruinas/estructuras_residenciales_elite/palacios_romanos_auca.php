@@ -9,7 +9,7 @@
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Palacios Romanos en Auca Patricia (Cerezo de Río Tirón)</h1>
         </div>
     </header>
@@ -23,7 +23,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Auca Patricia, como importante ciudad romana y cuna de emperadores, albergó residencias de élite y palacios.</p>
                 <p>Se menciona que en la zona de "Los Palacios" existió un teatro del siglo I, lo que sugiere que esta área era de relevancia y podría haber contenido estructuras residenciales importantes. La tradición y los textos indican que Auca fue cuna de tres emperadores romanos: Flavio Teodosio I el Grande, su primo Magno Clemente Máximo, y el hijo de este último, Flavio Victor. Tal linaje imperial implicaría la existencia de residencias palaciegas adecuadas para su estatus.</p>
                 <p>La ciudad de Oca (Auca) es referida como "palacios cuna de tres emperadores romanos en Hispania", reforzando la idea de estructuras palatinas en el sitio. Aunque los detalles específicos de estas edificaciones requieren más investigación arqueológica, su existencia es un componente clave en la comprensión del esplendor de Auca Patricia.</p>

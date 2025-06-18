@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Fotografías y Hallazgos Menores</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Discusión sobre la importancia de la documentación fotográfica y el registro de hallazgos menores en el estudio arqueológico del Condado de Castilla.</p>
 
                 <h3>Menciones Específicas de Fotografías en Fuentes</h3>

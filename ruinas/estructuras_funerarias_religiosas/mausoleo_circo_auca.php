@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Mausoleo del Circo de Auca Patricia</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Según <em>nuevo4.md</em>, junto al circo de la Vega de los
                 Tormentos existiría un mausoleo romano relacionado con la
                 decapitación de San Vitores en el año 388. Este mausoleo,

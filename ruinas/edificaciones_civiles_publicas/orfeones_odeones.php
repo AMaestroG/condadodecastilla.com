@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Orfeones y Odeones en el Contexto Romano</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
                 <p>Información sobre este tipo de estructuras y su posible presencia o contexto en Auca Patricia y el Condado de Castilla.</p>
                 <!-- Contenido específico sobre Orfeones y Odeones, o su ausencia documentada, se añadirá aquí -->

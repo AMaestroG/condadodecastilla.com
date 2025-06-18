@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Campamento Romano de la Tejera</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
                 <h2>Campamento Romano en el Término de La Tejera</h2>
                 <p>En el término de La Tejera se encuentran los restos de un campamento romano de legionarios, construido en piedra. Destacan sus torres, algunas de las cuales presentan una característica inclinación o torsión en las esquinas. Estas torres, descritas como blancas y originalmente con tejas rojas (comparándolas con ocas), junto con la presencia de un foso y una elevación considerable, evidencian su carácter militar.</p>

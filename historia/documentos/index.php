@@ -16,7 +16,7 @@
 
     <main>
         <section class="section alternate-bg">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Archivos y Manuscritos</h2>
                 <p>Esta sección alberga diversos documentos históricos disponibles para consulta. Los archivos pueden incluir PDFs, documentos de texto, e imágenes de manuscritos originales.</p>
 
