@@ -7,6 +7,7 @@ function setupLanguageBar() {
 
         flagLinks.forEach(link => {
             link.classList.remove('active-lang');
+            link.removeAttribute('aria-current');
         });
 
         flagLinks.forEach(link => {
@@ -24,6 +25,7 @@ function setupLanguageBar() {
             flagLinks.forEach(link => {
                 if (link.getAttribute('href').includes(`lang=${lang}`)) {
                     link.classList.add('active-lang');
+                    link.setAttribute('aria-current', 'true');
                 }
             });
             console.log(`setupLanguageBar: Determined language for translation: ${lang}`);
@@ -33,6 +35,7 @@ function setupLanguageBar() {
             flagLinks.forEach(link => {
                 if (link.getAttribute('href').includes('lang=es')) {
                     link.classList.add('active-lang');
+                    link.setAttribute('aria-current', 'true');
                 }
             });
             console.log("setupLanguageBar: No language parameter in URL, or default language selected.");
