@@ -32,6 +32,14 @@ echo file_get_contents(__DIR__ . "/fragments/header/language-bar.html");
     <!-- Add other menu items or buttons here as needed -->
 </div>
 
+<!-- Right Sliding Panel for Notes -->
+<div id="notes-panel" class="menu-panel right-panel" role="dialog" aria-labelledby="notes-title">
+    <div class="ai-drawer-header">
+        <h3 id="notes-title">Notas personales</h3>
+        <button id="close-notes-panel" aria-label="Cerrar notas">✕</button>
+    </div>
+    <textarea id="user-notes" rows="10" style="flex-grow:1;"></textarea>
+</div>
 <!-- Right Sliding Panel for AI Chat -->
 <div id="ai-chat-panel" class="menu-panel right-panel" role="dialog" aria-labelledby="ai-chat-title">
     <?php
@@ -46,7 +54,6 @@ echo file_get_contents(__DIR__ . "/fragments/header/language-bar.html");
     }
     ?>
 </div>
-
 <!-- Right Sliding Panel for Notes -->
 <div id="notes-panel" class="menu-panel right-panel" role="dialog" aria-labelledby="notes-title">
     <div class="ai-drawer-header">

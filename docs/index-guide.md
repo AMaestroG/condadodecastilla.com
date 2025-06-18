@@ -33,7 +33,7 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 * **Estilos**: modifica `assets/css/menus/consolidated-menu.css` para cambiar colores morado y oro viejo, anchura u otros efectos del panel `.menu-panel`.
 * **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
 * **Añadir páginas**: edita `fragments/menus/main-menu.html` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
-* **Notas personales**: activa el panel "Notas" desde el botón con icono de nota adhesiva. Su contenido se guarda en `localStorage`.
+* **Notas personales**: utiliza el botón con icono de nota adhesiva para abrir el panel de notas. Su contenido se guarda automáticamente en `localStorage`.
 
 Tras cualquier modificación ejecuta las pruebas de PHP y Python si las dependencias están instaladas:
 ```bash
