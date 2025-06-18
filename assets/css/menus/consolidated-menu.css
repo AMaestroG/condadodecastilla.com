@@ -4,8 +4,8 @@
 #consolidated-menu-button {
     position: fixed !important;
     top: 20px !important;
-    right: 20px !important;
-    left: auto !important;
+    left: 20px !important;
+    right: auto !important;
     z-index: 1005 !important; /* También z-index por si acaso */
     padding: 8px 12px; /* Slightly more compact */
     background-color: var(--epic-gold-main);
@@ -43,9 +43,9 @@
 }
 
 /* Specific panel positioning and initial hidden state */
-#consolidated-menu-items.right-panel {
-    right: 0;
-    transform: translateX(100%); /* Initially off-screen to the right */
+#consolidated-menu-items.left-panel {
+    left: 0;
+    transform: translateX(-100%); /* Initially off-screen to the left */
 }
 
 #demo-info-panel.right-panel {
@@ -53,16 +53,16 @@
     transform: translateX(100%); /* Initially off-screen to the right */
 }
 
-#ai-chat-panel.left-panel {
-    left: 0;
-    transform: translateX(-100%); /* Initially off-screen to the left */
+#ai-chat-panel.right-panel {
+    right: 0;
+    transform: translateX(100%); /* Initially off-screen to the right */
     /* AI chat panel might need its own content scroll if chat history grows */
     /* For now, its direct content (input, header) is small. */
 }
 
 /* Active states for panels (toggled by JavaScript) */
-#consolidated-menu-items.right-panel.active,
-#ai-chat-panel.left-panel.active,
+#consolidated-menu-items.left-panel.active,
+#ai-chat-panel.right-panel.active,
 #demo-info-panel.right-panel.active {
     transform: translateX(0);
     opacity: 1;
@@ -231,7 +231,8 @@
     }
     #consolidated-menu-button {
         top: 10px; /* Compacted */
-        right: 10px; /* Compacted */
+        left: 10px; /* Compacted */
+        right: auto; /* Compacted */
         font-size: 1em; /* Compacted */
         padding: 6px 10px; /* Compacted */
     }
