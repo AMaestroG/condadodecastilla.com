@@ -22,4 +22,3 @@ $geminiKey = getenv('GEMINI_API_KEY') ?: '';
 <script defer src="/assets/vendor/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script defer src="/js/header-loader.js"></script>
