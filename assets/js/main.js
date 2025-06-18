@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof applyLanguageBarOffset === 'function') {
         applyLanguageBarOffset();
     }
+    const closeMenu = (menu) => {
+        menu.classList.remove('active');
+        const btn = document.querySelector(`[data-menu-target="${menu.id}"]`);
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        const side = menu.classList.contains('left-panel') ? 'left'
+                    : (menu.classList.contains('right-panel') ? 'right' : '');
+        if (side) document.body.classList.remove(`menu-open-${side}`);
+    };
+
     const toggleMenu = (btn) => {
         const targetId = btn.getAttribute('data-menu-target');
         if (!targetId) return;
@@ -25,11 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.menu-panel.active').forEach(menu => {
             const btn = document.querySelector(`[data-menu-target="${menu.id}"]`);
             if (!menu.contains(e.target) && !(btn && btn.contains(e.target))) {
-                menu.classList.remove('active');
-                if (btn) btn.setAttribute('aria-expanded', 'false');
-                const side = menu.classList.contains('left-panel') ? 'left'
-                            : (menu.classList.contains('right-panel') ? 'right' : '');
-                if (side) document.body.classList.remove(`menu-open-${side}`);
+                closeMenu(menu);
                 document.body.classList.remove('menu-compressed');
             }
         });
@@ -38,14 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             document.querySelectorAll('.menu-panel.active').forEach(menu => {
-                menu.classList.remove('active');
-                const btn = document.querySelector(`[data-menu-target="${menu.id}"]`);
-                if (btn) btn.setAttribute('aria-expanded', 'false');
-                const side = menu.classList.contains('left-panel') ? 'left'
-                            : (menu.classList.contains('right-panel') ? 'right' : '');
-                if (side) document.body.classList.remove(`menu-open-${side}`);
-                document.body.classList.remove('menu-compressed');
+                closeMenu(menu);
             });
+            document.body.classList.remove('menu-compressed');
         }
     });
 
@@ -54,12 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
         closeDrawer.addEventListener('click', () => {
             const panel = document.getElementById('ai-chat-panel');
             if (panel) {
-                panel.classList.remove('active');
-                document.body.classList.remove('menu-open-right');
+                closeMenu(panel);
                 document.body.classList.remove('menu-compressed');
             }
-            const btn = document.querySelector('[data-menu-target="ai-chat-panel"]');
-            if (btn) btn.setAttribute('aria-expanded', 'false');
         });
     }
 
