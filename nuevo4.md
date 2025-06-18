@@ -1,7 +1,9 @@
 # Documentación dividida
 
-El contenido previo de este archivo se ha reorganizado en los siguientes documentos dentro de `docs/`:
+La documentación completa se ha trasladado al directorio `docs/`. Para una vista general y el listado completo de archivos, consulta [docs/README.md](docs/README.md).
 
-- [docs/historia.md](docs/historia.md)
-- [docs/arqueologia.md](docs/arqueologia.md)
-- [docs/tradicion.md](docs/tradicion.md)
+Los apartados principales son:
+
+- [Historia](docs/historia.md)
+- [Arqueología](docs/arqueologia.md)
+- [Tradición](docs/tradicion.md)
