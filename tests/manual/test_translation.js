@@ -5,12 +5,12 @@ const puppeteer = require('puppeteer');
   await page.goto('http://localhost:8080/tests/manual/test_lang.html?lang=en');
   await page.waitForSelector('#google_translate_element');
   await new Promise(r => setTimeout(r, 4000)); // wait for API load
-  const textBefore = await page.$eval('#text', el => el.innerText);
-  const flags = await page.$$('.lang-flag');
-  await flags[0].click();
+  const textEn = await page.$eval('#text', el => el.innerText);
+  await page.goto('http://localhost:8080/tests/manual/test_lang.html?lang=fr');
+  await page.waitForSelector('#google_translate_element');
   await new Promise(r => setTimeout(r, 5000));
-  const textAfter = await page.$eval('#text', el => el.innerText);
-  console.log('Text before:', textBefore);
-  console.log('Text after:', textAfter);
+  const textFr = await page.$eval('#text', el => el.innerText);
+  console.log('Text EN:', textEn);
+  console.log('Text FR:', textFr);
   await browser.close();
 })();
