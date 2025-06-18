@@ -278,6 +278,18 @@ header { /* New header for hamburger only */
     opacity: 0.85;
 }
 
+#ai-dialog {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--current-separator);
+    background-color: var(--current-bg);
+    color: var(--current-text);
+    border-radius: 4px;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
 /* Ajustes para que el contenido del main no se solape con el header fijo */
 /* El #main-content ya tiene margin-top, pero si hay otros headers fijos, se necesitaría más */
 

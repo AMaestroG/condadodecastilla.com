@@ -26,9 +26,9 @@
 /* Theme Toggle Button - Original Position (will be adjusted for mobile) */
 #theme-toggle {
     position: fixed;
-    top: 88px; /* lowered position */
-    left: 50%;
-    transform: translateX(-50%);
+    top: var(--language-bar-offset);
+    left: 70px;
+    transform: none;
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
@@ -183,16 +183,11 @@ body.dark-mode #homonexus-toggle:hover i {
 
 /* Mobile Adjustments for Toggles */
 @media (max-width: 768px) {
-    /*
     #theme-toggle {
-        left: auto; / * Override PC centering * /
-        right: 115px; / * (homonexus-toggle right 65px + width 44px = 109px) + 6px gap * /
-        / * Note: Ensure #ia-chat-toggle is at right: 15px and #homonexus-toggle at right: 65px * /
+        left: auto;
+        right: 60px;
+        top: var(--language-bar-offset);
     }
-    */
-    /* #sidebar-toggle remains top: 88px; left: 15px; */
-    /* #ia-chat-toggle remains top: 88px; right: 15px; */
-    /* #homonexus-toggle remains top: 88px; right: 65px; */
 }
 
 /* Consider further adjustments for very small screens if needed, e.g., hiding some toggles */
@@ -218,4 +213,5 @@ body.dark-mode #homonexus-toggle:hover i {
     /* Adjust right offsets so buttons remain separated */
     #ia-chat-toggle { right: 10px; }
     #homonexus-toggle { right: 50px; }
+    #theme-toggle { right: 60px; left: auto; }
 }
