@@ -21,7 +21,11 @@ class ToolsMenuLinksTest extends TestCase {
     }
 
     public static function urlProvider(): array {
-        $html = file_get_contents(__DIR__.'/../fragments/menus/tools-menu.html');
+        $path = __DIR__.'/../fragments/menus/tools-menu.html';
+        if (!file_exists($path)) {
+            return [];
+        }
+        $html = file_get_contents($path);
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML($html);

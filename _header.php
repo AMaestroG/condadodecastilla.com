@@ -17,14 +17,6 @@ echo file_get_contents(__DIR__ . "/fragments/header/language-bar.html");
         ?>
     </div>
     <div class="menu-section">
-        <h4 class="gradient-text">Herramientas</h4>
-        <?php
-        if (file_exists(__DIR__ . '/fragments/menus/tools-menu.html')) {
-            echo file_get_contents(__DIR__ . '/fragments/menus/tools-menu.html');
-        }
-        ?>
-    </div>
-    <div class="menu-section">
         <h4 class="gradient-text">Admin</h4>
         <?php include __DIR__ . '/fragments/menus/admin-menu.php'; ?>
     </div>

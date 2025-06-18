@@ -27,7 +27,7 @@ if (file_exists(__DIR__ . '/fragments/menus/main-menu.html')) {
 }
 ?>
 ```
-De igual manera se incluyen `tools-menu.html`, `admin-menu.php` y `social-menu.html` dentro de bloques `<div class="menu-section">`.
+El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloques `<div class="menu-section">`.
 
 ## Personalización del menú deslizante y nuevas páginas
 * **Estilos**: modifica `assets/css/menus/consolidated-menu.css` para cambiar colores morado y oro viejo, anchura u otros efectos del panel `.menu-panel`.
