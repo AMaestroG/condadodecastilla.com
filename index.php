@@ -4,6 +4,9 @@ ensure_session_started();
 require_once 'includes/auth.php';      // For is_admin_logged_in()
 require_once 'dashboard/db_connect.php'; // Provides $pdo
 /** @var PDO $pdo */
+if (!$pdo) {
+    echo "<p class='db-warning'>El sitio est\xc3\xa1 en modo solo lectura.</p>";
+}
 require_once 'includes/text_manager.php';// For editableText()
 require_once 'includes/ai_utils.php';
 ?>
