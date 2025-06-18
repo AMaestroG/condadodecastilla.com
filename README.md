@@ -208,3 +208,7 @@ El proyecto define cinco agentes que participan en el foro para orientar las con
 - **Elena la Tecnóloga** – aplica innovación tecnológica al servicio del patrimonio.
 
 Para ajustar sus biografías o añadir nuevos perfiles edita el archivo `config/forum_agents.php` y actualiza el array de configuración.
+
+## Tema predeterminado
+
+El sitio arranca en modo oscuro. Si el navegador no tiene guardada una preferencia en `localStorage`, el script `assets/js/main.js` añade la clase `dark-mode` al elemento `<body>` y muestra el icono `fa-sun` en el botón de cambio de tema. Al pulsar dicho botón se alterna entre modo oscuro y claro, actualizando el icono (`fa-sun` o `fa-moon`) y almacenando la elección para futuras visitas.
