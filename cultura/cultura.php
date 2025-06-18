@@ -123,7 +123,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                         <?php editableText('cultura_arqueologia_caption_texto', $pdo, '<i class="fas fa-search-location"></i> Arqueólogos desenterrando los secretos del pasado.', 'p', 'image-caption'); ?>
                     </div>
                     <p class="text-center" style="margin-top: 2em;">
-                        <?php editableText('cultura_link_explora_lugares_texto', $pdo, 'Explora los Lugares Emblemáticos', 'a', 'cta-button cta-button-small', 'href="/lugares/lugares.html"'); ?>
+                        <?php editableText('cultura_link_explora_lugares_texto', $pdo, 'Explora los Lugares Emblemáticos', 'a', 'cta-button cta-button-small', 'href="/lugares/lugares.php"'); ?>
                     </p>
                 </article>
             </div>
