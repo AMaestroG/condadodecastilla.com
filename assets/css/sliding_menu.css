@@ -57,6 +57,12 @@
 .slide-menu.right { right: 0; transform: translateX(100%); }
 .slide-menu.open { transform: translateX(0); }
 
+/* Slightly scale down the page when any slide menu is active */
+body.menu-compressed {
+    transition: transform 0.3s ease;
+    transform: scale(0.97);
+}
+
 body.menu-open-left,
 body.menu-open-right {
     transition: transform 0.3s ease;
