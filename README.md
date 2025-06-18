@@ -176,3 +176,15 @@ colores morado y oro viejo que el resto de la cabecera.
 - Eliminado `js/header_loader.js` y referencias a dicho script, ya que la cabecera se carga ahora de forma estática.
 
 
+
+## Scripts de utilidad
+
+### Comprobación de etiquetas `<img>`
+
+Ejecuta el script `check_alt_texts.sh` para detectar imágenes sin atributo `alt` en los archivos PHP y HTML:
+
+```bash
+./scripts/check_alt_texts.sh
+```
+
+Puedes indicar una ruta concreta como argumento si solo quieres escanear una carpeta determinada. El comando mostrará las líneas problemáticas y devolverá un código de salida distinto de cero si encuentra imágenes sin descripción.
