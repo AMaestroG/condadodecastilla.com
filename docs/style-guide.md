@@ -12,5 +12,8 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 | `--color-texto-principal` | Marrón oscuro para la tipografía | `#2c1d12` |
 | `--color-fondo-pagina` | Blanco hueso sutil de fondo | `#fdfaf6` |
 | `--color-negro-contraste` | Negro de alto contraste | `#1A1A1A` |
+| `--alert-bg` | Fondo de mensajes de alerta | `#ffdddd` |
+| `--alert-border` | Borde de mensajes de alerta | `#ff0000` |
+| `--alert-text` | Texto de mensajes de alerta | `#d8000c` |
 
 Los equivalentes `-rgb` se encuentran en la misma hoja de estilos para crear transparencias con `rgba()`.

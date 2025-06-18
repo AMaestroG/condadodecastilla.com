@@ -73,6 +73,10 @@
     --epic-input-border: #ccc;
     --epic-text-muted: #666;
     --epic-action-bg: #f0fff0;
+    /* Alert variables */
+    --alert-bg: #ffdddd;
+    --alert-border: #ff0000;
+    --alert-text: #d8000c;
 }
 
 @media (prefers-color-scheme: dark) {
