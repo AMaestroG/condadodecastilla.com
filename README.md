@@ -223,3 +223,20 @@ Para ajustar sus biografías o añadir nuevos perfiles edita el archivo `config/
 ## Tema predeterminado
 
 El sitio arranca en modo oscuro. Si el navegador no tiene guardada una preferencia en `localStorage`, el script `assets/js/main.js` añade la clase `dark-mode` al elemento `<body>` y muestra el icono `fa-sun` en el botón de cambio de tema. Al pulsar dicho botón se alterna entre modo oscuro y claro, actualizando el icono (`fa-sun` o `fa-moon`) y almacenando la elección para futuras visitas.
+
+## Variantes de imagen para el bloque "Explora Nuestro Legado"
+
+Las tarjetas de la sección cuentan con tres estilos de imagen que regulan su
+altura y el modo de recorte. Basta con añadir una de estas clases al `<img>`:
+
+- `legado-img-tall` – 300&nbsp;px de alto con `object-fit: cover`.
+- `legado-img-fill` – 240&nbsp;px de alto con `object-fit: fill`.
+- `legado-img-short` – 200&nbsp;px de alto con `object-fit: cover`.
+
+Ejemplo de uso:
+
+```html
+<img class="legado-img-tall" src="/ruta/imagen.jpg" alt="Descripción">
+```
+
+Para cambiar la variante simplemente sustituye la clase aplicada al elemento.

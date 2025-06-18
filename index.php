@@ -80,7 +80,7 @@ require_once __DIR__ . '/_header.php';
                 <h2 class="section-title">Explora Nuestro Legado</h2>
                 <div class="card-grid">
                     <div class="card">
-                        <img src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
+                        <img class="legado-img-tall" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
                         <div class="card-content">
                             <h3>Nuestra Historia</h3>
                             <p>Desde los Concanos y la Civitate Auca Patricia hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
@@ -88,7 +88,7 @@ require_once __DIR__ . '/_header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
+                        <img class="legado-img-fill" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
                         <div class="card-content">
                             <h3>Lugares Emblemáticos</h3>
                             <p>Descubre el imponente Alcázar de Casio, los secretos de la Civitate Auca y otros tesoros arqueológicos que esperan ser explorados.</p>
@@ -96,7 +96,7 @@ require_once __DIR__ . '/_header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
+                        <img class="legado-img-short" src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
                         <div class="card-content">
                             <h3>Planifica Tu Visita</h3>
                             <p>Encuentra toda la información que necesitas para tu aventura en Cerezo de Río Tirón: cómo llegar, dónde alojarte y qué no te puedes perder.</p>

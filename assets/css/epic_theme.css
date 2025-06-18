@@ -698,6 +698,25 @@ body.dark-mode .footer .social-links a:focus-visible {
     transform: scale(1.05);
 }
 
+/* Image variants for the "Explora Nuestro Legado" cards. Apply these
+   classes to <img> elements inside the #legado section to adjust
+   height and cropping style. */
+#legado .card img.legado-img-tall {
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+#legado .card img.legado-img-fill {
+    height: 240px;
+    -o-object-fit: fill;
+       object-fit: fill;
+}
+#legado .card img.legado-img-short {
+    height: 200px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
 .card-content {
     padding: 1.5em;
     display: flex;
