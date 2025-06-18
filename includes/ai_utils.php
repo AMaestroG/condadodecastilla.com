@@ -295,7 +295,7 @@ function translate_with_gemini(string $content_id, string $target_language, stri
 
     $original_snippet = !empty($original_sample_text) ? htmlspecialchars(substr(strip_tags($original_sample_text), 0, 70)) . "..." : "el contenido original";
 
-    $outputText = "<div style='padding:15px; background-color:#e3f2fd; border:1px solid #bbdefb; border-radius:4px; margin-top:10px;'>";
+    $outputText = "<div style='padding:15px; background-color:#e3f2fd; border:1px solid #bbdefb; border-radius: var(--global-border-radius); margin-top:10px;'>";
     $outputText .= "<p style='font-size:0.9em; color:#0d47a1;'><em>Traducción IA (Demostración) para: " . htmlspecialchars($content_id) . "</em></p>";
 
     switch ($target_language) {

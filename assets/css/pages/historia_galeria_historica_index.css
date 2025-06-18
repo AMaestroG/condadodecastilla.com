@@ -9,7 +9,7 @@
         .gallery-item {
             background-color: #fdfaf6; /* Fondo alabastro claro */
             border: 1px solid #ddd; /* Light grey border */
-            border-radius: 8px; /* Rounded corners */
+            border-radius: var(--global-border-radius); /* Rounded corners */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
             width: calc(33.333% - 40px); /* Adjust for 3 items per row, considering gap */
             margin-bottom: 20px;

@@ -16,7 +16,7 @@
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
 <body>
-    <div id="crosshair" style="position: fixed; top: 50%; left: 50%; width: 6px; height: 6px; background-color: rgba(255,255,255,0.6); border-radius: 50%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none; display: none;"></div>
+    <div id="crosshair" style="position: fixed; top: 50%; left: 50%; width: 6px; height: 6px; background-color: rgba(255,255,255,0.6); transform: translate(-50%, -50%); z-index: 9998; pointer-events: none; display: none;"></div>
     <div id="linterna-condado"></div>
     <?php require_once __DIR__ . '/../_header.php'; ?>
 

@@ -7,7 +7,7 @@
             border: 1px solid rgba(var(--color-primario-purpura-rgb), 0.2);
             padding: 1.5em;
             margin-bottom: 1.5em;
-            border-radius: 8px;
+            border-radius: var(--global-border-radius);
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
         .subpage-index-item h3 {
@@ -28,7 +28,7 @@
             background-color: var(--epic-gold-main);
             color: var(--color-blanco-fondo);
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: var(--global-border-radius);
             font-weight: bold;
             transition: background-color 0.3s ease;
         }
@@ -45,5 +45,5 @@
             color: #d8000c;
             padding: 1em;
             margin: 1em 0;
-            border-radius: 5px;
+            border-radius: var(--global-border-radius);
         }
