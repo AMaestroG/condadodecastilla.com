@@ -1,9 +1,6 @@
 // assets/js/main.js - simplified menu controller and theme toggle
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof applyLanguageBarOffset === 'function') {
-        applyLanguageBarOffset();
-    }
     const toggleMenu = (btn) => {
         const targetId = btn.getAttribute('data-menu-target');
         if (!targetId) return;
