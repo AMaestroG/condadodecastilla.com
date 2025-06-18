@@ -4,13 +4,13 @@ ensure_session_started();
 require_once 'includes/auth.php';      // For is_admin_logged_in()
 require_once 'dashboard/db_connect.php'; // Provides $pdo
 /** @var PDO $pdo */
+$db_warning = '';
 if (!$pdo) {
-    echo "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";
+    $db_warning = "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";
 }
 require_once 'includes/text_manager.php';// For editableText()
 require_once 'includes/ai_utils.php';
-?>
-<!DOCTYPE html>
+require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -20,8 +20,8 @@ require_once 'includes/ai_utils.php';
     <?php require_once __DIR__ . '/includes/load_page_css.php'; ?>
 
 </head>
-<?php require_once __DIR__ . '/includes/homonexus.php'; ?>
 <body class="<?php echo homonexus_body_class(); ?>">
+<?php echo $db_warning; ?>
 <?php
 // Use dynamic PHP header if available so menu fragments can contain
 // server-side logic like the admin login menu.
