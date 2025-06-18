@@ -26,11 +26,27 @@ function toggleLanguageBar() {
     const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
     if (isHidden) {
         el.style.display = 'block';
-        const offset = el.offsetHeight || 40;
-        document.documentElement.style.setProperty('--language-bar-offset', offset + 'px');
+        const applyOffset = () => {
+            const offset = el.offsetHeight || 40;
+            document.documentElement.style.setProperty('--language-bar-offset', offset + 'px');
+            document.body.style.setProperty('--language-bar-offset', offset + 'px');
+        };
+
+        if (el.childElementCount === 0) {
+            const observer = new MutationObserver((mutations, obs) => {
+                if (el.childElementCount > 0) {
+                    applyOffset();
+                    obs.disconnect();
+                }
+            });
+            observer.observe(el, { childList: true, subtree: true });
+        } else {
+            applyOffset();
+        }
     } else {
         el.style.display = 'none';
         document.documentElement.style.setProperty('--language-bar-offset', '0px');
+        document.body.style.setProperty('--language-bar-offset', '0px');
     }
 }
 
@@ -43,6 +59,7 @@ function initLangBarToggle() {
     if (el) {
         el.style.display = 'none';
         document.documentElement.style.setProperty('--language-bar-offset', '0px');
+        document.body.style.setProperty('--language-bar-offset', '0px');
     }
 }
 
