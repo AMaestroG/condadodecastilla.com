@@ -3,15 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Test Translation</title>
-<link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 <body>
-<div class="language-bar">
-    <a href="/?lang=en" class="lang-flag">🇬🇧</a>
-    <a href="/?lang=fr" class="lang-flag">🇫🇷</a>
-</div>
-<div id="google_translate_element"></div>
 <p id="text">Hola Mundo</p>
-<script src="/js/lang-bar.js"></script>
+<button id="translate-btn">Traducir</button>
+<script>
+document.getElementById('translate-btn').addEventListener('click', () => {
+  fetch('/ajax_actions/get_translation.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ text_to_translate: document.getElementById('text').innerText, target_lang: 'en' })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success && data.translation) {
+      document.getElementById('text').innerText = data.translation;
+    }
+  });
+});
+</script>
 </body>
 </html>

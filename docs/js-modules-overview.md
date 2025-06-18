@@ -1,6 +1,6 @@
 # JavaScript Modules Overview
 
-This document summarizes the purpose of the main JavaScript files present in the repository after consolidation.
+This document summarizes the purpose of the main JavaScript files present in the repository after consolidation. The translation system has been simplified: `js/lang-bar.js` now checks the URL for a `lang` parameter and loads Google Translate automatically, so flag links are no longer required.
 
 | File | Description |
 |------|-------------|
@@ -11,7 +11,7 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `js/load_menu_parts.js` | Dynamically loads menu fragments into the header when needed. |
 | `js/header-loader.js` | Fetches `/_header.php` and injects it into `#header-placeholder` for static pages. |
 | `js/ia-tools.js` | Implements AI assistant utilities such as summaries, translations and chat. |
-| `js/lang-bar.js` | Controls the language selection bar and triggers Google Translate. |
+| `js/lang-bar.js` | Applies Google Translate when a `lang` query parameter is present. The previous flag-based UI is optional. |
 | `js/lugares-data.js` | Provides static data used by `lugares-dynamic-list.js`. |
 | `js/lugares-dynamic-list.js` | Generates the list of places dynamically from `lugares-data.js`. |
 | `js/museo-2d-gallery.js` | Logic for the collaborative museum 2D gallery including uploads and modals. |
