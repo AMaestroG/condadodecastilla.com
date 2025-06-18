@@ -715,7 +715,7 @@ body.dark-mode .footer .social-links a:focus-visible {
        object-fit: cover; /* Crop images to fit */
     border-bottom: 4px solid var(--epic-gold-main);
     margin: 0 0 1em 0; /* Remove image's own margins, add space below */
-    border-radius: 0; /* Image takes top radius from card */
+    border-radius: var(--global-border-radius); /* Image takes top radius from card */
     filter: sepia(30%) contrast(1.1) brightness(0.9); /* Subtle epic filter */
     transition: filter var(--global-transition-speed) ease-in-out, transform var(--global-transition-speed) ease-in-out;
 }
@@ -2395,7 +2395,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     height: 45px;
     -o-object-fit: contain;
        object-fit: contain;
-    border-radius: 0; /* No border for the image itself if it's an icon */
+    border-radius: var(--global-border-radius); /* No border for the image itself if it's an icon */
     border: none;
     box-shadow: none;
     filter: drop-shadow(0 0 4px rgba(var(--epic-gold-main-rgb), 0.6));
