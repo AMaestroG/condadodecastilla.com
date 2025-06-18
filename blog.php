@@ -59,7 +59,6 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
 <?php endif; ?>
 </main>
 <?php include __DIR__.'/_footer.php'; ?>
-<script src="/assets/js/main.js"></script>
 <script src="/js/layout.js"></script>
 </body>
 </html>

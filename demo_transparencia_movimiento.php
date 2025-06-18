@@ -12,7 +12,6 @@
         </div>
     </section>
     <?php require_once __DIR__ . '/_footer.php'; ?>
-    <script src="/assets/js/main.js"></script>
     <script src="/js/layout.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
