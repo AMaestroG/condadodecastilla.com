@@ -126,27 +126,21 @@ El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada po
 
 ## Ejecución de pruebas
 
-Para instalar PHPUnit y ejecutar la suite de tests ejecuta:
+Instala **todas** las dependencias antes de lanzar las suites de pruebas:
 
 ```bash
 composer install
-vendor/bin/phpunit
+pip install -r requirements.txt
 ```
 
-El primer comando descargará las dependencias necesarias, incluido PHPUnit, y el
-segundo lanzará todos los tests definidos en `phpunit.xml`.
-
-Se incluyen pruebas que cargan las páginas principales del sitio y comprueban la presencia del contenedor `#fixed-header-elements`. Ejecuta `vendor/bin/phpunit` para verificarlas.
-
-### Pruebas de la API Flask
-
-Instala primero las dependencias de Python y luego ejecuta las pruebas que
-validan la API Flask:
+Con las dependencias ya presentes, ejecuta cada conjunto de tests de forma explícita:
 
 ```bash
-pip install -r requirements.txt
+vendor/bin/phpunit
 python -m unittest tests/test_flask_api.py
 ```
+
+`vendor/bin/phpunit` lanzará todos los tests definidos en `phpunit.xml`. Se incluyen pruebas que cargan las páginas principales del sitio y comprueban la presencia del contenedor `#fixed-header-elements`.
 
 ## Elementos del menú principal
 
