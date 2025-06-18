@@ -60,6 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const closeDemoInfo = document.getElementById('close-demo-info');
+    if (closeDemoInfo) {
+        closeDemoInfo.addEventListener('click', () => {
+            const panel = document.getElementById('demo-info-panel');
+            if (panel) {
+                panel.classList.remove('active');
+                document.body.classList.remove('menu-open-right');
+                document.body.classList.remove('menu-compressed');
+            }
+            const btn = document.querySelector('[data-menu-target="demo-info-panel"]');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+    }
+
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         const icon = themeToggle.querySelector('i');

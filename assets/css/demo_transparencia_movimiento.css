@@ -84,3 +84,22 @@
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+#demo-info-panel {
+    padding-top: 2rem;
+}
+
+#demo-info-panel #close-demo-info {
+    background: none;
+    border: none;
+    font-size: 1.4em;
+    color: var(--morado-emperador);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#demo-info-panel #close-demo-info:hover {
+    color: var(--oro-viejo);
+}
