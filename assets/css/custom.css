@@ -77,3 +77,15 @@ body {
     border: 0;
 }
 
+
+/* Tagline backgrounds */
+#memoria {
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.1);
+}
+
+#memoria h2.gradient-text, .tagline-background {
+    display: inline-block;
+    padding: 0.3em 0.6em;
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.3);
+    border-radius: var(--border-radius-medio, 8px);
+}

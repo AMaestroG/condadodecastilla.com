@@ -68,7 +68,7 @@ require_once __DIR__ . '/_header.php';
     <main>
         <section id="memoria" class="section detailed-intro-section spotlight-active" data-aos="fade-up">
             <div class="container">
-                <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', ''); ?>
+                <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', 'gradient-text tagline-background'); ?>
                 <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', ''); ?>
                 <p class="cta-group">
                     <a href="/secciones_index/memoria_hispanidad.html" class="cta-button">Leer Más Sobre Nuestra Memoria</a>
