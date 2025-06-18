@@ -154,6 +154,8 @@
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
 
+        function debugLog(...args) { if (window.DEBUG_MODE) { console.debug(...args); } }
+
         // Scene
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x1a2639); // Dark Sapphire Blue
@@ -268,7 +270,7 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 charactersData = await response.json();
-                console.log('Character data loaded:', charactersData);
+                debugLog('Character data loaded:', charactersData);
                 populateSceneWithCharacters(); // Call the new function here
             } catch (error) {
                 console.error('Could not load character data:', error);
@@ -352,7 +354,7 @@
 
         function populateSceneWithCharacters() {
             if (!charactersData || charactersData.length === 0) {
-                console.log('No character data available to populate the scene.');
+                debugLog('No character data available to populate the scene.');
                 return;
             }
 
@@ -384,7 +386,7 @@
                             loadedModel.name = `character_${character.name}_gltf`;
 
                             scene.add(loadedModel);
-                            console.log(`Loaded glTF model for ${character.name}`);
+                            debugLog(`Loaded glTF model for ${character.name}`);
                         },
                         undefined, // onProgress callback (optional)
                         (error) => {
@@ -397,7 +399,7 @@
                 }
             });
 
-            console.log(`Populated scene with ${charactersData.length} characters (attempted).`);
+            debugLog(`Populated scene with ${charactersData.length} characters (attempted).`);
         }
 
         loadCharacterData();
