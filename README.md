@@ -138,9 +138,11 @@ segundo lanzará todos los tests definidos en `phpunit.xml`.
 
 ### Pruebas de la API Flask
 
-Para ejecutar las pruebas escritas en Python que validan la API Flask utiliza:
+Instala primero las dependencias de Python y luego ejecuta las pruebas que
+validan la API Flask:
 
 ```bash
+pip install -r requirements.txt
 python -m unittest tests/test_flask_api.py
 ```
 
