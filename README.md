@@ -136,6 +136,8 @@ vendor/bin/phpunit
 El primer comando descargará las dependencias necesarias, incluido PHPUnit, y el
 segundo lanzará todos los tests definidos en `phpunit.xml`.
 
+Se incluyen pruebas que cargan las páginas principales del sitio y comprueban la presencia del contenedor `#fixed-header-elements`. Ejecuta `vendor/bin/phpunit` para verificarlas.
+
 ### Pruebas de la API Flask
 
 Instala primero las dependencias de Python y luego ejecuta las pruebas que
