@@ -54,7 +54,7 @@ class LoginLogoutTest extends TestCase {
         [$status, $out, $err] = $this->runScript(__DIR__.'/../dashboard/login.php', $env);
         $this->assertSame(0, $status, $err);
         $headers = $this->parseHeaders($out);
-        $this->assertSame('/index.php', $headers['Location'][0] ?? null);
+        $this->assertSame('/dashboard/index.php', $headers['Location'][0] ?? null);
         $this->assertArrayHasKey('Set-Cookie', $headers);
         preg_match('/PHPSESSID=([^;]+)/', $headers['Set-Cookie'][0], $m);
         $this->assertNotEmpty($m);

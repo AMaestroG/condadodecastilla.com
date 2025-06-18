@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['user_role'] = $user['role'];
 
                     // Determine redirect URL
-                    $redirect_to = '/index.php'; // Default redirect
+                    $redirect_to = '/dashboard/index.php'; // Default redirect to dashboard
                     if (isset($_SESSION['redirect_after_login'])) {
                         $redirect_to = $_SESSION['redirect_after_login'];
                         unset($_SESSION['redirect_after_login']); // Clear it after use
@@ -63,6 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // Ensure $redirect_to is not inadvertently /index.html if that was the stored session value
                         if ($redirect_to === '/index.html') {
                             $redirect_to = '/index.php';
+                        } elseif ($redirect_to === '/dashboard/index.html') {
+                            $redirect_to = '/dashboard/index.php';
                         }
                         header("Location: " . $redirect_to);
                         if (empty($GLOBALS['TESTING'])) {
