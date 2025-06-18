@@ -134,16 +134,20 @@ y cualquier otra variable necesaria.
 
 Las variables definidas en `.env` se cargan de forma automática gracias a `includes/env_loader.php`.
 
-## Configuración de la clave Gemini
+## Configuración de la API de Gemini
 
-Define la variable `GEMINI_API_KEY` en tu archivo `.env` con la clave proporcionada por el servicio Gemini:
+Para que las funcionalidades de IA puedan comunicarse con el servicio externo necesitas definir dos variables en el archivo `.env`:
 
 ```bash
 GEMINI_API_KEY=tu_clave_personal
+GEMINI_API_ENDPOINT=https://api.gemini.example.com/v1/generateContent
 ```
-Solo se admite la variable `GEMINI_API_KEY`; otros nombres anteriores han sido eliminados.
 
-El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y será utilizado por las funciones del servidor definidas en `includes/ai_utils.php` para realizar las peticiones.
+`GEMINI_API_KEY` guarda la clave de acceso suministrada por el proveedor. `GEMINI_API_ENDPOINT` permite especificar la URL del punto de entrada, que por defecto es `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent` si la variable se omite.
+
+El valor de la clave se inyecta en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y es utilizado por las funciones del servidor definidas en `includes/ai_utils.php`.
+
+Si `GEMINI_API_KEY` no está definida, las funciones de `includes/ai_utils.php` no intentarán contactar con el servicio real: en su lugar usarán un simulador interno que genera respuestas de ejemplo. Esto permite probar el sitio sin consumir cuota ni requerir acceso externo.
 
 ## Ejecución de pruebas
 
