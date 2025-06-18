@@ -7,7 +7,7 @@ BASE_URL = "https://condadodecastilla.com"
 
 EXCLUDE_DIRS = {
     'scripts', 'dashboard', '__pycache__', 'assets', 'uploads',
-    'database_setup', '.git'
+    'database_setup', '.git', 'fragments'
 }
 
 FILE_EXTENSIONS = {'.html', '.php'}
@@ -20,10 +20,12 @@ def is_eligible(filename: str) -> bool:
 def collect_files(base_dir: str) -> list[str]:
     collected = []
     for root, dirs, files in os.walk(base_dir):
-        # Skip unwanted directories
+        # Skip unwanted directories and files
+        # Exclude directories listed in EXCLUDE_DIRS or starting with a dot.
+        # Ignore files starting with '_' and anything under the 'fragments' folder.
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS and not d.startswith('.')]
         for file in files:
-            if is_eligible(file):
+            if is_eligible(file) and not file.startswith('_'):
                 full_path = os.path.join(root, file)
                 rel_path = os.path.relpath(full_path, base_dir)
                 collected.append(rel_path.replace(os.sep, '/'))
