@@ -309,6 +309,9 @@ th {
 .text-justify {
     text-align: justify;
 }
+.text-old-gold {
+    color: var(--epic-gold-main);
+}
 #pieza-info-overlay {
     display: none; /* Hidden by default */
     position: fixed;
