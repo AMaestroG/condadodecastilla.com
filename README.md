@@ -94,8 +94,13 @@ pip install -r requirements.txt
 ```
 
 3. Copia `.env.example` a `.env` y define al menos `GEMINI_API_KEY` y `CONDADO_DB_PASSWORD`.
-
-4. Inicia el servicio:
+4. Carga dichas variables en tu terminal:
+   ```bash
+   set -a
+   source .env
+   set +a
+   ```
+5. Inicia el servicio:
 
 ```bash
 python flask_app.py
@@ -142,13 +147,34 @@ si ejecutas:
 npx tailwindcss@3.4.4 -i assets/css/tailwind_base.css -o assets/vendor/css/tailwind.min.css --minify
 ```
 
-A continuación copia el archivo de ejemplo `.env.example` a `.env`
-y sustituye sus valores por tus credenciales reales para
-`CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
-y cualquier otra variable necesaria.
+A continuación copia el archivo de ejemplo `.env.example` a `.env` y
+rellena los valores reales que utilizará el proyecto. Este paso es
+imprescindible **antes** de poner en marcha el sitio o ejecutar las
+pruebas para que existan `CONDADO_DB_PASSWORD`, `GEMINI_API_KEY` y
+cualquier otra variable necesaria.
 
+### Carga de variables de entorno
 
-Las variables definidas en `.env` se cargan de forma automática gracias a `includes/env_loader.php`.
+`includes/env_loader.php` emplea la biblioteca
+`vlucas/phpdotenv` para cargar automáticamente el fichero `.env` cada vez
+que se incluye en un script PHP. De esta forma páginas como
+`includes/db_connect.php` o `includes/ai_utils.php` disponen de las
+variables sin que tengas que exportarlas manualmente.
+
+El servicio Flask lee estas mismas variables mediante
+`os.getenv()` en `flask_app.py`. Para que estén disponibles debes
+exportarlas en tu terminal antes de ejecutar la API, por ejemplo:
+
+```bash
+set -a
+source .env
+set +a
+python flask_app.py
+```
+
+Si `GEMINI_API_KEY` no está definida, las funciones de
+`includes/ai_utils.php` activarán un simulador de respuestas y el sitio
+seguirá funcionando sin realizar llamadas reales al servicio de IA.
 
 ## Configuración de la API de Gemini
 
