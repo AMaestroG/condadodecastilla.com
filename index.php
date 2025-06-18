@@ -31,8 +31,8 @@ require_once __DIR__ . '/_header.php';
             <img src="/assets/img/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas dorada encima." class="hero-escudo">
             <div>
                 <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla: Cuna de Tu Cultura e Idioma', 'h1', ''); ?>
-                <?php editableText('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.', 'p', ''); ?>
-                <?php editableText('mission_tagline_index', $pdo, 'Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.', 'p', 'mission-tagline'); ?>
+                <?php editableText('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.', 'p', 'text-old-gold'); ?>
+                <?php editableText('mission_tagline_index', $pdo, 'Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.', 'p', 'mission-tagline text-old-gold'); ?>
             </div>
         </div>
         <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
