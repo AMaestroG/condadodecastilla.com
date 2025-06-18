@@ -15,10 +15,10 @@ $geminiKey = getenv('GEMINI_API_KEY') ?: '';
 <link rel="stylesheet" href="/assets/css/epic_theme.css">
 <link rel="stylesheet" href="/assets/css/header.css">
 <link rel="stylesheet" href="/assets/css/sliding_menu.css">
-<link rel="stylesheet" href="/assets/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" integrity="sha384-JwsW+0ELqRMx9x6pRP70dNDO7xjoMnIKPQ4j/wcgUp3NE6PFcAckU4iigFsMghvY" crossorigin="anonymous">
 <link rel="stylesheet" href="/assets/css/custom.css">
 <link rel="stylesheet" href="/assets/css/lighting.css">
 <link rel="stylesheet" href="/assets/vendor/css/tailwind.min.css">
-<script defer src="/assets/vendor/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-SN33kWx+ihQ/HVbUaz2QmiFjCwXTlzAIXazhbugzuDUFc1l1b/HFB70dNFuPu6j6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-JNHB8zHcoUfOaL+5wtIg9Y9ycYzaO+F6DRKCVh0b07XHtcwPa5RWPLXrI75EetBh" crossorigin="anonymous" />
+<script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-pqaW8ZT6X0hgqP/d9vywgq6Z9erjRzCQXDpUe1koRaSPoaqe7iT730cdpShUMHbV" crossorigin="anonymous"></script>
