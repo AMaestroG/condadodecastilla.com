@@ -40,9 +40,9 @@
             min-height: 30vh; /* Reduced height for index page */
         }
         .error-message {
-            background-color: #ffdddd;
-            border: 1px solid #ff0000;
-            color: #d8000c;
+            background-color: var(--alert-bg);
+            border: 1px solid var(--alert-border);
+            color: var(--alert-text);
             padding: 1em;
             margin: 1em 0;
             border-radius: 5px;
