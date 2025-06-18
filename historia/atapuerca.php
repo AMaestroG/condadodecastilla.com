@@ -10,7 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once __DIR__ . '/../dashboard/db_connect.php';
 /** @var PDO $pdo */
 if (!$pdo) {
-    echo "<p class='db-warning'>El sitio est\xc3\xa1 en modo solo lectura.</p>";
+    echo "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";
 }
 // text_manager.php incluye auth.php, así que $is_admin estará disponible indirectamente.
 require_once __DIR__ . '/../includes/text_manager.php';
