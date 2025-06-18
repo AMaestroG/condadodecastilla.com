@@ -16,6 +16,10 @@
             document.body.classList.add(`menu-open-${side}`);
             document.body.classList.add('menu-compressed');
         }
+        const button = document.querySelector(`[data-menu-target="${menu.id}"]`);
+        if(button){
+            button.setAttribute('aria-expanded', 'true');
+        }
     }
 
     function closeMenu(menu){
@@ -25,6 +29,10 @@
             document.body.classList.remove(`menu-open-${side}`);
         }
         document.body.classList.remove('menu-compressed');
+        const button = document.querySelector(`[data-menu-target="${menu.id}"]`);
+        if(button){
+            button.setAttribute('aria-expanded', 'false');
+        }
     }
 
     function toggleMenu(button){
