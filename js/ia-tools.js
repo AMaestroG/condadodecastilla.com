@@ -238,6 +238,8 @@ function handleChatMessage(chatInput, chatArea) {
 
     appendMessage(chatArea, userText, 'user');
     chatInput.value = '';
+    const responseBox = document.getElementById('ai-response-box');
+    if (responseBox) responseBox.value = '';
 
     // Using the enhanced appendMessage for "Thinking..." state
     appendMessage(chatArea, '<em>Pensando...</em>', 'ai-status');
@@ -262,19 +264,26 @@ function handleChatMessage(chatInput, chatArea) {
         const thinkingMessage = chatArea.querySelector('.ai-status-message');
         if (thinkingMessage) thinkingMessage.remove();
 
+        const responseBox = document.getElementById('ai-response-box');
         if (data.success && data.response) {
             appendMessage(chatArea, data.response, 'ai');
+            if (responseBox) responseBox.value = data.response;
         } else if (data.error) {
             appendMessage(chatArea, data.error, 'ai-error');
+            if (responseBox) responseBox.value = data.error;
         } else {
             appendMessage(chatArea, 'Respuesta inesperada del servidor.', 'ai-error');
+            if (responseBox) responseBox.value = 'Respuesta inesperada del servidor.';
         }
         showChatDialog(chatArea.innerText);
     })
     .catch(err => {
         const thinkingMessage = chatArea.querySelector('.ai-status-message');
         if (thinkingMessage) thinkingMessage.remove();
-        appendMessage(chatArea, err.message || 'Error de conexión desconocido.', 'ai-error');
+        const errMsg = err.message || 'Error de conexión desconocido.';
+        appendMessage(chatArea, errMsg, 'ai-error');
+        const responseBox = document.getElementById('ai-response-box');
+        if (responseBox) responseBox.value = errMsg;
         showChatDialog(chatArea.innerText);
     });
 }

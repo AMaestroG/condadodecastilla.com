@@ -94,3 +94,22 @@ body.menu-open-right #gemini-ai-panel { /* This selector might need JS to add 'm
 #gemini-chat-submit:hover {
     background-color: var(--epic-gold-secondary);
 }
+
+#ai-response-box {
+    width: 100%;
+    min-height: 80px;
+    margin-top: 0.5rem;
+    background: rgba(var(--epic-purple-emperor-rgb), 0.1);
+    border: 1px solid var(--epic-gold-secondary);
+    color: var(--current-text);
+    padding: 8px;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#ai-chat-title {
+    background: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
