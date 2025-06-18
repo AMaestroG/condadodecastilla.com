@@ -84,6 +84,11 @@ check_links_in_file() {
         # Clean up ./ if any
         normalized_link=$(echo "$normalized_link" | sed 's#\./##g')
 
+        # Skip language selector links like ?lang=es
+        if [[ "$original_link_for_reporting" == \?lang=* ]]; then
+            continue
+        fi
+
         # Handle cases where normalized_link might be empty after stripping leading /
         if [ -z "$normalized_link" ]; then
             if [ "$original_link_for_reporting" == "/" ]; then
