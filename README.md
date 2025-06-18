@@ -148,6 +148,7 @@ Con las dependencias ya presentes, ejecuta cada conjunto de tests de forma expl�
 ```bash
 vendor/bin/phpunit
 python -m unittest tests/test_flask_api.py
+npm run test:puppeteer
 ```
 
 `vendor/bin/phpunit` lanzará todos los tests definidos en `phpunit.xml`. Se incluyen pruebas que cargan las páginas principales del sitio y comprueban la presencia del contenedor `#fixed-header-elements`.
