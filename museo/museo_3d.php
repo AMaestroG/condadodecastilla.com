@@ -16,11 +16,11 @@
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
 <body>
-    <div id="crosshair" style="position: fixed; top: 50%; left: 50%; width: 6px; height: 6px; background-color: rgba(255,255,255,0.6); border-radius: 50%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none; display: none;"></div>
+    <div id="crosshair" class="crosshair"></div>
     <div id="linterna-condado"></div>
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg');">
+    <header class="page-header hero hero-museo">
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1>Explora el Museo en 3D</h1>
@@ -47,12 +47,12 @@
     <script src="/js/museum-3d/exhibitManager.js"></script>
     <script src="/js/museo-3d-main.js"></script>
 
-    <div id="pointer-lock-instructions" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); color: white; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 20px; z-index: 10000; cursor: pointer;">
+    <div id="pointer-lock-instructions" class="pointer-lock-instructions">
         <div>
             <h1>Exploración del Museo</h1>
-            <p style="font-size: 1.2em; margin-top: 1em;">Haz clic en esta pantalla para empezar a explorar.</p>
-            <p style="margin-top: 0.5em;">Usa las teclas <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> para moverte y el <kbd>RATÓN</kbd> para mirar alrededor.</p>
-            <p style="font-size: 0.8em; margin-top: 2em;">Presiona <kbd>ESC</kbd> para liberar el cursor.</p>
+            <p class="intro-big">Haz clic en esta pantalla para empezar a explorar.</p>
+            <p>Usa las teclas <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> para moverte y el <kbd>RATÓN</kbd> para mirar alrededor.</p>
+            <p class="ai-note">Presiona <kbd>ESC</kbd> para liberar el cursor.</p>
         </div>
     </div>
 

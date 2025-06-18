@@ -879,10 +879,9 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 /* --- View Switcher Buttons --- */
 .view-switch-controls {
-    /* Using .container class for width management if needed, or text-align: center; directly */
-    /* text-align: center; is inherited from body but can be explicit */
-    /* margin-bottom: 20px; already applied inline, can be moved here */
-    /* padding-top: 20px; already applied inline, can be moved here */
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
 
 .view-switch-button {
@@ -2633,4 +2632,87 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
 
 .menu-panel .menu-item-button {
     text-align: center;
+}
+
+/* --- Utility classes migrated from inline styles --- */
+.error-page {
+    text-align: center;
+    padding: 4em 1em;
+}
+
+.ai-translation-box {
+    padding: 15px;
+    background-color: var(--epic-transparent-overlay-light);
+    border: 1px solid var(--epic-gold-secondary);
+    border-radius: var(--global-border-radius);
+    margin-top: 10px;
+}
+
+.ai-translation-box p {
+    font-size: 0.9em;
+    color: var(--epic-purple-emperor);
+}
+
+.ai-translation-box .ai-note {
+    font-size: 0.8em;
+    color: var(--epic-purple-hover);
+    margin-top: 10px;
+}
+
+.photo-preview {
+    max-height: 200px;
+    margin-bottom: 10px;
+    border: 1px solid var(--epic-gold-secondary);
+}
+
+.intro-big {
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+.preview-hidden {
+    display: none;
+}
+
+.crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(var(--epic-gold-main-rgb), 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9998;
+    pointer-events: none;
+    display: none;
+}
+
+.pointer-lock-instructions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.85);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.pointer-lock-instructions p {
+    margin-top: 0.5em;
+}
+
+.hero-galeria {
+    background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.75), rgba(var(--epic-alabaster-bg-rgb), 0.88)), url('/imagenes/hero_galeria_background.jpg');
+}
+
+.hero-museo {
+    background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.75), rgba(var(--epic-alabaster-bg-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg');
 }
