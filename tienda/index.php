@@ -10,7 +10,7 @@ require_once __DIR__ . '/../includes/auth.php';
     <title>Tienda</title>
     <?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
 </head>
-<body>
+<body class="alabaster-bg">
 <?php require_once __DIR__ . '/../_header.php'; ?>
 <main class="container page-content-block">
     <h1 class="section-title">Tienda</h1>

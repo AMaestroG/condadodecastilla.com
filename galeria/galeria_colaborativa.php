@@ -49,7 +49,7 @@ if (is_dir($gallery_dir)) {
 
     <?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
 </head>
-<body>
+<body class="alabaster-bg">
     <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->
     
     <?php require_once __DIR__ . '/../_header.php'; ?>

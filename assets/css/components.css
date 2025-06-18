@@ -1,0 +1,67 @@
+/* Common reusable component styles */
+
+.article-content p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+.article-content h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--color-secundario-dorado);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.article-content h4 {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--color-primario-purpura);
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+}
+
+.article-content a {
+    color: var(--epic-gold-main);
+    text-decoration: underline;
+}
+
+.article-content a:hover {
+    color: var(--color-secundario-dorado);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 2em;
+    font-size: 0.9em;
+    color: var(--color-primario-purpura);
+    text-decoration: none;
+    border: 1px solid var(--color-primario-purpura);
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-link:hover {
+    background-color: var(--color-primario-purpura);
+    color: var(--color-blanco-fondo);
+}
+
+header[id^="hero-"] {
+    min-height: 40vh;
+}
+
+header[id^="hero-"] .hero-content {
+    padding: clamp(20px, 4vw, 40px);
+}
+
+header[id^="hero-"] h1 {
+    font-size: clamp(2.2em, 5vw, 3.5em);
+}
+
+.alabaster-bg {
+    background-color: var(--epic-alabaster-bg, #F9F7F4);
+    background-image: var(--alabaster-background-image, url(/assets/img/alabastro.jpg));
+    background-size: cover;
+    background-attachment: fixed;
+}
+
