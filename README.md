@@ -10,6 +10,8 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 
 - **PHP** 7.4 o superior con la extensión PDO habilitada.
 - **PostgreSQL** 9.6 o superior.
+- **PHP CLI** disponible en la terminal para ejecutar `composer` y `phpunit`.
+- **PHPUnit** instalado para correr las pruebas (se incluye como dependencia en `composer.json`).
 
 ## Configuración de la base de datos
 
@@ -77,13 +79,21 @@ Si no defines la variable, `flask_app.py` ejecutará `app.run(debug=False)` por 
 
 ## Instalación de dependencias
 
-Tras clonar el repositorio instala las dependencias de PHP y descarga las
+Asegúrate primero de tener instalado **PHP CLI** y **Composer**. En sistemas basados en Debian puedes usar:
+
+```bash
+sudo apt-get install php-cli composer
+```
+
+Una vez clonado el repositorio instala todas las dependencias de PHP y descarga las
 bibliotecas de JavaScript necesarias ejecutando:
 
 ```bash
 composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwriter --ignore-platform-req=ext-xml
 ./scripts/setup_frontend_libs.sh
 ```
+
+`composer install` descargará todas las librerías de PHP necesarias, incluido **PHPUnit**, que quedará disponible en `vendor/bin/phpunit`.
 
 Este proyecto utiliza la librería **league/commonmark** para transformar a HTML los archivos Markdown del blog. La dependencia se instala automáticamente con el comando anterior.
 
