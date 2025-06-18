@@ -76,6 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     <section id="<?php echo $id; ?>" class="agent-profile">
         <h2 class="gradient-title"><?php echo htmlspecialchars($ag['name']); ?></h2>
         <p><?php echo htmlspecialchars($ag['bio']); ?></p>
+        <?php if (!empty($ag['expertise'])): ?>
+        <p class="expertise"><strong>Especialidad:</strong> <?php echo htmlspecialchars($ag['expertise']); ?></p>
+        <?php endif; ?>
         <form method="post">
             <input type="hidden" name="agent" value="<?php echo $id; ?>">
             <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
