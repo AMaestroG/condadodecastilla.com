@@ -159,8 +159,8 @@ esperadas para cada elemento del menú principal:
 - `/historia_cerezo/index.php` – Historia de Cerezo
 - `/historia/subpaginas/obispado_auca_cerezo.php` – Obispado de Auca
 - `/alfoz/alfoz.php` – El Alfoz
-- `/lugares/lugares.html` – Lugares Emblemáticos
-- `/ruinas/index.html` – Ruinas y Vestigios
+ - `/lugares/lugares.php` – Lugares Emblemáticos
+ - `/ruinas/index.php` – Ruinas y Vestigios
 - `/camino_santiago/camino_santiago.php` – Camino de Santiago
 - `/museo/galeria.php` – Museo Colaborativo
 - `/museo/museo_3d.php` – Museo 3D
