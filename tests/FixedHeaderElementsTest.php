@@ -44,6 +44,10 @@ class FixedHeaderElementsTest extends TestCase {
             $this->assertNotFalse($content, "Failed to read $path");
         }
         $this->assertStringContainsString('#fixed-header-elements', $content);
+        $this->assertStringContainsString('id="consolidated-menu-button"', $content);
+        $this->assertStringContainsString('id="ai-chat-trigger"', $content);
+        $this->assertStringContainsString('id="theme-toggle"', $content);
+        $this->assertStringContainsString('id="lang-bar-toggle"', $content);
     }
 }
 ?>
