@@ -56,8 +56,8 @@ body.menu-open-right #gemini-ai-panel { /* This selector might need JS to add 'm
 #gemini-chat-area {
     height: 250px;
     overflow-y: auto;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
+    border: 1px solid var(--epic-neutral-border);
+    background-color: var(--epic-neutral-bg);
     padding: 10px;
     margin-top: 1rem; /* Space between ia-tools-menu and chat area */
     margin-bottom: 10px;
@@ -76,7 +76,7 @@ body.menu-open-right #gemini-ai-panel { /* This selector might need JS to add 'm
 #gemini-chat-input {
     flex-grow: 1;
     padding: 8px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--epic-input-border);
     border-radius: 4px;
     margin-right: 8px;
 }

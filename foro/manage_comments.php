@@ -50,7 +50,7 @@ if ($pdo) {
     <style>
         body { background-color: #f4f4f4; padding: 20px; }
         table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 8px; border: 1px solid #ccc; }
+        th, td { padding: 8px; border: 1px solid var(--epic-input-border); }
         .feedback { padding: 10px; margin: 10px 0; border-radius: 4px; }
         .feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
