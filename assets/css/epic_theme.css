@@ -1117,7 +1117,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 .section > .container { /* This is from estilos.css, for pages using <div class="container"> directly in a section */
     position: relative;
     z-index: 1; /* Ensure content is above section's ::before if any */
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.9); /* Mapped to epic var */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9); /* Uses purple emperor background */
     padding: 30px;
     border-radius: var(--global-border-radius); /* Mapped to epic var */
     box-shadow: 0 0 15px rgba(var(--epic-text-color-rgb), 0.1); /* Mapped to epic var */
