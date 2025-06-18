@@ -2,7 +2,7 @@
 echo file_get_contents(__DIR__ . "/fragments/header/language-bar.html");
 ?>
 <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
-<button id="theme-toggle" aria-label="Cambiar tema"><i class="fas fa-lightbulb"></i></button>
+<button id="theme-toggle" aria-label="Cambiar tema"><i class="fas fa-moon"></i></button>
 
 <!-- Left Sliding Panel for Main Menu -->
 <div id="consolidated-menu-items" class="menu-panel left-panel" role="navigation" aria-labelledby="consolidated-menu-button">
