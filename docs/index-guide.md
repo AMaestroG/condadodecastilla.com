@@ -42,11 +42,14 @@ python -m unittest tests/test_flask_api.py
 
 ## Contenedor `#fixed-header-elements`
 Este bloque fijo aparece al inicio de cada página y mantiene visibles los controles principales.
-Dentro se incluyen los botones:
-- `#consolidated-menu-button` abre el panel deslizante con toda la navegación.
-- `#ai-chat-trigger` muestra el asistente conversacional.
-- `#theme-toggle` alterna entre modo claro y oscuro.
-- `#lang-bar-toggle` despliega la barra de traducción de Google.
+Dentro se incluyen los botones de acceso rápido:
+- `#consolidated-menu-button` abre el panel lateral con toda la navegación.
+- `#ia-chat-toggle` muestra u oculta el chat de IA de forma inmediata.
+- `#homonexus-toggle` activa el modo experimental Homonexus.
+En el propio panel se encuentran además:
+- `#ai-chat-trigger` para iniciar el chat desde el menú.
+- `#theme-toggle` que alterna entre modo claro y oscuro.
+- `#lang-bar-toggle` para desplegar la barra de traducción de Google.
 
 Al añadir más elementos al contenedor puede ser necesario ajustar la posición de los paneles deslizantes. Para ello define la variable `--menu-extra-offset` con la altura del contenedor y úsala junto a `--language-bar-offset` en `assets/css/menus/consolidated-menu.css`:
 ```css
