@@ -67,11 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         const icon = themeToggle.querySelector('i');
         const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'dark') {
+        if (storedTheme === 'dark' || !storedTheme) {
             document.body.classList.add('dark-mode');
             if (icon) {
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
+            }
+            if (!storedTheme) {
+                localStorage.setItem('theme', 'dark');
             }
         }
         themeToggle.addEventListener('click', () => {
