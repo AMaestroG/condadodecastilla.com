@@ -39,10 +39,38 @@
         }
     }
 
+    function activateTab(tabHeader){
+        const targetId = tabHeader.getAttribute('data-tab-target');
+        if(!targetId) return;
+        const panel = document.getElementById(targetId);
+        if(!panel) return;
+        const container = tabHeader.closest('.menu-panel.vertical-tabs');
+        if(!container) return;
+        container.querySelectorAll('.tab-header').forEach(h => {
+            h.classList.remove('active');
+            h.setAttribute('aria-selected', 'false');
+        });
+        container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        tabHeader.classList.add('active');
+        tabHeader.setAttribute('aria-selected', 'true');
+        panel.classList.add('active');
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('[data-menu-target]');
         buttons.forEach(btn => {
             btn.addEventListener('click', () => toggleMenu(btn));
+        });
+
+        // Tab header click handling
+        document.querySelectorAll('.menu-panel.vertical-tabs .tab-header').forEach(header => {
+            header.addEventListener('click', () => activateTab(header));
+        });
+
+        // Activate first tab by default
+        document.querySelectorAll('.menu-panel.vertical-tabs').forEach(panel => {
+            const first = panel.querySelector('.tab-header');
+            if(first) activateTab(first);
         });
 
         // Close menus when clicking outside
