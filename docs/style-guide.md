@@ -14,3 +14,7 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 | `--color-negro-contraste` | Negro de alto contraste | `#1A1A1A` |
 
 Los equivalentes `-rgb` se encuentran en la misma hoja de estilos para crear transparencias con `rgba()`.
+
+## Fuentes
+
+La familia tipográfica principal es **Cinzel** para los encabezados y **Lora** para el texto. Ambas se cargan de forma centralizada en `includes/head_common.php` para evitar duplicidades. No se deben incluir etiquetas `<link>` adicionales a Google Fonts en páginas individuales.
