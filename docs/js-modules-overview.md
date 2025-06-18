@@ -11,7 +11,7 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `js/load_menu_parts.js` | Dynamically loads menu fragments into the header when needed. |
 | `js/header-loader.js` | Fetches `/_header.php` and injects it into `#header-placeholder` for static pages. |
 | `js/ia-tools.js` | Implements AI assistant utilities such as summaries, translations and chat. |
-| `js/lang-bar.js` | Loads Google Translate when a `?lang=` URL parameter is present. |
+| `js/lang-bar.js` | Handles the Google Translate widget, toggling the bar and setting `--language-bar-offset` to keep the header aligned. |
 | `js/lugares-data.js` | Provides static data used by `lugares-dynamic-list.js`. |
 | `js/lugares-dynamic-list.js` | Generates the list of places dynamically from `lugares-data.js`. |
 | `js/museo-2d-gallery.js` | Logic for the collaborative museum 2D gallery including uploads and modals. |
@@ -22,4 +22,4 @@ Deprecated or merged scripts such as `js/menu-controller.js` and `js/sliding-men
 
 ## Simplified Translation
 
-Pages are translated by passing a `lang` query parameter in the URL. When this parameter is present, `js/lang-bar.js` dynamically loads the Google Translate widget and applies the selected language without showing flag icons or a language bar.
+Pages are translated by passing a `lang` query parameter in the URL. When this parameter is present, `js/lang-bar.js` loads the Google Translate widget on demand. The same script toggles the language bar when the globe button is clicked and updates the `--language-bar-offset` CSS variable so the fixed header shifts smoothly.

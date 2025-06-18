@@ -179,7 +179,8 @@ para evitar enlaces duplicados en la navegación.
 
 ## Cambios recientes
 
-- Eliminado `js/header_loader.js` y referencias a dicho script, ya que la cabecera se carga ahora de forma estática.
+- Se ha reintroducido `js/header-loader.js` para insertar dinámicamente `/_header.php` en `#header-placeholder` de las páginas estáticas.
+- Este script inicializa además `setupLanguageBar` y `applyLanguageBarOffset` para que la barra de idioma funcione correctamente.
 
 
 
