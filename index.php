@@ -50,12 +50,14 @@ require_once __DIR__ . '/_header.php';
         <div class="container">
             <h2 class="section-title">Un Vistazo a Nuestra Tierra</h2>
             <div class="video-container">
-                <iframe 
-                    src="https://drive.google.com/file/d/1wm74VmKH21Nz7zFUkY8a8Z9672D4cyHN/preview" 
-                    title="Video promocional del Condado de Castilla y Cerezo de Río Tirón" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
+                <iframe
+                    src="https://drive.google.com/file/d/1wm74VmKH21Nz7zFUkY8a8Z9672D4cyHN/preview"
+                    title="Video promocional del Condado de Castilla y Cerezo de Río Tirón"
+                    width="560" height="315"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    loading="lazy"
                     allowfullscreen>
                 </iframe>
             </div>
