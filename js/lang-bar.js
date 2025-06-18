@@ -61,6 +61,17 @@ function initLangBarToggle() {
         document.documentElement.style.setProperty('--language-bar-offset', '0px');
         document.body.style.setProperty('--language-bar-offset', '0px');
     }
+
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    if (lang) {
+        if (!window.googleTranslateLoaded) {
+            loadGoogleTranslate();
+            window.googleTranslateLoaded = true;
+        }
+        document.cookie = 'googtrans=/es/' + lang + ';path=/';
+        toggleLanguageBar();
+    }
 }
 
 if (document.readyState === 'loading') {
