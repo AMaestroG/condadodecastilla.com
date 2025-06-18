@@ -1,11 +1,19 @@
 .fixed-vertical-toggles {
     position: fixed;
-    top: 15px; /* Adjust as needed */
-    left: 15px; /* Changed from right to left */
+    top: 15px;
+    left: 15px;
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between buttons, adjust as needed */
-    z-index: 3002; /* Ensure it's above other header elements if necessary */
+    gap: 10px;
+    z-index: 3002;
+}
+
+#fixed-header-elements.fixed-vertical-toggles {
+    right: auto;
+    background: transparent;
+    padding: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .fixed-vertical-toggles button {

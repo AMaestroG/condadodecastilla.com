@@ -1,6 +1,16 @@
 <?php
 echo file_get_contents(__DIR__ . "/fragments/header/language-bar.html");
 ?>
+<div id="fixed-header-elements" class="fixed-vertical-toggles">
+    <button id="ia-chat-toggle" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA">
+        <i class="fas fa-comments"></i>
+    </button>
+    <button id="homonexus-toggle" aria-label="Modo Homonexus">
+        <i class="fas fa-infinity"></i>
+    </button>
+    <button id="extra-toggle-1" aria-label="Extra toggle 1">E1</button>
+    <button id="extra-toggle-2" aria-label="Extra toggle 2">E2</button>
+</div>
 <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
 
 <!-- Left Sliding Panel for Main Menu -->

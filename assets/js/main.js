@@ -90,4 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     }
+
+    const homonexusToggle = document.getElementById('homonexus-toggle');
+    if (homonexusToggle) {
+        homonexusToggle.addEventListener('click', () => {
+            const active = document.body.classList.toggle('homonexus-active');
+            document.cookie = `homonexus=${active ? 'on' : 'off'};path=/`;
+        });
+    }
 });
