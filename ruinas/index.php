@@ -15,20 +15,20 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Ruinas y Vestigios del Condado de Castilla</h1>
         </div>
     </header>
 
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Bienvenido a la sección de Ruinas y Vestigios del Condado de Castilla. Aquí exploraremos los restos arqueológicos y las edificaciones antiguas que testimonian la rica historia de esta tierra cuna de culturas.</p>
             </div>
         </section>
 
         <section class="section alternate-bg">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Categorías de Ruinas</h2>
                 <div class="ruins-categories">
 

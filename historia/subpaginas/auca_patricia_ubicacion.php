@@ -73,7 +73,7 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
     </header>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <div class="breadcrumb-container">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">

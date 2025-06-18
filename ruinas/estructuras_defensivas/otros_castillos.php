@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Otros Castillos y Fortificaciones Relevantes</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
                 <p>El documento <em>nuevo4.md</em> menciona diversas
                 fortificaciones que completaban la defensa del territorio.

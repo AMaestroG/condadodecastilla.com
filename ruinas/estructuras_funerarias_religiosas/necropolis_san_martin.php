@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Necrópolis y Cuevas de San Martín</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <h2>Necrópolis y Episcopi de San Martín</h2>
                 <p>El área de San Martín en Cerezo de Río Tirón, específicamente en los parajes de Capellanía y Dios te Salve, alberga los restos de una importante "episcopi" (posiblemente una basílica o catedral) y una extensa necrópolis. La estructura principal se describe con una longitud de más de 116 metros, superando en tamaño a catedrales como la de Burgos (90 metros), y podría alcanzar los 190 metros si se incluye un cementerio anexo.</p>
                 <p>Aunque se encuentra cerca del campamento romano de La Tejera, las prospecciones superficiales han arrojado principalmente cerámica altomedieval, sin evidencia clara de material romano como sigillata. No obstante, se considera un lugar con "muchos secretos enterrados en mausoleos" dentro del "Área Paterniani".</p>

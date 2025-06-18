@@ -13,7 +13,7 @@
 
     <main>
         <section class="section detailed-intro-section">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">El Camino Primitivo por la Calzada Romana</h2>
                 <div class="camino-content-block">
                     <div class="camino-text">

@@ -9,7 +9,7 @@
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Puentes Romanos en Cerezo de Río Tirón (Auca Patricia)</h1>
         </div>
     </header>
@@ -23,7 +23,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Cerezo de Río Tirón, la antigua Auca Patricia, conserva vestigios de varios puentes romanos, fundamentales para su red viaria y conexión.</p>
 
                 <h2>Puente del Gordo</h2>

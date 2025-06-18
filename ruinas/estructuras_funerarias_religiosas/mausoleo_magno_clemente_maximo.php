@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Mausoleo Imperial de Magno Clemente Máximo</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <h2>Mausoleo Imperial de Magno Clemente Máximo</h2>
                 <p>Magno Clemente Máximo, uno de los emperadores romanos de origen hispano y familia de Teodosio I, es asociado con un mausoleo imperial en la región de Auca Patricia. Aunque su localización exacta es objeto de investigación, se sugiere que podría encontrarse en la zona de San Martín, dentro del "Área Paterniani", donde se cree que existen numerosas construcciones sepulcrales aún por descubrir.</p>
                 <p>La devoción de Máximo y su esposa Elen a San Martín de Tours podría ser una pista, aunque en los restos superficiales de la gran estructura de la episcopi de San Martín (más de 116 metros) se han encontrado principalmente cerámicas altomedievales, sin clara evidencia romana como sigillata o tegulas hasta el momento.</p>

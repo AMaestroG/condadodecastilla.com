@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>
-    <header class="page-header"><div class="container"><h1>Estructuras Funerarias y Religiosas</h1></div></header>
+    <header class="page-header"><div class="container-epic"><h1>Estructuras Funerarias y Religiosas</h1></div></header>
     <nav aria-label="breadcrumb" class="container breadcrumb-nav">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/index.php">Inicio</a></li>
@@ -15,7 +15,7 @@
         <li class="breadcrumb-item active" aria-current="page">Estructuras Funerarias y Religiosas</li>
       </ol>
     </nav>
-    <main><section class="section"><div class="container">
+    <main><section class="section"><div class="container-epic">
         <h2>Ruinas en esta categoría:</h2>
         <ul>
             <li><a href="necropolis_san_martin.php">Necrópolis y Episcopi de San Martín</a></li>

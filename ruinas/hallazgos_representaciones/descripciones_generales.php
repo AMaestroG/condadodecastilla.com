@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Descripciones Generales de Ruinas y Áreas Arqueológicas</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Información general sobre áreas de ruinas o vestigios que no se encuadran en una estructura específica o requieren una visión de conjunto.</p>
                 <!-- Contenido específico y descripciones generales se añadirán aquí -->
             </div>

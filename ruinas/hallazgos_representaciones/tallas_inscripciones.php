@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Tallas, Arte Rupestre e Inscripciones</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p>Esta página se enfoca en las manifestaciones artísticas y epigráficas encontradas en el Condado de Castilla, tales como tallas en piedra, posibles ejemplos de arte rupestre, e inscripciones en diversos soportes.</p>
 
                 <h3>Tallas y Grafitis Destacados</h3>

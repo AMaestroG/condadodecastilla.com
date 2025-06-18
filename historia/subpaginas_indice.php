@@ -37,7 +37,7 @@ $temas_detallados = $page_data['temas_detallados'] ?? [];
     </header>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <h2>Explorando la Historia de Cerezo de Río Tirón en Detalle</h2>
                 <?php if (!empty($error_message)): ?>
                     <div class="error-message">

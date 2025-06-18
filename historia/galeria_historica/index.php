@@ -15,7 +15,7 @@
     </header>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Tesoros Visuales de Nuestra Historia</h2>
                 <p>Explora nuestra colección de imágenes históricas, fotografías de artefactos, mapas antiguos y representaciones de momentos clave. Cada elemento cuenta con una descripción para contextualizar su importancia.</p>
                 <div class="gallery-container">

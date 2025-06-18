@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>
-    <header class="page-header"><div class="container"><h1>Cuevas de Setefenestras (Quintanilleja)</h1></div></header>
+    <header class="page-header"><div class="container-epic"><h1>Cuevas de Setefenestras (Quintanilleja)</h1></div></header>
     <nav aria-label="breadcrumb" class="container breadcrumb-nav">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/index.php">Inicio</a></li>
@@ -17,7 +17,7 @@
         <li class="breadcrumb-item active" aria-current="page">Cuevas de Setefenestras</li>
       </ol>
     </nav>
-    <main><section class="section"><div class="container">
+    <main><section class="section"><div class="container-epic">
         <p>Las "Milenarias y olvidadas cuevas de Setefenestras", situadas en la zona de Quintanilleja o Quintanilla de las Dueñas, son un enclave de gran importancia histórica y cultural. Se las considera una "cuna del idioma castellano" por los posibles escritos o grafitis antiguos que podrían albergar en sus paredes, tapados por "polvo milenario".</p>
         <p>Una característica distintiva de estas cuevas es el uso de "Lapis Specularis" (yeso selenítico traslúcido) en sus paredes y techos. Este material, más caro que el oro en la antigüedad, habría creado un espectáculo visual impresionante al reflejar la luz solar, especialmente al amanecer, visible desde kilómetros dada su altura.</p>
         <p>El acceso a estas cuevas es descrito como difícil y peligroso, recomendándose guía local. Se menciona que se "abrió camino" en 2018.</p>

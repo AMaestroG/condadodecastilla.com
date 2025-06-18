@@ -12,7 +12,7 @@
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container-epic">
             <h1>Murallas de Auca Patricia</h1>
         </div>
     </header>
@@ -26,7 +26,7 @@
 </nav>
     <main>
         <section class="section">
-            <div class="container">
+            <div class="container-epic">
                 <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
                 <h2>Las Murallas de Auca Patricia</h2>
                 <p>Auca Patricia, la extensa ciudad romana en Cerezo de Río Tirón, estuvo defendida por un imponente sistema de murallas. Se describen con un considerable espesor de 6 metros, construidas en hormigón romano, y que llegaban a circundar un área de hasta 144 hectáreas.</p>

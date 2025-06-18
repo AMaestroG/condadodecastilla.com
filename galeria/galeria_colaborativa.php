@@ -100,7 +100,7 @@ if (is_dir($gallery_dir)) {
         </section>
 
         <section class="section photo-gallery-section alternate-bg">
-            <div class="container"> 
+            <div class="container-epic"> 
                 <h2 class="section-title"><?php editableText('galeria_colab_galeria_titulo', $pdo, 'Nuestra Galería Compartida', 'span', ''); ?> <i class="fas fa-images"></i></h2>
                 <div id="photoGalleryGrid" class="photo-gallery-grid">
                     <p class="no-photos-message" id="noPhotosMessage">Cargando fotografías...</p>

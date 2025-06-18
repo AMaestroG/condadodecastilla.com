@@ -48,7 +48,7 @@ require_once __DIR__ . '/_header.php';
     </nav>
 
     <section id="video" class="video-section section spotlight-active" data-aos="fade-up">
-        <div class="container">
+        <div class="container-epic">
             <h2 class="section-title">Un Vistazo a Nuestra Tierra</h2>
             <div class="video-container">
                 <iframe
@@ -67,7 +67,7 @@ require_once __DIR__ . '/_header.php';
 
     <main>
         <section id="memoria" class="section detailed-intro-section spotlight-active" data-aos="fade-up">
-            <div class="container">
+            <div class="container-epic">
                 <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', 'gradient-text tagline-background'); ?>
                 <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', ''); ?>
                 <p class="cta-group">
@@ -77,7 +77,7 @@ require_once __DIR__ . '/_header.php';
         </section>
 
         <section id="legado" class="section alternate-bg spotlight-active" data-aos="fade-up">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Explora Nuestro Legado</h2>
                 <div class="card-grid">
                     <div class="card">
@@ -109,7 +109,7 @@ require_once __DIR__ . '/_header.php';
         </section>
 
         <section id="personajes" class="section" data-aos="fade-up">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Personajes de la Historia</h2>
                 <div class="card-grid">
                     <div class="card">
@@ -144,7 +144,7 @@ require_once __DIR__ . '/_header.php';
         </section>
         
         <section id="timeline" class="section timeline-section-summary alternate-bg" data-aos="fade-up">
-            <div class="container">
+            <div class="container-epic">
                 <h2 class="section-title">Nuestra Historia en el Tiempo</h2>
                 <p class="timeline-intro">Un recorrido conciso por los momentos más determinantes de nuestra región, desde la prehistoria hasta la consolidación del Condado. Cada época ha dejado una huella imborrable.</p>
                 <p class="cta-group">
@@ -154,7 +154,7 @@ require_once __DIR__ . '/_header.php';
         </section>
 
         <section id="inmersion" class="section immersion-section" data-aos="fade-up">
-            <div class="container">
+            <div class="container-epic">
                 <h2>Sumérgete en la Historia Viva de Tu Cultura</h2>
                 <p>
                     Esta web es más que información; es una puerta a tus raíces. Un viaje al origen del castellano y la identidad hispana te espera.
