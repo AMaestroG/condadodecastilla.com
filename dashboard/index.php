@@ -18,72 +18,14 @@ require_admin_login();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas de Visitas Web</title>
     <link rel="stylesheet" href="../assets/css/epic_theme.css">
+    <link rel="stylesheet" href="../assets/css/admin_theme.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script> <!-- Specific version for stability -->
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0e9e0;
-            color: #333; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #4A0D67;
-            color: white;
-            padding: 10px 0;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        nav { margin-bottom: 20px; }
-        nav a {
-            text-decoration: none;
-            padding: 8px 15px;
-            background-color: #6c757d;
-            color: white;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-        nav a:hover { background-color: #5a6268; }
-        header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-        .chart-container {
-            width: 90%;
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: #fdfaf6;
-            padding: 25px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
-        }
-        #errorMessage { 
-            color: #d9534f; /* Bootstrap danger color */
-            text-align: center; 
-            margin-top: 20px; 
-            padding: 10px;
-            border: 1px solid #d9534f;
-            background-color: #f2dede;
-            border-radius: 5px;
-            display: none; /* Hidden by default */
-        }
-        /* Responsive canvas */
-        canvas {
-            max-width: 100%;
-            height: auto !important; /* Important for Chart.js responsiveness */
-        }
-    </style>
 </head>
-<body>
-    <header>
+<body class="admin-page">
+    <header class="admin-header">
         <h1>Panel de Estadísticas de Visitas</h1>
     </header>
-    <nav>
+    <nav class="admin-nav">
         <a href="../index.php">Inicio</a>
         <a href="edit_texts.php">Textos</a>
         <a href="tienda_admin.php">Tienda</a>

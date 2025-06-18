@@ -106,19 +106,12 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrar Tienda</title>
     <link rel="stylesheet" href="../assets/css/epic_theme.css">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { max-width: 900px; margin: auto; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .feedback.success { background:#d4edda; padding:10px; margin-bottom:10px; }
-        .feedback.error { background:#f8d7da; padding:10px; margin-bottom:10px; }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin_theme.css">
+    
 </head>
-<body>
-<div class="container">
-    <nav>
+<body class="admin-page">
+<div class="admin-container wide">
+    <nav class="admin-nav">
         <a href="../index.php">Inicio</a>
         <a href="logout.php">Cerrar sesión</a>
     </nav>
@@ -152,7 +145,7 @@ try {
             <label>Imagen:</label><br>
             <input type="file" name="imagen" accept="image/*" required>
         </div>
-        <button type="submit">Agregar</button>
+        <button type="submit" class="btn-primary">Agregar</button>
     </form>
     <h2>Productos Existentes</h2>
     <table>
@@ -164,11 +157,11 @@ try {
                 <td><?php echo number_format($p['precio'],2); ?>€</td>
                 <td><?php echo (int)$p['stock']; ?></td>
                 <td>
-                    <form action="" method="POST" style="display:inline;" onsubmit="return confirm('¿Eliminar producto?');">
+                    <form action="" method="POST" class="inline-form" onsubmit="return confirm('¿Eliminar producto?');">
                         <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
                         <input type="hidden" name="action" value="delete">
                         <input type="hidden" name="id" value="<?php echo $p['id']; ?>">
-                        <button type="submit">Eliminar</button>
+                        <button type="submit" class="btn-danger">Eliminar</button>
                     </form>
                 </td>
             </tr>
