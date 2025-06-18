@@ -20,10 +20,21 @@ class ReadOnlyModeTest extends TestCase {
         return [$status, $out, $err];
     }
 
-    public function testIndexShowsReadOnlyNotice(): void {
-        [$status, $out, $err] = $this->runPage(__DIR__.'/../index.php');
+    public function pageProvider(): array {
+        return [
+            [__DIR__.'/../index.php'],
+            [__DIR__.'/../alfoz/alfoz.php'],
+            [__DIR__.'/../contacto/contacto.php']
+        ];
+    }
+
+    /**
+     * @dataProvider pageProvider
+     */
+    public function testPagesShowReadOnlyNotice(string $page): void {
+        [$status, $out, $err] = $this->runPage($page);
         $this->assertSame(0, $status, $err);
-        $this->assertStringContainsString('modo solo lectura', $out);
+        $this->assertStringContainsString('Contenido en modo lectura: base de datos no disponible.', $out);
     }
 }
 ?>

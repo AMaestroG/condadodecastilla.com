@@ -6,7 +6,7 @@ require_once __DIR__ . '/../includes/auth.php';
 require_once 'db_connect.php'; // Use include_path to allow test override
 /** @var PDO $pdo */
 if (!$pdo) {
-    echo "<p class='db-warning'>El sitio est\xc3\xa1 en modo solo lectura.</p>";
+    echo "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";
     return;
 }
 require_once __DIR__ . '/../includes/text_manager.php'; // For getText, though not directly used for display here

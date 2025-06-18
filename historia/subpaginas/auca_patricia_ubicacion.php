@@ -52,7 +52,7 @@ $titulo_pagina_actual = $breadcrumb_tema_actual_texto; // Usar el título del te
 require_once __DIR__ . '/../../../dashboard/db_connect.php'; // Ajustar ruta si es necesario
 /** @var PDO $pdo */
 if (!$pdo) {
-    echo "<p class='db-warning'>El sitio est\xc3\xa1 en modo solo lectura.</p>";
+    echo "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";
 }
 require_once __DIR__ . '/../../../includes/text_manager.php';
 ?>
