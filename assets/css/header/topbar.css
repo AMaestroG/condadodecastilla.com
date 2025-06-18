@@ -59,23 +59,6 @@
     transform: rotate(20deg);
 }
 
-/* Language selection bar */
-.language-bar {
-    position: fixed;
-    top: 48px; /* below empty top bar */
-    left: 0;
-    right: 0;
-    background: var(--epic-transparent-overlay-light);
-    padding: 5px 8px;
-    text-align: right;
-    z-index: 3000; /* Below toggles if they overlap, but above content */
-    font-size: 1.2em;
-}
-
-.language-bar .lang-flag {
-    margin-left: 8px;
-    text-decoration: none;
-}
 
 /* Hide Google translate banner */
 .goog-te-banner-frame.skiptranslate {
