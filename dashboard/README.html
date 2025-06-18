@@ -31,8 +31,8 @@
 <li><strong>Client Internet Access</strong>: The client's web browser needs internet access to load the Chart.js library from the CDN.</li>
 </ol>
 <h2>Configuration</h2>
-<p>The primary configuration file is <code>dashboard/db_connect.php</code>. You <strong>must</strong> update this file with your actual Progress database credentials and connection details.</p>
-<p>Open <code>dashboard/db_connect.php</code> and modify the following placeholder variables:</p>
+<p>The primary configuration file is <code>includes/db_connect.php</code>. You <strong>must</strong> update this file with your actual Progress database credentials and connection details.</p>
+<p>Open <code>includes/db_connect.php</code> and modify the following placeholder variables:</p>
 <ul>
 <li><code>$db_host</code>: Your Progress database server hostname or IP address.
     <code>php
@@ -90,7 +90,7 @@ ORDER BY total_visits DESC;
 <p>Modify <code>visit_stats</code>, <code>section_name</code>, or <code>visit_count</code> in this query to match your actual schema.</p>
 <h2>Running the Dashboard</h2>
 <ol>
-<li><strong>Configure</strong>: Update <code>dashboard/db_connect.php</code> with your database credentials and DSN details as described above.</li>
+<li><strong>Configure</strong>: Update <code>includes/db_connect.php</code> with your database credentials and DSN details as described above.</li>
 <li><strong>Modify Query (if needed)</strong>: Adjust the SQL query in <code>dashboard/get_stats.php</code> if your table/column names differ.</li>
 <li><strong>Deploy</strong>: Upload the entire <code>dashboard</code> directory (containing <code>index.php</code>, <code>get_stats.php</code>, <code>db_connect.php</code>, and this <code>README.md</code>) to your PHP-enabled web server.</li>
 <li><strong>Access</strong>: Open your web browser and navigate to the <code>index.php</code> file. For example:

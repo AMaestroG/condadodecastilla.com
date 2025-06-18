@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
 
 require_once __DIR__ . '/../includes/auth.php';
-require_once 'db_connect.php'; // Use include_path to allow test override
+require_once __DIR__ . '/../includes/db_connect.php';
 /** @var PDO $pdo */
 if (!$pdo) {
     echo "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";

@@ -2,7 +2,7 @@
 // api_museo.php
 
 // Include necessary files
-require_once 'dashboard/db_connect.php'; // Adjust path as necessary
+require_once __DIR__ . '/includes/db_connect.php';
 require_once 'includes/auth.php'; // Adjust path as necessary
 require_once 'includes/csrf.php';
 
