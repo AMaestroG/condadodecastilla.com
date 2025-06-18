@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         websearchBtn.addEventListener('click', () => handleWebSearch(output));
     }
 
-    // Gemini Chat Functionality
+    // AI Chat functionality
     const chatInput = document.getElementById('gemini-chat-input');
     const chatSubmitBtn = document.getElementById('gemini-chat-submit');
     const chatArea = document.getElementById('gemini-chat-area');
@@ -50,7 +50,7 @@ function ensureOutputContainer() {
         cont.id = 'ia-tools-response';
         cont.className = 'ia-tools-response hidden';
         // Use the new panel ID for AI tools output
-        const sidebar = document.getElementById('gemini-ai-panel');
+        const sidebar = document.getElementById('ai-chat-panel');
         if (sidebar) {
             // Insert before ia-tools-menu if it exists, otherwise append to sidebar
             const toolsMenu = sidebar.querySelector('#ia-tools-menu');
@@ -184,7 +184,7 @@ function demoFlaskRequest() {
         .catch(err => console.error('API error', err));
 }
 
-// --- Gemini Chat Helper Functions ---
+// --- AI Chat helper functions ---
 
 /**
  * Appends a message to the chat area.

@@ -1,5 +1,5 @@
-# Minimal styles for Gemini AI Panel and associated elements
-#gemini-ai-panel {
+# Minimal styles for the AI Chat Panel and associated elements
+#ai-chat-panel {
     position: fixed;
     top: 0;
     right: -320px; /* Initial state: off-screen */
@@ -16,8 +16,8 @@
     flex-direction: column; /* Stack children vertically */
 }
 
-/* Style for when the Gemini AI panel is open */
-body.menu-open-right #gemini-ai-panel { /* This selector might need JS to add 'menu-open-right' to body */
+/* Style for when the AI Chat panel is open */
+body.menu-open-right #ai-chat-panel { /* This selector might need JS to add 'menu-open-right' to body */
     right: 0; /* Slide in from the right */
 }
 
@@ -52,7 +52,7 @@ body.menu-open-right #gemini-ai-panel { /* This selector might need JS to add 'm
     margin-bottom: 0; /* Remove bottom margin from the last button */
 }
 
-/* Styles for the new Gemini Chat Interface */
+/* Styles for the new AI Chat interface */
 #gemini-chat-area {
     height: 250px;
     overflow-y: auto;
