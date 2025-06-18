@@ -1,9 +1,6 @@
+@import "../components.css";
+
 /* Page-specific styles for tienda/index.php */
-body {
-    background-color: var(--epic-alabaster-bg, #F9F7F4);
-    background-image: var(--alabaster-background-image, url('/assets/img/alabastro.jpg'));
-    background-attachment: fixed;
-}
 
 .card-grid .card {
     transition: transform 0.3s ease;

@@ -1,10 +1,6 @@
+@import "../components.css";
+
 /* Styles for galeria/galeria_colaborativa.php */
-body {
-    background-color: var(--epic-alabaster-bg, #F9F7F4);
-    background-image: var(--alabaster-background-image, url('/assets/img/alabastro.jpg'));
-    background-size: cover;
-    background-attachment: fixed;
-}
 
 .upload-form-container {
     background: var(--epic-transparent-overlay-light);
