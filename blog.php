@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/includes/head_common.php';
 require_once __DIR__ . '/_header.php';
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+}
 
 function get_blog_posts() {
     $posts = [];
@@ -15,18 +18,15 @@ function get_blog_posts() {
     return $posts;
 }
 
-function render_markdown($markdown) {
-    $markdown = preg_replace('/\r\n?/', "\n", $markdown);
-    $html = htmlspecialchars($markdown, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-    foreach ([6,5,4,3,2,1] as $h) {
-        $pattern = '/^' . str_repeat('#', $h) . '\s*(.+)$/m';
-        $replace = '<h'.$h.'>$1</h'.$h.'>';
-        $html = preg_replace($pattern, $replace, $html);
+use League\CommonMark\CommonMarkConverter;
+
+function render_markdown(string $markdown): string {
+    static $converter = null;
+    if ($converter === null) {
+        $converter = new CommonMarkConverter();
     }
-    // paragraphs
-    $html = preg_replace('/\n{2,}/', "</p><p>", $html);
-    $html = '<p>' . $html . '</p>';
-    return $html;
+
+    return $converter->convert($markdown)->getContent();
 }
 
 $posts = get_blog_posts();

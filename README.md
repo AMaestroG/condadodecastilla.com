@@ -85,6 +85,8 @@ composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwrit
 ./scripts/setup_frontend_libs.sh
 ```
 
+Este proyecto utiliza la librería **league/commonmark** para transformar a HTML los archivos Markdown del blog. La dependencia se instala automáticamente con el comando anterior.
+
 El script descarga las bibliotecas **jQuery**, **Bootstrap** y **Tailwind CSS**
 en `assets/vendor`. Tras ello genera la hoja `assets/vendor/css/tailwind.min.css`
 si ejecutas:
@@ -158,6 +160,7 @@ esperadas para cada elemento del menú principal:
 - `/empresa/index.php` – Gestión de Yacimientos
 - `/foro/index.php` – Foro
 - `/blog.php` – Blog
+- Los artículos se escriben en Markdown dentro de `contenido/blog/` y se convierten a HTML mediante la función `render_markdown()` que utiliza **league/commonmark**.
 - `/contacto/contacto.php` – Contacto
 
 Mantén esta lista actualizada cuando se añadan o eliminen páginas para que se
