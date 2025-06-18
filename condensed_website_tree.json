@@ -1,5 +1,486 @@
 {
   "title": "Inicio - Historia del Condado de Castilla",
   "url": "https://www.condadodecastilla.es/",
-  "children": []
+  "children": [
+    {
+      "title": "Actualidad - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/actualidad/",
+      "children": []
+    },
+    {
+      "title": "La ermita de Quintanilla de las Viñas acoge las Jornadas Europeas de Arqueología - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/actualidad/la-ermita-de-quintanilla-de-las-vinas-acoge-las-jornadas-europeas-de-arqueologia/",
+      "children": []
+    },
+    {
+      "title": "Se ha celebrado el 950 aniversario del traslado de la sede de Oca a Burgos - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/actualidad/se-ha-celebrado-el-950-aniversario-del-traslado-de-la-sede-de-oca-a-burgos/",
+      "children": []
+    },
+    {
+      "title": "Artículos de investigación - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/articulos-de-investigacion/",
+      "children": []
+    },
+    {
+      "title": "Inicio - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/author/admin/",
+      "children": []
+    },
+    {
+      "title": "Aviso legal del sitio web condadodecastilla.es",
+      "url": "https://www.condadodecastilla.es/aviso-legal/",
+      "children": []
+    },
+    {
+      "title": "Blog - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/blog/",
+      "children": []
+    },
+    {
+      "title": "¿Cuándo aparece por primera vez Castilla en la documentación? - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/blog/cuando-aparece-por-primera-vez-castilla-en-la-documentacion/",
+      "children": []
+    },
+    {
+      "title": "Documental \"Los sarcófagos de Ubierna\" - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/blog/documental-los-sarcofagos-de-ubierna/",
+      "children": []
+    },
+    {
+      "title": "Folk castellano actual: Grupos imprescindibles (V) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/blog/folk-castellano-actual-grupos-imprescindibles-v/",
+      "children": []
+    },
+    {
+      "title": "Listado de las reinas consortes de los reinos de Asturias, León, Galicia y Castilla hasta el 1100 - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/blog/listado-de-las-reinas-consortes-de-los-reinos-de-asturias-leon-galicia-y-castilla-hasta-el-1100/",
+      "children": []
+    },
+    {
+      "title": "El poema de la reina Leodegundia, Pamplona, siglo IX",
+      "url": "https://www.condadodecastilla.es/blog/poema-a-la-reina-dona-leodegundia/",
+      "children": []
+    },
+    {
+      "title": "Comprar sal de las Salinas de Añana",
+      "url": "https://www.condadodecastilla.es/comprar-sal-de-las-salinas-de-anana/",
+      "children": []
+    },
+    {
+      "title": "Cuestionario: ¿Qué sabes sobre el condado de Castilla? - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cuestionario-que-sabes-sobre-el-condado-de-castilla/",
+      "children": []
+    },
+    {
+      "title": "Cultura y sociedad - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/",
+      "children": []
+    },
+    {
+      "title": "Arte prerrománico - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/arte/",
+      "children": []
+    },
+    {
+      "title": "Ventana prerrománica de Mezquía - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/arte/ventana-prerromanica-de-mezquia/",
+      "children": []
+    },
+    {
+      "title": "Ventanas prerrománicas de Obécuri - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/arte/ventanas-prerromanicas-de-obecuri/",
+      "children": []
+    },
+    {
+      "title": "Economía - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/economia/",
+      "children": []
+    },
+    {
+      "title": "Épica medieval - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/epica-medieval/",
+      "children": []
+    },
+    {
+      "title": "El Cantar de Sancho II - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/epica-medieval/el-cantar-de-sancho-ii/",
+      "children": []
+    },
+    {
+      "title": "El poema de Fernán González - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/epica-medieval/el-poema-de-fernan-gonzalez/",
+      "children": []
+    },
+    {
+      "title": "La condesa traidora - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/epica-medieval/la-condesa-traidora/",
+      "children": []
+    },
+    {
+      "title": "Las mocedades de Rodrigo - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/epica-medieval/las-mocedades-de-rodrigo/",
+      "children": []
+    },
+    {
+      "title": "Los Siete Infantes de Lara - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/epica-medieval/leyenda-los-siete-infantes-de-lara/",
+      "children": []
+    },
+    {
+      "title": "Romanz del Infant García - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/epica-medieval/romanz-del-infant-garcia/",
+      "children": []
+    },
+    {
+      "title": "Fuentes históricas - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/fuentes-historicas/",
+      "children": []
+    },
+    {
+      "title": "Crónica Albeldense",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/fuentes-historicas/cronica-albeldense/",
+      "children": []
+    },
+    {
+      "title": "Gastronomía - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/gastronomia/",
+      "children": []
+    },
+    {
+      "title": "Religión - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/cultura-sociedad/religion/",
+      "children": []
+    },
+    {
+      "title": "Enlaces - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/enlaces/",
+      "children": []
+    },
+    {
+      "title": "Historia - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/",
+      "children": []
+    },
+    {
+      "title": "Antecedentes - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/antecedentes/",
+      "children": []
+    },
+    {
+      "title": "Batallas - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/batallas/",
+      "children": []
+    },
+    {
+      "title": "Cronología - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/cronologia/",
+      "children": []
+    },
+    {
+      "title": "Listado de gobernantes de los estados cristianos entre los siglos VIII y XI",
+      "url": "https://www.condadodecastilla.es/historia/cronologia/listado-de-gobernantes-de-los-estados-cristianos-entre-los-anos-711-y-1037/",
+      "children": []
+    },
+    {
+      "title": "Listado de gobernantes de los estados islámicos entre los años 711 y 1100 - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/cronologia/listado-de-gobernantes-de-los-estados-islamicos-entre-los-anos-711-y-1037/",
+      "children": []
+    },
+    {
+      "title": "Del condado al reino de Castilla (1037-1065) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/del-condado-al-reino-de-castilla-1037-1065/",
+      "children": []
+    },
+    {
+      "title": "Bardulia - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-bardulia/",
+      "children": []
+    },
+    {
+      "title": "El condado de Castilla bajo el dominio de Pamplona (1028-1037) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-castilla-navarra/",
+      "children": []
+    },
+    {
+      "title": "El conde Diego Rodríguez (873-c.885) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-conde-diego-rodriguez/",
+      "children": []
+    },
+    {
+      "title": "El conde Fernán González (931-970) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-conde-fernan-gonzalez/",
+      "children": []
+    },
+    {
+      "title": "El conde García Fernández (970-995) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-conde-garcia-fernandez/",
+      "children": []
+    },
+    {
+      "title": "El conde García Sánchez (1017-1028) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-conde-garcia-sanchez/",
+      "children": []
+    },
+    {
+      "title": "Rodrigo, el primer conde de Castilla (850-873) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-conde-rodrigo/",
+      "children": []
+    },
+    {
+      "title": "El conde Sancho García (995-1017) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-conde-sancho-garcia/",
+      "children": []
+    },
+    {
+      "title": "La fragmentación del condado de Castilla (c.885-931) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-fragmentacion-condado-castilla/",
+      "children": []
+    },
+    {
+      "title": "Las primeras repoblaciones (791-850) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/historia/historia-primeras-repoblaciones/",
+      "children": []
+    },
+    {
+      "title": "Leyendas - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/leyendas/",
+      "children": []
+    },
+    {
+      "title": "La campana laurentina de San Isidoro de León y el Cid Campeador - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/leyendas/la-campana-laurentina-de-san-isidoro-de-leon-y-el-cid-campeador/",
+      "children": []
+    },
+    {
+      "title": "La legendaria relación entre el rey visigodo Wamba y el monasterio de San Pedro de Arlanza - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/leyendas/la-legendaria-relacion-entre-el-rey-visigodo-wamba-y-el-monasterio-de-san-pedro-de-arlanza/",
+      "children": []
+    },
+    {
+      "title": "La leyenda de San Ramiro de Añes - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/leyendas/la-leyenda-de-san-ramiro-de-anes/",
+      "children": []
+    },
+    {
+      "title": "La leyenda del tesoro de El Embid - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/leyendas/la-leyenda-del-tesoro-de-el-embid/",
+      "children": []
+    },
+    {
+      "title": "Leyendas sobre Los Siete Infantes de Lara - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/leyendas/los-siete-infantes-de-lara/",
+      "children": []
+    },
+    {
+      "title": "Libros - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/",
+      "children": []
+    },
+    {
+      "title": "Cómic sobre la alta edad media - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/comic/",
+      "children": []
+    },
+    {
+      "title": "La batalla de Simancas - Cómic - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/comic/la-batalla-de-simancas-comic/",
+      "children": []
+    },
+    {
+      "title": "Libros sobre Cultura, arte y sociedad (Libros) de la Edad Media - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/cultura-arte-y-sociedad/",
+      "children": []
+    },
+    {
+      "title": "Libros de Épica Medieval (Libros) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/epica-medieval-libros/",
+      "children": []
+    },
+    {
+      "title": "Libros de Fuentes históricas (Libros) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/fuentes-historicas-libros/",
+      "children": []
+    },
+    {
+      "title": "Colección diplomática del monasterio de San Victorián de Sobrarbe (1000 -1219) - Libro - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/fuentes-historicas-libros/coleccion-diplomatica-del-monasterio-de-san-victorian-de-sobrarbe-1000-1219-libro/",
+      "children": []
+    },
+    {
+      "title": "Crónica de San Juan de la Peña - Libro - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/fuentes-historicas-libros/cronica-de-san-juan-de-la-pena-libro/",
+      "children": []
+    },
+    {
+      "title": "Libros de Historia de la Alta Edad Media (Libros) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/historia-de-la-alta-edad-media/",
+      "children": []
+    },
+    {
+      "title": "Libros sobre historia del Condado de Castilla (Libros) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/historia-de-la-alta-edad-media/condado-de-castilla/",
+      "children": []
+    },
+    {
+      "title": "Pueblos y alfoces de burgaleses de la repoblación - Libro - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/historia-de-la-alta-edad-media/condado-de-castilla/pueblos-y-alfoces-de-burgaleses-de-la-repoblacion-libro/",
+      "children": []
+    },
+    {
+      "title": "Libros historia alta edad media en Europa (Libros) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/historia-de-la-alta-edad-media/librosalta-edad-mediaeuropa/",
+      "children": []
+    },
+    {
+      "title": "Libros historia alta edad media en Otras regiones (Libros) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/historia-de-la-alta-edad-media/otras-regiones/",
+      "children": []
+    },
+    {
+      "title": "Libros de Historia de la Alta Edad Media de la Península Ibérica (Libros) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/historia-de-la-alta-edad-media/peninsula-iberica/",
+      "children": []
+    },
+    {
+      "title": "Libros - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/libros/",
+      "children": []
+    },
+    {
+      "title": "Novelas históricas - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/novelas-historicas/",
+      "children": []
+    },
+    {
+      "title": "Pelayo - Novela histórica - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/novelas-historicas/pelayo-novela-historica-2/",
+      "children": []
+    },
+    {
+      "title": "Libros y guías de Turismo (Libros) - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/libros/turismo/",
+      "children": []
+    },
+    {
+      "title": "Lugares - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/lugares/",
+      "children": []
+    },
+    {
+      "title": "Castrojeriz",
+      "url": "https://www.condadodecastilla.es/lugares/castrojeriz/",
+      "children": []
+    },
+    {
+      "title": "Pancorbo y el desfiladero de Pancorbo",
+      "url": "https://www.condadodecastilla.es/lugares/pancorbo/",
+      "children": []
+    },
+    {
+      "title": "San Andrés de Asia - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/lugares/san-andres-de-asia/",
+      "children": []
+    },
+    {
+      "title": "San Martín de Escalada - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/lugares/san-martin-de-escalada/",
+      "children": []
+    },
+    {
+      "title": "San Miguel de Tubilla de Agua - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/lugares/san-miguel-de-tubilla-de-agua/",
+      "children": []
+    },
+    {
+      "title": "San Millán de Hiniestra - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/lugares/san-millan-de-hiniestra/",
+      "children": []
+    },
+    {
+      "title": "Santa Dorotea de Cigüenza - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/lugares/santa-dorotea-de-ciguenza/",
+      "children": []
+    },
+    {
+      "title": "Personajes - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/personajes/",
+      "children": []
+    },
+    {
+      "title": "al-Mundir, emir de Córdoba",
+      "url": "https://www.condadodecastilla.es/personajes/al-mundir/",
+      "children": []
+    },
+    {
+      "title": "Beatriz, quinta esposa de Alfonso VI de León y Castilla - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/personajes/beatriz-quinta-esposa-de-alfonso-vi-de-leon-y-castilla/",
+      "children": []
+    },
+    {
+      "title": "Berta o Alberta, tercera esposa de Alfonso VI - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/personajes/berta-o-alberta-tercera-esposa-de-alfonso-vi/",
+      "children": []
+    },
+    {
+      "title": "Felicia de Roucy, segunda esposa de Sancho Ramírez, rey de Aragón y Navarra - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/personajes/felicia-de-roucy-segunda-esposa-de-sancho-ramirez-rey-de-aragon-y-navarra/",
+      "children": []
+    },
+    {
+      "title": "Inés de Aquitania, primera esposa de Alfonso VI - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/personajes/ines-de-aquitania-primera-esposa-de-alfonso-vi/",
+      "children": []
+    },
+    {
+      "title": "‘Ubayd Allāh b. ‘Abd Allāh al-Balansī, general omeya andalusí - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/personajes/ubayd-allah-b-abd-allah-al-balansi-general-omeya-andalusi/",
+      "children": []
+    },
+    {
+      "title": "Vela Jiménez o Vigila Jiménez, conde de Álava (c. 882 - c. 897)",
+      "url": "https://www.condadodecastilla.es/personajes/vela-jimenez/",
+      "children": []
+    },
+    {
+      "title": "Publicaciones propias - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/publicaciones-propias/",
+      "children": []
+    },
+    {
+      "title": "Preguntas - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/questions/",
+      "children": []
+    },
+    {
+      "title": "Rutas de senderismo - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/rutas-de-senderismo/",
+      "children": []
+    },
+    {
+      "title": "Senda circular de la Tejeda de Tartalés de Cilla - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/rutas-de-senderismo/rutas-senderismo-provincia-burgos/senda-circular-de-la-tejeda-de-tartales-de-cilla/",
+      "children": []
+    },
+    {
+      "title": "Sendero PR-BU-15. Raíces de Castilla entre Frías y Poza de la Sal - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/rutas-de-senderismo/sendero-pr-bu-15-raices-castilla-frias-poza-la-sal/",
+      "children": []
+    },
+    {
+      "title": "Sendero PRC-BU 146. Peña Horrero - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/rutas-de-senderismo/sendero-prc-bu-146-pena-horrero/",
+      "children": []
+    },
+    {
+      "title": "Sendero PRC-BU 147. La ribera del Nela - Historia del Condado de Castilla",
+      "url": "https://www.condadodecastilla.es/rutas-de-senderismo/sendero-prc-bu-147-la-ribera-del-nela/",
+      "children": []
+    },
+    {
+      "title": "Sendero PRC-BU-158. Sendero de la Villa entre Castrillo de la Vega y Campillo de Aranda",
+      "url": "https://www.condadodecastilla.es/rutas-de-senderismo/sendero-prc-bu-158-sendero-la-villa-castrillo-la-vega-campillo-aranda/",
+      "children": []
+    }
+  ]
 }
