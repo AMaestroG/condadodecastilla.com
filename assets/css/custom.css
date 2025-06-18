@@ -61,7 +61,8 @@ body {
 
 /* Ensure the Google Translate widget itself is not accidentally shown if not already hidden by inline style */
 #google_translate_element {
-    display: none !important;
+    /* Hide the default Google widget; translation handled via flags */
+    display: none;
 }
 
 /* Ocultar visualmente pero mantener accesible */
@@ -95,4 +96,25 @@ body {
 .language-bar .lang-flag:hover {
     opacity: 1;
     transform: scale(1.1); /* Aumentar también en hover para consistencia */
+}
+
+/* Additional flags container hidden by default */
+#additional-flags {
+    display: none;
+    margin-top: 4px;
+}
+
+/* Button to reveal extra languages */
+.more-flags-btn {
+    margin-left: 8px;
+    background: var(--epic-gold-main);
+    border: none;
+    color: var(--epic-purple-emperor);
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.more-flags-btn[aria-expanded="true"] {
+    background: var(--epic-gold-secondary);
 }

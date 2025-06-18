@@ -6,6 +6,8 @@ function setupLanguageBar() {
         const lang = new URLSearchParams(window.location.search).get('lang');
         debugLog(`setupLanguageBar: Initial language from URL: ${lang}`);
         const flagLinks = document.querySelectorAll('.language-bar .lang-flag');
+        const moreToggle = document.getElementById('more-lang-toggle');
+        const additional = document.getElementById('additional-flags');
 
         flagLinks.forEach(link => {
             link.classList.remove('active-lang');
@@ -17,11 +19,17 @@ function setupLanguageBar() {
                 e.preventDefault();
                 const target = this.getAttribute('href').split('lang=')[1];
                 debugLog(`setupLanguageBar: Flag clicked, target language: ${target}`);
-                const params = new URLSearchParams(window.location.search);
-                params.set('lang', target); // Always use params.set as requested
-                window.location.search = params.toString();
+                handleTranslation(target, flagLinks);
             });
         });
+
+        if (moreToggle && additional) {
+            moreToggle.addEventListener('click', () => {
+                const expanded = moreToggle.getAttribute('aria-expanded') === 'true';
+                moreToggle.setAttribute('aria-expanded', String(!expanded));
+                additional.style.display = expanded ? 'none' : 'inline';
+            });
+        }
 
         if (lang) {
             flagLinks.forEach(link => {
@@ -44,6 +52,28 @@ function setupLanguageBar() {
         }
     } catch (error) {
         console.error("setupLanguageBar: Error during setup:", error);
+    }
+}
+
+function handleTranslation(lang, flagLinks) {
+    const params = new URLSearchParams(window.location.search);
+    params.set('lang', lang);
+    history.replaceState(null, '', '?' + params.toString());
+
+    flagLinks.forEach(l => {
+        if (l.getAttribute('href').includes('lang=' + lang)) {
+            l.classList.add('active-lang');
+            l.setAttribute('aria-current', 'true');
+        } else {
+            l.classList.remove('active-lang');
+            l.removeAttribute('aria-current');
+        }
+    });
+
+    if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
+        translatePage(lang);
+    } else {
+        loadGoogleTranslate(lang);
     }
 }
 

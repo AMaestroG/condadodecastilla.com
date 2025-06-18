@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Test Translation</title>
+<link rel="stylesheet" href="/assets/css/custom.css">
+</head>
+<body>
+<div class="language-bar">
+    <a href="/?lang=es" class="lang-flag">🇪🇸</a>
+    <a href="/?lang=en" class="lang-flag">🇬🇧</a>
+    <a href="/?lang=fr" class="lang-flag">🇫🇷</a>
+    <a href="/?lang=de" class="lang-flag">🇩🇪</a>
+    <button id="more-lang-toggle" class="more-flags-btn" aria-expanded="false" aria-controls="additional-flags">+</button>
+    <div id="additional-flags" class="additional-flags">
+        <a href="/?lang=it" class="lang-flag">🇮🇹</a>
+        <a href="/?lang=pt" class="lang-flag">🇵🇹</a>
+    </div>
+</div>
+<div id="google_translate_element"></div>
+<p id="text">Hola Mundo</p>
+<script src="/js/lang-bar.js"></script>
+</body>
+</html>
