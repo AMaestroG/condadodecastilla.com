@@ -61,3 +61,7 @@ Al añadir más elementos al contenedor puede ser necesario ajustar la posición
 }
 ```
 Esto evitará que los menús se oculten tras los botones fijos.
+
+### Modificar la altura del contenedor
+
+La variable `--menu-extra-offset` puede definirse también en `assets/css/epic_theme.css` o en tu propia hoja de estilos. Ajusta su valor al número de píxeles que ocupa `#fixed-header-elements` para que los paneles deslizantes queden perfectamente alineados bajo los botones.
