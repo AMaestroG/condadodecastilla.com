@@ -4,7 +4,6 @@
 html_file="index.php"
 css_file="assets/css/pages/index.css"
 backup_html_file="index.php.bak_inline_style"
-backup_css_file="assets/css/pages/index.css.bak_inline_style"
 
 # Inline style to find and class to add
 inline_style="style=\"margin-top: 2.5em;\""
@@ -21,15 +20,12 @@ css_rule=".${class_name} {\n  margin-top: 2.5em;\n}"
 
 echo "Starting HTML and CSS modification for inline style."
 
-# Backup files
+# Backup HTML file only
 cp "$html_file" "$backup_html_file"
 echo "Backed up $html_file to $backup_html_file"
-if [ -f "$css_file" ]; then
-    cp "$css_file" "$backup_css_file"
-    echo "Backed up $css_file to $backup_css_file"
-else
+# Ensure CSS file directory exists if we need to create the file
+if [ ! -f "$css_file" ]; then
     echo "CSS file $css_file not found. Will create it."
-    # Ensure directory exists if we need to create the file
     mkdir -p "$(dirname "$css_file")"
 fi
 
