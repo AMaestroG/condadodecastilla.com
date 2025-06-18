@@ -223,3 +223,22 @@ Para ajustar sus biografías o añadir nuevos perfiles edita el archivo `config/
 ## Tema predeterminado
 
 El sitio arranca en modo oscuro. Si el navegador no tiene guardada una preferencia en `localStorage`, el script `assets/js/main.js` añade la clase `dark-mode` al elemento `<body>` y muestra el icono `fa-sun` en el botón de cambio de tema. Al pulsar dicho botón se alterna entre modo oscuro y claro, actualizando el icono (`fa-sun` o `fa-moon`) y almacenando la elección para futuras visitas.
+
+## Efecto de compresión del menú deslizante
+
+Cada vez que se abre un panel `.menu-panel`, `assets/js/main.js` agrega la clase `menu-compressed` al elemento `<body>` junto con `menu-open-left` o `menu-open-right` según el lado del que se despliegue. Estas clases están definidas en `assets/css/sliding_menu.css`:
+
+```css
+body.menu-compressed {
+    transition: transform 0.3s ease;
+    transform: scale(0.97);
+}
+body.menu-open-left {
+    transform: translateX(260px) scale(0.97);
+}
+body.menu-open-right {
+    transform: translateX(-260px) scale(0.97);
+}
+```
+
+El contenido se desplaza ligeramente y se escala al 97%, dando la sensación de que el sitio se comprime por el lateral desde el que aparece el menú. Al cerrarlo, las clases se eliminan y la página vuelve a su posición original.

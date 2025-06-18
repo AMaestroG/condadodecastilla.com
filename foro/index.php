@@ -62,11 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 <body>
 <?php require_once __DIR__ . '/../_header.php'; ?>
 <button id="menu-btn" class="menu-btn" data-menu-target="agents-menu">☰ Expertos</button>
-<nav id="agents-menu" class="slide-menu left">
+<div id="agents-menu" class="menu-panel left-panel">
 <?php foreach ($agents as $id => $ag): ?>
     <a href="#<?php echo $id; ?>" class="gradient-title"><?php echo htmlspecialchars($ag['name']); ?></a>
 <?php endforeach; ?>
-</nav>
+</div>
 <main class="container page-content-block">
     <h1 style="text-align:center;">Foro de Expertos</h1>
     <?php if (!empty($_SESSION['forum_error'])): ?>
