@@ -198,11 +198,12 @@
         <div class="container">
             <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
             <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/groups/1052427398664069" aria-label="Facebook" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="/en_construccion.php" aria-label="Instagram" title="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="/en_construccion.php" aria-label="Twitter" title="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
+            <?php
+            $social_fragment = __DIR__ . '/../../../fragments/menus/social-menu.html';
+            if (file_exists($social_fragment)) {
+                echo file_get_contents($social_fragment);
+            }
+            ?>
         </div>
     </footer>
 
