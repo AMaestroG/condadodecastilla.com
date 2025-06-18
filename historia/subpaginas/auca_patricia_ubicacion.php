@@ -65,8 +65,6 @@ if (!$pdo) {
 }
 require_once __DIR__ . '/../../../includes/text_manager.php';
 ?>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
     <header id="hero-auca-patricia-ubicacion" class="page-header hero">
         <div class="hero-content">

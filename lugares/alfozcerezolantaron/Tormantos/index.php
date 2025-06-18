@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
-  <meta charset="UTF-8">
   <title>Tormantos</title>
   <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>

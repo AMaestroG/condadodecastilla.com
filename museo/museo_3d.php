@@ -2,8 +2,6 @@
 <html lang="es">
 <head>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museo 3D Interactivo - Condado de Castilla</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

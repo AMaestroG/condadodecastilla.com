@@ -2,8 +2,6 @@
 <html lang="es">
 <head>
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mausoleo Imperial de San Nicolás - Ruinas del Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 
