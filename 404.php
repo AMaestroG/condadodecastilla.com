@@ -9,7 +9,7 @@ http_response_code(404);
 </head>
 <body>
 <?php require_once __DIR__ . '/_header.php'; ?>
-<main class="container page-content-block" style="text-align: center; padding: 4em 1em;">
+<main class="container page-content-block error-page">
     <h1>Página no encontrada</h1>
     <p>Lo sentimos, la página que buscas no existe.</p>
     <p><a href="/index.php" class="cta-button">Volver al inicio</a></p>

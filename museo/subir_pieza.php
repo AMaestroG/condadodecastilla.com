@@ -18,7 +18,7 @@
         require_once __DIR__ . '/../_header.php';
     ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg');">
+    <header class="page-header hero hero-museo">
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1>Sube una Pieza al Museo</h1>
@@ -54,8 +54,8 @@
                         <input type="file" id="piezaImagen" name="piezaImagen" accept="image/jpeg, image/png, image/gif" required>
                         <small>Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 2MB.</small>
                     </div>
-                    <div class="form-group preview-container" id="imagePreviewContainer" style="display:none;">
-                        <img id="imagePreview" src="#" alt="Vista previa de la imagen" style="max-height: 200px; margin-bottom: 10px; border: 1px solid var(--condado-piedra-media);"/>
+                    <div class="form-group preview-container preview-hidden" id="imagePreviewContainer">
+                        <img id="imagePreview" src="#" alt="Vista previa de la imagen" class="photo-preview"/>
                     </div>
 
                     <fieldset class="form-fieldset">

@@ -54,7 +54,7 @@ if (is_dir($gallery_dir)) {
     
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.75), rgba(var(--condado-texto-rgb), 0.88)), url('/imagenes/hero_galeria_background.jpg');">
+    <header class="page-header hero hero-galeria">
         <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
@@ -91,8 +91,8 @@ if (is_dir($gallery_dir)) {
                         <input type="file" id="photoFile" name="photoFile" accept="image/jpeg, image/png, image/gif" required>
                         <small>Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 2MB.</small>
                     </div>
-                    <div class="form-group preview-container" id="photoPreviewContainer" style="display:none;">
-                        <img id="photoPreview" src="#" alt="Vista previa de la fotografía" style="max-height: 200px; margin-bottom: 10px; border: 1px solid var(--condado-piedra-media);"/>
+                    <div class="form-group preview-container preview-hidden" id="photoPreviewContainer">
+                        <img id="photoPreview" src="#" alt="Vista previa de la fotografía" class="photo-preview"/>
                     </div>
                     <button type="submit" class="cta-button submit-button"><i class="fas fa-share-square"></i> Compartir Fotografía</button>
                 </form>

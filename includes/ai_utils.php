@@ -295,8 +295,8 @@ function translate_with_gemini(string $content_id, string $target_language, stri
 
     $original_snippet = !empty($original_sample_text) ? htmlspecialchars(substr(strip_tags($original_sample_text), 0, 70)) . "..." : "el contenido original";
 
-    $outputText = "<div style='padding:15px; background-color:#e3f2fd; border:1px solid #bbdefb; border-radius:4px; margin-top:10px;'>";
-    $outputText .= "<p style='font-size:0.9em; color:#0d47a1;'><em>Traducción IA (Demostración) para: " . htmlspecialchars($content_id) . "</em></p>";
+    $outputText = "<div class='ai-translation-box'>";
+    $outputText .= "<p><em>Traducción IA (Demostración) para: " . htmlspecialchars($content_id) . "</em></p>";
 
     switch ($target_language) {
         case 'en-ai':
@@ -313,7 +313,7 @@ function translate_with_gemini(string $content_id, string $target_language, stri
             break;
         // No hay caso 'default' o 'es' aquí porque ya se manejó al inicio de la función.
     }
-    $outputText .= "<p style='font-size:0.8em; color:#1976d2; margin-top:10px;'><em>(Esta es una simulación. La funcionalidad de traducción real con IA está pendiente de implementación).</em></p>";
+    $outputText .= "<p class='ai-note'><em>(Esta es una simulación. La funcionalidad de traducción real con IA está pendiente de implementación).</em></p>";
     $outputText .= "</div>";
     return $outputText;
 }
