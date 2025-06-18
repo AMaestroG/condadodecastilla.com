@@ -23,13 +23,13 @@ function toggleLanguageBar() {
         window.googleTranslateLoaded = true;
     }
 
-    const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
-    if (isHidden) {
-        el.style.display = 'block';
+    const isVisible = el.classList.contains('visible');
+    if (!isVisible) {
+        el.classList.add('visible');
         const offset = el.offsetHeight || 40;
         document.documentElement.style.setProperty('--language-bar-offset', offset + 'px');
     } else {
-        el.style.display = 'none';
+        el.classList.remove('visible');
         document.documentElement.style.setProperty('--language-bar-offset', '0px');
     }
 }
@@ -41,7 +41,7 @@ function initLangBarToggle() {
     }
     const el = document.getElementById('google_translate_element');
     if (el) {
-        el.style.display = 'none';
+        el.classList.remove('visible');
         document.documentElement.style.setProperty('--language-bar-offset', '0px');
     }
 }

@@ -59,9 +59,20 @@ body {
     top: 0px !important;
 }
 
-/* Ensure the Google Translate widget itself is not accidentally shown if not already hidden by inline style */
+/* Style for Google Translate widget - hidden off-canvas by default */
 #google_translate_element {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 3500;
+}
+
+/* Visible state for the language bar */
+#google_translate_element.visible {
+    transform: translateY(0);
 }
 
 /* Ocultar visualmente pero mantener accesible */
