@@ -49,7 +49,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 
                 <div class="contact-form-container">
                     <?php editableText('contacto_form_titulo', $pdo, 'Formulario de Contacto', 'h2', 'section-title'); ?>
-                    <form id="contactForm" action="mailto:info@condadodecastilla.com">
+                    <form id="contactForm" method="post" action="submit.php">
                         <div class="form-group">
                             <label for="nombre"><i class="fas fa-user"></i> <?php editableText('contacto_form_label_nombre_texto', $pdo, 'Nombre Completo:', 'span'); ?></label>
                             <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellidos">
@@ -94,9 +94,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                     return;
                 }
                 
-                let mailtoLink = `mailto:info@condadodecastilla.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
-                this.action = mailtoLink;
-                alert('Gracias por tu mensaje. Se abrirá tu correo para enviarlo.');
+                // Los datos se enviarán al servidor; solo validamos en el cliente.
             });
         }
     </script>
