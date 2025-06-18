@@ -223,3 +223,6 @@ Para ajustar sus biografías o añadir nuevos perfiles edita el archivo `config/
 ## Tema predeterminado
 
 El sitio arranca en modo oscuro. Si el navegador no tiene guardada una preferencia en `localStorage`, el script `assets/js/main.js` añade la clase `dark-mode` al elemento `<body>` y muestra el icono `fa-sun` en el botón de cambio de tema. Al pulsar dicho botón se alterna entre modo oscuro y claro, actualizando el icono (`fa-sun` o `fa-moon`) y almacenando la elección para futuras visitas.
+
+## Mejoras de diseño responsive
+Se sustituyeron alturas fijas de 300px por `max-height` o unidades basadas en el viewport para adaptarse mejor a pantallas pequeñas. También se añadió una media query para dispositivos con un ancho inferior a 600px.

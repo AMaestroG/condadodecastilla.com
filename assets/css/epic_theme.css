@@ -1181,8 +1181,8 @@ body.dark-mode .footer .social-links a:focus-visible {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300px;
-    height: 300px;
+    width: 40vmin;
+    max-height: 40vmin; /* Use viewport unit for responsiveness */
     background-image: url('/assets/img/estrella.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -1560,7 +1560,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     border-radius: 50%;
     -o-object-fit: cover;
        object-fit: cover;
-    height: 300px;
+    max-height: 40vh; /* Allow image to shrink on shorter screens */
     background-color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
     box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
 }
@@ -2592,6 +2592,12 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+@media (max-width: 600px) {
+    .page-content-block.personaje-detail-content img.personaje-imagen-principal {
+        max-height: 30vh;
+    }
 }
 
 .menu-panel .menu-item-button {
