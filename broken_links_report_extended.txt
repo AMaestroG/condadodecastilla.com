@@ -1,12 +1,12 @@
 Broken Link Report (Extended):
 ------------------------------
-Checked on: Mon Jun 16 18:36:34 UTC 2025
+Checked on: Wed Jun 18 19:22:42 UTC 2025
 
 Checking links in: index.php
   OK: /historia/historia.php (resolved to historia/historia.php)
   OK: /secciones_index/memoria_hispanidad.html (resolved to secciones_index/memoria_hispanidad.html)
   OK: /historia/historia.php (resolved to historia/historia.php)
-  OK: /lugares/lugares.html (resolved to lugares/lugares.html)
+  BROKEN (File): /lugares/lugares.html (resolved to lugares/lugares.html)
   OK: /visitas/visitas.php (resolved to visitas/visitas.php)
   OK: /personajes/Militares_y_Gobernantes/conde_casio_cerasio.html (resolved to personajes/Militares_y_Gobernantes/conde_casio_cerasio.html)
   OK: /personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html (resolved to personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html)
@@ -22,48 +22,22 @@ Checking links in: index.php
   OK: /assets/img/GonzaloTellez.png (resolved to assets/img/GonzaloTellez.png)
   OK: /assets/img/FernandoDiaz.png (resolved to assets/img/FernandoDiaz.png)
   OK: /js/layout.js (resolved to js/layout.js)
-  SUMMARY for index.php: All 19 processable links appear OK.
+  SUMMARY for index.php: 1 broken link(s) out of 19 processable links.
 
-Checking links in: _header.html
-  OK: /index.php (resolved to index.php)
-  OK: /assets/js/main.js (resolved to assets/js/main.js)
-  SUMMARY for _header.html: All 2 processable links appear OK.
+Checking links in: _header.php
+  No processable internal links found in _header.php.
 
 Checking links in: _footer.php
   OK: /dashboard/logout.php (resolved to dashboard/logout.php)
   OK: /dashboard/login.php (resolved to dashboard/login.php)
   OK: /en_construccion.php (resolved to en_construccion.php)
   OK: /en_construccion.php (resolved to en_construccion.php)
-  SUMMARY for _footer.php: All 4 processable links appear OK.
+  OK: /assets/js/main.js (resolved to assets/js/main.js)
+  OK: /js/lang-bar.js (resolved to js/lang-bar.js)
+  SUMMARY for _footer.php: All 6 processable links appear OK.
 
 Checking links in: fragments/header/language-bar.html
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=es (resolved to fragments/header/?lang=es)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=en (resolved to fragments/header/?lang=en)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=fr (resolved to fragments/header/?lang=fr)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=de (resolved to fragments/header/?lang=de)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=it (resolved to fragments/header/?lang=it)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=pt (resolved to fragments/header/?lang=pt)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ru (resolved to fragments/header/?lang=ru)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=zh-CN (resolved to fragments/header/?lang=zh-CN)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ja (resolved to fragments/header/?lang=ja)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ko (resolved to fragments/header/?lang=ko)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ar (resolved to fragments/header/?lang=ar)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=hi (resolved to fragments/header/?lang=hi)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=tr (resolved to fragments/header/?lang=tr)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=id (resolved to fragments/header/?lang=id)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=vi (resolved to fragments/header/?lang=vi)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=bn (resolved to fragments/header/?lang=bn)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=ur (resolved to fragments/header/?lang=ur)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=fa (resolved to fragments/header/?lang=fa)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=nl (resolved to fragments/header/?lang=nl)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=pl (resolved to fragments/header/?lang=pl)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=uk (resolved to fragments/header/?lang=uk)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=sw (resolved to fragments/header/?lang=sw)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=sv (resolved to fragments/header/?lang=sv)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=th (resolved to fragments/header/?lang=th)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=el (resolved to fragments/header/?lang=el)
-  POTENTIALLY BROKEN (Clean URL or missing dir): ?lang=he (resolved to fragments/header/?lang=he)
-  SUMMARY for fragments/header/language-bar.html: All 26 processable links appear OK.
+  No processable internal links found in fragments/header/language-bar.html.
 
 Checking links in: fragments/header/navigation.html
   OK: /index.php (resolved to index.php)
@@ -76,7 +50,8 @@ Checking links in: fragments/menus/main-menu.html
   OK: /historia_cerezo/index.php (resolved to historia_cerezo/index.php)
   OK: /historia/subpaginas/obispado_auca_cerezo.php (resolved to historia/subpaginas/obispado_auca_cerezo.php)
   OK: /alfoz/alfoz.php (resolved to alfoz/alfoz.php)
-  OK: /lugares/lugares.html (resolved to lugares/lugares.html)
+  OK: /lugares/lugares.php (resolved to lugares/lugares.php)
+  OK: /ruinas/index.php (resolved to ruinas/index.php)
   OK: /camino_santiago/camino_santiago.php (resolved to camino_santiago/camino_santiago.php)
   OK: /museo/galeria.php (resolved to museo/galeria.php)
   OK: /museo/museo_3d.php (resolved to museo/museo_3d.php)
@@ -84,12 +59,14 @@ Checking links in: fragments/menus/main-menu.html
   OK: /galeria/galeria_colaborativa.php (resolved to galeria/galeria_colaborativa.php)
   OK: /tienda/index.php (resolved to tienda/index.php)
   OK: /visitas/visitas.php (resolved to visitas/visitas.php)
+  OK: /citas/agenda.php (resolved to citas/agenda.php)
   OK: /cultura/cultura.php (resolved to cultura/cultura.php)
   OK: /personajes/indice_personajes.html (resolved to personajes/indice_personajes.html)
   OK: /empresa/index.php (resolved to empresa/index.php)
   OK: /foro/index.php (resolved to foro/index.php)
+  OK: /blog.php (resolved to blog.php)
   OK: /contacto/contacto.php (resolved to contacto/contacto.php)
-  SUMMARY for fragments/menus/main-menu.html: All 18 processable links appear OK.
+  SUMMARY for fragments/menus/main-menu.html: All 21 processable links appear OK.
 
 Checking links in: fragments/menus/admin-menu.php
   OK: /dashboard/logout.php (resolved to dashboard/logout.php)
