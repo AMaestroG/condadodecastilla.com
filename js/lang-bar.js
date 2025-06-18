@@ -1,8 +1,10 @@
+function debugLog(...args) { if (window.DEBUG_MODE) { console.debug(...args); } }
+
 function setupLanguageBar() {
-    console.log("setupLanguageBar: Initializing language bar setup.");
+    debugLog("setupLanguageBar: Initializing language bar setup.");
     try {
         const lang = new URLSearchParams(window.location.search).get('lang');
-        console.log(`setupLanguageBar: Initial language from URL: ${lang}`);
+        debugLog(`setupLanguageBar: Initial language from URL: ${lang}`);
         const flagLinks = document.querySelectorAll('.language-bar .lang-flag');
 
         flagLinks.forEach(link => {
@@ -14,7 +16,7 @@ function setupLanguageBar() {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = this.getAttribute('href').split('lang=')[1];
-                console.log(`setupLanguageBar: Flag clicked, target language: ${target}`);
+                debugLog(`setupLanguageBar: Flag clicked, target language: ${target}`);
                 const params = new URLSearchParams(window.location.search);
                 params.set('lang', target); // Always use params.set as requested
                 window.location.search = params.toString();
@@ -28,7 +30,7 @@ function setupLanguageBar() {
                     link.setAttribute('aria-current', 'true');
                 }
             });
-            console.log(`setupLanguageBar: Determined language for translation: ${lang}`);
+            debugLog(`setupLanguageBar: Determined language for translation: ${lang}`);
             loadGoogleTranslate(lang);
         } else {
             // Optional: if no 'lang', highlight 'es' by default if that flag exists
@@ -38,7 +40,7 @@ function setupLanguageBar() {
                     link.setAttribute('aria-current', 'true');
                 }
             });
-            console.log("setupLanguageBar: No language parameter in URL, or default language selected.");
+            debugLog("setupLanguageBar: No language parameter in URL, or default language selected.");
         }
     } catch (error) {
         console.error("setupLanguageBar: Error during setup:", error);
@@ -46,14 +48,14 @@ function setupLanguageBar() {
 }
 
 function loadGoogleTranslate(targetLang, attempt = 1) {
-    console.log(`loadGoogleTranslate: Attempting to load Google Translate for language: ${targetLang}, attempt: ${attempt}`);
+    debugLog(`loadGoogleTranslate: Attempting to load Google Translate for language: ${targetLang}, attempt: ${attempt}`);
     try {
         window._targetLang = targetLang; // Store targetLang globally for access in callback
 
         // Ensure googleTranslateElementInit is defined robustly
         if (typeof window.googleTranslateElementInit !== 'function') {
             window.googleTranslateElementInit = function() {
-                console.log("loadGoogleTranslate: googleTranslateElementInit called.");
+                debugLog("loadGoogleTranslate: googleTranslateElementInit called.");
                 try {
                     new google.translate.TranslateElement({
                         pageLanguage: 'es', // Assuming 'es' is the original page language
@@ -73,7 +75,7 @@ function loadGoogleTranslate(targetLang, attempt = 1) {
 
         // Check if the script is already loaded or if the Translate API is available
         if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
-            console.log("loadGoogleTranslate: Google Translate API already available.");
+            debugLog("loadGoogleTranslate: Google Translate API already available.");
             // If API is there, but our specific init function was perhaps missed or needs re-triggering for a new language
             window.googleTranslateElementInit();
             return;
@@ -81,7 +83,7 @@ function loadGoogleTranslate(targetLang, attempt = 1) {
 
         // Proceed to load the script if not already loaded
         if (!document.querySelector('script[src*="translate.google.com"]')) {
-            console.log("loadGoogleTranslate: Creating and appending Google Translate script.");
+            debugLog("loadGoogleTranslate: Creating and appending Google Translate script.");
             const script = document.createElement('script');
             script.src = `//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit`;
             script.async = true;
@@ -101,12 +103,12 @@ function loadGoogleTranslate(targetLang, attempt = 1) {
             // Script tag exists, but google.translate is not yet available.
             // This can happen if the script is still loading.
             // googleTranslateElementInit will be called by the script's cb parameter.
-            console.log("loadGoogleTranslate: Google Translate script tag found, but API not yet available. Waiting for cb.");
+            debugLog("loadGoogleTranslate: Google Translate script tag found, but API not yet available. Waiting for cb.");
         } else {
             // Script tag exists, and API is available.
             // This implies googleTranslateElementInit should have been called.
             // If we need to re-translate to a new language, call translatePage directly.
-            console.log("loadGoogleTranslate: Google Translate script and API present. Translating page.");
+            debugLog("loadGoogleTranslate: Google Translate script and API present. Translating page.");
             translatePage(targetLang);
         }
 
@@ -121,7 +123,7 @@ function loadGoogleTranslate(targetLang, attempt = 1) {
 }
 
 function translatePage(lang) {
-    console.log(`translatePage: Attempting to translate page to language: ${lang}`);
+    debugLog(`translatePage: Attempting to translate page to language: ${lang}`);
     try {
         if (typeof google === 'undefined' || typeof google.translate === 'undefined' || typeof google.translate.TranslateElement === 'undefined') {
             console.warn("translatePage: Google Translate API not available. Skipping translation.");
@@ -136,20 +138,20 @@ function translatePage(lang) {
 
         function findAndTranslate() {
             attempts++;
-            console.log(`translatePage: Attempt ${attempts} to find Google Translate combo box for language ${lang}.`);
+            debugLog(`translatePage: Attempt ${attempts} to find Google Translate combo box for language ${lang}.`);
             const combo = document.querySelector('select.goog-te-combo');
 
             if (combo) {
                 if (combo.value !== lang) {
                     combo.value = lang;
-                    console.log(`translatePage: Set combo value to ${lang}. Dispatching change event.`);
+                    debugLog(`translatePage: Set combo value to ${lang}. Dispatching change event.`);
                     combo.dispatchEvent(new Event('change'));
                 } else {
-                    console.log(`translatePage: Combo value already ${lang}. No change needed.`);
+                    debugLog(`translatePage: Combo value already ${lang}. No change needed.`);
                 }
             } else {
                 if (attempts < maxAttempts) {
-                    console.log(`translatePage: Combo box not found on attempt ${attempts}. Retrying in ${retryDelay}ms.`);
+                    debugLog(`translatePage: Combo box not found on attempt ${attempts}. Retrying in ${retryDelay}ms.`);
                     setTimeout(findAndTranslate, retryDelay);
                 } else {
                     console.warn(`translatePage: Google Translate combo box not found after ${maxAttempts} attempts. Translation might not occur as expected. This can happen if the Translate Element hasn't fully initialized or if the page structure changed.`);
