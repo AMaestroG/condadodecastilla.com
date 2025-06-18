@@ -23,73 +23,6 @@
     z-index: 3000;
 }
 
-/* Theme Toggle Button - Original Position (will be adjusted for mobile) */
-#theme-toggle {
-    position: fixed;
-    top: var(--language-bar-offset);
-    left: 70px; /* Align horizontally with consolidated menu button */
-    transform: none;
-    background-color: var(--epic-transparent-overlay-medium);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 10px;
-    cursor: pointer;
-    z-index: 3001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    transition: background-color var(--global-transition-speed) ease,
-                color var(--global-transition-speed) ease;
-}
-
-#theme-toggle i {
-    color: var(--epic-gold-main);
-    font-size: 1.2em;
-    transition: transform var(--global-transition-speed) ease;
-}
-
-#theme-toggle:hover {
-    background-color: var(--epic-gold-main);
-}
-
-#theme-toggle:hover i {
-    color: var(--epic-purple-emperor);
-    transform: rotate(20deg);
-}
-
-/* Language Bar Toggle */
-#lang-bar-toggle {
-    position: fixed;
-    top: var(--language-bar-offset);
-    right: 15px;
-    background-color: var(--epic-purple-emperor);
-    color: var(--epic-gold-main);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 8px 12px; /* match menu button size */
-    font-size: 1.1em;   /* match menu button size */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 3001;
-    transition: background-color var(--global-transition-speed) ease,
-                color var(--global-transition-speed) ease;
-}
-
-#lang-bar-toggle i {
-    color: var(--epic-gold-main);
-}
-
-#lang-bar-toggle:hover {
-    background-color: var(--epic-gold-main);
-}
-
-#lang-bar-toggle:hover i {
-    color: var(--epic-purple-emperor);
-}
 
 
 /* Hide Google translate banner */
@@ -202,48 +135,13 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 
 /* Dark Mode Icon Colors for Toggles */
 body.dark-mode #theme-toggle i,
-body.dark-mode #ia-chat-toggle i, /* Added for consistency */
+body.dark-mode #ia-chat-toggle i,
 body.dark-mode #homonexus-toggle i {
     color: var(--epic-icon-color);
 }
 
 body.dark-mode #theme-toggle:hover i,
-body.dark-mode #ia-chat-toggle:hover i, /* Added for consistency */
+body.dark-mode #ia-chat-toggle:hover i,
 body.dark-mode #homonexus-toggle:hover i {
     color: var(--epic-icon-hover);
-}
-
-/* Mobile Adjustments for Toggles */
-@media (max-width: 768px) {
-    #theme-toggle {
-        left: 60px;  /* Maintain gap next to menu button */
-        right: auto;
-        top: var(--language-bar-offset);
-    }
-}
-
-/* Consider further adjustments for very small screens if needed, e.g., hiding some toggles */
-
-@media (max-width: 480px) {
-    /* Reduce toggle button size so icons do not overlap */
-    #theme-toggle,
-    #ia-chat-toggle,
-    #homonexus-toggle {
-        width: 36px;
-        height: 36px;
-        padding: 6px;
-        top: var(--language-bar-offset);
-    }
-
-    /* Slightly smaller icons for tiny screens */
-    #theme-toggle i,
-    #ia-chat-toggle i,
-    #homonexus-toggle i {
-        font-size: 0.9em;
-    }
-
-    /* Adjust right offsets so buttons remain separated */
-    #ia-chat-toggle { right: 10px; }
-    #homonexus-toggle { right: 50px; }
-    #theme-toggle { left: 60px; right: auto; }
 }
