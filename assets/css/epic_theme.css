@@ -33,6 +33,29 @@
     --global-box-shadow-dark: 0 8px 25px rgba(var(--epic-text-color-rgb), 0.2);
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
     --language-bar-offset: 0px; /* default fallback */
+    /* Additional theme variables for admin dashboard */
+    --epic-purple-hover: #663399;
+    --epic-gray: #6c757d;
+    --epic-gray-dark: #5a6268;
+    --epic-alabaster-light: #fdfaf6;
+    --epic-success-bg: #d4edda;
+    --epic-success-text: #155724;
+    --epic-success-border: #c3e6cb;
+    --epic-danger-bg: #f8d7da;
+    --epic-danger-text: #721c24;
+    --epic-danger-border: #f5c6cb;
+    --epic-info-bg: #e2e3e5;
+    --epic-info-text: #383d41;
+    --epic-info-border: #d6d8db;
+    --epic-neutral-border: #ddd;
+    --epic-neutral-bg: #f9f9f9;
+    --epic-highlight-bg: #e7f3ff;
+    --epic-highlight-text: #0056b3;
+    --epic-error-bg: #f2dede;
+    --epic-action-hover: #1e7e34;
+    --epic-input-border: #ccc;
+    --epic-text-muted: #666;
+    --epic-action-bg: #f0fff0;
 }
 
 @media (prefers-color-scheme: dark) {

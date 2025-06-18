@@ -29,7 +29,7 @@ body.admin-page.centered {
 .admin-container.wide { max-width: 900px; }
 
 .login-container {
-    background-color: #fdfaf6;
+    background-color: var(--epic-alabaster-light);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -37,7 +37,7 @@ body.admin-page.centered {
 }
 
 .navigation-link { text-align: center; margin-top: 15px; }
-.navigation-link a { color: #007bff; text-decoration: none; }
+.navigation-link a { color: var(--epic-purple-emperor); text-decoration: none; }
 .navigation-link a:hover { text-decoration: underline; }
 
 header.admin-header {
@@ -53,12 +53,12 @@ nav.admin-nav { margin-bottom: 20px; }
 nav.admin-nav a {
     text-decoration: none;
     padding: 8px 15px;
-    background-color: #6c757d;
-    color: white;
+    background-color: var(--epic-gray);
+    color: var(--epic-text-light);
     border-radius: 4px;
     margin-right: 10px;
 }
-nav.admin-nav a:hover { background-color: #5a6268; }
+nav.admin-nav a:hover { background-color: var(--epic-gray-dark); }
 
 .btn-primary {
     background-color: var(--epic-purple-emperor);
@@ -69,11 +69,11 @@ nav.admin-nav a:hover { background-color: #5a6268; }
     cursor: pointer;
     font-size: 16px;
 }
-.btn-primary:hover { background-color: #663399; }
+.btn-primary:hover { background-color: var(--epic-purple-hover); }
 
 .btn-danger {
-    background-color: #dc3545;
-    color: #fff;
+    background-color: var(--epic-error-red);
+    color: var(--epic-text-light);
     border: none;
     border-radius: 4px;
     padding: 10px;
@@ -88,30 +88,30 @@ nav.admin-nav a:hover { background-color: #5a6268; }
     border-radius: 4px;
     text-align: center;
 }
-.message.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-.message.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.message.error { background-color: var(--epic-danger-bg); color: var(--epic-danger-text); border: 1px solid var(--epic-danger-border); }
+.message.success { background-color: var(--epic-success-bg); color: var(--epic-success-text); border: 1px solid var(--epic-success-border); }
 
 .feedback { padding: 10px; margin-bottom: 15px; border-radius: 4px; }
-.feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-.feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-.feedback.info { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+.feedback.success { background-color: var(--epic-success-bg); color: var(--epic-success-text); border: 1px solid var(--epic-success-border); }
+.feedback.error { background-color: var(--epic-danger-bg); color: var(--epic-danger-text); border: 1px solid var(--epic-danger-border); }
+.feedback.info { background-color: var(--epic-info-bg); color: var(--epic-info-text); border: 1px solid var(--epic-info-border); }
 
-.text-item { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; background-color: #f9f9f9; }
-.text-item.highlight { border-color: #007bff; background-color: #e7f3ff; }
-.text-item strong { display: block; margin-bottom: 5px; color: #0056b3; }
+.text-item { border: 1px solid var(--epic-neutral-border); padding: 15px; margin-bottom: 15px; border-radius: 5px; background-color: var(--epic-neutral-bg); }
+.text-item.highlight { border-color: var(--epic-purple-emperor); background-color: var(--epic-highlight-bg); }
+.text-item strong { display: block; margin-bottom: 5px; color: var(--epic-highlight-text); }
 
-.add-text-form { margin-bottom: 30px; padding: 15px; border: 1px solid #28a745; border-radius: 5px; background-color: #f0fff0; }
+.add-text-form { margin-bottom: 30px; padding: 15px; border: 1px solid var(--epic-gold-main); border-radius: 5px; background-color: var(--epic-action-bg); }
 
-button.add-new-button { background-color: #28a745; margin-bottom: 20px; }
-button.add-new-button:hover { background-color: #1e7e34; }
+button.add-new-button { background-color: var(--epic-gold-main); margin-bottom: 20px; }
+button.add-new-button:hover { background-color: var(--epic-action-hover); }
 
-.text-meta { font-size: 0.8em; color: #666; margin-top: 5px; }
+.text-meta { font-size: 0.8em; color: var(--epic-text-muted); margin-top: 5px; }
 
 input[type="text"], input[type="password"], select, textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--epic-input-border);
     border-radius: 4px;
     box-sizing: border-box;
     font-family: inherit;
@@ -130,12 +130,12 @@ input[type="text"], input[type="password"], select, textarea {
 canvas { max-width: 100%; height: auto !important; }
 
 #errorMessage {
-    color: #d9534f;
+    color: var(--epic-error-red);
     text-align: center;
     margin-top: 20px;
     padding: 10px;
-    border: 1px solid #d9534f;
-    background-color: #f2dede;
+    border: 1px solid var(--epic-error-red);
+    background-color: var(--epic-error-bg);
     border-radius: 5px;
     display: none;
 }
