@@ -1,5 +1,10 @@
 <?php
-require_once 'dashboard/db_connect.php';
+try {
+    require_once 'dashboard/db_connect.php';
+} catch (RuntimeException $e) {
+    error_log($e->getMessage());
+    $pdo = null;
+}
 require_once 'includes/auth.php';
 require_once 'includes/csrf.php';
 

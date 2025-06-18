@@ -30,10 +30,8 @@ $db_name = "condado_castilla_db"; // Nombre de tu base de datos PostgreSQL
 $db_user = "condado_user";        // Usuario de tu base de datos PostgreSQL
 $db_pass = getenv('CONDADO_DB_PASSWORD'); // Definido vía variable de entorno
 if ($db_pass === false) {
-    // Si la variable no existe, deja $pdo como null y registra el problema
-    error_log('dashboard/db_connect.php - CONDADO_DB_PASSWORD not set');
-    $pdo = null;
-    return;
+    // Lanzar una excepción explícita si la variable no existe
+    throw new RuntimeException('dashboard/db_connect.php - CONDADO_DB_PASSWORD not set');
 }
 $db_port = "5432";                // Puerto estándar de PostgreSQL
 

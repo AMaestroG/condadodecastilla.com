@@ -58,7 +58,12 @@ if (file_exists($json_historia_indice_path)) {
     $error_message_breadcrumb .= 'No se pudo encontrar historia_indice.json. ';
 // Título de la página actual (podría venir del JSON si esta página también fuera generada por el script)
 // Asumiendo que $pdo no está disponible aún, o para asegurar que sí lo esté.
-require_once __DIR__ . '/../../../dashboard/db_connect.php'; // Ajustar ruta si es necesario
+try {
+    require_once __DIR__ . '/../../../dashboard/db_connect.php'; // Ajustar ruta si es necesario
+} catch (RuntimeException $e) {
+    error_log($e->getMessage());
+    $pdo = null;
+}
 /** @var PDO $pdo */
 if (!$pdo) {
     echo "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";

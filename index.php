@@ -2,7 +2,12 @@
 require_once __DIR__ . '/includes/session.php';
 ensure_session_started();
 require_once 'includes/auth.php';      // For is_admin_logged_in()
-require_once 'dashboard/db_connect.php'; // Provides $pdo
+try {
+    require_once 'dashboard/db_connect.php'; // Provides $pdo
+} catch (RuntimeException $e) {
+    error_log($e->getMessage());
+    $pdo = null;
+}
 /** @var PDO $pdo */
 $db_warning = '';
 if (!$pdo) {

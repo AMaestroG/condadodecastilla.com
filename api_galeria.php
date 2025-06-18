@@ -1,7 +1,12 @@
 <?php
 // api_galeria.php - Endpoint para manejar la galeria colaborativa
 
-require_once 'dashboard/db_connect.php';
+try {
+    require_once 'dashboard/db_connect.php';
+} catch (RuntimeException $e) {
+    error_log($e->getMessage());
+    $pdo = null;
+}
 require_once 'includes/auth.php';
 
 if (session_status() == PHP_SESSION_NONE) {

@@ -2,7 +2,12 @@
 require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
 require_once __DIR__ . '/../includes/auth.php';
-require_once __DIR__ . '/../dashboard/db_connect.php';
+try {
+    require_once __DIR__ . '/../dashboard/db_connect.php';
+} catch (RuntimeException $e) {
+    error_log($e->getMessage());
+    $pdo = null;
+}
 require_once __DIR__ . '/../includes/csrf.php';
 require_admin_login();
 

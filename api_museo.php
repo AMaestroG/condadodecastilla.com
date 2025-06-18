@@ -2,7 +2,12 @@
 // api_museo.php
 
 // Include necessary files
-require_once 'dashboard/db_connect.php'; // Adjust path as necessary
+try {
+    require_once 'dashboard/db_connect.php'; // Adjust path as necessary
+} catch (RuntimeException $e) {
+    error_log($e->getMessage());
+    $pdo = null;
+}
 require_once 'includes/auth.php'; // Adjust path as necessary
 require_once 'includes/csrf.php';
 

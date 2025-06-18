@@ -7,7 +7,12 @@ ensure_session_started();
 require_once __DIR__ . '/../includes/auth.php';
 require_admin_login();
 
-require_once 'db_connect.php'; // Establece la conexión $pdo
+try {
+    require_once 'db_connect.php'; // Establece la conexión $pdo
+} catch (RuntimeException $e) {
+    error_log($e->getMessage());
+    $pdo = null;
+}
 
 $response = ['success' => false, 'message' => 'Error desconocido.', 'data' => []];
 

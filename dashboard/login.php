@@ -5,7 +5,12 @@ ensure_session_started();
 
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/csrf.php';
-require_once 'dashboard/db_connect.php'; // Use include_path to allow test override
+try {
+    require_once 'dashboard/db_connect.php'; // Use include_path to allow test override
+} catch (RuntimeException $e) {
+    error_log($e->getMessage());
+    $pdo = null;
+}
 /** @var PDO $pdo */
 if (!$pdo) {
     echo "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";
