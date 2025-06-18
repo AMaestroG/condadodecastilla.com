@@ -7,11 +7,6 @@ body { background-color: rgba(245,235,220,0.95); }
     border-left: 5px solid var(--color-primario-purpura, #4A0D67);
     backdrop-filter: blur(3px);
 }
-.gradient-title {
-    background: linear-gradient(45deg, var(--color-primario-purpura, #4A0D67), var(--color-secundario-dorado, #B8860B));
-    -webkit-background-clip: text;
-    color: transparent;
-}
 .agent-profile textarea { width: 100%; margin: 0.5em 0; }
 .agent-profile .expertise {
     color: var(--color-primario-purpura, #4A0D67);
