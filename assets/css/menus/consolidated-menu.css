@@ -233,7 +233,7 @@
         top: var(--language-bar-offset);
     }
     #consolidated-menu-button {
-        top: var(--language-bar-offset); /* Adjusted for language bar */
+        top: var(--language-bar-offset);
         left: 10px; /* Compacted */
         right: auto; /* Compacted */
         font-size: 1em; /* Compacted */
