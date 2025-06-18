@@ -8,10 +8,20 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 
 ## Requisitos
 
-- **PHP** 7.4 o superior con la extensión PDO habilitada.
+- **PHP** 7.4 o superior con soporte CLI y la extensión PDO habilitada.
+- Extensiones PHP recomendadas: `pdo_pgsql`, `mbstring`, `xml` y `xmlwriter`.
+- **Composer** 2.x para gestionar las dependencias.
 - **PostgreSQL** 9.6 o superior.
-- **PHP CLI** disponible en la terminal para ejecutar `composer` y `phpunit`.
-- **PHPUnit** instalado para correr las pruebas (se incluye como dependencia en `composer.json`).
+- **PHPUnit** se instala como dependencia de desarrollo con Composer.
+
+### Instalación rápida en Linux
+
+En distribuciones basadas en Debian puedes instalar PHP y Composer junto con las extensiones necesarias ejecutando:
+
+```bash
+sudo apt update
+sudo apt install php php-cli php-xml php-xmlwriter php-mbstring php-pgsql composer
+```
 
 ## Configuración de la base de datos
 
@@ -126,7 +136,7 @@ El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada po
 
 ## Ejecución de pruebas
 
-Instala **todas** las dependencias antes de lanzar las suites de pruebas:
+Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pruebas dependen de PHP, Composer y las extensiones indicadas, por lo que no se ejecutarán si alguno de estos componentes falta:
 
 ```bash
 composer install
