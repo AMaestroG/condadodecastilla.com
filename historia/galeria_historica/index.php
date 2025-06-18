@@ -42,6 +42,5 @@
     <?php require_once __DIR__ . '/../../_footer.php'; ?>
     <script src="/js/layout.js"></script>
     <!-- Consider adding a link to Font Awesome if not already included globally, e.g., in _header.php or main CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
 </body>
 </html>
