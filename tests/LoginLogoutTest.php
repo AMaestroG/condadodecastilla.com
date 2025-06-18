@@ -2,6 +2,18 @@
 use PHPUnit\Framework\TestCase;
 
 class LoginLogoutTest extends TestCase {
+    private string $dbFile;
+
+    protected function setUp(): void {
+        $this->dbFile = tempnam(sys_get_temp_dir(), 'login');
+    }
+
+    protected function tearDown(): void {
+        if (file_exists($this->dbFile)) {
+            unlink($this->dbFile);
+        }
+    }
+
     private function runScript(string $script, array $env): array {
         $prepend = realpath(__DIR__.'/fixtures/login_prepend.php');
         $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
@@ -9,6 +21,7 @@ class LoginLogoutTest extends TestCase {
             escapeshellarg($script)
         );
         $env['PATH'] = getenv('PATH');
+        $env['TEST_SQLITE_PATH'] = $this->dbFile;
         $proc = proc_open($cmd, [1=>['pipe','w'], 2=>['pipe','w']], $pipes, null, $env);
         $out = stream_get_contents($pipes[1]);
         $err = stream_get_contents($pipes[2]);

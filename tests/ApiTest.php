@@ -2,6 +2,18 @@
 use PHPUnit\Framework\TestCase;
 
 class ApiTest extends TestCase {
+    private string $dbFile;
+
+    protected function setUp(): void {
+        $this->dbFile = tempnam(sys_get_temp_dir(), 'api');
+    }
+
+    protected function tearDown(): void {
+        if (file_exists($this->dbFile)) {
+            unlink($this->dbFile);
+        }
+    }
+
     private function runScript(string $script, array $server): array {
         $env = [
             'REQUEST_METHOD' => $server['REQUEST_METHOD'],
@@ -16,6 +28,7 @@ class ApiTest extends TestCase {
         $env['PATH'] = getenv('PATH');
         $env['REDIRECT_STATUS'] = '1';
         $env['SCRIPT_FILENAME'] = $script;
+        $env['TEST_SQLITE_PATH'] = $this->dbFile;
         $descriptor = [1 => ['pipe','w'], 2 => ['pipe','w']];
         $proc = proc_open($cmd, $descriptor, $pipes, null, $env);
         $output = stream_get_contents($pipes[1]);
