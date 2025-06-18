@@ -74,8 +74,20 @@ function initLangBarToggle() {
     }
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLangBarToggle);
-} else {
+function setupLanguageBar() {
     initLangBarToggle();
+}
+
+function applyLanguageBarOffset() {
+    const el = document.getElementById('google_translate_element');
+    const isHidden = !el || el.style.display === 'none' || getComputedStyle(el).display === 'none';
+    const offset = (!isHidden && el.offsetHeight) ? el.offsetHeight : 0;
+    document.documentElement.style.setProperty('--language-bar-offset', offset + 'px');
+    document.body.style.setProperty('--language-bar-offset', offset + 'px');
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupLanguageBar);
+} else {
+    setupLanguageBar();
 }
