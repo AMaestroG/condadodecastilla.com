@@ -31,7 +31,7 @@ De igual manera se incluyen `tools-menu.html`, `admin-menu.php` y `social-menu.h
 
 ## Personalización del menú deslizante y nuevas páginas
 * **Estilos**: modifica `assets/css/menus/consolidated-menu.css` para cambiar colores morado y oro viejo, anchura u otros efectos del panel `.menu-panel`.
-* **Comportamiento**: `js/menu-controller.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
+* **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
 * **Añadir páginas**: edita `fragments/menus/main-menu.html` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
 
 Tras cualquier modificación ejecuta las pruebas de PHP y Python si las dependencias están instaladas:
