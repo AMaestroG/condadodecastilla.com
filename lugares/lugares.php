@@ -93,7 +93,7 @@
                 </article>
 
                 <article class="emblematic-place">
-                    <h2><i class="fas fa-山"></i> Huellas Prerromanas: El Culebrón y Charrera</h2>
+                    <h2><i class="fas fa-mountain" aria-hidden="true"></i> Huellas Prerromanas: El Culebrón y Charrera</h2>
                      <div class="place-description">
                         <p>
                             Antes de la llegada de Roma, estas tierras estaban habitadas por pueblos como los Concanos o Caucanos, 
