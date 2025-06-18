@@ -6,8 +6,11 @@
             .then(resp => resp.text())
             .then(html => {
                 placeholder.innerHTML = html;
-                if(typeof setupLanguageBar === 'function') {
+                if (typeof setupLanguageBar === 'function') {
                     setupLanguageBar();
+                }
+                if (typeof applyLanguageBarOffset === 'function') {
+                    applyLanguageBarOffset();
                 }
             })
             .catch(err => console.error('Error loading header:', err));
