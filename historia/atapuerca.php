@@ -20,6 +20,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
 <html lang="es">
 <head>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+    <link rel="stylesheet" href="/assets/css/pages/historia.css">
     <title>Atapuerca</title>
 </head>
 <body>
@@ -63,7 +64,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                 <div class="text-center" style="margin-top: 30px; margin-bottom: 30px;"> <!-- Contenedor para centrar el botón -->
                     <button id="btnResumenIA" class="cta-button" style="padding: 12px 25px; font-size: 1.1em;">Ver Resumen Inteligente</button>
                 </div>
-                <div id="resumenIAContenedor" style="display:none; margin-top:20px; padding:20px; border:1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="resumenIAContenedor">
                     <!-- El resumen generado por IA se insertará aquí -->
                 </div>
                 <div id="tagsSugeridosIA" class="tags-sugeridos-ia" style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed #ccc;">

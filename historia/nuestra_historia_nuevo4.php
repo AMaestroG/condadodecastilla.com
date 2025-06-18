@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+    <link rel="stylesheet" href="/assets/css/pages/historia.css">
 </head>
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>
@@ -20,10 +21,10 @@
             <div class="container article-content">
                 <h2 class="section-title text-center" style="margin-bottom:1.5em;">Contexto y Reflexiones sobre Nuevo4.md</h2>
 
-                <div class="explore-detailed-topics text-center" style="padding: 20px; background-color: #f0e8ff; border-radius: 8px; margin: 30px 0; border: 1px solid var(--color-primario-purpura-rgb, 0.3);">
+                <div class="explore-detailed-topics text-center">
                     <h3 style="margin-top:0; color: var(--color-primario-purpura);">Explorar Temas en Detalle</h3>
                     <p>Para una exploración más profunda de los temas tratados en este documento, visite nuestro índice de páginas detalladas.</p>
-                    <a href="/historia/historia.php" class="read-more" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: var(--color-secundario-dorado); color: var(--color-primario-purpura); text-decoration: none; border-radius: 5px; font-weight: bold;">Ver Índice Detallado</a>
+                    <a href="/historia/historia.php" class="read-more explore-link">Ver Índice Detallado</a>
                 </div>
 
                 <p>Y ver cómo Pancorvo del Alfoz de cerezo, Valpuesta del Alfoz de cerezo, y Auca se vinculan al origen de Castilla que es el Alcázar de Alabastro puro de Cerasio con sus documentados condes de Castilla y Alava y sus 1200 metros de largo con capacidad para albergar el Palacio o Alcázar su corte condal de funcionarios y sus soldados.</p>
