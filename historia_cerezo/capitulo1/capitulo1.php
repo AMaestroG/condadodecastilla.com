@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
     <title>Capítulo 1: Auca Patricia, la Ciudad Perdida</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
-    <h1>Capítulo 1: Auca Patricia, la Ciudad Perdida</h1>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
+
+<h1>Capítulo 1: Auca Patricia, la Ciudad Perdida</h1>
 
     <section id="evidencias-romanas">
         <h2>Evidencias de una gran ciudad romana</h2>
@@ -44,7 +48,7 @@
     <p><a href="../index.php">Volver al Índice Principal</a></p>
     <p><a href="../capitulo2/capitulo2.php">Continuar al Capítulo 2</a></p>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
     <title>Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.php'; ?>
-    <h1>Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</h1>
+    <?php require_once __DIR__ . "/../_header.php"; ?>
+
+<h1>Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</h1>
 
     <section id="introduccion-nuevo-siglo">
         <h2>Introducción: Un Nuevo Siglo, Nuevos Retos</h2>
@@ -64,7 +68,7 @@
     <p><a href="capitulo10.php">Volver al Capítulo 10</a></p>
     <p><a href="index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

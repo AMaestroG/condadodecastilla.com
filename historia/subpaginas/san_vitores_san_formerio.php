@@ -1,13 +1,16 @@
-<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
-<?php require_once __DIR__ . '/../../includes/load_page_css.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
+    <title>San Vitores y San Formerio: Mártires de Cerezo</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/santos_vitores_formerio.jpg'); min-height: 40vh;">
-        <div class="hero-content" style="padding: clamp(20px, 4vw, 40px);">
-            <h1 style="font-size: clamp(2.2em, 5vw, 3.5em);">San Vitores y San Formerio: Mártires de Cerezo</h1>
+<header id="hero-san-vitores-san-formerio" class="page-header hero">
+        <div class="hero-content">
+            <h1>San Vitores y San Formerio: Mártires de Cerezo</h1>
         </div>
     </header>
     <main>
@@ -30,7 +33,8 @@
             </div>
         </section>
     </main>
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

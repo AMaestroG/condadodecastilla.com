@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../../includes/load_page_css.php"; ?>
     <title>El Conde Casio</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../../_header.php'; ?>
-    <h1>El Conde Casio</h1>
+    <?php require_once __DIR__ . "/../../../_header.php"; ?>
+
+<h1>El Conde Casio</h1>
 
     <section>
         <h2>Origen y Contexto</h2>
@@ -29,7 +33,7 @@
         <p>"El Conde Casio se fue con los Árabes y se volvió Moro dice Ibn Hazm, y se fue a Damasco y se hizo amigo del Califa."</p>
     </section>
 
-    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

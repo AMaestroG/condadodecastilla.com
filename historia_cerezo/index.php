@@ -1,12 +1,14 @@
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
-<?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
     <title>Historia de Cerezo: Cuna y Origen de Castilla</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . "/../_header.php"; ?>
 
-    <h1>Historia de Cerezo: Cuna y Origen de Castilla</h1>
+<h1>Historia de Cerezo: Cuna y Origen de Castilla</h1>
     <nav>
         <h2>Índice de Capítulos</h2>
         <ul>
@@ -27,7 +29,8 @@
             <li><a href="indices/lugares.php">Índice de Lugares</a></li>
             <li><a href="indices/temas_clave.php">Índice de Temas Clave</a></li>
     </nav>
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+
+    <?php require_once __DIR__ . "/../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

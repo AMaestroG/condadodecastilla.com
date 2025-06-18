@@ -1,10 +1,14 @@
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
     <title>Capítulo 8: Mitos Fundacionales y Leyendas de la Vieja Castilla en Cerezo</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../_header.php'; ?>
-    <h1>Capítulo 8: Mitos Fundacionales y Leyendas de la Vieja Castilla en Cerezo</h1>
+    <?php require_once __DIR__ . "/../_header.php"; ?>
+
+<h1>Capítulo 8: Mitos Fundacionales y Leyendas de la Vieja Castilla en Cerezo</h1>
 
     <section id="introduccion-historia-no-escrita">
         <h2>Introducción: La Historia no Escrita y el Alma de un Pueblo</h2>
@@ -55,7 +59,7 @@
     <p><a href="capitulo7.php">Volver al Capítulo 7</a></p>
     <p><a href="index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . "/../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

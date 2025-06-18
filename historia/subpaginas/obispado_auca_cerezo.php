@@ -1,12 +1,16 @@
-<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
-<?php require_once __DIR__ . '/../../includes/load_page_css.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <?php include __DIR__ . "/../../includes/head_common.php"; ?>
+    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
+    <title>El Obispado de Auca en Cerezo de Río Tirón</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/iglesia_detalle.jpg'); min-height: 40vh;">
-        <div class="hero-content" style="padding: clamp(20px, 4vw, 40px);">
-            <h1 style="font-size: clamp(2.2em, 5vw, 3.5em);">El Obispado de Auca en Cerezo de Río Tirón</h1>
+    <?php require_once __DIR__ . "/../../_header.php"; ?>
+
+<header id="hero-obispado-auca-cerezo" class="page-header hero">
+        <div class="hero-content">
+            <h1>El Obispado de Auca en Cerezo de Río Tirón</h1>
         </div>
     </header>
     <main>
@@ -41,7 +45,8 @@
             </div>
         </section>
     </main>
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+
+    <?php require_once __DIR__ . "/../../_footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>
