@@ -93,23 +93,18 @@ si ejecutas:
 npx tailwindcss@3.4.4 -i assets/css/tailwind_base.css -o assets/vendor/css/tailwind.min.css --minify
 ```
 
-A continuación copia el archivo de ejemplo `.env.example` a `.env`
-y sustituye sus valores por tus credenciales reales para
-`CONDADO_DB_PASSWORD`, `GEMINI_API_KEY`
-y cualquier otra variable necesaria.
+A continuación copia el archivo de ejemplo `.env.example` a `.env` y completa las variables necesarias.
 
+## Configuración de la API Gemini
 
-Las variables definidas en `.env` se cargan de forma automática gracias a `includes/env_loader.php`.
-
-## Configuración de la clave Gemini
-
-Define la variable `GEMINI_API_KEY` en tu archivo `.env` con la clave proporcionada por el servicio Gemini:
+En el archivo `.env` deben definirse las claves de acceso al servicio Gemini:
 
 ```bash
 GEMINI_API_KEY=tu_clave_personal
+GEMINI_API_ENDPOINT=https://api.gemini.example.com/v1/generateContent
 ```
 
-El valor se inyectará en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y será leído por `assets/js/main.js` para realizar las peticiones.
+`includes/env_loader.php` carga de forma automática los valores del `.env` para que puedan consultarse mediante `getenv()`. Posteriormente `includes/head_common.php` inyecta `GEMINI_API_KEY` en la etiqueta `<meta name="gemini-api-key">`, la cual es usada por `assets/js/main.js` en sus peticiones.
 
 ## Ejecución de pruebas
 
