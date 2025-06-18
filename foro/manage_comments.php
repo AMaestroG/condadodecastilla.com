@@ -50,8 +50,9 @@ if ($pdo) {
     <link rel="stylesheet" href="../assets/css/admin_pages.css">
 </head>
 <body class="admin-page">
-    <h1>Administrar Comentarios del Foro</h1>
-    <nav>
+    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <h1 class="gradient-heading">Administrar Comentarios del Foro</h1>
+    <nav class="admin-nav">
         <a href="../index.php">Inicio</a>
         <a href="index.php">Volver al Foro</a>
         <a href="../dashboard/logout.php">Cerrar sesión</a>
@@ -80,5 +81,6 @@ if ($pdo) {
             <?php endforeach; ?>
         </table>
     <?php endif; ?>
+    <?php require_once __DIR__ . '/../_footer.php'; ?>
 </body>
 </html>

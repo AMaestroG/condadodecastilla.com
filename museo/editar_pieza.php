@@ -61,12 +61,13 @@ try {
     <link rel="stylesheet" href="../assets/css/admin_pages.css">
 </head>
 <body class="admin-page">
-<nav>
+<?php require_once __DIR__ . '/../_header.php'; ?>
+<nav class="admin-nav">
     <a href="../index.php">Inicio</a>
     <a href="../dashboard/index.php">Dashboard</a>
     <a href="../dashboard/logout.php">Cerrar sesión</a>
 </nav>
-<h1>Editar Posición y Escala de Piezas</h1>
+<h1 class="gradient-heading">Editar Posición y Escala de Piezas</h1>
 <?php if ($feedback_message): ?>
     <div class="feedback <?php echo htmlspecialchars($feedback_type); ?>">
         <?php echo htmlspecialchars($feedback_message); ?>
@@ -91,5 +92,6 @@ try {
     </tr>
 <?php endforeach; ?>
 </table>
+<?php require_once __DIR__ . '/../_footer.php'; ?>
 </body>
 </html>

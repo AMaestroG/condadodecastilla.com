@@ -1,38 +1,61 @@
 @import url('epic_theme.css');
 
 body.admin-page {
-    background-color: var(--epic-alabaster-bg);
-    padding: 20px;
     font-family: var(--font-primary);
+    background: var(--epic-alabaster-bg);
+    padding: 20px;
+}
+
+.gradient-heading {
+    font-family: var(--font-headings);
+    background-image: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.admin-nav {
+    margin-bottom: 1rem;
+}
+.admin-nav a {
+    background: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+    padding: 0.4rem 0.6rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.admin-nav a:hover {
+    background: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
 }
 
 .admin-table {
     width: 100%;
     border-collapse: collapse;
+    background: var(--epic-alabaster-medium);
 }
-
 .admin-table th,
 .admin-table td {
-    padding: 8px;
     border: 1px solid var(--epic-neutral-border);
+    padding: 8px;
 }
-
 .admin-table th {
-    background-color: var(--epic-alabaster-medium);
+    background: var(--epic-alabaster-bg);
 }
 
 .feedback {
-    padding: 10px;
     margin: 10px 0;
+    padding: 10px;
     border-radius: 4px;
 }
-
 .feedback.success {
     background-color: var(--epic-success-bg);
     color: var(--epic-success-text);
     border: 1px solid var(--epic-success-border);
 }
-
 .feedback.error {
     background-color: var(--epic-danger-bg);
     color: var(--epic-danger-text);
