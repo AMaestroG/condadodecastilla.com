@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paterna Banucasi - Condado de Castilla</title>
+    <title>Agripa - General Romano</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Paterna Banucasi</h1>
+            <h1>Agripa</h1>
         </div>
     </header>
 
@@ -254,31 +254,30 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/ordenes_legados/paterna_banucasi_placeholder.jpg" alt="Representación de Paterna Banucasi" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <img src="/assets/img/militares_gobernantes/agripa_placeholder.jpg" alt="Busto de Marco Vipsanio Agripa" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        Paterna es una figura histórica mencionada en las crónicas asturleonesas como la segunda esposa del rey Ramiro I de Asturias (reinado 842-850). Su origen ha sido objeto de debate entre historiadores, algunos sugiriendo una procedencia castellana o alavesa, lo que podría haber tenido implicaciones políticas en la consolidación de la frontera oriental del reino de Asturias.
-                    </p>
-                    <p>
-                        Su matrimonio con Ramiro I se considera un enlace estratégico que pudo haber buscado fortalecer alianzas con importantes familias de los territorios fronterizos o recién incorporados al reino.
+                        Marco Vipsanio Agripa (circa 63 a.C. – 12 a.C.) fue un general, estadista y arquitecto romano de gran importancia. Fue amigo íntimo, yerno y principal lugarteniente de César Augusto durante toda su vida. Agripa fue fundamental en las victorias militares de Augusto, destacando su mando en la Batalla de Accio (31 a.C.) contra Marco Antonio y Cleopatra. Además de su destreza militar, fue un administrador competente y responsable de numerosos proyectos de construcción en Roma, incluyendo acueductos, baños públicos y el Panteón original. Su papel en las Guerras Cántabras, que consolidaron el dominio romano en Hispania, también fue significativo.
                     </p>
 
                     <h3>Perspectiva de "nuevo4.md"</h3>
                     <p>
-                        El documento <code>nuevo4.md</code> proporciona detalles específicos y una perspectiva local sobre Paterna. Se la identifica claramente como la esposa del rey Ramiro I y se enfatiza su origen: 'Cerezana de Cuna, Banucasi de nombre', vinculándola directamente con Cerezo de Río Tirón y con el linaje de los Banu Qasi. Según este texto, Paterna jugó un papel activo junto a Ramiro I alrededor de los años 840-842, asociándoseles con la fundación de un hospital en Cerasio (Cerezo) para Monjes Hospitalarios, bajo la advocación de San Antón y la bandera de San Jorge. Se sugiere también que su matrimonio con Ramiro I fue la dote ('dote') mediante la cual el estratégico Alcázar de Cerasio pasó a manos cristianas.
+                        En el documento <code>nuevo4.md</code>, Marco Vipsanio Agripa es presentado consistentemente como el 'fiel amigo y general' de César Augusto. Se le describe acompañando a Augusto en la planificación de la conquista definitiva de Hispania y la sumisión de los cántabros. El texto lo ensalza como el mejor comandante de Augusto, un hombre leal y valiente que compartió numerosas batallas y victorias con él, habiendo vencido juntos a Marco Antonio en Actium, pacificado las Galias y sometido Egipto. Dentro de una sección narrativa en <code>nuevo4.md</code>, se detalla cómo Augusto le encomienda a Agripa la misión de encontrar y capturar o matar a Corocotta, el caudillo cántabro, lo que da inicio a una 'persecución épica'.
                     </p>
                     
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Segunda esposa del rey Ramiro I de Asturias (mediados del siglo IX).</li>
-                        <li>Según <code>nuevo4.md</code>, era 'Cerezana de Cuna' (originaria de Cerezo de Río Tirón) y llevaba el nombre 'Banucasi'.</li>
-                        <li>Conforme a <code>nuevo4.md</code>, asociada con Ramiro I en la fundación de un hospital en Cerasio (Cerezo) para Monjes Hospitalarios (c. 840-842), dedicado a San Antón y bajo la bandera de San Jorge.</li>
-                        <li>El documento <code>nuevo4.md</code> indica que su matrimonio con Ramiro I sirvió como dote que facilitó el paso del Alcázar de Cerasio a manos cristianas.</li>
-                        <li>Su figura, según <code>nuevo4.md</code>, es relevante para entender la conexión entre la monarquía asturiana y los territorios castellanos fronterizos, incluyendo el linaje Banu Qasi.</li>
+                        <li>General y político romano, amigo íntimo y lugarteniente de César Augusto (siglo I a.C.).</li>
+                        <li>Comandante clave en victorias militares cruciales, como la Batalla de Accio.</li>
+                        <li>Responsable de importantes obras públicas en Roma, como el Panteón original.</li>
+                        <li>Participó activamente en las Guerras Cántabras en Hispania.</li>
+                        <li>Según <code>nuevo4.md</code>, descrito como 'fiel amigo y general' de César Augusto, y su 'mejor comandante'.</li>
+                        <li>Acompaña a Augusto en la planificación de la conquista de Hispania y es presentado como co-forjador de la 'nueva era para Roma', según <code>nuevo4.md</code>.</li>
+                        <li>En la narrativa de <code>nuevo4.md</code>, Augusto le encarga la misión de capturar o matar al líder cántabro Corocotta.</li>
                     </ul>
                     
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -286,7 +285,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

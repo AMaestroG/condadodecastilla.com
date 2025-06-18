@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aureliano - Emperadores Romanos</title>
+    <title>San Vitores - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,17 +22,17 @@
             --color-texto-principal: #2c1d12;  /* Un marrón oscuro para el texto principal */
             --color-fondo-pagina: #fdfaf6;   /* Un blanco hueso muy sutil para el fondo general */
             --color-negro-contraste: #1A1A1A;
-            --color-primario-purpura-rgb: 74, 13, 103;
-            --transition-speed: 0.3s;
+            --color-primario-purpura-rgb: 74, 13, 103; 
+            --transition-speed: 0.3s; 
         }
 
         /* --- Estilos Generales --- */
         *, *::before, *::after {
-            box-sizing: border-box;
+            box-sizing: border-box; 
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; 
         }
 
         body {
@@ -42,7 +42,7 @@
             background-color: var(--color-fondo-pagina);
             margin: 0;
             padding: 0;
-            font-size: 16px;
+            font-size: 16px; 
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -51,10 +51,10 @@
             margin-top: 1.5em;
             margin-bottom: 0.7em;
             line-height: 1.3;
-            font-weight: 700;
+            font-weight: 700; 
         }
 
-        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; }
+        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; } 
         h2 { font-size: clamp(1.8em, 4vw, 2.5em); }
         h3 { font-size: clamp(1.4em, 3vw, 2em); }
 
@@ -64,7 +64,7 @@
             transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
         }
 
-        a:focus-visible {
+        a:focus-visible { 
             color: var(--color-acento-amarillo);
             text-decoration: underline;
             outline: 2px solid var(--color-acento-amarillo);
@@ -79,20 +79,19 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            display: block;
+            display: block; 
         }
-
+        
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 90%; 
+            max-width: 1200px; 
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* --- Barra de Navegación (simplificada para páginas de personajes) --- */
         .navbar {
             background-color: var(--color-primario-purpura);
-            padding: 0.8em 0;
+            padding: 0.8em 0; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             z-index: 1000;
         }
@@ -102,19 +101,19 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .navbar .logo-text {
             font-family: "Cinzel", serif;
-            font-size: clamp(1.5em, 3vw, 1.8em);
+            font-size: clamp(1.5em, 3vw, 1.8em); 
             color: var(--color-piedra-clara);
             text-decoration: none;
-            font-weight: 900;
+            font-weight: 900; 
             transition: transform var(--transition-speed) ease;
         }
         .navbar .logo-text:hover, .navbar .logo-text:focus-visible {
             transform: scale(1.05);
             text-decoration: none;
-            outline: none;
+            outline: none; 
         }
 
         .page-header-personaje, .page-header-indice {
@@ -143,7 +142,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .content-wrapper img.personaje-imagen-principal {
-            max-width: 300px;
+            max-width: 300px; 
             margin: 0 auto 1.5em auto;
             border: 4px solid var(--color-piedra-media);
             border-radius: 50%;
@@ -157,7 +156,7 @@
             margin-bottom: 1em;
             font-size: clamp(1.6em, 3.5vw, 2.2em);
         }
-         .content-wrapper h2::after { display:none; }
+         .content-wrapper h2::after { display:none; } 
 
         .content-wrapper p, .content-wrapper ul {
             text-align: justify;
@@ -191,7 +190,7 @@
             text-decoration: none;
             transform: translateY(-2px);
         }
-
+        
         .indice-categorias li {
             list-style-type: none;
             margin-bottom: 1.5em;
@@ -211,10 +210,10 @@
         }
 
         .footer {
-            background-color: var(--color-texto-principal);
+            background-color: var(--color-texto-principal); 
             color: var(--color-piedra-clara);
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px 20px; 
             margin-top: 50px;
             border-top: 6px solid var(--color-secundario-dorado);
         }
@@ -226,7 +225,7 @@
             margin: 0.6em 0;
             font-size: clamp(0.9em, 1.8vw, 1em);
         }
-        .footer a {
+        .footer a { 
             color: var(--color-acento-amarillo);
         }
         .footer a:focus-visible {
@@ -243,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Aureliano</h1>
+            <h1>San Vitores</h1>
         </div>
     </header>
 
@@ -255,25 +254,32 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/placeholder.jpg" alt="Retrato o imagen de Aureliano" class="personaje-imagen-principal">
-                    <h2>Biografía y Relevancia Histórica</h2>
+                    <img src="/assets/img/santos_martires/san_vitores_cerezo_placeholder.jpg" alt="Iglesia o ermita de San Vitores" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <h2>Biografía y Relevancia</h2>
                     <p>
-                        Lucio Domicio Aureliano (Lucius Domitius Aurelianus), conocido como Aureliano, fue un Emperador Romano que reinó desde 270 hasta 275 d.C. Durante su breve pero enérgico gobierno, logró importantes victorias militares que fueron cruciales para la reunificación del Imperio Romano, que se encontraba fragmentado por crisis internas y amenazas externas. Se le otorgó el título de <em>Restitutor Orbis</em> ("Restaurador del Mundo").
+                        San Vitores (o San Víctor) es un santo y mártir cuya veneración está extendida por diversas regiones del norte de España, incluyendo La Rioja, Burgos (especialmente en Cerezo de Río Tirón y comarcas aledañas), Cantabria y Palencia. Tradicionalmente, se le considera un eremita y predicador que sufrió martirio. Las fechas y circunstancias de su vida y muerte varían según las tradiciones locales, algunas situándolo en épocas de persecución romana y otras durante la dominación musulmana.
                     </p>
                     <p>
-                        El Emperador Romano Aureliano es mencionado en el documento <code>nuevo4.md</code> principalmente por su conexión temporal con los eventos relacionados con San Formerio, datados alrededor del año 277 A.D (aunque el reinado de Aureliano finalizó en 275 A.D., el texto lo sitúa en este contexto). Según el texto, durante el tiempo de Aureliano, existía un gobernador romano y un circo con leones en la Vega de los Tormentos, localizada en Aucam Patricia (actual Cerezo de Río Tirón). Esta asociación contextualiza el martirio de figuras cristianas como San Formerio dentro de su periodo de influencia.
+                        En Cerezo de Río Tirón, San Vitores es una figura de profunda devoción, y su santuario ha sido un lugar de peregrinación. La tradición oral y los relatos hagiográficos lo describen como un ejemplo de fe inquebrantable.
                     </p>
 
+                    <h3>Perspectiva de "nuevo4.md"</h3>
+                    <p>
+                        El documento <code>nuevo4.md</code> ofrece una interpretación específica sobre San Vitores, conectándolo con eventos del Bajo Imperio Romano en Auca Patricia (Cerezo de Río Tirón). Según este texto, la veneración a San Vitores, al igual que la de San Formerio, se extendió por 'toda la Cantabria y la Gallecia'. Una afirmación central en <code>nuevo4.md</code> es que San Vitores fue decapitado el 26 de agosto del año 388 en el Circo de la Civita Auka (Auca Patricia, actual Cerezo de Río Tirón), coincidiendo con la fecha de decapitación atribuida en el mismo documento a Flavio Victor. El texto también menciona la existencia de una 'piedra de la decapitación' marcada en Quintanilleja y un mausoleo romano con un circo ritual en el lugar del martirio de San Vitores.
+                    </p>
+                    
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Emperador Romano (Siglo III A.D.), reinó del 270 al 275 A.D.</li>
-                        <li>Conocido como <em>Restitutor Orbis</em> por sus campañas militares que reunificaron el Imperio.</li>
-                        <li>Su época es el marco temporal para eventos relacionados con San Formerio en Aucam Patricia, según <code>nuevo4.md</code> (el texto indica el año 277 A.D. para dichos eventos).</li>
-                        <li>Asociado en <code>nuevo4.md</code> con la presencia de un gobernador romano y un circo con leones en la Vega de los Tormentos (Aucam Patricia).</li>
+                        <li>Santo y mártir con veneración extendida en el norte de España, incluyendo Cerezo de Río Tirón.</li>
+                        <li>Tradicionalmente considerado eremita y predicador.</li>
+                        <li>Según <code>nuevo4.md</code>, su culto se distribuye 'por toda la Cantabria y la Gallecia'.</li>
+                        <li>Conforme a <code>nuevo4.md</code>, fue decapitado el 26 de agosto del 388 d.C. en el Circo de Civita Auka (Auca Patricia, Cerezo de Río Tirón).</li>
+                        <li>El documento <code>nuevo4.md</code> vincula su martirio con el del emperador Flavio Victor, indicando que ambos eventos ocurrieron el mismo día.</li>
+                        <li><code>nuevo4.md</code> menciona una 'piedra de la decapitación' en Quintanilleja y un mausoleo romano con circo ritual en el sitio de su martirio.</li>
                     </ul>
-
+                    
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -281,7 +287,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

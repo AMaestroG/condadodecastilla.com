@@ -170,7 +170,7 @@ esperadas para cada elemento del menú principal:
 - `/visitas/visitas.php` – Planifica Tu Visita
 - `/citas/agenda.php` – Programa de Citas
 - `/cultura/cultura.php` – Cultura y Legado
-- `/personajes/indice_personajes.html` – Personajes
+ - `/personajes/indice_personajes.php` – Personajes
 - `/empresa/index.php` – Gestión de Yacimientos
 - `/foro/index.php` – Foro
 - `/blog.php` – Blog
@@ -187,7 +187,7 @@ colores morado y oro viejo que el resto de la cabecera.
 
 ## Cambios recientes
 
-- Eliminado `js/header_loader.js` y referencias a dicho script, ya que la cabecera se carga ahora de forma estática.
+ - Las páginas estáticas se han convertido en PHP e incluyen la cabecera con `<?php include '_header.php'; ?>`, eliminando la necesidad de `js/header_loader.js`.
 
 
 

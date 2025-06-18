@@ -123,7 +123,7 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../_header.php'; ?>
     <div id="character-info-overlay">
         <h2 id="info-name"></h2>
         <p id="info-bio"></p>
@@ -523,7 +523,6 @@
         animate();
     </script>
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

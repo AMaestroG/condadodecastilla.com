@@ -68,7 +68,7 @@ require_once __DIR__ . '/_header.php';
                 <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', ''); ?>
                 <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', ''); ?>
                 <p class="cta-group">
-                    <a href="/secciones_index/memoria_hispanidad.html" class="cta-button">Leer Más Sobre Nuestra Memoria</a>
+                    <a href="/secciones_index/memoria_hispanidad.php" class="cta-button">Leer Más Sobre Nuestra Memoria</a>
                 </p>
             </div>
         </section>
@@ -135,7 +135,7 @@ require_once __DIR__ . '/_header.php';
                     </div>
                 </div>
                  <p class="cta-group">
-                    <a href="/personajes/indice_personajes.html" class="cta-button">Personajes</a>
+                    <a href="/personajes/indice_personajes.php" class="cta-button">Personajes</a>
                 </p>
             </div>
         </section>
@@ -145,7 +145,7 @@ require_once __DIR__ . '/_header.php';
                 <h2 class="section-title">Nuestra Historia en el Tiempo</h2>
                 <p class="timeline-intro">Un recorrido conciso por los momentos más determinantes de nuestra región, desde la prehistoria hasta la consolidación del Condado. Cada época ha dejado una huella imborrable.</p>
                 <p class="cta-group">
-                    <a href="/secciones_index/historia_tiempo_resumen.html" class="cta-button">Explorar Resumen de la Historia</a>
+                    <a href="/secciones_index/historia_tiempo_resumen.php" class="cta-button">Explorar Resumen de la Historia</a>
                 </p>
             </div>
         </section>

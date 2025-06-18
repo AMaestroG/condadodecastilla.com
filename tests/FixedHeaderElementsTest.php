@@ -26,8 +26,8 @@ class FixedHeaderElementsTest extends TestCase {
             [__DIR__.'/../historia/historia.php'],
             [__DIR__.'/../museo/galeria.php'],
             [__DIR__.'/../contacto/contacto.php'],
-            [__DIR__.'/../secciones_index/memoria_hispanidad.html'],
-            [__DIR__.'/../personajes/indice_personajes.html'],
+            [__DIR__.'/../secciones_index/memoria_hispanidad.php'],
+            [__DIR__.'/../personajes/indice_personajes.php'],
         ];
     }
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <main class="container page-content-block">
         <h1>Flavio Teodosio I el Grande</h1>
@@ -23,7 +23,6 @@
 <p>El documento <code>nuevo4.md</code> establece una conexión directa de Teodosio I con Auca/Cerezo al afirmar: "Mas tarde nacen tres emperadores romanos en Auka, Teodosio I el Grande su primo Magno Clemente Máximo y su hijo Flavio Victor." Esta afirmación sugiere que Auka fue el lugar de nacimiento de estos emperadores, según la perspectiva del autor de <code>nuevo4.md</code>.</p>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Rodríguez Porcelos - Condado de Castilla</title>
+    <title>Fernán González - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Diego Rodríguez Porcelos</h1>
+            <h1>Fernán González</h1>
         </div>
     </header>
 
@@ -254,31 +254,34 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/condes/diego_rodriguez_porcelos_placeholder.jpg" alt="Estatua de Diego Rodríguez Porcelos en Burgos" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <img src="/assets/img/condes/fernan_gonzalez_placeholder.jpg" alt="Estatua de Fernán González" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        Diego Rodríguez Porcelos (m. c. 885) fue Conde de Castilla, sucediendo a su padre Rodrigo. Es una figura histórica de gran relevancia por ser el fundador de la ciudad de Burgos en el año 884, por mandato del rey Alfonso III de Asturias. También se le atribuye la repoblación de Ubierna y la restauración de la sede episcopal de Oca. Su labor fue fundamental para la expansión y consolidación del Condado de Castilla hacia el sur y el este, fortaleciendo la frontera frente a Al-Ándalus.
+                        Fernán González (c. 910 – 970) fue el primer conde independiente de Castilla, una figura legendaria y fundamental en la historia de la región y, por extensión, de España. Su habilidad para unificar los diversos condados castellanos y su lucha por la autonomía frente al Reino de León lo convirtieron en un héroe popular, cuya vida y hazañas fueron inmortalizadas en el 'Poema de Fernán González', un cantar de gesta del Mester de Clerecía.
+                    </p>
+                    <p>
+                        Hijo de Gonzalo Fernández de Burgos y Muniadona, Fernán González heredó el condado de Lara y posteriormente el de Burgos. A través de matrimonios estratégicos, como el de su esposa Sancha Sánchez de Pamplona (hermana del rey García Sánchez I de Pamplona), y una astuta política de alianzas y enfrentamientos, logró consolidar un vasto territorio que incluía Castilla, Álava, Lara y Cerezo. Sus victorias militares contra los musulmanes, como la de Simancas (939) junto a Ramiro II de León, y sus desafíos a la autoridad leonesa, sentaron las bases para que Castilla se convirtiera en un reino hereditario y eventualmente en la cabeza de la unificación de España.
                     </p>
 
-                    <h3>Perspectiva de "nuevo4.md"</h3>
+                    <h3>Perspectivas de "nuevo4.md"</h3>
                     <p>
-                        El documento <code>nuevo4.md</code> presenta a Diego Rodríguez Porcelos como hijo de Rodrigo, el Primer Conde de Castilla. Se le identifica con los títulos de 'Conde de Cerezo y Lantarón – Conde de Castilla', y se plantea la duda de si mantuvo el título de Conde de Álava tras la Batalla de la Morcuera (perdida por su padre). El texto considera que el Alfoz de Cerezo y Lantarón, perteneciente a su padre, era también el suyo. Además, <code>nuevo4.md</code> le atribuye la refundación del Obispado de Oca y la fundación de la ciudad de Burgos. También se menciona que su hijo fue Fernando Díaz.
+                        El documento <code>nuevo4.md</code> ofrece una perspectiva particular sobre Fernán González, enfocándose en cómo adquirió ciertos títulos y su conexión con Cerezo de Río Tirón. Se le identifica como hijo de Gonzalo Fernández, el primer Conde de Burgos. Según este texto, Fernán González se convirtió en Conde de Cerezo y Lantarón, y por ende de Castilla y Álava, a través de su matrimonio con Doña Sancha, quien era viuda de Álvaro Herramelluriz y heredera de dichos condados. <code>nuevo4.md</code> subraya que no eran familia directa y que estos títulos cruciales los obtuvo por este enlace. También se le atribuye el traslado de la capitalidad del Condado desde el Alcázar de Cerasio (Cerezo) al Castillo de Burgos. Un detalle adicional es que su padre, Gonzalo Fernández, según una lectura de Fray Justo Pérez Úrbiel citada en el texto, fue enterrado en Cerezo. El documento lista sus títulos como: 'Conde de Lara, Conde de Burgos, Conde de Cerezo y Lantarón señor de toda Castilla y Álava'.
                     </p>
                     
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Conde de Castilla (c. 873 - c. 885).</li>
-                        <li>Hijo de Rodrigo, Primer Conde de Castilla (según <code>nuevo4.md</code> y fuentes históricas).</li>
-                        <li>Titulado en <code>nuevo4.md</code> como 'Conde de Cerezo y Lantarón – Conde de Castilla'.</li>
-                        <li>Según <code>nuevo4.md</code>, no está claro si retuvo el título de Conde de Álava después de la Batalla de la Morcuera.</li>
-                        <li>El Alfoz de Cerezo y Lantarón, heredado de su padre, es considerado su dominio en <code>nuevo4.md</code>.</li>
-                        <li>Fundador de la ciudad de Burgos en 884, por mandato de Alfonso III.</li>
-                        <li>Repoblador de Ubierna y restaurador de la sede episcopal de Oca (confirmado por <code>nuevo4.md</code> como 'refundador').</li>
-                        <li>Padre de Fernando Díaz, según <code>nuevo4.md</code>.</li>
+                        <li>Primer conde independiente de Castilla (c. 931-970).</li>
+                        <li>Según <code>nuevo4.md</code>, hijo de Gonzalo Fernández (Primer Conde de Burgos).</li>
+                        <li>Adquirió los títulos de Conde de Cerezo y Lantarón, y Conde de Castilla y Álava al casarse con Doña Sancha, viuda de Álvaro Herramelluriz, según la interpretación de <code>nuevo4.md</code>.</li>
+                        <li>Unificó los condados castellanos y luchó por la autonomía de Castilla frente al Reino de León.</li>
+                        <li>Protagonista del 'Poema de Fernán González' y de numerosas leyendas.</li>
+                        <li>Atribuido en <code>nuevo4.md</code> con el traslado de la capital condal del Alcázar de Cerasio (Cerezo) a Burgos.</li>
+                        <li>El padre de Fernán González, Gonzalo Fernández, fue enterrado en Cerezo, según una cita de Fray Justo Pérez Úrbiel en <code>nuevo4.md</code>.</li>
+                        <li>Sus títulos, según <code>nuevo4.md</code>, incluían: Conde de Lara, Conde de Burgos, Conde de Cerezo y Lantarón, señor de toda Castilla y Álava.</li>
                     </ul>
                     
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -286,7 +289,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_personajes_background.jpg');">
         <div class="hero-content">
@@ -68,7 +68,7 @@
                     </p>
                     
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -76,7 +76,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

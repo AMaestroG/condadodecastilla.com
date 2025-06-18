@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../assets/css/epic_theme.css"> <!-- Referencia al CSS común de personajes -->
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
@@ -64,7 +64,7 @@
                     <p>La invasión de Italia por Máximo en 387 d.C. llevó a un conflicto directo con Teodosio I. En el verano de 388 d.C., Teodosio I derrotó a las fuerzas de Máximo en la Batalla de Poetovio (actual Ptuj, Eslovenia). Máximo huyó a Aquileia, donde fue sitiado, capturado y ejecutado el 28 de agosto de 388 d.C.</p>
                     
                     <p class="text-center" style="margin-top: 3em;">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -72,7 +72,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

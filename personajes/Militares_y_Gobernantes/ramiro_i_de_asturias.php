@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conde Casio - Condado de Castilla</title>
+    <title>Ramiro I De Asturias - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +89,6 @@
             padding: 20px;
         }
 
-        /* --- Barra de Navegación (simplificada para páginas de personajes) --- */
         .navbar {
             background-color: var(--color-primario-purpura);
             padding: 0.8em 0; 
@@ -243,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Conde Casio</h1>
+            <h1>Ramiro I de Asturias</h1>
         </div>
     </header>
 
@@ -255,39 +254,34 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/militares_gobernantes/conde_casio_cerasio_placeholder.jpg" alt="Ilustración representativa del Conde Casio" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <img src="/assets/img/militares_gobernantes/ramiro_i_asturias_placeholder.jpg" alt="Ilustración de Ramiro I de Asturias" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        El Conde Casio (o Conde Casius) es una figura histórica y semi-legendaria fundamental en la transición de la Hispania Visigoda a Al-Ándalus en el siglo VIII, especialmente reconocido como el progenitor de la influyente familia muladí de los Banu Qasi. Aunque los detalles de su vida están envueltos en la escasez de fuentes de la época, su legado perduró a través de sus descendientes, quienes jugaron un papel crucial en la política y la sociedad de la Marca Superior de Al-Ándalus durante varios siglos.
+                        Ramiro I fue rey de Asturias desde el año 842 hasta su muerte en el 850. Hijo de Bermudo I el Diácono, accedió al trono tras una disputa sucesoria con el noble palatino Nepociano. Su reinado es conocido por la legendaria Batalla de Clavijo, un enfrentamiento mítico contra los musulmanes donde se dice que intervino el Apóstol Santiago en favor de los cristianos, dando origen al voto de Santiago. Aunque la historicidad de Clavijo es debatida, simboliza la resistencia y el espíritu de la Reconquista temprana.
                     </p>
                     <p>
-                        Originario de la región del valle medio del Ebro, se cree que Casio era un noble visigodo (o hispanorromano con estatus condal bajo el reino visigodo) que gobernaba un territorio que incluía áreas de la actual Navarra, Aragón y La Rioja. Ante la invasión musulmana de la península ibérica iniciada en el 711, el Conde Casio optó por la conversión al Islam y el sometimiento a las nuevas autoridades. Viajó a Damasco, la capital del Califato Omeya, donde juró lealtad directamente al califa Al-Walid I. Esta sumisión le permitió conservar sus dominios y su influencia, ahora como un señor musulmán.
-                    </p>
-                     <p>
-                        Sus descendientes, los Banu Qasi ("hijos de Casio"), se convirtieron en una poderosa dinastía que gobernó de manera semi-autónoma extensos territorios en la frontera superior, actuando a menudo como señores de la guerra y aliados fluctuantes tanto de los emires de Córdoba como de los reinos cristianos del norte.
-                    </p>
-
-                    <h3>Información Adicional de nuevo4.md</h3>
-                    <p>
-                        Según el texto de <code>nuevo4.md</code>, el Conde Casio es una figura prominentemente asociada con Cerezo de Río Tirón (referido como Cerasio o Auca Patricia). Se le describe como un 'Conde Visigodo en auca patriniani' y 'Conde de la Cantabrica', que gobernó Auca Patricia. El documento afirma que los árabes construyeron un monumental alcázar para él. Una afirmación destacada es 'La Mezquita de Yanna, el hijo del Conde Conde Casio, en el Alcázar de Cerasio', vinculando a su descendencia directamente con esta fortaleza. Se reitera que el Alcázar de Cerasio lleva su nombre (o es el 'Alcázar del Conde Casio') y que fue un conde hispano-godo que se convirtió al Islam, construyendo dicho alcázar con los restos de la destruida Auca Patricia.
+                        Durante su gobierno, Ramiro I enfrentó incursiones tanto de los musulmanes del sur como de los vikingos (normandos) por la costa cantábrica. Logró repeler varios de estos ataques, fortaleciendo las defensas del reino. También se le atribuye la construcción de importantes monumentos del arte asturiano o ramirense, como los palacios de Santa María del Naranco y San Miguel de Lillo, cercanos a Oviedo, que muestran un estilo arquitectónico distintivo y refinado.
                     </p>
                     
+                    <h3>Actividad en Cerasio (Cerezo) según "nuevo4.md"</h3>
+                    <p>
+                        El documento <code>nuevo4.md</code> aporta detalles específicos sobre las actividades de Ramiro I en la zona de Cerasio (Cerezo de Río Tirón). Se destaca que su esposa, Paterna, era 'Cerezana de Cuna' y de nombre Banucasi. Alrededor del año 840, se menciona que Hospitalarios operaban bajo la bandera de San Jorge de Ramiro I, custodiando la iglesia de San Nicolás. De forma más concreta, en el año 842, <code>nuevo4.md</code> afirma que Ramiro I fundó un hospital en Cerasio con Monjes Hospitalarios, dedicado a San Antón. Estas acciones subrayan una presencia e influencia directa de Ramiro I en la configuración temprana de instituciones en la región, según la perspectiva de este documento.
+                    </p>
+
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Noble visigodo o hispanorromano del siglo VIII, gobernador en el valle del Ebro.</li>
-                        <li>Se convirtió al Islam tras la conquista musulmana (c. 713-714).</li>
-                        <li>Viajó a Damasco y juró lealtad al califa Omeya Al-Walid I.</li>
-                        <li>Considerado el fundador de la dinastía muladí de los Banu Qasi.</li>
-                        <li>Logró mantener el control sobre sus territorios ancestrales bajo el nuevo régimen musulmán.</li>
-                        <li>Gobernador de Auca Patricia (Cerezo de Río Tirón) durante la era Visigoda/Hispano-Romana, según las interpretaciones de <code>nuevo4.md</code>.</li>
-                        <li>Identificado en <code>nuevo4.md</code> como un 'Conde Visigodo en auca patriniani' y 'Conde de la Cantabrica'.</li>
-                        <li>El Alcázar de Cerasio es nombrado en su honor; <code>nuevo4.md</code> afirma que lo construyó tras la destrucción de Auca Patricia, después de su conversión al Islam.</li>
-                        <li>El texto <code>nuevo4.md</code> menciona: 'La Mezquita de Yanna, el hijo del Conde Conde Casio, en el Alcázar de Cerasio'.</li>
-                        <li>Figura clave en la transición de la Auca Patricia romana/visigoda al Cerasio/Alcázar de Cerasio de influencia árabe.</li>
+                        <li>Rey de Asturias (842-850).</li>
+                        <li>Protagonista de la legendaria Batalla de Clavijo y el mito del Voto de Santiago.</li>
+                        <li>Enfrentó incursiones musulmanas y vikingas.</li>
+                        <li>Impulsor del arte ramirense, con construcciones como Santa María del Naranco y San Miguel de Lillo.</li>
+                        <li>Según <code>nuevo4.md</code>, su esposa Paterna era 'Cerezana de Cuna, Banucasi de nombre'.</li>
+                        <li>Según <code>nuevo4.md</code>, alrededor del año 840, Hospitalarios operaban bajo su bandera de San Jorge en Cerasio (Cerezo de Río Tirón), custodiando la iglesia de San Nicolás.</li>
+                        <li>Fundador de un hospital en Cerasio en el año 842, con Monjes Hospitalarios y dedicado a San Antón (según <code>nuevo4.md</code>).</li>
+                        <li>Se le asocia con la 'primera mención a una orden de monjes militares 840, bajo la bandera de San Jorge (como los cruzados), con el Tau en el pecho', según <code>nuevo4.md</code>.</li>
                     </ul>
                     
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -295,7 +289,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

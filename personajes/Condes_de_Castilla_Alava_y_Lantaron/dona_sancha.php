@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Álvaro Herramelliz - Condado de Castilla</title>
+    <title>Doña Sancha - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Álvaro Herramelliz</h1>
+            <h1>Doña Sancha</h1>
         </div>
     </header>
 
@@ -254,35 +254,33 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/condes/alvaro_herrameliz_placeholder.jpg" alt="Ilustración del Conde Álvaro Herrameliz" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <img src="/assets/img/condes/dona_sancha_placeholder.jpg" alt="Representación de Doña Sancha" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        Álvaro Herraméliz (o Herramélluri) fue un influyente noble castellano de principios del siglo X, Conde de Lantarón y Cerezo, y también Conde de Álava. Su figura es crucial para entender la compleja red de alianzas y la expansión territorial en la frontera del Reino de León con Al-Ándalus y el Reino de Pamplona.
+                        Doña Sancha de Pamplona (también conocida como Sancha Sánchez de Pamplona) fue una figura real del siglo X, crucial en la política dinástica de los reinos de León y Navarra, y del Condado de Castilla. Hija del rey Sancho Garcés I de Pamplona y Toda Aznárez, sus matrimonios la situaron en el centro de las relaciones de poder de la época.
                     </p>
                     <p>
-                        Gobernó desde el estratégico Alcázar de Cerasio (Cerezo de Río Tirón), un punto vital en la defensa y organización de Castilla la Vieja. Estuvo casado con Doña Sancha de Pamplona, hermana del rey Sancho Garcés I, lo que fortaleció los lazos entre Castilla y el emergente reino navarro. Tras la muerte de Álvaro Herraméliz (alrededor del 931), su viuda Doña Sancha contrajo segundas nupcias con Fernán González, quien a través de este matrimonio consolidó su poder y unificó importantes territorios castellanos y alaveses bajo su mando.
-                    </p>
-                    <p>
-                        Álvaro Herraméliz es recordado como uno de los últimos grandes condes de la región antes de la hegemonía de Fernán González, subrayando la importancia del Alcázar de Cerasio en la narrativa fundacional de Castilla.
+                        Su primer matrimonio fue con Ordoño II de León, convirtiéndose en reina consorte de León. Tras enviudar, se casó con Álvaro Herraméliz, conde en Álava y figura importante en la Castilla oriental. Su matrimonio más influyente, y el que la cimentó en la historia castellana, fue con Fernán González, el primer conde que logró una autonomía significativa para Castilla. A través de esta unión, se consolidaron territorios y se fortaleció el linaje que definiría el futuro de Castilla.
                     </p>
 
-                    <h3>Detalles Adicionales según "nuevo4.md" (Batch 3)</h3>
+                    <h3>Perspectiva de "nuevo4.md"</h3>
                     <p>
-                        La información más reciente extraída de <code>nuevo4.md</code> (batch 3) reconfirma y enfatiza que Álvaro Herramelluriz fue el esposo de Doña Sancha (hija de los reyes de Navarra). Se subraya que, a su muerte, Doña Sancha heredó sus títulos de Conde de Cerezo y Lantarón (que el texto equipara a Conde de Castilla) y Conde de Álava. El documento también reitera que Fernán González adquirió estos títulos precisamente al casarse con Doña Sancha. Un punto importante es que <code>nuevo4.md</code> afirma que Álvaro Herramelluriz, como Conde de Cerezo y Lantarón, y Conde de Castilla y Álava, gobernó desde el Alcázar de Cerasio.
+                        El documento <code>nuevo4.md</code> destaca el papel crucial de Doña Sancha en la consolidación de los títulos de Fernán González y la geografía política de Castilla. Se la identifica como hija de los reyes de Navarra y, fundamentalmente, como viuda de Álvaro Herramelluriz, quien fue Conde de Cerezo y Lantarón, así como Conde de Castilla y Álava. Según <code>nuevo4.md</code>, Doña Sancha heredó estos importantes condados de su primer esposo (Álvaro Herramelluriz). Al casarse posteriormente con Fernán González, fue a través de ella que él regentó y asumió estos títulos, unificando así un poder considerable. El texto subraya que no eran familia directa, y que la adquisición de estos señoríos por parte de Fernán González fue consecuencia directa de este matrimonio estratégico con la heredera de los mismos.
                     </p>
                     
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Conde de Lantarón y Cerezo (principios del siglo X).</li>
-                        <li>Conde de Álava y, según <code>nuevo4.md</code>, también Conde de Castilla.</li>
-                        <li>Gobernó desde el Alcázar de Cerasio, según <code>nuevo4.md</code>.</li>
-                        <li>Esposo de Doña Sancha, hija de los reyes de Navarra (confirmado por <code>nuevo4.md</code> en múltiples instancias).</li>
-                        <li>Figura clave en la defensa de la frontera castellana y alavesa.</li>
-                        <li>Tras su muerte (c. 931), sus títulos fueron heredados por Doña Sancha y posteriormente pasaron a Fernán González a través del matrimonio de este con Doña Sancha (según <code>nuevo4.md</code>).</li>
+                        <li>Hija de Sancho Garcés I de Pamplona y Toda Aznárez (principios del siglo X).</li>
+                        <li>Reina consorte de León por su matrimonio con Ordoño II.</li>
+                        <li>Según <code>nuevo4.md</code>, viuda de Álvaro Herramelluriz, Conde de Cerezo y Lantarón, y Conde de Castilla y Álava.</li>
+                        <li>Conforme a <code>nuevo4.md</code>, heredó los condados de Cerezo y Lantarón (Castilla) y Álava de su esposo Álvaro Herramelluriz.</li>
+                        <li>Esposa de Fernán González, primer conde con autonomía significativa de Castilla.</li>
+                        <li>A través de su matrimonio con Fernán González, según la interpretación de <code>nuevo4.md</code>, Fernán González regentó/asumió los títulos de Conde de Cerezo y Lantarón, Conde de Castilla y Álava que ella había heredado.</li>
+                        <li>Figura clave en la unión de linajes y la consolidación territorial del Condado de Castilla.</li>
                     </ul>
                     
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -290,7 +288,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

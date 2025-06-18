@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../_header.php'; ?>
 
     <main>
         <section class="section detailed-intro-section">
@@ -106,7 +106,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

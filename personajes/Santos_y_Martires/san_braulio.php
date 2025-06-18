@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesar Augusto - Condado de Castilla</title>
+    <title>San Braulio de Zaragoza - Obispos y Escritores</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,17 +22,17 @@
             --color-texto-principal: #2c1d12;  /* Un marrón oscuro para el texto principal */
             --color-fondo-pagina: #fdfaf6;   /* Un blanco hueso muy sutil para el fondo general */
             --color-negro-contraste: #1A1A1A;
-            --color-primario-purpura-rgb: 74, 13, 103; 
-            --transition-speed: 0.3s; 
+            --color-primario-purpura-rgb: 74, 13, 103;
+            --transition-speed: 0.3s;
         }
 
         /* --- Estilos Generales --- */
         *, *::before, *::after {
-            box-sizing: border-box; 
+            box-sizing: border-box;
         }
 
         html {
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
 
         body {
@@ -42,7 +42,7 @@
             background-color: var(--color-fondo-pagina);
             margin: 0;
             padding: 0;
-            font-size: 16px; 
+            font-size: 16px;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -51,10 +51,10 @@
             margin-top: 1.5em;
             margin-bottom: 0.7em;
             line-height: 1.3;
-            font-weight: 700; 
+            font-weight: 700;
         }
 
-        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; } 
+        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; }
         h2 { font-size: clamp(1.8em, 4vw, 2.5em); }
         h3 { font-size: clamp(1.4em, 3vw, 2em); }
 
@@ -64,7 +64,7 @@
             transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
         }
 
-        a:focus-visible { 
+        a:focus-visible {
             color: var(--color-acento-amarillo);
             text-decoration: underline;
             outline: 2px solid var(--color-acento-amarillo);
@@ -79,19 +79,19 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            display: block; 
+            display: block;
         }
-        
+
         .container {
-            width: 90%; 
-            max-width: 1200px; 
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .navbar {
             background-color: var(--color-primario-purpura);
-            padding: 0.8em 0; 
+            padding: 0.8em 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             z-index: 1000;
         }
@@ -101,19 +101,19 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .navbar .logo-text {
             font-family: "Cinzel", serif;
-            font-size: clamp(1.5em, 3vw, 1.8em); 
+            font-size: clamp(1.5em, 3vw, 1.8em);
             color: var(--color-piedra-clara);
             text-decoration: none;
-            font-weight: 900; 
+            font-weight: 900;
             transition: transform var(--transition-speed) ease;
         }
         .navbar .logo-text:hover, .navbar .logo-text:focus-visible {
             transform: scale(1.05);
             text-decoration: none;
-            outline: none; 
+            outline: none;
         }
 
         .page-header-personaje, .page-header-indice {
@@ -142,7 +142,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .content-wrapper img.personaje-imagen-principal {
-            max-width: 300px; 
+            max-width: 300px;
             margin: 0 auto 1.5em auto;
             border: 4px solid var(--color-piedra-media);
             border-radius: 50%;
@@ -156,7 +156,7 @@
             margin-bottom: 1em;
             font-size: clamp(1.6em, 3.5vw, 2.2em);
         }
-         .content-wrapper h2::after { display:none; } 
+         .content-wrapper h2::after { display:none; }
 
         .content-wrapper p, .content-wrapper ul {
             text-align: justify;
@@ -190,7 +190,7 @@
             text-decoration: none;
             transform: translateY(-2px);
         }
-        
+
         .indice-categorias li {
             list-style-type: none;
             margin-bottom: 1.5em;
@@ -210,10 +210,10 @@
         }
 
         .footer {
-            background-color: var(--color-texto-principal); 
+            background-color: var(--color-texto-principal);
             color: var(--color-piedra-clara);
             text-align: center;
-            padding: 40px 20px; 
+            padding: 40px 20px;
             margin-top: 50px;
             border-top: 6px solid var(--color-secundario-dorado);
         }
@@ -225,7 +225,7 @@
             margin: 0.6em 0;
             font-size: clamp(0.9em, 1.8vw, 1em);
         }
-        .footer a { 
+        .footer a {
             color: var(--color-acento-amarillo);
         }
         .footer a:focus-visible {
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Cesar Augusto</h1>
+            <h1>San Braulio de Zaragoza</h1>
         </div>
     </header>
 
@@ -254,29 +254,29 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/militares_gobernantes/cesar_augusto_placeholder.jpg" alt="Estatua de César Augusto" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
-                    <h2>Biografía y Relevancia</h2>
+                    <img src="/assets/img/placeholder.jpg" alt="Retrato o imagen de San Braulio" class="personaje-imagen-principal">
+                    <h2>Biografía y Relevancia Histórica</h2>
                     <p>
-                        César Augusto, nacido como Cayo Octavio, fue el primer emperador romano, gobernando desde el 27 a.C. hasta su muerte en el 14 d.C. Su largo y transformador reinado marcó el fin de la República Romana y el inicio del Imperio Romano, un período conocido como la Paz Romana (Pax Romana). Augusto es célebre por sus reformas administrativas, la consolidación del poder imperial, extensos programas de construcción y la expansión del imperio, incluyendo la pacificación final de Hispania.
+                        San Braulio (c. 590 – c. 651) fue una figura eclesiástica e intelectual prominente en la Hispania visigoda. Obispo de Zaragoza desde aproximadamente el 631 hasta su muerte, fue un prolífico escritor, consejero de reyes visigodos y una figura central en la cultura de su tiempo. Mantuvo correspondencia con importantes personalidades y participó activamente en los Concilios de Toledo. Su obra más conocida es la 'Vida de San Millán de la Cogolla', un texto hagiográfico fundamental para la historia del cristianismo primitivo en la península.
                     </p>
 
-                    <h3>Interpretaciones de "nuevo4.md"</h3>
+                    <h3>Menciones en "nuevo4.md"</h3>
                     <p>
-                        El documento <code>nuevo4.md</code> atribuye a Cesar Augusto un papel fundacional clave en la historia de Auca Patricia (Cerezo de Río Tirón). Según este texto, Augusto estableció Auca Patricia en Segisamam, utilizándola como su cuartel general durante las Guerras Cántabras y designándola como capital de la Cantábrica. Adicionalmente, <code>nuevo4.md</code> le acredita la fundación de otra 'ciudad de Oca' en el 'termino de los palacios'. El documento también incluye una sección narrativa donde se describe a César Augusto planificando la conquista de Hispania junto a su general Agripa.
+                        El documento <code>nuevo4.md</code> recurre a la 'Vida de San Millán de la Cogolla', escrita por San Braulio, como una fuente histórica clave. Específicamente, se cita su obra para relatar la destrucción de Auca Patricia (identificada como la capital de Cantabria y asociada con Cerezo de Río Tirón) por el rey visigodo Leovigildo. Según <code>nuevo4.md</code>, San Braulio detalló que Leovigildo dejó solo tres torres en pie en Auca, un hecho que el documento vincula con el diseño del Pendón de Castilla. También se hace referencia a San Braulio al narrar la historia de Abundancio, quien dudó de una profecía de San Millán sobre esta destrucción y fue posteriormente ejecutado por Leovigildo.
                     </p>
-                    
+
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Primer Emperador Romano, fundador del Principado.</li>
-                        <li>Completó la conquista de Hispania, incluyendo las Guerras Cántabras (29-19 a.C.).</li>
-                        <li>Según <code>nuevo4.md</code>, fundador de Auca Patricia en Segisamam, su cuartel general en las Guerras Cántabras.</li>
-                        <li>Según <code>nuevo4.md</code>, estableció Auca Patricia como capital de la Cantábrica.</li>
-                        <li>Acreditado en <code>nuevo4.md</code> con la fundación de la 'ciudad de Oca' en el 'termino de los palacios'.</li>
-                        <li>Descrito en <code>nuevo4.md</code> planeando la conquista de Hispania junto a su general Agripa.</li>
+                        <li>Obispo de Zaragoza en el siglo VII (c. 631-651).</li>
+                        <li>Destacado intelectual y escritor de la Hispania visigoda.</li>
+                        <li>Autor de la 'Vida de San Millán de la Cogolla'.</li>
+                        <li>Según <code>nuevo4.md</code>, su obra es fuente para la conquista y destrucción de Auca Patricia/Cantabria por Leovigildo.</li>
+                        <li>Citado en <code>nuevo4.md</code> por el detalle de las tres torres que quedaron en Auca tras la destrucción por Leovigildo (vinculadas al Pendón de Castilla).</li>
+                        <li>Referenciado en <code>nuevo4.md</code> al contar la historia de Abundancio, su escepticismo ante la profecía de San Millán y su posterior muerte a manos de Leovigildo.</li>
                     </ul>
-                    
+
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -284,7 +284,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

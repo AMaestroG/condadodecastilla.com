@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../_header.php'; ?>
 
     <main>
         <section class="section timeline-section-summary alternate-bg">
@@ -42,14 +42,13 @@
                     </div>
                 </div>
                 <p class="text-center" style="margin-top: 2.5em;">
-                    <a href="/historia/historia.html" class="cta-button">Ver Línea de Tiempo Completa</a>
+                    <a href="/historia/historia.php" class="cta-button">Ver Línea de Tiempo Completa</a>
                 </p>
             </div>
         </section>
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

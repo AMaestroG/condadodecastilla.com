@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leovigildo - Rey Visigodo</title>
+    <title>Conde Casio - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,17 +22,17 @@
             --color-texto-principal: #2c1d12;  /* Un marrón oscuro para el texto principal */
             --color-fondo-pagina: #fdfaf6;   /* Un blanco hueso muy sutil para el fondo general */
             --color-negro-contraste: #1A1A1A;
-            --color-primario-purpura-rgb: 74, 13, 103;
-            --transition-speed: 0.3s;
+            --color-primario-purpura-rgb: 74, 13, 103; 
+            --transition-speed: 0.3s; 
         }
 
         /* --- Estilos Generales --- */
         *, *::before, *::after {
-            box-sizing: border-box;
+            box-sizing: border-box; 
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; 
         }
 
         body {
@@ -42,7 +42,7 @@
             background-color: var(--color-fondo-pagina);
             margin: 0;
             padding: 0;
-            font-size: 16px;
+            font-size: 16px; 
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -51,10 +51,10 @@
             margin-top: 1.5em;
             margin-bottom: 0.7em;
             line-height: 1.3;
-            font-weight: 700;
+            font-weight: 700; 
         }
 
-        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; }
+        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; } 
         h2 { font-size: clamp(1.8em, 4vw, 2.5em); }
         h3 { font-size: clamp(1.4em, 3vw, 2em); }
 
@@ -64,7 +64,7 @@
             transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
         }
 
-        a:focus-visible {
+        a:focus-visible { 
             color: var(--color-acento-amarillo);
             text-decoration: underline;
             outline: 2px solid var(--color-acento-amarillo);
@@ -79,19 +79,20 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            display: block;
+            display: block; 
         }
-
+        
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 90%; 
+            max-width: 1200px; 
             margin: 0 auto;
             padding: 20px;
         }
 
+        /* --- Barra de Navegación (simplificada para páginas de personajes) --- */
         .navbar {
             background-color: var(--color-primario-purpura);
-            padding: 0.8em 0;
+            padding: 0.8em 0; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             z-index: 1000;
         }
@@ -101,19 +102,19 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .navbar .logo-text {
             font-family: "Cinzel", serif;
-            font-size: clamp(1.5em, 3vw, 1.8em);
+            font-size: clamp(1.5em, 3vw, 1.8em); 
             color: var(--color-piedra-clara);
             text-decoration: none;
-            font-weight: 900;
+            font-weight: 900; 
             transition: transform var(--transition-speed) ease;
         }
         .navbar .logo-text:hover, .navbar .logo-text:focus-visible {
             transform: scale(1.05);
             text-decoration: none;
-            outline: none;
+            outline: none; 
         }
 
         .page-header-personaje, .page-header-indice {
@@ -142,7 +143,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .content-wrapper img.personaje-imagen-principal {
-            max-width: 300px;
+            max-width: 300px; 
             margin: 0 auto 1.5em auto;
             border: 4px solid var(--color-piedra-media);
             border-radius: 50%;
@@ -156,7 +157,7 @@
             margin-bottom: 1em;
             font-size: clamp(1.6em, 3.5vw, 2.2em);
         }
-         .content-wrapper h2::after { display:none; }
+         .content-wrapper h2::after { display:none; } 
 
         .content-wrapper p, .content-wrapper ul {
             text-align: justify;
@@ -190,7 +191,7 @@
             text-decoration: none;
             transform: translateY(-2px);
         }
-
+        
         .indice-categorias li {
             list-style-type: none;
             margin-bottom: 1.5em;
@@ -210,10 +211,10 @@
         }
 
         .footer {
-            background-color: var(--color-texto-principal);
+            background-color: var(--color-texto-principal); 
             color: var(--color-piedra-clara);
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px 20px; 
             margin-top: 50px;
             border-top: 6px solid var(--color-secundario-dorado);
         }
@@ -225,7 +226,7 @@
             margin: 0.6em 0;
             font-size: clamp(0.9em, 1.8vw, 1em);
         }
-        .footer a {
+        .footer a { 
             color: var(--color-acento-amarillo);
         }
         .footer a:focus-visible {
@@ -242,11 +243,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Leovigildo</h1>
+            <h1>Conde Casio</h1>
         </div>
     </header>
 
@@ -254,29 +255,39 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/placeholder.jpg" alt="Retrato o imagen de Leovigildo" class="personaje-imagen-principal">
-                    <h2>Biografía y Relevancia Histórica</h2>
+                    <img src="/assets/img/militares_gobernantes/conde_casio_cerasio_placeholder.jpg" alt="Ilustración representativa del Conde Casio" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <h2>Biografía y Relevancia</h2>
                     <p>
-                        Leovigildo fue un rey visigodo de Hispania que reinó desde el 568 o 569 hasta su muerte en el 586. Es considerado uno de los monarcas visigodos más importantes, conocido por sus campañas militares que expandieron significativamente el control territorial del reino sobre la península ibérica, incluyendo la conquista del reino suevo. También impulsó reformas legislativas y buscó la unificación religiosa bajo el arrianismo, aunque esta política generó conflictos, incluyendo la rebelión de su propio hijo Hermenegildo, convertido al catolicismo.
+                        El Conde Casio (o Conde Casius) es una figura histórica y semi-legendaria fundamental en la transición de la Hispania Visigoda a Al-Ándalus en el siglo VIII, especialmente reconocido como el progenitor de la influyente familia muladí de los Banu Qasi. Aunque los detalles de su vida están envueltos en la escasez de fuentes de la época, su legado perduró a través de sus descendientes, quienes jugaron un papel crucial en la política y la sociedad de la Marca Superior de Al-Ándalus durante varios siglos.
+                    </p>
+                    <p>
+                        Originario de la región del valle medio del Ebro, se cree que Casio era un noble visigodo (o hispanorromano con estatus condal bajo el reino visigodo) que gobernaba un territorio que incluía áreas de la actual Navarra, Aragón y La Rioja. Ante la invasión musulmana de la península ibérica iniciada en el 711, el Conde Casio optó por la conversión al Islam y el sometimiento a las nuevas autoridades. Viajó a Damasco, la capital del Califato Omeya, donde juró lealtad directamente al califa Al-Walid I. Esta sumisión le permitió conservar sus dominios y su influencia, ahora como un señor musulmán.
+                    </p>
+                     <p>
+                        Sus descendientes, los Banu Qasi ("hijos de Casio"), se convirtieron en una poderosa dinastía que gobernó de manera semi-autónoma extensos territorios en la frontera superior, actuando a menudo como señores de la guerra y aliados fluctuantes tanto de los emires de Córdoba como de los reinos cristianos del norte.
                     </p>
 
-                    <h3>Interpretaciones de "nuevo4.md"</h3>
+                    <h3>Información Adicional de nuevo4.md</h3>
                     <p>
-                        El documento <code>nuevo4.md</code> destaca el papel de Leovigildo en la historia de Auca Patricia (identificada como la capital de Cantabria y asociada con Cerezo de Río Tirón). Citando a San Braulio, el texto afirma que Leovigildo conquistó Auca Patricia en el año 574, destruyendo sus murallas y torres, pero dejando tres de ellas en pie, un detalle que <code>nuevo4.md</code> vincula con la iconografía del Pendón de Castilla. Además, se le menciona por haber ejecutado a un personaje llamado Abundancio, quien había dudado de una profecía de San Millán sobre la destrucción de Cantabria (Auca).
+                        Según el texto de <code>nuevo4.md</code>, el Conde Casio es una figura prominentemente asociada con Cerezo de Río Tirón (referido como Cerasio o Auca Patricia). Se le describe como un 'Conde Visigodo en auca patriniani' y 'Conde de la Cantabrica', que gobernó Auca Patricia. El documento afirma que los árabes construyeron un monumental alcázar para él. Una afirmación destacada es 'La Mezquita de Yanna, el hijo del Conde Conde Casio, en el Alcázar de Cerasio', vinculando a su descendencia directamente con esta fortaleza. Se reitera que el Alcázar de Cerasio lleva su nombre (o es el 'Alcázar del Conde Casio') y que fue un conde hispano-godo que se convirtió al Islam, construyendo dicho alcázar con los restos de la destruida Auca Patricia.
                     </p>
-
+                    
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Rey visigodo de Hispania (reinado: 568/569 – 586).</li>
-                        <li>Conquistador del reino suevo y unificador de gran parte de la península ibérica bajo dominio visigodo.</li>
-                        <li>Impulsor de reformas legislativas (revisión del Código de Eurico, base del posterior Liber Iudiciorum) y de la unificación religiosa (arrianismo).</li>
-                        <li>Según <code>nuevo4.md</code> (citando a San Braulio), conquistó Auca Patricia (capital de Cantabria, asociada con Cerezo) en el año 574.</li>
-                        <li>Conforme a <code>nuevo4.md</code>, destruyó las murallas de Auca Patricia, dejando tres torres en pie (vinculadas por el texto al Pendón de Castilla).</li>
-                        <li>Mencionado en <code>nuevo4.md</code> por ejecutar a Abundancio tras la profecía de San Millán sobre la destrucción de Cantabria.</li>
+                        <li>Noble visigodo o hispanorromano del siglo VIII, gobernador en el valle del Ebro.</li>
+                        <li>Se convirtió al Islam tras la conquista musulmana (c. 713-714).</li>
+                        <li>Viajó a Damasco y juró lealtad al califa Omeya Al-Walid I.</li>
+                        <li>Considerado el fundador de la dinastía muladí de los Banu Qasi.</li>
+                        <li>Logró mantener el control sobre sus territorios ancestrales bajo el nuevo régimen musulmán.</li>
+                        <li>Gobernador de Auca Patricia (Cerezo de Río Tirón) durante la era Visigoda/Hispano-Romana, según las interpretaciones de <code>nuevo4.md</code>.</li>
+                        <li>Identificado en <code>nuevo4.md</code> como un 'Conde Visigodo en auca patriniani' y 'Conde de la Cantabrica'.</li>
+                        <li>El Alcázar de Cerasio es nombrado en su honor; <code>nuevo4.md</code> afirma que lo construyó tras la destrucción de Auca Patricia, después de su conversión al Islam.</li>
+                        <li>El texto <code>nuevo4.md</code> menciona: 'La Mezquita de Yanna, el hijo del Conde Conde Casio, en el Alcázar de Cerasio'.</li>
+                        <li>Figura clave en la transición de la Auca Patricia romana/visigoda al Cerasio/Alcázar de Cerasio de influencia árabe.</li>
                     </ul>
-
+                    
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -284,7 +295,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

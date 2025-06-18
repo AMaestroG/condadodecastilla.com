@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <main class="container page-content-block">
         <h1>Flavio Victor</h1>
@@ -38,7 +38,6 @@
 <p>No se encontraron otros detalles específicos sobre Flavio Victor en <code>nuevo4.md</code>.</p>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

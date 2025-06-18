@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fray Prudencio de Sandoval - Cronistas e Historiadores</title>
+    <title>Corocotta - Caudillo Cántabro</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,17 +22,17 @@
             --color-texto-principal: #2c1d12;  /* Un marrón oscuro para el texto principal */
             --color-fondo-pagina: #fdfaf6;   /* Un blanco hueso muy sutil para el fondo general */
             --color-negro-contraste: #1A1A1A;
-            --color-primario-purpura-rgb: 74, 13, 103;
-            --transition-speed: 0.3s;
+            --color-primario-purpura-rgb: 74, 13, 103; 
+            --transition-speed: 0.3s; 
         }
 
         /* --- Estilos Generales --- */
         *, *::before, *::after {
-            box-sizing: border-box;
+            box-sizing: border-box; 
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; 
         }
 
         body {
@@ -42,7 +42,7 @@
             background-color: var(--color-fondo-pagina);
             margin: 0;
             padding: 0;
-            font-size: 16px;
+            font-size: 16px; 
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -51,10 +51,10 @@
             margin-top: 1.5em;
             margin-bottom: 0.7em;
             line-height: 1.3;
-            font-weight: 700;
+            font-weight: 700; 
         }
 
-        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; }
+        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; } 
         h2 { font-size: clamp(1.8em, 4vw, 2.5em); }
         h3 { font-size: clamp(1.4em, 3vw, 2em); }
 
@@ -64,7 +64,7 @@
             transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
         }
 
-        a:focus-visible {
+        a:focus-visible { 
             color: var(--color-acento-amarillo);
             text-decoration: underline;
             outline: 2px solid var(--color-acento-amarillo);
@@ -79,19 +79,19 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            display: block;
+            display: block; 
         }
-
+        
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 90%; 
+            max-width: 1200px; 
             margin: 0 auto;
             padding: 20px;
         }
 
         .navbar {
             background-color: var(--color-primario-purpura);
-            padding: 0.8em 0;
+            padding: 0.8em 0; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             z-index: 1000;
         }
@@ -101,19 +101,19 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .navbar .logo-text {
             font-family: "Cinzel", serif;
-            font-size: clamp(1.5em, 3vw, 1.8em);
+            font-size: clamp(1.5em, 3vw, 1.8em); 
             color: var(--color-piedra-clara);
             text-decoration: none;
-            font-weight: 900;
+            font-weight: 900; 
             transition: transform var(--transition-speed) ease;
         }
         .navbar .logo-text:hover, .navbar .logo-text:focus-visible {
             transform: scale(1.05);
             text-decoration: none;
-            outline: none;
+            outline: none; 
         }
 
         .page-header-personaje, .page-header-indice {
@@ -142,7 +142,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .content-wrapper img.personaje-imagen-principal {
-            max-width: 300px;
+            max-width: 300px; 
             margin: 0 auto 1.5em auto;
             border: 4px solid var(--color-piedra-media);
             border-radius: 50%;
@@ -156,7 +156,7 @@
             margin-bottom: 1em;
             font-size: clamp(1.6em, 3.5vw, 2.2em);
         }
-         .content-wrapper h2::after { display:none; }
+         .content-wrapper h2::after { display:none; } 
 
         .content-wrapper p, .content-wrapper ul {
             text-align: justify;
@@ -190,7 +190,7 @@
             text-decoration: none;
             transform: translateY(-2px);
         }
-
+        
         .indice-categorias li {
             list-style-type: none;
             margin-bottom: 1.5em;
@@ -210,10 +210,10 @@
         }
 
         .footer {
-            background-color: var(--color-texto-principal);
+            background-color: var(--color-texto-principal); 
             color: var(--color-piedra-clara);
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px 20px; 
             margin-top: 50px;
             border-top: 6px solid var(--color-secundario-dorado);
         }
@@ -225,7 +225,7 @@
             margin: 0.6em 0;
             font-size: clamp(0.9em, 1.8vw, 1em);
         }
-        .footer a {
+        .footer a { 
             color: var(--color-acento-amarillo);
         }
         .footer a:focus-visible {
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Fray Prudencio de Sandoval</h1>
+            <h1>Corocotta</h1>
         </div>
     </header>
 
@@ -254,27 +254,28 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/placeholder.jpg" alt="Retrato o imagen de Fray Prudencio de Sandoval" class="personaje-imagen-principal">
+                    <img src="/assets/img/militares_gobernantes/corocotta_placeholder.jpg" alt="Ilustración del caudillo cántabro Corocotta" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        Fray Prudencio de Sandoval, una destacada figura del Siglo de Oro español (siglos XVI-XVII), fue un monje benedictino, historiador y Obispo de Tuy y posteriormente de Pamplona. Es conocido por sus extensas crónicas sobre la historia de España y de la Iglesia.
+                        Corocotta fue un famoso caudillo cántabro del siglo I a.C., conocido por su resistencia contra la conquista romana durante las Guerras Cántabras (29-19 a.C.). Aunque es una figura envuelta en la leyenda, es mencionado por el historiador romano Dión Casio, quien relata un episodio singular: Corocotta, por cuya cabeza el emperador Augusto había ofrecido una gran recompensa, se presentó voluntariamente ante él. Augusto, impresionado por su audacia, no solo le perdonó la vida sino que también le entregó la recompensa. Este acto lo ha convertido en un símbolo de la astucia y el valor de los pueblos cántabros frente al poder de Roma.
                     </p>
+
+                    <h3>Corocotta en "nuevo4.md"</h3>
                     <p>
-                        El documento <code>nuevo4.md</code> lo cita con frecuencia debido a sus interpretaciones del Becerro Galicano de San Millán de la Cogolla, particularmente en lo referente a Auca Patricia (asociada con Cerezo de Río Tirón) como origen de Castilla. Según <code>nuevo4.md</code>, Sandoval defendió la fundación de Auca por César Augusto y su estatus como sede episcopal, interpretando 'Auca Patricia' donde otros leían 'Area Paterniani' en el Becerro. Su obra 'Historia de los Cinco Obispos' (Pamplona, 1615), cuyo título original es más extenso como 'Historias de Idacio obispo...', es una referencia clave en estas discusiones presentadas en <code>nuevo4.md</code>.
+                        El documento <code>nuevo4.md</code> dedica una extensa sección narrativa a Corocotta, presentándolo como el rey de Segisamam (identificada como la capital cántabra y asociada por el texto con Cerezo de Río Tirón) y un 'caudillo cántabro' valiente y astuto que unió a las tribus contra Roma. Se describe su vida familiar (esposa Alba, hijos Turok, Nerea y Amaia) y su preparación para el enfrentamiento con César Augusto. La narrativa detalla la estrategia de Augusto para aislar y destruir Segisamam y la posterior persecución de Corocotta por Agripa, culminando en una confrontación final. Además de esta narración, <code>nuevo4.md</code> también hace referencia al episodio recogido por Dión Casio sobre Corocotta reclamando la recompensa por su propia cabeza ante Augusto.
                     </p>
 
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Cronista e historiador español de la Época Moderna (siglos XVI-XVII).</li>
-                        <li>Monje benedictino, Obispo de Tuy y de Pamplona.</li>
-                        <li>Autor de 'Historias de Idacio obispo que escrivio poco antes que España se perdiese. De Isidoro obispo de Badajoz,...De Sebastiano obispo de Salamanca,...De Sampiro obispo de Astorga,...De pelagio obispo de Ouiedo,...Nunca hasta agora impressas, con otras notas tocantes e estas historias, y reyes dellas' (Pamplona, 1615), referida en `nuevo4.md` también como 'Historia de cinco obispos'.</li>
-                        <li>Según <code>nuevo4.md</code>, figura clave por sus interpretaciones del Becerro Galicano de San Millán.</li>
-                        <li>Defensor, según <code>nuevo4.md</code>, de la tesis de Auca Patricia (Cerezo de Río Tirón) como origen de Castilla y su fundación por Augusto.</li>
-                        <li>Citado en <code>nuevo4.md` por leer 'Auca Patricia' en el Becerro Galicano donde otros interpretaban 'Area Paterniani'.</li>
+                        <li>Caudillo cántabro del siglo I a.C., líder de la resistencia contra Roma durante las Guerras Cántabras.</li>
+                        <li>Según <code>nuevo4.md</code>, fue rey de Segisamam (capital cántabra, asociada por el texto con Cerezo de Río Tirón).</li>
+                        <li>Descrito en <code>nuevo4.md</code> como un guerrero valiente, astuto, que unió a las tribus cántabras y era querido por su pueblo.</li>
+                        <li>El documento <code>nuevo4.md</code> incluye una detallada narración de su conflicto con César Augusto y Agripa, mencionando a su esposa Alba y sus hijos Turok, Nerea y Amaia.</li>
+                        <li>Famoso por el episodio (relatado por Dión Casio y mencionado en <code>nuevo4.md</code>) en el que se presentó ante César Augusto para reclamar la recompensa ofrecida por su propia captura, quien se la concedió admirado por su osadía.</li>
                     </ul>
-
+                    
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -282,7 +283,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

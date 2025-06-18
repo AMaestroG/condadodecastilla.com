@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramiro I De Asturias - Condado de Castilla</title>
+    <title>Fray Prudencio de Sandoval - Cronistas e Historiadores</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,17 +22,17 @@
             --color-texto-principal: #2c1d12;  /* Un marrón oscuro para el texto principal */
             --color-fondo-pagina: #fdfaf6;   /* Un blanco hueso muy sutil para el fondo general */
             --color-negro-contraste: #1A1A1A;
-            --color-primario-purpura-rgb: 74, 13, 103; 
-            --transition-speed: 0.3s; 
+            --color-primario-purpura-rgb: 74, 13, 103;
+            --transition-speed: 0.3s;
         }
 
         /* --- Estilos Generales --- */
         *, *::before, *::after {
-            box-sizing: border-box; 
+            box-sizing: border-box;
         }
 
         html {
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
 
         body {
@@ -42,7 +42,7 @@
             background-color: var(--color-fondo-pagina);
             margin: 0;
             padding: 0;
-            font-size: 16px; 
+            font-size: 16px;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -51,10 +51,10 @@
             margin-top: 1.5em;
             margin-bottom: 0.7em;
             line-height: 1.3;
-            font-weight: 700; 
+            font-weight: 700;
         }
 
-        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; } 
+        h1 { font-size: clamp(2.2em, 5vw, 3em); text-align: center; }
         h2 { font-size: clamp(1.8em, 4vw, 2.5em); }
         h3 { font-size: clamp(1.4em, 3vw, 2em); }
 
@@ -64,7 +64,7 @@
             transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
         }
 
-        a:focus-visible { 
+        a:focus-visible {
             color: var(--color-acento-amarillo);
             text-decoration: underline;
             outline: 2px solid var(--color-acento-amarillo);
@@ -79,19 +79,19 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            display: block; 
+            display: block;
         }
-        
+
         .container {
-            width: 90%; 
-            max-width: 1200px; 
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .navbar {
             background-color: var(--color-primario-purpura);
-            padding: 0.8em 0; 
+            padding: 0.8em 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             z-index: 1000;
         }
@@ -101,19 +101,19 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .navbar .logo-text {
             font-family: "Cinzel", serif;
-            font-size: clamp(1.5em, 3vw, 1.8em); 
+            font-size: clamp(1.5em, 3vw, 1.8em);
             color: var(--color-piedra-clara);
             text-decoration: none;
-            font-weight: 900; 
+            font-weight: 900;
             transition: transform var(--transition-speed) ease;
         }
         .navbar .logo-text:hover, .navbar .logo-text:focus-visible {
             transform: scale(1.05);
             text-decoration: none;
-            outline: none; 
+            outline: none;
         }
 
         .page-header-personaje, .page-header-indice {
@@ -142,7 +142,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .content-wrapper img.personaje-imagen-principal {
-            max-width: 300px; 
+            max-width: 300px;
             margin: 0 auto 1.5em auto;
             border: 4px solid var(--color-piedra-media);
             border-radius: 50%;
@@ -156,7 +156,7 @@
             margin-bottom: 1em;
             font-size: clamp(1.6em, 3.5vw, 2.2em);
         }
-         .content-wrapper h2::after { display:none; } 
+         .content-wrapper h2::after { display:none; }
 
         .content-wrapper p, .content-wrapper ul {
             text-align: justify;
@@ -190,7 +190,7 @@
             text-decoration: none;
             transform: translateY(-2px);
         }
-        
+
         .indice-categorias li {
             list-style-type: none;
             margin-bottom: 1.5em;
@@ -210,10 +210,10 @@
         }
 
         .footer {
-            background-color: var(--color-texto-principal); 
+            background-color: var(--color-texto-principal);
             color: var(--color-piedra-clara);
             text-align: center;
-            padding: 40px 20px; 
+            padding: 40px 20px;
             margin-top: 50px;
             border-top: 6px solid var(--color-secundario-dorado);
         }
@@ -225,7 +225,7 @@
             margin: 0.6em 0;
             font-size: clamp(0.9em, 1.8vw, 1em);
         }
-        .footer a { 
+        .footer a {
             color: var(--color-acento-amarillo);
         }
         .footer a:focus-visible {
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Ramiro I de Asturias</h1>
+            <h1>Fray Prudencio de Sandoval</h1>
         </div>
     </header>
 
@@ -254,34 +254,27 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/militares_gobernantes/ramiro_i_asturias_placeholder.jpg" alt="Ilustración de Ramiro I de Asturias" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <img src="/assets/img/placeholder.jpg" alt="Retrato o imagen de Fray Prudencio de Sandoval" class="personaje-imagen-principal">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        Ramiro I fue rey de Asturias desde el año 842 hasta su muerte en el 850. Hijo de Bermudo I el Diácono, accedió al trono tras una disputa sucesoria con el noble palatino Nepociano. Su reinado es conocido por la legendaria Batalla de Clavijo, un enfrentamiento mítico contra los musulmanes donde se dice que intervino el Apóstol Santiago en favor de los cristianos, dando origen al voto de Santiago. Aunque la historicidad de Clavijo es debatida, simboliza la resistencia y el espíritu de la Reconquista temprana.
+                        Fray Prudencio de Sandoval, una destacada figura del Siglo de Oro español (siglos XVI-XVII), fue un monje benedictino, historiador y Obispo de Tuy y posteriormente de Pamplona. Es conocido por sus extensas crónicas sobre la historia de España y de la Iglesia.
                     </p>
                     <p>
-                        Durante su gobierno, Ramiro I enfrentó incursiones tanto de los musulmanes del sur como de los vikingos (normandos) por la costa cantábrica. Logró repeler varios de estos ataques, fortaleciendo las defensas del reino. También se le atribuye la construcción de importantes monumentos del arte asturiano o ramirense, como los palacios de Santa María del Naranco y San Miguel de Lillo, cercanos a Oviedo, que muestran un estilo arquitectónico distintivo y refinado.
-                    </p>
-                    
-                    <h3>Actividad en Cerasio (Cerezo) según "nuevo4.md"</h3>
-                    <p>
-                        El documento <code>nuevo4.md</code> aporta detalles específicos sobre las actividades de Ramiro I en la zona de Cerasio (Cerezo de Río Tirón). Se destaca que su esposa, Paterna, era 'Cerezana de Cuna' y de nombre Banucasi. Alrededor del año 840, se menciona que Hospitalarios operaban bajo la bandera de San Jorge de Ramiro I, custodiando la iglesia de San Nicolás. De forma más concreta, en el año 842, <code>nuevo4.md</code> afirma que Ramiro I fundó un hospital en Cerasio con Monjes Hospitalarios, dedicado a San Antón. Estas acciones subrayan una presencia e influencia directa de Ramiro I en la configuración temprana de instituciones en la región, según la perspectiva de este documento.
+                        El documento <code>nuevo4.md</code> lo cita con frecuencia debido a sus interpretaciones del Becerro Galicano de San Millán de la Cogolla, particularmente en lo referente a Auca Patricia (asociada con Cerezo de Río Tirón) como origen de Castilla. Según <code>nuevo4.md</code>, Sandoval defendió la fundación de Auca por César Augusto y su estatus como sede episcopal, interpretando 'Auca Patricia' donde otros leían 'Area Paterniani' en el Becerro. Su obra 'Historia de los Cinco Obispos' (Pamplona, 1615), cuyo título original es más extenso como 'Historias de Idacio obispo...', es una referencia clave en estas discusiones presentadas en <code>nuevo4.md</code>.
                     </p>
 
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Rey de Asturias (842-850).</li>
-                        <li>Protagonista de la legendaria Batalla de Clavijo y el mito del Voto de Santiago.</li>
-                        <li>Enfrentó incursiones musulmanas y vikingas.</li>
-                        <li>Impulsor del arte ramirense, con construcciones como Santa María del Naranco y San Miguel de Lillo.</li>
-                        <li>Según <code>nuevo4.md</code>, su esposa Paterna era 'Cerezana de Cuna, Banucasi de nombre'.</li>
-                        <li>Según <code>nuevo4.md</code>, alrededor del año 840, Hospitalarios operaban bajo su bandera de San Jorge en Cerasio (Cerezo de Río Tirón), custodiando la iglesia de San Nicolás.</li>
-                        <li>Fundador de un hospital en Cerasio en el año 842, con Monjes Hospitalarios y dedicado a San Antón (según <code>nuevo4.md</code>).</li>
-                        <li>Se le asocia con la 'primera mención a una orden de monjes militares 840, bajo la bandera de San Jorge (como los cruzados), con el Tau en el pecho', según <code>nuevo4.md</code>.</li>
+                        <li>Cronista e historiador español de la Época Moderna (siglos XVI-XVII).</li>
+                        <li>Monje benedictino, Obispo de Tuy y de Pamplona.</li>
+                        <li>Autor de 'Historias de Idacio obispo que escrivio poco antes que España se perdiese. De Isidoro obispo de Badajoz,...De Sebastiano obispo de Salamanca,...De Sampiro obispo de Astorga,...De pelagio obispo de Ouiedo,...Nunca hasta agora impressas, con otras notas tocantes e estas historias, y reyes dellas' (Pamplona, 1615), referida en `nuevo4.md` también como 'Historia de cinco obispos'.</li>
+                        <li>Según <code>nuevo4.md</code>, figura clave por sus interpretaciones del Becerro Galicano de San Millán.</li>
+                        <li>Defensor, según <code>nuevo4.md</code>, de la tesis de Auca Patricia (Cerezo de Río Tirón) como origen de Castilla y su fundación por Augusto.</li>
+                        <li>Citado en <code>nuevo4.md` por leer 'Auca Patricia' en el Becerro Galicano donde otros interpretaban 'Area Paterniani'.</li>
                     </ul>
-                    
+
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -289,7 +282,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

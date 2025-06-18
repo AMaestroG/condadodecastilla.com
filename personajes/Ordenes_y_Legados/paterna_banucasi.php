@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Vitores - Condado de Castilla</title>
+    <title>Paterna Banucasi - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>San Vitores</h1>
+            <h1>Paterna Banucasi</h1>
         </div>
     </header>
 
@@ -254,32 +254,31 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/santos_martires/san_vitores_cerezo_placeholder.jpg" alt="Iglesia o ermita de San Vitores" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <img src="/assets/img/ordenes_legados/paterna_banucasi_placeholder.jpg" alt="Representación de Paterna Banucasi" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        San Vitores (o San Víctor) es un santo y mártir cuya veneración está extendida por diversas regiones del norte de España, incluyendo La Rioja, Burgos (especialmente en Cerezo de Río Tirón y comarcas aledañas), Cantabria y Palencia. Tradicionalmente, se le considera un eremita y predicador que sufrió martirio. Las fechas y circunstancias de su vida y muerte varían según las tradiciones locales, algunas situándolo en épocas de persecución romana y otras durante la dominación musulmana.
+                        Paterna es una figura histórica mencionada en las crónicas asturleonesas como la segunda esposa del rey Ramiro I de Asturias (reinado 842-850). Su origen ha sido objeto de debate entre historiadores, algunos sugiriendo una procedencia castellana o alavesa, lo que podría haber tenido implicaciones políticas en la consolidación de la frontera oriental del reino de Asturias.
                     </p>
                     <p>
-                        En Cerezo de Río Tirón, San Vitores es una figura de profunda devoción, y su santuario ha sido un lugar de peregrinación. La tradición oral y los relatos hagiográficos lo describen como un ejemplo de fe inquebrantable.
+                        Su matrimonio con Ramiro I se considera un enlace estratégico que pudo haber buscado fortalecer alianzas con importantes familias de los territorios fronterizos o recién incorporados al reino.
                     </p>
 
                     <h3>Perspectiva de "nuevo4.md"</h3>
                     <p>
-                        El documento <code>nuevo4.md</code> ofrece una interpretación específica sobre San Vitores, conectándolo con eventos del Bajo Imperio Romano en Auca Patricia (Cerezo de Río Tirón). Según este texto, la veneración a San Vitores, al igual que la de San Formerio, se extendió por 'toda la Cantabria y la Gallecia'. Una afirmación central en <code>nuevo4.md</code> es que San Vitores fue decapitado el 26 de agosto del año 388 en el Circo de la Civita Auka (Auca Patricia, actual Cerezo de Río Tirón), coincidiendo con la fecha de decapitación atribuida en el mismo documento a Flavio Victor. El texto también menciona la existencia de una 'piedra de la decapitación' marcada en Quintanilleja y un mausoleo romano con un circo ritual en el lugar del martirio de San Vitores.
+                        El documento <code>nuevo4.md</code> proporciona detalles específicos y una perspectiva local sobre Paterna. Se la identifica claramente como la esposa del rey Ramiro I y se enfatiza su origen: 'Cerezana de Cuna, Banucasi de nombre', vinculándola directamente con Cerezo de Río Tirón y con el linaje de los Banu Qasi. Según este texto, Paterna jugó un papel activo junto a Ramiro I alrededor de los años 840-842, asociándoseles con la fundación de un hospital en Cerasio (Cerezo) para Monjes Hospitalarios, bajo la advocación de San Antón y la bandera de San Jorge. Se sugiere también que su matrimonio con Ramiro I fue la dote ('dote') mediante la cual el estratégico Alcázar de Cerasio pasó a manos cristianas.
                     </p>
                     
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Santo y mártir con veneración extendida en el norte de España, incluyendo Cerezo de Río Tirón.</li>
-                        <li>Tradicionalmente considerado eremita y predicador.</li>
-                        <li>Según <code>nuevo4.md</code>, su culto se distribuye 'por toda la Cantabria y la Gallecia'.</li>
-                        <li>Conforme a <code>nuevo4.md</code>, fue decapitado el 26 de agosto del 388 d.C. en el Circo de Civita Auka (Auca Patricia, Cerezo de Río Tirón).</li>
-                        <li>El documento <code>nuevo4.md</code> vincula su martirio con el del emperador Flavio Victor, indicando que ambos eventos ocurrieron el mismo día.</li>
-                        <li><code>nuevo4.md</code> menciona una 'piedra de la decapitación' en Quintanilleja y un mausoleo romano con circo ritual en el sitio de su martirio.</li>
+                        <li>Segunda esposa del rey Ramiro I de Asturias (mediados del siglo IX).</li>
+                        <li>Según <code>nuevo4.md</code>, era 'Cerezana de Cuna' (originaria de Cerezo de Río Tirón) y llevaba el nombre 'Banucasi'.</li>
+                        <li>Conforme a <code>nuevo4.md</code>, asociada con Ramiro I en la fundación de un hospital en Cerasio (Cerezo) para Monjes Hospitalarios (c. 840-842), dedicado a San Antón y bajo la bandera de San Jorge.</li>
+                        <li>El documento <code>nuevo4.md</code> indica que su matrimonio con Ramiro I sirvió como dote que facilitó el paso del Alcázar de Cerasio a manos cristianas.</li>
+                        <li>Su figura, según <code>nuevo4.md</code>, es relevante para entender la conexión entre la monarquía asturiana y los territorios castellanos fronterizos, incluyendo el linaje Banu Qasi.</li>
                     </ul>
                     
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -287,7 +286,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

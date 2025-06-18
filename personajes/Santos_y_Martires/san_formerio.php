@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodrigo, Primer Conde de Castilla - Condado de Castilla</title>
+    <title>San Formerio - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Rodrigo, Primer Conde de Castilla</h1>
+            <h1>San Formerio</h1>
         </div>
     </header>
 
@@ -254,30 +254,32 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/condes/rodrigo_el_conde_placeholder.jpg" alt="Representación del Conde Rodrigo" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <img src="/assets/img/santos_martires/san_formerio_placeholder.jpg" alt="Representación de San Formerio" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        Rodrigo fue el primer Conde de Castilla documentado, gobernando aproximadamente entre los años 850 y 873. Designado por Ordoño I de Asturias, su principal encomienda fue la defensa de la marca oriental del reino asturiano ("Castella Vetula" o Castilla la Vieja) frente a las incursiones musulmanas procedentes de Al-Ándalus. Se le atribuye la repoblación de Amaya en el 860, un punto estratégico para la defensa de la región. Fue una figura crucial en la organización inicial del territorio que llegaría a ser el Condado y posteriormente el Reino de Castilla. Su hijo, Diego Rodríguez Porcelos, le sucedió y continuó su labor.
+                        San Formerio es un santo y mártir venerado tradicionalmente en la región de La Rioja y Burgos, especialmente en localidades como Cerezo de Río Tirón. Su vida se sitúa comúnmente en los primeros siglos del cristianismo, durante las persecuciones romanas. La tradición oral y diversos textos hagiográficos narran su fervor cristiano y su martirio, convirtiéndolo en un símbolo de fe y resistencia para las comunidades locales.
+                    </p>
+                    <p>
+                        La devoción a San Formerio se manifiesta en ermitas, iglesias y fiestas patronales. En Cerezo de Río Tirón, su figura está profundamente arraigada en la identidad local, siendo protagonista de leyendas y tradiciones que se han transmitido de generación en generación.
                     </p>
 
                     <h3>Perspectiva de "nuevo4.md"</h3>
                     <p>
-                        El documento <code>nuevo4.md</code> se refiere a Rodrigo como el 'Primer Conde de Cerezo y Lantarón – Conde de Castilla y Álava'. Se destaca su papel como padre de Diego Rodríguez Porcelos. Un evento central en su mención es la Batalla de la Morcuera, que <code>nuevo4.md</code> sitúa desarrollándose enteramente en el Alfoz de Cerezo y Lantarón, y en la cual Rodrigo habría perdido. Se implica que sus castillos estaban dentro de este alfoz. Adicionalmente, su fortaleza 'Alqila', descrita como un complejo de cuatro castillos, es referida como 'cuna y tumba de Condes de Castilla'. El texto lo posiciona como uno de los primeros en ostentar los títulos de Conde de Castilla y Álava.
+                        El documento <code>nuevo4.md</code> aporta una perspectiva específica sobre San Formerio, vinculando directamente su martirio con Auca Patricia (Cerezo de Río Tirón) y el reinado del Emperador Aureliano alrededor del año 277. Se menciona que su historia está ligada a un circo con leones en este lugar, donde se dice que un gobernador romano dictaba justicia. Además, se señala que la Iglesia de Santi Emiliani en Auca (identificada en el Valle de Asur) fue establecida para sacralizar el lugar de los tormentos de mártires cristianos como él. El texto también indica que la veneración o presencia de San Formerio (y San Vitores) está distribuida por toda la Cantabria y Gallecia.
                     </p>
-
+                    
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Primer Conde de Castilla documentado (c. 850-873).</li>
-                        <li>Según <code>nuevo4.md</code>, fue el Primer Conde de Cerezo y Lantarón, además de Conde de Castilla y Álava.</li>
-                        <li>Padre de Diego Rodríguez Porcelos, según <code>nuevo4.md</code> y fuentes históricas.</li>
-                        <li>Figura clave en la defensa y organización de la frontera oriental del Reino de Asturias.</li>
-                        <li>Repoblador de Amaya (860), un enclave estratégico.</li>
-                        <li>Según <code>nuevo4.md</code>, perdió la Batalla de la Morcuera, la cual se desarrolló en el Alfoz de Cerezo y Lantarón.</li>
-                        <li>Sus castillos estaban situados en el Alfoz de Cerezo y Lantarón, y su fortaleza 'Alqila' es descrita en <code>nuevo4.md</code> como 'cuna y tumba de Condes de Castilla'.</li>
+                        <li>Santo y mártir cristiano venerado en La Rioja y Burgos.</li>
+                        <li>Su martirio es tradicionalmente situado durante las persecuciones romanas (siglo III-IV d.C.).</li>
+                        <li>Figura central en las tradiciones y la identidad de Cerezo de Río Tirón.</li>
+                        <li>Según <code>nuevo4.md</code>, su historia y martirio están vinculados a un circo con leones en Auca Patricia (Cerezo) en tiempos del Emperador Aureliano (c. 277 A.D.).</li>
+                        <li>La Iglesia de Santi Emiliani en Auca es mencionada en <code>nuevo4.md</code> en conexión con la sacralización del lugar de su tormento.</li>
+                        <li>El texto de <code>nuevo4.md</code> indica que San Formerio (junto con San Vitores) tiene presencia o veneración distribuida 'por toda la Cantabria y la Gallecia'.</li>
                     </ul>
                     
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -285,7 +287,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

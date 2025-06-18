@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corocotta - Caudillo Cántabro</title>
+    <title>Cesar Augusto - Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,11 +242,11 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
-            <h1>Corocotta</h1>
+            <h1>Cesar Augusto</h1>
         </div>
     </header>
 
@@ -254,28 +254,29 @@
         <section class="content-section">
             <div class="container">
                 <div class="content-wrapper">
-                    <img src="/assets/img/militares_gobernantes/corocotta_placeholder.jpg" alt="Ilustración del caudillo cántabro Corocotta" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
+                    <img src="/assets/img/militares_gobernantes/cesar_augusto_placeholder.jpg" alt="Estatua de César Augusto" class="personaje-imagen-principal" onerror="this.onerror=null;this.src='/assets/img/placeholder.jpg';">
                     <h2>Biografía y Relevancia</h2>
                     <p>
-                        Corocotta fue un famoso caudillo cántabro del siglo I a.C., conocido por su resistencia contra la conquista romana durante las Guerras Cántabras (29-19 a.C.). Aunque es una figura envuelta en la leyenda, es mencionado por el historiador romano Dión Casio, quien relata un episodio singular: Corocotta, por cuya cabeza el emperador Augusto había ofrecido una gran recompensa, se presentó voluntariamente ante él. Augusto, impresionado por su audacia, no solo le perdonó la vida sino que también le entregó la recompensa. Este acto lo ha convertido en un símbolo de la astucia y el valor de los pueblos cántabros frente al poder de Roma.
+                        César Augusto, nacido como Cayo Octavio, fue el primer emperador romano, gobernando desde el 27 a.C. hasta su muerte en el 14 d.C. Su largo y transformador reinado marcó el fin de la República Romana y el inicio del Imperio Romano, un período conocido como la Paz Romana (Pax Romana). Augusto es célebre por sus reformas administrativas, la consolidación del poder imperial, extensos programas de construcción y la expansión del imperio, incluyendo la pacificación final de Hispania.
                     </p>
 
-                    <h3>Corocotta en "nuevo4.md"</h3>
+                    <h3>Interpretaciones de "nuevo4.md"</h3>
                     <p>
-                        El documento <code>nuevo4.md</code> dedica una extensa sección narrativa a Corocotta, presentándolo como el rey de Segisamam (identificada como la capital cántabra y asociada por el texto con Cerezo de Río Tirón) y un 'caudillo cántabro' valiente y astuto que unió a las tribus contra Roma. Se describe su vida familiar (esposa Alba, hijos Turok, Nerea y Amaia) y su preparación para el enfrentamiento con César Augusto. La narrativa detalla la estrategia de Augusto para aislar y destruir Segisamam y la posterior persecución de Corocotta por Agripa, culminando en una confrontación final. Además de esta narración, <code>nuevo4.md</code> también hace referencia al episodio recogido por Dión Casio sobre Corocotta reclamando la recompensa por su propia cabeza ante Augusto.
+                        El documento <code>nuevo4.md</code> atribuye a Cesar Augusto un papel fundacional clave en la historia de Auca Patricia (Cerezo de Río Tirón). Según este texto, Augusto estableció Auca Patricia en Segisamam, utilizándola como su cuartel general durante las Guerras Cántabras y designándola como capital de la Cantábrica. Adicionalmente, <code>nuevo4.md</code> le acredita la fundación de otra 'ciudad de Oca' en el 'termino de los palacios'. El documento también incluye una sección narrativa donde se describe a César Augusto planificando la conquista de Hispania junto a su general Agripa.
                     </p>
-
+                    
                     <h3>Hitos Importantes</h3>
                     <ul>
-                        <li>Caudillo cántabro del siglo I a.C., líder de la resistencia contra Roma durante las Guerras Cántabras.</li>
-                        <li>Según <code>nuevo4.md</code>, fue rey de Segisamam (capital cántabra, asociada por el texto con Cerezo de Río Tirón).</li>
-                        <li>Descrito en <code>nuevo4.md</code> como un guerrero valiente, astuto, que unió a las tribus cántabras y era querido por su pueblo.</li>
-                        <li>El documento <code>nuevo4.md</code> incluye una detallada narración de su conflicto con César Augusto y Agripa, mencionando a su esposa Alba y sus hijos Turok, Nerea y Amaia.</li>
-                        <li>Famoso por el episodio (relatado por Dión Casio y mencionado en <code>nuevo4.md</code>) en el que se presentó ante César Augusto para reclamar la recompensa ofrecida por su propia captura, quien se la concedió admirado por su osadía.</li>
+                        <li>Primer Emperador Romano, fundador del Principado.</li>
+                        <li>Completó la conquista de Hispania, incluyendo las Guerras Cántabras (29-19 a.C.).</li>
+                        <li>Según <code>nuevo4.md</code>, fundador de Auca Patricia en Segisamam, su cuartel general en las Guerras Cántabras.</li>
+                        <li>Según <code>nuevo4.md</code>, estableció Auca Patricia como capital de la Cantábrica.</li>
+                        <li>Acreditado en <code>nuevo4.md</code> con la fundación de la 'ciudad de Oca' en el 'termino de los palacios'.</li>
+                        <li>Descrito en <code>nuevo4.md</code> planeando la conquista de Hispania junto a su general Agripa.</li>
                     </ul>
                     
                     <p class="text-center">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -283,7 +284,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>

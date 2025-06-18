@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../assets/css/epic_theme.css"> <!-- Referencia al CSS común de personajes -->
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header-personaje">
         <div class="container">
@@ -56,7 +56,7 @@
                     <p>Flavio Teodosio I El Grande falleció el 17 de enero del año 395 d.C. en Mediolanum (actual Milán, Italia), poco después de su victoria sobre Eugenio. Su cuerpo fue trasladado a Constantinopla, donde fue enterrado en la Iglesia de los Santos Apóstoles.</p>
                     
                     <p class="text-center" style="margin-top: 3em;">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.php" class="back-to-link">Volver al Índice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -64,7 +64,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="/js/header-loader.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>
