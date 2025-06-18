@@ -1,975 +1,1011 @@
 <?xml version="1.0" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://condadodecastilla.com/_footer.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/404.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/_header.php</loc>
-    <lastmod>2025-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/_header.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ajax_actions/get_gemini_chat_response.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/ajax_actions/get_research.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/ajax_actions/get_summary.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/ajax_actions/get_translation.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/ajax_actions/get_web_search.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/alfoz/alfoz.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/alfoz/indexalfoz.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/api_galeria.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/api_museo.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/api_tienda.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/blog.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/camino_santiago/camino_santiago.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/citas/agenda.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/config/forum_agents.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contacto/contacto.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/alcazar_de_cerasio.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/alfoz_cerezo_lantaron.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/auca_patricia_ubicacion.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/becerro_galicano_origen_castilla.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/condes_castilla_alava_cerasio.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/evidencia_arqueologica_cerezo.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/legado_romano_emperadores_estructuras.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/obispado_oca_auca.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/historia/origenes_castellano_vulgar.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/lugares/alcedo.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/lugares/ameyugo.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/lugares/cerezo_de_rio_tiron/interactivo.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/lugares/cerezo_de_rio_tiron/introduccion.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/lugares/cerezo_de_rio_tiron/legado.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/lugares/cerezo_de_rio_tiron/ruinas.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/contenido/lugares/cerezo_de_rio_tiron/visita.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/cultura/cultura.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/demo_transparencia_movimiento.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/empresa/index.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/en_construccion.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/foro/index.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/foro/manage_comments.php</loc>
-    <lastmod>2025-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/fragments/header/language-bar.html</loc>
-    <lastmod>2025-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/fragments/header/navigation.html</loc>
-    <lastmod>2025-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/fragments/menus/admin-menu.php</loc>
-    <lastmod>2025-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/fragments/menus/main-menu.html</loc>
-    <lastmod>2025-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/fragments/menus/social-menu.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/galeria/galeria_colaborativa.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/atapuerca.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/atapuerca_static_converted.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/documentos/index.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/galeria_historica/index.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/historia.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/nuestra_historia_nuevo4.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/alcazar_de_cerasio.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/alfoz_cerezo_lantaron.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/auca_patricia_ubicacion.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/becerro_galicano_origen_castilla.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/condes_castilla_alava_cerasio.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/evidencia_arqueologica_cerezo.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/legado_romano_emperadores_estructuras.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/obispado_auca_cerezo.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/obispado_oca_auca.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/origenes_castellano_vulgar.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas/san_vitores_san_formerio.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia/subpaginas_indice.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo1/capitulo1.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo10.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo11.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo2/capitulo2.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo3/capitulo3.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo4/capitulo4.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo5.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo6.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo7.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo8.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/capitulo9.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/entidades/fuentes/becerro_galicano_auca.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/entidades/lugares/alcazar_de_cerasio.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/entidades/personajes/conde_casio.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/index.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/indices/lugares.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/indices/personajes.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/historia_cerezo/indices/temas_clave.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/homonexus.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/ai_utils.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/auth.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/includes/config.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/csrf.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/env_loader.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/head_common.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/header.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/homonexus.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/load_page_css.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/session.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/includes/text_manager.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/index.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Alcedo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Alcedo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Ameyugo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Ameyugo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Bachicabo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Bachicabo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Barrio/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Barrio/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Belorado/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Belorado/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Berguenda/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Berguenda/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Caicedo_de_Yuso/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Caicedo_de_Yuso/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Carcamo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Carcamo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Castellum/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Castellum/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Cellorigo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Cellorigo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Cerezo_de_Rio_Tiron/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Cerezo_de_Rio_Tiron/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Comunion/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Comunion/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Cuzcurrita_de_Rio_Tiron/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Cuzcurrita_de_Rio_Tiron/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Espejo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Espejo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Fontecha/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Fontecha/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Fresno_de_Rio_Tiron/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Fresno_de_Rio_Tiron/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Granon/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Granon/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Gurendes/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Gurendes/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Herramelluri/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Herramelluri/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Ibrillos/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Ibrillos/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Lecinana_del_Camino/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Lecinana_del_Camino/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Molinilla/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Molinilla/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Monte/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Monte/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Nograro/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Nograro/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Ochanduri/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Ochanduri/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Pancorbo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Pancorbo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Pinedo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Pinedo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Posada/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Posada/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Poza_de_la_Sal/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Poza_de_la_Sal/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Puentelarra/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Puentelarra/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Quejo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Quejo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Quintanaloranco/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Quintanaloranco/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Quintanilla_San_Garcia/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Quintanilla_San_Garcia/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Quintanilla_del_Monte/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Quintanilla_del_Monte/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Recilla/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Recilla/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Redecilla_del_Campo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Redecilla_del_Campo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Salcedo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Salcedo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/San_Emilianus/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/San_Emilianus/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/San_Millan_de_Yecora/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/San_Millan_de_Yecora/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/San_Zadornil/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/San_Zadornil/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Sobron/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Sobron/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Sotillo_de_Rioja/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Sotillo_de_Rioja/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Tirgo/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Tirgo/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Tormantos/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Tormantos/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Trevino/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Trevino/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Tuesta/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Tuesta/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Turiso/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Turiso/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Valluercanes/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Valluercanes/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Valpuesta/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Valpuesta/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Velasco/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Velasco/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villafranca_Montes_de_Oca/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villafranca_Montes_de_Oca/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villafria/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villafria/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villamaderne/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villamaderne/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villanue/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villanue/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villanueva_Soportilla/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villanueva_Soportilla/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villanueva_de_Gurendes/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Villanueva_de_Gurendes/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Zubillaga/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/Zubillaga/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/alfoz.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/alfoz.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/indexalfoz.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/alfozcerezolantaron/indexalfoz.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/cerasio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/cerasio.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/el_culebron.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/el_culebron.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/lugares/lugares.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/lugares/lugares.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/museo/editar_pieza.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/museo/galeria.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/museo/museo.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/museo/museo_3d.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/museo/subir_pieza.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Condes_de_Castilla_Alava_y_Lantaron/alvaro_herramelliz.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Condes_de_Castilla_Alava_y_Lantaron/diego_rodriguez_porcelos.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Condes_de_Castilla_Alava_y_Lantaron/dona_sancha.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernan_gonzalez.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Condes_de_Castilla_Alava_y_Lantaron/rodrigo_el_conde.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Emperadores_Romanos_Hispanos_Auca/aureliano.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Emperadores_Romanos_Hispanos_Auca/clemente_magno_maximo.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Emperadores_Romanos_Hispanos_Auca/constantino.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_arcadio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_teodosio_i_el_grande.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_victor.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Emperadores_Romanos_Hispanos_Auca/magno_clemente_maximo.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Emperadores_Romanos_Hispanos_Auca/teodosio_i.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Leyendas_y_Cuentos/beatriz.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/agripa.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/alba_esposa_corocotta.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/alfonso_ii_el_casto.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/cesar_augusto.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/conde_casio_cerasio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/corocotta.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/leovigildo.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/ramiro_i_de_asturias.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Militares_y_Gobernantes/turok_nerea_amaia_hijos_corocotta.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Ordenes_y_Legados/fray_prudencio_de_sandoval.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Ordenes_y_Legados/monjes_hospitalarios_san_jorge_y_san_anton.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Ordenes_y_Legados/paterna_banucasi.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Santos_y_Martires/abades_sonna_donnino_damian.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Santos_y_Martires/obispo_indalecio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Santos_y_Martires/obispo_sancho.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Santos_y_Martires/obispos_gudesteos_frunimio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Santos_y_Martires/san_braulio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Santos_y_Martires/san_formerio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Santos_y_Martires/san_millan_de_la_cogolla.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/Santos_y_Martires/san_vitores.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/galeria_3d.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/personajes/indice_personajes.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/circo_romano.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/circo_romano.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/foro_romano.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/foro_romano.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/orfeones_odeones.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/orfeones_odeones.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/puerto_fluvial_gurugu.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/puerto_fluvial_gurugu.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/teatro_romano.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/edificaciones_civiles_publicas/teatro_romano.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/alcazar_cerasio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/alcazar_cerasio.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/campamento_romano_tejera.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/campamento_romano_tejera.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/murallas_auca.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/murallas_auca.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/otros_campamentos_romanos.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/otros_campamentos_romanos.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/otros_castillos.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/otros_castillos.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/torres_vigia.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_defensivas/torres_vigia.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/iglesia_la_llana_mezquita_yanna.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/iglesia_la_llana_mezquita_yanna.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/mausoleo_circo_auca.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/mausoleo_circo_auca.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/mausoleo_magno_clemente_maximo.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/mausoleo_magno_clemente_maximo.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/mausoleo_san_nicolas.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/mausoleo_san_nicolas.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/necropolis_san_martin.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_funerarias_religiosas/necropolis_san_martin.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_residenciales_elite/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_residenciales_elite/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/estructuras_residenciales_elite/palacios_romanos_auca.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/estructuras_residenciales_elite/palacios_romanos_auca.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/alabastro_de_cerasio.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/alabastro_de_cerasio.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/cuevas_setefenestras.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/cuevas_setefenestras.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/descripciones_generales.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/descripciones_generales.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/fotos_hallazgos.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/fotos_hallazgos.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/monedas_antiguas.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/monedas_antiguas.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/tallas_inscripciones.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/hallazgos_representaciones/tallas_inscripciones.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/hitos_miliares.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/hitos_miliares.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/hospital_san_jorge.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/hospital_san_jorge.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/index.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/index.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/mansio_romana_meson.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/mansio_romana_meson.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/puentes_romanos_cerezo.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/puentes_romanos_cerezo.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/tunel_antiguo.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <loc>https://condadodecastilla.com/ruinas/infraestructura_general/tunel_antiguo.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/secciones_index/historia_tiempo_resumen.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/secciones_index/memoria_hispanidad.html</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/serve_museo_image.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/AiDrawerTest.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/tests/ApiTest.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/BlogMarkdownTest.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/tests/CheckDbScriptTest.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/ForumCommentsTest.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/tests/IncludesTest.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/LinksTest.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/tests/LoginLogoutTest.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/MainMenuLinksTest.php</loc>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/MenuLinksTest.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/tests/MuseumPagesTest.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/ReadOnlyModeTest.php</loc>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/ToolsMenuLinksTest.php</loc>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/fixtures/forum_prepend.php</loc>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/fixtures/includes/env_loader.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/tests/fixtures/login_prepend.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/fixtures/page_prepend.php</loc>
+    <lastmod>2025-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/fixtures/page_prepend_nodb.php</loc>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/tests/fixtures/prepend.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/tienda/index.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/visitas/visitas.php</loc>
-    <lastmod>2025-06-16</lastmod>
+    <lastmod>2025-06-18</lastmod>
   </url>
 </urlset>
