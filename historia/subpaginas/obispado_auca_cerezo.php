@@ -10,17 +10,17 @@
 
 <header id="hero-obispado-auca-cerezo" class="page-header hero">
         <div class="hero-content">
-            <h1>El Obispado de Auca en Cerezo de Río Tirón</h1>
+            <h1 class="gradient-text">El Obispado de Auca en Cerezo de Río Tirón</h1>
         </div>
     </header>
     <main>
         <section class="section">
             <div class="container article-content">
                 <p><a href="/historia/historia.php" class="back-link">&laquo; Volver a Nuestra Historia</a></p>
-                <h3>Auca Patricia y la Diócesis de Oca</h3>
+                <h3 class="gradient-text">Auca Patricia y la Diócesis de Oca</h3>
                 <p>La tradición ha situado el antiguo obispado de Auca&nbsp;—conocido también como Oca— en las cercanías de Villafranca, pero numerosos indicios arqueológicos y literarios apuntan a que la sede episcopal se hallaba realmente en Cerezo de Río Tirón. Las imponentes murallas romanas y la gran iglesia de San Martín, de más de 100&nbsp;metros de longitud, se identifican con la <em>Civitate Auca Patricia</em>.</p>
                 <p>Esta ciudad habría sido la cabeza de la Cantabria visigoda. Tras las invasiones del siglo&nbsp;VIII, el obispado se trasladó a Valpuesta y más tarde se restauró en Burgos, pero en origen estuvo ligado a Cerezo. A veces se confunde esta civitas con la llamada <em>Cauca</em>; ambos nombres aparecen asociados a la misma comarca.</p>
-                <h3>Lista de Obispos</h3>
+                <h3 class="gradient-text">Lista de Obispos</h3>
                 <p>Entre los prelados conocidos de la diócesis destacan:</p>
                 <ul>
                     <li>Asterio (mencionado en 589)</li>

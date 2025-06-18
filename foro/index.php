@@ -64,17 +64,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 <button id="menu-btn" class="menu-btn" data-menu-target="agents-menu">☰ Expertos</button>
 <nav id="agents-menu" class="slide-menu left">
 <?php foreach ($agents as $id => $ag): ?>
-    <a href="#<?php echo $id; ?>" class="gradient-title"><?php echo htmlspecialchars($ag['name']); ?></a>
+    <a href="#<?php echo $id; ?>" class="gradient-text"><?php echo htmlspecialchars($ag['name']); ?></a>
 <?php endforeach; ?>
 </nav>
 <main class="container page-content-block">
-    <h1 style="text-align:center;">Foro de Expertos</h1>
+    <h1 style="text-align:center;" class="gradient-text">Foro de Expertos</h1>
     <?php if (!empty($_SESSION['forum_error'])): ?>
         <p class="feedback error"><?php echo htmlspecialchars($_SESSION['forum_error']); unset($_SESSION['forum_error']); ?></p>
     <?php endif; ?>
     <?php foreach ($agents as $id => $ag): ?>
     <section id="<?php echo $id; ?>" class="agent-profile">
-        <h2 class="gradient-title"><?php echo htmlspecialchars($ag['name']); ?></h2>
+        <h2 class="gradient-text"><?php echo htmlspecialchars($ag['name']); ?></h2>
         <p><?php echo htmlspecialchars($ag['bio']); ?></p>
         <form method="post">
             <input type="hidden" name="agent" value="<?php echo $id; ?>">
