@@ -709,10 +709,10 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 .card img {
     width: 100%;
-    /* Provide a bit more vertical space for better image composition */
-    height: 250px;
-    -o-object-fit: cover;
-       object-fit: cover; /* Crop images to fit */
+    height: auto;
+    max-height: 250px; /* Limit without cropping */
+    -o-object-fit: contain;
+       object-fit: contain; /* Ensure full image visible */
     border-bottom: 4px solid var(--epic-gold-main);
     margin: 0 0 1em 0; /* Remove image's own margins, add space below */
     border-radius: 0; /* Image takes top radius from card */
@@ -1199,8 +1199,8 @@ body.dark-mode .footer .social-links a:focus-visible {
     width: 100%;
     height: auto;
     max-height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
+    -o-object-fit: contain;
+       object-fit: contain; /* Show entire image */
     display: block;
 }
 .image-gallery-intro img:hover {
@@ -1592,8 +1592,8 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     margin: 1em auto 2em auto;
     border: 6px solid var(--color-piedra-media, #D2B48C); /* Mapped */
     border-radius: 50%;
-    -o-object-fit: cover;
-       object-fit: cover;
+    -o-object-fit: contain;
+       object-fit: contain; /* Avoid cropping */
     height: 300px;
     background-color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
     box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
@@ -1875,9 +1875,8 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .photo-card img {
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
-    -o-object-fit: cover;
-       object-fit: cover;
+    -o-object-fit: contain;
+       object-fit: contain; /* Show complete photo */
     border-radius: var(--border-radius-suave, 5px) var(--border-radius-suave, 5px) 0 0; /* Mapped */
     margin: 0;
     cursor: pointer;

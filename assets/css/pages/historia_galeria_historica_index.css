@@ -18,8 +18,9 @@
         }
         .gallery-item img, .gallery-item .file-placeholder {
             width: 100%;
-            height: 200px; /* Fixed height for image/placeholder area */
-            object-fit: cover; /* Cover ensures image fills space, might crop */
+            height: auto; /* Adjust to image height */
+            max-height: 200px;
+            object-fit: contain; /* Avoid cropping */
             border-bottom: 1px solid #ddd;
         }
         .gallery-item .file-placeholder {

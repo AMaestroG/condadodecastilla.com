@@ -68,7 +68,7 @@
     width: 100%; /* Make image take full width of its container part */
     max-width: 180px; /* Max width for the image itself */
     height: 180px; /* Fixed height for consistency */
-    object-fit: cover; /* Cover the area, cropping if necessary */
+    object-fit: contain; /* Avoid cropping */
     border-radius: 50%; /* Circular images */
     border: 4px solid var(--epic-gold-main); /* Gold border for image */
     margin-bottom: 15px; /* Space below image */
