@@ -23,18 +23,13 @@
     z-index: 3000;
 }
 
-/* Theme Toggle Button - Original Position (will be adjusted for mobile) */
+/* Theme Toggle Button - now inside #fixed-header-elements */
 #theme-toggle {
-    position: fixed;
-    top: 88px; /* lowered position */
-    left: 50%;
-    transform: translateX(-50%);
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
     padding: 10px;
     cursor: pointer;
-    z-index: 3001;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,16 +54,11 @@
     transform: rotate(20deg);
 }
 
-/* Language selection bar */
+/* Language selection bar inside header */
 .language-bar {
-    position: fixed;
-    top: 48px; /* below empty top bar */
-    left: 0;
-    right: 0;
     background: var(--epic-transparent-overlay-light);
     padding: 5px 8px;
     text-align: right;
-    z-index: 3000; /* Below toggles if they overlap, but above content */
     font-size: 1.2em;
 }
 
@@ -222,7 +212,6 @@ body.dark-mode #homonexus-toggle:hover i {
         width: 36px;
         height: 36px;
         padding: 6px;
-        top: 76px;
     }
 
     /* Slightly smaller icons for tiny screens */
