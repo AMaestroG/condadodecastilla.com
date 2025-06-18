@@ -6,3 +6,4 @@ Este directorio contiene una división del antiguo `nuevo4.md` en varios documen
 - [Arqueología](arqueologia.md)
 - [Tradición](tradicion.md)
 - [Guía de index.php y menús](index-guide.md)
+- [Resumen de módulos JavaScript](js-modules-overview.md)

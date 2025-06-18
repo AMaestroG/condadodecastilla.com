@@ -26,7 +26,7 @@ Checking links in: index.php
 
 Checking links in: _header.html
   OK: /index.php (resolved to index.php)
-  OK: /js/menu-controller.js (resolved to js/menu-controller.js)
+  OK: /assets/js/main.js (resolved to assets/js/main.js)
   SUMMARY for _header.html: All 2 processable links appear OK.
 
 Checking links in: _footer.php
