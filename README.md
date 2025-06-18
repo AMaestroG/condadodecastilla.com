@@ -187,4 +187,6 @@ Ejecuta el script `check_alt_texts.sh` para detectar imágenes sin atributo `alt
 ./scripts/check_alt_texts.sh
 ```
 
+Esta comprobación se ejecuta automáticamente en cada pull request gracias a la configuración de GitHub Actions.
+
 Puedes indicar una ruta concreta como argumento si solo quieres escanear una carpeta determinada. El comando mostrará las líneas problemáticas y devolverá un código de salida distinto de cero si encuentra imágenes sin descripción.
