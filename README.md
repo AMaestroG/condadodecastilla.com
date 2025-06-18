@@ -78,10 +78,26 @@ php -S localhost:8000
 
 Esto iniciará el servidor en `http://localhost:8000`.
 
-Para exponer la API Flask primero instala las dependencias de Python y lanza el servicio:
+### Puesta en marcha de la API Flask
+
+1. (Opcional) crea y activa un entorno virtual:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+2. Instala las dependencias definidas en `requirements.txt`:
 
 ```bash
 pip install -r requirements.txt
+```
+
+3. Copia `.env.example` a `.env` y define al menos `GEMINI_API_KEY` y `CONDADO_DB_PASSWORD`.
+
+4. Inicia el servicio:
+
+```bash
 python flask_app.py
 ```
 
