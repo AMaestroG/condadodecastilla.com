@@ -16,10 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $username = trim($_POST['username']);
         $password = $_POST['password'];
-        $role = trim($_POST['role']);
+        $role = isset($_POST['role']) ? trim($_POST['role']) : '';
+
+        $allowed_roles = ['admin', 'editor'];
 
         if (empty($username) || empty($password) || empty($role)) {
             $error_message = 'Todos los campos son obligatorios.';
+        } elseif (!in_array($role, $allowed_roles, true)) {
+            $error_message = 'Rol inválido.';
         } else {
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -110,13 +114,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div>
                 <label for="role">Rol:</label>
-                <input type="text" id="role" name="role" required value="editor"> <!-- Default to editor -->
-                <!-- Or use a select dropdown:
                 <select id="role" name="role" required>
                     <option value="admin">Admin</option>
                     <option value="editor" selected>Editor</option>
                 </select>
-                -->
             </div>
 
             <button type="submit">Crear Usuario</button>
