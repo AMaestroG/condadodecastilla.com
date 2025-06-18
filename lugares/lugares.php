@@ -48,7 +48,7 @@
                 </section>
 
                 <article class="emblematic-place">
-                    <h2><i class="fas fa-chess-rook"></i> El Alcázar de Cerezo y las "Setefenestras"</h2>
+                    <h2><i aria-hidden="true" class="fas fa-chess-rook"></i> El Alcázar de Cerezo y las "Setefenestras"</h2>
                     <div class="place-description">
                         <p>
                             Coronando la villa, el Alcázar de Cerezo, también conocido como Castillo de los Condes de Haro, 
@@ -72,7 +72,7 @@
                 </article>
 
                 <article class="emblematic-place">
-                    <h2><i class="fas fa-landmark"></i> Civitate Auca Patricia: Esplendor Romano y Visigodo</h2>
+                    <h2><i aria-hidden="true" class="fas fa-landmark"></i> Civitate Auca Patricia: Esplendor Romano y Visigodo</h2>
                     <div class="place-description">
                         <p>
                             A pocos kilómetros de la actual Cerezo, se encuentran los restos de lo que fue una de las ciudades 
@@ -93,7 +93,7 @@
                 </article>
 
                 <article class="emblematic-place">
-                    <h2><i class="fas fa-山"></i> Huellas Prerromanas: El Culebrón y Charrera</h2>
+                    <h2><i aria-hidden="true" class="fas fa-山"></i> Huellas Prerromanas: El Culebrón y Charrera</h2>
                      <div class="place-description">
                         <p>
                             Antes de la llegada de Roma, estas tierras estaban habitadas por pueblos como los Concanos o Caucanos, 
@@ -122,7 +122,7 @@
                 </article>
                 
                 <article class="emblematic-place">
-                    <h2><i class="fas fa-archway"></i> Otras Ruinas y Vestigios en Cerezo</h2>
+                    <h2><i aria-hidden="true" class="fas fa-archway"></i> Otras Ruinas y Vestigios en Cerezo</h2>
                     <div class="place-description">
                         <p>
                             Más allá de los grandes nombres, el término municipal de Cerezo de Río Tirón está salpicado de 
@@ -141,7 +141,7 @@
                 </article>
 
                 <div class="map-placeholder">
-                    <i class="fas fa-map-marked-alt" style="font-size: 3em; margin-bottom: 0.5em; color: var(--color-secundario-dorado);"></i>
+                    <i aria-hidden="true" class="fas fa-map-marked-alt" style="font-size: 3em; margin-bottom: 0.5em; color: var(--color-secundario-dorado);"></i>
                     <h3>Mapa Interactivo de Lugares</h3>
                     <p>Próximamente: Un mapa interactivo con la ubicación de todos los lugares emblemáticos para facilitar tu exploración.</p>
                     <a href="/visitas/visitas.php" class="cta-button cta-button-small">Planifica Cómo Visitarlos</a>
