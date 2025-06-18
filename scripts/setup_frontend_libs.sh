@@ -13,7 +13,7 @@ JQUERY_URL="https://code.jquery.com/jquery-${JQUERY_VERSION}.min.js"
 curl -L "$JQUERY_URL" -o "$JS_DIR/jquery.min.js"
 
 # Bootstrap
-BOOTSTRAP_VERSION="5.3.2"
+BOOTSTRAP_VERSION="5.3.7"
 BOOTSTRAP_BASE="https://cdn.jsdelivr.net/npm/bootstrap@${BOOTSTRAP_VERSION}/dist"
 
 curl -L "$BOOTSTRAP_BASE/js/bootstrap.bundle.min.js" -o "$JS_DIR/bootstrap.bundle.min.js"
