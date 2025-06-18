@@ -4,6 +4,7 @@ ensure_session_started();
 require_once __DIR__ . '/../dashboard/db_connect.php';
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/csrf.php';
+$agents = require __DIR__ . '/../config/forum_agents.php';
 /** @var PDO $pdo */
 
 // Ensure comments table exists
@@ -16,28 +17,7 @@ if ($pdo) {
     )");
 }
 
-$agents = [
-    'historian' => [
-        'name' => 'Alicia la Historiadora',
-        'bio' => 'Especialista en la historia de Castilla y de Cerezo de Río Tirón.'
-    ],
-    'archaeologist' => [
-        'name' => 'Bruno el Arqueólogo',
-        'bio' => 'Explora y protege nuestro valioso patrimonio arqueológico.'
-    ],
-    'guide' => [
-        'name' => 'Clara la Guía Turística',
-        'bio' => 'Conoce cada rincón y te orienta en tus visitas.'
-    ],
-    'manager' => [
-        'name' => 'Diego el Gestor Cultural',
-        'bio' => 'Coordina eventos y proyectos para dinamizar la cultura local.'
-    ],
-    'technologist' => [
-        'name' => 'Elena la Tecnóloga',
-        'bio' => 'Aplica la innovación tecnológica al servicio del patrimonio.'
-    ],
-];
+
 
 function fetchComments(string $agent, ?PDO $pdo): array {
     if (!$pdo) return [];
