@@ -1,0 +1,10 @@
+#cave-mask {
+    pointer-events:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    opacity:0.3;
+    -webkit-mask-image:radial-gradient(circle var(--mask-radius,20vw) at var(--mask-x,50vw) var(--mask-y,50vh),transparent 0,black 100%);
+    mask-image:radial-gradient(circle var(--mask-radius,20vw) at var(--mask-x,50vw) var(--mask-y,50vh),transparent 0,black 100%);
+    transition:mask-image .2s,opacity .2s;
+}
