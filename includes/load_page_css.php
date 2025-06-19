@@ -3,19 +3,25 @@ function load_page_css(): void
 {
     $scriptPath = $_SERVER['SCRIPT_NAME'];
     $root = dirname(__DIR__);
+    $useMin = filter_var($_ENV['USE_MINIFIED_ASSETS'] ?? false, FILTER_VALIDATE_BOOLEAN);
 
-    // Allow CSS files that mirror the script path using underscores
     $sanitized = str_replace('/', '_', ltrim($scriptPath, '/'));
     $sanitized = preg_replace('/\.php$/', '', $sanitized);
-    $cssFile = '/assets/css/pages/' . $sanitized . '.css';
 
-    if (!file_exists($root . $cssFile)) {
-        // Fallback to using only the basename for backwards compatibility
-        $cssFile = '/assets/css/pages/' . basename($scriptPath, '.php') . '.css';
-    }
+    $bases = [
+        '/assets/css/pages/' . $sanitized,
+        '/assets/css/pages/' . basename($scriptPath, '.php'),
+    ];
 
-    if (file_exists($root . $cssFile)) {
-        echo "<link rel=\"stylesheet\" href=\"{$cssFile}\">\n";
+    foreach ($bases as $base) {
+        if ($useMin && file_exists($root . $base . '.min.css')) {
+            echo "<link rel=\"stylesheet\" href=\"{$base}.min.css\">\n";
+            return;
+        }
+        if (file_exists($root . $base . '.css')) {
+            echo "<link rel=\"stylesheet\" href=\"{$base}.css\">\n";
+            return;
+        }
     }
 }
 ?>
