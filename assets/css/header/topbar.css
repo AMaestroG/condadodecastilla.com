@@ -2,7 +2,7 @@
 
 #fixed-header-elements {
     position: fixed;
-    top: 0;
+    top: var(--menu-top-offset);
     left: 0;
     right: 0;
     z-index: 4000;
@@ -20,7 +20,7 @@
 
 .top-empty-bar {
     position: fixed;
-    top: 0;
+    top: var(--menu-top-offset);
     left: 0;
     right: 0;
     height: 48px;
@@ -82,7 +82,7 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 /* IA Chat Toggle */
 #ia-chat-toggle {
     position: fixed;
-    top: 88px; /* moved lower */
+    top: calc(88px + var(--menu-top-offset));
     right: 15px;
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
@@ -114,7 +114,7 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 /* Homonexus Toggle */
 #homonexus-toggle {
     position: fixed;
-    top: 88px; /* moved lower */
+    top: calc(88px + var(--menu-top-offset));
     right: 65px; /* (ia-chat-toggle width 44px + right 15px = 59px) + 6px gap */
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);

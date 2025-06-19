@@ -50,6 +50,7 @@
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
     --language-bar-offset: 0px; /* default fallback */
     --menu-extra-offset: 60px;
+    --menu-top-offset: 200px;
     /* Additional theme variables for admin dashboard */
     --epic-purple-hover: #663399;
     --epic-gray: #6c757d;
