@@ -7,6 +7,6 @@
       "tailwindcss": "^3.4.4"
     },
     "scripts": {
-      "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/manual/languagePanelOffsetTest.js"
+      "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js"
     }
   }

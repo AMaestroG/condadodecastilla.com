@@ -26,7 +26,6 @@ function toggleLanguageBar() {
 
     const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
 
-
     if (isHidden) {
         const showBar = () => {
             el.style.display = 'block';
@@ -42,6 +41,38 @@ function toggleLanguageBar() {
         el.style.display = 'none';
         body.classList.remove('lang-bar-visible');
     }
+}
+
+function toggleFlagPanel() {
+    const panel = document.getElementById('language-panel');
+    const btn = document.getElementById('flag-toggle');
+    if (!panel) return;
+    const open = panel.classList.toggle('active');
+    if (btn) btn.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('menu-open-right', open);
+    document.body.classList.toggle('menu-compressed', open);
+}
+
+function initFlagPanel() {
+    const btn = document.getElementById('flag-toggle');
+    if (btn) {
+        btn.addEventListener('click', toggleFlagPanel);
+    }
+    document.querySelectorAll('#language-panel img[data-lang]').forEach(flag => {
+        flag.addEventListener('click', () => {
+            const lang = flag.getAttribute('data-lang');
+            const translate = () => {
+                document.cookie = 'googtrans=/es/' + lang + ';path=/';
+                location.reload();
+            };
+            if (!window.googleTranslateLoaded) {
+                loadGoogleTranslate(translate);
+                window.googleTranslateLoaded = true;
+            } else {
+                translate();
+            }
+        });
+    });
 }
 
 function initLangBarToggle() {
@@ -73,6 +104,7 @@ function initLangBarToggle() {
 
 function setupLanguageBar() {
     initLangBarToggle();
+    initFlagPanel();
 }
 
 
