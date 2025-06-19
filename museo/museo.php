@@ -26,7 +26,7 @@
 
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
-<body>
+<body class="alabaster-bg">
     <div id="crosshair" class="crosshair"></div>
     <div id="linterna-condado"></div>
     

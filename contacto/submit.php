@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Envío de Contacto</title>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
 </head>
-<body>
+<body class="alabaster-bg">
 <div class="container-epic">
     <p class="feedback <?php echo htmlspecialchars($feedback_type); ?>"><?php echo htmlspecialchars($feedback_message); ?></p>
     <p><a href="/contacto/contacto.php">Volver al formulario</a></p>

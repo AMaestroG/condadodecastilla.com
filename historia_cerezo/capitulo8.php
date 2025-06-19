@@ -8,7 +8,7 @@
     ?>
     <title>Capítulo 8: Mitos Fundacionales y Leyendas de la Vieja Castilla en Cerezo</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../_header.php"; ?>
 
 <h1>Capítulo 8: Mitos Fundacionales y Leyendas de la Vieja Castilla en Cerezo</h1>

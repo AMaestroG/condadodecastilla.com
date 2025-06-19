@@ -19,7 +19,7 @@ require_admin_login();
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script> <!-- Specific version for stability -->
 </head>
-<body class="admin-page">
+<body class="alabaster-bg admin-page">
     <header class="admin-header">
         <h1>Panel de Estadísticas de Visitas</h1>
     </header>

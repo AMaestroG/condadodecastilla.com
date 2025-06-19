@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
   <title>Quintanilla del Monte</title>
 </head>
-<body>
+<body class="alabaster-bg">
   <?php require_once __DIR__ . '/../_header.php'; ?>
   <h1>Quintanilla del Monte</h1>
   <p>Bienvenido al archivo del pueblo de <strong>Quintanilla del Monte</strong>, integrante del histórico Alfoz de Cerezo y Lantarón.</p>

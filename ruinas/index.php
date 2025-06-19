@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
     <header class="page-header">

@@ -8,7 +8,7 @@
     ?>
     <title>Orígenes del Castellano Vulgar en el Alfoz de Cerezo</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <header id="hero-origenes-castellano-vulgar" class="page-header hero">

@@ -8,7 +8,7 @@
     ?>
     <title>El Alcázar de Cerasio</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../../_header.php"; ?>
 
 <h1>El Alcázar de Cerasio</h1>

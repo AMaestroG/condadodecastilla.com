@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
   <title>Pinedo</title>
 </head>
-<body>
+<body class="alabaster-bg">
   <?php require_once __DIR__ . '/../_header.php'; ?>
   <h1>Pinedo</h1>
   <p>Bienvenido al archivo del pueblo de <strong>Pinedo</strong>, integrante del histórico Alfoz de Cerezo y Lantarón.</p>

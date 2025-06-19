@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
     <link rel="stylesheet" href="/assets/css/pages/historia.css">
     <title>Atapuerca</title>
 </head>
-<body>
+<body class="alabaster-bg">
 <?php require_once __DIR__ . '/../_header.php'; ?>
     <header class="page-header hero hero-atapuerca"> <!-- Basic hero style -->
         <div class="hero-content">

@@ -7,7 +7,7 @@ http_response_code(404);
     <title>Página no encontrada</title>
     <?php include __DIR__ . '/includes/head_common.php'; ?>
 </head>
-<body>
+<body class="alabaster-bg">
 <?php require_once __DIR__ . '/_header.php'; ?>
 <main class="container page-content-block error-page">
     <h1>Página no encontrada</h1>

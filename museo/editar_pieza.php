@@ -67,7 +67,7 @@ try {
         .feedback.error { background:#f8d7da; padding:10px; margin-bottom:10px; }
     </style>
 </head>
-<body>
+<body class="alabaster-bg">
 <nav>
     <a href="../index.php">Inicio</a>
     <a href="../dashboard/index.php">Dashboard</a>

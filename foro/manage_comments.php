@@ -49,7 +49,7 @@ if ($pdo) {
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="stylesheet" href="/assets/css/pages/manage_comments.css">
 </head>
-<body>
+<body class="alabaster-bg">
     <h1>Administrar Comentarios del Foro</h1>
     <nav>
         <a href="../index.php">Inicio</a>

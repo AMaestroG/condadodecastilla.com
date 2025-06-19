@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
 </head>
-<body class="admin-page centered">
+<body class="alabaster-bg admin-page centered">
     <div class="admin-container narrow login-container">
         <h1>Acceso de Administrador</h1>
         <?php if ($error_message): ?>

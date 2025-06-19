@@ -48,7 +48,7 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
 </head>
-<body class="admin-page">
+<body class="alabaster-bg admin-page">
     <div class="admin-container wide">
         <nav class="admin-nav">
             <a href="../index.php">Volver al Inicio</a>

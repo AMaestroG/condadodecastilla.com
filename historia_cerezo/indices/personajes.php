@@ -8,7 +8,7 @@
     ?>
     <title>Índice de Personajes - Historia de Cerezo</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <h1>Índice de Personajes Relevantes</h1>

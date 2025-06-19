@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <title>Programa de Citas para Visitas</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . '/../_header.php'; ?>
     <h1>Programa de Citas para Visitas</h1>
     <?php if ($successMessage): ?>

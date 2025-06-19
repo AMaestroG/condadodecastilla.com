@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
   <title>Poza de la Sal</title>
 </head>
-<body>
+<body class="alabaster-bg">
   <?php require_once __DIR__ . '/../_header.php'; ?>
   <h1>Poza de la Sal</h1>
   <p>Bienvenido al archivo del pueblo de <strong>Poza de la Sal</strong>, integrante del histórico Alfoz de Cerezo y Lantarón.</p>

@@ -8,7 +8,7 @@
     ?>
     <title>Índice de Temas Clave - Historia de Cerezo</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <h1>Índice de Temas Clave</h1>

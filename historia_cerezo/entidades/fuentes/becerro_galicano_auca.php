@@ -8,7 +8,7 @@
     ?>
     <title>El Becerro Galicano y la Mención de Auca/Area Paterniani</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../../_header.php"; ?>
 
 <h1>El Becerro Galicano y la Mención de Auca/Area Paterniani</h1>

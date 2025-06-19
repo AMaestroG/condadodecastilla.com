@@ -8,7 +8,7 @@
     ?>
     <title>Capítulo 6: La Vida Cotidiana en Cerasio: Siglos VIII-XI</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../_header.php"; ?>
 
 <h1>Capítulo 6: La Vida Cotidiana en Cerasio: Siglos VIII-XI</h1>

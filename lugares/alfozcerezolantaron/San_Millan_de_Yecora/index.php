@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
   <title>San Millán de Yécora</title>
 </head>
-<body>
+<body class="alabaster-bg">
   <?php require_once __DIR__ . '/../_header.php'; ?>
   <h1>San Millán de Yécora</h1>
   <p>Bienvenido al archivo del pueblo de <strong>San Millán de Yécora</strong>, integrante del histórico Alfoz de Cerezo y Lantarón.</p>

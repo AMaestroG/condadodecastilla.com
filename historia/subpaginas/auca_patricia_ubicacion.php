@@ -8,7 +8,7 @@
     ?>
     <title><?php echo htmlspecialchars($titulo_pagina_actual); ?> - Cerezo de Río Tirón</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <?php

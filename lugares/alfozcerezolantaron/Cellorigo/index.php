@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
   <title>Cellorigo</title>
 </head>
-<body>
+<body class="alabaster-bg">
   <?php require_once __DIR__ . '/../_header.php'; ?>
   <h1>Cellorigo</h1>
   <p>Bienvenido al archivo del pueblo de <strong>Cellorigo</strong>, integrante del histórico Alfoz de Cerezo y Lantarón.</p>

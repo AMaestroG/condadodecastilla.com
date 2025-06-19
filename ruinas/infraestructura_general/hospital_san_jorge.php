@@ -5,7 +5,7 @@
     <title>Hospital de San Jorge y Talla de San Antón - Ruinas del Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . '/../_header.php'; ?>
     <header class="page-header"><div class="container-epic"><h1>Hospital de San Jorge (Sanjurjo) y Talla de San Antón</h1></div></header>
     <nav aria-label="breadcrumb" class="container breadcrumb-nav">

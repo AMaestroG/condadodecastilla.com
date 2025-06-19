@@ -8,7 +8,7 @@
     ?>
     <title>Capítulo 1: Auca Patricia, la Ciudad Perdida</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <h1>Capítulo 1: Auca Patricia, la Ciudad Perdida</h1>

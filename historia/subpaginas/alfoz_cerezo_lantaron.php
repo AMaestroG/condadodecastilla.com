@@ -8,7 +8,7 @@
     ?>
     <title>El Alfoz de Cerezo y Lantarón: Territorio Histórico</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <header id="hero-alfoz-cerezo-lantaron" class="page-header hero">
