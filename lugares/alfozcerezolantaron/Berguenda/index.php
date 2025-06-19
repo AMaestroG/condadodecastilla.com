@@ -3,7 +3,6 @@
 <head>
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
   <title>Bergüenda</title>
-  <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>
 <body>
   <?php require_once __DIR__ . '/../_header.php'; ?>
