@@ -1,7 +1,7 @@
 /* Page-specific styles for foro/index.php */
 body { background-color: rgba(var(--epic-alabaster-bg-rgb), 0.95); }
 .agent-profile {
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.6);
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.95);
     padding: 1em;
     margin: 2em 0;
     border-left: 5px solid var(--color-primario-purpura);
