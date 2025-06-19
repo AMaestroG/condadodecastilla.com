@@ -1,46 +1,14 @@
-Lugar que ocupa la Civitate de Auca Patricia o Segisamam  
-El conde de castilla [Gonzalo
-Téllez]( )  
-El conde de Castilla y Álava [Álvaro
-Herraméliz]( )
-y su esposa la condesa [Doña
-1\.
-Prieto Vilas, Manuel (2002).
- .
-*Tesis Doctoral Los Obispos Hispanos a fines del Imperio Romano (ss IV-VII):
-El nacimiento de una élite social*. Universidad Complutense de Madrid,
-Facultad de Geografía e Historia, Departamento de historia Antigua. p. 339.
-Consultado el 16 de abril de 2022.  
-Antonio, Nicolás (1788). *[Bibliotheca Hispana vetus sive Hispani scriptores
-qui ab Octaviani Augusti aevo ad annum Christi MD
-floruerunt]( )*
-(en latín). apud viduam et heredes D. Joachimi Ibarrae. Consultado el 16 de
-abril de 2022.  
-Sandoval, Prudencio de (1601). *[Fundaciones de los monasterios de S. Benito,
-que los reyes de Espana fundaron y
-dotaron]( )*.
-Sanchez. Consultado el 16 de abril de 2022.  
-*[Las glorias nacionales: grande historia universal de todos los reinos,
-provincias, islas y colonias de la monarquía española, desde los tiempos
-primitivos hasta el año de
-1852]( )*.
-José Cuesta. 1853. Consultado el 16 de abril de 2022.  
-[«Edición electrónica del Becerro Galicano de San Millán de la
-* *. Consultado el 16 de abril de 2022.  
-1\. ↑ [Saltar
-*** ***
-Flórez, Enrique (1771). *[España sagrada: tomo XXVI : contiene el estado
-antiguo de las Iglesias de Auca, de Valpuesta, y de Burgos, justificado con
-instrumentos legítimos y memorias
-inéditas]( )*.
-en la Oficina de Pedro Marín. Consultado el 16 de abril de 2022.  
-Sandoval, Prudencio de (1634). *[Historias de Idacio obispo que escrivio poco
-antes que España se perdiese. De Isidoro obispo de Badajoz,...De Sebastiano
-obispo de Salamanca,...De Sampiro obispo de Astorga,...De pelagio obispo de
-Ouiedo,...Nunca hasta agora impressas, con otras notas tocantes e estas
-historias, y reyes dellas. Recogidas por don Fray Prudenciio de Sandoval
-obispo de Paplona, coronista de su magestad. Dirigidas al rey catholico don
-por Nicolas de Assiayn. Consultado el 16 de abril de 2022.
+# Lugar que ocupa la Civitate de Auca Patricia o Segisamam
+
+El conde de Castilla Gonzalo Téllez y el conde de Castilla y Álava Álvaro Herraméliz fueron algunos de sus primeros gobernantes.
+
+1. Prieto Vilas, Manuel (2002). *Tesis Doctoral Los Obispos Hispanos a fines del Imperio Romano (ss IV-VII): El nacimiento de una élite social*. Universidad Complutense de Madrid, Facultad de Geografía e Historia, Departamento de Historia Antigua, p. 339. Consultado el 16 de abril de 2022.
+2. Antonio, Nicolás (1788). *Bibliotheca Hispana vetus sive Hispani scriptores qui ab Octaviani Augusti aevo ad annum Christi MD floruerunt* (en latín). Apud viduam et heredes D. Joachimi Ibarrae. Consultado el 16 de abril de 2022.
+3. Sandoval, Prudencio de (1601). *Fundaciones de los monasterios de S. Benito, que los reyes de España fundaron y dotaron*. Sanchez. Consultado el 16 de abril de 2022.
+4. *Las glorias nacionales: grande historia universal de todos los reinos, provincias, islas y colonias de la monarquía española, desde los tiempos primitivos hasta el año de 1852.* José Cuesta. 1853. Consultado el 16 de abril de 2022.
+5. «Edición electrónica del Becerro Galicano de San Millán de la Cogolla». Consultado el 16 de abril de 2022.
+6. Flórez, Enrique (1771). *España sagrada: tomo XXVI : contiene el estado antiguo de las Iglesias de Auca, de Valpuesta, y de Burgos, justificado con instrumentos legítimos y memorias inéditas*. En la Oficina de Pedro Marín. Consultado el 16 de abril de 2022.
+7. Sandoval, Prudencio de (1634). *Historias de Idacio obispo que escrivio poco antes que España se perdiese. De Isidoro obispo de Badajoz, de Sebastiano obispo de Salamanca, de Sampiro obispo de Astorga y de Pelagio obispo de Oviedo*. Recogidas por don Fray Prudencio de Sandoval, obispo de Pamplona y cronista de Su Majestad. Dirigidas al rey católico y publicadas por Nicolás de Assiayn. Consultado el 16 de abril de 2022.
 Nuestro Glera de los Cellos o Celox o celoces como argumento del cuartel
 General de Cesar Augusto en la Guerras Cántabras y como prueba de nuestro
 Ultimo puerto fluvial del Río Ebro.  
@@ -64,21 +32,14 @@ solidos reddat ad monasterium, et expolium quntum in eo venerit, ita erit
 per diem. Et si fur ibi noctis comprehensus fuerit, arbor abscidente aut ligna
 faciente, expolio accipiat qui conprehenderit ibi fur, et postea tradatur fur
 ad carcerem ad partem comitis.  
-Advocación de Quintanilleja, San Johannes y san Emiliani o San Millán  
-Del monasterio de San Juan Bautista y San Millán de Hiniestra:  
-f) Del monasterio de San Juan de Sietefenestras en Cerezo de Río Tirón:  
-30\. Santa María de Sietefenestras, (segunda iglesia del monasterio) 938.  
-primer-volumen-del-cartulario-emilianense.html?page=10>  
-**517**  
-> **hiniestra.**(Del lat. *fenestra*).**1. **f. ant.
-> ** ** (? abertura en
-> una pared).**2. **f. ant.
-> ** ** (? hoja con que
-> se cierra esa abertura).  
-*Cita extraida del diccionario de la RAE *  
-La iglesia estaba dedicada a [San
-Millán]( )),
-patrón del pueblo  
+Advocación de Quintanilleja, San Johannes y San Emiliani o San Millán
+Del monasterio de San Juan Bautista y San Millán de Hiniestra:
+f) Del monasterio de San Juan de Sietefenestras en Cerezo de Río Tirón:
+- 30. Santa María de Sietefenestras, segunda iglesia del monasterio (938). [Primer volumen del cartulario emilianense](primer-volumen-del-cartulario-emilianense.html?page=10)
+**517**
+> **hiniestra.** (Del lat. *fenestra*). **1.** f. ant. *(abertura en una pared).* **2.** f. ant. *(hoja con que se cierra esa abertura).*
+*Cita extraída del diccionario de la RAE*
+La iglesia estaba dedicada a San Millán, patrón del pueblo
 Camino de Santiago por Cerezo de Río Tirón:  
 Esta ruta aprovechaba los restos de la antigua vía Aurelia, que entraba en la
 Provincia por las márgenes del río Tirón, donde los geógrafos situaron
