@@ -25,3 +25,10 @@ $geminiKey = getenv('GEMINI_API_KEY') ?: '';
 <script defer src="/assets/js/polyfills.js"></script>
 <link rel="stylesheet" href="/assets/css/torch_cursor.css">
 <script defer src="/assets/js/torch_cursor.js"></script>
+<link rel="stylesheet" href="/assets/css/glow_filter.css">
+<?php
+$svgFilterPath = __DIR__ . '/../fragments/header/svg_filters.html';
+if (file_exists($svgFilterPath)) {
+    echo file_get_contents($svgFilterPath);
+}
+?>
