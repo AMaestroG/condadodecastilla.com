@@ -3,7 +3,7 @@
 <head>
 <?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
 </head>
-<body>
+<body class="interactivo">
     <?php require_once __DIR__ . '/../../../_header.php'; ?>
 
     <main class="container page-content-block">
@@ -40,7 +40,8 @@
 </div>
     </main>
 
-    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
+<?php require_once __DIR__ . '/../../../_footer.php'; ?>
+    <script src="/assets/js/audio-controller.js"></script>
     <script src="/js/layout.js"></script>
 </body>
 </html>
