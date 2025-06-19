@@ -19,3 +19,11 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 | `--menu-extra-offset` | Separación adicional para el menú consolidado | `60px` |
 
 Los equivalentes `-rgb` se encuentran en la misma hoja de estilos para crear transparencias con `rgba()`.
+
+## Texto con degradado
+
+Para destacar títulos y cabeceras se utiliza la clase `.gradient-text`,
+definida en `assets/css/epic_theme.css`. Esta clase aplica un degradado
+diagonal que combina el morado principal (`--epic-purple-emperor`) y el
+oro viejo (`--epic-gold-main`) y aprovecha `background-clip: text` para
+dejar a la vista los colores de la paleta.

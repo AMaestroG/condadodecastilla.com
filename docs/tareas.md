@@ -1,7 +1,7 @@
 # Lista de tareas
 - [x] Implementar menús deslizantes que compriman el contenido lateral.
-- [ ] Aplicar paleta de morado y oro viejo según `docs/style-guide.md`.
-- [ ] Añadir degradados de alto contraste en títulos.
+- [x] Aplicar paleta de morado y oro viejo según `docs/style-guide.md`.
+- [x] Añadir degradados de alto contraste en títulos.
 - [x] Crear un foro con cinco agentes expertos que dinamicen la comunidad.
 
 ## Nuevas tareas
