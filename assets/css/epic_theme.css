@@ -2606,6 +2606,19 @@ body.dark-mode #theme-toggle:hover i {
     color: var(--epic-icon-hover);
 }
 
+body.luna {
+    background-color: #2c2151;
+    color: #f0e7d8;
+}
+
+body.luna #moon-toggle i {
+    color: #cfb53b;
+}
+
+body.luna #moon-toggle:hover i {
+    color: #ffdf5d;
+}
+
 /* === IA Tools Menu === */
 #ia-tools-menu {
     margin: 0;

@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const themeToggle = document.getElementById('theme-toggle');
+    const moonToggle = document.getElementById('moon-toggle');
     if (themeToggle) {
         const icon = themeToggle.querySelector('i');
         const storedTheme = localStorage.getItem('theme');
@@ -128,6 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.toggle('fa-sun', isDark);
             }
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    if (moonToggle) {
+        const icon = moonToggle.querySelector('i');
+        moonToggle.addEventListener('click', () => {
+            document.body.classList.toggle('luna');
+            const active = document.body.classList.contains('luna');
+            if (icon) {
+                icon.classList.toggle('fa-moon', !active);
+                icon.classList.toggle('fa-sun', active);
+            }
+            localStorage.setItem('theme', active ? 'moon' : 'light');
         });
     }
 
