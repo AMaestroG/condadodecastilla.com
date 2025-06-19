@@ -52,8 +52,13 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    height: var(--language-bar-height);
     z-index: 5000;
     cursor: pointer;
+}
+
+body.lang-bar-visible #google_translate_element {
+    display: block;
 }
 
 /* Ocultar visualmente pero mantener accesible */
