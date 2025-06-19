@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .bg-linterna-gradient {
+    @apply bg-gradient-radial from-yellow-200 via-transparent;
+  }
+}

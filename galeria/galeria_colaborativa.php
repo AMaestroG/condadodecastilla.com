@@ -53,7 +53,7 @@ if (is_dir($gallery_dir)) {
     ?>
 </head>
 <body class="alabaster-bg">
-    <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->
+    <div id="linterna-condado" class="bg-linterna-gradient"></div> <!-- Para el efecto de linterna -->
     
     <?php require_once __DIR__ . '/../_header.php'; ?>
 
