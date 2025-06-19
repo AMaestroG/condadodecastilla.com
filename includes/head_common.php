@@ -22,8 +22,8 @@ require_once __DIR__ . '/env_loader.php';
 <link rel="stylesheet" href="/assets/css/cave_mask.css">
 <link rel="stylesheet" href="/assets/vendor/css/tailwind.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-SN33kWx+ihQ/HVbUaz2QmiFjCwXTlzAIXazhbugzuDUFc1l1b/HFB70dNFuPu6j6" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-JNHB8zHcoUfOaL+5wtIg9Y9ycYzaO+F6DRKCVh0b07XHtcwPa5RWPLXrI75EetBh" crossorigin="anonymous" />
-<script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-pqaW8ZT6X0hgqP/d9vywgq6Z9erjRzCQXDpUe1koRaSPoaqe7iT730cdpShUMHbV" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" />
+<script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous"></script>
 <script defer src="/assets/js/polyfills.js"></script>
 <link rel="stylesheet" href="/assets/css/torch_cursor.css">
 <script defer src="/assets/js/torch_cursor.js"></script>
