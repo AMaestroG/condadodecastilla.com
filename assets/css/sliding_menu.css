@@ -92,3 +92,11 @@ body.menu-open-right {
     background: var(--epic-gold-main);
     color: var(--primary-purple);
 }
+
+@media (max-width: 768px) {
+  body.menu-compressed,
+  body.menu-open-left,
+  body.menu-open-right {
+    transform: none;
+  }
+}
