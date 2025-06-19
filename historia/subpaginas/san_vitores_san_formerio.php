@@ -8,7 +8,7 @@
     ?>
     <title>San Vitores y San Formerio: Mártires de Cerezo</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <header id="hero-san-vitores-san-formerio" class="page-header hero">

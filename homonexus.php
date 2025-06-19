@@ -5,7 +5,7 @@
     <?php include __DIR__ . '/includes/head_common.php'; ?>
 </head>
 <?php require_once __DIR__ . '/includes/homonexus.php'; ?>
-<body class="<?php echo homonexus_body_class(); ?>">
+<body class="alabaster-bg <?php echo homonexus_body_class(); ?>">
     <?php require_once __DIR__.'/_header.php'; ?>
     <main class="container py-5">
         <h1>Bienvenido al Modo Homonexus</h1>

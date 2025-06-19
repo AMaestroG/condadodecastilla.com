@@ -38,7 +38,7 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
     <title>Blog</title>
     <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
-<body>
+<body class="alabaster-bg">
 <?php include __DIR__.'/_header.php'; ?>
 <main class="container page-content-block">
 <?php if ($post_slug && isset($posts[$post_slug])): ?>

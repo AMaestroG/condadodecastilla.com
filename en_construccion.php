@@ -1,5 +1,5 @@
 <?php require_once __DIR__ . '/includes/head_common.php'; ?>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . '/_header.php'; ?>
     <main class="container page-content-block" style="text-align: center; padding: 4em 1em;">
         <h1>Esta sección estará disponible próximamente</h1>

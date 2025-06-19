@@ -8,7 +8,7 @@
     ?>
     <title>Legado Romano en Cerezo: Emperadores y Estructuras</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <header id="hero-legado-romano-emperadores-estructuras" class="page-header hero">

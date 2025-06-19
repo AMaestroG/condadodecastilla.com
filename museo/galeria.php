@@ -6,7 +6,7 @@
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
-<body>
+<body class="alabaster-bg">
     <div id="linterna-condado"></div>
     <?php require_once __DIR__ . '/../_header.php'; ?>
 

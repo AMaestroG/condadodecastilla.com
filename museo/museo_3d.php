@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
-<body>
+<body class="alabaster-bg">
     <div id="crosshair" class="crosshair"></div>
     <div id="linterna-condado"></div>
     <?php require_once __DIR__ . '/../_header.php'; ?>

@@ -8,7 +8,7 @@
     ?>
     <title>Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../_header.php"; ?>
 
 <h1>Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</h1>

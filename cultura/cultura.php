@@ -22,7 +22,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
     load_page_css();
     ?>
 </head>
-<body>
+<body class="alabaster-bg">
 
     <?php
     require_once __DIR__ . '/../_header.php';

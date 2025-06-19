@@ -8,7 +8,7 @@
     ?>
     <title>El Obispado de Oca/Auca y su Papel en la Historia</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <header id="hero-obispado-oca-auca" class="page-header hero">

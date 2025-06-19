@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
   <title>Caicedo de Yuso</title>
 </head>
-<body>
+<body class="alabaster-bg">
   <?php require_once __DIR__ . '/../_header.php'; ?>
   <h1>Caicedo de Yuso</h1>
   <p>Bienvenido al archivo del pueblo de <strong>Caicedo de Yuso</strong>, integrante del histórico Alfoz de Cerezo y Lantarón.</p>

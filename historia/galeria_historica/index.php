@@ -7,7 +7,7 @@ require_once __DIR__ . '/../../includes/load_page_css.php';
 load_page_css();
 ?>
 </head>
-<body>
+<body class="alabaster-bg">
 
     <?php require_once __DIR__ . '/../../_header.php'; ?>
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_historia_background.jpg');">

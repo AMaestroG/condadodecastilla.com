@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . '/../_header.php'; ?>
     <header class="page-header"><div class="container-epic"><h1>Hallazgos y Representaciones</h1></div></header>
     <nav aria-label="breadcrumb" class="container breadcrumb-nav">

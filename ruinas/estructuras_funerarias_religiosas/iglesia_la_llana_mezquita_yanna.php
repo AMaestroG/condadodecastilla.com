@@ -5,7 +5,7 @@
     <title>Iglesia de la Llana (Antigua Mezquita de Yanna) - Ruinas del Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . '/../_header.php'; ?>
     <header class="page-header"><div class="container-epic"><h1>Iglesia de la Llana (Antigua Mezquita de Yanna)</h1></div></header>
     <nav aria-label="breadcrumb" class="container breadcrumb-nav">

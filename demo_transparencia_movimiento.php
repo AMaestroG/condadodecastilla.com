@@ -1,5 +1,5 @@
 <?php require_once __DIR__ . '/includes/head_common.php'; ?>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . '/_header.php'; ?>
     <section class="demo-hero">
         <h1>Efectos Visuales</h1>

@@ -8,7 +8,7 @@
     ?>
     <title>Índice de Lugares - Historia de Cerezo</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <h1>Índice de Lugares Relevantes</h1>

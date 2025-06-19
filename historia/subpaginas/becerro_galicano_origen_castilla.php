@@ -8,7 +8,7 @@
     ?>
     <title>El Becerro Galicano y el Origen de Castilla en Auca</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <header id="hero-becerro-galicano-origen-castilla" class="page-header hero">

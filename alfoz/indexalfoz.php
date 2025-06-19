@@ -7,7 +7,7 @@ require_once __DIR__ . '/../includes/load_page_css.php';
 load_page_css();
 ?>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . '/../_header.php'; ?>
   <header>
     <h1>🌿 Alfoz de Cerezo y Lantarón</h1>

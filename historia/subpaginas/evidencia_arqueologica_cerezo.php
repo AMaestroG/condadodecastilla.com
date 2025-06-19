@@ -8,7 +8,7 @@
     ?>
     <title>Evidencia Arqueológica en Cerezo de Río Tirón</title>
 </head>
-<body>
+<body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../_header.php"; ?>
 
 <header id="hero-evidencia-arqueologica-cerezo" class="page-header hero">

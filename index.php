@@ -21,7 +21,7 @@ require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
     ?>
 
 </head>
-<body class="<?php echo homonexus_body_class(); ?>">
+<body class="alabaster-bg <?php echo homonexus_body_class(); ?>">
 <?php echo $db_warning; ?>
 <?php
 // Use dynamic PHP header if available so menu fragments can contain
