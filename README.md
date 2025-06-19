@@ -157,6 +157,7 @@ Asegúrate primero de tener instalado **PHP CLI** y **Composer**. En sistemas ba
 sudo apt-get install php-cli composer
 ```
 
+Puedes comprobar que `php`, `composer` y `npm` están disponibles ejecutando `./scripts/check_requirements.sh`. Si falta alguna de estas herramientas, el script mostrará un aviso.
 Una vez clonado el repositorio instala todas las dependencias de PHP y descarga las
 bibliotecas de JavaScript necesarias ejecutando:
 
@@ -272,6 +273,7 @@ node tests/moonToggleTest.js
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
 `npm test` (o `npm run test:puppeteer`) inicia los checks de interfaz con Puppeteer.
+Si no cuentas con `php`, `composer` o `npm`, puedes omitir las suites de PHP y las pruebas de interfaz con Puppeteer. Ejecuta solo los tests de Python en ese caso.
 
 Además se proporcionan scripts auxiliares para validar el estado del código:
 
