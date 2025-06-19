@@ -1,0 +1,36 @@
+#custom-pointer{
+  pointer-events:none;
+  position:fixed;
+  top:0;
+  left:0;
+  transform:translate(-50%,-50%);
+  z-index:9999;
+}
+#custom-pointer .outer{
+  width:2.5rem;
+  height:2.5rem;
+  border:2px solid rgba(207,181,59,0.6);
+  border-radius:9999px;
+}
+#custom-pointer .inner{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:0.625rem;
+  height:0.625rem;
+  background-color:#cfb53b;
+  border-radius:9999px;
+  transform:translate(-50%,-50%);
+}
+#custom-pointer.active .outer{
+  border-color:#800080;
+}
+body.cursor-none{
+  cursor:none;
+}
+.interactivo{
+  cursor:url('/assets/icons/lupa.svg'), auto;
+}
+.interactivo.columna{
+  cursor:url('/assets/icons/columna.svg'), auto;
+}

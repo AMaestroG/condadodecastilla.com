@@ -25,3 +25,4 @@
 <script src="/assets/js/parallax.js"></script>
 <script src="/js/lang-bar.js"></script>
 <script src="/js/audio-controller.js"></script>
+<script defer src="/assets/js/custom-pointer.js"></script>
