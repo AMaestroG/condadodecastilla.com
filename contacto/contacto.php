@@ -66,7 +66,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                         <?php editableText('contacto_form_boton_enviar', $pdo, 'Enviar Mensaje', 'button', 'cta-button submit-button', 'type="submit"'); ?>
                     </form>
                 </div>
-                <div class="map-container" style="margin-top: 40px;">
+                <div class="map-container mt-10">
                     <iframe title="Mapa de Cerezo de Río Tirón" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-3.1756369%2C42.4719916%2C-3.0956369%2C42.5119916&amp;layer=mapnik&amp;marker=42.4919916%2C-3.1356369"></iframe>
                 </div>
             </div>

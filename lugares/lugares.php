@@ -132,7 +132,7 @@
                 </article>
 
                 <div class="map-placeholder">
-                    <i class="fas fa-map-marked-alt" style="font-size: 3em; margin-bottom: 0.5em; color: var(--color-secundario-dorado);"></i>
+                    <i class="fas fa-map-marked-alt text-5xl mb-2 text-old-gold"></i>
                     <h3>Mapa Interactivo de Lugares</h3>
                     <p>Próximamente: Un mapa interactivo con la ubicación de todos los lugares emblemáticos para facilitar tu exploración.</p>
                     <a href="/visitas/visitas.php" class="cta-button cta-button-small">Planifica Cómo Visitarlos</a>
