@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .shine-gold {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    background-size: 200% 200%;
+    animation: shine 5s infinite linear;
+  }
+
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+
+  .stone-texture {
+    @apply bg-cover bg-fixed;
+    background-image: url('/assets/img/alabastro2.jpg');
+  }
+
+  .purple-shadow {
+    box-shadow: 0 10px 15px -3px rgba(59, 7, 100, 0.5), 0 4px 6px -4px rgba(59, 7, 100, 0.5);
+  }
+}

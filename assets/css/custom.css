@@ -74,3 +74,27 @@ body {
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.3);
     border-radius: var(--border-radius-medio, 8px);
 }
+
+/* Custom utility classes */
+.shine-gold {
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 5s infinite linear;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+.stone-texture {
+    background-image: url('/assets/img/alabastro2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.purple-shadow {
+    box-shadow: 0 10px 15px -3px rgba(59, 7, 100, 0.5), 0 4px 6px -4px rgba(59, 7, 100, 0.5);
+}
