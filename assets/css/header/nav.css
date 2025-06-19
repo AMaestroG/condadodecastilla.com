@@ -287,16 +287,12 @@ body.dark-mode #sidebar .nav-links a:hover i {
     color: var(--epic-icon-hover);
 }
 
-/* Adjust main content when sidebars are active */
+/* Adjust main content when left sidebar is active */
 body.sidebar-active {
     margin-left: 280px; /* Match sidebar width */
     transition: margin-left var(--global-transition-speed) ease-in-out;
 }
 
-body.ia-chat-active {
-    margin-right: clamp(280px, 70vw, 400px);
-    transition: margin-right var(--global-transition-speed) ease-in-out;
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -307,9 +303,5 @@ body.ia-chat-active {
     }
     body.sidebar-active { margin-left: 0; }
     /* body.sidebar-active #sidebar-toggle { left: 15px; } */
-    body.ia-chat-active { margin-right: 0; }
-    #ia-chat-sidebar {
-        width: clamp(280px, 85vw, 320px);
-        resize: none;
-    }
+    /* Right panel handled via body.menu-open-right in sliding_menu.css */
 }
