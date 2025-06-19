@@ -32,8 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    document.querySelectorAll('[data-menu-target]').forEach(btn => {
-        btn.addEventListener('click', () => toggleMenu(btn));
+    // Use event delegation so dynamically injected buttons still work
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-menu-target]');
+        if (btn) {
+            e.preventDefault();
+            toggleMenu(btn);
+        }
     });
 
     document.addEventListener('click', (e) => {
