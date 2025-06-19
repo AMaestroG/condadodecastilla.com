@@ -21,7 +21,7 @@ class MainMenuLinksTest extends TestCase {
     }
 
     public static function urlProvider(): array {
-        $html = file_get_contents(__DIR__.'/../fragments/menus/main-menu.html');
+        $html = file_get_contents(__DIR__.'/../fragments/menus/main-menu.php');
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML($html);

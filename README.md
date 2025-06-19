@@ -233,7 +233,7 @@ Además se proporcionan scripts auxiliares para validar el estado del código:
 
 ## Elementos del menú principal
 
-El archivo `fragments/menus/main-menu.html` define los enlaces de navegación que
+El archivo `fragments/menus/main-menu.php` define los enlaces de navegación que
 deben aparecer en todas las páginas. A continuación se enumeran las rutas
 esperadas para cada elemento del menú principal:
 

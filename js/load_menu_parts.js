@@ -8,7 +8,7 @@
             .catch(err => console.error('Error loading menu fragment', url, err));
     };
 
-    loadFragment('#main-menu-placeholder', '/fragments/menus/main-menu.html');
+    loadFragment('#main-menu-placeholder', '/fragments/menus/main-menu.php');
     loadFragment('#admin-menu-placeholder', '/fragments/menus/admin-menu.php');
     loadFragment('#social-menu-placeholder', '/fragments/menus/social-menu.html');
 })();
