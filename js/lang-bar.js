@@ -20,24 +20,18 @@ function loadGoogleTranslate(callback) {
 }
 
 
-function toggleFlagPanel() {
-    const panel = document.getElementById('language-panel');
-    const btn = document.getElementById('flag-toggle');
-    if (!panel) return;
-    const open = panel.classList.toggle('active');
-    if (open && !window.googleTranslateLoaded) {
+
+function primeTranslateLoad() {
+    if (!window.googleTranslateLoaded) {
         loadGoogleTranslate();
         window.googleTranslateLoaded = true;
     }
-    if (btn) btn.setAttribute('aria-expanded', open);
-    document.body.classList.toggle('menu-open-right', open);
-    document.body.classList.toggle('menu-compressed', open);
 }
 
 function initFlagPanel() {
     const btn = document.getElementById('flag-toggle');
     if (btn) {
-        btn.addEventListener('click', toggleFlagPanel);
+        btn.addEventListener('click', primeTranslateLoad);
     }
     document.querySelectorAll('#language-panel img[data-lang]').forEach(flag => {
         flag.addEventListener('click', () => {
