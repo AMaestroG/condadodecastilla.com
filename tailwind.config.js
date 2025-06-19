@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // Include tailwind_base.css so @layer directives inside it are processed
   content: [
     './**/*.{php,html}',
     './assets/js/**/*.js',
