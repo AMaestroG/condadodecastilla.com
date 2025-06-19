@@ -22,6 +22,7 @@ function loadGoogleTranslate(callback) {
 function toggleLanguageBar() {
     const el = document.getElementById('google_translate_element');
     if (!el) return;
+    const body = document.body;
 
     const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
 
@@ -29,6 +30,7 @@ function toggleLanguageBar() {
     if (isHidden) {
         const showBar = () => {
             el.style.display = 'block';
+            body.classList.add('lang-bar-visible');
         };
 
         if (!window.googleTranslateLoaded) {
@@ -38,6 +40,7 @@ function toggleLanguageBar() {
         }
     } else {
         el.style.display = 'none';
+        body.classList.remove('lang-bar-visible');
     }
 }
 

@@ -49,8 +49,10 @@
     --global-box-shadow-dark: 0 8px 25px rgba(var(--epic-text-color-rgb), 0.2);
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
     --menu-extra-offset: 60px;
-    /* Dejar un espacio superior para la barra de idioma u otros elementos */
-    --menu-top-offset: 100px;
+    /* Altura reservada para la barra de idiomas */
+    --language-bar-height: 40px;
+    /* Espacio superior aplicado al menú, ajustado dinámicamente */
+    --menu-top-offset: 0px;
     /* Additional theme variables for admin dashboard */
     --epic-purple-hover: #663399;
     --epic-gray: #6c757d;
@@ -78,6 +80,10 @@
     --alert-bg: #ffdddd;
     --alert-border: #ff0000;
     --alert-text: #d8000c;
+}
+
+body.lang-bar-visible {
+    --menu-top-offset: var(--language-bar-height);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -120,7 +126,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     animation: fadeInPage 0.7s ease-out forwards;
-    padding-top: 110px;
+    padding-top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
 }
 
 body::before {
@@ -2490,7 +2496,7 @@ body.dark-mode {
     /* background-image is inherited from body::before via cascading */
     background-color: var(--epic-alabaster-bg); /* This will be the dark version of the variable */
     /* filter property is now on body.dark-mode::before */
-    padding-top: 110px;
+    padding-top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
 }
 
 body.dark-mode::before {
