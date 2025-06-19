@@ -32,10 +32,10 @@ require_once __DIR__ . '/_header.php';
     <header id="intro" class="hero">
         <div class="hero-content">
             <img src="/assets/img/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas dorada encima." class="hero-escudo">
-            <div>
-                <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla: Cuna de Tu Cultura e Idioma', 'h1', 'align-with-menu'); ?>
-                <?php editableText('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.', 'p', 'text-old-gold'); ?>
-                <?php editableText('mission_tagline_index', $pdo, 'Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.', 'p', 'mission-tagline text-old-gold'); ?>
+            <div class="text-center px-4">
+                <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla: Cuna de Tu Cultura e Idioma', 'h1', 'align-with-menu text-3xl md:text-5xl'); ?>
+                <?php editableText('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.', 'p', 'text-old-gold text-lg md:text-xl'); ?>
+                <?php editableText('mission_tagline_index', $pdo, 'Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.', 'p', 'mission-tagline text-old-gold text-lg'); ?>
             </div>
         </div>
         <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
@@ -84,7 +84,7 @@ require_once __DIR__ . '/_header.php';
                 <h2 class="section-title">Explora Nuestro Legado</h2>
                 <div class="card-grid">
                     <div class="card">
-                        <img src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
+                        <img src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla" loading="lazy">
                         <div class="card-content">
                             <h3>Nuestra Historia</h3>
                             <p>Desde los Concanos y la Civitate Auca Patricia hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
@@ -92,7 +92,7 @@ require_once __DIR__ . '/_header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
+                        <img src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático" loading="lazy">
                         <div class="card-content">
                             <h3>Lugares Emblemáticos</h3>
                             <p>Descubre el imponente Alcázar de Casio, los secretos de la Civitate Auca y otros tesoros arqueológicos que esperan ser explorados.</p>
@@ -100,7 +100,7 @@ require_once __DIR__ . '/_header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
+                        <img src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo" loading="lazy">
                         <div class="card-content">
                             <h3>Planifica Tu Visita</h3>
                             <p>Encuentra toda la información que necesitas para tu aventura en Cerezo de Río Tirón: cómo llegar, dónde alojarte y qué no te puedes perder.</p>
@@ -116,7 +116,7 @@ require_once __DIR__ . '/_header.php';
                 <h2 class="section-title">Personajes de la Historia</h2>
                 <div class="card-grid">
                     <div class="card">
-                        <img src="/assets/img/Casio.png" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII">
+                        <img src="/assets/img/Casio.png" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII" loading="lazy">
                         <div class="card-content">
                             <h3>Conde Casio</h3>
                             <p>Figura fundamental del siglo VIII, se le atribuye la construcción o refuerzo del Alcázar de Cerezo.</p>
@@ -124,7 +124,7 @@ require_once __DIR__ . '/_header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/GonzaloTellez.png" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo">
+                        <img src="/assets/img/GonzaloTellez.png" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo" loading="lazy">
                         <div class="card-content">
                             <h3>Gonzalo Téllez</h3>
                             <p>Conde de Lantarón y Cerezo (c. 897 - c. 913), personaje clave en la consolidación de los territorios.</p>
@@ -132,7 +132,7 @@ require_once __DIR__ . '/_header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/FernandoDiaz.png" alt="Representación artística de Fernando Díaz, conde castellano">
+                        <img src="/assets/img/FernandoDiaz.png" alt="Representación artística de Fernando Díaz, conde castellano" loading="lazy">
                         <div class="card-content">
                             <h3>Fernando Díaz</h3>
                             <p>Sucesor de Gonzalo Téllez, continuó la labor de defensa y organización en la primitiva Castilla.</p>

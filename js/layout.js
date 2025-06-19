@@ -147,9 +147,11 @@ function initializeMobileNavigation() {
 // --- Section Spotlight Effect ---
 document.addEventListener('DOMContentLoaded', () => {
     const sectionsWithSpotlight = document.querySelectorAll('.section.spotlight-active');
+    const disableSpotlight = window.matchMedia('(max-width: 640px)').matches;
 
     sectionsWithSpotlight.forEach(section => {
-        section.style.setProperty('--spotlight-opacity', '1'); // Make spotlight visible
+        section.style.setProperty('--spotlight-opacity', disableSpotlight ? '0' : '1');
+        if (disableSpotlight) return;
 
         section.addEventListener('mousemove', (e) => {
             const rect = section.getBoundingClientRect();

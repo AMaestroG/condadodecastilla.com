@@ -25,7 +25,7 @@
                 <ul class="timeline">
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                            <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Prehistoria">
+                            <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Prehistoria" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Prehistoria: Atapuerca y Primeros Pobladores</h3>
@@ -35,7 +35,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Pueblos Prerromanos">
+                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Pueblos Prerromanos" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Pueblos Prerromanos: Berones, Autrigones y Cántabros</h3>
@@ -45,7 +45,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Romanización">
+                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Romanización" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Romanización: Auca Patricia y el Legado Imperial</h3>
@@ -55,7 +55,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Época Visigoda">
+                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Época Visigoda" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Época Visigoda: Continuidad y Transformación</h3>
@@ -65,7 +65,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Presencia Árabe">
+                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Presencia Árabe" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Presencia Árabe y Resistencia Cristiana (Siglos VIII-X)</h3>
@@ -75,7 +75,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Alta Edad Media">
+                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Alta Edad Media" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Alta Edad Media: El Nacimiento del Condado de Castilla</h3>
@@ -85,7 +85,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                            <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Explorando los Orígenes de Castilla">
+                            <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Explorando los Orígenes de Castilla" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Explorando Auca Patricia, Cerasio y los Orígenes de Castilla</h3>
@@ -95,7 +95,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                            <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Documentos Históricos">
+                            <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Documentos Históricos" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Documentos Históricos del Condado</h3>
@@ -105,7 +105,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                            <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Galería Histórica">
+                            <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Galería Histórica" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Galería Visual de la Historia</h3>
@@ -115,7 +115,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Plena y Baja Edad Media">
+                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Plena y Baja Edad Media" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Plena y Baja Edad Media: Consolidación y Señoríos</h3>
@@ -125,7 +125,7 @@
                     </li>
                     <li class="timeline-item">
                         <div class="timeline-icon">
-                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Edad Moderna y Contemporánea">
+                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Edad Moderna y Contemporánea" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Edad Moderna y Contemporánea: De los Austrias a Nuestros Días</h3>

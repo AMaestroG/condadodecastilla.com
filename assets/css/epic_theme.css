@@ -231,9 +231,12 @@ a:focus-visible {
     text-decoration: underline;
     letter-spacing: 0.25px;
 }
-a:focus-visible {
+a:focus-visible,
+button:focus-visible,
+.menu-item-button:focus-visible {
     outline: 2px solid var(--epic-gold-main);
     outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(var(--epic-gold-main-rgb, 207,181,59), 0.5);
 }
 
 /* --- Lists --- */
@@ -700,6 +703,12 @@ body.dark-mode .footer .social-links a:focus-visible {
        Let's remove the specific margin from .page-content-block.dark-bg-content here,
        as it will inherit from the new general .page-content-block rule.
     */
+}
+
+@media (max-width: 640px) {
+    .section.alternate-bg {
+        background-image: none !important;
+    }
 }
 
 
@@ -2397,6 +2406,12 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     margin-bottom: 40px; /* Space between items */
     padding-left: 95px; /* Space for the icon */
 }
+
+@media (max-width: 640px) {
+    .timeline-item {
+        padding-left: 60px;
+    }
+}
 .timeline-item:last-child {
     margin-bottom: 0;
 }
@@ -2439,6 +2454,14 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     border: 1px solid var(--epic-gold-secondary);
     text-align: center; /* Timeline content block itself centered */
     /* text-align: center; */ /* Text within p will be left by default */
+}
+
+@media (max-width: 640px) {
+    .timeline-content {
+        max-width: 20rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .timeline-content h3 {

@@ -61,6 +61,7 @@
 body.menu-compressed {
     transition: transform 0.3s ease;
     transform: scaleX(0.95);
+    overflow: hidden;
 }
 
 body.menu-open-left,
