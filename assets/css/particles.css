@@ -1,0 +1,34 @@
+#particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10px;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255,240,200,0.6);
+  border-radius: 50%;
+  animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0.8;
+  }
+}
