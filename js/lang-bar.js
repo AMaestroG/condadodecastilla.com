@@ -1,6 +1,7 @@
-function loadGoogleTranslate() {
+function loadGoogleTranslate(callback) {
     if (window.googleTranslateElementInit) {
         window.googleTranslateElementInit();
+        if (typeof callback === 'function') callback();
         return;
     }
     window.googleTranslateElementInit = function() {
@@ -8,10 +9,13 @@ function loadGoogleTranslate() {
             pageLanguage: 'es',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
         }, 'google_translate_element');
+        if (typeof callback === 'function') callback();
     };
     var script = document.createElement('script');
     script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     script.async = true;
+    script.onload = function() { window.googleTranslateLoaded = true; };
+    script.onerror = function() { console.error('Failed to load Google Translate script'); };
     document.head.appendChild(script);
 }
 
@@ -19,31 +23,23 @@ function toggleLanguageBar() {
     const el = document.getElementById('google_translate_element');
     if (!el) return;
 
-    if (!window.googleTranslateLoaded) {
-        loadGoogleTranslate();
-        window.googleTranslateLoaded = true;
-    }
-
     const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
     if (isHidden) {
-        el.style.display = 'block';
         const applyOffset = () => {
             const offset = el.offsetHeight || 40;
             document.documentElement.style.setProperty('--language-bar-offset', offset + 'px');
             document.body.style.setProperty('--language-bar-offset', offset + 'px');
         };
 
-        if (el.childElementCount === 0) {
-            const observer = new MutationObserver((mutations, obs) => {
-                if (el.childElementCount > 0) {
-                    applyOffset();
-                    obs.disconnect();
-                }
+        if (!window.googleTranslateLoaded) {
+            loadGoogleTranslate(() => {
+                applyOffset();
             });
-            observer.observe(el, { childList: true, subtree: true });
         } else {
             applyOffset();
         }
+
+        el.style.display = 'block';
     } else {
         el.style.display = 'none';
         document.documentElement.style.setProperty('--language-bar-offset', '0px');
@@ -66,12 +62,16 @@ function initLangBarToggle() {
     const params = new URLSearchParams(window.location.search);
     const lang = params.get('lang');
     if (lang) {
+        const startTranslation = () => {
+            document.cookie = 'googtrans=/es/' + lang + ';path=/';
+            toggleLanguageBar();
+        };
         if (!window.googleTranslateLoaded) {
-            loadGoogleTranslate();
+            loadGoogleTranslate(startTranslation);
             window.googleTranslateLoaded = true;
+        } else {
+            startTranslation();
         }
-        document.cookie = 'googtrans=/es/' + lang + ';path=/';
-        toggleLanguageBar();
     }
 }
 
