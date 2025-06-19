@@ -74,3 +74,8 @@ body {
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.3);
     border-radius: var(--border-radius-medio, 8px);
 }
+
+/* Purple shadow utility for timeline cards */
+.purple-shadow {
+    box-shadow: 0 4px 10px rgba(var(--epic-purple-emperor-rgb, 74, 13, 103), 0.4);
+}
