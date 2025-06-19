@@ -185,6 +185,10 @@ npx tailwindcss@3.4.4 -i assets/css/tailwind_base.css -o assets/vendor/css/tailw
 
 Ejecuta `npm install` para descargar las bibliotecas declaradas en `package.json` (por ejemplo **Puppeteer** y **Tailwind CSS**).
 
+#### Requisito de Node.js
+
+Se necesita **Node.js 18** o superior. Las dependencias se enumeran en `package.json` y quedan bloqueadas en `package-lock.json`.
+
 Asegúrate de que la herramienta `npm` esté disponible en tu sistema antes de lanzar `npx tailwindcss` o `npm test`.
 
 A continuación copia el archivo de ejemplo `.env.example` a `.env` y
@@ -248,6 +252,7 @@ Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pr
 ```bash
 composer install
 pip install -r requirements.txt
+npm install
 ```
 
 `composer install` debe ejecutarse **antes** de usar `vendor/bin/phpunit` y
@@ -265,13 +270,13 @@ Con las dependencias ya instaladas, ejecuta cada conjunto de tests de forma expl
 vendor/bin/phpunit
 python -m unittest tests/test_flask_api.py
 # Asegúrate de tener un servidor local en marcha (por ejemplo `php -S localhost:8080`)
-npm test
+npm run test:puppeteer
 node tests/moonToggleTest.js
 ```
 
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
-`npm test` (o `npm run test:puppeteer`) inicia los checks de interfaz con Puppeteer.
+`npm run test:puppeteer` ejecuta las pruebas de interfaz con Puppeteer.
 
 Además se proporcionan scripts auxiliares para validar el estado del código:
 
