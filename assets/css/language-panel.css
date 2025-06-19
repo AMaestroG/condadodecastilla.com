@@ -5,7 +5,8 @@
     bottom: 0;
     width: 260px;
     max-width: 80%;
-    background: rgba(var(--epic-alabaster-bg-rgb, 253,250,246), 0.95);
+    /* Purple translucent backdrop similar to other panels */
+    background: rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.9);
     border-left: 2px solid var(--epic-gold-main);
     box-shadow: -3px 0 15px rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.3);
     padding: 20px;
@@ -50,15 +51,15 @@
 }
 
 #flag-toggle {
-    margin-top: 0; /* Align button with top header */
+    margin-top: 4px; /* Slightly lower position for visual balance */
     z-index: 1005;
-    padding: 8px 12px;
+    padding: 6px 10px; /* Reduced size */
     background-color: var(--epic-gold-main);
     color: var(--epic-purple-emperor);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 0.9em; /* Smaller text */
     transition: background-color 0.3s ease;
 }
 
