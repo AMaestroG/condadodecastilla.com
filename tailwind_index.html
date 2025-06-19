@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condado de Castilla - Página Principal</title>
+    <link rel="stylesheet" href="/assets/vendor/css/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .font-epic-title { font-family: 'Cinzel', serif; }
+        .font-epic-body { font-family: 'Lora', serif; }
+        .bg-imperial-purple { --tw-bg-opacity: 1; background-color: rgb(74 13 103 / var(--tw-bg-opacity)); }
+        .text-old-gold { --tw-text-opacity: 1; color: rgb(184 134 11 / var(--tw-text-opacity)); }
+        .bg-old-gold { --tw-bg-opacity: 1; background-color: rgb(207 181 59 / var(--tw-bg-opacity)); }
+        .texture-alabaster { background-image: url('/assets/img/alabastro.jpg'); background-size: cover; background-blend-mode: multiply; }
+    </style>
+</head>
+<body class="font-epic-body bg-[color:var(--epic-alabaster-bg)] text-gray-900">
+    <header class="fixed w-full bg-imperial-purple bg-opacity-90 text-old-gold shadow z-20">
+        <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+            <h1 class="font-epic-title text-xl md:text-2xl gradient-text">Condado de Castilla</h1>
+            <button id="menu-toggle" aria-label="Abrir menú" class="text-old-gold md:hidden focus:outline-none">☰</button>
+            <nav class="hidden md:flex space-x-4" aria-label="Navegación principal">
+                <a href="#hero" class="hover:underline">Inicio</a>
+                <a href="#timeline" class="hover:underline">Historia</a>
+                <a href="#arqueologia" class="hover:underline">Arqueología</a>
+                <a href="#foro" class="hover:underline">Foro</a>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="slide-menu left texture-alabaster md:hidden" aria-label="Menú móvil">
+            <ul class="py-4">
+                <li><a href="#hero" class="block px-4 py-2">Inicio</a></li>
+                <li><a href="#timeline" class="block px-4 py-2">Historia</a></li>
+                <li><a href="#arqueologia" class="block px-4 py-2">Arqueología</a></li>
+                <li><a href="#foro" class="block px-4 py-2">Foro</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-20 space-y-20">
+        <section id="hero" class="relative text-center text-old-gold texture-alabaster bg-imperial-purple bg-opacity-75 py-20">
+            <h2 class="font-epic-title text-4xl sm:text-5xl lg:text-6xl mb-4 gradient-text">Cuna de la Cultura Hispana</h2>
+            <p class="text-lg sm:text-xl max-w-prose mx-auto">Promocionamos el turismo en Cerezo de Río Tirón y gestionamos su patrimonio arqueológico y cultural.</p>
+        </section>
+
+        <section id="timeline" class="max-w-5xl mx-auto px-4">
+            <h2 class="font-epic-title text-3xl text-imperial-purple mb-6">Línea de Tiempo Histórica</h2>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <article class="p-4 bg-white/70 border-l-4 border-old-gold">
+                    <h3 class="font-epic-title text-2xl">Antigüedad</h3>
+                    <p>Espacio para describir los orígenes y primeros asentamientos.</p>
+                </article>
+                <article class="p-4 bg-white/70 border-l-4 border-old-gold">
+                    <h3 class="font-epic-title text-2xl">Edad Media</h3>
+                    <p>Breve introducción a la formación del Condado de Castilla.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="arqueologia" class="texture-alabaster bg-old-gold bg-opacity-80 py-16">
+            <div class="max-w-4xl mx-auto px-4 text-imperial-purple">
+                <h2 class="font-epic-title text-3xl mb-4">Exploración Arqueológica</h2>
+                <p class="mb-6">Zona preparada para mostrar hallazgos y excavaciones de Cerezo de Río Tirón.</p>
+                <img src="/assets/img/Muralla.jpg" alt="Muralla histórica de Cerezo de Río Tirón" class="w-full h-auto rounded shadow-md" />
+            </div>
+        </section>
+
+        <section id="foro" class="max-w-4xl mx-auto px-4">
+            <h2 class="font-epic-title text-3xl text-imperial-purple mb-4">Foro de Expertos</h2>
+            <p class="mb-8">Cinco especialistas comparten su conocimiento para impulsar la comunidad.</p>
+            <ul class="grid md:grid-cols-5 gap-4 text-center">
+                <li>Alicia la Historiadora</li>
+                <li>Bruno el Arqueólogo</li>
+                <li>Clara la Guía Turística</li>
+                <li>Diego el Gestor Cultural</li>
+                <li>Elena la Tecnóloga</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="bg-imperial-purple text-old-gold text-center py-4 texture-alabaster">
+        <p class="font-epic-title">© 2024 Condado de Castilla</p>
+        <p>Difundiendo el legado de Castilla y Cerezo de Río Tirón.</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                menu.classList.toggle('open');
+                document.body.classList.toggle('menu-compressed', menu.classList.contains('open'));
+                document.body.classList.toggle('menu-open-left', menu.classList.contains('open'));
+            });
+        }
+    </script>
+</body>
+</html>
