@@ -176,6 +176,12 @@ si ejecutas:
 npx tailwindcss@3.4.4 -i assets/css/tailwind_base.css -o assets/vendor/css/tailwind.min.css --minify
 ```
 
+### Dependencias de npm
+
+Ejecuta `npm install` para descargar las bibliotecas declaradas en `package.json` (por ejemplo **Puppeteer** y **Tailwind CSS**).
+
+Asegúrate de que la herramienta `npm` esté disponible en tu sistema antes de lanzar `npx tailwindcss` o `npm run test:puppeteer`.
+
 A continuación copia el archivo de ejemplo `.env.example` a `.env` y
 rellena los valores reales que utilizará el proyecto. Este paso es
 imprescindible **antes** de poner en marcha el sitio o ejecutar las
