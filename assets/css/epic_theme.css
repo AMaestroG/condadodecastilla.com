@@ -2867,3 +2867,47 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
     padding-top: 20px;
     border-top: 1px dashed var(--epic-neutral-border);
 }
+
+/* ===== Luna Theme Variables ===== */
+body.luna {
+    --epic-purple-emperor: #1e3a8a; /* Replacing purple with deep blue */
+    --epic-purple-emperor-rgb: 30, 58, 138;
+    --epic-gold-main: #c0c0c0; /* Main silver tone */
+    --epic-gold-main-rgb: 192, 192, 192;
+    --epic-gold-secondary: #a9a9a9; /* Secondary silver */
+    --epic-gold-secondary-rgb: 169, 169, 169;
+    --global-box-shadow-light: 0 2px 8px rgba(30, 58, 138, 0.5);
+    --global-box-shadow-medium: 0 5px 15px rgba(30, 58, 138, 0.5);
+    --global-box-shadow-dark: 0 8px 25px rgba(30, 58, 138, 0.5);
+    background-color: var(--epic-alabaster-bg);
+    padding-top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+}
+
+body.luna::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    background-image: var(--alabaster-background-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    filter: hue-rotate(200deg) brightness(90%);
+}
+
+body.luna .firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    animation: firefly 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes firefly {
+    0% { opacity: 0; transform: translateY(0) scale(0.5); }
+    50% { opacity: 1; transform: translateY(-15px) scale(1); }
+    100% { opacity: 0; transform: translateY(-30px) scale(0.5); }
+}
