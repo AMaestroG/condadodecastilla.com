@@ -20,6 +20,13 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 - Paleta que cambia automáticamente según la hora del visitante (amanecer, mediodía, atardecer o noche) con opción manual.
 - Foro con cinco agentes expertos para dinamizar la comunidad.
 
+### Modo luna
+
+Una variante oscura que reduce la luminosidad general. Pulsa el botón `moon-toggle`
+para activar el modo luna; el script añadirá la clase `luna` al `<body>` y guardará
+el valor `"moon"` en `localStorage`. Vuelve a pulsar para restaurar la apariencia
+clara.
+
 ### Agentes del foro
 
 Cinco perfiles virtuales dinamizan las conversaciones y ayudan a resolver dudas:
@@ -268,6 +275,9 @@ python -m unittest tests/test_flask_api.py
 npm test
 node tests/moonToggleTest.js
 ```
+
+`node tests/moonToggleTest.js` verifica que el botón `moon-toggle` añada la clase
+`luna` y guarde `"moon"` en `localStorage`.
 
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
