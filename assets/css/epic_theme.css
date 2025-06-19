@@ -164,6 +164,11 @@ body::before {
     }
 }
 
+@keyframes heroLightSweep {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
 /* --- Headings --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headings);
@@ -552,6 +557,19 @@ body.dark-mode .footer .social-links a:focus-visible {
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: transparent !important; /* Default dark purple overlay */
     z-index: 1; /* Below content, above background image */
+}
+/* Light sweep effect across hero sections */
+.hero::after, .page-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(45deg, rgba(255,255,200,0.1), rgba(255,255,255,0));
+    animation: heroLightSweep 15s linear infinite;
+    z-index: 1;
 }
 /* If a specific background image is set via inline style, this ensures the overlay is still there */
 [style*="background-image"]::before {
