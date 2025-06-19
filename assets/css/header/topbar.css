@@ -6,7 +6,8 @@
     left: 0;
     right: 0;
     z-index: 4000;
-    background-color: var(--epic-transparent-overlay-medium);
+    /* Use a semi-transparent purple tone for the fixed button bar */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.85);
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
@@ -25,7 +26,7 @@
     left: 0;
     right: 0;
     height: 48px;
-    background: var(--epic-transparent-overlay-medium);
+    background: rgba(var(--epic-purple-emperor-rgb), 0.85);
     z-index: 3000;
 }
 
