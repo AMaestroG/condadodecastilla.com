@@ -521,6 +521,15 @@ body.dark-mode .footer .social-links a:focus-visible {
     min-height: 80vh; /* Taller for homepage hero */
 }
 
+@media (max-width: 768px) {
+    .hero {
+        /* Use a slightly smaller minimum height on small screens */
+        min-height: 65vh;
+        /* Use the small viewport height unit when supported */
+        min-height: 100svh;
+    }
+}
+
 
 /* Overlay for all hero/page-header sections to ensure text readability */
 .hero::before, .page-header::before {
