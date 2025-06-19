@@ -2805,3 +2805,27 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
     padding-top: 20px;
     border-top: 1px dashed var(--epic-neutral-border);
 }
+
+/* Fireflies particle effect */
+.fireflies-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.firefly {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    animation: firefly-drift var(--firefly-duration, 12s) linear forwards;
+}
+
+@keyframes firefly-drift {
+    from { opacity: 1; transform: translate(0, 0); }
+    to { opacity: 0; transform: translate(var(--tx, 0), var(--ty, 0)); }
+}
