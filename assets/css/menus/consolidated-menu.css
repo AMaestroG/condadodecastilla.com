@@ -3,7 +3,7 @@
 /* Main toggle button for the consolidated menu */
 #consolidated-menu-button {
     position: relative !important;
-    margin-top: 100px; /* Move menu button 100px down */
+    margin-top: 0; /* Align button with top header */
     z-index: 1005 !important; /* keep above menu */
     padding: 8px 12px; /* Slightly more compact */
     background-color: var(--epic-gold-main);

@@ -41,7 +41,7 @@
 }
 
 #flag-toggle {
-    margin-top: 100px;
+    margin-top: 0; /* Align button with top header */
     z-index: 1005;
     padding: 8px 12px;
     background-color: var(--epic-gold-main);
