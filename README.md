@@ -271,7 +271,7 @@ node tests/moonToggleTest.js
 
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
-`npm test` (o `npm run test:puppeteer`) inicia los checks de interfaz con Puppeteer.
+`npm test` ejecuta la suite de Puppeteer (alias de `npm run test:puppeteer`).
 
 Además se proporcionan scripts auxiliares para validar el estado del código:
 
