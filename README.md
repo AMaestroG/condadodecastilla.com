@@ -230,6 +230,7 @@ Variables requeridas:
 - **`GEMINI_API_KEY`** – clave de acceso proporcionada por el proveedor.
 - **`GEMINI_API_ENDPOINT`** – URL del punto de entrada (opcional; si se omite se
   usa `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent`).
+- **`FORUM_COMMENT_COOLDOWN`** – tiempo de espera en segundos para que un usuario pueda volver a publicar en el foro (consulta `.env.example` donde el valor predeterminado es `60`).
 
 Asegúrate de exportarlas en tu terminal o definirlas en `.env` para que
 `includes/ai_utils.php` pueda realizar llamadas reales.
