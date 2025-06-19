@@ -46,8 +46,6 @@ Este bloque fijo aparece al inicio de cada página y mantiene visibles los contr
 ### Botones de control rápido
 Estos son los accesos que incorpora por defecto:
 - `#consolidated-menu-button` abre el panel lateral con toda la navegación.
-- `#ia-chat-toggle` muestra u oculta el chat de IA de forma inmediata.
-- `#homonexus-toggle` activa el modo experimental Homonexus.
 - `#ai-chat-trigger` para iniciar el chat desde el menú.
 - `#theme-toggle` alterna entre modo claro y oscuro.
 - `#lang-bar-toggle` despliega la barra de traducción de Google.
