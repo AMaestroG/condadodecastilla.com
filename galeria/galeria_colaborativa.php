@@ -305,6 +305,7 @@ if (is_dir($gallery_dir)) {
                     
                     const titleH4 = document.createElement('h4');
                     titleH4.textContent = photo.titulo;
+                    titleH4.classList.add('blend-screen');
                     captionDiv.appendChild(titleH4);
 
                     if (photo.descripcion) {
