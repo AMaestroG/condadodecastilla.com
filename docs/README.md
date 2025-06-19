@@ -11,3 +11,5 @@ Para otras referencias, visita también:
 - [Guía de index.php y menús](index-guide.md)
 - [Resumen de módulos JavaScript](js-modules-overview.md)
 - [Guía de Estilo](style-guide.md)
+- [Documentación del crawler](crawler.md)
+- [Interfaz de la base de datos de grafo](graph_db.md)

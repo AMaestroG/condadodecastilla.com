@@ -5,6 +5,6 @@
 - [x] Crear un foro con cinco agentes expertos que dinamicen la comunidad.
 
 ## Nuevas tareas
-- [ ] Documentar el crawler y la base de datos de grafo de conocimiento.
+ - [x] Documentar el crawler y la base de datos de grafo de conocimiento.
 - [ ] Revisar la accesibilidad y el rendimiento en dispositivos móviles.
 - [ ] Integrar el modo Homonexus y el chat IA en todas las páginas.
