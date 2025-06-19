@@ -11,6 +11,7 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 | `--color-piedra-media` | Arenisca media para fondos secundarios | `#D2B48C` |
 | `--color-texto-principal` | Marrón oscuro para la tipografía | `#2c1d12` |
 | `--color-fondo-pagina` | Blanco hueso sutil de fondo | `#fdfaf6` |
+| `--epic-alabaster-bg` | Fondo principal de alabastro | `#fdfaf6` |
 | `--color-negro-contraste` | Negro de alto contraste | `#1A1A1A` |
 | `--alert-bg` | Fondo de mensajes de alerta | `#ffdddd` |
 | `--alert-border` | Borde de mensajes de alerta | `#ff0000` |
