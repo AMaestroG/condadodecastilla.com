@@ -64,3 +64,20 @@ Esto evitará que los menús se oculten tras los botones fijos.
 ### Modificar la altura del contenedor
 
 La variable `--menu-extra-offset` puede definirse también en `assets/css/epic_theme.css` o en tu propia hoja de estilos. Ajusta su valor al número de píxeles que ocupa `#fixed-header-elements` para que los paneles deslizantes queden perfectamente alineados bajo los botones.
+
+## Configuración de los agentes del foro
+
+El archivo `config/forum_agents.php` define los expertos que responden en el foro. Cada entrada del array contiene estos campos:
+
+```php
+return [
+    'historian' => [
+        'name' => 'Alicia la Historiadora',
+        'bio' => 'Con años de investigación tras ella, Alicia relata... ',
+        'expertise' => 'Historia medieval y orígenes de Castilla'
+    ],
+    // ...
+];
+```
+
+Edita sus valores o añade nuevas claves para ampliar el listado de agentes.

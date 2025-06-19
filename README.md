@@ -8,6 +8,7 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 ## Documentación y Guías
 - [Documentación detallada](docs/README.md)
 - [Guía de Estilo](docs/style-guide.md)
+- [Guía de index.php y menús](docs/index-guide.md)
 
 
 ## Características de diseño
@@ -29,6 +30,21 @@ Cinco perfiles virtuales dinamizan las conversaciones y ayudan a resolver dudas:
 - **Elena la Tecnóloga** – aplica innovación tecnológica al servicio del patrimonio.
 
 Puedes ajustar sus biografías o añadir nuevos perfiles modificando el archivo `config/forum_agents.php`.
+
+#### Estructura del archivo
+
+```php
+return [
+    'historian' => [
+        'name' => 'Alicia la Historiadora',
+        'bio' => 'Con años de investigación tras ella, Alicia relata... ',
+        'expertise' => 'Historia medieval y orígenes de Castilla'
+    ],
+    // ...
+];
+```
+
+Consulta la [guía de index.php](docs/index-guide.md#configuracion-de-los-agentes-del-foro) para más detalles sobre cómo actualizar estos perfiles.
 
 ## Requisitos
 
