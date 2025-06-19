@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const anyOpen = document.querySelectorAll('.menu-panel.active').length > 0;
         document.body.classList.toggle('menu-compressed', anyOpen);
+        if (window.audioController && typeof window.audioController.handleMenuToggle === 'function') {
+            window.audioController.handleMenuToggle(anyOpen);
+        }
+        document.dispatchEvent(new CustomEvent('menu-toggled', { detail: { open: anyOpen } }));
 
         if (open && menu.id === 'ai-chat-panel') {
             const chatArea = document.getElementById('gemini-chat-area');
