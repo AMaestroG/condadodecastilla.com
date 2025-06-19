@@ -5,6 +5,7 @@ This document summarizes the purpose of the main JavaScript files present in the
 | File | Description |
 |------|-------------|
 | `assets/js/main.js` | Handles sliding menu interactions, closing behavior, and the light/dark theme toggle used across all pages. |
+| `assets/js/homonexus-toggle.js` | Toggles Homonexus mode, storing the preference in a cookie. |
 | `assets/js/foro.js` | Simple toggling for the forum agents menu. |
 | `js/config.js` | Defines `API_BASE_URL` and `DEBUG_MODE` globals for other scripts. |
 | `js/layout.js` | Loads external CSS/JS libraries on demand, initializes the flashlight effect and other page-level utilities. |
