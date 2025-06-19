@@ -61,7 +61,7 @@ if (is_dir($gallery_dir)) {
         <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <?php editableText('galeria_colab_header_titulo', $pdo, 'Galería Colaborativa del Condado', 'h1', ''); ?>
+            <?php editableText('galeria_colab_header_titulo', $pdo, 'Galería Colaborativa del Condado', 'h1', 'blend-overlay'); ?>
             <?php editableText('galeria_colab_header_parrafo', $pdo, 'Un mosaico de miradas sobre la belleza, historia y rincones de nuestra tierra, creado por todos.', 'p', ''); ?>
         </div>
     </header>
