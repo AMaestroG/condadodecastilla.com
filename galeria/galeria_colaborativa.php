@@ -125,35 +125,8 @@ if (is_dir($gallery_dir)) {
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Efecto Linterna ---
-            const linterna = document.getElementById('linterna-condado');
-            const seccionesConLinterna = document.querySelectorAll('.section'); 
-
-            if (linterna) {
-                function actualizarPosicionLinterna(e) {
-                    requestAnimationFrame(() => {
-                        linterna.style.setProperty('--mouse-x', e.clientX + 'px');
-                        linterna.style.setProperty('--mouse-y', e.clientY + 'px');
-                    });
-                }
-                function activarLinterna() {
-                    requestAnimationFrame(() => {
-                        linterna.style.setProperty('--linterna-opacity', '0.65'); 
-                        linterna.style.setProperty('--linterna-radio', '250px'); 
-                    });
-                }
-                function desactivarLinterna() {
-                    requestAnimationFrame(() => {
-                        linterna.style.setProperty('--linterna-opacity', '0');
-                    });
-                }
-                document.body.addEventListener('mousemove', actualizarPosicionLinterna);
-                seccionesConLinterna.forEach(section => {
-                    section.addEventListener('mouseenter', activarLinterna);
-                    section.addEventListener('mouseleave', desactivarLinterna);
-                });
-            } else {
-                console.warn("Elemento #linterna-condado no encontrado.");
+            if (typeof initializeLinterna === "function") {
+                initializeLinterna();
             }
 
             // --- Lógica de la Galería Colaborativa ---
