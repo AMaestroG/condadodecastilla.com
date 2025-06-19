@@ -52,3 +52,13 @@ Para integrar titulares sobre fondos complejos se disponen las clases `.blend-sc
 <h1 class="blend-overlay">Título</h1>
 <p class="blend-screen">Texto destacado</p>
 ```
+
+## Nueva tipografía para encabezados
+
+Para resaltar los títulos principales se ha incorporado la fuente **Playfair Display Variable**. Puedes aplicarla a través de la variable `--font-headings` definida en `assets/css/epic_theme.css`.
+
+Esta tipografía se acompaña de un efecto de brillo al pasar el ratón gracias a la clase `.heading-sheen`. Dicho efecto intensifica la atención sobre los encabezados y mantiene la estética clásica del sitio.
+
+```html
+<h2 class="heading-sheen" style="font-family: var(--font-headings);">Ejemplo de titular</h2>
+```
