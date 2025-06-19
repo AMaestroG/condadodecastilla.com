@@ -17,11 +17,12 @@ const puppeteer = require('puppeteer');
   }));
 
   const offset = bodyStyles.marginTop || bodyStyles.paddingTop;
-  if (offset !== barHeight) {
-    console.error(`Expected body offset ${offset} to equal bar height ${barHeight}`);
+  if (offset !== 0) {
+    console.error(`Expected no body offset but got ${offset}`);
+    await browser.close();
     process.exit(1);
   } else {
-    console.log('Body offset matches language bar height:', barHeight);
+    console.log('Body offset is zero as expected');
   }
   await browser.close();
 })();

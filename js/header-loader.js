@@ -9,9 +9,6 @@
                 if (typeof setupLanguageBar === 'function') {
                     setupLanguageBar();
                 }
-                if (typeof applyLanguageBarOffset === 'function') {
-                    applyLanguageBarOffset();
-                }
             })
             .catch(err => console.error('Error loading header:', err));
     });
