@@ -17,10 +17,10 @@
       </ol>
     </nav>
     <main><section class="section"><div class="container-epic">
-        <p>Las "Milenarias y olvidadas cuevas de Setefenestras", situadas en la zona de Quintanilleja o Quintanilla de las Dueñas, son un enclave de gran importancia histórica y cultural. Se las considera una "cuna del idioma castellano" por los posibles escritos o grafitis antiguos que podrían albergar en sus paredes, tapados por "polvo milenario".</p>
-        <p>Una característica distintiva de estas cuevas es el uso de "Lapis Specularis" (yeso selenítico traslúcido) en sus paredes y techos. Este material, más caro que el oro en la antigüedad, habría creado un espectáculo visual impresionante al reflejar la luz solar, especialmente al amanecer, visible desde kilómetros dada su altura.</p>
-        <p>El acceso a estas cuevas es descrito como difícil y peligroso, recomendándose guía local. Se menciona que se "abrió camino" en 2018.</p>
-        <p>Las cuevas de Setefenestras también se relacionan con el Circo Romano de Auca Patricia y la iglesia de San Millán.</p>
+        <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Las "Milenarias y olvidadas cuevas de Setefenestras", situadas en la zona de Quintanilleja o Quintanilla de las Dueñas, son un enclave de gran importancia histórica y cultural. Se las considera una "cuna del idioma castellano" por los posibles escritos o grafitis antiguos que podrían albergar en sus paredes, tapados por "polvo milenario".</p>
+        <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Una característica distintiva de estas cuevas es el uso de "Lapis Specularis" (yeso selenítico traslúcido) en sus paredes y techos. Este material, más caro que el oro en la antigüedad, habría creado un espectáculo visual impresionante al reflejar la luz solar, especialmente al amanecer, visible desde kilómetros dada su altura.</p>
+        <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">El acceso a estas cuevas es descrito como difícil y peligroso, recomendándose guía local. Se menciona que se "abrió camino" en 2018.</p>
+        <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Las cuevas de Setefenestras también se relacionan con el Circo Romano de Auca Patricia y la iglesia de San Millán.</p>
     </div></section></main>
     <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/js/layout.js"></script>
 </body></html>

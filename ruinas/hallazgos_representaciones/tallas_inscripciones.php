@@ -31,8 +31,8 @@
                 <h3>Tallas y Grafitis Destacados</h3>
                 <p>Entre los hallazgos significativos se encuentran:</p>
                 <ul>
-                    <li><strong>Antiquísima talla de San Antón con el Tau en el pecho:</strong> Originalmente en el Hospital de San Jorge y actualmente en la Iglesia de San Nicolás. Es un testimonio importante del arte religioso temprano y la historia hospitalaria de Cerezo.</li>
-                    <li><strong>Escritos o grafitis en las Cuevas de Setefenestras:</strong> Se postula que estas cuevas, consideradas cuna del idioma castellano, contienen inscripciones o grafitis del vulgo de gran antigüedad, cubiertos por polvo milenario. Su estudio podría arrojar luz sobre la evolución temprana del idioma.</li>
+                    <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><strong>Antiquísima talla de San Antón con el Tau en el pecho:</strong> Originalmente en el Hospital de San Jorge y actualmente en la Iglesia de San Nicolás. Es un testimonio importante del arte religioso temprano y la historia hospitalaria de Cerezo.</li>
+                    <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><strong>Escritos o grafitis en las Cuevas de Setefenestras:</strong> Se postula que estas cuevas, consideradas cuna del idioma castellano, contienen inscripciones o grafitis del vulgo de gran antigüedad, cubiertos por polvo milenario. Su estudio podría arrojar luz sobre la evolución temprana del idioma.</li>
                 </ul>
                 <!-- Contenido específico sobre tallas, arte rupestre e inscripciones se añadirá aquí -->
             </div>
