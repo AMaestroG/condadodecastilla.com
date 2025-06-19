@@ -8,7 +8,7 @@
     },
   "scripts": {
     "pretest:puppeteer": "php -S localhost:8080 >/dev/null 2>&1 &",
-    "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/muteToggleTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js && node tests/moonToggleTest.js",
+    "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/muteToggleTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js && node tests/linternaGradientTest.js && node tests/moonToggleTest.js",
     "test": "npm run test:puppeteer"
   }
 }
