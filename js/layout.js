@@ -176,14 +176,28 @@ function loadPageCss() {
     if (!page) { page = 'index'; }
     page = page.split('.')[0];
     const cssPath = `/assets/css/pages/${page}.css`;
-    fetch(cssPath, { method: 'HEAD' }).then(res => {
-        if (res.ok) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = cssPath;
-            document.head.appendChild(link);
-        }
-    }).catch(() => {});
+
+    const appendCss = () => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = cssPath;
+        document.head.appendChild(link);
+    };
+
+    if (window.fetch) {
+        fetch(cssPath, { method: 'HEAD' }).then(res => {
+            if (res.ok) appendCss();
+        }).catch(() => {});
+    } else if (XMLHttpRequest) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('HEAD', cssPath, true);
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 400) {
+                appendCss();
+            }
+        };
+        try { xhr.send(); } catch(e) {}
+    }
 }
 
 function loadHeaderCss() {
