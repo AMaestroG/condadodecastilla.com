@@ -1,0 +1,59 @@
+#language-panel {
+    position: fixed;
+    top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+    right: 0;
+    bottom: 0;
+    width: 260px;
+    max-width: 80%;
+    background: rgba(var(--epic-alabaster-bg-rgb, 253,250,246), 0.95);
+    border-left: 2px solid var(--epic-gold-main);
+    box-shadow: -3px 0 15px rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+}
+
+#language-panel.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#language-panel .flag-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#language-panel .flag-list img {
+    width: 40px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 3px rgba(var(--epic-purple-emperor-rgb,74,13,103),0.4));
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#language-panel .flag-list img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px var(--epic-gold-main));
+}
+
+#flag-toggle {
+    margin-top: 100px;
+    z-index: 1005;
+    padding: 8px 12px;
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+#flag-toggle:hover {
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+}
