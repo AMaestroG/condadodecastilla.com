@@ -22,4 +22,5 @@ return [
     ['label' => 'Foro', 'url' => '/foro/index.php'],
     ['label' => 'Blog', 'url' => '/blog.php'],
     ['label' => 'Contacto', 'url' => '/contacto/contacto.php'],
+    ['label' => 'Influencia Romana', 'url' => '/historia/influencia_romana.php'],
 ];
