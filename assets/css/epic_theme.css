@@ -50,7 +50,7 @@
     --global-box-shadow-dark: 0 8px 25px rgba(var(--epic-text-color-rgb), 0.2);
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
     --menu-extra-offset: 60px;
-    /* Altura reservada para la barra de idiomas */
+    /* Altura reservada para la barra de idiomas superior (no usada en el panel lateral) */
     --language-bar-height: 40px;
     /* Espacio superior aplicado al menú, ajustado dinámicamente */
     --menu-top-offset: 0px;
