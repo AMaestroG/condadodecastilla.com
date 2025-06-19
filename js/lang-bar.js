@@ -71,8 +71,46 @@ function initLangBarToggle() {
     }
 }
 
+function toggleLanguagePanel() {
+    const panel = document.getElementById('language-panel');
+    if (!panel) return;
+    const open = panel.classList.toggle('active');
+    document.body.classList.toggle('menu-open-right', open);
+    document.body.classList.toggle('menu-compressed', open);
+    const btn = document.getElementById('lang-panel-toggle');
+    if (btn) btn.setAttribute('aria-expanded', open);
+}
+
+function translateTo(lang) {
+    const apply = () => {
+        document.cookie = 'googtrans=/es/' + lang + ';path=/';
+        toggleLanguageBar();
+        toggleLanguagePanel();
+    };
+    if (!window.googleTranslateLoaded) {
+        loadGoogleTranslate(apply);
+        window.googleTranslateLoaded = true;
+    } else {
+        apply();
+    }
+}
+
+function initFlagPanel() {
+    const toggleBtn = document.getElementById('lang-panel-toggle');
+    const closeBtn = document.getElementById('close-language-panel');
+    if (toggleBtn) toggleBtn.addEventListener('click', toggleLanguagePanel);
+    if (closeBtn) closeBtn.addEventListener('click', toggleLanguagePanel);
+    document.querySelectorAll('#language-panel img[data-lang]').forEach(img => {
+        img.addEventListener('click', () => {
+            const lang = img.getAttribute('data-lang');
+            translateTo(lang);
+        });
+    });
+}
+
 function setupLanguageBar() {
     initLangBarToggle();
+    initFlagPanel();
 }
 
 

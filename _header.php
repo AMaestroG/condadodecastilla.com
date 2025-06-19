@@ -2,6 +2,7 @@
     <?php echo file_get_contents(__DIR__ . '/fragments/header/language-bar.html'); ?>
     <div class="header-action-buttons">
         <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
+        <button id="lang-panel-toggle" aria-label="Seleccionar idioma" aria-expanded="false" role="button" data-menu-target="language-panel"><i class="fas fa-flag"></i></button>
     </div>
 </div>
 
@@ -46,5 +47,16 @@
     } else {
         echo '<p>Error: AI Chat interface not found.</p>';
     }
+    ?>
+</div>
+
+<!-- Right Sliding Panel for Language Flags -->
+<div id="language-panel" class="menu-panel right-panel" role="dialog" aria-label="Selector de idioma">
+    <?php
+        if (file_exists(__DIR__ . '/fragments/header/language-flags.html')) {
+            echo file_get_contents(__DIR__ . '/fragments/header/language-flags.html');
+        } else {
+            echo '<p>Error: Language flags not found.</p>';
+        }
     ?>
 </div>
