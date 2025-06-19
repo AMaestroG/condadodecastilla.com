@@ -125,9 +125,6 @@ if (is_dir($gallery_dir)) {
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if (typeof initializeLinterna === "function") {
-                initializeLinterna();
-            }
 
             // --- Lógica de la Galería Colaborativa ---
             const uploadForm = document.getElementById('uploadPhotoForm');

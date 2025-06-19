@@ -1,11 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize global spotlight effect
-    if (typeof initializeLinterna === 'function') {
-        initializeLinterna();
-    }
-
-    // --- Lógica del Museo Colaborativo (2D Gallery) ---
-
     // --- Variables y DOM Element Selections ---
     const uploadForm = document.getElementById('uploadForm');
     const gallery2DSection = document.getElementById('gallery-2d-section');
