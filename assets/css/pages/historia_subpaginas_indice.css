@@ -8,7 +8,7 @@
             padding: 1.5em;
             margin-bottom: 1.5em;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 8px rgba(var(--color-negro-contraste-rgb), 0.05);
         }
         .subpage-index-item h3 {
             font-family: 'Cinzel', serif;

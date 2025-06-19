@@ -40,7 +40,7 @@
             font-weight: bold;
         }
         .breadcrumb-error {
-            color: red;
+            color: var(--epic-error-red);
             font-size: 0.8em;
         }
 

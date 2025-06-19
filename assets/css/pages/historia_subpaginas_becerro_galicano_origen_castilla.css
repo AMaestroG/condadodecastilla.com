@@ -5,7 +5,7 @@
             padding-left: 1em;
             margin-left: 1em;
             font-style: italic;
-            color: #555;
+            color: var(--epic-text-muted);
         }
 
 #hero-becerro-galicano-origen-castilla {
