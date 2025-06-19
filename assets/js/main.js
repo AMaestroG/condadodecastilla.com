@@ -1,6 +1,27 @@
 // assets/js/main.js - simplified menu controller and theme toggle
 
 document.addEventListener('DOMContentLoaded', () => {
+    const paletteClasses = ['palette-dawn','palette-day','palette-dusk','palette-night'];
+
+    const detectPalette = () => {
+        const h = new Date().getHours();
+        if (h >= 5 && h < 10) return 'dawn';
+        if (h >= 10 && h < 17) return 'day';
+        if (h >= 17 && h < 21) return 'dusk';
+        return 'night';
+    };
+
+    const applyPalette = (p) => {
+        document.body.classList.remove(...paletteClasses);
+        document.body.classList.add(`palette-${p}`);
+    };
+
+    const storedPalette = localStorage.getItem('palette');
+    if (storedPalette && storedPalette !== 'auto') {
+        applyPalette(storedPalette);
+    } else {
+        applyPalette(detectPalette());
+    }
     const closeMenu = (menu) => {
         menu.classList.remove('active');
         const btn = document.querySelector(`[data-menu-target="${menu.id}"]`);
@@ -107,6 +128,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.toggle('fa-sun', isDark);
             }
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    const paletteToggle = document.getElementById('palette-toggle');
+    if (paletteToggle) {
+        const order = ['auto','dawn','day','dusk','night'];
+        let index = order.indexOf(storedPalette || 'auto');
+        paletteToggle.addEventListener('click', () => {
+            index = (index + 1) % order.length;
+            const p = order[index];
+            if (p === 'auto') {
+                localStorage.removeItem('palette');
+                applyPalette(detectPalette());
+            } else {
+                localStorage.setItem('palette', p);
+                applyPalette(p);
+            }
         });
     }
 

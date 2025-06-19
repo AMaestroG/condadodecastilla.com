@@ -1,0 +1,41 @@
+/* Tailwind palette classes based on time of day */
+
+body.palette-dawn {
+    --epic-alabaster-bg: #e5e5e5;
+    --epic-gold-main: #f3e5ab;
+    background-color: var(--epic-alabaster-bg);
+}
+
+body.palette-day {
+    --epic-alabaster-bg: #fdfaf6;
+    --epic-purple-emperor: #6b46c1;
+    background-color: var(--epic-alabaster-bg);
+}
+
+body.palette-dusk {
+    --epic-alabaster-bg: #efe2d2;
+    --epic-gold-main: #f0b429;
+    background-image: linear-gradient(to bottom, #f97316, #f0b429);
+}
+
+body.palette-night {
+    --epic-alabaster-bg: #1a1a1a;
+    --epic-text-color: #e0e0e0;
+    background-color: var(--epic-alabaster-bg);
+    color: var(--epic-text-color);
+}
+
+body.palette-night::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/img/estrella.png');
+    background-size: 120px 120px;
+    background-repeat: repeat;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+}
