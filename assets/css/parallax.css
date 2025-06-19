@@ -1,0 +1,32 @@
+/* assets/css/parallax.css - styles for parallax layers */
+
+.parallax-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+#layer-sky {
+  z-index: -3;
+  background: linear-gradient(to bottom, rgba(var(--epic-purple-emperor-rgb),0.6), rgba(var(--epic-gold-main-rgb),0.4));
+  opacity: 0.7;
+}
+
+#layer-ruins {
+  z-index: -2;
+  background-image: url('/assets/img/Muralla.jpg');
+  background-size: cover;
+  opacity: 0.8;
+}
+
+#layer-grass {
+  z-index: -1;
+  background: linear-gradient(to top, rgba(var(--epic-gold-main-rgb),0.7), rgba(var(--epic-gold-main-rgb),0.3));
+  opacity: 0.8;
+}

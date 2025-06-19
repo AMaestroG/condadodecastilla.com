@@ -353,6 +353,14 @@ body.menu-open-right {
 
 El contenido se desplaza ligeramente y se escala al 97%, dando la sensación de que el sitio se comprime por el lateral desde el que aparece el menú. Al cerrarlo, las clases se eliminan y la página vuelve a su posición original.
 
+## Parallax
+
+Se incluyen capas de parallax que se mueven con el desplazamiento de la página.
+Cada capa define su velocidad mediante el atributo `data-speed` y el script
+`assets/js/parallax.js` aplica la transformación `translateY` correspondiente.
+Si el usuario tiene activada la preferencia de movimiento reducido, el efecto se
+deshabilita automáticamente.
+
 ## Actualizar el árbol de páginas
 
 Para regenerar el archivo `condensed_website_tree.json` que resume la estructura

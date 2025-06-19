@@ -22,6 +22,9 @@ require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
 
 </head>
 <body class="alabaster-bg <?php echo homonexus_body_class(); ?>">
+    <div id="layer-sky" class="parallax-layer" data-speed="0.2"></div>
+    <div id="layer-ruins" class="parallax-layer" data-speed="0.4"></div>
+    <div id="layer-grass" class="parallax-layer" data-speed="0.6"></div>
 <?php echo $db_warning; ?>
 <?php
 // Use dynamic PHP header if available so menu fragments can contain

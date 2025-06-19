@@ -17,6 +17,7 @@ $geminiKey = getenv('GEMINI_API_KEY') ?: '';
 <link rel="stylesheet" href="/assets/css/language-panel.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" integrity="sha384-JwsW+0ELqRMx9x6pRP70dNDO7xjoMnIKPQ4j/wcgUp3NE6PFcAckU4iigFsMghvY" crossorigin="anonymous">
 <link rel="stylesheet" href="/assets/css/custom.css">
+<link rel="stylesheet" href="/assets/css/parallax.css">
 <link rel="stylesheet" href="/assets/css/time_palettes.css">
 <link rel="stylesheet" href="/assets/css/lighting.css">
 <link rel="stylesheet" href="/assets/css/cave_mask.css">
