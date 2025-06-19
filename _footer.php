@@ -20,6 +20,7 @@
 </footer>
 <script src="/assets/js/audio-controller.js"></script>
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/cave_mask.js"></script>
 <script src="/assets/js/hero.js"></script>
 <script src="/assets/js/scroll-fade.js"></script>
 <script src="/js/lang-bar.js"></script>
