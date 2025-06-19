@@ -7,8 +7,8 @@
     --epic-gold-main-rgb: 207, 181, 59;
     --epic-gold-secondary: #9A6700;
     --epic-gold-secondary-rgb: 154, 103, 0;
-    --epic-alabaster-bg: var(--epic-purple-emperor); /* Unified purple background */
-    --epic-alabaster-bg-rgb: var(--epic-purple-emperor-rgb);
+    --epic-alabaster-bg: #fdfaf6; /* Alabaster white page background */
+    --epic-alabaster-bg-rgb: 253, 250, 246;
     --epic-alabaster-medium: var(--epic-purple-emperor); /* Maintain purple tone */
     --epic-alabaster-medium-rgb: var(--epic-purple-emperor-rgb);
     --epic-text-color: #2c1d12;
@@ -28,8 +28,8 @@
     --color-piedra-media-rgb: 210, 180, 140;
     --color-texto-principal: var(--epic-text-color);
     --color-texto-principal-rgb: var(--epic-text-color-rgb);
-    --color-fondo-pagina: var(--epic-purple-emperor);
-    --color-fondo-pagina-rgb: var(--epic-purple-emperor-rgb);
+    --color-fondo-pagina: var(--epic-alabaster-bg);
+    --color-fondo-pagina-rgb: var(--epic-alabaster-bg-rgb);
     --color-negro-contraste: #1A1A1A;
     --color-negro-contraste-rgb: 26, 26, 26;
 
@@ -110,7 +110,7 @@ html {
 body {
     font-family: var(--font-primary);
     color: var(--epic-text-color);
-    background-color: transparent; /* MODIFIED: Was var(--epic-alabaster-bg) */
+    background-color: transparent; /* Body uses pseudo-element with page background */
     line-height: 1.7;
     text-align: left; /* Default text alignment */
     position: relative; /* For z-index stacking with pseudo-element */

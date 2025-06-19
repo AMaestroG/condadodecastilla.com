@@ -1,5 +1,5 @@
 :root {
-    --header-bg: var(--epic-alabaster-bg, #F5F5F5);
+    --header-bg: var(--epic-alabaster-bg, #fdfaf6);
     --primary-purple: var(--epic-purple-emperor, #4A0D67);
     --old-gold: var(--epic-gold-main, #CFB53B);
 }
@@ -47,7 +47,7 @@
     top: 0;
     bottom: 0;
     width: 260px;
-    background: rgba(var(--epic-alabaster-bg-rgb, 255,255,255), 0.8);
+    background: rgba(var(--epic-alabaster-bg-rgb, 253,250,246), 0.8);
     backdrop-filter: blur(6px);
     overflow-y: auto;
     transition: transform 0.3s ease;
