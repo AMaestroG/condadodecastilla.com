@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <?php include __DIR__ . "/../includes/head_common.php"; ?>
-    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
+    <?php
+    require_once __DIR__ . "/../includes/load_page_css.php";
+    load_page_css();
+    ?>
     <title>Capítulo 9: Cerezo en la Plena y Baja Edad Media (Siglos XII-XV): Entre el Esplendor y la Crisis</title>
 </head>
 <body>

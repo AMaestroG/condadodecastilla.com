@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <?php include __DIR__ . "/../../includes/head_common.php"; ?>
-    <?php require_once __DIR__ . "/../../includes/load_page_css.php"; ?>
+    <?php
+    require_once __DIR__ . "/../../includes/load_page_css.php";
+    load_page_css();
+    ?>
     <title>Condes de Castilla y Álava en el Alcázar de Cerasio</title>
 </head>
 <body>

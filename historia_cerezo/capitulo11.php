@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <?php include __DIR__ . "/../includes/head_common.php"; ?>
-    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
+    <?php
+    require_once __DIR__ . "/../includes/load_page_css.php";
+    load_page_css();
+    ?>
     <title>Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</title>
 </head>
 <body>

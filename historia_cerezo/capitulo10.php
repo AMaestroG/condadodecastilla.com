@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <?php include __DIR__ . "/../includes/head_common.php"; ?>
-    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
+    <?php
+    require_once __DIR__ . "/../includes/load_page_css.php";
+    load_page_css();
+    ?>
     <title>Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</title>
 </head>
 <body>

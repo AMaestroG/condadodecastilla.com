@@ -15,7 +15,10 @@ require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
 <head>
     <title>Condado de Castilla - Cuna de tu Cultura y Lengua</title>
     <?php include __DIR__ . '/includes/head_common.php'; ?>
-    <?php require_once __DIR__ . '/includes/load_page_css.php'; ?>
+    <?php
+    require_once __DIR__ . '/includes/load_page_css.php';
+    load_page_css();
+    ?>
 
 </head>
 <body class="<?php echo homonexus_body_class(); ?>">

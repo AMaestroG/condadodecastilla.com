@@ -23,7 +23,10 @@ $temas_detallados = $page_data['temas_detallados'] ?? [];
 <html lang="es">
 <head>
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
-<?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
+<?php
+require_once __DIR__ . '/../includes/load_page_css.php';
+load_page_css();
+?>
     <title><?php echo htmlspecialchars($titulo_pagina); ?> - Cerezo de Río Tirón</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
