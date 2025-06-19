@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>
 <body class="alabaster-bg">
-    <div id="linterna-condado"></div>
+    <div id="linterna-condado" class="bg-linterna-gradient"></div>
     <?php
         require_once __DIR__ . '/../includes/csrf.php';
         require_once __DIR__ . '/../_header.php';
