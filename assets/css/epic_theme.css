@@ -41,7 +41,7 @@
     --epic-transparent-black-overlay: rgba(10, 10, 10, 0.75);
 
     --font-primary: 'Lora', serif;
-    --font-headings: 'Cinzel', serif;
+    --font-headings: 'Playfair Display Variable', serif;
 
     --global-border-radius: 8px;
     --global-transition-speed: 0.3s;
@@ -2848,4 +2848,15 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px dashed var(--epic-neutral-border);
+}
+@keyframes sheen {
+    from { background-position: -200% 0; }
+    to   { background-position: 200% 0; }
+}
+
+h1:hover {
+    background-image: linear-gradient(90deg,var(--epic-gold-main),var(--epic-purple-emperor),var(--epic-gold-main));
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: sheen 3s linear infinite;
 }
