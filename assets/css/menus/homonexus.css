@@ -14,28 +14,3 @@ body.homonexus-active #sidebar .nav-links a:hover {
     color: var(--epic-purple-emperor);
     transform: scale(1.05) rotate(-1deg);
 }
-/* Toggle button */
-#homonexus-toggle {
-    background-color: var(--epic-alabaster-bg);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 10px;
-    cursor: pointer;
-    z-index: 3001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    transition: background-color var(--global-transition-speed) ease;
-}
-#homonexus-toggle i {
-    color: var(--epic-gold-main);
-    font-size: 1.2em;
-}
-#homonexus-toggle:hover {
-    background-color: var(--epic-gold-main);
-}
-#homonexus-toggle:hover i {
-    color: var(--epic-purple-emperor);
-}
