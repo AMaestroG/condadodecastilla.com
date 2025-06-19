@@ -223,11 +223,13 @@ h6 { font-size: clamp(1em, 2.5vw, 1.4em); }
 .blend-screen {
     mix-blend-mode: screen;
     display: inline-block;
+    color: var(--epic-gold-main); /* Ensure visibility when blend modes are unsupported */
 }
 
 .blend-overlay {
     mix-blend-mode: overlay;
     display: inline-block;
+    color: var(--epic-gold-main); /* Ensure visibility when blend modes are unsupported */
 }
 
 /* --- Paragraphs --- */
