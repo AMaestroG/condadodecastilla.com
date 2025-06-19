@@ -51,15 +51,15 @@
 }
 
 #flag-toggle {
-    margin-top: 0; /* Align button with top header */
+    margin-top: 4px; /* Slightly lower position for visual balance */
     z-index: 1005;
-    padding: 8px 12px;
+    padding: 6px 10px; /* Reduced size */
     background-color: var(--epic-gold-main);
     color: var(--epic-purple-emperor);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 0.9em; /* Smaller text */
     transition: background-color 0.3s ease;
 }
 
