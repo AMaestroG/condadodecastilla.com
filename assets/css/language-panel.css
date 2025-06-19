@@ -5,7 +5,8 @@
     bottom: 0;
     width: 260px;
     max-width: 80%;
-    background: rgba(var(--epic-alabaster-bg-rgb, 253,250,246), 0.95);
+    /* Purple translucent backdrop similar to other panels */
+    background: rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.9);
     border-left: 2px solid var(--epic-gold-main);
     box-shadow: -3px 0 15px rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.3);
     padding: 20px;
