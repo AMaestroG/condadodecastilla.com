@@ -5,43 +5,11 @@
     <lastmod>2025-06-18</lastmod>
   </url>
   <url>
-    <loc>https://condadodecastilla.com/ajax_actions/get_gemini_chat_response.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/ajax_actions/get_research.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/ajax_actions/get_summary.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/ajax_actions/get_translation.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/ajax_actions/get_web_search.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
     <loc>https://condadodecastilla.com/alfoz/alfoz.php</loc>
     <lastmod>2025-06-18</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/alfoz/indexalfoz.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/api_galeria.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/api_museo.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/api_tienda.php</loc>
     <lastmod>2025-06-18</lastmod>
   </url>
   <url>
@@ -54,10 +22,6 @@
   </url>
   <url>
     <loc>https://condadodecastilla.com/citas/agenda.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/config/forum_agents.php</loc>
     <lastmod>2025-06-18</lastmod>
   </url>
   <url>
@@ -302,46 +266,6 @@
   </url>
   <url>
     <loc>https://condadodecastilla.com/homonexus.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/ai_utils.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/auth.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/config.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/csrf.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/env_loader.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/head_common.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/homonexus.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/load_page_css.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/session.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/includes/text_manager.php</loc>
     <lastmod>2025-06-18</lastmod>
   </url>
   <url>
@@ -914,86 +838,6 @@
   </url>
   <url>
     <loc>https://condadodecastilla.com/secciones_index/memoria_hispanidad.html</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/serve_museo_image.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/AiDrawerTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/ApiTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/BlogMarkdownTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/CheckDbScriptTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/ForumCommentsTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/IncludesTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/LinksTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/LoginLogoutTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/MainMenuLinksTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/MenuLinksTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/MuseumPagesTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/ReadOnlyModeTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/ToolsMenuLinksTest.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/fixtures/forum_prepend.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/fixtures/includes/env_loader.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/fixtures/login_prepend.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/fixtures/page_prepend.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/fixtures/page_prepend_nodb.php</loc>
-    <lastmod>2025-06-18</lastmod>
-  </url>
-  <url>
-    <loc>https://condadodecastilla.com/tests/fixtures/prepend.php</loc>
     <lastmod>2025-06-18</lastmod>
   </url>
   <url>
