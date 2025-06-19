@@ -19,6 +19,11 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 - Textos con degradados de alto contraste.
 - Paleta que cambia automáticamente según la hora del visitante (amanecer, mediodía, atardecer o noche) con opción manual.
 - Foro con cinco agentes expertos para dinamizar la comunidad.
+- Loop de audio ambiental con botón de silencio integrado.
+
+### Personalización del audio
+
+Los archivos de sonido se encuentran en `assets/audio/`. Puedes reemplazar `ambient-loop.mp3` por tu propia pista y ajustar el elemento `<audio>` o la ruta si es necesario. El botón de silenciar activa o desactiva todo el audio de la página.
 
 ### Agentes del foro
 
