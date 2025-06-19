@@ -47,7 +47,8 @@
     top: 0;
     bottom: 0;
     width: 260px;
-    background: rgba(var(--epic-alabaster-bg-rgb, 253,250,246), 0.8);
+    /* Menus use purple emperor with 50% transparency */
+    background: rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.5);
     backdrop-filter: blur(6px);
     overflow-y: auto;
     transition: transform 0.3s ease;
@@ -60,7 +61,7 @@
 /* Slightly scale down the page when any slide menu is active */
 body.menu-compressed {
     transition: transform 0.3s ease;
-    transform: scale(0.97);
+    transform: scale(0.95);
 }
 
 body.menu-open-left,
@@ -68,10 +69,10 @@ body.menu-open-right {
     transition: transform 0.3s ease;
 }
 body.menu-open-left {
-    transform: translateX(260px) scale(0.97);
+    transform: translateX(260px) scale(0.95);
 }
 body.menu-open-right {
-    transform: translateX(-260px) scale(0.97);
+    transform: translateX(-260px) scale(0.95);
 }
 
 #slide-menu-right ul {
