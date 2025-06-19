@@ -1,0 +1,26 @@
+#custom-pointer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+}
+#custom-pointer .pointer-inner,
+#custom-pointer .pointer-outer {
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+#custom-pointer.icon-lupa .pointer-inner {
+    background-image: url('/assets/icons/lupa.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#custom-pointer.icon-columna .pointer-inner {
+    background-image: url('/assets/icons/columna.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
