@@ -15,7 +15,8 @@
 
 .header-action-buttons {
     display: flex;
-    gap: 8px;
+    flex-direction: column;
+    gap: 8px; /* vertical spacing between buttons */
 }
 
 .top-empty-bar {
@@ -81,9 +82,8 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 */
 /* IA Chat Toggle */
 #ia-chat-toggle {
-    position: fixed;
-    top: calc(88px + var(--menu-top-offset));
-    right: 15px;
+    position: relative;
+    right: 0;
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);
@@ -95,8 +95,7 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
     justify-content: center;
     width: 44px;
     height: 44px;
-    transition: right var(--global-transition-speed) ease-in-out,
-                background-color var(--global-transition-speed) ease;
+    transition: background-color var(--global-transition-speed) ease;
 }
 
 #ia-chat-toggle i {
@@ -113,9 +112,7 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 
 /* Homonexus Toggle */
 #homonexus-toggle {
-    position: fixed;
-    top: calc(88px + var(--menu-top-offset));
-    right: 65px; /* (ia-chat-toggle width 44px + right 15px = 59px) + 6px gap */
+    position: relative;
     background-color: var(--epic-transparent-overlay-medium);
     border: 2px solid var(--epic-gold-secondary);
     border-radius: var(--global-border-radius);

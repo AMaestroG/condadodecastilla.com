@@ -2,11 +2,8 @@
 
 /* Main toggle button for the consolidated menu */
 #consolidated-menu-button {
-    position: fixed !important;
-    top: calc(var(--language-bar-offset) + var(--menu-extra-offset) + var(--menu-top-offset)) !important;
-    left: 20px !important;
-    right: auto !important;
-    z-index: 1005 !important; /* También z-index por si acaso */
+    position: relative !important;
+    z-index: 1005 !important; /* keep above menu */
     padding: 8px 12px; /* Slightly more compact */
     background-color: var(--epic-gold-main);
     color: var(--epic-purple-emperor);
@@ -237,9 +234,6 @@
         top: calc(var(--language-bar-offset) + var(--menu-extra-offset) + var(--menu-top-offset));
     }
     #consolidated-menu-button {
-        top: calc(var(--language-bar-offset) + var(--menu-extra-offset) + var(--menu-top-offset)); /* Adjusted for language bar */
-        left: 10px; /* Compacted */
-        right: auto; /* Compacted */
         font-size: 1em; /* Compacted */
         padding: 6px 10px; /* Compacted */
     }
