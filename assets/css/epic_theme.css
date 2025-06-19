@@ -2849,3 +2849,30 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
     padding-top: 20px;
     border-top: 1px dashed var(--epic-neutral-border);
 }
+
+/* --- Fireflies effect --- */
+.fireflies-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.firefly {
+    position: absolute;
+    top: 0;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+    animation: drift linear infinite;
+}
+
+@keyframes drift {
+    from {
+        transform: translateY(100vh) translateX(-50%);
+    }
+    to {
+        transform: translateY(-10vh) translateX(-50%);
+    }
+}
