@@ -24,3 +24,8 @@ body {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
+/* Align the hero title with the fixed menu button */
+.align-with-menu {
+    margin-top: var(--menu-top-offset);
+}
