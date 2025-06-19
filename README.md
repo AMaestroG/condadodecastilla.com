@@ -253,6 +253,7 @@ Con las dependencias ya instaladas, ejecuta cada conjunto de tests de forma expl
 ```bash
 vendor/bin/phpunit
 python -m unittest tests/test_flask_api.py
+# Asegúrate de tener un servidor local en marcha (por ejemplo `php -S localhost:8080`)
 npm run test:puppeteer
 ```
 
