@@ -4,6 +4,7 @@ return [
     ['label' => 'Nuestra Historia', 'url' => '/historia/historia.php'],
     ['label' => 'Historia de Cerezo', 'url' => '/historia_cerezo/index.php'],
     ['label' => 'Obispado de Auca', 'url' => '/historia/subpaginas/obispado_auca_cerezo.php'],
+    ['label' => 'Influencia Romana', 'url' => '/historia/influencia_romana.php'],
     ['label' => 'El Alfoz', 'url' => '/alfoz/alfoz.php'],
     ['label' => 'Lugares Emblemáticos', 'url' => '/lugares/lugares.php'],
     ['label' => 'Ruinas y Vestigios', 'url' => '/ruinas/index.php'],
