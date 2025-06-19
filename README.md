@@ -173,6 +173,10 @@ El script descarga las bibliotecas **jQuery**, **Bootstrap** y **Tailwind CSS**
 en `assets/vendor`. Tras ello genera la hoja `assets/vendor/css/tailwind.min.css`
 si ejecutas:
 
+Debes lanzar este comando cada vez que modifiques `tailwind.config.js` o
+`assets/css/tailwind_base.css` para que los cambios de diseño se reflejen en la
+hoja final:
+
 ```bash
 npx tailwindcss@3.4.4 -i assets/css/tailwind_base.css -o assets/vendor/css/tailwind.min.css --minify
 ```
