@@ -333,6 +333,15 @@ Ejecuta el script `check_alt_texts.sh` para detectar imágenes sin atributo `alt
 Esta comprobación se ejecuta automáticamente en cada pull request gracias a la configuración de GitHub Actions.
 
 Puedes indicar una ruta concreta como argumento si solo quieres escanear una carpeta determinada. El comando mostrará las líneas problemáticas y devolverá un código de salida distinto de cero si encuentra imágenes sin descripción.
+## Quality checks
+
+Se incluye un script de Node.js que valida aspectos basicos del marcado HTML con jsdom. Comprueba que el elemento <html> tenga atributo `lang` y que solo exista un `<h1>` por pagina.
+
+```bash
+npm run check:html ruta/del/archivo.html
+```
+
+El comando devuelve un codigo de error si se detectan problemas.
 
 ## Tema predeterminado
 
