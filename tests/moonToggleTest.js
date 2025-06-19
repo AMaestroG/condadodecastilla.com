@@ -11,29 +11,29 @@ const dom = new JSDOM(`<body>${headerHtml}</body>`, {
 });
 
 const {window} = dom;
-window.localStorage.setItem('theme', 'moon');
+window.localStorage.setItem('theme', 'dark');
 
 const scriptEl = window.document.createElement('script');
 scriptEl.textContent = scriptJs;
 window.document.body.appendChild(scriptEl);
 
 window.addEventListener('DOMContentLoaded', () => {
-  const moonToggle = window.document.getElementById('moon-toggle');
-  if (!moonToggle) {
-    console.error('moon-toggle button not found');
+  const themeToggle = window.document.getElementById('theme-toggle');
+  if (!themeToggle) {
+    console.error('theme-toggle button not found');
     process.exit(1);
   }
-  const icon = moonToggle.querySelector('i');
-  moonToggle.click();
-  const firstHas = window.document.body.classList.contains('luna');
+  const icon = themeToggle.querySelector('i');
+  themeToggle.click();
+  const firstHas = window.document.body.classList.contains('dark-mode');
   const firstIcon = icon.classList.contains('fa-sun');
   const firstStore = window.localStorage.getItem('theme');
-  moonToggle.click();
-  const secondHas = window.document.body.classList.contains('luna');
+  themeToggle.click();
+  const secondHas = window.document.body.classList.contains('dark-mode');
   const secondIcon = icon.classList.contains('fa-moon');
   const secondStore = window.localStorage.getItem('theme');
 
-  if (!firstHas || !firstIcon || firstStore !== 'moon') {
+  if (!firstHas || !firstIcon || firstStore !== 'dark') {
     console.error('Activation failed');
     process.exit(1);
   }
@@ -41,5 +41,5 @@ window.addEventListener('DOMContentLoaded', () => {
     console.error('Deactivation failed');
     process.exit(1);
   }
-  console.log('Moon toggle class and storage toggled correctly');
+  console.log('Theme toggle class and storage toggled correctly');
 });
