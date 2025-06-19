@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.toggle('active', open);
         btn.setAttribute('aria-expanded', open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
+        if (open && menu.id === 'language-panel' && typeof primeTranslateLoad === 'function') {
+            primeTranslateLoad();
+        }
 
         const anyOpen = document.querySelectorAll('.menu-panel.active').length > 0;
         document.body.classList.toggle('menu-compressed', anyOpen);
