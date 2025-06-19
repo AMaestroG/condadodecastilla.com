@@ -176,6 +176,20 @@ si ejecutas:
 npx tailwindcss@3.4.4 -i assets/css/tailwind_base.css -o assets/vendor/css/tailwind.min.css --minify
 ```
 
+### Entorno Node.js
+
+Este proyecto requiere **Node.js** en su versión 18 o superior.
+Las dependencias JavaScript se definen en `package.json` y quedan fijadas
+en `package-lock.json`.
+
+Instala los paquetes antes de lanzar cualquier prueba con Puppeteer:
+
+```bash
+npm install
+```
+
+Una vez instaladas podrás ejecutar con seguridad `npm run test:puppeteer`.
+
 A continuación copia el archivo de ejemplo `.env.example` a `.env` y
 rellena los valores reales que utilizará el proyecto. Este paso es
 imprescindible **antes** de poner en marcha el sitio o ejecutar las
