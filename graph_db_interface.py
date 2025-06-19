@@ -2,6 +2,7 @@ import uuid
 from datetime import datetime
 import json
 import logging
+from filelock import FileLock
 
 # Configure module-level logger. This basic configuration writes
 # timestamped messages with the module name and log level.
@@ -23,6 +24,7 @@ class GraphDBInterface:
         self._nodes = {}  # Key: URL, Value: resource_data dictionary
         self._edges = []  # List of link_data dictionaries
         self.db_filepath = "knowledge_graph_db.json"
+        self._lock = FileLock(f"{self.db_filepath}.lock")
         # Config is not used for now, but can be for future DB connections
         logger.info("GraphDBInterface initializing...")
         self._load_from_file() # Load data on initialization
@@ -30,8 +32,9 @@ class GraphDBInterface:
     def _save_to_file(self):
         """Saves the current state of nodes and edges to a JSON file."""
         try:
-            with open(self.db_filepath, 'w') as f:
-                json.dump({"nodes": self._nodes, "edges": self._edges}, f, indent=2)
+            with self._lock:
+                with open(self.db_filepath, 'w') as f:
+                    json.dump({"nodes": self._nodes, "edges": self._edges}, f, indent=2)
             logger.info("Database state saved to %s", self.db_filepath)
         except IOError as e:
             logger.error("Error saving database state to %s: %s", self.db_filepath, e)
@@ -39,10 +42,11 @@ class GraphDBInterface:
     def _load_from_file(self):
         """Loads the state of nodes and edges from a JSON file if it exists."""
         try:
-            with open(self.db_filepath, 'r') as f:
-                data = json.load(f)
-                self._nodes = data.get("nodes", {})
-                self._edges = data.get("edges", [])
+            with self._lock:
+                with open(self.db_filepath, 'r') as f:
+                    data = json.load(f)
+                    self._nodes = data.get("nodes", {})
+                    self._edges = data.get("edges", [])
             logger.info("Database state loaded from %s", self.db_filepath)
         except FileNotFoundError:
             logger.warning("Database file %s not found. Starting with an empty database.", self.db_filepath)
