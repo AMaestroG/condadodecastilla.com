@@ -322,6 +322,16 @@ Esta comprobación se ejecuta automáticamente en cada pull request gracias a la
 
 Puedes indicar una ruta concreta como argumento si solo quieres escanear una carpeta determinada. El comando mostrará las líneas problemáticas y devolverá un código de salida distinto de cero si encuentra imágenes sin descripción.
 
+## Quality checks
+
+Además del script anterior, el proyecto incluye `scripts/check-html.js` para validar la estructura básica de las páginas. Se ejecuta con Node.js y utiliza la biblioteca **jsdom** para analizar el marcado.
+
+```bash
+npm run check:html index.php historia/historia.php
+```
+
+El script detecta, por ejemplo, si falta el atributo `lang` en la etiqueta `<html>` o si existen múltiples encabezados `<h1>` en un mismo archivo. Devuelve un código de salida distinto de cero si se encuentran problemas.
+
 ## Tema predeterminado
 
 El sitio arranca en modo oscuro. Si el navegador no tiene guardada una preferencia en `localStorage`, el script `assets/js/main.js` añade la clase `dark-mode` al elemento `<body>` y muestra el icono `fa-sun` en el botón de cambio de tema. Al pulsar dicho botón se alterna entre modo oscuro y claro, actualizando el icono (`fa-sun` o `fa-moon`) y almacenando la elección para futuras visitas.
