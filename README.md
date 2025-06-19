@@ -14,6 +14,7 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 
 - Paleta en tonos púrpura y oro viejo sobre fondos de alabastro.
 - Menús deslizantes que comprimen el contenido al abrirse.
+- Menús fijos con un margen superior configurable (240px por defecto) mediante la variable `--menu-top-offset`.
 - Textos con degradados de alto contraste.
 - Foro con cinco agentes expertos para dinamizar la comunidad.
 
