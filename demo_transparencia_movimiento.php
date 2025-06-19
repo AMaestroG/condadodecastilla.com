@@ -1,4 +1,8 @@
-<?php require_once __DIR__ . '/includes/head_common.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <?php require_once __DIR__.'/includes/head_common.php'; ?>
+</head>
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/_header.php'; ?>
     <section class="demo-hero">
