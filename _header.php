@@ -16,8 +16,8 @@
     <div class="menu-section">
         <h4 class="gradient-text">Navegación Principal</h4>
         <?php
-        if (file_exists(__DIR__ . '/fragments/menus/main-menu.html')) {
-            echo file_get_contents(__DIR__ . '/fragments/menus/main-menu.html');
+        if (file_exists(__DIR__ . '/fragments/menus/main-menu.php')) {
+            include __DIR__ . '/fragments/menus/main-menu.php';
         }
         ?>
     </div>

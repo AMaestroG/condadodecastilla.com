@@ -216,7 +216,7 @@ npm run test:puppeteer
 
 ## Elementos del menú principal
 
-El archivo `fragments/menus/main-menu.html` define los enlaces de navegación que
+El archivo `fragments/menus/main-menu.php` define los enlaces de navegación que
 deben aparecer en todas las páginas. A continuación se enumeran las rutas
 esperadas para cada elemento del menú principal:
 

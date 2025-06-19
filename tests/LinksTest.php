@@ -56,7 +56,7 @@ class LinksTest extends TestCase {
 
     public function testLinksExist(): void {
         $files = [
-            __DIR__ . '/../fragments/menus/main-menu.html',
+            __DIR__ . '/../fragments/menus/main-menu.php',
             __DIR__ . '/../_header.php',
         ];
         foreach ($files as $file) {

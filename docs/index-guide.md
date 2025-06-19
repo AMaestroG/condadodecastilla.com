@@ -22,8 +22,8 @@ Para usar anclas basta con añadir `id="..."` a cada elemento. Por ejemplo:
 El archivo `_header.php` genera el panel deslizante derecho e inserta las diferentes secciones de menú leyendo los archivos de `fragments/menus/`:
 ```php
 <?php
-if (file_exists(__DIR__ . '/fragments/menus/main-menu.html')) {
-    echo file_get_contents(__DIR__ . '/fragments/menus/main-menu.html');
+if (file_exists(__DIR__ . '/fragments/menus/main-menu.php')) {
+    include __DIR__ . '/fragments/menus/main-menu.php';
 }
 ?>
 ```
@@ -32,7 +32,7 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 ## Personalización del menú deslizante y nuevas páginas
 * **Estilos**: modifica `assets/css/menus/consolidated-menu.css` para cambiar colores morado y oro viejo, anchura u otros efectos del panel `.menu-panel`.
 * **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
-* **Añadir páginas**: edita `fragments/menus/main-menu.html` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
+* **Añadir páginas**: edita `fragments/menus/main-menu.php` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
 
 Tras cualquier modificación ejecuta las pruebas de PHP y Python si las dependencias están instaladas:
 ```bash

@@ -9,7 +9,7 @@ files_to_check=("index.php" "_header.php" "_footer.php")
 html_fragments=(
     "fragments/header/language-bar.html"
     "fragments/header/navigation.html"
-    "fragments/menus/main-menu.html"
+    "fragments/menus/main-menu.php"
     "fragments/menus/admin-menu.php"
     "fragments/menus/social-menu.html"
 )
