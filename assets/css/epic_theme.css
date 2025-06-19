@@ -112,6 +112,7 @@ body.lang-bar-visible {
 html {
     font-size: 102.5%;
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll on the page */
 }
 
 /* --- Body Styling --- */
@@ -126,6 +127,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* Prevent side scrolling on narrow screens */
     animation: fadeInPage 0.7s ease-out forwards;
     padding-top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
 }
