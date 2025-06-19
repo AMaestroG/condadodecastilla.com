@@ -13,7 +13,7 @@
 
     <header class="page-header">
         <div class="container-epic">
-            <h1>Ruinas y Vestigios del Condado de Castilla</h1>
+            <h1 class="blend-overlay">Ruinas y Vestigios del Condado de Castilla</h1>
         </div>
     </header>
 
