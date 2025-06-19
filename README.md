@@ -187,7 +187,7 @@ GEMINI_API_ENDPOINT=https://api.gemini.example.com/v1/generateContent
 
 `GEMINI_API_KEY` guarda la clave de acceso suministrada por el proveedor. `GEMINI_API_ENDPOINT` permite especificar la URL del punto de entrada, que por defecto es `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent` si la variable se omite.
 
-El valor de la clave se inyecta en la etiqueta `<meta name="gemini-api-key">` generada por `includes/head_common.php` y es utilizado por las funciones del servidor definidas en `includes/ai_utils.php`.
+La clave **solo** se utiliza en el servidor a través de `includes/ai_utils.php`; ya no se expone en el marcado HTML. De este modo se evita compartir credenciales sensibles con el cliente.
 
 Si `GEMINI_API_KEY` no está definida, las funciones de `includes/ai_utils.php` no intentarán contactar con el servicio real: en su lugar usarán un simulador interno que genera respuestas de ejemplo. Esto permite probar el sitio sin consumir cuota ni requerir acceso externo.
 
