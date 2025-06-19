@@ -7,6 +7,7 @@ const puppeteer = require('puppeteer');
   await page.waitForSelector('#flag-toggle');
   await page.click('#flag-toggle');
   await page.waitForTimeout(300);
+  await page.waitForSelector('#language-panel #google_translate_element', {visible: true});
   const hasClass = await page.evaluate(() => document.body.classList.contains('menu-open-right'));
   if (!hasClass) {
     console.error('menu-open-right not added');
