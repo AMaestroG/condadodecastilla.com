@@ -43,3 +43,12 @@ dorado y un efecto de desplazamiento al pasar el ratón.
 
 En el estado _hover_ el botón gana contraste y su sombra interna se
 acentúa, proporcionando un aspecto de relieve y realce.
+
+## Mezcla de color en textos
+
+Para integrar titulares sobre fondos complejos se disponen las clases `.blend-screen` y `.blend-overlay` en `assets/css/epic_theme.css`. Ambas usan la propiedad `mix-blend-mode` para fusionar el color del texto con el fondo.
+
+```html
+<h1 class="blend-overlay">Título</h1>
+<p class="blend-screen">Texto destacado</p>
+```
