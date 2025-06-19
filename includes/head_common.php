@@ -23,3 +23,5 @@ $geminiKey = getenv('GEMINI_API_KEY') ?: '';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-JNHB8zHcoUfOaL+5wtIg9Y9ycYzaO+F6DRKCVh0b07XHtcwPa5RWPLXrI75EetBh" crossorigin="anonymous" />
 <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-pqaW8ZT6X0hgqP/d9vywgq6Z9erjRzCQXDpUe1koRaSPoaqe7iT730cdpShUMHbV" crossorigin="anonymous"></script>
 <script defer src="/assets/js/polyfills.js"></script>
+<link rel="stylesheet" href="/assets/css/torch_cursor.css">
+<script defer src="/assets/js/torch_cursor.js"></script>
