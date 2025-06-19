@@ -17,11 +17,11 @@
     <main><section class="section"><div class="container-epic">
         <h2>Ruinas en esta categoría:</h2>
         <ul>
-            <li><a href="foro_romano.php">Foro Romano de Auca Patricia</a></li>
-            <li><a href="teatro_romano.php">Teatro Romano de Auca Patricia</a></li>
-            <li><a href="circo_romano.php">Circo Romano de Auca Patricia</a></li>
-            <li><a href="orfeones_odeones.php">Orfeones y Odeones</a></li>
-            <li><a href="puerto_fluvial_gurugu.php">Puerto Fluvial del Gurugú</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="foro_romano.php">Foro Romano de Auca Patricia</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="teatro_romano.php">Teatro Romano de Auca Patricia</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="circo_romano.php">Circo Romano de Auca Patricia</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="orfeones_odeones.php">Orfeones y Odeones</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="puerto_fluvial_gurugu.php">Puerto Fluvial del Gurugú</a></li>
         </ul>
     </div></section></main>
     <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/js/layout.js"></script>

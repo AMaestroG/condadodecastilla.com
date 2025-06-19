@@ -26,12 +26,12 @@
     <main>
         <section class="section">
             <div class="container-epic">
-                <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
                 <h2>Puerto Fluvial Romano en el Gurugú / Glera de los Celox</h2>
-                <p>Auca Patricia (Segisamam) contó con un importante puerto fluvial, considerado el último puerto navegable del río Ebro en dirección al interior. Este puerto se situaba en la zona del Gurugú y en el término conocido como Glera de los Celox.</p>
-                <p>La palabra "Celox" hace referencia a un tipo de embarcación fluvial rápida utilizada por los legionarios romanos, lo que subraya la importancia militar y logística de este puerto. Se indica que los restos de este puerto romano aún son visibles.</p>
-                <p>Este enclave permitía la comunicación y el transporte de mercancías y tropas a través del Ebro, conectando Auca Patricia con otras regiones y, en última instancia, con el Mediterráneo.</p>
-                <p>El manuscrito <em>nuevo4.md</em> lo compara con el puerto
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Auca Patricia (Segisamam) contó con un importante puerto fluvial, considerado el último puerto navegable del río Ebro en dirección al interior. Este puerto se situaba en la zona del Gurugú y en el término conocido como Glera de los Celox.</p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">La palabra "Celox" hace referencia a un tipo de embarcación fluvial rápida utilizada por los legionarios romanos, lo que subraya la importancia militar y logística de este puerto. Se indica que los restos de este puerto romano aún son visibles.</p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Este enclave permitía la comunicación y el transporte de mercancías y tropas a través del Ebro, conectando Auca Patricia con otras regiones y, en última instancia, con el Mediterráneo.</p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">El manuscrito <em>nuevo4.md</em> lo compara con el puerto
                 fluvial de Zaragoza y remarca que estaba unido a la calzada de
                 Tarragona a Astorga, la misma que seguiría el primer Camino de
                 Santiago. Desde aquí partían las legiones hacia el interior y

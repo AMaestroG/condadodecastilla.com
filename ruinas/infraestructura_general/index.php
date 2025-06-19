@@ -17,11 +17,11 @@
     <main><section class="section"><div class="container-epic">
         <h2>Ruinas en esta categoría:</h2>
         <ul>
-            <li><a href="hitos_miliares.php">Hitos Miliares y Calzadas Romanas</a></li>
-            <li><a href="puentes_romanos_cerezo.php">Puentes Romanos en Cerezo de Río Tirón</a></li>
-            <li><a href="hospital_san_jorge.php">Hospital de San Jorge y Talla de San Antón</a></li>
-            <li><a href="mansio_romana_meson.php">Mansio Romana en el Mesón</a></li>
-            <li><a href="tunel_antiguo.php">Túnel Antiguo</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="hitos_miliares.php">Hitos Miliares y Calzadas Romanas</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="puentes_romanos_cerezo.php">Puentes Romanos en Cerezo de Río Tirón</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="hospital_san_jorge.php">Hospital de San Jorge y Talla de San Antón</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="mansio_romana_meson.php">Mansio Romana en el Mesón</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="tunel_antiguo.php">Túnel Antiguo</a></li>
         </ul>
     </div></section></main>
     <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/js/layout.js"></script>

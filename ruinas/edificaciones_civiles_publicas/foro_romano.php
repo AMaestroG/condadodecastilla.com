@@ -26,8 +26,8 @@
     <main>
         <section class="section">
             <div class="container-epic">
-                <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
-                <p>Información sobre este vestigio aquí.</p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Información sobre este vestigio aquí.</p>
                 <!-- Contenido específico sobre el Foro Romano de Auca Patricia se añadirá aquí -->
             </div>
         </section>

@@ -26,8 +26,8 @@
     <main>
         <section class="section">
             <div class="container-epic">
-                <p><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
-                <p>Información sobre este tipo de estructuras y su posible presencia o contexto en Auca Patricia y el Condado de Castilla.</p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="/ruinas/index.php" class="back-link">&laquo; Volver al Índice de Ruinas</a></p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Información sobre este tipo de estructuras y su posible presencia o contexto en Auca Patricia y el Condado de Castilla.</p>
                 <!-- Contenido específico sobre Orfeones y Odeones, o su ausencia documentada, se añadirá aquí -->
             </div>
         </section>
