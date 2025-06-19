@@ -1089,27 +1089,35 @@ body.dark-mode .footer .social-links a:focus-visible {
 /* .cta-button from estilos.css - epic_theme.css also has .cta-button. Review needed. */
 /* Appending estilos.css version for now. */
 .cta-button--large-legacy {
-    background-image: linear-gradient(145deg, var(--color-acento-amarillo, #FFD700), var(--color-secundario-dorado, #B8860B) 70%);
+    background-image: linear-gradient(145deg,#716472,#a69ba8);
     color: var(--epic-purple-emperor);
     padding: clamp(20px, 3vh, 26px) clamp(50px, 8vw, 65px);
     font-size: clamp(1.3em, 3.5vw, 1.7em);
     font-weight: 700;
     border-radius: 50px;
     border: 3px solid var(--epic-purple-emperor);
-    box-shadow: 0 8px 25px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.4), inset 0 -4px 6px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.25);
+    box-shadow: inset 2px 2px 4px #51474f, inset -2px -2px 4px #cac5cf;
     text-transform: uppercase;
     letter-spacing: 1.8px;
     transition: all var(--global-transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Standardized */
     display: inline-block;
+    position: relative;
 }
 
 .cta-button--large-legacy:hover, .cta-button--large-legacy:focus-visible {
     background-image: linear-gradient(145deg, var(--color-primario-purpura, #4A0D67), #380A54);
     color: var(--color-acento-amarillo, #FFD700);
-    border-color: var(--color-acento-amarillo, #FFD700);
+    border: 1px solid #d4af37;
     transform: translateY(-6px) scale(1.08);
     box-shadow: 0 16px 40px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.5), inset 0 -2px 3px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.1);
+    filter: brightness(1.2);
     outline: none;
+    animation: borderDash 0.4s forwards;
+}
+
+@keyframes borderDash {
+    from { stroke-dasharray: 100 0; }
+    to { stroke-dasharray: 4 4; }
 }
 
 .cta-button-small {
