@@ -49,9 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php require_once __DIR__ . '/../_header.php'; ?>
     <h1>Programa de Citas para Visitas</h1>
     <?php if ($successMessage): ?>
-        <p style="color:green;"><?php echo htmlspecialchars($successMessage); ?></p>
+        <p class="notice-success"><?php echo htmlspecialchars($successMessage); ?></p>
     <?php elseif ($errorMessage): ?>
-        <p style="color:red;"><?php echo htmlspecialchars($errorMessage); ?></p>
+        <p class="notice-error"><?php echo htmlspecialchars($errorMessage); ?></p>
     <?php endif; ?>
     <form method="POST">
         <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">

@@ -2720,3 +2720,65 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
 .hero-museo {
     background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.75), rgba(var(--epic-alabaster-bg-rgb), 0.88)), url('/imagenes/hero_museo_background.jpg');
 }
+
+/* --- Notice and Utility Classes --- */
+.notice-success {
+    color: var(--epic-success-text);
+    background-color: var(--epic-success-bg);
+    border: 1px solid var(--epic-success-border);
+    padding: 0.75em 1em;
+    border-radius: var(--global-border-radius);
+}
+
+.notice-error {
+    color: var(--epic-danger-text);
+    background-color: var(--epic-danger-bg);
+    border: 1px solid var(--epic-danger-border);
+    padding: 0.75em 1em;
+    border-radius: var(--global-border-radius);
+}
+
+.section-divider {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px dashed var(--epic-neutral-border);
+    border-bottom: 1px dashed var(--epic-neutral-border);
+}
+
+.section-divider-bottom {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--epic-neutral-border);
+}
+
+.cta-large {
+    padding: 12px 25px;
+    font-size: 1.1em;
+}
+
+.my-30 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.hero-atapuerca {
+    background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.55), rgba(var(--epic-purple-emperor-rgb), 0.55)), url('/assets/img/placeholder.jpg');
+}
+
+.language-selector {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--epic-neutral-border);
+}
+
+.tags-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--epic-neutral-border);
+}

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Three.js not loaded. Museo 3D cannot start.');
         const museumContainer = document.getElementById('museo-3d-container');
         if (museumContainer) {
-            museumContainer.innerHTML = '<p class="text-center" style="color:red; margin-top: 20px;">Error: Three.js library not loaded. The 3D museum cannot be displayed.</p>';
+            museumContainer.innerHTML = '<p class="text-center notice-error mt-20">Error: Three.js library not loaded. The 3D museum cannot be displayed.</p>';
         }
         // Hide pointer lock instructions if Three.js is missing
         const instructions = document.getElementById('pointer-lock-instructions');
