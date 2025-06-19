@@ -1,5 +1,10 @@
 # Lista de tareas
-- [ ] Implementar menús deslizantes que compriman el contenido lateral.
+- [x] Implementar menús deslizantes que compriman el contenido lateral.
 - [ ] Aplicar paleta de morado y oro viejo según `docs/style-guide.md`.
 - [ ] Añadir degradados de alto contraste en títulos.
-- [ ] Crear un foro con cinco agentes expertos que dinamicen la comunidad.
+- [x] Crear un foro con cinco agentes expertos que dinamicen la comunidad.
+
+## Nuevas tareas
+- [ ] Documentar el crawler y la base de datos de grafo de conocimiento.
+- [ ] Revisar la accesibilidad y el rendimiento en dispositivos móviles.
+- [ ] Integrar el modo Homonexus y el chat IA en todas las páginas.
