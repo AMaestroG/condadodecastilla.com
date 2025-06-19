@@ -191,7 +191,7 @@ La clave **solo** se utiliza en el servidor a través de `includes/ai_utils.php`
 
 Si `GEMINI_API_KEY` no está definida, las funciones de `includes/ai_utils.php` no intentarán contactar con el servicio real: en su lugar usarán un simulador interno que genera respuestas de ejemplo. Esto permite probar el sitio sin consumir cuota ni requerir acceso externo.
 
-## Ejecución de pruebas
+## Testing
 
 Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pruebas dependen de PHP, Composer y las extensiones indicadas, por lo que no se ejecutarán si alguno de estos componentes falta. Ejecuta primero:
 
@@ -208,11 +208,19 @@ Con las dependencias ya presentes, ejecuta cada conjunto de tests de forma expl�
 
 ```bash
 vendor/bin/phpunit
-python -m unittest tests/test_flask_api.py
+python -m unittest
 npm run test:puppeteer
 ```
 
-`vendor/bin/phpunit` lanzará todos los tests definidos en `phpunit.xml`. Se incluyen pruebas que cargan las páginas principales del sitio y comprueban la presencia del contenedor `#fixed-header-elements`.
+`vendor/bin/phpunit` lanza las pruebas de PHP definidas en `phpunit.xml`.
+`python -m unittest` ejecuta la batería de tests de Python situada en `tests/`.
+`npm run test:puppeteer` inicia los checks de interfaz con Puppeteer.
+
+Además se proporcionan scripts auxiliares para validar el estado del código:
+
+- `./check_links.sh` revisa enlaces rotos en las páginas principales.
+- `./check_links_extended.sh` amplía la comprobación a los fragmentos HTML.
+- `./scripts/check_alt_texts.sh` detecta imágenes sin atributo `alt`.
 
 ## Elementos del menú principal
 
