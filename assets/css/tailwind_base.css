@@ -7,3 +7,19 @@
     @apply bg-gradient-radial from-yellow-200 via-transparent;
   }
 }
+@layer components {
+  .shine-gold {
+    background: linear-gradient(to right, rgba(var(--epic-gold-main-rgb),0.8), rgba(var(--epic-gold-secondary-rgb),0.8));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .stone-texture {
+    background-image: url('/assets/img/alabastro2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .purple-shadow {
+    text-shadow: 0 2px 4px rgba(var(--epic-purple-emperor-rgb),0.45);
+  }
+}
