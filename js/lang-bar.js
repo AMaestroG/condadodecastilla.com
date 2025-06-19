@@ -71,8 +71,34 @@ function initLangBarToggle() {
     }
 }
 
+function toggleLanguagePanel() {
+    const panel = document.getElementById('language-panel');
+    if (!panel) return;
+    const open = panel.classList.toggle('active');
+    document.body.classList.toggle('menu-open-right', open);
+    document.body.classList.toggle('menu-compressed', open);
+    const btn = document.getElementById('lang-panel-toggle');
+    if (btn) btn.setAttribute('aria-expanded', open);
+}
+
+function initFlagPanel() {
+    const toggleBtn = document.getElementById('lang-panel-toggle');
+    const closeBtn = document.getElementById('close-language-panel');
+    if (toggleBtn) toggleBtn.addEventListener('click', toggleLanguagePanel);
+    if (closeBtn) closeBtn.addEventListener('click', toggleLanguagePanel);
+    document.querySelectorAll('#language-panel img[data-lang]').forEach(img => {
+        img.addEventListener('click', () => {
+            const lang = img.getAttribute('data-lang');
+            const params = new URLSearchParams(window.location.search);
+            params.set('lang', lang);
+            window.location.search = params.toString();
+        });
+    });
+}
+
 function setupLanguageBar() {
     initLangBarToggle();
+    initFlagPanel();
 }
 
 
