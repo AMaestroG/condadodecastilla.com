@@ -49,7 +49,8 @@
     --global-box-shadow-dark: 0 8px 25px rgba(var(--epic-text-color-rgb), 0.2);
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
     --menu-extra-offset: 60px;
-    --menu-top-offset: 0px;
+    /* Dejar un espacio superior para la barra de idioma u otros elementos */
+    --menu-top-offset: 100px;
     /* Additional theme variables for admin dashboard */
     --epic-purple-hover: #663399;
     --epic-gray: #6c757d;
