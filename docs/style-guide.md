@@ -20,6 +20,17 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 
 Los equivalentes `-rgb` se encuentran en la misma hoja de estilos para crear transparencias con `rgba()`.
 
+## Paleta Modo luna
+
+El modo luna ofrece un aspecto nocturno con gran contraste. Se activa añadiendo la clase
+`luna` al elemento `<body>` y define las siguientes variables:
+
+| Variable | Descripción | Valor |
+|----------|-------------|-------|
+| `--moon-bg` | Fondo principal oscuro | `#0d1117` |
+| `--moon-text` | Texto claro de alto contraste | `#e0e0e0` |
+| `--moon-accent` | Detalle en púrpura intenso | `#663399` |
+
 ## Texto con degradado
 
 Para destacar títulos y cabeceras se utiliza la clase `.gradient-text`,

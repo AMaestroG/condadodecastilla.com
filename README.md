@@ -24,6 +24,13 @@ Este repositorio puede mostrar textos generados automáticamente. Estos contenid
 - Foro con cinco agentes expertos para dinamizar la comunidad.
 - El script `assets/js/audio-controller.js` atenúa el volumen de los elementos `<audio>` y `<video>` cuando cualquier menú deslizante está activo. Escucha el evento `menu-toggled` que dispara `assets/js/main.js` al abrir o cerrar un menú.
 
+### Modo luna
+
+Una variante oscura que reduce la luminosidad general. Pulsa el botón `moon-toggle`
+para activar el modo luna; el script añadirá la clase `luna` al `<body>` y guardará
+el valor `"moon"` en `localStorage`. Vuelve a pulsar para restaurar la apariencia
+clara.
+
 ### Agentes del foro
 
 Cinco perfiles virtuales dinamizan las conversaciones y ayudan a resolver dudas:
@@ -280,6 +287,9 @@ python -m unittest tests/test_flask_api.py
 npm run test:puppeteer
 node tests/moonToggleTest.js
 ```
+
+`node tests/moonToggleTest.js` verifica que el botón `moon-toggle` añada la clase
+`luna` y guarde `"moon"` en `localStorage`.
 
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
