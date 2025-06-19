@@ -18,7 +18,6 @@
         ?>
 </div>
 </footer>
-<script src="/assets/js/audio-controller.js"></script>
 <script src="/assets/js/main.js"></script>
 <script src="/assets/js/cave_mask.js"></script>
 <script src="/assets/js/hero.js"></script>
