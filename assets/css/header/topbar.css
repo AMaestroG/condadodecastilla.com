@@ -13,10 +13,6 @@
     align-items: center;
 }
 
-.header-action-buttons {
-    display: flex;
-    gap: 8px;
-}
 
 .top-empty-bar {
     position: fixed;
@@ -79,74 +75,11 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
     transform: translateY(-6.5px) rotate(-45deg);
 }
 */
-/* IA Chat Toggle */
-#ia-chat-toggle {
-    position: fixed;
-    top: 88px; /* moved lower */
-    right: 15px;
-    background-color: var(--epic-transparent-overlay-medium);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 10px;
-    cursor: pointer;
-    z-index: 3001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    transition: right var(--global-transition-speed) ease-in-out,
-                background-color var(--global-transition-speed) ease;
-}
-
-#ia-chat-toggle i {
-    color: var(--epic-gold-main);
-}
-
-#ia-chat-toggle:hover {
-    background-color: var(--epic-gold-main);
-}
-
-#ia-chat-toggle:hover i {
-    color: var(--epic-purple-emperor);
-}
-
-/* Homonexus Toggle */
-#homonexus-toggle {
-    position: fixed;
-    top: 88px; /* moved lower */
-    right: 65px; /* (ia-chat-toggle width 44px + right 15px = 59px) + 6px gap */
-    background-color: var(--epic-transparent-overlay-medium);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 10px;
-    cursor: pointer;
-    z-index: 3001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-}
-#homonexus-toggle i {
-    color: var(--epic-gold-main);
-}
-#homonexus-toggle:hover {
-    background-color: var(--epic-gold-main);
-}
-#homonexus-toggle:hover i {
-    color: var(--epic-purple-emperor);
-}
-
-/* Dark Mode Icon Colors for Toggles */
-body.dark-mode #theme-toggle i,
-body.dark-mode #ia-chat-toggle i,
-body.dark-mode #homonexus-toggle i {
+/* Dark Mode Icon Colors for Theme Toggle */
+body.dark-mode #theme-toggle i {
     color: var(--epic-icon-color);
 }
 
-body.dark-mode #theme-toggle:hover i,
-body.dark-mode #ia-chat-toggle:hover i,
-body.dark-mode #homonexus-toggle:hover i {
+body.dark-mode #theme-toggle:hover i {
     color: var(--epic-icon-hover);
 }

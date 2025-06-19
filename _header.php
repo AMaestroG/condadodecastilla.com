@@ -1,10 +1,6 @@
 <div id="fixed-header-elements">
     <?php echo file_get_contents(__DIR__ . '/fragments/header/language-bar.html'); ?>
-    <div class="header-action-buttons">
-        <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
-        <button id="ia-chat-toggle" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-expanded="false" role="button"><i class="fas fa-comments"></i></button>
-        <button id="homonexus-toggle" aria-label="Activar modo Homonexus" aria-expanded="false" role="button"><i class="fas fa-infinity"></i></button>
-    </div>
+    <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
 </div>
 
 <!-- Left Sliding Panel for Main Menu -->
