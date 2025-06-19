@@ -4,7 +4,6 @@
 <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <title>Puentes Romanos de Cerezo de Río Tirón - Ruinas del Condado de Castilla</title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>
 <body>
     <?php require_once __DIR__ . '/../_header.php'; ?>

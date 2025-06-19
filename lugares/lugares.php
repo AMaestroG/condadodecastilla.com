@@ -6,10 +6,7 @@
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 
 
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
-    <link rel="stylesheet" href="/assets/vendor/css/bootstrap.min.css">
 
 </head>
 <body>
