@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
     # Resource 3: Exists but content is placeholder
     placeholder_content_res_id = str(uuid.uuid4())
-    placeholder_content_res_url = "http://example.com/placeholder-content-.py"
+    placeholder_content_res_url = "http://example.com/placeholder-content.html"
     db.add_or_update_resource({
         "id": placeholder_content_res_id, "url": placeholder_content_res_url,
         "content": "N/A (placeholder)",
