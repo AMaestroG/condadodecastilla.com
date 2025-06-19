@@ -17,12 +17,12 @@
     <main><section class="section"><div class="container-epic">
         <h2>Páginas en esta categoría:</h2>
         <ul>
-            <li><a href="descripciones_generales.php">Descripciones Generales de Ruinas</a></li>
-            <li><a href="tallas_inscripciones.php">Tallas, Arte Rupestre e Inscripciones</a></li>
-            <li><a href="fotos_hallazgos.php">Fotografías y Hallazgos Menores</a></li>
-            <li><a href="monedas_antiguas.php">Monedas Antiguas de Cerezo y Auca</a></li>
-            <li><a href="cuevas_setefenestras.php">Cuevas de Setefenestras</a></li>
-            <li><a href="alabastro_de_cerasio.php">Alabastro de Cerasio</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="descripciones_generales.php">Descripciones Generales de Ruinas</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="tallas_inscripciones.php">Tallas, Arte Rupestre e Inscripciones</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="fotos_hallazgos.php">Fotografías y Hallazgos Menores</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="monedas_antiguas.php">Monedas Antiguas de Cerezo y Auca</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="cuevas_setefenestras.php">Cuevas de Setefenestras</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="alabastro_de_cerasio.php">Alabastro de Cerasio</a></li>
         </ul>
     </div></section></main>
     <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/js/layout.js"></script>

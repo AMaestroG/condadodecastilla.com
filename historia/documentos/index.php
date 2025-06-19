@@ -18,13 +18,13 @@
         <section class="section alternate-bg">
             <div class="container-epic">
                 <h2 class="section-title">Archivos y Manuscritos</h2>
-                <p>Esta sección alberga diversos documentos históricos disponibles para consulta. Los archivos pueden incluir PDFs, documentos de texto, e imágenes de manuscritos originales.</p>
+                <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Esta sección alberga diversos documentos históricos disponibles para consulta. Los archivos pueden incluir PDFs, documentos de texto, e imágenes de manuscritos originales.</p>
 
                 <div class="document-list">
                     <!-- Example of how a document might be listed. Repeat for each document. -->
                     <!-- This will be dynamically populated or manually updated later. -->
 
-                    <p style="margin-top: 30px;"><em>Actualmente, esta es una lista de ejemplos. Se añadirán más documentos próximamente.</em></p>
+                    <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0" style="margin-top: 30px;"><em>Actualmente, esta es una lista de ejemplos. Se añadirán más documentos próximamente.</em></p>
                 </div>
             </div>
         </section>

@@ -17,7 +17,7 @@
     <main><section class="section"><div class="container-epic">
         <h2>Ruinas en esta categoría:</h2>
         <ul>
-            <li><a href="palacios_romanos_auca.php">Palacios Romanos en Auca Patricia</a></li>
+            <li class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0"><a href="palacios_romanos_auca.php">Palacios Romanos en Auca Patricia</a></li>
         </ul>
     </div></section></main>
     <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/js/layout.js"></script>

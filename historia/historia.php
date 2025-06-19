@@ -23,7 +23,7 @@
                     te invitamos a explorar los hitos cruciales que han modelado nuestra rica identidad a lo largo de los siglos.
                 </p>
                 <ul class="timeline">
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                             <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Prehistoria">
                         </div>
@@ -33,7 +33,7 @@
                             <a href="atapuerca.php" class="read-more timeline-read-more">Explorar Atapuerca</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                              <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Pueblos Prerromanos">
                         </div>
@@ -43,7 +43,7 @@
                              <a href="#prerromanos-detalle" class="read-more timeline-read-more">Conocer los Pueblos</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                              <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Romanización">
                         </div>
@@ -53,7 +53,7 @@
                              <a href="#romanizacion-detalle" class="read-more timeline-read-more">Ver Época Romana</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                              <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Época Visigoda">
                         </div>
@@ -63,7 +63,7 @@
                              <a href="#visigoda-detalle" class="read-more timeline-read-more">Explorar Periodo Visigodo</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                              <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Presencia Árabe">
                         </div>
@@ -73,7 +73,7 @@
                              <a href="#arabe-detalle" class="read-more timeline-read-more">La Frontera y el Origen</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                              <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Alta Edad Media">
                         </div>
@@ -83,7 +83,7 @@
                              <a href="#altaedadmedia-detalle" class="read-more timeline-read-more">El Condado</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                             <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Explorando los Orígenes de Castilla">
                         </div>
@@ -93,7 +93,7 @@
                             <a href="/historia/nuestra_historia_nuevo4.php" class="read-more timeline-read-more">Leer Más Sobre los Orígenes de Castilla</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                             <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Documentos Históricos">
                         </div>
@@ -103,7 +103,7 @@
                             <a href="/historia/documentos/index.html" class="read-more timeline-read-more">Explorar Documentos</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                             <img src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Galería Histórica">
                         </div>
@@ -113,7 +113,7 @@
                             <a href="/historia/galeria_historica/index.html" class="read-more timeline-read-more">Visitar Galería</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                              <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Plena y Baja Edad Media">
                         </div>
@@ -123,7 +123,7 @@
                              <a href="#plenabajaedadmedia-detalle" class="read-more timeline-read-more">Ver la Evolución</a>
                         </div>
                     </li>
-                    <li class="timeline-item">
+                    <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
                              <img src="/assets/img/estrella.png" alt="Hito en la línea de tiempo: Edad Moderna y Contemporánea">
                         </div>
