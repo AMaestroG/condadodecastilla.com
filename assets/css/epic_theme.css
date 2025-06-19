@@ -48,7 +48,6 @@
     --global-box-shadow-medium: 0 5px 15px rgba(var(--epic-text-color-rgb), 0.15);
     --global-box-shadow-dark: 0 8px 25px rgba(var(--epic-text-color-rgb), 0.2);
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
-    --language-bar-offset: 0px; /* default fallback */
     --menu-extra-offset: 60px;
     --menu-top-offset: 0px;
     /* Additional theme variables for admin dashboard */
@@ -120,7 +119,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     animation: fadeInPage 0.7s ease-out forwards;
-    padding-top: calc(110px + var(--language-bar-offset));
+    padding-top: 110px;
 }
 
 body::before {
@@ -2490,7 +2489,7 @@ body.dark-mode {
     /* background-image is inherited from body::before via cascading */
     background-color: var(--epic-alabaster-bg); /* This will be the dark version of the variable */
     /* filter property is now on body.dark-mode::before */
-    padding-top: calc(110px + var(--language-bar-offset));
+    padding-top: 110px;
 }
 
 body.dark-mode::before {

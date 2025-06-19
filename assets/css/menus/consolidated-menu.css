@@ -23,7 +23,7 @@
 /* Common styles for both sliding panels */
 .menu-panel {
     position: fixed;
-    top: calc(var(--language-bar-offset) + var(--menu-extra-offset) + var(--menu-top-offset));
+    top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
     bottom: 0; /* Make panel full height */
     width: 300px; /* Adjust width as needed */
     max-width: 80%; /* Max width for smaller screens */
@@ -232,7 +232,7 @@
         width: 280px; /* Slightly narrower for mobile */
         padding: 10px; /* Compacted */
         padding-top: 45px; /* Compacted */
-        top: calc(var(--language-bar-offset) + var(--menu-extra-offset) + var(--menu-top-offset));
+        top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
     }
     #consolidated-menu-button {
         font-size: 1em; /* Compacted */

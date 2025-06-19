@@ -25,23 +25,10 @@ function toggleLanguageBar() {
 
     const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
 
-    const updateOffset = () => {
-        const waitForHeight = () => {
-            const h = el.offsetHeight;
-            if (h === 0) {
-                requestAnimationFrame(waitForHeight);
-            } else {
-                document.documentElement.style.setProperty('--language-bar-offset', h + 'px');
-                document.body.style.setProperty('--language-bar-offset', h + 'px');
-            }
-        };
-        waitForHeight();
-    };
 
     if (isHidden) {
         const showBar = () => {
             el.style.display = 'block';
-            updateOffset();
         };
 
         if (!window.googleTranslateLoaded) {
@@ -51,8 +38,6 @@ function toggleLanguageBar() {
         }
     } else {
         el.style.display = 'none';
-        document.documentElement.style.setProperty('--language-bar-offset', '0px');
-        document.body.style.setProperty('--language-bar-offset', '0px');
     }
 }
 
@@ -65,8 +50,6 @@ function initLangBarToggle() {
     if (el) {
         el.addEventListener('click', toggleLanguageBar);
         el.style.display = 'none';
-        document.documentElement.style.setProperty('--language-bar-offset', '0px');
-        document.body.style.setProperty('--language-bar-offset', '0px');
     }
 
     const params = new URLSearchParams(window.location.search);
@@ -89,16 +72,6 @@ function setupLanguageBar() {
     initLangBarToggle();
 }
 
-function applyLanguageBarOffset() {
-    const el = document.getElementById('google_translate_element');
-    const isHidden = !el || el.style.display === 'none' || getComputedStyle(el).display === 'none';
-    const offset = (!isHidden && el.offsetHeight) ? el.offsetHeight : 0;
-    document.documentElement.style.setProperty('--language-bar-offset', offset + 'px');
-    document.body.style.setProperty('--language-bar-offset', offset + 'px');
-    const extra = getComputedStyle(document.documentElement).getPropertyValue('--menu-extra-offset') || '60px';
-    document.documentElement.style.setProperty('--menu-extra-offset', extra.trim());
-    document.body.style.setProperty('--menu-extra-offset', extra.trim());
-}
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupLanguageBar);
