@@ -10,6 +10,9 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 - [Guía de Estilo](docs/style-guide.md)
 - [Guía de index.php y menús](docs/index-guide.md)
 
+## Respuestas generadas por IA
+Este repositorio puede mostrar textos generados automáticamente. Estos contenidos son experimentales y pueden contener errores. Para más información, consulta la [política de uso responsable](docs/responsible-ai.md).
+
 
 ## Características de diseño
 
