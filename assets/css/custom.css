@@ -1,31 +1,24 @@
 body {
   font-family: "Lora", serif;
+  color: var(--epic-text-color);
+  top: 0px !important; /* Prevent page content from shifting down */
 }
 
 .hero {
   padding: 2rem;
   text-align: center;
+  background: transparent !important;
+  color: var(--epic-text-light);
 }
 
 .cta-button {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   text-decoration: none;
-}
-
-body {
-  color: var(--epic-text-color);
-}
-
-.hero {
-  background: transparent !important;
-  color: var(--epic-text-light);
-}
-
-.cta-button {
   background-color: var(--epic-gold-main);
   color: var(--epic-text-color);
 }
+
 .cta-button:hover {
   background-color: var(--epic-gold-secondary);
 }
@@ -47,16 +40,9 @@ body {
   }
 }
 
-/*# sourceMappingURL=custom.css.map */
-
 /* Hide the Google Translate toolbar */
 .goog-te-banner-frame {
     display: none !important;
-}
-
-/* Prevent page content from shifting down */
-body {
-    top: 0px !important;
 }
 
 /* Ensure the Google Translate widget itself is not accidentally shown if not already hidden by inline style */
@@ -76,7 +62,6 @@ body {
     white-space: nowrap;
     border: 0;
 }
-
 
 /* Tagline backgrounds */
 #memoria {
