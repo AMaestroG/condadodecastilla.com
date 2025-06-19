@@ -287,6 +287,14 @@ body.dark-mode #sidebar .nav-links a:hover i {
     color: var(--epic-icon-hover);
 }
 
+body.luna #sidebar .nav-links a i {
+    color: var(--epic-icon-color);
+}
+
+body.luna #sidebar .nav-links a:hover i {
+    color: var(--epic-icon-hover);
+}
+
 /* Adjust main content when left sidebar is active */
 body.sidebar-active {
     margin-left: 280px; /* Match sidebar width */

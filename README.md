@@ -17,6 +17,7 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 - Menús deslizantes que comprimen el contenido al abrirse.
 - Menús fijos en la parte superior gracias a la variable `--menu-top-offset`.
 - Textos con degradados de alto contraste.
+- Soporte de **Modo luna**, una variante con tonos azul oscuro y plata que se activa desde el menú principal.
 - Foro con cinco agentes expertos para dinamizar la comunidad.
 
 ### Agentes del foro

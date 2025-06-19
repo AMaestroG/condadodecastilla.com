@@ -2562,6 +2562,40 @@ body.dark-mode #theme-toggle:hover i {
     color: var(--epic-icon-hover);
 }
 
+/* ===== Moon Mode ===== */
+body.luna {
+    --epic-purple-emperor: #1e2749;
+    --epic-purple-emperor-rgb: 30, 39, 73;
+    --epic-gold-main: #c0c0c0; /* silver tones */
+    --epic-gold-main-rgb: 192, 192, 192;
+    --epic-gold-secondary: #a9a9a9;
+    --epic-gold-secondary-rgb: 169, 169, 169;
+    --epic-alabaster-bg: #0d1b2a; /* deep night blue */
+    --epic-alabaster-bg-rgb: 13, 27, 42;
+    --epic-text-color: #e0e6ed;
+    --epic-text-color-rgb: 224, 230, 237;
+    --epic-text-light: #cbd5e1;
+    --epic-text-light-rgb: 203, 213, 225;
+    --epic-icon-color: #a0aec0;
+    --epic-icon-hover: #f1f5f9;
+    --global-box-shadow-dark: 0 8px 25px rgba(30, 58, 138, 0.5); /* shadow-blue-900/50 */
+    background-color: var(--epic-alabaster-bg);
+}
+
+body.luna .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: drift 8s linear infinite;
+}
+
+@keyframes drift {
+    from { transform: translateY(0) scale(1); opacity: 1; }
+    to { transform: translateY(-100px) scale(0.5); opacity: 0; }
+}
+
 /* === IA Tools Menu === */
 #ia-tools-menu {
     margin: 0;

@@ -82,27 +82,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'dark' || !storedTheme) {
-            document.body.classList.add('dark-mode');
-            if (icon) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            }
-            if (!storedTheme) {
-                localStorage.setItem('theme', 'dark');
-            }
+    const moonToggle = document.getElementById('moon-toggle');
+
+    const icon = themeToggle ? themeToggle.querySelector('i') : null;
+    const applyIcon = (isDark) => {
+        if (!icon) return;
+        icon.classList.toggle('fa-moon', !isDark);
+        icon.classList.toggle('fa-sun', isDark);
+    };
+
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'moon') {
+        document.body.classList.add('luna');
+        applyIcon(false);
+    } else {
+        const isDark = storedTheme === 'dark' || !storedTheme;
+        document.body.classList.toggle('dark-mode', isDark);
+        applyIcon(isDark);
+        if (!storedTheme) {
+            localStorage.setItem('theme', 'dark');
         }
+    }
+
+    if (themeToggle) {
         themeToggle.addEventListener('click', () => {
+            if (localStorage.getItem('theme') === 'moon') {
+                document.body.classList.remove('luna');
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                applyIcon(true);
+                return;
+            }
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
-            if (icon) {
-                icon.classList.toggle('fa-moon', !isDark);
-                icon.classList.toggle('fa-sun', isDark);
-            }
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            applyIcon(isDark);
+        });
+    }
+
+    if (moonToggle) {
+        moonToggle.addEventListener('click', () => {
+            const isMoon = document.body.classList.toggle('luna');
+            if (isMoon) {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'moon');
+                applyIcon(false);
+            } else {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                applyIcon(true);
+            }
         });
     }
 

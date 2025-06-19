@@ -27,3 +27,10 @@ definida en `assets/css/epic_theme.css`. Esta clase aplica un degradado
 diagonal que combina el morado principal (`--epic-purple-emperor`) y el
 oro viejo (`--epic-gold-main`) y aprovecha `background-clip: text` para
 dejar a la vista los colores de la paleta.
+
+## Modo luna
+
+El nuevo modo **luna** emplea tonos azul oscuro y plata. Se activa con el botón
+`Modo luna` del panel principal y aplica la clase `.luna` al elemento `<body>`.
+Las variables de color se redefinen para reflejar esta paleta y se añaden
+partículas blancas animadas que simulan luciérnagas.

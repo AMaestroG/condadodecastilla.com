@@ -91,3 +91,11 @@ body.dark-mode #theme-toggle i {
 body.dark-mode #theme-toggle:hover i {
     color: var(--epic-icon-hover);
 }
+
+body.luna #theme-toggle i {
+    color: var(--epic-icon-color);
+}
+
+body.luna #theme-toggle:hover i {
+    color: var(--epic-icon-hover);
+}
