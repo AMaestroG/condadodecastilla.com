@@ -2,7 +2,6 @@
 require_once __DIR__ . '/session.php';
 ensure_session_started();
 require_once __DIR__ . '/env_loader.php';
-$geminiKey = getenv('GEMINI_API_KEY') ?: '';
 ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
