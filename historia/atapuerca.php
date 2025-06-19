@@ -25,7 +25,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
 </head>
 <body>
 <?php require_once __DIR__ . '/../_header.php'; ?>
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url('../assets/img/placeholder.jpg');"> <!-- Basic hero style -->
+    <header class="page-header hero hero-atapuerca"> <!-- Basic hero style -->
         <div class="hero-content">
             <h1><?php editableText('atapuerca_titulo_hero', $pdo, 'Los Yacimientos de la Sierra de Atapuerca'); ?></h1>
         </div>
@@ -36,8 +36,8 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                 <h2 class="section-title"><?php editableText('atapuerca_titulo_seccion', $pdo, 'Un Tesoro de la Prehistoria'); ?></h2>
                 <p class="timeline-intro"><?php editableText('atapuerca_intro_p1', $pdo, 'La Sierra de Atapuerca, ubicada al norte de Ibeas de Juarros en la provincia de Burgos, es un enclave montañoso de modesta altitud que alberga un extraordinario conjunto de yacimientos arqueológicos y paleontológicos. Reconocida como Patrimonio de la Humanidad por la UNESCO, Espacio de Interés Natural y Bien de Interés Cultural, Atapuerca ha proporcionado al mundo testimonios fósiles de al menos cinco especies distintas de homínidos, arrojando luz invaluable sobre la evolución humana en Europa.'); ?></p>
 
-                <div id="languageSelectorContainer" class="text-center" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #ccc;">
-                    <h4 style="font-family: 'Cinzel', serif; color: var(--epic-purple-emperor); margin-bottom: 10px;">Seleccionar Idioma (Demostración):</h4>
+                <div id="languageSelectorContainer" class="text-center language-selector">
+                    <h4>Seleccionar Idioma (Demostración):</h4>
                     <button class="lang-btn active" data-lang="es" title="Ver contenido en Español (original)">Español (Original)</button>
                     <button class="lang-btn" data-lang="en-ai" title="Simular traducción al Inglés por IA">Inglés (Traducción IA)</button>
                     <button class="lang-btn" data-lang="fr-ai" title="Simular traducción al Francés por IA">Francés (Traducción IA)</button>
@@ -61,14 +61,14 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                         <p><?php editableText('atapuerca_importancia_p1', $pdo, 'La Sierra de Atapuerca no es solo un conjunto de cuevas con fósiles; es una ventana directa a la vida de nuestros antepasados. La increíble concentración de restos en buen estado de conservación, abarcando un periodo tan extenso (desde el Pleistoceno Inferior hasta el Holoceno), la convierten en un referente mundial para el estudio de la evolución humana. Los hallazgos han permitido comprender mejor las estrategias de caza, la tecnología lítica, las características físicas e incluso posibles prácticas rituales de las distintas especies de homínidos que habitaron esta sierra.'); ?></p>
                     </div>
                 </article>
-                <div class="text-center" style="margin-top: 30px; margin-bottom: 30px;"> <!-- Contenedor para centrar el botón -->
-                    <button id="btnResumenIA" class="cta-button" style="padding: 12px 25px; font-size: 1.1em;">Ver Resumen Inteligente</button>
+                <div class="text-center my-30"> <!-- Contenedor para centrar el botón -->
+                    <button id="btnResumenIA" class="cta-button cta-large">Ver Resumen Inteligente</button>
                 </div>
                 <div id="resumenIAContenedor">
                     <!-- El resumen generado por IA se insertará aquí -->
                 </div>
-                <div id="tagsSugeridosIA" class="tags-sugeridos-ia" style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed #ccc;">
-                    <h4 class="text-center" style="font-family: 'Cinzel', serif; color: var(--epic-purple-emperor); margin-bottom: 15px;">Etiquetas Sugeridas por IA:</h4>
+                <div id="tagsSugeridosIA" class="tags-sugeridos-ia tags-container">
+                    <h4 class="text-center">Etiquetas Sugeridas por IA:</h4>
                     <div id="listaTagsIA" class="lista-tags-ia text-center">
                         <?php
                         if (function_exists('get_suggested_tags_placeholder')) {
