@@ -27,3 +27,19 @@ definida en `assets/css/epic_theme.css`. Esta clase aplica un degradado
 diagonal que combina el morado principal (`--epic-purple-emperor`) y el
 oro viejo (`--epic-gold-main`) y aprovecha `background-clip: text` para
 dejar a la vista los colores de la paleta.
+
+## Botones de llamada a la acción
+
+Los botones de tipo CTA están definidos en
+`assets/css/epic_theme.css` y utilizan color de fondo morado con un
+ligero sombreado interior. La regla `.cta-button` establece la base del
+estilo en las líneas 599‑623 mientras que la variante
+`.cta-button--large-legacy` (líneas 1080‑1102) aplica un degradado
+dorado y un efecto de desplazamiento al pasar el ratón.
+
+```html
+<a href="#" class="cta-button cta-button--large-legacy">Descubre más</a>
+```
+
+En el estado _hover_ el botón gana contraste y su sombra interna se
+acentúa, proporcionando un aspecto de relieve y realce.
