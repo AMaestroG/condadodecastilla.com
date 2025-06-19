@@ -1,13 +1,2 @@
 /* Layout styles for header container */
-#main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 3000;
-}
-
-#main-header button {
-    z-index: 3001;
-}
 
