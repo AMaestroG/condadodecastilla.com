@@ -29,16 +29,17 @@ require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
 require_once __DIR__ . '/_header.php';
 ?>
 
-    <header id="intro" class="hero">
-        <div class="hero-content">
-            <img src="/assets/img/escudo.jpg" alt="Escudo del Condado de Castilla: castillo dorado sobre fondo púrpura con una estrella de 8 puntas dorada encima." class="hero-escudo">
-            <div>
-                <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla: Cuna de Tu Cultura e Idioma', 'h1', 'align-with-menu'); ?>
-                <?php editableText('hero_parrafo_index', $pdo, 'Explora las ruinas del Alcázar de Casio, la Civitate Auca Patricia y descubre el origen de tu cultura milenaria en Cerezo de Río Tirón.', 'p', 'text-old-gold'); ?>
-                <?php editableText('mission_tagline_index', $pdo, 'Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.', 'p', 'mission-tagline text-old-gold'); ?>
-            </div>
+    <header id="hero-video" class="relative h-screen w-full overflow-hidden">
+        <video class="absolute inset-0 object-cover w-full h-full" src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" autoplay muted loop playsinline></video>
+        <div id="hero-content" class="relative z-10 flex flex-col items-center justify-center h-full text-center opacity-0 transition-opacity duration-1000 ease-out">
+            <h1 class="font-serif text-yellow-300 text-3xl md:text-5xl shadow-lg drop-shadow-lg">Condado de Castilla: Cuna de Emperadores</h1>
+            <p class="mt-4 bg-black bg-opacity-50 text-white p-4 font-sans">Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.</p>
         </div>
-        <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-yellow-300">
+            <svg class="w-8 h-8 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </div>
     </header>
 
     <nav id="page-nav" class="section-nav cta-group">
