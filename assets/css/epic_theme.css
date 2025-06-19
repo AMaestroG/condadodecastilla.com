@@ -595,8 +595,8 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 .cta-button { /* Call to Action button styling */
     display: inline-block;
-    background-image: linear-gradient(145deg, var(--epic-gold-main), var(--epic-gold-secondary) 70%);
-    color: var(--epic-purple-emperor);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.66); /* Purple with 34% transparency */
+    color: var(--epic-alabaster-bg);
     padding: clamp(1em, 2vh, 1.2em) clamp(2em, 4vw, 3em);
     font-size: clamp(1.1em, 2.5vw, 1.4em);
     font-family: var(--font-headings);
@@ -611,7 +611,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 
 .cta-button:hover, .cta-button:focus-visible {
-    background-image: linear-gradient(145deg, rgba(var(--epic-purple-emperor-rgb), 0.9), rgba(56, 10, 84, 0.75)); /* Darker purple */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9); /* Less transparent on hover */
     color: var(--epic-gold-main);
     border-color: var(--epic-gold-main);
     transform: translateY(-3px) scale(1.03);
@@ -2650,6 +2650,8 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
+    color: var(--epic-alabaster-bg);
 }
 
 .menu-panel .menu-item-button {

@@ -6,8 +6,8 @@
     margin-top: 0; /* Align button with top header */
     z-index: 1005 !important; /* keep above menu */
     padding: 8px 12px; /* Slightly more compact */
-    background-color: var(--epic-gold-main);
-    color: var(--epic-purple-emperor);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
+    color: var(--epic-alabaster-bg);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -16,7 +16,7 @@
 }
 
 #consolidated-menu-button:hover {
-    background-color: var(--epic-purple-emperor);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9);
     color: var(--epic-gold-main);
 }
 
@@ -73,19 +73,19 @@
     width: 100%;
     padding: 10px 12px; /* Compacted */
     margin-bottom: 8px; /* Compacted */
-    background-color: var(--epic-gold-main);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
     border: 1px solid var(--epic-purple-emperor);
     border-radius: 4px;
     text-align: left;
     cursor: pointer;
-    color: var(--epic-purple-emperor);
+    color: var(--epic-alabaster-bg);
     font-size: 0.9em; /* Compacted */
     transition: background-color 0.2s ease, color 0.2s ease;
     flex-shrink: 0; /* Prevent buttons from shrinking */
 }
 
 .menu-panel .menu-item-button:hover {
-    background-color: var(--epic-purple-emperor);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9);
     color: var(--epic-gold-main);
 }
 

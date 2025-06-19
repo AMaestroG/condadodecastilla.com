@@ -15,12 +15,12 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   text-decoration: none;
-  background-color: var(--epic-gold-main);
-  color: var(--epic-text-color);
+  background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
+  color: var(--epic-alabaster-bg);
 }
 
 .cta-button:hover {
-  background-color: var(--epic-gold-secondary);
+  background-color: rgba(var(--epic-purple-emperor-rgb), 0.9);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,11 +32,11 @@ body {
     color: var(--epic-text-light);
   }
   .cta-button {
-    background-color: var(--epic-gold-secondary);
-    color: var(--epic-text-color);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
+    color: var(--epic-alabaster-bg);
   }
   .cta-button:hover {
-    background: linear-gradient(145deg, rgba(var(--epic-purple-emperor-rgb), 0.85), rgba(56, 10, 84, 0.7));
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9);
   }
 }
 
