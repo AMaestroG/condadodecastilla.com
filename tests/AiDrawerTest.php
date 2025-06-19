@@ -11,7 +11,9 @@ class AiDrawerTest extends TestCase {
         $env = [
             'PATH' => getenv('PATH'),
             'REDIRECT_STATUS' => '1',
-            'SCRIPT_FILENAME' => $script
+            'SCRIPT_FILENAME' => $script,
+            // Ensure AI utilities use the built-in simulator during tests
+            'GEMINI_API_KEY' => ''
         ];
         $proc = proc_open($cmd, [1=>['pipe','w'], 2=>['pipe','w']], $pipes, null, $env);
         $out = stream_get_contents($pipes[1]);

@@ -178,9 +178,10 @@ function _parse_gemini_response(?array $api_response, ?string $call_error): stri
  * @return array|null Respuesta decodificada o null si hay errores.
  */
 function _call_gemini_api(array $payload, ?string &$error = null): ?array {
-    // Use simulator only if the API key is the placeholder "not set" value.
-    // If a key is provided, attempt a real call, regardless of the endpoint value.
-    if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_NOT_SET') {
+    // Use simulator when the API key is missing or still has the placeholder
+    // value. A real HTTP request is only attempted if a non-empty key is
+    // provided via the environment or configuration.
+    if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_NOT_SET' || GEMINI_API_KEY === '') {
         return _call_gemini_api_simulator($payload);
     }
 

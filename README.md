@@ -185,6 +185,15 @@ GEMINI_API_KEY=tu_clave_personal
 GEMINI_API_ENDPOINT=https://api.gemini.example.com/v1/generateContent
 ```
 
+Variables requeridas:
+
+- **`GEMINI_API_KEY`** – clave de acceso proporcionada por el proveedor.
+- **`GEMINI_API_ENDPOINT`** – URL del punto de entrada (opcional; si se omite se
+  usa `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent`).
+
+Asegúrate de exportarlas en tu terminal o definirlas en `.env` para que
+`includes/ai_utils.php` pueda realizar llamadas reales.
+
 `GEMINI_API_KEY` guarda la clave de acceso suministrada por el proveedor. `GEMINI_API_ENDPOINT` permite especificar la URL del punto de entrada, que por defecto es `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent` si la variable se omite.
 
 La clave **solo** se utiliza en el servidor a través de `includes/ai_utils.php`; ya no se expone en el marcado HTML. De este modo se evita compartir credenciales sensibles con el cliente.
