@@ -52,3 +52,14 @@ Para integrar titulares sobre fondos complejos se disponen las clases `.blend-sc
 <h1 class="blend-overlay">Título</h1>
 <p class="blend-screen">Texto destacado</p>
 ```
+
+## Optimización de imágenes
+
+Para agilizar la carga se recomienda emplear formatos modernos y limitar las dimensiones de las fotografías.
+
+- Formato **WebP** para fotos y capturas; **PNG** solo cuando se necesite transparencia.
+- Anchura máxima de **1920&nbsp;px** en imágenes de cabecera y **800&nbsp;px** para el resto.
+- El peso ideal está por debajo de **300&nbsp;KB**. Cualquier imagen que supere **1&nbsp;MB** debería revisarse.
+- Utiliza el script [`scripts/compress_images.sh`](../scripts/compress_images.sh) para generar versiones optimizadas o miniaturas.
+
+Actualmente existen archivos superiores a 2&nbsp;MB en `assets/img/` (por ejemplo `GonzaloTellez.png`), conviene reconvertirlos a WebP o aplicar compresión.
