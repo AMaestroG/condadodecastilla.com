@@ -18,6 +18,15 @@ Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa 
 - Menús fijos en la parte superior gracias a la variable `--menu-top-offset`.
 - Textos con degradados de alto contraste.
 - Foro con cinco agentes expertos para dinamizar la comunidad.
+- Bucle de música ambiental con botón de silencio `#mute-toggle`.
+
+### Personalización del audio
+
+El archivo `assets/js/audio-controller.js` reproduce por defecto
+`assets/audio/ambient.mp3` en bucle. Reemplaza ese fichero por tu
+propia pista o ajusta la ruta en el script. El botón identificado como
+`#mute-toggle` permite silenciar o reanudar la música y guarda la
+preferencia en `localStorage`.
 
 ### Agentes del foro
 
