@@ -15,12 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!targetId) return;
         const menu = document.getElementById(targetId);
         if (!menu) return;
+
+        // Close any other active menus to avoid overlap
+        document.querySelectorAll('.menu-panel.active').forEach(m => {
+            if (m !== menu) closeMenu(m);
+        });
+
         const side = menu.classList.contains('left-panel') ? 'left'
                     : (menu.classList.contains('right-panel') ? 'right' : '');
-        const open = menu.classList.toggle('active');
+        const open = !menu.classList.contains('active');
+        menu.classList.toggle('active', open);
         btn.setAttribute('aria-expanded', open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
-        document.body.classList.toggle('menu-compressed', open);
+
+        const anyOpen = document.querySelectorAll('.menu-panel.active').length > 0;
+        document.body.classList.toggle('menu-compressed', anyOpen);
+
         if (open && menu.id === 'ai-chat-panel') {
             const chatArea = document.getElementById('gemini-chat-area');
             if (chatArea) {
