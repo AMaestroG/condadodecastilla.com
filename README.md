@@ -191,6 +191,7 @@ Ejecuta `npm install` para descargar las bibliotecas declaradas en `package.json
 Se necesita **Node.js 18** o superior. Las dependencias se enumeran en `package.json` y quedan bloqueadas en `package-lock.json`.
 
 Asegúrate de que la herramienta `npm` esté disponible en tu sistema antes de lanzar `npx tailwindcss` o `npm test`.
+El comando `npm test` ejecuta la batería de pruebas automatizadas con Puppeteer.
 
 A continuación copia el archivo de ejemplo `.env.example` a `.env` y
 rellena los valores reales que utilizará el proyecto. Este paso es
