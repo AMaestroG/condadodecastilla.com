@@ -2,6 +2,7 @@
     <div class="header-action-buttons">
         <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
         <button id="flag-toggle" data-menu-target="language-panel" aria-label="Seleccionar idioma" aria-expanded="false" role="button" aria-controls="language-panel"><i class="fas fa-flag"></i></button>
+        <button id="mute-toggle" aria-pressed="false" aria-label="Silenciar">🔊</button>
     </div>
 </div>
 

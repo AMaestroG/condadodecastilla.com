@@ -305,3 +305,20 @@ body.sidebar-active {
     /* body.sidebar-active #sidebar-toggle { left: 15px; } */
     /* Right panel handled via body.menu-open-right in sliding_menu.css */
 }
+
+/* Mute Toggle Button */
+#mute-toggle {
+    padding: 6px 10px;
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+#mute-toggle:hover {
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+}
