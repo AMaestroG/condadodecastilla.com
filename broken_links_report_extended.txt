@@ -1,6 +1,6 @@
 Broken Link Report (Extended):
 ------------------------------
-Checked on: Wed Jun 18 22:38:10 UTC 2025
+Checked on: Thu Jun 19 12:56:23 UTC 2025
 
 Checking links in: index.php
   OK: /historia/historia.php (resolved to historia/historia.php)
@@ -30,11 +30,9 @@ Checking links in: _header.php
 Checking links in: _footer.php
   OK: /dashboard/logout.php (resolved to dashboard/logout.php)
   OK: /dashboard/login.php (resolved to dashboard/login.php)
-  OK: /en_construccion.php (resolved to en_construccion.php)
-  OK: /en_construccion.php (resolved to en_construccion.php)
   OK: /assets/js/main.js (resolved to assets/js/main.js)
   OK: /js/lang-bar.js (resolved to js/lang-bar.js)
-  SUMMARY for _footer.php: All 6 processable links appear OK.
+  SUMMARY for _footer.php: All 4 processable links appear OK.
 
 Checking links in: fragments/header/language-bar.html
   No processable internal links found in fragments/header/language-bar.html.
@@ -44,29 +42,8 @@ Checking links in: fragments/header/navigation.html
   OK: /assets/img/AlfozCerasioLantaron.jpg (resolved to assets/img/AlfozCerasioLantaron.jpg)
   SUMMARY for fragments/header/navigation.html: All 2 processable links appear OK.
 
-Checking links in: fragments/menus/main-menu.html
-  OK: /index.php (resolved to index.php)
-  OK: /historia/historia.php (resolved to historia/historia.php)
-  OK: /historia_cerezo/index.php (resolved to historia_cerezo/index.php)
-  OK: /historia/subpaginas/obispado_auca_cerezo.php (resolved to historia/subpaginas/obispado_auca_cerezo.php)
-  OK: /alfoz/alfoz.php (resolved to alfoz/alfoz.php)
-  OK: /lugares/lugares.php (resolved to lugares/lugares.php)
-  OK: /ruinas/index.php (resolved to ruinas/index.php)
-  OK: /camino_santiago/camino_santiago.php (resolved to camino_santiago/camino_santiago.php)
-  OK: /museo/galeria.php (resolved to museo/galeria.php)
-  OK: /museo/museo_3d.php (resolved to museo/museo_3d.php)
-  OK: /museo/subir_pieza.php (resolved to museo/subir_pieza.php)
-  OK: /galeria/galeria_colaborativa.php (resolved to galeria/galeria_colaborativa.php)
-  OK: /tienda/index.php (resolved to tienda/index.php)
-  OK: /visitas/visitas.php (resolved to visitas/visitas.php)
-  OK: /citas/agenda.php (resolved to citas/agenda.php)
-  OK: /cultura/cultura.php (resolved to cultura/cultura.php)
-  OK: /personajes/indice_personajes.html (resolved to personajes/indice_personajes.html)
-  OK: /empresa/index.php (resolved to empresa/index.php)
-  OK: /foro/index.php (resolved to foro/index.php)
-  OK: /blog.php (resolved to blog.php)
-  OK: /contacto/contacto.php (resolved to contacto/contacto.php)
-  SUMMARY for fragments/menus/main-menu.html: All 21 processable links appear OK.
+Checking links in: fragments/menus/main-menu.php
+  No processable internal links found in fragments/menus/main-menu.php.
 
 Checking links in: fragments/menus/admin-menu.php
   OK: /dashboard/logout.php (resolved to dashboard/logout.php)
@@ -75,5 +52,7 @@ Checking links in: fragments/menus/admin-menu.php
   SUMMARY for fragments/menus/admin-menu.php: All 3 processable links appear OK.
 
 Checking links in: fragments/menus/social-menu.html
-  No processable internal links found in fragments/menus/social-menu.html.
+  OK: /en_construccion.php (resolved to en_construccion.php)
+  OK: /en_construccion.php (resolved to en_construccion.php)
+  SUMMARY for fragments/menus/social-menu.html: All 2 processable links appear OK.
 
