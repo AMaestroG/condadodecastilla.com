@@ -13,3 +13,8 @@ Para otras referencias, visita también:
 - [Guía de Estilo](style-guide.md)
 - [Documentación del crawler](crawler.md)
 - [Interfaz de la base de datos de grafo](graph_db.md)
+- [Gráfica de Influencia Romana](index-guide.md#grafica-de-influencia-romana)
+
+La guía también explica cómo se genera la **Gráfica de Influencia Romana** con
+D3.js, respetando el modo oscuro para una visualización coherente en todo el
+sitio.

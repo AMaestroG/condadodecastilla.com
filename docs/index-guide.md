@@ -64,6 +64,14 @@ Esto evitará que los menús se oculten tras los botones fijos.
 
 La variable `--menu-extra-offset` puede definirse también en `assets/css/epic_theme.css` o en tu propia hoja de estilos. Ajusta su valor al número de píxeles que ocupa `#fixed-header-elements` para que los paneles deslizantes queden perfectamente alineados bajo los botones.
 
+## Gráfica de Influencia Romana
+
+El índice incorpora una gráfica interactiva que muestra la huella de Roma en
+la región. Esta visualización se implementa con **D3.js** y cambia de paleta de
+colores automáticamente cuando el usuario activa el modo oscuro mediante el
+botón `#theme-toggle`.
+
+
 ## Configuración de los agentes del foro
 
 El archivo `config/forum_agents.php` define los expertos que responden en el foro. Cada entrada del array contiene estos campos:
