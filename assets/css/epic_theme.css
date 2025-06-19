@@ -41,7 +41,7 @@
     --epic-transparent-black-overlay: rgba(10, 10, 10, 0.75);
 
     --font-primary: 'Lora', serif;
-    --font-headings: 'Cinzel', serif;
+    --font-headings: 'Playfair Display Variable', serif;
 
     --global-border-radius: 8px;
     --global-transition-speed: 0.3s;
@@ -164,6 +164,11 @@ body::before {
     }
 }
 
+@keyframes sheen {
+    from { background-position: -200% 0; }
+    to   { background-position: 200% 0; }
+}
+
 /* --- Headings --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headings);
@@ -206,6 +211,13 @@ h6 { font-size: clamp(1em, 2.5vw, 1.4em); }
     font-weight: 700;
     /* Stronger shadow for improved contrast */
     text-shadow: 2px 2px 4px rgba(var(--color-negro-contraste-rgb), 0.8);
+}
+
+h1:hover {
+    background-image: linear-gradient(90deg,var(--epic-gold-main),var(--epic-purple-emperor),var(--epic-gold-main));
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: sheen 3s linear infinite;
 }
 
 /* --- Paragraphs --- */
@@ -2242,7 +2254,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     /* text-align: left; is default for p in epic_theme.css, so this is fine */
 }
 .article-content h3 {
-    font-family: 'Cinzel', serif; /* Matches --font-headings */
+    font-family: 'Playfair Display Variable', serif; /* Matches --font-headings */
     color: var(--color-secundario-dorado, #B8860B); /* Mapped to --epic-gold-secondary or similar */
     margin-top: 1.5em;
     margin-bottom: 0.5em;
