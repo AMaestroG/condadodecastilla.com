@@ -10,7 +10,6 @@
 <div id="consolidated-menu-items" class="menu-panel left-panel" role="navigation" aria-labelledby="consolidated-menu-button">
     <button id="ai-chat-trigger" class="menu-item-button" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
     <button id="theme-toggle" class="menu-item-button" aria-label="Cambiar tema"><i class="fas fa-moon"></i> <span>Modo</span></button>
-    <button id="lang-bar-toggle" class="menu-item-button" aria-label="Mostrar u ocultar traducción"><i class="fas fa-globe"></i> <span>Idiomas</span></button>
 
     <div class="menu-section">
         <h4 class="gradient-text">Navegación Principal</h4>
