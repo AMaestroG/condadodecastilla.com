@@ -50,7 +50,7 @@
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
     --language-bar-offset: 0px; /* default fallback */
     --menu-extra-offset: 60px;
-    --menu-top-offset: 240px;
+    --menu-top-offset: 0px;
     /* Additional theme variables for admin dashboard */
     --epic-purple-hover: #663399;
     --epic-gray: #6c757d;
@@ -193,6 +193,7 @@ h6 { font-size: clamp(1em, 2.5vw, 1.4em); }
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    font-weight: 700;
     text-shadow: 1px 1px 2px rgba(var(--epic-text-color-rgb), 0.25);
 }
 
