@@ -164,6 +164,13 @@ body::before {
     }
 }
 
+@keyframes drawBorder {
+    to {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
 /* --- Headings --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headings);
@@ -598,6 +605,8 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 .cta-button { /* Call to Action button styling */
     display: inline-block;
+    position: relative; /* For border animation pseudo-element */
+    overflow: hidden;
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.66); /* Purple with 34% transparency */
     color: var(--epic-alabaster-bg);
     padding: clamp(1em, 2vh, 1.2em) clamp(2em, 4vw, 3em);
@@ -613,6 +622,19 @@ body.dark-mode .footer .social-links a:focus-visible {
     margin-top: 1em;
 }
 
+/* Animated outline */
+.cta-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    border: 2px solid var(--epic-gold-main);
+    opacity: 0;
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+}
+
 .cta-button:hover, .cta-button:focus-visible {
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.9); /* Less transparent on hover */
     color: var(--epic-gold-main);
@@ -620,6 +642,10 @@ body.dark-mode .footer .social-links a:focus-visible {
     transform: translateY(-3px) scale(1.03);
     box-shadow: var(--global-box-shadow-dark), inset 0 -2px 3px rgba(var(--epic-text-color-rgb), 0.1);
     outline: none;
+}
+
+.cta-button:hover::after, .cta-button:focus-visible::after {
+    animation: drawBorder 0.4s forwards;
 }
 
 
