@@ -253,6 +253,7 @@ Si `GEMINI_API_KEY` no está definida, las funciones de `includes/ai_utils.php` 
 ## Testing
 
 **Es obligatorio ejecutar los siguientes comandos antes de cualquier suite de pruebas:**
+Asegúrate de tener **Composer** y **PHPUnit** instalados en tu sistema antes de ejecutar las pruebas. `PHPUnit` puede instalarse de manera global o utilizar el binario que se genera en `vendor/bin/phpunit` tras ejecutar `composer install`.
 Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pruebas dependen de PHP, Composer y las extensiones indicadas, por lo que no se ejecutarán si alguno de estos componentes falta. En particular es imprescindible tener disponible la interfaz de línea de comandos de PHP (PHP CLI). Ejecuta primero:
 
 ```bash
@@ -283,6 +284,8 @@ node tests/moonToggleTest.js
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
 `npm run test:puppeteer` ejecuta las pruebas de interfaz con Puppeteer.
+
+Si cualquiera de estos comandos devuelve un error de "command not found" lo más probable es que **PHP**, **Composer** o **PHPUnit** no estén instalados correctamente.
 
 Además se proporcionan scripts auxiliares para validar el estado del código:
 
