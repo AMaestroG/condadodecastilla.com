@@ -47,7 +47,10 @@ if (is_dir($gallery_dir)) {
     <title>Galería Colaborativa - Condado de Castilla</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
 
-    <?php require_once __DIR__ . '/../includes/load_page_css.php'; ?>
+    <?php
+    require_once __DIR__ . '/../includes/load_page_css.php';
+    load_page_css();
+    ?>
 </head>
 <body class="alabaster-bg">
     <div id="linterna-condado"></div> <!-- Para el efecto de linterna -->

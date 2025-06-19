@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <?php include __DIR__ . "/../includes/head_common.php"; ?>
-    <?php require_once __DIR__ . "/../includes/load_page_css.php"; ?>
+    <?php
+    require_once __DIR__ . "/../includes/load_page_css.php";
+    load_page_css();
+    ?>
     <title>Capítulo 7: Las Huellas de Roma y el Mundo Prerromano en la Comarca de Cerezo</title>
 </head>
 <body>
