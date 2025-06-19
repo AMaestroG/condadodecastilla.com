@@ -7,3 +7,21 @@
     @apply bg-gradient-radial from-yellow-200 via-transparent;
   }
 }
+
+@layer components {
+  .shine-gold {
+    background-image: linear-gradient(90deg, #b8860b, #cfb53b, #fff8dc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .stone-texture {
+    background-image: url('/assets/img/alabaster.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+  }
+  .purple-shadow {
+    box-shadow: 0 4px 10px rgba(74, 13, 103, 0.4);
+  }
+}

@@ -28,16 +28,16 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
     require_once __DIR__ . '/../_header.php';
     ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_contacto_background.jpg');">
+    <header class="page-header hero stone-texture" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_contacto_background.jpg');">
         <div class="hero-content">
             <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <?php editableText('contacto_hero_titulo', $pdo, 'Ponte en Contacto', 'h1'); ?>
-            <?php editableText('contacto_hero_subtitulo', $pdo, '¿Preguntas, sugerencias o deseas colaborar? Estamos aquí para escucharte.', 'p'); ?>
+            <?php editableText('contacto_hero_titulo', $pdo, 'Ponte en Contacto', 'h1', 'shine-gold purple-shadow'); ?>
+            <?php editableText('contacto_hero_subtitulo', $pdo, '¿Preguntas, sugerencias o deseas colaborar? Estamos aquí para escucharte.', 'p', 'stone-texture'); ?>
         </div>
     </header>
 
     <main>
-        <section class="section contact-section"> <div class="container page-content-block"> <div class="contact-info">
+        <section class="section contact-section stone-texture"> <div class="container page-content-block"> <div class="contact-info">
                     <?php editableText('contacto_info_intro', $pdo, 'Puedes enviarnos un mensaje directamente usando el formulario a continuación o escribirnos a nuestra dirección de correo electrónico:', 'p'); ?>
                     <p><i class="fas fa-envelope"></i> <?php editableText('contacto_info_email', $pdo, 'info@condadodecastilla.com', 'a', 'email-link', 'href="mailto:info@condadodecastilla.com"'); ?></p>
                     <p><i class="fas fa-phone"></i> <?php editableText('contacto_info_telefono', $pdo, '+34&nbsp;600&nbsp;123&nbsp;456', 'a', 'email-link', 'href="tel:+34600123456"'); ?></p>
