@@ -206,12 +206,12 @@ Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pr
 
 ```bash
 composer install
-pip install -r requirements.txt
+./scripts/setup_python_env.sh
 ```
 
 `composer install` debe ejecutarse **antes** de usar `vendor/bin/phpunit` y
-`pip install -r requirements.txt` debe lanzarse **antes** de ejecutar las
-pruebas de Python.
+`./scripts/setup_python_env.sh` instalará las dependencias de Python definidas en
+`requirements.txt` antes de ejecutar las pruebas de ese lenguaje.
 
 Con las dependencias ya presentes, ejecuta cada conjunto de tests de forma explícita:
 
