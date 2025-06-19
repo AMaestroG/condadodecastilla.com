@@ -1,3 +1,8 @@
+<?php
+if (file_exists(__DIR__ . '/fragments/header/top-nav.php')) {
+    include __DIR__ . '/fragments/header/top-nav.php';
+}
+?>
 <div id="fixed-header-elements">
     <div class="header-action-buttons">
         <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>

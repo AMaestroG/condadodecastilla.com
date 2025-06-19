@@ -19,4 +19,5 @@
 </div>
 </footer>
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/topnav.js"></script>
 <script src="/js/lang-bar.js"></script>
