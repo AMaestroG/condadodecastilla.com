@@ -19,35 +19,16 @@ function loadGoogleTranslate(callback) {
     document.head.appendChild(script);
 }
 
-function toggleLanguageBar() {
-    const el = document.getElementById('google_translate_element');
-    if (!el) return;
-    const body = document.body;
-
-    const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
-
-    if (isHidden) {
-        const showBar = () => {
-            el.style.display = 'block';
-            body.classList.add('lang-bar-visible');
-        };
-
-        if (!window.googleTranslateLoaded) {
-            loadGoogleTranslate(showBar);
-        } else {
-            showBar();
-        }
-    } else {
-        el.style.display = 'none';
-        body.classList.remove('lang-bar-visible');
-    }
-}
 
 function toggleFlagPanel() {
     const panel = document.getElementById('language-panel');
     const btn = document.getElementById('flag-toggle');
     if (!panel) return;
     const open = panel.classList.toggle('active');
+    if (open && !window.googleTranslateLoaded) {
+        loadGoogleTranslate();
+        window.googleTranslateLoaded = true;
+    }
     if (btn) btn.setAttribute('aria-expanded', open);
     document.body.classList.toggle('menu-open-right', open);
     document.body.classList.toggle('menu-compressed', open);
@@ -75,35 +56,8 @@ function initFlagPanel() {
     });
 }
 
-function initLangBarToggle() {
-    const btn = document.getElementById('lang-bar-toggle');
-    if (btn) {
-        btn.addEventListener('click', toggleLanguageBar);
-    }
-    const el = document.getElementById('google_translate_element');
-    if (el) {
-        el.addEventListener('click', toggleLanguageBar);
-        el.style.display = 'none';
-    }
-
-    const params = new URLSearchParams(window.location.search);
-    const lang = params.get('lang');
-    if (lang) {
-        const startTranslation = () => {
-            document.cookie = 'googtrans=/es/' + lang + ';path=/';
-            toggleLanguageBar();
-        };
-        if (!window.googleTranslateLoaded) {
-            loadGoogleTranslate(startTranslation);
-            window.googleTranslateLoaded = true;
-        } else {
-            startTranslation();
-        }
-    }
-}
 
 function setupLanguageBar() {
-    initLangBarToggle();
     initFlagPanel();
 }
 

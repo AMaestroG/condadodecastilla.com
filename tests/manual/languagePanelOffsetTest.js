@@ -7,6 +7,7 @@ const puppeteer = require('puppeteer');
   await page.waitForSelector('#flag-toggle');
   await page.click('#flag-toggle');
   await page.waitForSelector('#language-panel.active');
+  await page.waitForSelector('#language-panel #google_translate_element', {visible: true});
   const top = await page.$eval('#language-panel', el => getComputedStyle(el).top);
   console.log('Panel top offset:', top);
   await page.click('#flag-toggle');
