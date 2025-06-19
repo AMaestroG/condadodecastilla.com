@@ -264,14 +264,18 @@ Con las dependencias ya instaladas, ejecuta cada conjunto de tests de forma expl
 ```bash
 vendor/bin/phpunit
 python -m unittest tests/test_flask_api.py
-# Asegúrate de tener un servidor local en marcha (por ejemplo `php -S localhost:8080`)
 npm test
 node tests/moonToggleTest.js
 ```
 
+`npm test` inicia un servidor PHP temporal en `localhost:8080` y lo detiene al
+finalizar las pruebas. Este script usa sintaxis POSIX, por lo que en Windows se
+recomienda ejecutarlo desde **Git Bash** o **WSL** para que la limpieza del
+proceso funcione correctamente.
+
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
-`npm test` (o `npm run test:puppeteer`) inicia los checks de interfaz con Puppeteer.
+`npm test` inicia los checks de interfaz con Puppeteer.
 
 Además se proporcionan scripts auxiliares para validar el estado del código:
 
