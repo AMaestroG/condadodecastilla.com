@@ -30,6 +30,17 @@ jobs:
       - name: Run PHPUnit
         run: vendor/bin/phpunit --coverage-clover build/coverage.xml
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Run Puppeteer tests
+        run: npm run test:puppeteer
+
       - name: Upload coverage artifact
         if: success() && always()
         uses: actions/upload-artifact@v3
