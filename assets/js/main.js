@@ -110,7 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         const icon = themeToggle.querySelector('i');
         const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'dark' || !storedTheme) {
+        if (storedTheme === 'moon') {
+            document.body.classList.add('luna');
+            if (icon) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        } else if (storedTheme === 'dark' || !storedTheme) {
             document.body.classList.add('dark-mode');
             if (icon) {
                 icon.classList.remove('fa-moon');
@@ -121,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         themeToggle.addEventListener('click', () => {
+            document.body.classList.remove('luna');
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
             if (icon) {
@@ -128,6 +135,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.toggle('fa-sun', isDark);
             }
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    const moonToggle = document.getElementById('moon-toggle');
+    if (moonToggle) {
+        const moonIcon = moonToggle.querySelector('i');
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'moon' && moonIcon) {
+            moonIcon.classList.remove('fa-moon');
+            moonIcon.classList.add('fa-sun');
+        }
+        moonToggle.addEventListener('click', () => {
+            const active = document.body.classList.contains('luna');
+            if (active) {
+                document.body.classList.remove('luna');
+                if (moonIcon) {
+                    moonIcon.classList.add('fa-moon');
+                    moonIcon.classList.remove('fa-sun');
+                }
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('luna');
+                if (moonIcon) {
+                    moonIcon.classList.remove('fa-moon');
+                    moonIcon.classList.add('fa-sun');
+                }
+                localStorage.setItem('theme', 'moon');
+            }
         });
     }
 

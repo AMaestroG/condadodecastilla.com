@@ -11,6 +11,7 @@
 <div id="consolidated-menu-items" class="menu-panel left-panel" role="navigation" aria-labelledby="consolidated-menu-button">
     <button id="ai-chat-trigger" class="menu-item-button" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
     <button id="theme-toggle" class="menu-item-button" aria-label="Cambiar tema"><i class="fas fa-moon"></i> <span>Modo</span></button>
+    <button id="moon-toggle" class="menu-item-button" aria-label="Modo luna"><i class="fas fa-moon"></i> <span>Luna</span></button>
     <button id="palette-toggle" class="menu-item-button" aria-label="Cambiar paleta"><i class="fas fa-palette"></i> <span>Paleta</span></button>
 
     <div class="menu-section">
