@@ -34,6 +34,33 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 * **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
 * **Añadir páginas**: edita `fragments/menus/main-menu.php` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
 
+### Clase `menu-compressed` y transformación de la página
+
+Al pulsar un botón con el atributo `data-menu-target="id-del-panel"`,
+`assets/js/main.js` abre el panel de menú indicado y añade la clase
+`menu-compressed` al elemento `<body>`. También se aplica
+`menu-open-left` o `menu-open-right` según el lado del que se despliegue
+el panel. Estas clases están definidas en
+`assets/css/sliding_menu.css`:
+
+```css
+body.menu-compressed {
+    transition: transform 0.3s ease;
+    transform: scaleX(0.95);
+}
+body.menu-open-left {
+    transform: translateX(260px) scaleX(0.95);
+}
+body.menu-open-right {
+    transform: translateX(-260px) scaleX(0.95);
+}
+```
+
+El contenido de la página se desplaza y se escala horizontalmente,
+comprimiéndose hacia el lado opuesto al menú abierto. Al cerrar todos
+los paneles, el script elimina estas clases y la vista vuelve a su
+posición original.
+
 Tras cualquier modificación ejecuta las pruebas de PHP y Python si las dependencias están instaladas:
 ```bash
 vendor/bin/phpunit
