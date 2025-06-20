@@ -30,18 +30,31 @@ if ($app_debug) {
 }
 // --- Fin de manejo de modo debug ---
 
-// Configuración de la base de datos PostgreSQL
-$db_host = "localhost";         // Host de la base de datos (PostgreSQL está en el mismo servidor)
-$db_name = "condado_castilla_db"; // Nombre de tu base de datos PostgreSQL
-$db_user = "condado_user";        // Usuario de tu base de datos PostgreSQL
-$db_pass = getenv('CONDADO_DB_PASSWORD'); // Definido vía variable de entorno
-if ($db_pass === false) {
-    // Si la variable no existe, deja $pdo como null y registra el problema
-    error_log('includes/db_connect.php - CONDADO_DB_PASSWORD not set');
+// Configuración de la base de datos PostgreSQL usando variables de entorno
+$db_host = getenv('DB_HOST');
+$db_port = getenv('DB_PORT');
+$db_name = getenv('DB_NAME');
+$db_user = getenv('DB_USER');
+$db_pass = getenv('CONDADO_DB_PASSWORD');
+
+// Validar que todas las variables requeridas estén definidas
+$missing = [];
+foreach ([
+    'DB_HOST' => $db_host,
+    'DB_PORT' => $db_port,
+    'DB_NAME' => $db_name,
+    'DB_USER' => $db_user,
+    'CONDADO_DB_PASSWORD' => $db_pass,
+] as $var => $value) {
+    if ($value === false || $value === '') {
+        $missing[] = $var;
+    }
+}
+if (!empty($missing)) {
+    error_log('includes/db_connect.php - missing env vars: ' . implode(', ', $missing));
     $pdo = null;
     return;
 }
-$db_port = "5432";                // Puerto estándar de PostgreSQL
 
 // Cadena de conexión (DSN) para PostgreSQL usando PDO
 $dsn = "pgsql:host=$db_host;port=$db_port;dbname=$db_name;user=$db_user;password=$db_pass";

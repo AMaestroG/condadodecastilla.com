@@ -77,23 +77,25 @@ sudo apt install php php-cli php-xml php-xmlwriter php-mbstring php-pgsql compos
 
 ## Configuración de la base de datos
 
-El archivo `includes/db_connect.php` define los parámetros para conectarse a la base de datos PostgreSQL. Se proporciona con valores de ejemplo y **debe** modificarse con las credenciales reales antes de usar el proyecto en producción.
+La conexion se configura mediante variables definidas en un archivo `.env`.
+Copia primero `.env.example` a `.env` y ajusta alli tus credenciales:
 
-Fragmento relevante de `includes/db_connect.php`:
-
-```php
-$db_host = "localhost";         // Host de la base de datos
-$db_name = "condado_castilla_db"; // Nombre de la base de datos
-$db_user = "condado_user";        // Usuario
-$db_pass = "tu_contraseña_muy_segura"; // CONTRASEÑA - reemplazar por la real
-$db_port = "5432";                // Puerto de PostgreSQL
+```bash
+cp .env.example .env
 ```
 
-Ajusta esos valores según tu entorno para que la aplicación pueda acceder a la base de datos.
+Las variables minimas son:
 
-El script obtiene la contraseña real desde la variable de entorno `CONDADO_DB_PASSWORD`.
-Si dicha variable no está definida, el sitio seguirá funcionando con los textos por defecto
-y se registrará un aviso en el log del servidor.
+```bash
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=condado_castilla_db
+DB_USER=condado_user
+CONDADO_DB_PASSWORD=tu_contrasena
+```
+
+`includes/db_connect.php` leera estos valores con `getenv()` y registrara un error si falta alguno.
+
 Para preparar la base de datos ejecuta en orden los scripts de `database_setup`: `01_create_tables.sql`, `02_create_museo_piezas_table.sql` y `03_create_tienda_productos.sql`.
 Si quieres cargar algunos ejemplos iniciales para el museo, puedes lanzar de forma opcional `04_insert_sample_museo_piezas.sql` tras crear la tabla correspondiente.
 
