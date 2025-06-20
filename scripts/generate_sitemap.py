@@ -3,7 +3,9 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from datetime import datetime
 
-BASE_URL = "https://condadodecastilla.com"
+# Base URL used in each entry of the sitemap. Can be overridden with an
+# environment variable for local testing or different deployments.
+BASE_URL = os.getenv('BASE_URL', 'https://condadodecastilla.com')
 
 EXCLUDE_DIRS = {
     'scripts', 'dashboard', '__pycache__', 'assets', 'uploads',
