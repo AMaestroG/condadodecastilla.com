@@ -8,7 +8,7 @@
     ?>
     <title>Historia de Cerezo: Cuna y Origen de Castilla</title>
 </head>
-<body class="alabaster-bg">
+<body class="alabaster-bg font-sans m-5">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
 <h1>Historia de Cerezo: Cuna y Origen de Castilla</h1>
