@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -uo pipefail
 
 # Determine repository root and switch to it
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -8,26 +8,29 @@ cd "$PROJECT_ROOT"
 
 # Install PHP dependencies
 if command -v composer >/dev/null 2>&1; then
-    composer install --no-interaction --no-progress --prefer-dist
+    if ! composer install --no-interaction --no-progress --prefer-dist; then
+        echo "Warning: composer install failed." >&2
+    fi
 else
-    echo "Composer not found. Please install Composer to manage PHP dependencies." >&2
-    exit 1
+    echo "Warning: Composer not found; skipping PHP dependencies." >&2
 fi
 
 # Install Python dependencies
 if command -v pip >/dev/null 2>&1; then
-    pip install -r requirements.txt
+    if ! pip install -r requirements.txt; then
+        echo "Warning: pip install failed." >&2
+    fi
 else
-    echo "pip not found. Please install pip to manage Python dependencies." >&2
-    exit 1
+    echo "Warning: pip not found; skipping Python dependencies." >&2
 fi
 
 # Install Node dependencies
 if command -v npm >/dev/null 2>&1; then
-    npm ci
+    if ! npm ci; then
+        echo "Warning: npm install failed." >&2
+    fi
 else
-    echo "npm not found. Please install Node.js and npm to manage Node dependencies." >&2
-    exit 1
+    echo "Warning: npm not found; skipping Node dependencies." >&2
 fi
 
 cat <<MSG
