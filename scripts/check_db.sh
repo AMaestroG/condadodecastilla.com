@@ -3,10 +3,30 @@ set -euo pipefail
 
 # Simple check for PostgreSQL connectivity and environment variable
 
-DB_HOST="localhost"
-DB_PORT="5432"
-DB_NAME="condado_castilla_db"
-DB_USER="condado_user"
+DB_HOST="${DB_HOST:-}"
+DB_PORT="${DB_PORT:-}"
+DB_NAME="${DB_NAME:-}"
+DB_USER="${DB_USER:-}"
+
+if [ -z "$DB_HOST" ]; then
+  echo "DB_HOST environment variable is not set" >&2
+  exit 1
+fi
+
+if [ -z "$DB_PORT" ]; then
+  echo "DB_PORT environment variable is not set" >&2
+  exit 1
+fi
+
+if [ -z "$DB_NAME" ]; then
+  echo "DB_NAME environment variable is not set" >&2
+  exit 1
+fi
+
+if [ -z "$DB_USER" ]; then
+  echo "DB_USER environment variable is not set" >&2
+  exit 1
+fi
 
 if [ -z "$CONDADO_DB_PASSWORD" ]; then
   echo "CONDADO_DB_PASSWORD environment variable is not set" >&2
