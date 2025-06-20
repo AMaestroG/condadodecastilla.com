@@ -17,20 +17,20 @@
     <div class="menu-section">
         <h4 class="gradient-text">Navegación Principal</h4>
         <?php
-        if (file_exists(__DIR__ . '/fragments/menus/main-menu.php')) {
-            include __DIR__ . '/fragments/menus/main-menu.php';
+        if (file_exists(__DIR__ . '/menus/main-menu.php')) {
+            include __DIR__ . '/menus/main-menu.php';
         }
         ?>
     </div>
     <div class="menu-section">
         <h4 class="gradient-text">Admin</h4>
-        <?php include __DIR__ . '/fragments/menus/admin-menu.php'; ?>
+        <?php include __DIR__ . '/menus/admin-menu.php'; ?>
     </div>
     <div class="menu-section">
         <h4 class="gradient-text">Social</h4>
         <?php
-        if (file_exists(__DIR__ . '/fragments/menus/social-menu.html')) {
-            echo file_get_contents(__DIR__ . '/fragments/menus/social-menu.html');
+        if (file_exists(__DIR__ . '/menus/social-menu.html')) {
+            echo file_get_contents(__DIR__ . '/menus/social-menu.html');
         }
         ?>
     </div>
@@ -42,10 +42,10 @@
     <?php
     // Content from ai-drawer.html will go here
     // It includes the header, response area, input, and submit button for AI chat
-    if (file_exists(__DIR__ . '/fragments/header/ai-drawer.html')) {
+    if (file_exists(__DIR__ . '/header/ai-drawer.html')) {
         // We might need to wrap or modify ai-drawer.html if its root element isn't suitable
         // For now, directly include it.
-        echo file_get_contents(__DIR__ . '/fragments/header/ai-drawer.html');
+        echo file_get_contents(__DIR__ . '/header/ai-drawer.html');
     } else {
         echo '<p>Error: AI Chat interface not found.</p>';
     }
@@ -54,8 +54,8 @@
 
 <!-- Right Sliding Panel for Language Flags -->
 <?php
-    if (file_exists(__DIR__ . '/fragments/header/language-flags.html')) {
-        echo file_get_contents(__DIR__ . '/fragments/header/language-flags.html');
+    if (file_exists(__DIR__ . '/header/language-flags.html')) {
+        echo file_get_contents(__DIR__ . '/header/language-flags.html');
     } else {
         echo '<div id="language-panel" class="menu-panel right-panel"><p>Flags not found.</p></div>';
     }

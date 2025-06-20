@@ -11,7 +11,7 @@
         }
         ?>
         <?php
-        $social_fragment = __DIR__ . '/fragments/menus/social-menu.html';
+        $social_fragment = __DIR__ . '/menus/social-menu.html';
         if (file_exists($social_fragment)) {
             echo file_get_contents($social_fragment);
         }
