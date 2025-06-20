@@ -6,14 +6,14 @@
 }
 
 .article-content h3 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-headings);
     color: var(--color-secundario-dorado);
     margin-top: 1.5em;
     margin-bottom: 0.5em;
 }
 
 .article-content h4 {
-    font-family: 'Lora', serif;
+    font-family: var(--font-primary);
     font-style: italic;
     color: var(--color-primario-purpura);
     margin-top: 1em;

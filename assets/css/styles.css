@@ -50,7 +50,7 @@ html {
 }
 
 body {
-    font-family: 'Lora', serif;
+    font-family: var(--font-primary);
     background-color: transparent; /* MODIFIED: Was var(--current-bg) */
     color: var(--current-text);
     margin: 0;
@@ -218,7 +218,7 @@ header { /* New header for hamburger only */
 .ai-drawer-header h3 {
     margin: 0;
     font-size: 1.2em;
-    font-family: 'Cinzel', serif; /* Fuente más temática si se desea */
+    font-family: var(--font-headings); /* Fuente más temática si se desea */
 }
 
 #close-ai-drawer {
