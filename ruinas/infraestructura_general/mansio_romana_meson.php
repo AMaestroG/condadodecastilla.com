@@ -21,5 +21,5 @@
         <p>La creación de esta mansio formó parte del establecimiento de la infraestructura romana en la zona, junto con la ciudad de Oca (Auca) en Los Palacios, el campamento militar en La Tejera, y una "Castella romana".</p>
         <p>El texto de 'nuevo4.md' indica que el río Vallum (actual San García) se usaba para proteger esta Mansio Romana, que estaba situada al pasar el Puente Romano de San Ciprián. Este puente saltaba el foso de Rudera en la Alcazaba, defendiendo tanto la Mansio como el Mausoleo Imperial de San Nicolás. Solo los comerciantes podían entrar cargados o a caballo, y únicamente hasta el mesón (la mansio).</p>
     </div></section></main>
-    <?php require_once __DIR__ . '/../fragments/footer.php'; ?><script src="/js/layout.js"></script>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 </body></html>

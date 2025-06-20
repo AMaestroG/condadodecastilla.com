@@ -48,6 +48,6 @@
     <p><a href="../index.php">Volver al Índice Principal</a></p>
 
     <?php require_once __DIR__ . "/../../fragments/footer.php"; ?>
-    <script src="/js/layout.js"></script>
+    
 </body>
 </html>

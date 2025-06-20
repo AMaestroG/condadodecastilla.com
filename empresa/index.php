@@ -45,6 +45,5 @@ require_admin_login();
 
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 
-    <script src="/js/layout.js" defer></script>
 </body>
 </html>

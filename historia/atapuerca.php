@@ -99,7 +99,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
         </section>
     </main>
 <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
-    <script src="/js/layout.js"></script>
+    
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             const btnResumen = document.getElementById('btnResumenIA');

@@ -143,7 +143,7 @@
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 
     <script src="/js/config.js"></script>
-    <script src="/js/layout.js"></script>
+    
     <script src="/js/museo-2d-gallery.js"></script>
     <!-- Museo 3D Modules -->
     <script src="/js/museum-3d/utils.js"></script>

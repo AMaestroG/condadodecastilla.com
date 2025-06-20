@@ -21,5 +21,5 @@
         <p>Posteriormente, esta estructura evolucionó o fue reemplazada por la actual iglesia. El texto indica: "...la mezquita de Yanna en el alto, hoy la iglesia de la llana." Esto la sitúa en una posición elevada, probablemente dentro del complejo defensivo del alcázar.</p>
         <p>Se menciona también un "Capitel de la Iglesia de la LLana, Cerezo de Río Tirón" como un elemento de interés fotográfico, sugiriendo la existencia de restos escultóricos o arquitectónicos relevantes de sus fases anteriores.</p>
     </div></section></main>
-    <?php require_once __DIR__ . '/../fragments/footer.php'; ?><script src="/js/layout.js"></script>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 </body></html>

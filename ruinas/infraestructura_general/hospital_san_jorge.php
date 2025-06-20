@@ -22,5 +22,5 @@
         <p>El hospital cerró en 1040 cuando el Camino de Santiago desvió su ruta principal. Hoy en día, se conserva la localización del hospital y, de gran valor, una antiquísima talla de San Antón con el Tau en el pecho. Esta talla, originalmente en el hospital, se encuentra ahora en la Iglesia de San Nicolás de Bari, aunque se menciona que ha sufrido una restauración moderna con dorados que no respeta el riguroso negro que vestían los hospitalarios de San Antón.</p>
         <p>Se destaca que esta podría ser una de las primeras órdenes militares de Europa y el hospital de Cerezo, uno de los primeros de dicha orden.</p>
     </div></section></main>
-    <?php require_once __DIR__ . '/../fragments/footer.php'; ?><script src="/js/layout.js"></script>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 </body></html>
