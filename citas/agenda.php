@@ -11,31 +11,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errorMessage = 'Error de verificación CSRF.';
     } else {
         $nombre = trim($_POST['nombre'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $fecha = trim($_POST['fecha'] ?? '');
-    $hora = trim($_POST['hora'] ?? '');
-    $comentarios = trim($_POST['comentarios'] ?? '');
-    if ($nombre && $email && $fecha && $hora) {
-        $appointments = json_decode(file_get_contents($appointmentsFile), true);
-        if (!is_array($appointments)) {
-            $appointments = [];
-        }
-        $appointments[] = [
-            'nombre' => $nombre,
-            'email' => $email,
-            'fecha' => $fecha,
-            'hora' => $hora,
-            'comentarios' => $comentarios,
-            'timestamp' => date('c')
-        ];
-        if (file_put_contents($appointmentsFile, json_encode($appointments, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
-            $successMessage = "Cita registrada correctamente.";
+        $email = trim($_POST['email'] ?? '');
+        $fecha = trim($_POST['fecha'] ?? '');
+        $hora = trim($_POST['hora'] ?? '');
+        $comentarios = trim($_POST['comentarios'] ?? '');
+        if ($nombre && $email && $fecha && $hora) {
+            $appointments = json_decode(file_get_contents($appointmentsFile), true);
+            if (!is_array($appointments)) {
+                $appointments = [];
+            }
+            $appointments[] = [
+                'nombre' => $nombre,
+                'email' => $email,
+                'fecha' => $fecha,
+                'hora' => $hora,
+                'comentarios' => $comentarios,
+                'timestamp' => date('c')
+            ];
+            if (file_put_contents($appointmentsFile, json_encode($appointments, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
+                $successMessage = "Cita registrada correctamente.";
+            } else {
+                $errorMessage = "No se pudo guardar la cita.";
+            }
         } else {
-            $errorMessage = "No se pudo guardar la cita.";
+            $errorMessage = "Por favor completa todos los campos obligatorios.";
         }
-    } else {
-        $errorMessage = "Por favor completa todos los campos obligatorios.";
-    }
     }
 }
 ?>
@@ -64,14 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <?php
     $appointments = json_decode(file_get_contents($appointmentsFile), true);
-    if ($appointments && is_array($appointments)) {
-        echo "<h2>Citas registradas</h2><ul>";
-        foreach ($appointments as $a) {
-            echo "<li>" . htmlspecialchars($a['fecha']) . " " . htmlspecialchars($a['hora']) . " - " . htmlspecialchars($a['nombre']) . " (" . htmlspecialchars($a['email']) . ")" . "</li>";
-        }
-        echo "</ul>";
+if ($appointments && is_array($appointments)) {
+    echo "<h2>Citas registradas</h2><ul>";
+    foreach ($appointments as $a) {
+        echo "<li>" . htmlspecialchars($a['fecha']) . " " . htmlspecialchars($a['hora']) . " - " . htmlspecialchars($a['nombre']) . " (" . htmlspecialchars($a['email']) . ")" . "</li>";
     }
-    ?>
+    echo "</ul>";
+}
+?>
     <?php require_once __DIR__ . '/../_footer.php'; ?>
 </body>
 </html>

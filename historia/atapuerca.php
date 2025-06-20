@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     // Usar session_start() solo si no hay una sesión activa.
     // Es preferible no usar @ para suprimir errores aquí.
     if (session_status() !== PHP_SESSION_ACTIVE) {
-         session_start();
+        session_start();
     }
 }
 // Asumimos que db_connect.php establece $pdo
@@ -84,7 +84,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                             // Esto no debería ocurrir si ai_utils.php se incluyó correctamente.
                             echo '<p>Error: La función de sugerencia de etiquetas no está disponible.</p>';
                         }
-                        ?>
+?>
                     </div>
                 </div>
             </div>
@@ -163,16 +163,16 @@ require_once __DIR__ . '/../includes/ai_utils.php';
         <?php
             // Asegurarse de que la función existe antes de llamarla
             $translation_placeholders = [];
-            if (function_exists('translate_with_gemini')) {
-                // Para la demostración, no necesitamos pasar el texto original completo aquí,
-                // la función translate_with_gemini ya tiene una lógica de snippet.
-                // Usaremos un content_id genérico para Atapuerca.
-                $original_text_snippet_for_demo = "Contenido original de la página de Atapuerca..."; // Un snippet muy corto o incluso vacío
-                $translation_placeholders['en-ai'] = translate_with_gemini('atapuerca_main_content', 'en-ai', $original_text_snippet_for_demo);
-                $translation_placeholders['fr-ai'] = translate_with_gemini('atapuerca_main_content', 'fr-ai', $original_text_snippet_for_demo);
-                $translation_placeholders['de-ai'] = translate_with_gemini('atapuerca_main_content', 'de-ai', $original_text_snippet_for_demo);
-            }
-        ?>
+if (function_exists('translate_with_gemini')) {
+    // Para la demostración, no necesitamos pasar el texto original completo aquí,
+    // la función translate_with_gemini ya tiene una lógica de snippet.
+    // Usaremos un content_id genérico para Atapuerca.
+    $original_text_snippet_for_demo = "Contenido original de la página de Atapuerca..."; // Un snippet muy corto o incluso vacío
+    $translation_placeholders['en-ai'] = translate_with_gemini('atapuerca_main_content', 'en-ai', $original_text_snippet_for_demo);
+    $translation_placeholders['fr-ai'] = translate_with_gemini('atapuerca_main_content', 'fr-ai', $original_text_snippet_for_demo);
+    $translation_placeholders['de-ai'] = translate_with_gemini('atapuerca_main_content', 'de-ai', $original_text_snippet_for_demo);
+}
+?>
         const translations = <?php echo json_encode($translation_placeholders); ?>;
 
         if (contentContainer && langButtons.length > 0) {

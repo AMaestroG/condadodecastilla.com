@@ -1,4 +1,5 @@
 <?php
+
 // api_museo.php
 
 // Include necessary files
@@ -17,14 +18,16 @@ header('Content-Type: application/json');
 global $pdo;
 
 // Helper function to send JSON response
-function json_response($data, $status_code = 200) {
+function json_response($data, $status_code = 200)
+{
     http_response_code($status_code);
     echo json_encode($data);
     exit;
 }
 
 // Helper function to get base URL
-function get_base_url() {
+function get_base_url()
+{
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
     $host = $_SERVER['HTTP_HOST'];
     return $protocol . $host;
@@ -219,15 +222,15 @@ switch ($request_method) {
                         if (!unlink($image_path_to_delete)) {
                             // Log this error, but don't necessarily fail the whole request if DB part was ok
                             error_log("Failed to delete image file: " . $image_path_to_delete);
-                             json_response([
-                                'message' => 'Piece deleted from database, but failed to delete image file.',
-                                'id' => $piece_id
+                            json_response([
+                               'message' => 'Piece deleted from database, but failed to delete image file.',
+                               'id' => $piece_id
                             ], 207); // Multi-Status
                         } else {
-                             json_response(['message' => 'Piece and image deleted successfully', 'id' => $piece_id]);
+                            json_response(['message' => 'Piece and image deleted successfully', 'id' => $piece_id]);
                         }
                     } else {
-                         json_response(['message' => 'Piece deleted from database, but image file not found.', 'id' => $piece_id], 200);
+                        json_response(['message' => 'Piece deleted from database, but image file not found.', 'id' => $piece_id], 200);
                     }
                 } else {
                     json_response(['error' => 'Piece not found or already deleted.'], 404);
@@ -244,5 +247,3 @@ switch ($request_method) {
         json_response(['error' => 'Method not allowed'], 405);
         break;
 }
-
-?>

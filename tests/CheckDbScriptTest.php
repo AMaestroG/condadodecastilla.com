@@ -1,8 +1,11 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class CheckDbScriptTest extends TestCase {
-    public function testScriptFailsWhenPgIsreadyFails(): void {
+class CheckDbScriptTest extends TestCase
+{
+    public function testScriptFailsWhenPgIsreadyFails(): void
+    {
         $tmpDir = sys_get_temp_dir() . '/fakebin_' . uniqid('', true);
         mkdir($tmpDir);
         $fake = $tmpDir . '/pg_isready';
@@ -13,7 +16,7 @@ class CheckDbScriptTest extends TestCase {
             'CONDADO_DB_PASSWORD' => 'password'
         ];
         $cmd = 'bash ' . escapeshellarg(__DIR__.'/../scripts/check_db.sh');
-        $proc = proc_open($cmd, [1=>['pipe','w'], 2=>['pipe','w']], $pipes, null, $env);
+        $proc = proc_open($cmd, [1 => ['pipe','w'], 2 => ['pipe','w']], $pipes, null, $env);
         $out = stream_get_contents($pipes[1]);
         $err = stream_get_contents($pipes[2]);
         $status = proc_close($proc);

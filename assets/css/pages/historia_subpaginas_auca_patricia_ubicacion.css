@@ -1,49 +1,52 @@
 @import "../components.css";
 .back-link {
-    margin-top: 1em;
-    margin-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-
-
-        /* Breadcrumb Styles */
-        .breadcrumb-container {
-            padding: 0.75em 0;
-            margin-bottom: 1em; /* Add some space below breadcrumbs */
-        }
-        .breadcrumb {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-family: 'Lora', serif;
-            font-size: 0.9em;
-        }
-        .breadcrumb li {
-            padding: 0 0.3em;
-        }
-        .breadcrumb li a {
-            color: var(--color-primario-purpura);
-            text-decoration: none;
-        }
-        .breadcrumb li a:hover {
-            text-decoration: underline;
-        }
-        .breadcrumb li + li::before {
-            content: ">"; /* Separador */
-            padding-right: 0.5em;
-            color: var(--color-texto-secundario);
-        }
-        .breadcrumb li.active {
-            color: var(--color-texto-principal);
-            font-weight: bold;
-        }
-        .breadcrumb-error {
-            color: var(--epic-error-red);
-            font-size: 0.8em;
-        }
+/* Breadcrumb Styles */
+.breadcrumb-container {
+  padding: 0.75em 0;
+  margin-bottom: 1em; /* Add some space below breadcrumbs */
+}
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: "Lora", serif;
+  font-size: 0.9em;
+}
+.breadcrumb li {
+  padding: 0 0.3em;
+}
+.breadcrumb li a {
+  color: var(--color-primario-purpura);
+  text-decoration: none;
+}
+.breadcrumb li a:hover {
+  text-decoration: underline;
+}
+.breadcrumb li + li::before {
+  content: ">"; /* Separador */
+  padding-right: 0.5em;
+  color: var(--color-texto-secundario);
+}
+.breadcrumb li.active {
+  color: var(--color-texto-principal);
+  font-weight: bold;
+}
+.breadcrumb-error {
+  color: var(--epic-error-red);
+  font-size: 0.8em;
+}
 
 #hero-auca-patricia-ubicacion {
-    background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/paisaje_cerezo.jpg')
+  background-image:
+    linear-gradient(
+      rgba(var(--color-primario-purpura-rgb), 0.6),
+      rgba(var(--color-negro-contraste-rgb), 0.7)
+    ),
+    url("/imagenes/paisaje_cerezo.jpg");
 }

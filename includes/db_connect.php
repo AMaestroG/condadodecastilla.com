@@ -1,4 +1,5 @@
 <?php
+
 // includes/db_connect.php
 // Configuración para conectar a la base de datos PostgreSQL
 // La contraseña se obtiene desde la variable de entorno CONDADO_DB_PASSWORD
@@ -58,7 +59,7 @@ $pdo = null; // Inicializar $pdo
 try {
     // Establecer la conexión a la base de datos
     $pdo = new PDO($dsn);
-    
+
     // Mensaje de éxito (puedes comentarlo o eliminarlo después de probar)
     // echo "<p style='color:green; font-family:monospace;'>Conexión a PostgreSQL ('$db_name') exitosa!</p>";
 
@@ -66,7 +67,7 @@ try {
     // Manejar errores de conexión
     $error_message = "Error de conexión a la Base de Datos: " . $e->getMessage();
     error_log($error_message, 0); // Loguear el error detallado en el log de errores del servidor
-    
+
     // Mostrar un mensaje de error genérico al usuario en el HTML del dashboard si este script se incluye directamente
     // o dejar que el script que lo incluye maneje el error si $pdo es null.
     // Para el propósito del dashboard, si get_stats.php incluye esto, debería manejar el caso de $pdo nulo.
@@ -77,4 +78,3 @@ try {
 
 // El objeto $pdo estará disponible para los scripts que incluyan este archivo.
 // Si la conexión falla, $pdo seguirá siendo null o la excepción habrá detenido el script si no se maneja.
-?>

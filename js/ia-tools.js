@@ -175,6 +175,7 @@ function handleWebSearch(output) {
         showOutput(output, `<p class="ia-tool-error">${err.message}</p>`);
     });
 
+}
 // Simple demo request to the Flask API.
 // Example: call demoFlaskRequest() from the browser console to test connectivity.
 function demoFlaskRequest() {

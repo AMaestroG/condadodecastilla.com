@@ -1,4 +1,5 @@
 <?php
+
 // /includes/text_manager.php
 
 // Asegurarse de que las utilidades de sesión y autenticación están cargadas.
@@ -10,7 +11,8 @@ require_once __DIR__ . '/auth.php';
  * Obtiene el contenido de un texto desde la base de datos.
  * Si no se encuentra, inserta el texto por defecto y lo devuelve.
  */
-function getTextContentFromDB(string $text_id, ?PDO $pdo, string $default_text): string {
+function getTextContentFromDB(string $text_id, ?PDO $pdo, string $default_text): string
+{
     if ($pdo === null) {
         // Si no hay conexión a la base de datos, usar el valor por defecto
         return $default_text;
@@ -54,7 +56,8 @@ function getTextContentFromDB(string $text_id, ?PDO $pdo, string $default_text):
  * @param string $css_classes Clases CSS adicionales para la etiqueta HTML contenedora.
  * @param bool $allow_html Si se permite HTML en el contenido (default: false, se usa htmlspecialchars).
  */
-function editableText(string $text_id, ?PDO $pdo, string $default_text, string $html_tag = 'span', string $css_classes = '', bool $allow_html = false) {
+function editableText(string $text_id, ?PDO $pdo, string $default_text, string $html_tag = 'span', string $css_classes = '', bool $allow_html = false)
+{
     if ($pdo === null) {
         $content = $default_text;
     } else {

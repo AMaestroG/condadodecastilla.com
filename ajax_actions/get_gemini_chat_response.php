@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../includes/ai_utils.php'; // For GEMINI_API_KEY and Gemini functions
 require_once __DIR__ . '/../includes/env_loader.php'; // Ensure environment variables are loaded
 
@@ -33,4 +34,3 @@ if (strpos($ai_response_text, "Error:") === 0) {
 }
 
 echo json_encode($response);
-?>

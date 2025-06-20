@@ -1,43 +1,42 @@
 /* assets/css/header/topbar.css */
 
 #fixed-header-elements {
-    position: fixed;
-    top: var(--menu-top-offset);
-    left: 0;
-    right: 0;
-    z-index: 4000;
-    /* Use a semi-transparent purple tone for the fixed button bar */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.85);
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: fixed;
+  top: var(--menu-top-offset);
+  left: 0;
+  right: 0;
+  z-index: 4000;
+  /* Use a semi-transparent purple tone for the fixed button bar */
+  background-color: rgba(var(--epic-purple-emperor-rgb), 0.85);
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 8px; /* vertical spacing between buttons */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* vertical spacing between buttons */
 }
 
 .top-empty-bar {
-    position: fixed;
-    top: var(--menu-top-offset);
-    left: 0;
-    right: 0;
-    height: 48px;
-    background: rgba(var(--epic-purple-emperor-rgb), 0.85);
-    z-index: 3000;
+  position: fixed;
+  top: var(--menu-top-offset);
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(var(--epic-purple-emperor-rgb), 0.85);
+  z-index: 3000;
 }
-
-
 
 /* Hide Google translate banner */
 .goog-te-banner-frame.skiptranslate {
-    display: none !important;
+  display: none !important;
 }
-body { /* This rule might be better in a global CSS if it's for Google Translate */
-    top: 0 !important;
+body {
+  /* This rule might be better in a global CSS if it's for Google Translate */
+  top: 0 !important;
 }
 
 /* Sidebar Toggle (Hamburger) */
@@ -85,9 +84,9 @@ body { /* This rule might be better in a global CSS if it's for Google Translate
 /* Dark Mode Icon Colors for Toggles */
 
 body.dark-mode #theme-toggle i {
-    color: var(--epic-icon-color);
+  color: var(--epic-icon-color);
 }
 
 body.dark-mode #theme-toggle:hover i {
-    color: var(--epic-icon-hover);
+  color: var(--epic-icon-hover);
 }

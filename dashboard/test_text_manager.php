@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Simple tests for includes/text_manager.php
  *
@@ -50,4 +51,3 @@ echo "\n$passed/$tests tests passed\n";
 
 // Exit with error code if any test failed
 exit($passed === $tests ? 0 : 1);
-?>

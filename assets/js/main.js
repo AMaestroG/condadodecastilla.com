@@ -1,6 +1,7 @@
 // assets/js/main.js - simplified menu controller and theme toggle
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Conjunto de clases que representan las paletas según la hora del día
     const paletteClasses = ['palette-dawn','palette-day','palette-dusk','palette-night'];
 
     const detectPalette = () => {
@@ -57,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.audioController && typeof window.audioController.handleMenuToggle === 'function') {
             window.audioController.handleMenuToggle(anyOpen);
         }
+        // Notificamos a otros scripts que un menú se ha abierto o cerrado.
         document.dispatchEvent(new CustomEvent('menu-toggled', { detail: { open: anyOpen } }));
 
         if (open && menu.id === 'ai-chat-panel') {

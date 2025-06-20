@@ -199,10 +199,10 @@
             <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
             <?php
             $social_fragment = __DIR__ . '/../../../fragments/menus/social-menu.html';
-            if (file_exists($social_fragment)) {
-                echo file_get_contents($social_fragment);
-            }
-            ?>
+if (file_exists($social_fragment)) {
+    echo file_get_contents($social_fragment);
+}
+?>
         </div>
     </footer>
 

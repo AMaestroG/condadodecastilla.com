@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/includes/csrf.php';
 // Use same upload dir definition as API
 define('UPLOAD_DIR_BASE', dirname(__DIR__) . '/uploads_storage/museo_piezas/');
@@ -22,4 +23,3 @@ header('Content-Type: ' . $mime);
 header('Content-Length: ' . filesize($path));
 readfile($path);
 exit;
-?>

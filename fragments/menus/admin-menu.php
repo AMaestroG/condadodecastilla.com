@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../../includes/auth.php';
 echo '<ul id="admin-menu" class="nav-links">';
 if (is_admin_logged_in()) {
@@ -8,4 +9,3 @@ if (is_admin_logged_in()) {
     echo '<li><a href="/dashboard/login.php">Admin</a></li>';
 }
 echo '</ul>';
-?>

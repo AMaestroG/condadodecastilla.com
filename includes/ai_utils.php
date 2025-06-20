@@ -1,8 +1,11 @@
 <?php
+
 // includes/ai_utils.php
+// Utilidades para generar resúmenes, traducciones y otros textos con la API
+// Gemini (o con un simulador cuando se trabaja en local).
 
 require_once __DIR__ . '/env_loader.php';
-// Cargar variables de entorno desde .env
+// Cargar variables de entorno desde .env y exponer constantes de configuración
 
 // Read Gemini API settings from environment variables when available
 if (!defined('GEMINI_API_KEY')) {
@@ -29,7 +32,8 @@ if (!defined('AI_UTILS_LOADED')) {
  * @param string $full_text (Opcional) El texto completo a resumir.
  * @return string El resumen generado (o un placeholder).
  */
-function get_smart_summary(string $content_key, string $full_text = ''): string {
+function get_smart_summary(string $content_key, string $full_text = ''): string
+{
     // Simulación de procesamiento
     $summary = "Resumen inteligente para '" . htmlspecialchars($content_key) . "': ";
 
@@ -50,7 +54,8 @@ function get_smart_summary(string $content_key, string $full_text = ''): string 
  * @param string $content_key Un identificador para el contenido a etiquetar.
  * @return array Un array de strings con las etiquetas sugeridas.
  */
-function get_suggested_tags_placeholder(string $content_key): array {
+function get_suggested_tags_placeholder(string $content_key): array
+{
     // Simulación basada en content_key
     if ($content_key === 'atapuerca' || $content_key === 'Contenido de Atapuerca') {
         return ['Prehistoria', 'Evolución Humana', 'Arqueología', 'Yacimientos UNESCO', 'Homo Antecessor', 'Burgos', 'Paleontología'];
@@ -67,7 +72,8 @@ function get_suggested_tags_placeholder(string $content_key): array {
  * @param array $payload El cuerpo de la solicitud a enviar a la API.
  * @return array|null La respuesta decodificada de la API como array, o null en caso de error simulado.
  */
-function _call_gemini_api_simulator(array $payload): ?array {
+function _call_gemini_api_simulator(array $payload): ?array
+{
     // Simulación de la llamada a la API y la respuesta.
     // No se realizan llamadas cURL reales aquí para el entorno de demostración.
 
@@ -125,7 +131,8 @@ function _call_gemini_api_simulator(array $payload): ?array {
  * @param string $prompt The prompt string.
  * @return array The payload structure.
  */
-function _build_gemini_payload(string $prompt): array {
+function _build_gemini_payload(string $prompt): array
+{
     return [
         'contents' => [
             [
@@ -146,7 +153,8 @@ function _build_gemini_payload(string $prompt): array {
  * @param string|null $call_error Error message from the API call itself (e.g., cURL error).
  * @return string The extracted text content or an error message prefixed with "Error:".
  */
-function _parse_gemini_response(?array $api_response, ?string $call_error): string {
+function _parse_gemini_response(?array $api_response, ?string $call_error): string
+{
     if ($call_error !== null) {
         return "Error: " . $call_error;
     }
@@ -177,7 +185,10 @@ function _parse_gemini_response(?array $api_response, ?string $call_error): stri
  * @param array $payload Cuerpo de la solicitud para la API.
  * @return array|null Respuesta decodificada o null si hay errores.
  */
-function _call_gemini_api(array $payload, ?string &$error = null): ?array {
+// Realiza una llamada a Gemini. Si la clave API no está configurada,
+// emplea el simulador para evitar peticiones fallidas en desarrollo.
+function _call_gemini_api(array $payload, ?string &$error = null): ?array
+{
     // Use simulator when the API key is missing or still has the placeholder
     // value. A real HTTP request is only attempted if a non-empty key is
     // provided via the environment or configuration.
@@ -255,7 +266,8 @@ function _call_gemini_api(array $payload, ?string &$error = null): ?array {
  * @param string $text_to_summarize El texto que se va a resumir.
  * @return string El resumen generado o un mensaje de error.
  */
-function get_real_ai_summary(string $text_to_summarize): string {
+function get_real_ai_summary(string $text_to_summarize): string
+{
     if (empty(trim($text_to_summarize))) {
         return "Error: No se proporcionó texto para resumir.";
     }
@@ -286,7 +298,8 @@ function get_real_ai_summary(string $text_to_summarize): string {
  * @param string $original_sample_text Un extracto del texto original para incluir en la demo. O el texto completo si se desea devolverlo para 'es'.
  * @return string El texto "traducido" de demostración o el texto original si target_language es 'es'.
  */
-function translate_with_gemini(string $content_id, string $target_language, string $original_sample_text = ''): string {
+function translate_with_gemini(string $content_id, string $target_language, string $original_sample_text = ''): string
+{
     if ($target_language === 'es') {
         // Si el objetivo es español, se asume que se quiere restaurar el original.
         // El JavaScript debería tener el contenido original completo.
@@ -312,7 +325,7 @@ function translate_with_gemini(string $content_id, string $target_language, stri
             $outputText .= "<p><strong>Simulierte Deutsche Übersetzung:</strong> Hier würde der von KI generierte deutsche Text erscheinen. Der ursprüngliche spanische Inhalt begann mit: '<em>" . $original_snippet . "</em>'.</p>";
             $outputText .= "<p>In einem Produktivsystem würde der vollständige Text von einem fortgeschrittenen neuronalen Übersetzungsmodell verarbeitet, um eine präzise und nuancierte deutsche Version bereitzustellen.</p>";
             break;
-        // No hay caso 'default' o 'es' aquí porque ya se manejó al inicio de la función.
+            // No hay caso 'default' o 'es' aquí porque ya se manejó al inicio de la función.
     }
     $outputText .= "<p class='ai-note'><em>(Esta es una simulación. La funcionalidad de traducción real con IA está pendiente de implementación).</em></p>";
     $outputText .= "</div>";
@@ -327,7 +340,8 @@ function translate_with_gemini(string $content_id, string $target_language, stri
  * @param string $target_language Código del idioma de destino, ej. "en".
  * @return string Traducción generada o mensaje de error.
  */
-function get_ai_translation(string $text, string $target_language): string {
+function get_ai_translation(string $text, string $target_language): string
+{
     if (empty(trim($text))) {
         return "Error: No se proporcionó texto a traducir.";
     }
@@ -353,7 +367,8 @@ function get_ai_translation(string $text, string $target_language): string {
  * @param string $text Texto original en castellano.
  * @return string Texto corregido o mensaje de error.
  */
-function get_ai_correction(string $text): string {
+function get_ai_correction(string $text): string
+{
     if (empty(trim($text))) {
         return "Error: No se proporcionó texto a corregir.";
     }
@@ -380,13 +395,16 @@ function get_ai_correction(string $text): string {
  * @param string $question Pregunta del usuario.
  * @return string Respuesta generada o mensaje de error.
  */
-function get_history_chat_response(string $question): string {
+function get_history_chat_response(string $question): string
+{
     if (empty(trim($question))) {
         return "Error: No se proporcionó pregunta.";
     }
 
     $context = @file_get_contents(__DIR__ . '/../docs/historia.md');
-    if ($context === false) { $context = ''; }
+    if ($context === false) {
+        $context = '';
+    }
     $context = mb_substr($context, 0, 5000);
 
     $prompt = "Responde únicamente preguntas sobre historia utilizando el siguiente contexto. Si la pregunta no es histórica, indica que solo respondes sobre historia.\n\nContexto:\n" . $context . "\n\nPregunta: \"" . $question . "\"";
@@ -410,7 +428,8 @@ function get_history_chat_response(string $question): string {
  * @param string $prompt Texto introducido por el usuario.
  * @return string Respuesta generada o mensaje de error.
  */
-function get_ai_chat_response(string $prompt): string {
+function get_ai_chat_response(string $prompt): string
+{
     if (empty(trim($prompt))) {
         return "Error: No se proporcionó prompt.";
     }
@@ -435,7 +454,8 @@ function get_ai_chat_response(string $prompt): string {
  * @param string $query Tema o pregunta a investigar.
  * @return string Resumen generado o mensaje de error.
  */
-function get_ai_research(string $query): string {
+function get_ai_research(string $query): string
+{
     if (empty(trim($query))) {
         return "Error: No se proporcionó tema de investigación.";
     }
@@ -457,7 +477,8 @@ function get_ai_research(string $query): string {
  * @param string $query Consulta a buscar en la web.
  * @return string HTML con el enlace de búsqueda.
  */
-function get_web_search_results(string $query): string {
+function get_web_search_results(string $query): string
+{
     if (empty(trim($query))) {
         return "Error: No se proporcionó consulta de búsqueda.";
     }
@@ -465,5 +486,3 @@ function get_web_search_results(string $query): string {
     $html = '<p>Resultados de búsqueda disponibles en <a href="' . $url . '" target="_blank" rel="noopener">Google</a>.</p>';
     return $html;
 }
-
-?>

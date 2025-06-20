@@ -1,10 +1,14 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class MuseumPagesTest extends TestCase {
-    private function runPage(string $script): array {
+class MuseumPagesTest extends TestCase
+{
+    private function runPage(string $script): array
+    {
         $prepend = realpath(__DIR__.'/fixtures/prepend.php');
-        $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
+        $cmd = sprintf(
+            'php-cgi -d auto_prepend_file=%s %s',
             escapeshellarg($prepend),
             escapeshellarg($script)
         );
@@ -21,7 +25,8 @@ class MuseumPagesTest extends TestCase {
         return [$status, $output, $err];
     }
 
-    public function pageProvider(): array {
+    public function pageProvider(): array
+    {
         return [
             [__DIR__ . '/../museo/subir_pieza.php'],
             [__DIR__ . '/../museo/galeria.php'],
@@ -32,7 +37,8 @@ class MuseumPagesTest extends TestCase {
     /**
      * @dataProvider pageProvider
      */
-    public function testPagesLoad(string $path): void {
+    public function testPagesLoad(string $path): void
+    {
         [$status, $out, $err] = $this->runPage($path);
         $this->assertSame(0, $status, $err);
         $this->assertNotEmpty($out);

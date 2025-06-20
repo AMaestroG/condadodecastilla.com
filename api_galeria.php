@@ -1,4 +1,5 @@
 <?php
+
 // api_galeria.php - Endpoint para manejar la galeria colaborativa
 
 require_once __DIR__ . '/includes/db_connect.php';
@@ -12,13 +13,15 @@ header('Content-Type: application/json');
 
 global $pdo;
 
-function json_response($data, $status_code = 200) {
+function json_response($data, $status_code = 200)
+{
     http_response_code($status_code);
     echo json_encode($data);
     exit;
 }
 
-function get_base_url() {
+function get_base_url()
+{
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
     $host = $_SERVER['HTTP_HOST'];
     return $protocol . $host;

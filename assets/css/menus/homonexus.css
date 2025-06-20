@@ -1,16 +1,22 @@
 /* Homonexus mode styling for a metaphoric AI-human synergy */
 body.homonexus-active #sidebar {
-    background: linear-gradient(135deg, rgba(var(--epic-purple-emperor-rgb),0.95), rgba(var(--epic-gold-secondary-rgb),0.95));
+  background: linear-gradient(
+    135deg,
+    rgba(var(--epic-purple-emperor-rgb), 0.95),
+    rgba(var(--epic-gold-secondary-rgb), 0.95)
+  );
 }
 body.homonexus-active #sidebar .nav-links a {
-    color: var(--epic-text-light);
-    background: rgba(var(--epic-text-color-rgb),0.15);
-    border-radius: 20px;
-    padding-left: 20px;
-    transition: transform 0.3s ease, background 0.3s ease;
+  color: var(--epic-text-light);
+  background: rgba(var(--epic-text-color-rgb), 0.15);
+  border-radius: 20px;
+  padding-left: 20px;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 body.homonexus-active #sidebar .nav-links a:hover {
-    background: var(--epic-gold-main);
-    color: var(--epic-purple-emperor);
-    transform: scale(1.05) rotate(-1deg);
+  background: var(--epic-gold-main);
+  color: var(--epic-purple-emperor);
+  transform: scale(1.05) rotate(-1deg);
 }

@@ -1,17 +1,21 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class LinksTest extends TestCase {
+class LinksTest extends TestCase
+{
     private string $root;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         $this->root = realpath(__DIR__ . '/..');
     }
 
     /**
      * Parse an HTML file and return internal href values.
      */
-    private function collectLinks(string $file): array {
+    private function collectLinks(string $file): array
+    {
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML(file_get_contents($file));
@@ -33,7 +37,8 @@ class LinksTest extends TestCase {
     /**
      * Determine if a file exists for a given href.
      */
-    private function linkTargetExists(string $href): bool {
+    private function linkTargetExists(string $href): bool
+    {
         $path = preg_replace('/[?#].*/', '', $href);
         if ($path === '') {
             return true;
@@ -54,7 +59,8 @@ class LinksTest extends TestCase {
         return false;
     }
 
-    public function testLinksExist(): void {
+    public function testLinksExist(): void
+    {
         $files = [
             __DIR__ . '/../fragments/menus/main-menu.php',
             __DIR__ . '/../_header.php',
@@ -69,7 +75,8 @@ class LinksTest extends TestCase {
         }
     }
 
-    public function testLinkCheckerScript(): void {
+    public function testLinkCheckerScript(): void
+    {
         $cmd = 'bash ' . escapeshellarg(__DIR__ . '/../check_links.sh');
         $proc = proc_open($cmd, [1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
         $out = stream_get_contents($pipes[1]);

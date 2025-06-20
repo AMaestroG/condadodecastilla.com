@@ -5,11 +5,14 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
-function get_blog_posts() {
+function get_blog_posts()
+{
     $posts = [];
     foreach (glob(__DIR__ . '/contenido/blog/*.md') as $file) {
         $lines = file($file);
-        if (!$lines) continue;
+        if (!$lines) {
+            continue;
+        }
         $title = trim(ltrim($lines[0], "# \t"));
         $slug = basename($file, '.md');
         $posts[$slug] = ['title' => $title, 'file' => $file];
@@ -20,7 +23,8 @@ function get_blog_posts() {
 
 use League\CommonMark\CommonMarkConverter;
 
-function render_markdown(string $markdown): string {
+function render_markdown(string $markdown): string
+{
     static $converter = null;
     if ($converter === null) {
         $converter = new CommonMarkConverter();

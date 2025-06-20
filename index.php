@@ -17,8 +17,8 @@ require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
     <?php include __DIR__ . '/includes/head_common.php'; ?>
     <?php
     require_once __DIR__ . '/includes/load_page_css.php';
-    load_page_css();
-    ?>
+load_page_css();
+?>
 
 </head>
 <body class="alabaster-bg <?php echo homonexus_body_class(); ?>">

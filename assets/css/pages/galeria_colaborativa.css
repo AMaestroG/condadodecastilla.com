@@ -3,8 +3,8 @@
 /* Styles for galeria/galeria_colaborativa.php */
 
 .upload-form-container {
-    background: var(--epic-transparent-overlay-light);
-    padding: 1.5em;
-    border-radius: var(--global-border-radius);
-    box-shadow: var(--global-box-shadow-light);
+  background: var(--epic-transparent-overlay-light);
+  padding: 1.5em;
+  border-radius: var(--global-border-radius);
+  box-shadow: var(--global-box-shadow-light);
 }

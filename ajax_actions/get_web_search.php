@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../includes/ai_utils.php';
 header('Content-Type: application/json');
 
@@ -16,4 +17,3 @@ if ($response['success']) {
 }
 
 echo json_encode($response);
-

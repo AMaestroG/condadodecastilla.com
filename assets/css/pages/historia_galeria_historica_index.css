@@ -1,62 +1,65 @@
-        /* Basic gallery styling */
-        .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px; /* Space between items */
-            justify-content: center;
-            padding: 20px;
-        }
-        .gallery-item {
-            background-color: var(--color-fondo-pagina); /* Fondo alabastro claro */
-            border: 1px solid var(--epic-neutral-border); /* Light grey border */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: var(--global-box-shadow-light); /* Subtle shadow */
-            width: calc(33.333% - 40px); /* Adjust for 3 items per row, considering gap */
-            margin-bottom: 20px;
-            overflow: hidden; /* Ensures content fits rounded corners */
-            text-align: center;
-        }
-        .gallery-item img, .gallery-item .file-placeholder {
-            width: 100%;
-            height: auto; /* Adjust to image height */
-            max-height: 200px;
-            object-fit: contain; /* Avoid cropping */
-            border-bottom: 1px solid var(--epic-neutral-border);
-        }
-        .gallery-item .file-placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--epic-neutral-bg); /* Light background for placeholder */
-            font-size: 3em; /* Larger icon */
-            color: var(--epic-text-muted); /* Grey icon color */
-        }
-        .gallery-item-description {
-            padding: 15px;
-            text-align: left;
-        }
-        .gallery-item-description h3 {
-            margin-top: 0;
-            color: var(--color-primario-purpura);
-        }
-        .gallery-item-description p {
-            font-size: 0.9em;
-            color: var(--color-texto-principal); /* Main text color */
-            margin-bottom: 10px;
-        }
-        .gallery-item-description a {
-            font-size: 0.9em;
-            color: var(--color-secundario-dorado);
-        }
+/* Basic gallery styling */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between items */
+  justify-content: center;
+  padding: 20px;
+}
+.gallery-item {
+  background-color: var(--color-fondo-pagina); /* Fondo alabastro claro */
+  border: 1px solid var(--epic-neutral-border); /* Light grey border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: var(--global-box-shadow-light); /* Subtle shadow */
+  width: calc(33.333% - 40px); /* Adjust for 3 items per row, considering gap */
+  margin-bottom: 20px;
+  overflow: hidden; /* Ensures content fits rounded corners */
+  text-align: center;
+}
+.gallery-item img,
+.gallery-item .file-placeholder {
+  width: 100%;
+  height: auto; /* Adjust to image height */
+  max-height: 200px;
+  object-fit: contain; /* Avoid cropping */
+  border-bottom: 1px solid var(--epic-neutral-border);
+}
+.gallery-item .file-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(
+    --epic-neutral-bg
+  ); /* Light background for placeholder */
+  font-size: 3em; /* Larger icon */
+  color: var(--epic-text-muted); /* Grey icon color */
+}
+.gallery-item-description {
+  padding: 15px;
+  text-align: left;
+}
+.gallery-item-description h3 {
+  margin-top: 0;
+  color: var(--color-primario-purpura);
+}
+.gallery-item-description p {
+  font-size: 0.9em;
+  color: var(--color-texto-principal); /* Main text color */
+  margin-bottom: 10px;
+}
+.gallery-item-description a {
+  font-size: 0.9em;
+  color: var(--color-secundario-dorado);
+}
 
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .gallery-item {
-                width: calc(50% - 30px); /* 2 items per row */
-            }
-        }
-        @media (max-width: 768px) {
-            .gallery-item {
-                width: calc(100% - 20px); /* 1 item per row */
-            }
-        }
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .gallery-item {
+    width: calc(50% - 30px); /* 2 items per row */
+  }
+}
+@media (max-width: 768px) {
+  .gallery-item {
+    width: calc(100% - 20px); /* 1 item per row */
+  }
+}

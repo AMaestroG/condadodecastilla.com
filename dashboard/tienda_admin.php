@@ -46,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $feedback_type = 'error';
                 } else {
                     $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-                    $safe = preg_replace('/[^a-zA-Z0-9_.-]/','_', pathinfo($file['name'], PATHINFO_FILENAME));
+                    $safe = preg_replace('/[^a-zA-Z0-9_.-]/', '_', pathinfo($file['name'], PATHINFO_FILENAME));
                     $filename = time().'_'.$safe.'.'.$ext;
                     if (move_uploaded_file($file['tmp_name'], $upload_dir.$filename)) {
                         try {
                             $stmt = $pdo->prepare("INSERT INTO tienda_productos (nombre, descripcion, precio, imagen_nombre, stock) VALUES (:n,:d,:p,:i,:s)");
-                            $stmt->execute([':n'=>$nombre, ':d'=>$descripcion, ':p'=>$precio, ':i'=>$filename, ':s'=>$stock]);
+                            $stmt->execute([':n' => $nombre, ':d' => $descripcion, ':p' => $precio, ':i' => $filename, ':s' => $stock]);
                             $feedback_message = 'Producto añadido correctamente.';
                             $feedback_type = 'success';
                         } catch (PDOException $e) {
@@ -70,10 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($id > 0) {
                 try {
                     $stmt = $pdo->prepare("SELECT imagen_nombre FROM tienda_productos WHERE id=:id");
-                    $stmt->execute([':id'=>$id]);
+                    $stmt->execute([':id' => $id]);
                     $img = $stmt->fetchColumn();
                     $stmt = $pdo->prepare("DELETE FROM tienda_productos WHERE id=:id");
-                    $stmt->execute([':id'=>$id]);
+                    $stmt->execute([':id' => $id]);
                     if ($stmt->rowCount()) {
                         if ($img && file_exists($upload_dir.$img)) {
                             @unlink($upload_dir.$img);
@@ -151,7 +151,7 @@ try {
             <tr>
                 <td><?php echo $p['id']; ?></td>
                 <td><?php echo htmlspecialchars($p['nombre']); ?></td>
-                <td><?php echo number_format($p['precio'],2); ?>€</td>
+                <td><?php echo number_format($p['precio'], 2); ?>€</td>
                 <td><?php echo (int)$p['stock']; ?></td>
                 <td>
                     <form action="" method="POST" class="inline-form" onsubmit="return confirm('¿Eliminar producto?');">

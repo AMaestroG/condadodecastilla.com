@@ -1,35 +1,42 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class LoginLogoutTest extends TestCase {
+class LoginLogoutTest extends TestCase
+{
     private string $dbFile;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         $this->dbFile = tempnam(sys_get_temp_dir(), 'login');
     }
 
-    protected function tearDown(): void {
+    protected function tearDown(): void
+    {
         if (file_exists($this->dbFile)) {
             unlink($this->dbFile);
         }
     }
 
-    private function runScript(string $script, array $env): array {
+    private function runScript(string $script, array $env): array
+    {
         $prepend = realpath(__DIR__.'/fixtures/login_prepend.php');
-        $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
+        $cmd = sprintf(
+            'php-cgi -d auto_prepend_file=%s %s',
             escapeshellarg($prepend),
             escapeshellarg($script)
         );
         $env['PATH'] = getenv('PATH');
         $env['TEST_SQLITE_PATH'] = $this->dbFile;
-        $proc = proc_open($cmd, [1=>['pipe','w'], 2=>['pipe','w']], $pipes, null, $env);
+        $proc = proc_open($cmd, [1 => ['pipe','w'], 2 => ['pipe','w']], $pipes, null, $env);
         $out = stream_get_contents($pipes[1]);
         $err = stream_get_contents($pipes[2]);
         $status = proc_close($proc);
         return [$status, $out, $err];
     }
 
-    private function parseHeaders(string $out): array {
+    private function parseHeaders(string $out): array
+    {
         $headers = [];
         foreach (explode("\n", trim($out)) as $line) {
             if ($line === '' || str_starts_with($line, 'Status:')) {
@@ -43,7 +50,8 @@ class LoginLogoutTest extends TestCase {
         return $headers;
     }
 
-    public function testLoginLogout(): void {
+    public function testLoginLogout(): void
+    {
         $env = [
             'REDIRECT_STATUS' => '1',
             'SCRIPT_FILENAME' => __DIR__.'/../dashboard/login.php',

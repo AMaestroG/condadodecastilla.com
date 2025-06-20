@@ -1,15 +1,19 @@
 /* Page-specific styles for index.php */
 body {
-    /* Use alabaster background, rely on global CSS variables if defined */
+  /* Use alabaster background, rely on global CSS variables if defined */
 }
 
 .hero {
-    animation: hero-fade 20s infinite alternate;
+  animation: hero-fade 20s infinite alternate;
 }
 
 @keyframes hero-fade {
-    from { filter: brightness(1); }
-    to { filter: brightness(1.1) saturate(1.2); }
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.1) saturate(1.2);
+  }
 }
 
 .cta-group {
@@ -27,5 +31,5 @@ body {
 
 /* Align the hero title with the fixed menu button */
 .align-with-menu {
-    margin-top: var(--menu-top-offset);
+  margin-top: var(--menu-top-offset);
 }

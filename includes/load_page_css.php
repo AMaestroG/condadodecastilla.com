@@ -1,4 +1,5 @@
 <?php
+
 function load_page_css(): void
 {
     $scriptPath = $_SERVER['SCRIPT_NAME'];
@@ -18,4 +19,3 @@ function load_page_css(): void
         echo "<link rel=\"stylesheet\" href=\"{$cssFile}\">\n";
     }
 }
-?>

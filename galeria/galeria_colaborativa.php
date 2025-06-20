@@ -49,8 +49,8 @@ if (is_dir($gallery_dir)) {
 
     <?php
     require_once __DIR__ . '/../includes/load_page_css.php';
-    load_page_css();
-    ?>
+load_page_css();
+?>
 </head>
 <body class="alabaster-bg">
     <div id="linterna-condado" class="bg-linterna-gradient"></div> <!-- Para el efecto de linterna -->

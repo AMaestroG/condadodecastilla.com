@@ -28,7 +28,8 @@ echo "Directorios de salida verificados/creados.\n";
  * @param string $texto
  * @return string
  */
-function limpiar_texto(string $texto): string {
+function limpiar_texto(string $texto): string
+{
     $texto = trim($texto);
     $texto = preg_replace('/\s+/', ' ', $texto);
     return $texto;
@@ -41,7 +42,8 @@ function limpiar_texto(string $texto): string {
  * @param DOMXPath $xpath
  * @return array
  */
-function extraer_bloques_contenido(DOMNode $nodo_padre, DOMXPath $xpath): array {
+function extraer_bloques_contenido(DOMNode $nodo_padre, DOMXPath $xpath): array
+{
     $bloques = [];
     if (!$nodo_padre) {
         return $bloques;
@@ -102,14 +104,14 @@ function extraer_bloques_contenido(DOMNode $nodo_padre, DOMXPath $xpath): array 
                     // Podrías querer extraer también el src, etc.
                     // $src = $xpath->evaluate('string(./@src)', $nodo_hijo);
                     break;
-                // Añadir más casos según sea necesario (table, figure, etc.)
+                    // Añadir más casos según sea necesario (table, figure, etc.)
                 default:
                     // Si no es un tipo conocido, pero tiene texto, guardarlo como párrafo.
                     $texto_potencial = limpiar_texto($nodo_hijo->textContent);
                     if (!empty($texto_potencial) && strlen($texto_potencial) > 10) { // Evitar nodos vacíos o muy cortos
-                         $tipo = 'desconocido_convertido_parrafo';
-                         $texto = $texto_potencial;
-                    } else if (!empty($texto_potencial)) {
+                        $tipo = 'desconocido_convertido_parrafo';
+                        $texto = $texto_potencial;
+                    } elseif (!empty($texto_potencial)) {
                         $tipo = 'desconocido_corto';
                         $texto = $texto_potencial;
                     }
@@ -123,11 +125,11 @@ function extraer_bloques_contenido(DOMNode $nodo_padre, DOMXPath $xpath): array 
                     'html_original' => $html_original,
                 ];
             } elseif (!empty($tipo) && $tipo === 'imagen') { // Caso especial para imágenes sin alt text pero con src
-                 $bloques[] = [
-                    'tipo' => $tipo,
-                    'texto' => $texto, // puede estar vacío
-                    'src' => $xpath->evaluate('string(./@src)', $nodo_hijo),
-                    'html_original' => $html_original,
+                $bloques[] = [
+                   'tipo' => $tipo,
+                   'texto' => $texto, // puede estar vacío
+                   'src' => $xpath->evaluate('string(./@src)', $nodo_hijo),
+                   'html_original' => $html_original,
                 ];
             }
         }
@@ -142,7 +144,8 @@ function extraer_bloques_contenido(DOMNode $nodo_padre, DOMXPath $xpath): array 
  * @param DOMNode|null $contextNode El nodo desde el cual buscar enlaces. Si es null, busca en todo el documento.
  * @return array
  */
-function extraer_enlaces_internos(DOMXPath $xpath, ?DOMNode $contextNode = null): array {
+function extraer_enlaces_internos(DOMXPath $xpath, ?DOMNode $contextNode = null): array
+{
     $enlaces = [];
     $query = './/a[@href]'; // Busca todos los 'a' con atributo 'href'
 
@@ -169,7 +172,8 @@ function extraer_enlaces_internos(DOMXPath $xpath, ?DOMNode $contextNode = null)
  * @param mixed $datos
  * @return bool
  */
-function guardar_json(string $ruta_archivo, $datos): bool {
+function guardar_json(string $ruta_archivo, $datos): bool
+{
     echo "Intentando guardar JSON en: " . $ruta_archivo . "\n"; // DEBUG
     $json_contenido = json_encode($datos, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
@@ -197,7 +201,8 @@ function guardar_json(string $ruta_archivo, $datos): bool {
 $archivos_procesados = []; // Para llevar cuenta de qué se ha generado
 
 // 1. Procesamiento de historia/subpaginas_indice.html
-function procesar_indice_subpaginas(DOMXPath $xpath, DOMDocument $doc, string $ruta_html_original): array {
+function procesar_indice_subpaginas(DOMXPath $xpath, DOMDocument $doc, string $ruta_html_original): array
+{
     global $archivos_procesados;
     echo "Procesando: " . $ruta_html_original . "\n";
 
@@ -223,7 +228,7 @@ function procesar_indice_subpaginas(DOMXPath $xpath, DOMDocument $doc, string $r
     // Extraer descripción general (primer <p> después de <h1> o un <p class="intro"> específico)
     // Esto es una suposición, puede necesitar ajuste.
     $descripcion_p = $xpath->query('//h1/following-sibling::p[1]')->item(0);
-     if (!$descripcion_p) { // Intenta buscar un P con clase intro o similar si no lo encuentra
+    if (!$descripcion_p) { // Intenta buscar un P con clase intro o similar si no lo encuentra
         $descripcion_p = $xpath->query('//p[contains(@class, "intro") or contains(@class, "introduction") or contains(@class, "lead")]')->item(0);
     }
     if ($descripcion_p) {
@@ -265,7 +270,8 @@ function procesar_indice_subpaginas(DOMXPath $xpath, DOMDocument $doc, string $r
 
 
 // 2. Procesamiento de cada Subpágina Detallada
-function procesar_subpagina_detallada(string $ruta_html_subpagina, string $id_tema, string $ruta_json_salida_esperada, DOMXPath $xpath_sub, DOMDocument $doc_sub) {
+function procesar_subpagina_detallada(string $ruta_html_subpagina, string $id_tema, string $ruta_json_salida_esperada, DOMXPath $xpath_sub, DOMDocument $doc_sub)
+{
     global $archivos_procesados;
     echo "Procesando subpágina: " . $ruta_html_subpagina . "\n";
 
@@ -298,7 +304,7 @@ function procesar_subpagina_detallada(string $ruta_html_subpagina, string $id_te
     if (!$contenedor_articulo) {
         $contenedor_articulo = $xpath_sub->query('//article')->item(0);
     }
-     if (!$contenedor_articulo) {
+    if (!$contenedor_articulo) {
         // Como último recurso, si no hay un contenedor claro, tomar el body
         // pero esto podría traer mucho ruido (nav, footer, etc.)
         // Sería mejor tener selectores más precisos.
@@ -321,13 +327,13 @@ function procesar_subpagina_detallada(string $ruta_html_subpagina, string $id_te
         $posible_autor = $xpath_sub->query("//*[contains(text(), 'Iván García Blanco')]")->item(0);
         if ($posible_autor) {
             // Verificar que no sea parte de un texto más grande de forma accidental
-            if (strpos(limpiar_texto($posible_autor->textContent), 'Iván García Blanco') !== false ) {
-                 $datos_subpagina['metadatos']->autor_investigacion = 'Iván García Blanco';
+            if (strpos(limpiar_texto($posible_autor->textContent), 'Iván García Blanco') !== false) {
+                $datos_subpagina['metadatos']->autor_investigacion = 'Iván García Blanco';
             }
         }
         // Si hay un elemento específico con la clase autor
         $autor_element = $xpath_sub->query("//*[@class='author' or @class='autor']")->item(0);
-        if($autor_element){
+        if ($autor_element) {
             $datos_subpagina['metadatos']->autor_investigacion = limpiar_texto($autor_element->textContent);
         }
     }
@@ -340,7 +346,8 @@ function procesar_subpagina_detallada(string $ruta_html_subpagina, string $id_te
 }
 
 // 3. Procesamiento de historia/historia.html (Línea de Tiempo)
-function procesar_linea_tiempo(DOMXPath $xpath, DOMDocument $doc, string $ruta_html_original) {
+function procesar_linea_tiempo(DOMXPath $xpath, DOMDocument $doc, string $ruta_html_original)
+{
     global $archivos_procesados;
     echo "Procesando: " . $ruta_html_original . "\n";
 
@@ -369,7 +376,7 @@ function procesar_linea_tiempo(DOMXPath $xpath, DOMDocument $doc, string $ruta_h
     if ($intro_p) {
         $datos_linea_tiempo['introduccion'] = limpiar_texto($intro_p->textContent);
     } else {
-         // Fallback: primer P después del H1 o P principal de la página si no hay clase específica
+        // Fallback: primer P después del H1 o P principal de la página si no hay clase específica
         $intro_p_fallback = $xpath->query('//h1/following-sibling::p[1]')->item(0);
         if ($intro_p_fallback) {
             $datos_linea_tiempo['introduccion'] = limpiar_texto($intro_p_fallback->textContent);
@@ -469,16 +476,16 @@ if (!empty($temas_detallados_a_procesar)) {
 
         // Si la ruta ya es absoluta o contiene 'historia/', ajustamos
         if (strpos($tema['ruta_html_original'], 'historia/') === 0) {
-             // Ejemplo: $tema['ruta_html_original'] es 'historia/subpaginas/archivo.html'
-             // DIR_BASE_HTML es '../historia/'
-             // Necesitamos '../' . $tema['ruta_html_original'] -> '../historia/subpaginas/archivo.html'
-             // O si DIR_BASE_HTML ya es el directorio correcto que contiene 'historia/subpaginas_indice.html'
-             // entonces $ruta_html_completa_tema = DIR_BASE_HTML . str_replace('historia/', '', $tema['ruta_html_original']);
-             // La clave es que $tema['ruta_html_original'] debe ser interpretable desde la raíz del proyecto o desde DIR_BASE_HTML
-             // Si $tema['ruta_html_original'] es algo como 'subpaginas/archivo.html', entonces
-             // $ruta_html_completa_tema = DIR_BASE_HTML . 'subpaginas/' . basename($tema['ruta_html_original']);
-             // Es importante asegurar que $ruta_html_completa_tema sea la ruta correcta al archivo HTML.
-             // Por simplicidad, asumiré que las rutas en $tema['ruta_html_original'] son relativas a DIR_BASE_HTML
+            // Ejemplo: $tema['ruta_html_original'] es 'historia/subpaginas/archivo.html'
+            // DIR_BASE_HTML es '../historia/'
+            // Necesitamos '../' . $tema['ruta_html_original'] -> '../historia/subpaginas/archivo.html'
+            // O si DIR_BASE_HTML ya es el directorio correcto que contiene 'historia/subpaginas_indice.html'
+            // entonces $ruta_html_completa_tema = DIR_BASE_HTML . str_replace('historia/', '', $tema['ruta_html_original']);
+            // La clave es que $tema['ruta_html_original'] debe ser interpretable desde la raíz del proyecto o desde DIR_BASE_HTML
+            // Si $tema['ruta_html_original'] es algo como 'subpaginas/archivo.html', entonces
+            // $ruta_html_completa_tema = DIR_BASE_HTML . 'subpaginas/' . basename($tema['ruta_html_original']);
+            // Es importante asegurar que $ruta_html_completa_tema sea la ruta correcta al archivo HTML.
+            // Por simplicidad, asumiré que las rutas en $tema['ruta_html_original'] son relativas a DIR_BASE_HTML
         }
 
 
@@ -495,7 +502,7 @@ if (!empty($temas_detallados_a_procesar)) {
                 );
             } else {
                 echo "Error: No se pudo parsear el archivo HTML de subpágina: " . $ruta_html_completa_tema . "\n";
-                 foreach (libxml_get_errors() as $error) {
+                foreach (libxml_get_errors() as $error) {
                     echo "\tError XML: " . $error->message . " en línea " . $error->line . "\n";
                 }
                 libxml_clear_errors();
@@ -537,16 +544,16 @@ if (file_exists($ruta_nuestra_historia_html)) {
     if (@$doc_nh->loadHTMLFile($ruta_nuestra_historia_html)) {
         $xpath_nh = new DOMXPath($doc_nh);
         // Llamamos a procesar_subpagina_detallada directamente
-            echo "Preparando para procesar y guardar origenes_castilla.json (nuestra_historia_nuevo4) en: " . $ruta_json_escritura_nuestra_historia . "\n"; // DEBUG
+        echo "Preparando para procesar y guardar origenes_castilla.json (nuestra_historia_nuevo4) en: " . $ruta_json_escritura_nuestra_historia . "\n"; // DEBUG
         procesar_subpagina_detallada(
             'historia/nuestra_historia_nuevo4.html',
             $id_tema_nuestra_historia,
-                $ruta_json_escritura_nuestra_historia,
+            $ruta_json_escritura_nuestra_historia,
             $xpath_nh,
             $doc_nh
         );
-            // Actualizar $archivos_procesados con la ruta final esperada
-            $archivos_procesados[$id_tema_nuestra_historia] = 'data/historia/' . $id_tema_nuestra_historia . '.json';
+        // Actualizar $archivos_procesados con la ruta final esperada
+        $archivos_procesados[$id_tema_nuestra_historia] = 'data/historia/' . $id_tema_nuestra_historia . '.json';
 
     } else {
         echo "Error: No se pudo parsear el archivo HTML: " . $ruta_nuestra_historia_html . "\n";
@@ -577,11 +584,11 @@ if (isset($archivos_procesados['linea_tiempo'])) {
     ];
 }
 if (isset($archivos_procesados['origenes_castilla'])) {
-     $indice_principal_contenido['secciones'][] = [
-        "id_seccion" => "origenes_castilla",
-        "titulo_seccion" => "Orígenes de Castilla y la Historia de la Región",
-        "descripcion" => "Investigación sobre los orígenes de Castilla y la historia temprana de la comarca.",
-        "ruta_json" => $archivos_procesados['origenes_castilla'] // Ya tiene la ruta final correcta
+    $indice_principal_contenido['secciones'][] = [
+       "id_seccion" => "origenes_castilla",
+       "titulo_seccion" => "Orígenes de Castilla y la Historia de la Región",
+       "descripcion" => "Investigación sobre los orígenes de Castilla y la historia temprana de la comarca.",
+       "ruta_json" => $archivos_procesados['origenes_castilla'] // Ya tiene la ruta final correcta
     ];
 }
 if (isset($archivos_procesados['indice_detallado'])) {
@@ -610,5 +617,3 @@ guardar_json(DIR_OUTPUT . 'historia_indice.json', $indice_principal_contenido);
 
 libxml_use_internal_errors($libxml_previous_state); // Restaurar el manejo de errores
 echo "Proceso completado.\n";
-
-?>

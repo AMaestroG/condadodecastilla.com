@@ -30,61 +30,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!verify_csrf_token($_POST['csrf_token'] ?? '')) {
         $error_message = 'CSRF token inválido.';
     } else {
-    $username = trim($_POST['username'] ?? '');
-    $password = $_POST['password'] ?? '';
+        $username = trim($_POST['username'] ?? '');
+        $password = $_POST['password'] ?? '';
 
-    if (empty($username) || empty($password)) {
-        $error_message = "Por favor, ingrese usuario y contraseña.";
-    } else {
-        try {
-            $stmt = $pdo->prepare("SELECT id, username, password_hash, role FROM users WHERE username = :username");
-            $stmt->bindParam(':username', $username);
-            $stmt->execute();
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (empty($username) || empty($password)) {
+            $error_message = "Por favor, ingrese usuario y contraseña.";
+        } else {
+            try {
+                $stmt = $pdo->prepare("SELECT id, username, password_hash, role FROM users WHERE username = :username");
+                $stmt->bindParam(':username', $username);
+                $stmt->execute();
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($user && password_verify($password, $user['password_hash'])) {
-                if ($user['role'] === ADMIN_ROLE) {
-                    // Regenerate session ID to prevent session fixation
-                    session_regenerate_id(true);
-                    $_SESSION['user_id'] = $user['id'];
-                    $_SESSION['username'] = $user['username'];
-                    $_SESSION['user_role'] = $user['role'];
+                if ($user && password_verify($password, $user['password_hash'])) {
+                    if ($user['role'] === ADMIN_ROLE) {
+                        // Regenerate session ID to prevent session fixation
+                        session_regenerate_id(true);
+                        $_SESSION['user_id'] = $user['id'];
+                        $_SESSION['username'] = $user['username'];
+                        $_SESSION['user_role'] = $user['role'];
 
-                    // Determine redirect URL
-                    $redirect_to = '/dashboard/index.php'; // Default redirect to dashboard
-                    if (isset($_SESSION['redirect_after_login'])) {
-                        $redirect_to = $_SESSION['redirect_after_login'];
-                        unset($_SESSION['redirect_after_login']); // Clear it after use
-                    }
-
-                    $login_success = true;
-                    if (!headers_sent()) {
-                         // Redirect to a meaningful page, e.g., the main site index or an admin panel
-                        // Ensure $redirect_to is not inadvertently /index.html if that was the stored session value
-                        if ($redirect_to === '/index.html') {
-                            $redirect_to = '/index.php';
-                        } elseif ($redirect_to === '/dashboard/index.html') {
-                            $redirect_to = '/dashboard/index.php';
+                        // Determine redirect URL
+                        $redirect_to = '/dashboard/index.php'; // Default redirect to dashboard
+                        if (isset($_SESSION['redirect_after_login'])) {
+                            $redirect_to = $_SESSION['redirect_after_login'];
+                            unset($_SESSION['redirect_after_login']); // Clear it after use
                         }
-                        header("Location: " . $redirect_to);
-                        if (empty($GLOBALS['TESTING'])) {
-                            exit;
+
+                        $login_success = true;
+                        if (!headers_sent()) {
+                            // Redirect to a meaningful page, e.g., the main site index or an admin panel
+                            // Ensure $redirect_to is not inadvertently /index.html if that was the stored session value
+                            if ($redirect_to === '/index.html') {
+                                $redirect_to = '/index.php';
+                            } elseif ($redirect_to === '/dashboard/index.html') {
+                                $redirect_to = '/dashboard/index.php';
+                            }
+                            header("Location: " . $redirect_to);
+                            if (empty($GLOBALS['TESTING'])) {
+                                exit;
+                            }
                         }
+                    } else {
+                        $error_message = "El usuario no tiene permisos de administrador.";
                     }
                 } else {
-                    $error_message = "El usuario no tiene permisos de administrador.";
+                    $error_message = "Usuario o contraseña incorrectos.";
                 }
-            } else {
-                $error_message = "Usuario o contraseña incorrectos.";
+            } catch (PDOException $e) {
+                error_log("Login PDOException: " . $e->getMessage());
+                $error_message = "Error al conectar con la base de datos. Inténtelo más tarde.";
+                // In a development environment, you might want to display more details
+                // $error_message = "Database Error: " . $e->getMessage();
             }
-        } catch (PDOException $e) {
-            error_log("Login PDOException: " . $e->getMessage());
-            $error_message = "Error al conectar con la base de datos. Inténtelo más tarde.";
-            // In a development environment, you might want to display more details
-            // $error_message = "Database Error: " . $e->getMessage();
         }
     }
-}
 
 }
 ?>
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if ($error_message): ?>
             <p class="error-message"><?php echo htmlspecialchars($error_message); ?></p>
         <?php endif; ?>
-        <?php if ($login_success): // Should not be visible if redirect works ?>
+        <?php if ($login_success): // Should not be visible if redirect works?>
             <p class="success-message">Login exitoso. Redirigiendo...</p>
             <script>
                 // Fallback redirect if header() failed

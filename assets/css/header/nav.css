@@ -82,11 +82,11 @@
 */
 /* --- Base Navigation Menu Styles --------------------------------------- */
 .nav-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 /*
@@ -96,105 +96,111 @@
 */
 
 .nav-links a {
-    color: var(--epic-text-light);
-    font-family: var(--font-headings);
-    font-weight: 600;
-    font-size: clamp(0.75em, 1.3vw, 0.85em);
-    text-transform: uppercase;
-    padding: 0.5em 0.4em;
-    border-bottom: 2px solid transparent;
-    transition: color var(--global-transition-speed) ease-in-out,
-                border-bottom-color var(--global-transition-speed) ease-in-out;
-    letter-spacing: 0.8px;
+  color: var(--epic-text-light);
+  font-family: var(--font-headings);
+  font-weight: 600;
+  font-size: clamp(0.75em, 1.3vw, 0.85em);
+  text-transform: uppercase;
+  padding: 0.5em 0.4em;
+  border-bottom: 2px solid transparent;
+  transition:
+    color var(--global-transition-speed) ease-in-out,
+    border-bottom-color var(--global-transition-speed) ease-in-out;
+  letter-spacing: 0.8px;
 }
 
 .nav-links a i.fab {
-    font-size: 1.2em;
-    margin-right: 0.3em;
-    vertical-align: middle;
+  font-size: 1.2em;
+  margin-right: 0.3em;
+  vertical-align: middle;
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible,
 .nav-links a.active-link {
-    color: var(--epic-gold-main);
-    border-bottom-color: var(--epic-gold-main);
-    text-decoration: none;
-    outline: none;
+  color: var(--epic-gold-main);
+  border-bottom-color: var(--epic-gold-main);
+  text-decoration: none;
+  outline: none;
 }
 
 .nav-toggle {
-    display: none;
-    font-size: 1.8em;
-    color: var(--epic-text-light);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.3em;
+  display: none;
+  font-size: 1.8em;
+  color: var(--epic-text-light);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.3em;
 }
 
 .nav-toggle:focus-visible {
-    outline: 2px solid var(--epic-gold-main);
+  outline: 2px solid var(--epic-gold-main);
 }
 
 /* --- Sidebar Navigation (#sidebar, #sidebar-toggle from _header.php) --- */
 #sidebar {
-    position: fixed;
-    top: 0;
-    left: -280px; /* Initial hidden state */
-    width: 280px;
-    height: 100vh;
-    background-color: var(--epic-alabaster-bg);
-    backdrop-filter: blur(5px); /* Optional: frosted glass effect */
-    padding: 25px 15px; /* Refined padding */
-    box-shadow: 3px 0 15px rgba(var(--epic-text-color-rgb), 0.25);
-    transition: left var(--global-transition-speed) ease-in-out;
-    overflow-y: auto;
-    z-index: 3000;
-    display: flex;
-    flex-direction: column;
-    border-right: 2px solid var(--epic-gold-secondary);
+  position: fixed;
+  top: 0;
+  left: -280px; /* Initial hidden state */
+  width: 280px;
+  height: 100vh;
+  background-color: var(--epic-alabaster-bg);
+  backdrop-filter: blur(5px); /* Optional: frosted glass effect */
+  padding: 25px 15px; /* Refined padding */
+  box-shadow: 3px 0 15px rgba(var(--epic-text-color-rgb), 0.25);
+  transition: left var(--global-transition-speed) ease-in-out;
+  overflow-y: auto;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid var(--epic-gold-secondary);
 }
 
 #sidebar.sidebar-visible {
-    left: 0;
+  left: 0;
 }
 
 #sidebar-toggle {
-    /* position: fixed; */
-    /* top: 15px; */
-    /* left: 15px; */
-    /* font-size: 1.8em; Removed as icon is no longer text */
-    background-color: var(--epic-alabaster-bg);
-    border: 2px solid var(--epic-gold-secondary);
-    border-radius: var(--global-border-radius);
-    padding: 10px; /* Adjusted padding for icon */
-    cursor: pointer;
-    z-index: 3001;
-    transition: left var(--global-transition-speed) ease-in-out, background-color var(--global-transition-speed) ease, color var(--global-transition-speed) ease;
-    display: flex; /* For centering bars if needed, or for layout of bars */
-    flex-direction: column;
-    justify-content: space-around;
-    width: 44px; /* Fixed width for consistency */
-    height: 44px; /* Fixed height for consistency */
+  /* position: fixed; */
+  /* top: 15px; */
+  /* left: 15px; */
+  /* font-size: 1.8em; Removed as icon is no longer text */
+  background-color: var(--epic-alabaster-bg);
+  border: 2px solid var(--epic-gold-secondary);
+  border-radius: var(--global-border-radius);
+  padding: 10px; /* Adjusted padding for icon */
+  cursor: pointer;
+  z-index: 3001;
+  transition:
+    left var(--global-transition-speed) ease-in-out,
+    background-color var(--global-transition-speed) ease,
+    color var(--global-transition-speed) ease;
+  display: flex; /* For centering bars if needed, or for layout of bars */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 44px; /* Fixed width for consistency */
+  height: 44px; /* Fixed height for consistency */
 }
 #sidebar-toggle .bar {
-    display: block;
-    width: 22px;
-    height: 3px;
-    background-color: var(--epic-gold-main); /* Default bar color */
-    margin: 2px auto; /* Adjusted margin for tighter packing, auto for horizontal centering */
-    transition: all 0.3s ease-in-out;
-    border-radius: 1px;
+  display: block;
+  width: 22px;
+  height: 3px;
+  background-color: var(--epic-gold-main); /* Default bar color */
+  margin: 2px auto; /* Adjusted margin for tighter packing, auto for horizontal centering */
+  transition: all 0.3s ease-in-out;
+  border-radius: 1px;
 }
 
 #sidebar-toggle:hover .bar {
-    background-color: var(--epic-purple-emperor); /* Bars turn purple when button is hovered (gold bg) */
+  background-color: var(
+    --epic-purple-emperor
+  ); /* Bars turn purple when button is hovered (gold bg) */
 }
 
 #sidebar-toggle:hover {
-    background-color: var(--epic-gold-main);
-    /* color: var(--epic-purple-emperor); No longer needed for text icon */
+  background-color: var(--epic-gold-main);
+  /* color: var(--epic-purple-emperor); No longer needed for text icon */
 }
 
 /* Adjust toggle button position and icon animation when sidebar is visible */
@@ -203,122 +209,131 @@
 } */
 
 body.sidebar-active #sidebar-toggle .bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg); /* height (3px) + margin (4px from example, using 2px*2=4 + 3/2 for center = ~7) */
+  transform: translateY(7px) rotate(45deg); /* height (3px) + margin (4px from example, using 2px*2=4 + 3/2 for center = ~7) */
 }
 body.sidebar-active #sidebar-toggle .bar:nth-child(2) {
-    opacity: 0;
+  opacity: 0;
 }
 body.sidebar-active #sidebar-toggle .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Ensure bars maintain correct color on hover when active (X shape) */
 body.sidebar-active #sidebar-toggle:hover .bar {
-    background-color: var(--epic-purple-emperor); /* Or whatever the X color should be on hover */
+  background-color: var(
+    --epic-purple-emperor
+  ); /* Or whatever the X color should be on hover */
 }
 
-
 #sidebar .logo-link {
-    display: block;
-    /* text-align: center; */
-    margin-bottom: 30px; /* Refined margin */
-    padding: 10px 0;
+  display: block;
+  /* text-align: center; */
+  margin-bottom: 30px; /* Refined margin */
+  padding: 10px 0;
 }
 
 #sidebar .logo-image {
-    max-width: 80%;
-    height: auto;
-    border-radius: var(--global-border-radius);
-    margin: 0 auto; /* Centering already handled by parent text-align and block display */
-    border: 3px solid var(--epic-gold-secondary);
-    background-color: var(--epic-alabaster-bg); /* Alabaster background for logo */
+  max-width: 80%;
+  height: auto;
+  border-radius: var(--global-border-radius);
+  margin: 0 auto; /* Centering already handled by parent text-align and block display */
+  border: 3px solid var(--epic-gold-secondary);
+  background-color: var(
+    --epic-alabaster-bg
+  ); /* Alabaster background for logo */
 }
 
-#sidebar .nav-links { /* Uses existing .nav-links class */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the start for left text align */
-    width: 100%;
+#sidebar .nav-links {
+  /* Uses existing .nav-links class */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start for left text align */
+  width: 100%;
 }
 
 #sidebar .nav-links li {
-    width: 100%;
-    margin-bottom: 8px;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 #sidebar .nav-links a {
-    display: block;
-    padding: 12px 15px;
-    color: var(--epic-text-light); /* Light text for dark sidebar */
-    font-family: var(--font-headings);
-    font-size: 1.1em;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: var(--global-border-radius);
-    transition: background-color var(--global-transition-speed) ease-in-out, color var(--global-transition-speed) ease-in-out, padding-left var(--global-transition-speed) ease-in-out;
-    text-align: left; /* Explicitly left align sidebar links */
+  display: block;
+  padding: 12px 15px;
+  color: var(--epic-text-light); /* Light text for dark sidebar */
+  font-family: var(--font-headings);
+  font-size: 1.1em;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--global-border-radius);
+  transition:
+    background-color var(--global-transition-speed) ease-in-out,
+    color var(--global-transition-speed) ease-in-out,
+    padding-left var(--global-transition-speed) ease-in-out;
+  text-align: left; /* Explicitly left align sidebar links */
 }
 
 #sidebar .nav-links a:hover,
 #sidebar .nav-links a:focus-visible,
-#sidebar .nav-links a.active-link { /* active-link might need JS to set based on current page */
-    background-color: var(--epic-gold-main);
-    color: var(--epic-purple-emperor);
-    padding-left: 25px; /* Indent on hover/active */
-    outline: none;
+#sidebar .nav-links a.active-link {
+  /* active-link might need JS to set based on current page */
+  background-color: var(--epic-gold-main);
+  color: var(--epic-purple-emperor);
+  padding-left: 25px; /* Indent on hover/active */
+  outline: none;
 }
 
 /* Icon styling for sidebar links */
 #sidebar .nav-links a i {
-    margin-right: 10px;
-    font-size: 1.1em;
-    width: 20px;
-    text-align: center;
+  margin-right: 10px;
+  font-size: 1.1em;
+  width: 20px;
+  text-align: center;
 }
 
 body.dark-mode #sidebar .nav-links a i {
-    color: var(--epic-icon-color);
+  color: var(--epic-icon-color);
 }
 
 body.dark-mode #sidebar .nav-links a:hover i {
-    color: var(--epic-icon-hover);
+  color: var(--epic-icon-hover);
 }
 
 /* Adjust main content when left sidebar is active */
 body.sidebar-active {
-    margin-left: 280px; /* Match sidebar width */
-    transition: margin-left var(--global-transition-speed) ease-in-out;
+  margin-left: 280px; /* Match sidebar width */
+  transition: margin-left var(--global-transition-speed) ease-in-out;
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .navbar .nav-toggle,
-    .navbar .nav-links {
-        /* Sidebar handles mobile navigation */
-        display: none !important;
-    }
-    body.sidebar-active { margin-left: 0; }
-    /* body.sidebar-active #sidebar-toggle { left: 15px; } */
-    /* Right panel handled via body.menu-open-right in sliding_menu.css */
+  .navbar .nav-toggle,
+  .navbar .nav-links {
+    /* Sidebar handles mobile navigation */
+    display: none !important;
+  }
+  body.sidebar-active {
+    margin-left: 0;
+  }
+  /* body.sidebar-active #sidebar-toggle { left: 15px; } */
+  /* Right panel handled via body.menu-open-right in sliding_menu.css */
 }
 
 /* Mute Toggle Button */
 #mute-toggle {
-    padding: 6px 10px;
-    background-color: var(--epic-gold-main);
-    color: var(--epic-purple-emperor);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
+  padding: 6px 10px;
+  background-color: var(--epic-gold-main);
+  color: var(--epic-purple-emperor);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
 }
 
 #mute-toggle:hover {
-    background-color: var(--epic-purple-emperor);
-    color: var(--epic-gold-main);
+  background-color: var(--epic-purple-emperor);
+  color: var(--epic-gold-main);
 }

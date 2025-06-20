@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/env_loader.php';
 
 if (!defined('FORUM_COMMENT_COOLDOWN')) {

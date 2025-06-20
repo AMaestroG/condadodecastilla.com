@@ -1,4 +1,5 @@
 <?php
+
 // Start the session to access session variables.
 // It's good practice to ensure it's started before trying to manipulate it.
 require_once __DIR__ . '/../includes/session.php';
@@ -19,4 +20,3 @@ if (!headers_sent()) {
     echo "<script>window.location.href = 'login.php';</script>";
 }
 exit;
-?>

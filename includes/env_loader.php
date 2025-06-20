@@ -1,4 +1,5 @@
 <?php
+
 // includes/env_loader.php
 // Automatically load environment variables using vlucas/phpdotenv
 if (file_exists(__DIR__ . '/../vendor/autoload.php')) {

@@ -22,8 +22,11 @@ if ($pdo) {
 
 
 
-function fetchComments(string $agent, ?PDO $pdo): array {
-    if (!$pdo) return [];
+function fetchComments(string $agent, ?PDO $pdo): array
+{
+    if (!$pdo) {
+        return [];
+    }
     $stmt = $pdo->prepare('SELECT comment, created_at FROM forum_comments WHERE agent = :agent ORDER BY created_at DESC');
     $stmt->execute([':agent' => $agent]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -70,7 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 <main class="container page-content-block">
     <h1 style="text-align:center;" class="gradient-text">Foro de Expertos</h1>
     <?php if (!empty($_SESSION['forum_error'])): ?>
-        <p class="feedback error"><?php echo htmlspecialchars($_SESSION['forum_error']); unset($_SESSION['forum_error']); ?></p>
+        <p class="feedback error"><?php echo htmlspecialchars($_SESSION['forum_error']);
+        unset($_SESSION['forum_error']); ?></p>
     <?php endif; ?>
     <?php foreach ($agents as $id => $ag): ?>
     <section id="<?php echo $id; ?>" class="agent-profile">

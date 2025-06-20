@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
 
@@ -72,4 +73,3 @@ if (file_exists($real_filepath)) {
     echo json_encode(['success' => false, 'error' => 'La fotografía "' . htmlspecialchars($filename) . '" no fue encontrada en el servidor.']);
 }
 exit;
-?>

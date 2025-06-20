@@ -10,8 +10,8 @@ require_once __DIR__ . '/../includes/auth.php';
     <title>Tienda</title>
     <?php
     require_once __DIR__ . '/../includes/load_page_css.php';
-    load_page_css();
-    ?>
+load_page_css();
+?>
 </head>
 <body class="alabaster-bg">
 <?php require_once __DIR__ . '/../_header.php'; ?>

@@ -1,10 +1,14 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class FixedHeaderElementsTest extends TestCase {
-    private function runPage(string $script): array {
+class FixedHeaderElementsTest extends TestCase
+{
+    private function runPage(string $script): array
+    {
         $prepend = realpath(__DIR__.'/fixtures/page_prepend.php');
-        $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
+        $cmd = sprintf(
+            'php-cgi -d auto_prepend_file=%s %s',
             escapeshellarg($prepend),
             escapeshellarg($script)
         );
@@ -13,14 +17,15 @@ class FixedHeaderElementsTest extends TestCase {
             'REDIRECT_STATUS' => '1',
             'SCRIPT_FILENAME' => $script
         ];
-        $proc = proc_open($cmd, [1=>['pipe','w'], 2=>['pipe','w']], $pipes, null, $env);
+        $proc = proc_open($cmd, [1 => ['pipe','w'], 2 => ['pipe','w']], $pipes, null, $env);
         $out = stream_get_contents($pipes[1]);
         $err = stream_get_contents($pipes[2]);
         $status = proc_close($proc);
         return [$status, $out, $err];
     }
 
-    public static function pageProvider(): array {
+    public static function pageProvider(): array
+    {
         return [
             [__DIR__.'/../index.php'],
             [__DIR__.'/../historia/historia.php'],
@@ -34,7 +39,8 @@ class FixedHeaderElementsTest extends TestCase {
     /**
      * @dataProvider pageProvider
      */
-    public function testFixedHeaderElementsPresent(string $path): void {
+    public function testFixedHeaderElementsPresent(string $path): void
+    {
         if (pathinfo($path, PATHINFO_EXTENSION) === 'php') {
             [$status, $out, $err] = $this->runPage($path);
             $this->assertSame(0, $status, $err);
@@ -49,4 +55,3 @@ class FixedHeaderElementsTest extends TestCase {
         $this->assertStringContainsString('id="theme-toggle"', $content);
     }
 }
-?>

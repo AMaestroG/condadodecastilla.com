@@ -49,14 +49,14 @@
     } else {
         echo '<p>Error: AI Chat interface not found.</p>';
     }
-    ?>
+        ?>
 </div>
 
 <!-- Right Sliding Panel for Language Flags -->
 <?php
-    if (file_exists(__DIR__ . '/fragments/header/language-flags.html')) {
-        echo file_get_contents(__DIR__ . '/fragments/header/language-flags.html');
-    } else {
-        echo '<div id="language-panel" class="menu-panel right-panel"><p>Flags not found.</p></div>';
-    }
-?>
+        if (file_exists(__DIR__ . '/fragments/header/language-flags.html')) {
+            echo file_get_contents(__DIR__ . '/fragments/header/language-flags.html');
+        } else {
+            echo '<div id="language-panel" class="menu-panel right-panel"><p>Flags not found.</p></div>';
+        }
+        ?>

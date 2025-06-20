@@ -1,27 +1,33 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class ApiTest extends TestCase {
+class ApiTest extends TestCase
+{
     private string $dbFile;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         $this->dbFile = tempnam(sys_get_temp_dir(), 'api');
     }
 
-    protected function tearDown(): void {
+    protected function tearDown(): void
+    {
         if (file_exists($this->dbFile)) {
             unlink($this->dbFile);
         }
     }
 
-    private function runScript(string $script, array $server): array {
+    private function runScript(string $script, array $server): array
+    {
         $env = [
             'REQUEST_METHOD' => $server['REQUEST_METHOD'],
             'REQUEST_URI' => $server['REQUEST_URI'],
             'HTTP_HOST' => 'localhost',
         ];
         $prepend = realpath(__DIR__.'/fixtures/prepend.php');
-        $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
+        $cmd = sprintf(
+            'php-cgi -d auto_prepend_file=%s %s',
             escapeshellarg($prepend),
             escapeshellarg($script)
         );
@@ -37,7 +43,8 @@ class ApiTest extends TestCase {
         return [$status, $output, $err];
     }
 
-    public function testMuseoGet(): void {
+    public function testMuseoGet(): void
+    {
         [$status, $out, $err] = $this->runScript(__DIR__.'/../api_museo.php', [
             'REQUEST_METHOD' => 'GET',
             'REQUEST_URI' => '/api/museo/piezas'
@@ -48,7 +55,8 @@ class ApiTest extends TestCase {
         $this->assertSame('pieza1', $data[0]['titulo']);
     }
 
-    public function testGaleriaGet(): void {
+    public function testGaleriaGet(): void
+    {
         [$status, $out, $err] = $this->runScript(__DIR__.'/../api_galeria.php', [
             'REQUEST_METHOD' => 'GET',
             'REQUEST_URI' => '/api/galeria/fotos'
@@ -59,7 +67,8 @@ class ApiTest extends TestCase {
         $this->assertSame('foto1', $data[0]['titulo']);
     }
 
-    public function testTiendaGet(): void {
+    public function testTiendaGet(): void
+    {
         [$status, $out, $err] = $this->runScript(__DIR__.'/../api_tienda.php', [
             'REQUEST_METHOD' => 'GET',
             'REQUEST_URI' => '/api/tienda/productos'

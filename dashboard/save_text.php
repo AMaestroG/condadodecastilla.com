@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../includes/session.php';
 ensure_session_started();
 
@@ -45,9 +46,9 @@ try {
     switch ($action) {
         case 'create':
             if (empty($text_content)) { // Also check content for create
-                 $_SESSION['feedback_message'] = 'El contenido del texto no puede estar vacío para crear.';
-                 $_SESSION['feedback_type'] = 'error';
-                 break;
+                $_SESSION['feedback_message'] = 'El contenido del texto no puede estar vacío para crear.';
+                $_SESSION['feedback_type'] = 'error';
+                break;
             }
             // Check if text_id already exists
             $stmt_check = $pdo->prepare("SELECT text_id FROM site_texts WHERE text_id = :text_id");
@@ -118,4 +119,3 @@ if (!headers_sent()) {
     echo "<script>window.location.href='" . htmlspecialchars($redirect_url) . "';</script>";
 }
 exit;
-?>

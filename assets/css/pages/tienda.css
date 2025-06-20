@@ -3,9 +3,9 @@
 /* Page-specific styles for tienda/index.php */
 
 .card-grid .card {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 .card-grid .card:hover {
-    transform: scale(1.05);
-    box-shadow: var(--global-box-shadow-medium);
+  transform: scale(1.05);
+  box-shadow: var(--global-box-shadow-medium);
 }

@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/includes/db_connect.php';
 require_once 'includes/auth.php';
 require_once 'includes/csrf.php';
@@ -11,7 +12,8 @@ header('Content-Type: application/json');
 
 global $pdo;
 
-function json_response($data, $status = 200) {
+function json_response($data, $status = 200)
+{
     http_response_code($status);
     echo json_encode($data);
     exit;
@@ -58,14 +60,14 @@ switch ($method) {
             json_response(['error' => 'Tipo de imagen no válido'], 400);
         }
         $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $safe = preg_replace('/[^a-zA-Z0-9_.-]/','_', pathinfo($file['name'], PATHINFO_FILENAME));
+        $safe = preg_replace('/[^a-zA-Z0-9_.-]/', '_', pathinfo($file['name'], PATHINFO_FILENAME));
         $filename = time().'_'.$safe.'.'.$ext;
         if (!move_uploaded_file($file['tmp_name'], UPLOAD_DIR_BASE.$filename)) {
             json_response(['error' => 'No se pudo guardar la imagen'], 500);
         }
         try {
             $stmt = $pdo->prepare("INSERT INTO tienda_productos (nombre, descripcion, precio, imagen_nombre, stock) VALUES (:n,:d,:p,:i,:s)");
-            $stmt->execute([':n'=>$nombre, ':d'=>$descripcion, ':p'=>$precio, ':i'=>$filename, ':s'=>$stock]);
+            $stmt->execute([':n' => $nombre, ':d' => $descripcion, ':p' => $precio, ':i' => $filename, ':s' => $stock]);
             $id = $pdo->lastInsertId();
             json_response(['message' => 'Producto creado', 'id' => $id, 'imagen_nombre' => $filename], 201);
         } catch (PDOException $e) {
@@ -83,10 +85,10 @@ switch ($method) {
         }
         try {
             $stmt = $pdo->prepare("SELECT imagen_nombre FROM tienda_productos WHERE id=:id");
-            $stmt->execute([':id'=>$id]);
+            $stmt->execute([':id' => $id]);
             $img = $stmt->fetchColumn();
             $stmt = $pdo->prepare("DELETE FROM tienda_productos WHERE id=:id");
-            $stmt->execute([':id'=>$id]);
+            $stmt->execute([':id' => $id]);
             if ($stmt->rowCount()) {
                 if ($img && file_exists(UPLOAD_DIR_BASE.$img)) {
                     @unlink(UPLOAD_DIR_BASE.$img);
@@ -102,4 +104,3 @@ switch ($method) {
     default:
         json_response(['error' => 'Método no permitido'], 405);
 }
-?>

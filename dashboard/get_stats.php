@@ -1,4 +1,5 @@
 <?php
+
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/../includes/session.php';
@@ -36,7 +37,7 @@ try {
         error_log("get_stats.php: No se pudo obtener el conteo de piezas_museo.");
     }
 
-    // Contar fotos de la galería. Si la tabla 'fotos_galeria' no existe se 
+    // Contar fotos de la galería. Si la tabla 'fotos_galeria' no existe se
     // intentará contar las imágenes del directorio de la galería colaborativa.
     $count_galeria = 0;
     try {
@@ -53,7 +54,7 @@ try {
         }
     }
     $stats_data[] = ["section_name" => "Fotos de Galería", "total_visits" => $count_galeria];
-    
+
     // Podrías añadir más "secciones" si tienes otras tablas o formas de medir visitas
     // Ejemplo de datos estáticos si tus tablas están vacías:
     // @phpstan-ignore-next-line
@@ -65,18 +66,18 @@ try {
 
     $response['success'] = true;
     $response['data'] = $stats_data;
-    
+
     // @phpstan-ignore-next-line
     if ($stats_data === []) {
         $response['message'] = "No hay estadísticas para mostrar todavía.";
     } else {
         $response['message'] = "Estadísticas cargadas correctamente.";
     }
-    
+
 } catch (PDOException $e) {
     error_log("Error de Consulta a BD en get_stats.php: " . $e->getMessage(), 0);
     $response['message'] = "Error al obtener estadísticas de la base de datos.";
-    http_response_code(500); 
+    http_response_code(500);
 } catch (Exception $e) {
     error_log("Error General en get_stats.php: " . $e->getMessage(), 0);
     $response['message'] = "Ocurrió un error inesperado al procesar las estadísticas.";
@@ -85,4 +86,3 @@ try {
 
 $pdo = null; // Cerrar conexión
 echo json_encode($response);
-?>

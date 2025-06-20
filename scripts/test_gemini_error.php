@@ -1,4 +1,5 @@
 <?php
+
 // Simple script to demonstrate _call_gemini_api error reporting.
 // The endpoint returns a 404 status so the script will display the
 // status line captured by _call_gemini_api.

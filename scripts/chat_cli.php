@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../includes/ai_utils.php';
 
 $prompt = $argv[1] ?? '';
@@ -14,4 +15,3 @@ $response = get_ai_chat_response($prompt);
 // Convert newlines to \n to preserve formatting when read from Python.
 $response = str_replace(["\r", "\n"], ["", "\n"], $response);
 echo $response;
-

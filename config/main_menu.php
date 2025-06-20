@@ -1,4 +1,5 @@
 <?php
+
 return [
     ['label' => 'Inicio', 'url' => '/index.php'],
     ['label' => 'Nuestra Historia', 'url' => '/historia/historia.php'],

@@ -1,8 +1,11 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class MenuLinksTest extends TestCase {
-    public function testMainMenuLinksExist(): void {
+class MenuLinksTest extends TestCase
+{
+    public function testMainMenuLinksExist(): void
+    {
         $menuPath = __DIR__ . '/../fragments/menus/main-menu.php';
         $html = file_get_contents($menuPath);
         $dom = new DOMDocument();
