@@ -1019,11 +1019,15 @@ body.dark-mode .footer .social-links a:focus-visible {
     display: none; /* Hidden by default, JS will toggle */
 }
 
-        url('/assets/img/hero_default_background.jpg');
-    min-height: 45vh; /* This might override epic_theme.css min-height for .page-header */
-    padding: clamp(60px, 15vh, 100px) 20px; /* This might override epic_theme.css padding for .page-header */
-    border-bottom-width: 10px; /* This might override epic_theme.css border for .page-header */
-    /* Other properties like color, text-align, display, justify-content, align-items are likely inherited or set by epic_theme.css base .hero/.page-header */
+.page-header.hero {
+    background-image:
+        linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.82), rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.95)),
+        url('/assets/img/hero_mis_tierras.jpg');
+    background-color: var(--epic-purple-emperor);
+    min-height: 45vh; /* Override default min-height */
+    padding: clamp(60px, 15vh, 100px) 20px; /* Override default padding */
+    border-bottom-width: 10px; /* Matches decorative border */
+    /* Other properties like color, text-align, display and alignment inherit from base .hero/.page-header */
 }
 .page-header.hero[style*="/imagenes/hero_historia_background.jpg"],
 .page-header.hero[style*="/imagenes/hero_alfoz_background.jpg"],
@@ -1064,11 +1068,6 @@ body.dark-mode .footer .social-links a:focus-visible {
     filter: drop-shadow(0 0 12px rgba(var(--color-acento-amarillo-rgb, 255, 215, 0), 0.75)) !important;
     width: clamp(60px, 10vw, 80px) !important;
     margin-bottom: 20px !important;
-}
-    background-image:
-        linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.82), rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.95)),
-        url('/assets/img/hero_mis_tierras.jpg');
-    background-color: var(--epic-purple-emperor); 
 }
 
 .hero-content { 
