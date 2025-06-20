@@ -36,9 +36,6 @@
             background-color: var(--color-secundario-dorado);
             color: var(--color-negro-contraste);
         }
-        .page-header.hero {
-            min-height: 30vh; /* Reduced height for index page */
-        }
         .error-message {
             background-color: var(--alert-bg);
             border: 1px solid var(--alert-border);

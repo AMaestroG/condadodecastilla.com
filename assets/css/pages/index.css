@@ -1,16 +1,4 @@
 /* Page-specific styles for index.php */
-body {
-    /* Use alabaster background, rely on global CSS variables if defined */
-}
-
-.hero {
-    animation: hero-fade 20s infinite alternate;
-}
-
-@keyframes hero-fade {
-    from { filter: brightness(1); }
-    to { filter: brightness(1.1) saturate(1.2); }
-}
 
 .cta-group {
   margin-top: 2.5em;

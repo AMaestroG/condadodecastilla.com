@@ -33,7 +33,7 @@ load_page_css();
 </head>
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/imagenes/mapa_antiguo_detalle.jpg');">
+    <header class="page-header hero min-h-[30vh]" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/imagenes/mapa_antiguo_detalle.jpg');">
         <div class="hero-content">
             <h1><?php echo htmlspecialchars($titulo_pagina); ?></h1>
         </div>
