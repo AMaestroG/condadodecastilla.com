@@ -23,6 +23,6 @@
 <script src="/assets/js/hero.js"></script>
 <script src="/assets/js/scroll-fade.js"></script>
 <script src="/assets/js/parallax.js"></script>
-<script src="/js/lang-bar.js"></script>
-<script src="/js/audio-controller.js"></script>
+<script src="/assets/js/lang-bar.js"></script>
+<script src="/assets/js/audio-controller.js"></script>
 <script defer src="/assets/js/custom-pointer.js"></script>

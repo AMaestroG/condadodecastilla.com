@@ -52,6 +52,6 @@
     <p><a href="../capitulo2/capitulo2.php">Continuar al Capítulo 2</a></p>
 
     <?php require_once __DIR__ . "/../../_footer.php"; ?>
-    <script src="/js/layout.js"></script>
+    <script src="/assets/js/layout.js"></script>
 </body>
 </html>

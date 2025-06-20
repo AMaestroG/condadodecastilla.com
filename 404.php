@@ -15,7 +15,7 @@ http_response_code(404);
     <p><a href="/index.php" class="cta-button">Volver al inicio</a></p>
 </main>
 <?php require_once __DIR__ . '/_footer.php'; ?>
-<script src="/js/layout.js"></script>
+<script src="/assets/js/layout.js"></script>
 </body>
 </html>
 

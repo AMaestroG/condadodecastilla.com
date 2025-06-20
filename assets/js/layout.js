@@ -271,9 +271,9 @@ function insertHtmlWithScripts(container, html) {
 }
 
 function loadIAToolsScript() {
-    if (!document.querySelector('script[src="/js/ia-tools.js"]')) {
+    if (!document.querySelector('script[src="/assets/js/ia-tools.js"]')) {
         const script = document.createElement('script');
-        script.src = '/js/ia-tools.js';
+        script.src = '/assets/js/ia-tools.js';
         document.head.appendChild(script);
     }
 }

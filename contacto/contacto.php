@@ -75,7 +75,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 
     <?php require_once __DIR__ . '/../_footer.php'; ?>
 
-    <script src="/js/layout.js"></script>
+    <script src="/assets/js/layout.js"></script>
     <script>
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {

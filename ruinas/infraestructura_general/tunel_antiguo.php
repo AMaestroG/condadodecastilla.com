@@ -21,5 +21,5 @@
         <p>La naturaleza exacta, propósito y datación de este túnel original requieren más investigación. Podría haber formado parte de la infraestructura defensiva, de comunicación o de gestión de aguas de la antigua Auca Patricia o del posterior Alcázar de Cerasio.</p>
         <p>La carretera que va desde la Caseta (cruce entre Tormantos y Belorado) hasta el Túnel mide 1200 metros, correspondiendo al Cardo (eje Norte-Sur) de la ciudad romana de Auca Patricia.</p>
     </div></section></main>
-    <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/js/layout.js"></script>
+    <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/assets/js/layout.js"></script>
 </body></html>

@@ -13,6 +13,6 @@
   <p>Perteneciente al <a href="/alfoz/alfoz.php">Alfoz de Cerasio y Lantarón</a>. La primera mención histórica a Caicedo es del siglo XI en el Fuero de Miranda de Ebro, ciudad a la que perteneció. También aparece documentado que tuvo judería.</p>
   <p>Hasta el año 1978 pertenecía al municipio de Salcedo. Fue conocido por sus minas de sal y sus ruinas romanas.</p>
   <?php require_once __DIR__ . '/../_footer.php'; ?>
-  <script src="/js/layout.js" defer></script>
+  <script src="/assets/js/layout.js" defer></script>
 </body>
 </html>

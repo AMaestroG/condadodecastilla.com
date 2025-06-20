@@ -30,8 +30,8 @@
     </main>
 
     <?php require_once __DIR__ . '/../_footer.php'; ?>
-    <script src="/js/config.js"></script>
-    <script src="/js/layout.js"></script>
-    <script src="/js/museo-2d-gallery.js"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/museo-2d-gallery.js"></script>
 </body>
 </html>

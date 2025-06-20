@@ -43,7 +43,7 @@ load_page_css();
         </section>
     </main>
     <?php require_once __DIR__ . '/../../_footer.php'; ?>
-    <script src="/js/layout.js"></script>
+    <script src="/assets/js/layout.js"></script>
     <!-- Consider adding a link to Font Awesome if not already included globally, e.g., in _header.php or main CSS -->
 </body>
 </html>

@@ -103,6 +103,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 </main>
 <?php require_once __DIR__ . '/../_footer.php'; ?>
 <script src="/assets/js/foro.js"></script>
-<script src="/js/layout.js"></script>
+<script src="/assets/js/layout.js"></script>
 </body>
 </html>

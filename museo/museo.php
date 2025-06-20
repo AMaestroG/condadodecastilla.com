@@ -142,17 +142,17 @@
 
     <?php require_once __DIR__ . '/../_footer.php'; ?>
 
-    <script src="/js/config.js"></script>
-    <script src="/js/layout.js"></script>
-    <script src="/js/museo-2d-gallery.js"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/museo-2d-gallery.js"></script>
     <!-- Museo 3D Modules -->
-    <script src="/js/museum-3d/utils.js"></script>
-    <script src="/js/museum-3d/config.js"></script>
-    <script src="/js/museum-3d/sceneManager.js"></script>
-    <script src="/js/museum-3d/museumLayout.js"></script>
-    <script src="/js/museum-3d/playerControls.js"></script>
-    <script src="/js/museum-3d/exhibitManager.js"></script>
-    <script src="/js/museo-3d-main.js"></script>
+    <script src="/assets/js/museum-3d/utils.js"></script>
+    <script src="/assets/js/museum-3d/config.js"></script>
+    <script src="/assets/js/museum-3d/sceneManager.js"></script>
+    <script src="/assets/js/museum-3d/museumLayout.js"></script>
+    <script src="/assets/js/museum-3d/playerControls.js"></script>
+    <script src="/assets/js/museum-3d/exhibitManager.js"></script>
+    <script src="/assets/js/museo-3d-main.js"></script>
 
     <div id="pointer-lock-instructions" class="pointer-lock-instructions">
         <div>

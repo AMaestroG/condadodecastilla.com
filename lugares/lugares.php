@@ -143,9 +143,9 @@
 
     <?php require_once __DIR__ . '/../_footer.php'; ?>
 
-    <script src="/js/layout.js"></script>
-    <script src="/js/lugares-data.js"></script>
-    <script src="/js/lugares-dynamic-list.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/lugares-data.js"></script>
+    <script src="/assets/js/lugares-dynamic-list.js"></script>
 
 </body>
 </html>

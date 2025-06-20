@@ -32,7 +32,7 @@
     </main>
     <?php require_once __DIR__ . '/../_footer.php'; ?>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="/assets/js/influencia_romana.js"></script>
-    <script src="/js/layout.js"></script>
+    <script src="/assets/js/roman_chart.js"></script>
+    <script src="/assets/js/layout.js"></script>
 </body>
 </html>
