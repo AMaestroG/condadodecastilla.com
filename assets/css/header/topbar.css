@@ -94,3 +94,12 @@ body.dark-mode #theme-toggle i {
 body.dark-mode #theme-toggle:hover i {
     color: var(--epic-icon-hover);
 }
+
+#header-escudo-overlay {
+    position: fixed;
+    top: calc(var(--menu-top-offset) + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4010;
+    pointer-events: none;
+}
