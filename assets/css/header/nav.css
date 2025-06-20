@@ -114,6 +114,17 @@
     vertical-align: middle;
 }
 
+/* Uniform styling for header icons included via <img class="header-icon"> */
+.header-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
 .nav-links a:hover,
 .nav-links a:focus-visible,
 .nav-links a.active-link {
