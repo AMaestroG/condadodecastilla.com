@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     <link rel="stylesheet" href="/assets/css/pages/foro.css">
 </head>
 <body class="alabaster-bg">
-<?php require_once __DIR__ . '/../_header.php'; ?>
+<?php require_once __DIR__ . '/../fragments/header.php'; ?>
 <button id="menu-btn" class="menu-btn" data-menu-target="agents-menu">☰ Expertos</button>
 <div id="agents-menu" class="menu-panel left-panel">
 <?php foreach ($agents as $id => $ag): ?>
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     </section>
     <?php endforeach; ?>
 </main>
-<?php require_once __DIR__ . '/../_footer.php'; ?>
+<?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 <script src="/assets/js/foro.js"></script>
 <script src="/js/layout.js"></script>
 </body>

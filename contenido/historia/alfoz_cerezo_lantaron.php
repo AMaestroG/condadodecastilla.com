@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>Definición y Extensión del Alfoz</h3>
@@ -22,7 +22,7 @@
 <p>Pensar que Cerezo y Lantarón junto con Álava hacen una Linea fronteriza con el Impero Musulmán, ya las merindades quedan después de estas zonas así que un conde en la frontera es en Cerezo y Lantarón con Álava.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

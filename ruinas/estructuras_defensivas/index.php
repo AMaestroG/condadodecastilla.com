@@ -5,7 +5,7 @@
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
     <header class="page-header"><div class="container-epic"><h1>Estructuras Defensivas</h1></div></header>
     <nav aria-label="breadcrumb" class="container breadcrumb-nav">
       <ol class="breadcrumb">
@@ -25,5 +25,5 @@
             <li><a href="otros_castillos.php">Otros Castillos y Fortificaciones</a></li>
         </ul>
     </div></section></main>
-    <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/js/layout.js"></script>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?><script src="/js/layout.js"></script>
 </body></html>

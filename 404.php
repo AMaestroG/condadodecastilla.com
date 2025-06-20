@@ -8,13 +8,13 @@ http_response_code(404);
     <?php include __DIR__ . '/includes/head_common.php'; ?>
 </head>
 <body class="alabaster-bg">
-<?php require_once __DIR__ . '/_header.php'; ?>
+<?php require_once __DIR__ . '/fragments/header.php'; ?>
 <main class="container page-content-block error-page">
     <h1>Página no encontrada</h1>
     <p>Lo sentimos, la página que buscas no existe.</p>
     <p><a href="/index.php" class="cta-button">Volver al inicio</a></p>
 </main>
-<?php require_once __DIR__ . '/_footer.php'; ?>
+<?php require_once __DIR__ . '/fragments/footer.php'; ?>
 <script src="/js/layout.js"></script>
 </body>
 </html>

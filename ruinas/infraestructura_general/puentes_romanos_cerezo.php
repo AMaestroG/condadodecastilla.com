@@ -6,7 +6,7 @@
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
     <header class="page-header">
         <div class="container-epic">
             <h1>Puentes Romanos en Cerezo de Río Tirón (Auca Patricia)</h1>
@@ -40,7 +40,7 @@
             </div>
         </section>
     </main>
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

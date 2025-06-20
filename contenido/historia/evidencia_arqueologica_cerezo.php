@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>Murallas y Estructuras Urbanas</h3>
@@ -31,7 +31,7 @@
 <p><img alt="Estela de Cerezo" src="/imagenes/estela_cerezo_detalle.jpg" title="Estela de Cerezo" /></p>
     </main>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

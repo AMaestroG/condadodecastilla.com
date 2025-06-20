@@ -6,7 +6,7 @@
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
     <header class="page-header"><div class="container-epic"><h1>Túnel Antiguo en Cerezo de Río Tirón</h1></div></header>
     <nav aria-label="breadcrumb" class="container breadcrumb-nav">
       <ol class="breadcrumb">
@@ -21,5 +21,5 @@
         <p>La naturaleza exacta, propósito y datación de este túnel original requieren más investigación. Podría haber formado parte de la infraestructura defensiva, de comunicación o de gestión de aguas de la antigua Auca Patricia o del posterior Alcázar de Cerasio.</p>
         <p>La carretera que va desde la Caseta (cruce entre Tormantos y Belorado) hasta el Túnel mide 1200 metros, correspondiendo al Cardo (eje Norte-Sur) de la ciudad romana de Auca Patricia.</p>
     </div></section></main>
-    <?php require_once __DIR__ . '/../_footer.php'; ?><script src="/js/layout.js"></script>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?><script src="/js/layout.js"></script>
 </body></html>
