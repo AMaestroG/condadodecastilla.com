@@ -104,3 +104,25 @@ body.menu-open-right {
     display: none !important;
   }
 }
+
+@media (max-width: 992px) {
+  #slide-menu-right,
+  #slide-menu-left {
+    width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  #slide-menu-right,
+  #slide-menu-left {
+    width: 230px;
+  }
+  #fixed-header {
+    padding: 0.4rem 0.6rem;
+  }
+  #menu-button,
+  #tools-button {
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+  }
+}

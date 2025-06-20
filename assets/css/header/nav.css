@@ -330,6 +330,38 @@ body.sidebar-active {
     }
 }
 
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0.5em 0;
+    }
+    .navbar .logo-image {
+        max-height: 40px;
+    }
+    .nav-links a {
+        font-size: 0.8em;
+        padding: 0.5em 0.3em;
+    }
+    #sidebar {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.4em 0;
+    }
+    .nav-links {
+        flex-direction: column;
+    }
+    .navbar .logo-image {
+        max-width: 150px;
+    }
+    #sidebar {
+        width: 85vw;
+        max-width: 260px;
+    }
+}
+
 /* Mute Toggle Button */
 #mute-toggle {
     padding: 6px 10px;
