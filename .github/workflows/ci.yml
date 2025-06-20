@@ -18,8 +18,18 @@ jobs:
           tools: composer
           coverage: xdebug
 
-      - name: Install dependencies
-        run: composer install --no-interaction --no-progress --prefer-dist
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install project dependencies
+        run: ./scripts/setup_environment.sh
 
       - name: Verificar atributos alt
         run: ./scripts/check_alt_texts.sh
@@ -29,14 +39,6 @@ jobs:
 
       - name: Run PHPUnit
         run: vendor/bin/phpunit --coverage-clover build/coverage.xml
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Node dependencies
-        run: npm ci
 
       - name: Run Puppeteer tests
         run: npm run test:puppeteer
