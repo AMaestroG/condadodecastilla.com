@@ -126,3 +126,13 @@ class TestContentProcessor(unittest.TestCase):
 
 This strategy will evolve as the system grows in complexity and features. Regular review and adaptation of the testing and evaluation approach will be necessary.
 ```
+
+## Troubleshooting
+
+If `npm run test:puppeteer` exits immediately or shows a connection error, the embedded PHP server may not have started correctly.
+
+1. Check `/tmp/php-server.log` for startup messages or errors.
+2. Make sure no other service is using port `8080`.
+3. Stop stray PHP processes with `pkill -f 'php -S'` and rerun the tests.
+
+You can also launch the server manually with `php -S localhost:8080` and confirm it responds at <http://localhost:8080> before executing the test suite.

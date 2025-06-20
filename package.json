@@ -7,8 +7,9 @@
       "tailwindcss": "^3.4.4"
     },
   "scripts": {
-    "pretest:puppeteer": "php -S localhost:8080 >/dev/null 2>&1 &",
+    "pretest:puppeteer": "php -S localhost:8080 >/tmp/php-server.log 2>&1 & PHP_PID=$!; echo $PHP_PID > /tmp/php-server.pid; for i in {1..10}; do curl -s http://localhost:8080 >/dev/null 2>&1 && break || sleep 1; done; if ! kill -0 $PHP_PID >/dev/null 2>&1; then cat /tmp/php-server.log; exit 1; fi",
     "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/muteToggleTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js && node tests/moonToggleTest.js",
+    "posttest:puppeteer": "if [ -f /tmp/php-server.pid ]; then kill $(cat /tmp/php-server.pid); rm /tmp/php-server.pid; fi",
     "test": "npm run test:puppeteer"
   }
 }
