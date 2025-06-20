@@ -287,6 +287,14 @@ composer install
 npm install
 ```
 
+La batería de pruebas de Node necesita que un servidor de desarrollo esté
+escuchando en el puerto **8080** antes de ejecutar `npm test`. Puedes
+iniciarlo rápidamente con el servidor embebido de PHP:
+
+```bash
+php -S localhost:8080
+```
+
 `composer install` descarga **PHPUnit** en `vendor/bin` y `npm install` instala **Puppeteer**, ambas necesarias para las suites de tests.
 
 Con las dependencias ya instaladas, ejecuta cada conjunto de tests de forma explícita:
@@ -304,8 +312,8 @@ node tests/moonToggleTest.js
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
 `npm test` ejecuta las pruebas de interfaz con Puppeteer. El script inicia un
-servidor PHP con `php -S` antes de la prueba y lo detiene automáticamente al
-finalizar.
+servidor PHP con `php -S` en el puerto **8080** antes de la prueba y lo
+detiene automáticamente al finalizar.
 
 Si cualquiera de estos comandos devuelve un error de "command not found" lo más probable es que **PHP**, **Composer** o **PHPUnit** no estén instalados correctamente.
 
