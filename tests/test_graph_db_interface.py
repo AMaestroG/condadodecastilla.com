@@ -42,6 +42,32 @@ class GraphDBInterfaceTestCase(unittest.TestCase):
         self.db.add_link(link)
         self.assertEqual(len(self.db.get_all_links()), 1)
 
+    def test_get_all_resources(self):
+        res1 = {"url": "http://a.com", "content": "A"}
+        res2 = {"url": "http://b.com", "content": "B"}
+        self.db.add_or_update_resource(res1)
+        self.db.add_or_update_resource(res2)
+        urls = {r["url"] for r in self.db.get_all_resources()}
+        self.assertEqual(urls, {"http://a.com", "http://b.com"})
+
+    def test_get_links_from_resource(self):
+        self.db.add_link({"source_url": "http://src.com", "target_url": "http://a.com"})
+        self.db.add_link({"source_url": "http://src.com", "target_url": "http://b.com"})
+        self.db.add_link({"source_url": "http://other.com", "target_url": "http://a.com"})
+
+        links = self.db.get_links_from_resource("http://src.com")
+        targets = {l["target_url"] for l in links}
+        self.assertEqual(targets, {"http://a.com", "http://b.com"})
+
+    def test_get_links_to_resource(self):
+        self.db.add_link({"source_url": "http://src.com", "target_url": "http://dst.com"})
+        self.db.add_link({"source_url": "http://other.com", "target_url": "http://dst.com"})
+        self.db.add_link({"source_url": "http://src.com", "target_url": "http://else.com"})
+
+        links = self.db.get_links_to_resource("http://dst.com")
+        sources = {l["source_url"] for l in links}
+        self.assertEqual(sources, {"http://src.com", "http://other.com"})
+
 
 if __name__ == "__main__":
     unittest.main()
