@@ -107,11 +107,8 @@ try {
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
 </head>
 <body class="alabaster-bg admin-page">
+    <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
 <div class="admin-container wide">
-    <nav class="admin-nav">
-        <a href="../index.php">Inicio</a>
-        <a href="logout.php">Cerrar sesión</a>
-    </nav>
     <h1>Administrar Productos</h1>
     <?php if ($feedback_message): ?>
         <div class="feedback <?php echo htmlspecialchars($feedback_type); ?>">

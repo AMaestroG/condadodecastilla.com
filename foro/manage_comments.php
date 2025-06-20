@@ -50,12 +50,8 @@ if ($pdo) {
     <link rel="stylesheet" href="/assets/css/pages/manage_comments.css">
 </head>
 <body class="alabaster-bg p-5">
+    <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
     <h1>Administrar Comentarios del Foro</h1>
-    <nav>
-        <a href="../index.php">Inicio</a>
-        <a href="index.php">Volver al Foro</a>
-        <a href="../dashboard/logout.php">Cerrar sesión</a>
-    </nav>
     <?php if ($feedback): ?>
         <div class="feedback <?php echo htmlspecialchars($feedback_type); ?>"><?php echo htmlspecialchars($feedback); ?></div>
     <?php endif; ?>

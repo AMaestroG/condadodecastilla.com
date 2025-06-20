@@ -20,17 +20,11 @@ require_admin_login();
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script> <!-- Specific version for stability -->
 </head>
 <body class="alabaster-bg admin-page">
+    <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
     <header class="admin-header">
         <h1>Panel de Estadísticas de Visitas</h1>
     </header>
-    <nav class="admin-nav">
-        <a href="../index.php">Inicio</a>
-        <a href="edit_texts.php">Textos</a>
-        <a href="tienda_admin.php">Tienda</a>
-        <a href="../museo/editar_pieza.php">Piezas Museo</a>
-        <a href="create_user.php">Crear Usuario</a>
-        <a href="logout.php">Cerrar sesión</a>
-    </nav>
+
     
     <div class="chart-container">
         <canvas id="visitsChart"></canvas>
