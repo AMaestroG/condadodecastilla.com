@@ -46,9 +46,9 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 260px;
-    background: rgba(var(--epic-alabaster-bg-rgb, 253,250,246), 0.6);
-    backdrop-filter: blur(6px);
+    width: 280px;
+    background: rgba(var(--epic-alabaster-bg-rgb, 253,250,246), 0.45);
+    backdrop-filter: blur(8px);
     overflow-y: auto;
     transition: transform 0.3s ease;
     z-index: 9999;
@@ -98,5 +98,9 @@ body.menu-open-right {
   body.menu-open-left,
   body.menu-open-right {
     transform: none;
+  }
+
+  #consolidated-menu-items {
+    display: none !important;
   }
 }

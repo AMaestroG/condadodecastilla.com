@@ -26,14 +26,20 @@
     </div>
     <div class="menu-section">
         <h4 class="gradient-text">Admin</h4>
-        <?php include __DIR__ . '/menus/admin-menu.php'; ?>
+        <?php
+        echo '<div id="admin-menu-source-content">';
+        include __DIR__ . '/menus/admin-menu.php';
+        echo '</div>';
+        ?>
     </div>
     <div class="menu-section">
         <h4 class="gradient-text">Social</h4>
         <?php
+        echo '<div id="social-menu-source-content">';
         if (file_exists(__DIR__ . '/menus/social-menu.html')) {
             echo file_get_contents(__DIR__ . '/menus/social-menu.html');
         }
+        echo '</div>';
         ?>
     </div>
     <!-- Add other menu items or buttons here as needed -->
