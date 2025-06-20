@@ -1,26 +1,25 @@
 /* Tailwind palette classes based on time of day */
 
 body.palette-dawn {
-    --epic-alabaster-bg: #e5e5e5;
-    --epic-gold-main: #f3e5ab;
+    --epic-alabaster-bg: var(--epic-alabaster-dawn);
+    --epic-gold-main: var(--epic-gold-soft);
     background-color: var(--epic-alabaster-bg);
 }
 
 body.palette-day {
-    --epic-alabaster-bg: #fdfaf6;
-    --epic-purple-emperor: #6b46c1;
+    --epic-purple-emperor: var(--epic-purple-vibrant);
     background-color: var(--epic-alabaster-bg);
 }
 
 body.palette-dusk {
-    --epic-alabaster-bg: #efe2d2;
-    --epic-gold-main: #f0b429;
-    background-image: linear-gradient(to bottom, #f97316, #f0b429);
+    --epic-alabaster-bg: var(--epic-alabaster-dusk);
+    --epic-gold-main: var(--epic-gold-dusk);
+    background-image: linear-gradient(to bottom, var(--epic-orange-sunset), var(--epic-gold-dusk));
 }
 
 body.palette-night {
-    --epic-alabaster-bg: #1a1a1a;
-    --epic-text-color: #e0e0e0;
+    --epic-alabaster-bg: var(--color-negro-contraste);
+    --epic-text-color: var(--epic-text-night);
     background-color: var(--epic-alabaster-bg);
     color: var(--epic-text-color);
 }
