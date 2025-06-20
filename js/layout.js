@@ -131,6 +131,11 @@ function loadGsap() {
         script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js';
         script.integrity = 'sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc';
         script.crossOrigin = 'anonymous';
+        script.onerror = () => {
+            const localScript = document.createElement('script');
+            localScript.src = '/assets/vendor/js/gsap.min.js';
+            document.head.appendChild(localScript);
+        };
         document.head.appendChild(script);
     }
 }
@@ -142,12 +147,20 @@ function loadAos() {
         link.href = 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css';
         link.integrity = 'sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9';
         link.crossOrigin = 'anonymous';
+        link.onerror = () => { link.href = '/assets/vendor/css/aos.css'; };
         document.head.appendChild(link);
+
         const script = document.createElement('script');
         script.src = 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js';
         script.integrity = 'sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ';
         script.crossOrigin = 'anonymous';
         script.onload = () => { if (window.AOS) AOS.init({ once: true }); };
+        script.onerror = () => {
+            const localScript = document.createElement('script');
+            localScript.src = '/assets/vendor/js/aos.js';
+            localScript.onload = () => { if (window.AOS) AOS.init({ once: true }); };
+            document.head.appendChild(localScript);
+        };
         document.head.appendChild(script);
     } else {
         AOS.init({ once: true });
