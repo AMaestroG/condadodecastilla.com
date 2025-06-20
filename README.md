@@ -4,7 +4,9 @@ Este repositorio contiene el código del sitio web del proyecto **Condado de Cas
 
 ## Misión
 
-Promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa su patrimonio arqueológico y cultural.
+Como se detalla en [docs/README.md](docs/README.md), nuestra misión es
+promocionar el turismo en **Cerezo de Río Tirón** y gestionar de forma activa
+su patrimonio arqueológico y cultural.
 ## Documentación y Guías
 - [Documentación detallada](docs/README.md)
 - [Guía de Estilo](docs/style-guide.md)
