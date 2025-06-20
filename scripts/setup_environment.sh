@@ -6,13 +6,15 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 
+# Verify Composer is available before proceeding
+if ! command -v composer >/dev/null 2>&1; then
+    echo "Error: Composer is required to run this script. Please install it first." >&2
+    exit 1
+fi
+
 # Install PHP dependencies
-if command -v composer >/dev/null 2>&1; then
-    if ! composer install --no-interaction --no-progress --prefer-dist; then
-        echo "Warning: composer install failed." >&2
-    fi
-else
-    echo "Warning: Composer not found; skipping PHP dependencies." >&2
+if ! composer install --no-interaction --no-progress --prefer-dist; then
+    echo "Warning: composer install failed." >&2
 fi
 
 # Install Python dependencies
