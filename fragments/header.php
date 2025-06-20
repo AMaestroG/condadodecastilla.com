@@ -1,5 +1,6 @@
 <div id="cave-mask"></div>
 <img id="header-escudo-overlay" class="hero-escudo" src="/assets/img/escudo.jpg" alt="Escudo de Cerezo de Río Tirón">
+<img id="header-subphoto" class="header-subphoto" src="/assets/img/hero_mis_tierras.jpg" alt="Paisaje de Cerezo de Río Tirón">
 <div id="fixed-header-elements" style="height: var(--header-footer-height);">
     <div class="header-action-buttons">
         <img src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
