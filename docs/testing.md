@@ -39,3 +39,12 @@ python -m unittest tests/test_flask_api.py tests/test_graph_db_interface.py
 # 3. Pruebas de interfaz con Puppeteer
 npm run test:puppeteer
 ```
+
+
+## Solucion de problemas
+
+- Si al ejecutar `npm run test:puppeteer` obtienes un TimeoutError, comprueba que tienes un servidor PHP en marcha con:
+```bash
+php -S localhost:8080
+```
+- Si las dependencias fallaron al instalarse, vuelve a lanzar `./scripts/setup_environment.sh`.
