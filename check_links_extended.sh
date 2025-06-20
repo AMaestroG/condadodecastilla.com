@@ -4,15 +4,17 @@
 # Files to check initially
 files_to_check=("index.php" "fragments/header.php" "fragments/footer.php")
 
-# HTML Fragments to also check (header components)
-# Note: admin-menu.php is PHP; static analysis might be limited.
-html_fragments=(
-    "fragments/header/language-bar.html"
-    "fragments/header/navigation.html"
-    "fragments/menus/main-menu.php"
-    "fragments/menus/admin-menu.php"
-    "fragments/menus/social-menu.html"
-)
+# HTML fragments to also check (header/menus). Gather dynamically
+fragment_dirs=("fragments/header" "fragments/menus")
+html_fragments=()
+
+for dir in "${fragment_dirs[@]}"; do
+    if [ -d "$dir" ]; then
+        while IFS= read -r -d '' file; do
+            html_fragments+=("$file")
+        done < <(find "$dir" -type f \( -name '*.php' -o -name '*.html' \) -print0)
+    fi
+done
 
 # Combine the arrays
 all_files_to_check=("${files_to_check[@]}" "${html_fragments[@]}")
