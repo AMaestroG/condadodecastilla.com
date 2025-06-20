@@ -35,5 +35,6 @@ class ContentProcessor:
 
         # Future: Add more keys like "summary", "topics", "entities"
         # from NLP processing steps.
+        return {"processed_text": extracted_text}
 
 # For a usage demonstration, see examples/content_processor_demo.py
