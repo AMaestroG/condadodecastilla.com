@@ -282,8 +282,7 @@ Con las dependencias ya instaladas, ejecuta cada conjunto de tests de forma expl
 ```bash
 vendor/bin/phpunit
 python -m unittest tests/test_flask_api.py
-# Asegúrate de tener un servidor local en marcha (por ejemplo `php -S localhost:8080`)
-npm run test:puppeteer
+npm test
 node tests/moonToggleTest.js
 ```
 
@@ -292,7 +291,9 @@ node tests/moonToggleTest.js
 
 `vendor/bin/phpunit` lanza la suite de PHP definida en `phpunit.xml`.
 `python -m unittest tests/test_flask_api.py` ejecuta el conjunto de pruebas de Python sobre la API Flask.
-`npm run test:puppeteer` ejecuta las pruebas de interfaz con Puppeteer.
+`npm test` ejecuta las pruebas de interfaz con Puppeteer. El script inicia un
+servidor PHP con `php -S` antes de la prueba y lo detiene automáticamente al
+finalizar.
 
 Si cualquiera de estos comandos devuelve un error de "command not found" lo más probable es que **PHP**, **Composer** o **PHPUnit** no estén instalados correctamente.
 
