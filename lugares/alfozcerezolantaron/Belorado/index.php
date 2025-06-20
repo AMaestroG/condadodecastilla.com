@@ -15,6 +15,5 @@
   <p>En 1116, Alfonso I el Batallador (rey navarro-aragonés), le concedió el fuero y entre los privilegios que recoge, le permite celebrar una feria que es la más antigua documentada en la historia de España; para entonces ya era importante la Judería al pie del Castillo cuyo barrio El Corro conserva un aire pintoresco.</p>
   <p>Su desarrollo fue en aumento y a principios del siglo XIII, en el reinado de Alfonso VIII, por privilegio real pudo el Concejo de la Villa usar sello que legitimara sus documentos. Su apogeo previció a lo largo del siglo XIII potenciada especialmente por Alfonso X el Sabio que en sus estancias en la Villa le hizo importantes donaciones.</p>
   <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
-  <script src="/js/layout.js" defer></script>
 </body>
 </html>

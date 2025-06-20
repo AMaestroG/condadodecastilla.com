@@ -38,7 +38,7 @@
 
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
     <script src="/js/config.js"></script>
-    <script src="/js/layout.js"></script>
+    
     <script src="/js/museum-3d/utils.js"></script>
     <script src="/js/museum-3d/config.js"></script>
     <script src="/js/museum-3d/sceneManager.js"></script>

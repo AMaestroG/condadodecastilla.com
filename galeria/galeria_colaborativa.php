@@ -122,7 +122,7 @@ if (is_dir($gallery_dir)) {
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 
     <!-- Tu script layout.js para cargar el header/sidebar -->
-    <script src="/js/layout.js"></script> 
+     
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
