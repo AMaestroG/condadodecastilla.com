@@ -7,7 +7,7 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `assets/js/main.js` | Handles sliding menu interactions, closing behavior, and the light/dark theme toggle used across all pages. |
 | `assets/js/homonexus-toggle.js` | Toggles Homonexus mode, storing the preference in a cookie. |
 | `assets/js/foro.js` | Simple toggling for the forum agents menu. |
-| `assets/js/audio-controller.js` | Lowers audio/video volume when sliding menus open and exposes `handleMenuToggle` for other scripts. |
+| `js/audio-controller.js` | Mutes audio/video elements slightly while a sliding menu is active through `handleMenuToggle`. |
 | `js/config.js` | Defines `API_BASE_URL` and `DEBUG_MODE` globals for other scripts. |
 | `js/layout.js` | Loads external CSS/JS libraries on demand, initializes the flashlight effect and other page-level utilities. |
 | `js/load_menu_parts.js` | Dynamically loads menu fragments into the header when needed. |
