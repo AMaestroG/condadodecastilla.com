@@ -27,3 +27,4 @@
 <script src="/js/lang-bar.js"></script>
 <script src="/assets/js/audio-controller.js"></script>
 <script defer src="/assets/js/custom-pointer.js"></script>
+<script src="/assets/js/homonexus-toggle.js"></script>
