@@ -33,7 +33,7 @@ require_once __DIR__ . '/fragments/header.php';
 ?>
 
     <header id="hero-video" class="relative h-screen w-full overflow-hidden">
-        <video class="absolute inset-0 object-cover w-full h-full" src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" autoplay muted loop playsinline></video>
+        <video class="absolute inset-0 object-cover object-center sm:object-center md:object-top w-full h-full" src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" autoplay muted loop playsinline></video>
         <div id="hero-content" class="relative z-10 flex flex-col items-center justify-center h-full text-center opacity-0 transition-opacity duration-1000 ease-out">
             <h1 class="font-headings text-yellow-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl shadow-lg drop-shadow-lg">Condado de Castilla: Cuna de Emperadores</h1>
             <p class="mt-4 bg-black bg-opacity-50 text-white p-4 sm:p-6 md:p-8 font-body">Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.</p>
