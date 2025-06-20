@@ -177,12 +177,12 @@ function handleWebSearch(output) {
 
 // Simple demo request to the Flask API.
 // Example: call demoFlaskRequest() from the browser console to test connectivity.
-function demoFlaskRequest() {
-    fetch(`${API_BASE_URL}/api/resource`)
-        .then(res => res.json())
-        .then(data => console.log('API resources', data))
-        .catch(err => console.error('API error', err));
-}
+// function demoFlaskRequest() {
+//     fetch(`${API_BASE_URL}/api/resource`)
+//         .then(res => res.json())
+//         .then(data => console.log('API resources', data))
+//         .catch(err => console.error('API error', err));
+// }
 
 // --- AI Chat helper functions ---
 
