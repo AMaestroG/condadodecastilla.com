@@ -40,6 +40,18 @@ python -m unittest tests/test_flask_api.py tests/test_graph_db_interface.py
 npm run test:puppeteer
 ```
 
+### Requisitos adicionales de PHP
+
+Las pruebas de PHP necesitan la interfaz **php-cgi** y la extensión
+**pdo_pgsql** para acceder a la base de datos de pruebas. Instálalas con:
+
+```bash
+sudo apt-get install php-cgi php-pgsql php-xml
+```
+
+Además asegúrate de que un servidor de PostgreSQL esté disponible y las
+credenciales se definan en `.env` antes de lanzar PHPUnit.
+
 
 ## Solucion de problemas
 
