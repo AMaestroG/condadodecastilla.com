@@ -94,6 +94,7 @@ La misión principal es *promocionar el turismo en Cerezo de Río Tirón y*
 
 Los encabezados y pies de página se extraen a ficheros reutilizables para
 simplificar el mantenimiento:
+Los archivos de entrada son `fragments/header.php` y `fragments/footer.php`, que deben incluirse directamente.
 
 - `fragments/header.php` incluye los menús deslizantes y los fragmentos situados en
   `fragments/header/` y `fragments/menus/`.
