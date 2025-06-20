@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
     <title>Cerezo de Río Tirón: Corazón del Condado de Castilla</title>
     <meta name="description" content="Explora la rica historia, las imponentes ruinas y el legado cultural de Cerezo de Río Tirón, un lugar clave en la historia del Condado de Castilla.">
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
@@ -9,7 +9,7 @@
 
 </head>
 <body class="alabaster-bg">
-  <?php require_once __DIR__ . '/../_header.php'; ?>
+  <?php require_once __DIR__ . '/../../_header.php'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/Muralla.jpg');">
         <div class="hero-content">
@@ -416,7 +416,7 @@
         });
     </script>
 
-  <?php require_once __DIR__ . '/../_footer.php'; ?>
+  <?php require_once __DIR__ . '/../../_footer.php'; ?>
   <script src="/js/layout.js" defer></script>
 </body>
 </html>

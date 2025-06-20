@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
   <title>Alfoz de Cerezo y Lantarón</title>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../_header.php'; ?>
   <header>
     <h1>🌿 Alfoz de Cerezo y Lantarón</h1>
     <p>Explora los pueblos que formaron el corazón del primer condado de Castilla.</p>
@@ -73,7 +73,7 @@
     </ul>
   </main>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../_footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>
