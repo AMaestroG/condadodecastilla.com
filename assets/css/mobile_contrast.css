@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+  body {
+    color: var(--color-negro-contraste);
+  }
+  .gradient-text {
+    background-image: none;
+    color: var(--epic-purple-emperor);
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    text-shadow: none;
+  }
+}
