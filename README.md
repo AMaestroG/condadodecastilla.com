@@ -17,6 +17,7 @@ Este repositorio puede mostrar textos generados automáticamente. Estos contenid
 ## Características de diseño
 
 - Paleta en tonos púrpura y oro viejo sobre fondos de alabastro.
+- La cabecera se adorna con una Estrella de Venus y una columna romana. Usa ahora la misma textura de alabastro que el resto del sitio para mantener la continuidad.
 - Menús deslizantes que comprimen el contenido al abrirse.
 - Menús fijos en la parte superior gracias a la variable `--menu-top-offset`.
 - Textos con degradados de alto contraste.
