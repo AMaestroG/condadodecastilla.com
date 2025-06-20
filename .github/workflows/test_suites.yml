@@ -29,6 +29,8 @@ jobs:
 
       - name: Install dependencies
         run: ./scripts/setup_environment.sh
+      - name: Install test dependencies
+        run: ./scripts/install_dev_deps.sh
 
       - name: Run PHPUnit
         run: vendor/bin/phpunit
