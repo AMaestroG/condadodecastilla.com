@@ -61,7 +61,9 @@ Consulta la [guía de index.php](docs/index-guide.md#configuracion-de-los-agente
 
 ## Requisitos
 
-- **PHP** 7.4 o superior con soporte CLI y la extensión PDO habilitada.
+- **PHP** 8.1 o superior con soporte CLI y la extensión PDO habilitada.
+- **Node.js** 18 o superior.
+- **Python** 3.10 o superior.
 - Extensiones PHP recomendadas: `pdo_pgsql`, `mbstring`, `xml` y `xmlwriter`.
 - **Composer** 2.x para gestionar las dependencias.
 - **PostgreSQL** 9.6 o superior.
@@ -123,6 +125,8 @@ Esto iniciará el servidor en `http://localhost:8000`.
 
 ### Puesta en marcha de la API Flask
 
+Requiere **Python 3.10** o superior.
+
 1. (Opcional) crea y activa un entorno virtual:
 
 ```bash
@@ -164,6 +168,14 @@ python flask_app.py
 Si no defines la variable, `flask_app.py` ejecutará `app.run(debug=False)` por defecto.
 
 ## Instalación de dependencias
+
+La forma recomendada de instalar todas las dependencias de PHP, Node.js y Python es ejecutar el script:
+
+```bash
+./scripts/setup_environment.sh
+```
+
+Este script comprueba que tu sistema cumpla las versiones mínimas indicadas en la sección [Requisitos](#requisitos). Si alguno de los gestores no está disponible, mostrará una advertencia y continuará con los restantes.
 
 Asegúrate primero de tener instalado **PHP CLI** y **Composer**. En sistemas basados en Debian puedes usar:
 
