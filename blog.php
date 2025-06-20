@@ -38,7 +38,7 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
     <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 <body class="alabaster-bg">
-<?php include __DIR__.'/_header.php'; ?>
+<?php include __DIR__.'/fragments/header.php'; ?>
 <main class="container page-content-block">
 <?php if ($post_slug && isset($posts[$post_slug])): ?>
     <article class="blog-post">
@@ -55,7 +55,7 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
     </ul>
 <?php endif; ?>
 </main>
-<?php include __DIR__.'/_footer.php'; ?>
+<?php include __DIR__.'/fragments/footer.php'; ?>
 <script src="/js/layout.js"></script>
 </body>
 </html>

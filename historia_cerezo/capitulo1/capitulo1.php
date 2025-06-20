@@ -9,7 +9,7 @@
     <title>Capítulo 1: Auca Patricia, la Ciudad Perdida</title>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . "/../../_header.php"; ?>
+    <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
 <h1>Capítulo 1: Auca Patricia, la Ciudad Perdida</h1>
 
@@ -51,7 +51,7 @@
     <p><a href="../index.php">Volver al Índice Principal</a></p>
     <p><a href="../capitulo2/capitulo2.php">Continuar al Capítulo 2</a></p>
 
-    <?php require_once __DIR__ . "/../../_footer.php"; ?>
+    <?php require_once __DIR__ . "/../../fragments/footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

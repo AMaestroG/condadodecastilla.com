@@ -341,7 +341,7 @@ para evitar enlaces duplicados en la navegación.
 
 ## Cambios recientes
 
-- Eliminado `js/header_loader.js` y su inclusión en `includes/head_common.php`; la cabecera se carga ahora directamente desde `_header.php`.
+- Eliminado `js/header_loader.js` y su inclusión en `includes/head_common.php`; la cabecera se carga ahora directamente desde `fragments/header.php`.
 
 
 

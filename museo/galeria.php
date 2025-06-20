@@ -8,7 +8,7 @@
 </head>
 <body class="alabaster-bg">
     <div id="linterna-condado" class="bg-linterna-gradient"></div>
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
     <header class="page-header hero hero-museo">
         <div class="hero-content">
@@ -29,7 +29,7 @@
         </section>
     </main>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
     <script src="/js/config.js"></script>
     <script src="/js/layout.js"></script>
     <script src="/js/museo-2d-gallery.js"></script>

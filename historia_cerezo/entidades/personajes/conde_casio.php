@@ -9,7 +9,7 @@
     <title>El Conde Casio</title>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . "/../../../_header.php"; ?>
+    <?php require_once __DIR__ . "/../../../fragments/header.php"; ?>
 
 <h1>El Conde Casio</h1>
 
@@ -36,7 +36,7 @@
         <p>"El Conde Casio se fue con los Árabes y se volvió Moro dice Ibn Hazm, y se fue a Damasco y se hizo amigo del Califa."</p>
     </section>
 
-    <?php require_once __DIR__ . "/../../../_footer.php"; ?>
+    <?php require_once __DIR__ . "/../../../fragments/footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

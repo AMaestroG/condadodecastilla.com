@@ -9,7 +9,7 @@ load_page_css();
 </head>
 <body class="alabaster-bg">
 
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_historia_background.jpg');">
         <div class="hero-content">
             <h1>Galería Histórica</h1>
@@ -38,12 +38,12 @@ load_page_css();
                             <h3>Restos de Muralla</h3>
                             <p>Vestigios de las antiguas murallas que protegían asentamientos clave en el Condado de Castilla, testigos de un pasado defensivo.</p>
                 </div>
-                <p class="text-center" style="margin-top: 30px;"><em>Esta galería se irá enriqueciendo con más elementos visuales y documentales. Se recomienda usar Font Awesome para los iconos de archivo (PDF, TXT, DOC), por lo que el CSS de la página principal o _header.php debería incluir la biblioteca.</em></p>
+                <p class="text-center" style="margin-top: 30px;"><em>Esta galería se irá enriqueciendo con más elementos visuales y documentales. Se recomienda usar Font Awesome para los iconos de archivo (PDF, TXT, DOC), por lo que el CSS de la página principal o fragments/header.php debería incluir la biblioteca.</em></p>
             </div>
         </section>
     </main>
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
-    <!-- Consider adding a link to Font Awesome if not already included globally, e.g., in _header.php or main CSS -->
+    <!-- Consider adding a link to Font Awesome if not already included globally, e.g., in fragments/header.php or main CSS -->
 </body>
 </html>
