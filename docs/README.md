@@ -127,6 +127,7 @@ crear nuevas secciones del menú.
 - [Guía de Estilo](style-guide.md)
 - [Documentación del crawler](crawler.md)
 - [Interfaz de la base de datos de grafo](graph_db.md)
+- [Guía de Testing](testing.md)
 
 La guía de estilo recoge la paleta en tonos morado y oro viejo con fondos de
 alabastro.
