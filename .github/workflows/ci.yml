@@ -31,6 +31,17 @@ jobs:
       - name: Install project dependencies
         run: ./scripts/setup_environment.sh
 
+      - name: Check internal links
+        run: |
+          ./check_links_extended.sh
+          if grep -q "BROKEN" broken_links_report_extended.txt; then
+            echo "::error ::Broken links found"
+            cat broken_links_report_extended.txt
+            exit 1
+          else
+            echo "No broken links found"
+          fi
+
       - name: Verificar atributos alt
         run: ./scripts/check_alt_texts.sh
 
