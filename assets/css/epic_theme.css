@@ -639,6 +639,15 @@ body.dark-mode .footer .social-links a:focus-visible {
     box-shadow: 0 0 20px var(--epic-gold-main), inset 0 0 15px rgba(var(--epic-text-color-rgb),0.4);
 }
 
+.hero-escudo.draggable {
+    cursor: grab;
+    position: absolute;
+}
+
+.hero-escudo.dragging {
+    cursor: grabbing;
+}
+
 /* Background media within hero sections */
 .hero > img.hero-bg,
 .page-header > img.hero-bg,
