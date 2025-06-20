@@ -229,6 +229,20 @@ body.sidebar-active #sidebar-toggle:hover .bar {
     background-color: var(--epic-purple-emperor); /* Or whatever the X color should be on hover */
 }
 
+/* ARIA states for accessibility */
+#sidebar-toggle[aria-expanded="true"] {
+    background-color: var(--epic-gold-main);
+}
+
+#sidebar-toggle[aria-expanded="true"] .bar {
+    background-color: var(--epic-purple-emperor);
+}
+
+#sidebar[aria-hidden="false"] {
+    border-right-color: var(--epic-gold-main);
+    box-shadow: 3px 0 15px rgba(var(--epic-purple-emperor-rgb), 0.4);
+}
+
 
 #sidebar .logo-link {
     display: block;

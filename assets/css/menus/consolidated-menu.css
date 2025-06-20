@@ -20,6 +20,19 @@
     color: var(--epic-gold-main);
 }
 
+/* ARIA active states */
+#consolidated-menu-button[aria-expanded="true"],
+#flag-toggle[aria-expanded="true"],
+#admin-menu-button[aria-expanded="true"] {
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+}
+
+.menu-panel[aria-hidden="false"] {
+    border: 2px solid var(--epic-gold-main);
+    box-shadow: 0 0 15px rgba(var(--epic-gold-main-rgb), 0.6);
+}
+
 /* Common styles for both sliding panels */
 .menu-panel {
     position: fixed;
