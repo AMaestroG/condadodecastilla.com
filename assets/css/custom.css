@@ -4,6 +4,14 @@ body {
   top: 0px !important; /* Prevent page content from shifting down */
 }
 
+.font-headings {
+  font-family: var(--font-headings);
+}
+
+.font-body {
+  font-family: var(--font-primary);
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     color: var(--epic-text-light);
