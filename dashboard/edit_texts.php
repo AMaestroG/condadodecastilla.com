@@ -49,11 +49,8 @@ $edit_id_highlight = $_GET['edit_id'] ?? null;
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
 </head>
 <body class="alabaster-bg admin-page">
+    <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
     <div class="admin-container wide">
-        <nav class="admin-nav">
-            <a href="../index.php">Volver al Inicio</a>
-            <a href="logout.php">Cerrar Sesión</a>
-        </nav>
         <h1>Editor de Textos del Sitio</h1>
 
         <?php if ($feedback_message): ?>

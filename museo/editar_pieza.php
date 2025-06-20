@@ -60,11 +60,7 @@ try {
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
 </head>
 <body class="alabaster-bg admin-page edit-pieza-page">
-<nav>
-    <a href="../index.php">Inicio</a>
-    <a href="../dashboard/index.php">Dashboard</a>
-    <a href="../dashboard/logout.php">Cerrar sesión</a>
-</nav>
+    <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
 <h1 class="text-4xl font-headings">Editar Posición y Escala de Piezas</h1>
 <?php if ($feedback_message): ?>
     <div class="feedback <?php echo htmlspecialchars($feedback_type); ?>">

@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
 </head>
 <body class="alabaster-bg admin-page centered">
+    <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
     <div class="admin-container narrow">
         <h2>Crear Nuevo Usuario</h2>
 
