@@ -16,7 +16,7 @@
 </head>
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb),0.7), rgba(var(--color-negro-contraste-rgb),0.85)), url('/assets/img/hero_historia_background.jpg');">
+    <header class="page-header hero bg-[url('/assets/img/hero_historia_background.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content">
             <h1 class="gradient-text">Influencia Romana en la Región</h1>
             <p>Una mirada a la huella romana desde la Antigüedad hasta hoy.</p>

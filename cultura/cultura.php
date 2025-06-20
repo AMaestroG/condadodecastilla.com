@@ -28,7 +28,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
     require_once __DIR__ . '/../fragments/header.php';
     ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_cultura_background.jpg');">
+    <header class="page-header hero bg-[url('/assets/img/hero_cultura_background.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content">
             <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <?php editableText('cultura_hero_titulo', $pdo, 'Cultura Viva y Legado Perenne', 'h1'); ?>
