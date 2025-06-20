@@ -25,14 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sidebarMenuId = 'sidebar'; // Assuming 'sidebar' is the ID of your sidebar
 
+    const updateAria = (btn, menu, open) => {
+        if (btn) btn.setAttribute('aria-expanded', String(open));
+        if (menu) menu.setAttribute('aria-hidden', String(!open));
+    };
+
     const closeMobileSidebar = (menu, btn) => {
         menu.classList.remove('sidebar-visible');
         document.body.classList.remove('sidebar-active');
-        if (btn) {
-            btn.setAttribute('aria-expanded', 'false');
-            btn.focus();
-        }
-        menu.setAttribute('aria-hidden', 'true');
+        updateAria(btn, menu, false);
+        if (btn) btn.focus();
         // Recalculate anyOpen and update body classes
         updateGlobalMenuState();
     };
@@ -47,8 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const open = !menu.classList.contains('sidebar-visible');
         menu.classList.toggle('sidebar-visible', open);
         document.body.classList.toggle('sidebar-active', open);
-        btn.setAttribute('aria-expanded', open);
-        menu.setAttribute('aria-hidden', !open);
+        updateAria(btn, menu, open);
 
         if (open) {
             const first = menu.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
@@ -60,12 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closeMenu = (menu, triggerButton = null) => { // Added triggerButton for focus
         menu.classList.remove('active');
-        menu.setAttribute('aria-hidden', 'true');
         const btn = triggerButton || document.querySelector(`[data-menu-target="${menu.id}"]`);
-        if (btn) {
-            btn.setAttribute('aria-expanded', 'false');
-            if (triggerButton) btn.focus(); // Only focus if we passed the button explicitly
-        }
+        updateAria(btn, menu, false);
+        if (btn && triggerButton) btn.focus(); // Only focus if we passed the button explicitly
         const side = menu.classList.contains('left-panel') ? 'left'
                     : (menu.classList.contains('right-panel') ? 'right' : '');
         if (side) document.body.classList.remove(`menu-open-${side}`);
@@ -95,8 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     : (menu.classList.contains('right-panel') ? 'right' : '');
         const open = !menu.classList.contains('active');
         menu.classList.toggle('active', open);
-        btn.setAttribute('aria-expanded', open);
-        menu.setAttribute('aria-hidden', !open);
+        updateAria(btn, menu, open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
 
         if (open && menu.id === 'language-panel' && typeof primeTranslateLoad === 'function') {
