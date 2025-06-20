@@ -183,8 +183,11 @@ composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwrit
 Este proyecto utiliza la librería **league/commonmark** para transformar a HTML los archivos Markdown del blog. La dependencia se instala automáticamente con el comando anterior.
 
 El script descarga las bibliotecas **jQuery**, **Bootstrap** y **Tailwind CSS**
-en `assets/vendor`. Tras ello genera la hoja `assets/vendor/css/tailwind.min.css`
-si ejecutas:
+en `assets/vendor`. **Cuando aparezcan nuevas versiones estables** de estas
+dos primeras librerías, actualiza las variables `JQUERY_VERSION` y
+`BOOTSTRAP_VERSION` en `scripts/setup_frontend_libs.sh` antes de volver a
+ejecutar el script. Tras la descarga se genera la hoja
+`assets/vendor/css/tailwind.min.css` si ejecutas:
 
 Debes lanzar este comando al instalar el proyecto y cada vez que modifiques
 `tailwind.config.js` o `assets/css/tailwind_base.css` para que los cambios de
