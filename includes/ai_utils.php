@@ -19,30 +19,6 @@ if (!defined('AI_UTILS_LOADED')) {
     define('AI_UTILS_LOADED', true);
 }
 
-/**
- * Placeholder para una función que generaría un resumen inteligente.
- * En una implementación real, esto podría llamar a una API de IA,
- * procesar el texto localmente con un modelo, etc.
- *
- * @param string $content_key Un identificador para el contenido a resumir,
- *                            o potencialmente el texto completo si es corto.
- * @param string $full_text (Opcional) El texto completo a resumir.
- * @return string El resumen generado (o un placeholder).
- */
-function get_smart_summary(string $content_key, string $full_text = ''): string {
-    // Simulación de procesamiento
-    $summary = "Resumen inteligente para '" . htmlspecialchars($content_key) . "': ";
-
-    if (!empty($full_text)) {
-        // Tomar las primeras ~250 caracteres como un resumen muy básico si se proporciona el texto completo.
-        // strip_tags para evitar problemas si el contenido tiene HTML.
-        $summary .= substr(strip_tags($full_text), 0, 250) . "...";
-    } else {
-        $summary .= "Este es un resumen de demostración generado por IA. En el futuro, aquí aparecería un extracto conciso y relevante del contenido principal, procesado por un modelo de lenguaje avanzado para destacar los puntos clave de la sección sobre " . htmlspecialchars($content_key) . ".";
-    }
-
-    return "<p><strong>" . $summary . "</strong></p><p><em>(Funcionalidad de resumen real con IA pendiente de implementación completa).</em></p>";
-}
 
 /**
  * Placeholder para una función que generaría etiquetas sugeridas por IA.
@@ -347,62 +323,7 @@ function get_ai_translation(string $text, string $target_language): string {
     return nl2br(htmlspecialchars($parsed_text));
 }
 
-/**
- * Genera una versión corregida de un texto usando la API de Gemini.
- *
- * @param string $text Texto original en castellano.
- * @return string Texto corregido o mensaje de error.
- */
-function get_ai_correction(string $text): string {
-    if (empty(trim($text))) {
-        return "Error: No se proporcionó texto a corregir.";
-    }
 
-    $prompt = "Corrige ortografía y gramática del siguiente texto. Devuelve solo la versión corregida:\n\n\"" . $text . "\"";
-
-    $payload = _build_gemini_payload($prompt);
-
-    $error = null;
-    $api_response = _call_gemini_api($payload, $error);
-    $parsed_text = _parse_gemini_response($api_response, $error);
-
-    if (strpos($parsed_text, "Error:") === 0) {
-        return $parsed_text; // It's an error message, return as is.
-    }
-    // It's successful, non-empty text
-    return nl2br(htmlspecialchars($parsed_text));
-}
-
-/**
- * Genera una respuesta para el chat histórico utilizando nuevo4.md como contexto.
- * Si la pregunta no está relacionada con historia, devuelve un aviso.
- *
- * @param string $question Pregunta del usuario.
- * @return string Respuesta generada o mensaje de error.
- */
-function get_history_chat_response(string $question): string {
-    if (empty(trim($question))) {
-        return "Error: No se proporcionó pregunta.";
-    }
-
-    $context = @file_get_contents(__DIR__ . '/../docs/historia.md');
-    if ($context === false) { $context = ''; }
-    $context = mb_substr($context, 0, 5000);
-
-    $prompt = "Responde únicamente preguntas sobre historia utilizando el siguiente contexto. Si la pregunta no es histórica, indica que solo respondes sobre historia.\n\nContexto:\n" . $context . "\n\nPregunta: \"" . $question . "\"";
-
-    $payload = _build_gemini_payload($prompt);
-
-    $error = null;
-    $api_response = _call_gemini_api($payload, $error);
-    $parsed_text = _parse_gemini_response($api_response, $error);
-
-    if (strpos($parsed_text, "Error:") === 0) {
-        return $parsed_text; // It's an error message, return as is.
-    }
-    // It's successful, non-empty text
-    return nl2br(htmlspecialchars($parsed_text));
-}
 
 /**
  * Genera una respuesta genérica para el chat utilizando Gemini.
