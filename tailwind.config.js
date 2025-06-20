@@ -15,6 +15,10 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        headings: ['Cinzel', 'serif'],
+        body: ['Lora', 'serif'],
+      },
     },
   },
   plugins: [],
