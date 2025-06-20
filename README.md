@@ -262,18 +262,15 @@ Si `GEMINI_API_KEY` no está definida, las funciones de `includes/ai_utils.php` 
 
 **Es obligatorio ejecutar los siguientes comandos antes de cualquier suite de pruebas:**
 Asegúrate de tener **Composer** y **PHPUnit** instalados en tu sistema antes de ejecutar las pruebas. `PHPUnit` puede instalarse de manera global o utilizar el binario que se genera en `vendor/bin/phpunit` tras ejecutar `composer install`.
-Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pruebas dependen de PHP, Composer y las extensiones indicadas, por lo que no se ejecutarán si alguno de estos componentes falta. En particular es imprescindible tener disponible la interfaz de línea de comandos de PHP (PHP CLI). Ejecuta primero:
+Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pruebas dependen de PHP, Composer y las extensiones indicadas, por lo que no se ejecutarán si alguno de estos componentes falta. En particular es imprescindible tener disponible la interfaz de línea de comandos de PHP (PHP CLI).
+
+Ejecuta el siguiente script para instalar de una sola vez las dependencias de PHP, Python y Node:
 
 ```bash
-composer install
-pip install -r requirements.txt
-npm install
+./scripts/setup_environment.sh
 ```
 
-`composer install` debe ejecutarse **antes** de usar `vendor/bin/phpunit` y
-`pip install -r requirements.txt` debe lanzarse **antes** de ejecutar las
-pruebas de Python. Comprueba que PHP CLI está disponible antes de ejecutar las
-pruebas de PHP:
+El script requiere contar con `composer`, `pip` y `npm` en el sistema. Tras la instalación comprueba que PHP CLI está disponible antes de ejecutar las pruebas de PHP:
 
 ```bash
 php -v
