@@ -16,6 +16,7 @@
             echo file_get_contents($social_fragment);
         }
         ?>
+        <p class="ai-notice">Este sitio incluye contenido generado con ayuda de IA. <a href="/docs/responsible-ai.md">Más información</a>.</p>
 </div>
 </footer>
 <script src="/assets/js/main.js"></script>
