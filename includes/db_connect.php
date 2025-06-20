@@ -31,9 +31,24 @@ if ($app_debug) {
 // --- Fin de manejo de modo debug ---
 
 // Configuración de la base de datos PostgreSQL
-$db_host = "localhost";         // Host de la base de datos (PostgreSQL está en el mismo servidor)
-$db_name = "condado_castilla_db"; // Nombre de tu base de datos PostgreSQL
-$db_user = "condado_user";        // Usuario de tu base de datos PostgreSQL
+$db_host = getenv('DB_HOST');
+if ($db_host === false) {
+    error_log('DB_HOST not set');
+    $pdo = null;
+    return;
+}
+$db_name = getenv('DB_NAME');
+if ($db_name === false) {
+    error_log('DB_NAME not set');
+    $pdo = null;
+    return;
+}
+$db_user = getenv('DB_USER');
+if ($db_user === false) {
+    error_log('DB_USER not set');
+    $pdo = null;
+    return;
+}
 $db_pass = getenv('CONDADO_DB_PASSWORD'); // Definido vía variable de entorno
 if ($db_pass === false) {
     // Si la variable no existe, deja $pdo como null y registra el problema
@@ -41,7 +56,12 @@ if ($db_pass === false) {
     $pdo = null;
     return;
 }
-$db_port = "5432";                // Puerto estándar de PostgreSQL
+$db_port = getenv('DB_PORT');
+if ($db_port === false) {
+    error_log('DB_PORT not set');
+    $pdo = null;
+    return;
+}
 
 // Cadena de conexión (DSN) para PostgreSQL usando PDO
 $dsn = "pgsql:host=$db_host;port=$db_port;dbname=$db_name;user=$db_user;password=$db_pass";
