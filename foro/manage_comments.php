@@ -70,7 +70,7 @@ if ($pdo) {
                     <td><?php echo htmlspecialchars($c['comment']); ?></td>
                     <td><?php echo htmlspecialchars(date('d/m/Y H:i', strtotime($c['created_at']))); ?></td>
                     <td>
-                        <form method="post" style="display:inline;" onsubmit="return confirm('¿Eliminar este comentario?');">
+                        <form method="post" class="inline-form" onsubmit="return confirm('¿Eliminar este comentario?');">
                             <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
                             <input type="hidden" name="id" value="<?php echo $c['id']; ?>">
                             <button type="submit">Eliminar</button>
