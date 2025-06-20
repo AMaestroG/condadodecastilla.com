@@ -23,15 +23,15 @@
     <header class="page-header hero hero-museo">
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Explora el Museo en 3D</h1>
-            <p>Recorre un entorno tridimensional con nuestras piezas destacadas.</p>
+            <h1 class="text-4xl font-headings">Explora el Museo en 3D</h1>
+            <p class="text-lg font-body">Recorre un entorno tridimensional con nuestras piezas destacadas.</p>
         </div>
     </header>
 
     <section id="museo-3d-section" class="section museo-3d-section alternate-bg">
         <div class="container page-content-block">
-            <h2 class="section-title">Museo 3D <i class="fas fa-vr-cardboard"></i></h2>
-            <p class="intro-paragraph">Usa las teclas WASD y el ratón para moverte por el museo virtual.</p>
+            <h2 class="section-title text-2xl font-headings">Museo 3D <i class="fas fa-vr-cardboard"></i></h2>
+            <p class="intro-paragraph text-lg font-body">Usa las teclas WASD y el ratón para moverte por el museo virtual.</p>
             <div id="museo-3d-container"></div>
         </div>
     </section>
@@ -49,10 +49,10 @@
 
     <div id="pointer-lock-instructions" class="pointer-lock-instructions">
         <div>
-            <h1>Exploración del Museo</h1>
-            <p class="intro-big">Haz clic en esta pantalla para empezar a explorar.</p>
-            <p>Usa las teclas <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> para moverte y el <kbd>RATÓN</kbd> para mirar alrededor.</p>
-            <p class="ai-note">Presiona <kbd>ESC</kbd> para liberar el cursor.</p>
+            <h1 class="text-4xl font-headings">Exploración del Museo</h1>
+            <p class="intro-big text-lg font-body">Haz clic en esta pantalla para empezar a explorar.</p>
+            <p class="text-lg font-body">Usa las teclas <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> para moverte y el <kbd>RATÓN</kbd> para mirar alrededor.</p>
+            <p class="ai-note text-lg font-body">Presiona <kbd>ESC</kbd> para liberar el cursor.</p>
         </div>
     </div>
 

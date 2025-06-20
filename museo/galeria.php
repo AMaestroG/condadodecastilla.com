@@ -13,17 +13,17 @@
     <header class="page-header hero hero-museo">
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Galería del Museo</h1>
-            <p>Explora las piezas compartidas por nuestra comunidad.</p>
+            <h1 class="text-4xl font-headings">Galería del Museo</h1>
+            <p class="text-lg font-body">Explora las piezas compartidas por nuestra comunidad.</p>
         </div>
     </header>
 
     <main>
         <section class="section museum-gallery-section alternate-bg" id="gallery-2d-section">
             <div class="container-epic">
-                <h2 class="section-title">Galería del Museo <i class="fas fa-landmark"></i></h2>
+                <h2 class="section-title text-2xl font-headings">Galería del Museo <i class="fas fa-landmark"></i></h2>
                 <div id="museumGalleryGrid" class="card-grid museum-gallery-grid">
-                    <p class="no-pieces-message" id="noPiecesMessage">Cargando piezas del museo...</p>
+                    <p class="no-pieces-message text-lg font-body" id="noPiecesMessage">Cargando piezas del museo...</p>
                 </div>
             </div>
         </section>

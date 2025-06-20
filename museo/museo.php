@@ -35,16 +35,16 @@
     <header class="page-header hero hero-museo">
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Museo Colaborativo del Alfoz</h1>
-            <p>Un espacio para compartir y descubrir los tesoros históricos y arqueológicos de nuestra tierra, aportados por la comunidad.</p>
+            <h1 class="text-4xl font-headings">Museo Colaborativo del Alfoz</h1>
+            <p class="text-lg font-body">Un espacio para compartir y descubrir los tesoros históricos y arqueológicos de nuestra tierra, aportados por la comunidad.</p>
         </div>
     </header>
 
     <main>
         <section class="section upload-section">
             <div class="container page-content-block">
-                <h2 class="section-title">Aporta tu Pieza al Museo <i class="fas fa-upload"></i></h2>
-                <p class="intro-paragraph">
+                <h2 class="section-title text-2xl font-headings">Aporta tu Pieza al Museo <i class="fas fa-upload"></i></h2>
+                <p class="intro-paragraph text-lg font-body">
                     ¿Tienes una fotografía de un objeto, ruina o documento histórico relacionado con el Alfoz de Cerasio y Lantarón o el Condado de Castilla? ¡Compártelo con nosotros! 
                     <br><small>(Las piezas subidas se guardarán si el backend está correctamente configurado y en funcionamiento).</small>
                 </p>
@@ -116,9 +116,9 @@
 
         <section class="section museum-gallery-section alternate-bg" id="gallery-2d-section">
             <div class="container-epic">
-                <h2 class="section-title">Galería del Museo <i class="fas fa-landmark"></i></h2>
+                <h2 class="section-title text-2xl font-headings">Galería del Museo <i class="fas fa-landmark"></i></h2>
                 <div id="museumGalleryGrid" class="card-grid museum-gallery-grid">
-                    <p class="no-pieces-message" id="noPiecesMessage">Cargando piezas del museo...</p>
+                    <p class="no-pieces-message text-lg font-body" id="noPiecesMessage">Cargando piezas del museo...</p>
                 </div>
             </div>
         </section>
@@ -126,8 +126,8 @@
 
     <section id="museo-3d-section" class="section museo-3d-section alternate-bg">
         <div class="container page-content-block">
-            <h2 class="section-title">Explora el Museo en 3D <i class="fas fa-vr-cardboard"></i></h2>
-            <p class="intro-paragraph">Visualiza algunas piezas destacadas en un entorno tridimensional interactivo. Usa el ratón para orbitar, hacer zoom y seleccionar piezas para ver sus detalles. (Funcionalidad en desarrollo)</p>
+            <h2 class="section-title text-2xl font-headings">Explora el Museo en 3D <i class="fas fa-vr-cardboard"></i></h2>
+            <p class="intro-paragraph text-lg font-body">Visualiza algunas piezas destacadas en un entorno tridimensional interactivo. Usa el ratón para orbitar, hacer zoom y seleccionar piezas para ver sus detalles. (Funcionalidad en desarrollo)</p>
             <div id="museo-3d-container">
                 <!-- Three.js canvas will be injected here -->
             </div>
@@ -156,10 +156,10 @@
 
     <div id="pointer-lock-instructions" class="pointer-lock-instructions">
         <div>
-            <h1>Exploración del Museo</h1>
-            <p class="intro-big">Haz clic en esta pantalla para empezar a explorar.</p>
-            <p>Usa las teclas <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> para moverte y el <kbd>RATÓN</kbd> para mirar alrededor.</p>
-            <p class="ai-note">Presiona <kbd>ESC</kbd> para liberar el cursor.</p>
+            <h1 class="text-4xl font-headings">Exploración del Museo</h1>
+            <p class="intro-big text-lg font-body">Haz clic en esta pantalla para empezar a explorar.</p>
+            <p class="text-lg font-body">Usa las teclas <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> para moverte y el <kbd>RATÓN</kbd> para mirar alrededor.</p>
+            <p class="ai-note text-lg font-body">Presiona <kbd>ESC</kbd> para liberar el cursor.</p>
         </div>
     </div>
 
