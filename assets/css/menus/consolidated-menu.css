@@ -245,3 +245,26 @@
         right: 8px;
     }
 }
+
+@media (max-width: 992px) {
+    .menu-panel {
+        width: 260px;
+    }
+    #consolidated-menu-button {
+        padding: 7px 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-panel {
+        width: 240px;
+        padding: 8px;
+        padding-top: 40px;
+    }
+    .menu-panel .menu-item-button {
+        font-size: 0.85em;
+    }
+    #consolidated-menu-button {
+        font-size: 0.9em;
+    }
+}
