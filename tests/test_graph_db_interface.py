@@ -7,14 +7,12 @@ from graph_db_interface import GraphDBInterface
 
 class GraphDBInterfaceTestCase(unittest.TestCase):
     def setUp(self):
-        # create temporary directory and switch into it so the DB file is isolated
-        self.orig_cwd = os.getcwd()
+        # create temporary directory for isolated DB file
         self.temp_dir = tempfile.TemporaryDirectory()
-        os.chdir(self.temp_dir.name)
-        self.db = GraphDBInterface()
+        db_path = os.path.join(self.temp_dir.name, "test_graph.json")
+        self.db = GraphDBInterface(db_filepath=db_path)
 
     def tearDown(self):
-        os.chdir(self.orig_cwd)
         self.temp_dir.cleanup()
 
     def test_add_or_update_resource_and_resource_exists(self):

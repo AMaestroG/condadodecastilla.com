@@ -42,7 +42,8 @@ El archivo contiene dos claves principales:
 ```python
 from graph_db_interface import GraphDBInterface
 
-db = GraphDBInterface()
+# Se puede especificar una ruta alternativa con el parámetro ``db_filepath``
+db = GraphDBInterface(db_filepath="mi_ruta/graph.json")
 ```
 
 2. Añade recursos o enlaces:
