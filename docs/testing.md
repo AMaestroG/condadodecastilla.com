@@ -4,9 +4,10 @@ Esta guía explica cómo preparar el entorno y ejecutar las pruebas automatizada
 
 ## Configurar el entorno
 
-Ejecuta el script `setup_environment.sh` para instalar de una sola vez las dependencias de PHP, Python y Node.
+Antes de lanzar **cualquier** suite de pruebas ejecuta `setup_environment.sh`. Este script instala de una sola vez las dependencias de PHP, Python y Node.
 Si alguno de estos gestores no está disponible, el script mostrará una advertencia y continuará con el resto, de modo que la configuración puede completarse de forma parcial.
-Más adelante podrás instalar la herramienta faltante y ejecutar manualmente el paso correspondiente.
+El proyecto requiere como mínimo **PHP&nbsp;8.1**, **Node&nbsp;18** y **Python&nbsp;3.10**. El propio script comprueba estas versiones y avisa en caso de no encontrarlas o si son antiguas.
+Tras solventar cualquier ausencia podrás ejecutar manualmente el paso correspondiente y repetir la preparación.
 
 ```bash
 ./scripts/setup_environment.sh
