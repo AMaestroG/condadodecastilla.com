@@ -216,15 +216,12 @@ en `assets/vendor`. **Cuando aparezcan nuevas versiones estables** de estas
 dos primeras librerías, actualiza las variables `JQUERY_VERSION` y
 `BOOTSTRAP_VERSION` en `scripts/setup_frontend_libs.sh` antes de volver a
 ejecutar el script. Tras la descarga se genera la hoja
-`assets/vendor/css/tailwind.min.css` si ejecutas:
+`assets/vendor/css/tailwind.min.css`.
 
-Debes lanzar este comando al instalar el proyecto y cada vez que modifiques
-`tailwind.config.js` o `assets/css/tailwind_base.css` para que los cambios de
-diseño se reflejen en la hoja final:
-
-```bash
-npx tailwindcss@4.1.10 -i assets/css/tailwind_base.css -o assets/vendor/css/tailwind.min.css --minify
-```
+Ejecuta `npm run build` al instalar el proyecto y cada vez que modifiques
+`tailwind.config.js` o `assets/css/tailwind_base.css`. El script compila
+automáticamente Tailwind y los estilos SCSS para que los cambios se reflejen en
+las hojas finales.
 
 ### Dependencias de npm
 
@@ -234,7 +231,7 @@ Ejecuta `npm install` para descargar las bibliotecas declaradas en `package.json
 
 Se necesita **Node.js 18** o superior. Las dependencias se enumeran en `package.json` y quedan bloqueadas en `package-lock.json`.
 
-Asegúrate de que la herramienta `npm` esté disponible en tu sistema antes de lanzar `npx tailwindcss` o `npm test`.
+Asegúrate de que la herramienta `npm` esté disponible en tu sistema antes de lanzar `npm run build` o `npm test`.
 El comando `npm test` ejecuta la batería de pruebas automatizadas con Puppeteer.
 
 A continuación copia el archivo de ejemplo `.env.example` a `.env` y
