@@ -88,3 +88,39 @@ return [
 ```
 
 Edita sus valores o añade nuevas claves para ampliar el listado de agentes.
+
+## Cajón IA y acciones personalizables
+
+El panel de chat con inteligencia artificial se carga desde
+`fragments/header/ai-drawer.html` dentro del contenedor
+`<div id="ai-chat-panel" class="menu-panel right-panel">`.
+Su estructura principal es la siguiente:
+
+- `<div id="ai-drawer" class="ai-drawer">` envuelve todo el contenido.
+- `<div class="ai-drawer-header">` muestra el título `#ai-chat-title` y
+  el botón `#close-ai-drawer`.
+- `<div id="ia-tools-menu">` agrupa los botones de acción
+  (`#ia-summary-btn`, `#ia-translate-btn`, `#ia-research-btn`,
+  `#ia-websearch-btn`).
+- `<div id="gemini-chat-area">` despliega los mensajes de la conversación.
+- `<div id="gemini-chat-input-container">` contiene el campo de texto
+  `#gemini-chat-input` y el botón `#gemini-chat-submit`.
+- `<dialog id="ai-dialog">` y el área `#ai-response-box` sirven para
+  mostrar la respuesta completa.
+
+`assets/js/main.js` controla la apertura y cierre de este panel utilizando
+el atributo `data-menu-target="ai-chat-panel"`. Cuando el panel se abre,
+el script enfoca `#gemini-chat-area` y permite cerrarlo al pulsar
+`#close-ai-drawer`. Las funciones concretas de cada botón se encuentran en
+`js/ia-tools.js`.
+
+### Modificar etiquetas o añadir nuevas acciones
+
+1. Abre `fragments/header/ai-drawer.html` y cambia el texto de los botones
+   que necesites dentro de `#ia-tools-menu`.
+2. Si deseas una acción adicional, duplica un botón con un nuevo `id` y
+   escribe su manejador en `js/ia-tools.js` siguiendo el estilo de
+   `handleSummary()` o `handleResearch()`.
+3. Recarga los archivos JavaScript y CSS tras realizar los cambios para que
+   tengan efecto en la web.
+
