@@ -10,9 +10,9 @@ http_response_code(404);
 <body class="alabaster-bg">
 <?php require_once __DIR__ . '/fragments/header.php'; ?>
 <main class="container page-content-block error-page">
-    <h1>Página no encontrada</h1>
-    <p>Lo sentimos, la página que buscas no existe.</p>
-    <p><a href="/index.php" class="cta-button">Volver al inicio</a></p>
+    <h1 class="text-4xl font-headings">Página no encontrada</h1>
+    <p class="text-lg font-body">Lo sentimos, la página que buscas no existe.</p>
+    <p class="text-lg font-body"><a href="/index.php" class="cta-button">Volver al inicio</a></p>
 </main>
 <?php require_once __DIR__ . '/fragments/footer.php'; ?>
 <script src="/js/layout.js"></script>

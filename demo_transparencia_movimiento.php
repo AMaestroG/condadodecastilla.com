@@ -6,13 +6,13 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/fragments/header.php'; ?>
     <section class="demo-hero">
-        <h1>Efectos Visuales</h1>
+        <h1 class="text-4xl font-headings">Efectos Visuales</h1>
         <div class="demo-card">
-            <p>Esta tarjeta emplea un sutil efecto de vidrio esmerilado con movimiento de aparición.</p>
+            <p class="text-lg font-body">Esta tarjeta emplea un sutil efecto de vidrio esmerilado con movimiento de aparición.</p>
             <button id="demo-action-button" class="demo-button" data-menu-target="demo-info-panel"><span>Acción</span></button>
         </div>
         <div id="demo-info-panel" class="menu-panel right-panel">
-            <p>Información adicional demostrativa.</p>
+            <p class="text-lg font-body">Información adicional demostrativa.</p>
         </div>
     </section>
     <?php require_once __DIR__ . '/fragments/footer.php'; ?>
