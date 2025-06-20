@@ -27,15 +27,17 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 
 ## Tipografías
 
-Se definen dos familias de fuentes base disponibles a través de Tailwind:
+Se definen dos familias de fuentes base disponibles a través de Tailwind. Las
+fuentes se gestionan mediante variables CSS:
 
 | Clase | Fuente |
 |-------|-------|
-| `.font-headings` | `Cinzel`, serif |
-| `.font-body` | `Lora`, serif |
+| `.font-headings` | `var(--font-headings)` |
+| `.font-body` | `var(--font-primary)` |
 
 Estas utilidades permiten asignar de forma coherente la tipografía a títulos y
-textos de párrafo:
+textos de párrafo. Las clases se generan desde `tailwind.config.js`, donde se
+declaran las familias `headings` y `body` basadas en estas variables:
 
 ```html
 <h1 class="font-headings">Bienvenida</h1>
