@@ -6,8 +6,10 @@
     left: 0;
     right: 0;
     z-index: 4000;
-    /* Use a semi-transparent purple tone for the fixed button bar */
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.85);
+    background-image: var(--alabaster-background-image);
+    background-size: cover;
+    background-blend-mode: multiply;
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;

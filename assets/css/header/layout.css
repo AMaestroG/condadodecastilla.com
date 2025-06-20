@@ -1,2 +1,21 @@
 /* Layout styles for header container */
 
+/* Decorative icons inside the fixed header */
+.header-icon {
+    width: 32px;
+    height: auto;
+    border: 2px solid var(--epic-gold-main);
+    border-radius: 50%;
+    padding: 2px;
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.9);
+    box-shadow: 0 0 4px rgba(var(--epic-gold-main-rgb), 0.5);
+}
+
+.header-icon.star-of-venus {
+    margin-right: 10px;
+}
+
+.header-icon.roman-column {
+    margin-left: 10px;
+}
+
