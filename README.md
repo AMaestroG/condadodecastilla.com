@@ -271,7 +271,7 @@ Ejecuta el siguiente script para instalar de una sola vez las dependencias de PH
 ./scripts/setup_environment.sh
 ```
 
-El script requiere contar con `composer`, `pip` y `npm` en el sistema. Tras la instalación comprueba que PHP CLI está disponible antes de ejecutar las pruebas de PHP:
+Es imprescindible instalar **Composer** antes de ejecutar `scripts/setup_environment.sh`; el script se detendrá con un mensaje de error si no lo encuentra. También requiere contar con `pip` y `npm` en el sistema. Tras la instalación comprueba que PHP CLI está disponible antes de ejecutar las pruebas de PHP:
 
 ```bash
 php -v
