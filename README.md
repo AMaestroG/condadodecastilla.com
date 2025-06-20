@@ -402,6 +402,18 @@ python tree_builder.py
 El script explora las distintas secciones y crea un fichero JSON con las URLs
 ordenadas jerárquicamente.
 
+## Generar `sitemap.xml`
+
+Para actualizar el mapa del sitio ejecuta:
+
+```bash
+python scripts/generate_sitemap.py
+```
+
+El script leerá la variable de entorno `BASE_URL` para construir cada entrada.
+Define esta variable en tu `.env` antes de ejecutar el comando si necesitas
+apuntar a un dominio distinto al predeterminado.
+
 ## CDN Checksums
 
 Los siguientes resúmenes se utilizan en los atributos `integrity` para los archivos cargados desde CDN. Se calcularon con `openssl dgst -sha384 -binary | openssl base64 -A`.
