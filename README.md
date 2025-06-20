@@ -265,27 +265,21 @@ Si `GEMINI_API_KEY` no está definida, las funciones de `includes/ai_utils.php` 
 
 ## Testing
 
-**Es obligatorio ejecutar los siguientes comandos antes de cualquier suite de pruebas:**
-Asegúrate de tener **Composer** y **PHPUnit** instalados en tu sistema antes de ejecutar las pruebas. `PHPUnit` puede instalarse de manera global o utilizar el binario que se genera en `vendor/bin/phpunit` tras ejecutar `composer install`.
-Instala **todas** las dependencias antes de lanzar las suites de pruebas. Las pruebas dependen de PHP, Composer y las extensiones indicadas, por lo que no se ejecutarán si alguno de estos componentes falta. En particular es imprescindible tener disponible la interfaz de línea de comandos de PHP (PHP CLI).
-
-Ejecuta el siguiente script para instalar de una sola vez las dependencias de PHP, Python y Node:
+Antes de ejecutar `npm test` o cualquier suite de PHPUnit asegúrate de haber instalado las dependencias de Node y PHP:
 
 ```bash
-./scripts/setup_environment.sh
+npm install
+composer install
 ```
 
-Es imprescindible instalar **Composer** antes de ejecutar `scripts/setup_environment.sh`; el script se detendrá con un mensaje de error si no lo encuentra. También requiere contar con `pip` y `npm` en el sistema. Tras la instalación comprueba que PHP CLI está disponible antes de ejecutar las pruebas de PHP:
+Si el repositorio incluye el script `./scripts/setup_environment.sh`, ejecútalo para automatizar la instalación de los paquetes de PHP, Python y Node.
+
+Asegúrate además de tener **Composer** y **PHPUnit** instalados. `PHPUnit` puede utilizarse de forma global o mediante el binario que se genera en `vendor/bin/phpunit` tras `composer install`. Las pruebas no se ejecutarán correctamente sin la interfaz de línea de comandos de PHP (PHP CLI).
+
+Para verificar que PHP está disponible puedes ejecutar:
 
 ```bash
 php -v
-```
-
-Antes de lanzar las pruebas instala las dependencias de PHP y Node:
-
-```bash
-composer install
-npm install
 ```
 
 La batería de pruebas de Node necesita que un servidor de desarrollo esté
@@ -317,6 +311,15 @@ servidor PHP con `php -S` en el puerto **8080** antes de la prueba y lo
 detiene automáticamente al finalizar.
 
 Si cualquiera de estos comandos devuelve un error de "command not found" lo más probable es que **PHP**, **Composer** o **PHPUnit** no estén instalados correctamente.
+
+### Solución de problemas con módulos faltantes
+
+Si las pruebas muestran errores de módulos no encontrados, verifica que las carpetas `node_modules/` y `vendor/` estén presentes y, en caso contrario, repite:
+
+```bash
+npm install
+composer install
+```
 
 Además se proporcionan scripts auxiliares para validar el estado del código:
 
