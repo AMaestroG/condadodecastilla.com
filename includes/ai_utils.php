@@ -4,6 +4,9 @@
 require_once __DIR__ . '/env_loader.php';
 // Cargar variables de entorno desde .env
 
+require_once __DIR__ . '/session.php';
+ensure_session_started();
+
 // Read Gemini API settings from environment variables when available
 if (!defined('GEMINI_API_KEY')) {
     $envKey = getenv('GEMINI_API_KEY');
@@ -17,6 +20,11 @@ if (!defined('GEMINI_API_ENDPOINT')) {
 
 if (!defined('AI_UTILS_LOADED')) {
     define('AI_UTILS_LOADED', true);
+}
+
+if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_NOT_SET' || GEMINI_API_KEY === '') {
+    error_log('GEMINI_API_KEY is missing. Using simulator responses.');
+    $_SESSION['gemini_api_key_notice'] = 'La clave de la API de Gemini no está configurada. Las funciones de IA usan un simulador.';
 }
 
 

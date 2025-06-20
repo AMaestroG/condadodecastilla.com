@@ -158,6 +158,14 @@ python flask_app.py
 
 Esto iniciará la API en `http://localhost:5000`, que puede ejecutarse en paralelo al servidor PHP.
 
+### Configuración rápida de GEMINI_API_KEY
+
+1. Copia `.env.example` a `.env`.
+2. Edita `.env` y reemplaza `your_key` por tu clave real de Gemini.
+3. Ejecuta `source .env` antes de iniciar los servidores.
+
+Si no defines la clave se mostrará un aviso en el panel de administración y las respuestas de IA serán simuladas.
+
 ### Variable de entorno `FLASK_DEBUG`
 
 Establece `FLASK_DEBUG=1` para arrancar la API en modo depuración:
