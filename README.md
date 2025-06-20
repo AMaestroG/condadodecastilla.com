@@ -277,6 +277,15 @@ El script requiere contar con `composer`, `pip` y `npm` en el sistema. Tras la i
 php -v
 ```
 
+Antes de lanzar las pruebas instala las dependencias de PHP y Node:
+
+```bash
+composer install
+npm install
+```
+
+`composer install` descarga **PHPUnit** en `vendor/bin` y `npm install` instala **Puppeteer**, ambas necesarias para las suites de tests.
+
 Con las dependencias ya instaladas, ejecuta cada conjunto de tests de forma explícita:
 
 ```bash
