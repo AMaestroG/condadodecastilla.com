@@ -2,6 +2,7 @@ import uuid
 from datetime import datetime
 import json
 import logging
+import os
 from filelock import FileLock
 
 # Configure module-level logger. This basic configuration writes
@@ -15,7 +16,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class GraphDBInterface:
-    def __init__(self, config=None):
+    def __init__(self, config=None, db_filepath: str | None = None):
         """
         Initializes in-memory storage for nodes (resources) and edges (links).
         _nodes stores resources keyed by their URL for quick lookup.
@@ -23,7 +24,10 @@ class GraphDBInterface:
         """
         self._nodes = {}  # Key: URL, Value: resource_data dictionary
         self._edges = []  # List of link_data dictionaries
-        self.db_filepath = "knowledge_graph_db.json"
+        self.db_filepath = (
+            db_filepath
+            or os.environ.get("GRAPH_DB_PATH", "knowledge_graph_db.json")
+        )
         self._lock = FileLock(f"{self.db_filepath}.lock")
         # Config is not used for now, but can be for future DB connections
         logger.info("GraphDBInterface initializing...")
