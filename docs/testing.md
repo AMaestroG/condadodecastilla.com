@@ -17,6 +17,24 @@ ejecutar manualmente el paso correspondiente y repetir la preparación.
 ./scripts/setup_environment.sh
 ```
 
+
+## Dependencias manuales
+
+Si `setup_environment.sh` no está disponible, instala las dependencias básicas:
+
+```bash
+pip install flask
+npm install puppeteer jsdom
+composer install
+```
+
+Todos los paquetes están listados en `requirements.txt` y `package.json`:
+
+```bash
+pip install -r requirements.txt
+npm install
+```
+
 ## Servidor PHP local para Puppeteer
 
 Las pruebas de Puppeteer requieren servir los archivos PHP de forma local. Inicia un servidor en otro terminal antes de lanzar la suite:
