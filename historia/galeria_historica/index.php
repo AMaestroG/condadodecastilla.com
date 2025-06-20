@@ -10,7 +10,7 @@ load_page_css();
 <body class="alabaster-bg">
 
     <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_historia_background.jpg');">
+    <header class="page-header hero bg-center md:bg-top" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_historia_background.jpg');">
         <div class="hero-content">
             <h1>Galería Histórica</h1>
             <p>Imágenes, documentos y artefactos visuales que narran la rica historia del Condado de Castilla y sus gentes.</p>

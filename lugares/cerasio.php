@@ -10,7 +10,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_mis_tierras.jpg');">
+    <header class="page-header hero bg-center md:bg-top" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_mis_tierras.jpg');">
         <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.5); padding: clamp(30px, 5vw, 50px);">
             <h1 style="font-size: clamp(2.6em, 6.5vw, 4.2em);">Cerasio</h1>
             <p style="font-size: clamp(1.05em, 2.3vw, 1.45em); max-width: 70ch;">Reflexiones y fragmentos tomados de <code>nuevo4.md</code> sobre el origen de Castilla.</p>

@@ -11,9 +11,9 @@
 <body class="alabaster-bg">
   <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/Muralla.jpg');">
+    <header class="page-header hero bg-center md:bg-top" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/Muralla.jpg');">
         <div class="hero-content">
-            <img src="/assets/img/estrellaGordita.png" alt="Estrella Decorativa de Cerezo" class="decorative-star-header decorative-star-header-highlighted">
+            <img src="/assets/img/estrellaGordita.png" alt="Estrella Decorativa de Cerezo" class="decorative-star-header decorative-star-header-highlighted object-center md:object-top">
             <h1>Cerezo de Río Tirón</h1>
             <p>Descubre el alma de la primitiva Castilla, un enclave de historia milenaria, ruinas imponentes y un legado que pervive.</p>
         </div>

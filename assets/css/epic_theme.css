@@ -537,6 +537,12 @@ body.dark-mode .footer .social-links a:focus-visible {
     overflow: hidden; /* Contain pseudo-elements */
     min-height: 50vh; /* Default min height for page headers */
 }
+
+@media (min-width: 768px) {
+    .hero, .page-header {
+        background-position: center top;
+    }
+}
 /* Default background if no inline style is set - a purple gradient */
 .hero, .page-header {
     background-image: none !important;
@@ -1027,7 +1033,18 @@ body.dark-mode .footer .social-links a:focus-visible {
     height: auto;
     margin: 0 auto 15px auto;
     opacity: 0.8;
-    filter: drop-shadow(0 0 10px rgba(var(--color-acento-amarillo-rgb, 255, 215, 0), 0.5)); 
+    filter: drop-shadow(0 0 10px rgba(var(--color-acento-amarillo-rgb, 255, 215, 0), 0.5));
+}
+
+.page-header.hero img {
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width: 768px) {
+    .page-header.hero img {
+        object-position: top;
+    }
 }
 
 .decorative-star-header-highlighted { /* Specific for Cerezo de Rio Tiron header star */

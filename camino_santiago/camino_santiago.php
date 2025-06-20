@@ -11,9 +11,9 @@ load_page_css();
 
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_camino_santiago.jpg');">
+    <header class="page-header hero bg-center md:bg-top" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_camino_santiago.jpg');">
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus" class="decorative-star-header">
+            <img src="/assets/img/estrella.png" alt="Estrella de Venus" class="decorative-star-header object-center md:object-top">
             <h1>Cerezo de Río Tirón: Hito Histórico del Camino de Santiago</h1>
             <p>Descubre el antiguo trazado jacobeo que atravesaba nuestras tierras y el legado hospitalario que marcó nuestra historia.</p>
         </div>

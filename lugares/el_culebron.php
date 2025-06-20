@@ -7,7 +7,7 @@
 </head>
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/assets/img/hero_mis_tierras.jpg');">
+    <header class="page-header hero bg-center md:bg-top" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/assets/img/hero_mis_tierras.jpg');">
         <div class="hero-content" style="padding: clamp(20px, 4vw, 40px);">
             <h1>El Culebrón</h1>
         </div>

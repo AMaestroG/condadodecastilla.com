@@ -10,9 +10,9 @@
     <div id="linterna-condado" class="bg-linterna-gradient"></div>
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
-    <header class="page-header hero hero-museo">
+    <header class="page-header hero hero-museo bg-center md:bg-top">
         <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header object-center md:object-top">
             <h1>Galería del Museo</h1>
             <p>Explora las piezas compartidas por nuestra comunidad.</p>
         </div>

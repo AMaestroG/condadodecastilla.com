@@ -28,9 +28,9 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
     require_once __DIR__ . '/../fragments/header.php';
     ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_cultura_background.jpg');">
+    <header class="page-header hero bg-center md:bg-top" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_cultura_background.jpg');">
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header object-center md:object-top">
             <?php editableText('cultura_hero_titulo', $pdo, 'Cultura Viva y Legado Perenne', 'h1'); ?>
             <?php editableText('cultura_hero_subtitulo', $pdo, 'Las tradiciones, el idioma y el espíritu de una tierra forjada en la historia.', 'p'); ?>
         </div>

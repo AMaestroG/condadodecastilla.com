@@ -12,9 +12,9 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_lugares_background.jpg');">
+    <header class="page-header hero bg-center md:bg-top" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_lugares_background.jpg');">
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header object-center md:object-top">
             <h1>Lugares Emblemáticos: Huellas de la Historia</h1>
             <p>Un recorrido por los vestigios que narran el pasado milenario de Cerezo de Río Tirón y el Condado de Castilla.</p>
         </div>

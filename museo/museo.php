@@ -32,9 +32,9 @@
     
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
-    <header class="page-header hero hero-museo">
+    <header class="page-header hero hero-museo bg-center md:bg-top">
         <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header object-center md:object-top">
             <h1>Museo Colaborativo del Alfoz</h1>
             <p>Un espacio para compartir y descubrir los tesoros históricos y arqueológicos de nuestra tierra, aportados por la comunidad.</p>
         </div>

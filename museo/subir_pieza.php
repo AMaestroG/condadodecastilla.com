@@ -18,9 +18,9 @@
         require_once __DIR__ . '/../fragments/header.php';
     ?>
 
-    <header class="page-header hero hero-museo">
+    <header class="page-header hero hero-museo bg-center md:bg-top">
         <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header object-center md:object-top">
             <h1>Sube una Pieza al Museo</h1>
             <p>Comparte objetos o documentos históricos relacionados con el Alfoz y el Condado de Castilla.</p>
         </div>
