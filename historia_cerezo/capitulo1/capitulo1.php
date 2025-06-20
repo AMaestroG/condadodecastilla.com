@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
-<h1>Capítulo 1: Auca Patricia, la Ciudad Perdida</h1>
+<h1 class="gradient-text">Capítulo 1: Auca Patricia, la Ciudad Perdida</h1>
 
     <section id="evidencias-romanas">
         <h2>Evidencias de una gran ciudad romana</h2>

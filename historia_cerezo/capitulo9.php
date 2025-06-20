@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
-<h1>Capítulo 9: Cerezo en la Plena y Baja Edad Media (Siglos XII-XV): Entre el Esplendor y la Crisis</h1>
+<h1 class="gradient-text">Capítulo 9: Cerezo en la Plena y Baja Edad Media (Siglos XII-XV): Entre el Esplendor y la Crisis</h1>
 
     <section id="introduccion-villa-consolidada">
         <h2>Introducción: Cerezo, Villa Castellana Consolidada</h2>

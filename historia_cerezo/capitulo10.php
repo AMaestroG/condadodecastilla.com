@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
-<h1>Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</h1>
+<h1 class="gradient-text">Capítulo 10: Cerezo en la Edad Moderna (Siglos XVI-XVIII): Entre la Tradición y las Nuevas Corrientes</h1>
 
     <section id="introduccion-antiguo-regimen">
         <h2>Introducción: Cerezo en el Antiguo Régimen</h2>

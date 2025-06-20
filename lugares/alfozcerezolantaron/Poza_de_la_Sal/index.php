@@ -6,7 +6,7 @@
 </head>
 <body class="alabaster-bg">
   <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
-  <h1>Poza de la Sal</h1>
+  <h1 class="gradient-text">Poza de la Sal</h1>
   <p>Bienvenido al archivo del pueblo de <strong>Poza de la Sal</strong>, integrante del histórico Alfoz de Cerezo y Lantarón.</p>
   <p><a href="/lugares/lugares.php" class="back-link">&laquo; Volver al Índice de Lugares</a></p>
   <h2>Historia</h2>

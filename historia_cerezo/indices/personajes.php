@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
-<h1>Índice de Personajes Relevantes</h1>
+<h1 class="gradient-text">Índice de Personajes Relevantes</h1>
     <ul>
         <li>Conde Casio: <a href="../entidades/personajes/conde_casio.php">Ver módulo del Conde Casio</a></li>
         <li>Flavio Teodosio I el Grande: <a href="../capitulo1/capitulo1.php#emperadores-romanos">Mencionado en Capítulo 1: Emperadores Romanos</a></li>

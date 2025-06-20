@@ -14,7 +14,7 @@
     <header class="page-header hero bg-[url('/assets/img/Muralla.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content">
             <img src="/assets/img/estrellaGordita.png" alt="Estrella Decorativa de Cerezo" class="decorative-star-header decorative-star-header-highlighted">
-            <h1>Cerezo de Río Tirón</h1>
+            <h1 class="gradient-text">Cerezo de Río Tirón</h1>
             <p>Descubre el alma de la primitiva Castilla, un enclave de historia milenaria, ruinas imponentes y un legado que pervive.</p>
         </div>
     </header>

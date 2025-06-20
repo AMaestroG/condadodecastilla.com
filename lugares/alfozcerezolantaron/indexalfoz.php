@@ -7,7 +7,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
   <header>
-    <h1>🌿 Alfoz de Cerezo y Lantarón</h1>
+    <h1 class="gradient-text">🌿 Alfoz de Cerezo y Lantarón</h1>
     <p>Explora los pueblos que formaron el corazón del primer condado de Castilla.</p>
   </header>
 

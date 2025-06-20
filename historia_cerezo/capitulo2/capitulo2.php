@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
-<h1>Capítulo 2: El Alcázar de Cerasio y los Inicios de Castilla</h1>
+<h1 class="gradient-text">Capítulo 2: El Alcázar de Cerasio y los Inicios de Castilla</h1>
 
     <section>
         <h2 id="conde-casio-alcazar">El Conde Casio y la Construcción del Alcázar</h2>

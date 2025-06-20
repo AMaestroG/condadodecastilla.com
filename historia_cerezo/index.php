@@ -11,7 +11,7 @@
 <body class="alabaster-bg font-sans m-5">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
-<h1>Historia de Cerezo: Cuna y Origen de Castilla</h1>
+<h1 class="gradient-text">Historia de Cerezo: Cuna y Origen de Castilla</h1>
     <nav>
         <h2>Índice de Capítulos</h2>
         <ul>

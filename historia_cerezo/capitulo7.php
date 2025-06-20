@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
-<h1>Capítulo 7: Las Huellas de Roma y el Mundo Prerromano en la Comarca de Cerezo</h1>
+<h1 class="gradient-text">Capítulo 7: Las Huellas de Roma y el Mundo Prerromano en la Comarca de Cerezo</h1>
 
     <section id="introduccion-paisaje-milenios">
         <h2>Introducción: Un Paisaje con Milenios de Historia</h2>

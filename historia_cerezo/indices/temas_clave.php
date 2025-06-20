@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
-<h1>Índice de Temas Clave</h1>
+<h1 class="gradient-text">Índice de Temas Clave</h1>
     <ul>
         <li>
             Origen de Castilla:

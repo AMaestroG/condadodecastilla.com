@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
-<h1>Capítulo 6: La Vida Cotidiana en Cerasio: Siglos VIII-XI</h1>
+<h1 class="gradient-text">Capítulo 6: La Vida Cotidiana en Cerasio: Siglos VIII-XI</h1>
 
     <section id="introduccion-vivir-frontera">
         <h2>Introducción: Vivir en la Frontera de Castilla</h2>

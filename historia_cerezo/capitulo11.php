@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
-<h1>Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</h1>
+<h1 class="gradient-text">Capítulo 11: Cerezo en la Edad Contemporánea (Siglos XIX-XXI): Desafíos, Transformaciones y Mirada al Futuro</h1>
 
     <section id="introduccion-nuevo-siglo">
         <h2>Introducción: Un Nuevo Siglo, Nuevos Retos</h2>

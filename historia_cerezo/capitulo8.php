@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
-<h1>Capítulo 8: Mitos Fundacionales y Leyendas de la Vieja Castilla en Cerezo</h1>
+<h1 class="gradient-text">Capítulo 8: Mitos Fundacionales y Leyendas de la Vieja Castilla en Cerezo</h1>
 
     <section id="introduccion-historia-no-escrita">
         <h2>Introducción: La Historia no Escrita y el Alma de un Pueblo</h2>
