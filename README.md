@@ -136,6 +136,7 @@ pip install -r requirements.txt
 ```
 
 3. Copia `.env.example` a `.env` y define al menos `GEMINI_API_KEY` y `CONDADO_DB_PASSWORD`.
+Para la API de Flask es imprescindible definir `GEMINI_API_KEY`, variable que se emplea únicamente en el servidor para contactar con el proveedor de IA. Consulta la [política de uso responsable](docs/responsible-ai.md) para saber cómo protegemos la privacidad y moderamos el contenido.
 4. Carga dichas variables en tu terminal:
    ```bash
    set -a
