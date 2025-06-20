@@ -124,6 +124,7 @@ crear nuevas secciones del menú.
 - [Arqueología](arqueologia.md)
 - [Tradición](tradicion.md)
 - [Guía de index.php y menús](index-guide.md)
+- [Estructura del menú](menu-structure.md)
 - [Resumen de módulos JavaScript](js-modules-overview.md)
 - [Guía de Estilo](style-guide.md)
 - [Documentación del crawler](crawler.md)
