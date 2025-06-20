@@ -77,19 +77,20 @@ sudo apt install php php-cli php-xml php-xmlwriter php-mbstring php-pgsql compos
 
 ## Configuración de la base de datos
 
-El archivo `includes/db_connect.php` define los parámetros para conectarse a la base de datos PostgreSQL. Se proporciona con valores de ejemplo y **debe** modificarse con las credenciales reales antes de usar el proyecto en producción.
+`includes/db_connect.php` obtiene los parámetros de conexión desde variables de entorno.
+No modifiques ese archivo directamente. Copia primero `.env.example` a `.env` y
+define ahí tus credenciales:
 
-Fragmento relevante de `includes/db_connect.php`:
-
-```php
-$db_host = "localhost";         // Host de la base de datos
-$db_name = "condado_castilla_db"; // Nombre de la base de datos
-$db_user = "condado_user";        // Usuario
-$db_pass = "tu_contraseña_muy_segura"; // CONTRASEÑA - reemplazar por la real
-$db_port = "5432";                // Puerto de PostgreSQL
+```bash
+cp .env.example .env
+DB_HOST="localhost"
+DB_NAME="condado_castilla_db"
+DB_USER="condado_user"
+CONDADO_DB_PASSWORD="tu_contraseña_muy_segura"
+DB_PORT="5432"
 ```
 
-Ajusta esos valores según tu entorno para que la aplicación pueda acceder a la base de datos.
+El script leerá automáticamente esas variables cuando se incluya en tus páginas PHP.
 
 El script obtiene la contraseña real desde la variable de entorno `CONDADO_DB_PASSWORD`.
 Si dicha variable no está definida, el sitio seguirá funcionando con los textos por defecto
