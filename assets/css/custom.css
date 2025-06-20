@@ -4,41 +4,12 @@ body {
   top: 0px !important; /* Prevent page content from shifting down */
 }
 
-.hero {
-  padding: 2rem;
-  text-align: center;
-  background: transparent !important;
-  color: var(--epic-text-light);
-}
-
-.cta-button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
-  color: var(--epic-alabaster-bg);
-}
-
-.cta-button:hover {
-  background-color: rgba(var(--epic-purple-emperor-rgb), 0.9);
-}
-
 @media (prefers-color-scheme: dark) {
   body {
     color: var(--epic-text-light);
   }
-  .hero {
-    background: transparent !important;
-    color: var(--epic-text-light);
-  }
-  .cta-button {
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
-    color: var(--epic-alabaster-bg);
-  }
-  .cta-button:hover {
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9);
-  }
 }
+
 
 /* Hide the Google Translate toolbar */
 .goog-te-banner-frame {
