@@ -58,16 +58,8 @@ try {
 <head>
     <title>Editar Piezas del Museo</title>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
-    <style>
-        body { font-family: Arial, sans-serif; margin:20px; }
-        table { width:100%; border-collapse: collapse; margin-bottom:20px; }
-        th, td { border:1px solid #ccc; padding:8px; text-align:left; }
-        th { background-color:#f2f2f2; }
-        .feedback.success { background:#d4edda; padding:10px; margin-bottom:10px; }
-        .feedback.error { background:#f8d7da; padding:10px; margin-bottom:10px; }
-    </style>
 </head>
-<body class="alabaster-bg">
+<body class="alabaster-bg admin-page edit-pieza-page">
 <nav>
     <a href="../index.php">Inicio</a>
     <a href="../dashboard/index.php">Dashboard</a>

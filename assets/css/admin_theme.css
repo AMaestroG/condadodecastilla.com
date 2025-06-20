@@ -2,7 +2,7 @@
 
 /* Admin dashboard common styles */
 body.admin-page {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-primary);
     margin: 0;
     padding: 0;
     background-color: var(--epic-alabaster-bg);
@@ -140,3 +140,25 @@ canvas { max-width: 100%; height: auto !important; }
     display: none;
 }
 .ml-10 { margin-left: 10px; }
+
+/* Styles for museo/editar_pieza.php */
+body.edit-pieza-page {
+    margin: 20px;
+}
+
+body.edit-pieza-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+body.edit-pieza-page th,
+body.edit-pieza-page td {
+    border: 1px solid var(--epic-neutral-border);
+    padding: 8px;
+    text-align: left;
+}
+
+body.edit-pieza-page th {
+    background-color: var(--epic-neutral-bg);
+}
