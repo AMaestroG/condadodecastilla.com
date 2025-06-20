@@ -329,38 +329,14 @@ Además se proporcionan scripts auxiliares para validar el estado del código:
 
 ## Elementos del menú principal
 
-El archivo `fragments/menus/main-menu.php` define los enlaces de navegación que
-deben aparecer en todas las páginas. A continuación se enumeran las rutas
-esperadas para cada elemento del menú principal:
+El archivo `config/main_menu.php` guarda las rutas y etiquetas de navegación. Para generar la lista actualizada en Markdown ejecuta:
 
-- `index.php` – Inicio
-- `historia/historia.php` – Nuestra Historia
-- `historia_cerezo/index.php` – Historia de Cerezo
-- `historia/subpaginas/obispado_auca_cerezo.php` – Obispado de Auca
-- `alfoz/alfoz.php` – El Alfoz
-- `lugares/lugares.php` – Lugares Emblemáticos
-- `ruinas/index.php` – Ruinas y Vestigios
-- `camino_santiago/camino_santiago.php` – Camino de Santiago
-- `museo/galeria.php` – Museo Colaborativo
-- `museo/museo_3d.php` – Museo 3D
-- `museo/subir_pieza.php` – Subir Pieza
-- `galeria/galeria_colaborativa.php` – Galería Colaborativa
-- `tienda/index.php` – Tienda
-- `visitas/visitas.php` – Planifica Tu Visita
-- `citas/agenda.php` – Programa de Citas
-- `cultura/cultura.php` – Cultura y Legado
-- `personajes/indice_personajes.html` – Personajes
-- `empresa/index.php` – Gestión de Yacimientos
-- `foro/index.php` – Foro
-- `blog.php` – Blog
-- Los artículos se escriben en Markdown dentro de `contenido/blog/` y se convierten a HTML mediante la función `render_markdown()` que utiliza **league/commonmark**.
-- `contacto/contacto.php` – Contacto
+```bash
+php scripts/export_menu_links.php
+```
 
-Mantén esta lista actualizada cuando se añadan o eliminen páginas para que se
-pueda validar fácilmente el contenido del menú.
-
-Anteriormente existía un menú de herramientas adicional, pero se ha retirado
-para evitar enlaces duplicados en la navegación.
+El comando imprimira cada entrada del menu en formato `- `url` – etiqueta`,
+asegurando que la documentacion refleje el contenido real del sitio.
 
 ## Cambios recientes
 
