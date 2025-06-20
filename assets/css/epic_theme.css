@@ -1627,7 +1627,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 
 .page-header.hero[style*="hero_personajes_background.jpg"] .hero-content h1 {
-    color: #fff;
+    color: var(--epic-text-light);
     text-shadow: 2px 2px 8px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.75);
     font-size: clamp(2.8em, 6.5vw, 4.2em);
 }
@@ -1637,7 +1637,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 
 .page-header-indice .hero-content h1 {
-     color: #fff;
+     color: var(--epic-text-light);
      text-shadow: 2px 2px 6px var(--color-negro-contraste, #1A1A1A); 
 }
 
