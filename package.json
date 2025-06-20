@@ -2,10 +2,11 @@
   "dependencies": {
     "sass": "^1.89.2"
   },
-    "devDependencies": {
-      "puppeteer": "^24.10.2",
-      "tailwindcss": "^4.1.10"
-    },
+  "devDependencies": {
+    "puppeteer": "^24.10.2",
+    "svgo": "^3.3.2",
+    "tailwindcss": "^4.1.10"
+  },
   "scripts": {
     "start:php": "sh -c 'php -S localhost:8080 >/dev/null 2>&1 & echo $! > .php_server.pid'",
     "stop:php": "sh -c 'if [ -f .php_server.pid ]; then kill $(cat .php_server.pid); rm .php_server.pid; fi'",
