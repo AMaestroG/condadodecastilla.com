@@ -16,8 +16,8 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       fontFamily: {
-        headings: ['Cinzel', 'serif'],
-        body: ['Lora', 'serif'],
+        headings: ['var(--font-headings)'],
+        body: ['var(--font-primary)'],
       },
     },
   },
