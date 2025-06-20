@@ -29,7 +29,7 @@
     width: 300px; /* Adjust width as needed */
     max-width: 80%; /* Max width for smaller screens */
     /* Purple translucent backdrop for the sliding menu */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9); /* Semi-transparent purple */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.6); /* Semi-transparent purple */
     backdrop-filter: blur(5px); /* Blur effect for transparency */
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     z-index: 1000;
