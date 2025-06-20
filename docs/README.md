@@ -132,6 +132,7 @@ crear nuevas secciones del menú.
 - [Guía de Testing](testing.md)
 - [Gráfica de Influencia Romana](roman_influence_graph.md)
 - [Relaciones de Parentesco](parent_child_pairs.md)
+- [Guía Fullstack 2025](fullstack-tools-2025.md)
 
 La guía de estilo recoge la paleta en tonos morado y oro viejo con fondos de
 alabastro.
