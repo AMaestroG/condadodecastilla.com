@@ -147,6 +147,19 @@
 .nav-toggle:focus-visible {
     outline: 2px solid var(--epic-gold-main);
 }
+/* Toggle button expanded state */
+
+.header-action-buttons [aria-expanded="true"],
+.nav-toggle[aria-expanded="true"] {
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+}
+.header-action-buttons [aria-expanded="false"],
+.nav-toggle[aria-expanded="false"] {
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+}
+
 
 /* --- Sidebar Navigation (#sidebar, #sidebar-toggle from fragments/header.php) --- */
 #sidebar {
@@ -171,6 +184,14 @@
 #sidebar.sidebar-visible {
     transform: translateX(0); /* Shown on-screen */
 }
+#sidebar[aria-expanded="true"] {
+    transform: translateX(0);
+}
+
+#sidebar[aria-expanded="false"] {
+    transform: translateX(-100%);
+}
+
 
 #sidebar-toggle {
     /* position: fixed; */

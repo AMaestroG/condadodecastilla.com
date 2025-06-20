@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.focus();
         }
         menu.setAttribute('aria-hidden', 'true');
+        menu.setAttribute("aria-expanded", "false");
         // Recalculate anyOpen and update body classes
         updateGlobalMenuState();
     };
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('sidebar-active', open);
         btn.setAttribute('aria-expanded', open);
         menu.setAttribute('aria-hidden', !open);
+        menu.setAttribute('aria-expanded', open);
 
         if (open) {
             const first = menu.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
@@ -61,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = (menu, triggerButton = null) => { // Added triggerButton for focus
         menu.classList.remove('active');
         menu.setAttribute('aria-hidden', 'true');
+        menu.setAttribute("aria-expanded", "false");
         const btn = triggerButton || document.querySelector(`[data-menu-target="${menu.id}"]`);
         if (btn) {
             btn.setAttribute('aria-expanded', 'false');
@@ -97,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.toggle('active', open);
         btn.setAttribute('aria-expanded', open);
         menu.setAttribute('aria-hidden', !open);
+        menu.setAttribute("aria-expanded", open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
 
         if (open && menu.id === 'language-panel' && typeof primeTranslateLoad === 'function') {

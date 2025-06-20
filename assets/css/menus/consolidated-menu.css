@@ -68,6 +68,24 @@
     opacity: 1;
 }
 
+#consolidated-menu-items.left-panel[aria-expanded="true"],
+#ai-chat-panel.right-panel[aria-expanded="true"],
+#demo-info-panel.right-panel[aria-expanded="true"] {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#consolidated-menu-items.left-panel[aria-expanded="false"] {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+#ai-chat-panel.right-panel[aria-expanded="false"],
+#demo-info-panel.right-panel[aria-expanded="false"] {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
 /* Styling for buttons and content within panels */
 .menu-panel .menu-item-button {
     display: block;
