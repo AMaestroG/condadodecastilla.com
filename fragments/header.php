@@ -1,4 +1,5 @@
 <div id="cave-mask"></div>
+<img id="header-escudo-overlay" class="hero-escudo" src="/assets/img/escudo.jpg" alt="Escudo de Cerezo de Río Tirón">
 <div id="fixed-header-elements" style="height: var(--header-footer-height);">
     <div class="header-action-buttons">
         <img src="/assets/icons/star-of-venus.svg" class="header-icon" alt="Star of Venus icon" />
