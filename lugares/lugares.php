@@ -59,7 +59,7 @@
                         <img src="/assets/img/placeholder.jpg" alt="Vista general del Alcázar de Cerezo dominando el paisaje">
                         <img src="/assets/img/placeholder.jpg" alt="Primer plano de las antiguas murallas de piedra del Alcázar">
                     </div>
-                     <!-- <p class="link-to-page"><a href="/lugares/alcazar_casio.php" class="read-more">Más sobre el Alcázar de Casio</a></p> -->
+                     <!-- <p class="link-to-page"><a href="/lugares/alcazar_casio.php" class="read-more transition-colors transition-transform transition-shadow">Más sobre el Alcázar de Casio</a></p> -->
                 </article>
 
                 <article class="emblematic-place">
@@ -96,7 +96,7 @@
                             El paraje conocido como "El Culebrón" es un sitio de gran interés arqueológico, donde se han
                             identificado posibles restos de asentamientos o lugares de culto prerromanos. Su nombre, evocador y
                             misterioso, podría estar relacionado con antiguas leyendas o con la topografía del terreno.
-                            <a href="/lugares/el_culebron.php" class="read-more">Leer más</a>
+                            <a href="/lugares/el_culebron.php" class="read-more transition-colors transition-transform transition-shadow">Leer más</a>
                         </p>
                         <h3>Charrera</h3>
                         <p>
@@ -135,7 +135,7 @@
                     <i class="fas fa-map-marked-alt" style="font-size: 3em; margin-bottom: 0.5em; color: var(--color-secundario-dorado);"></i>
                     <h3>Mapa Interactivo de Lugares</h3>
                     <p>Próximamente: Un mapa interactivo con la ubicación de todos los lugares emblemáticos para facilitar tu exploración.</p>
-                    <a href="/visitas/visitas.php" class="cta-button cta-button-small">Planifica Cómo Visitarlos</a>
+                    <a href="/visitas/visitas.php" class="cta-button transition-colors transition-transform transition-shadow cta-button-small">Planifica Cómo Visitarlos</a>
                 </div>
             </div>
         </section>

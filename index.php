@@ -46,12 +46,12 @@ require_once __DIR__ . '/fragments/header.php';
     </header>
 
     <nav id="page-nav" class="section-nav cta-group">
-        <a href="#video" class="cta-button-small">Video</a>
-        <a href="#memoria" class="cta-button-small">Memoria</a>
-        <a href="#legado" class="cta-button-small">Legado</a>
-        <a href="#personajes" class="cta-button-small">Personajes</a>
-        <a href="#timeline" class="cta-button-small">Historia</a>
-        <a href="#inmersion" class="cta-button-small">Cultura Viva</a>
+        <a href="#video" class="cta-button-small transition-colors transition-transform transition-shadow">Video</a>
+        <a href="#memoria" class="cta-button-small transition-colors transition-transform transition-shadow">Memoria</a>
+        <a href="#legado" class="cta-button-small transition-colors transition-transform transition-shadow">Legado</a>
+        <a href="#personajes" class="cta-button-small transition-colors transition-transform transition-shadow">Personajes</a>
+        <a href="#timeline" class="cta-button-small transition-colors transition-transform transition-shadow">Historia</a>
+        <a href="#inmersion" class="cta-button-small transition-colors transition-transform transition-shadow">Cultura Viva</a>
     </nav>
 
     <section id="video" class="video-section section spotlight-active" data-aos="fade-up">
@@ -78,7 +78,7 @@ require_once __DIR__ . '/fragments/header.php';
                 <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', 'gradient-text tagline-background'); ?>
                 <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', ''); ?>
                 <p class="cta-group">
-                    <a href="/secciones_index/memoria_hispanidad.html" class="cta-button">Leer Más Sobre Nuestra Memoria</a>
+                    <a href="/secciones_index/memoria_hispanidad.html" class="cta-button transition-colors transition-transform transition-shadow">Leer Más Sobre Nuestra Memoria</a>
                 </p>
             </div>
         </section>
@@ -87,28 +87,28 @@ require_once __DIR__ . '/fragments/header.php';
             <div class="container-epic">
                 <h2 class="section-title">Explora Nuestro Legado</h2>
                 <div class="card-grid">
-                    <div class="card">
+                    <div class="card transition-transform transition-shadow">
                         <img src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
                         <div class="card-content">
                             <h3>Nuestra Historia</h3>
                             <p>Desde los Concanos y la Civitate Auca Patricia hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
-                            <a href="/historia/historia.php" class="read-more">Leer Más</a>
+                            <a href="/historia/historia.php" class="read-more transition-colors transition-transform transition-shadow">Leer Más</a>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card transition-transform transition-shadow">
                         <img src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
                         <div class="card-content">
                             <h3>Lugares Emblemáticos</h3>
                             <p>Descubre el imponente Alcázar de Casio, los secretos de la Civitate Auca y otros tesoros arqueológicos que esperan ser explorados.</p>
-                            <a href="/lugares/lugares.php" class="read-more">Explorar Sitios</a>
+                            <a href="/lugares/lugares.php" class="read-more transition-colors transition-transform transition-shadow">Explorar Sitios</a>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card transition-transform transition-shadow">
                         <img src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
                         <div class="card-content">
                             <h3>Planifica Tu Visita</h3>
                             <p>Encuentra toda la información que necesitas para tu aventura en Cerezo de Río Tirón: cómo llegar, dónde alojarte y qué no te puedes perder.</p>
-                            <a href="/visitas/visitas.php" class="read-more">Organizar Viaje</a>
+                            <a href="/visitas/visitas.php" class="read-more transition-colors transition-transform transition-shadow">Organizar Viaje</a>
                         </div>
                     </div>
                 </div>
@@ -119,33 +119,33 @@ require_once __DIR__ . '/fragments/header.php';
             <div class="container-epic">
                 <h2 class="section-title">Personajes de la Historia</h2>
                 <div class="card-grid">
-                    <div class="card">
+                    <div class="card transition-transform transition-shadow">
                         <img src="/assets/img/Casio.png" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII">
                         <div class="card-content">
                             <h3>Conde Casio</h3>
                             <p>Figura fundamental del siglo VIII, se le atribuye la construcción o refuerzo del Alcázar de Cerezo.</p>
-                            <a href="/personajes/Militares_y_Gobernantes/conde_casio_cerasio.html" class="read-more">Saber Más</a>
+                            <a href="/personajes/Militares_y_Gobernantes/conde_casio_cerasio.html" class="read-more transition-colors transition-transform transition-shadow">Saber Más</a>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card transition-transform transition-shadow">
                         <img src="/assets/img/GonzaloTellez.png" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo">
                         <div class="card-content">
                             <h3>Gonzalo Téllez</h3>
                             <p>Conde de Lantarón y Cerezo (c. 897 - c. 913), personaje clave en la consolidación de los territorios.</p>
-                            <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html" class="read-more">Saber Más</a>
+                            <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html" class="read-more transition-colors transition-transform transition-shadow">Saber Más</a>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card transition-transform transition-shadow">
                         <img src="/assets/img/FernandoDiaz.png" alt="Representación artística de Fernando Díaz, conde castellano">
                         <div class="card-content">
                             <h3>Fernando Díaz</h3>
                             <p>Sucesor de Gonzalo Téllez, continuó la labor de defensa y organización en la primitiva Castilla.</p>
-                            <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html" class="read-more">Saber Más</a>
+                            <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html" class="read-more transition-colors transition-transform transition-shadow">Saber Más</a>
                         </div>
                     </div>
                 </div>
                  <p class="cta-group">
-                    <a href="/personajes/indice_personajes.html" class="cta-button">Personajes</a>
+                    <a href="/personajes/indice_personajes.html" class="cta-button transition-colors transition-transform transition-shadow">Personajes</a>
                 </p>
             </div>
         </section>
@@ -155,7 +155,7 @@ require_once __DIR__ . '/fragments/header.php';
                 <h2 class="section-title">Nuestra Historia en el Tiempo</h2>
                 <p class="timeline-intro">Un recorrido conciso por los momentos más determinantes de nuestra región, desde la prehistoria hasta la consolidación del Condado. Cada época ha dejado una huella imborrable.</p>
                 <p class="cta-group">
-                    <a href="/secciones_index/historia_tiempo_resumen.html" class="cta-button">Explorar Resumen de la Historia</a>
+                    <a href="/secciones_index/historia_tiempo_resumen.html" class="cta-button transition-colors transition-transform transition-shadow">Explorar Resumen de la Historia</a>
                 </p>
             </div>
         </section>
@@ -167,7 +167,7 @@ require_once __DIR__ . '/fragments/header.php';
                     Esta web es más que información; es una puerta a tus raíces. Un viaje al origen del castellano y la identidad hispana te espera.
                     Siente la llamada de la historia y conecta con el legado que nos une.
                 </p>
-                <a href="/cultura/cultura.php" class="cta-button">Cultura</a>
+                <a href="/cultura/cultura.php" class="cta-button transition-colors transition-transform transition-shadow">Cultura</a>
             </div>
         </section>
     </main>

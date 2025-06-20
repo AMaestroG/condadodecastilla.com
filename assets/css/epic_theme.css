@@ -231,6 +231,21 @@ h6 { font-size: clamp(1em, 2.5vw, 1.4em); }
     display: inline-block;
     color: var(--epic-gold-main); /* Ensure visibility when blend modes are unsupported */
 }
+/* Transition utility classes */
+.transition-colors {
+    transition-property: background-color, color, border-color, fill, stroke;
+    transition-duration: var(--global-transition-speed);
+    transition-timing-function: ease-in-out;
+}
+
+.transition-shadow {
+    transition: box-shadow var(--global-transition-speed) ease-in-out;
+}
+
+.transition-transform {
+    transition: transform var(--global-transition-speed) ease-in-out;
+}
+
 
 /* --- Paragraphs --- */
 p {

@@ -38,7 +38,7 @@
     border: 1px solid var(--color-primario-purpura);
     padding: 0.5em 1em;
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color var(--global-transition-speed), color var(--global-transition-speed);
 }
 
 .back-link:hover {

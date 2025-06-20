@@ -24,7 +24,7 @@
                 <div class="explore-detailed-topics text-center">
                     <h3 style="margin-top:0; color: var(--color-primario-purpura);">Explorar Temas en Detalle</h3>
                     <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Para una exploración más profunda de los temas tratados en este documento, visite nuestro índice de páginas detalladas.</p>
-                    <a href="/historia/historia.php" class="read-more explore-link">Ver Índice Detallado</a>
+                    <a href="/historia/historia.php" class="read-more transition-colors transition-transform transition-shadow explore-link">Ver Índice Detallado</a>
                 </div>
 
                 <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Y ver cómo Pancorvo del Alfoz de cerezo, Valpuesta del Alfoz de cerezo, y Auca se vinculan al origen de Castilla que es el Alcázar de Alabastro puro de Cerasio con sus documentados condes de Castilla y Alava y sus 1200 metros de largo con capacidad para albergar el Palacio o Alcázar su corte condal de funcionarios y sus soldados.</p>

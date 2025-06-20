@@ -3,7 +3,7 @@
 /* Page-specific styles for tienda/index.php */
 
 .card-grid .card {
-    transition: transform 0.3s ease;
+    transition: transform var(--global-transition-speed) ease;
 }
 .card-grid .card:hover {
     transform: scale(1.05);
