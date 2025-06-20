@@ -1,6 +1,6 @@
 /* Homonexus mode styling for a metaphoric AI-human synergy */
 body.homonexus-active #sidebar {
-    background: linear-gradient(135deg, rgba(var(--epic-purple-emperor-rgb),0.95), rgba(var(--epic-gold-secondary-rgb),0.95));
+    background: linear-gradient(135deg, rgba(var(--epic-purple-emperor-rgb),0.85), rgba(var(--epic-gold-secondary-rgb),0.85));
 }
 body.homonexus-active #sidebar .nav-links a {
     color: var(--epic-text-light);

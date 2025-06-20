@@ -60,7 +60,9 @@ body {
 }
 
 header { /* New header for hamburger only */
-    background-color: var(--current-sidebar-bg); /* Match sidebar or be distinct */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5); /* Slightly transparent purple */
+    backdrop-filter: blur(5px);
+    color: var(--epic-gold-main);
     padding: 0.5rem 1rem;
     position: fixed; /* Keep it at the top */
     top: 0;
@@ -73,7 +75,7 @@ header { /* New header for hamburger only */
 #menu-toggle {
     background: none;
     border: none;
-    color: var(--current-text);
+    color: var(--epic-gold-main);
     font-size: 2rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -86,7 +88,7 @@ header { /* New header for hamburger only */
     z-index: 1040; /* Debajo del header del menú hamburguesa si es fijo */
     top: 0;
     left: -280px; /* Comienza oculto */
-    background-color: var(--current-sidebar-bg);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5);
     color: var(--current-text);
     padding-top: 60px; /* Espacio para el header fijo */
     transition: left 0.3s ease-in-out;
@@ -204,7 +206,7 @@ header { /* New header for hamburger only */
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.85); /* Color distintivo para el header del AI */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.7); /* More transparent for the AI header */
     color: var(--light-text);
     border-bottom: 1px solid var(--old-gold); /* Detalle con el otro color de la paleta */
 }
@@ -338,7 +340,7 @@ header { /* New header for hamburger only */
     gap: 10px; /* Espacio entre la sección de idiomas y la de botones */
 
     /* Estilo visual tipo "cristal" (opcional pero moderno) */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.8); /* Tu morado emperador con transparencia */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.6); /* Increased transparency */
     backdrop-filter: blur(5px);
     padding: 10px;
     border-radius: 8px;
