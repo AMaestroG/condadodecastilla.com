@@ -989,36 +989,12 @@ body.dark-mode .footer .social-links a:focus-visible {
     display: none; /* Hidden by default, JS will toggle */
 }
 
-
-/* --- Content from estilos.css Merged --- */
-
-/*
-   Variable Review Note: Variables from estilos.css like --color-primario-purpura,
-   --color-secundario-dorado, etc., have been mapped to corresponding
-   --epic-purple-emperor, --epic-gold-main/secondary etc. in the rules below where possible.
-   Any unmapped variables from estilos.css that are critical for specific appended sections
-   would need to be added to the :root definition in epic_theme.css.
-   For now, :root from epic_theme.css is the primary source of variables.
-*/
-
-/* Global Resets and Base element styles from estilos.css were omitted as epic_theme.css covers them. */
-/* Navbar styles from estilos.css were omitted as sidebar is used. */
-
-/* --- Page Headers & Hero Sections (Styles from estilos.css, potentially conflicting/overlapping) --- */
-/* The .page-header.hero rules from estilos.css are generally more specific due to image selectors or context. */
-/* We assume epic_theme.css .hero and .page-header provide base styling, and these are overrides/extensions. */
-
-.page-header.hero { /* This is a combined rule. epic_theme.css provides a base .page-header and .hero */
-    /* Properties from estilos.css .page-header.hero */
-    background-image:
-        linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.8), rgba(var(--epic-text-color-rgb), 0.9)),
         url('/assets/img/hero_default_background.jpg');
     min-height: 45vh; /* This might override epic_theme.css min-height for .page-header */
     padding: clamp(60px, 15vh, 100px) 20px; /* This might override epic_theme.css padding for .page-header */
     border-bottom-width: 10px; /* This might override epic_theme.css border for .page-header */
     /* Other properties like color, text-align, display, justify-content, align-items are likely inherited or set by epic_theme.css base .hero/.page-header */
 }
-/* Specific background images from estilos.css page-headers. These are important. */
 .page-header.hero[style*="/imagenes/hero_historia_background.jpg"],
 .page-header.hero[style*="/imagenes/hero_alfoz_background.jpg"],
 .page-header.hero[style*="/imagenes/hero_lugares_background.jpg"],
@@ -1043,7 +1019,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 .page-header.hero .hero-content p {
     font-size: clamp(1.05em, 2.2vw, 1.4em);
     margin-bottom: 0;
-    color: var(--color-piedra-clara, #EAE0C8); /* Mapped to epic_theme var if possible, or add as new */
+    color: var(--color-piedra-clara, #EAE0C8); 
     text-shadow: 0 1px 5px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.7);
 }
 .page-header.hero .decorative-star-header {
@@ -1051,7 +1027,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     height: auto;
     margin: 0 auto 15px auto;
     opacity: 0.8;
-    filter: drop-shadow(0 0 10px rgba(var(--color-acento-amarillo-rgb, 255, 215, 0), 0.5)); /* Mapped to epic_theme var */
+    filter: drop-shadow(0 0 10px rgba(var(--color-acento-amarillo-rgb, 255, 215, 0), 0.5)); 
 }
 
 .decorative-star-header-highlighted { /* Specific for Cerezo de Rio Tiron header star */
@@ -1059,25 +1035,13 @@ body.dark-mode .footer .social-links a:focus-visible {
     width: clamp(60px, 10vw, 80px) !important;
     margin-bottom: 20px !important;
 }
-
-
-/* --- Hero Section (Página de Inicio from estilos.css) --- */
-/* This .hero style is specifically for the homepage as per estilos.css.
-   epic_theme.css also has a .hero style. We need to ensure they don't conflict badly,
-   or that the homepage hero takes precedence if it's more specific. */
-.hero { /* This rule might conflict with epic_theme.css .hero. Consider namespacing if needed. */
     background-image:
         linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.82), rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.95)),
         url('/assets/img/hero_mis_tierras.jpg');
-    background-color: var(--epic-purple-emperor); /* Mapped */
-    /* other properties like background-size, position, color, padding, text-align, border-bottom, min-height, display, flex-direction, justify-content, align-items, position, overflow are likely similar or need careful merge */
+    background-color: var(--epic-purple-emperor); 
 }
 
-/* .hero-content from estilos.css - compare with .hero-content in epic_theme.css */
-/* Styles for .hero-escudo, .hero h1, .hero p, .cta-button from estilos.css are appended.
-   These are specific to the homepage hero design in estilos.css. */
-
-.hero-content { /* This rule for .hero-content from estilos.css might conflict */
+.hero-content { 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1085,21 +1049,21 @@ body.dark-mode .footer .social-links a:focus-visible {
     max-width: 950px;
     background-color: rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.85);
     padding: clamp(40px, 7vw, 70px);
-    border-radius: var(--border-radius-medio, 10px); /* Mapped */
+    border-radius: var(--border-radius-medio, 10px); 
     box-shadow: 0 15px 50px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.6);
     position: relative;
     z-index: 1;
-    border: 3px solid rgba(var(--color-dorado-rgb, 184, 134, 11), 0.6); /* Mapped */
+    border: 3px solid rgba(var(--color-dorado-rgb, 184, 134, 11), 0.6); 
 }
 
-.hero-escudo { /* This is from estilos.css, specific to its hero */
+.hero-escudo { 
     /* Keep in sync with the homepage hero size adjustment */
     width: clamp(200px, 32vw, 320px);
     height: auto;
     margin-bottom: 30px;
     animation: fadeInScaleUp 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     filter: drop-shadow(0px 12px 28px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.8));
-    border: 7px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
+    border: 7px solid var(--color-secundario-dorado, #B8860B); 
     padding: 10px;
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.65);
     box-shadow: 0 0 25px rgba(var(--color-secundario-dorado, #B8860B), 0.7), inset 0 0 18px rgba(var(--color-negro-contraste-rgb,10,10,10),0.5);
@@ -1110,9 +1074,9 @@ body.dark-mode .footer .social-links a:focus-visible {
     to { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
 }
 
-.hero h1 { /* From estilos.css, for homepage hero */
+.hero h1 { 
     font-size: clamp(3.2em, 10vw, 6em);
-    color: var(--color-alabastro, #fdfaf6); /* Mapped, though epic_theme uses --epic-gold-main for hero h1 */
+    color: var(--color-alabastro, #fdfaf6); 
     margin-top: 0;
     margin-bottom: 0.5em;
     text-shadow: 0 5px 15px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 1), 0 0 50px rgba(var(--color-acento-amarillo, #FFD700),0.95);
@@ -1120,18 +1084,15 @@ body.dark-mode .footer .social-links a:focus-visible {
     text-align: center;
 }
 
-.hero p { /* From estilos.css, for homepage hero */
+.hero p { 
     font-size: clamp(1.25em, 3.5vw, 1.9em);
     margin-bottom: 55px;
-    color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
+    color: var(--color-piedra-clara, #EAE0C8); 
     text-shadow: 0 3px 20px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 1);
     line-height: 1.75;
     max-width: 50ch;
     text-align: center;
 }
-
-/* .cta-button from estilos.css - epic_theme.css also has .cta-button. Review needed. */
-/* Appending estilos.css version for now. */
 .cta-button--large-legacy {
     background-image: linear-gradient(145deg,#716472,#a69ba8);
     color: var(--epic-purple-emperor);
@@ -1181,9 +1142,9 @@ body.dark-mode .footer .social-links a:focus-visible {
 .video-container {
     max-width: 1100px;
     margin: 25px auto;
-    border: 8px solid var(--color-fondo-pagina, #fdfaf6); /* Mapped */
-    border-radius: var(--border-radius-medio, 10px); /* Mapped */
-    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)), 0 0 30px rgba(var(--color-alabastro-glow-rgb, 248, 245, 238), 0.25); /* Mapped */
+    border: 8px solid var(--color-fondo-pagina, #fdfaf6); 
+    border-radius: var(--border-radius-medio, 10px); 
+    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)), 0 0 30px rgba(var(--color-alabastro-glow-rgb, 248, 245, 238), 0.25); 
     aspect-ratio: 16 / 9;
     overflow: hidden;
 }
@@ -1194,54 +1155,36 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 .video-section h2 {
      margin-bottom: 45px;
-     color: var(--epic-purple-emperor); /* Mapped */
+     color: var(--epic-purple-emperor); 
 }
 
 /* --- Secciones Generales con Efecto de Linterna (Spotlight) --- */
 /* epic_theme.css has .section and .section.spotlight-active::after.
-   estilos.css also has .section, .section::before (dark overlay), and .section::after (spotlight).
-   Strategy: Use epic_theme.css's spotlight implementation. Omit .section::after from estilos.css.
-   The .section::before for dark overlay from estilos.css will be kept if it provides a different or complementary effect.
 */
-.section { /* This rule from estilos.css might conflict with .section in epic_theme.css */
-    /* padding, position, background-image, size, position, attachment, z-index, border-radius, margin, box-shadow, overflow are common properties. */
-    /* epic_theme.css .section already provides robust base styling. */
-    /* The ::before overlay from estilos.css is different (multiply blend mode) and could be kept if that specific effect is desired. */
     /* However, epic_theme.css .section::before already provides a dark overlay, controlled by opacity. */
-    /* To avoid conflicting overlays, we will rely on epic_theme.css .section::before and its .section.alternate-bg::before logic. */
-    /* So, the .section::before from estilos.css (with mix-blend-mode) is removed. */
 }
 
-/* Spotlight effect from estilos.css (.section::after) was OMITTED during initial append to prefer epic_theme.css version. */
-
 /*
-   Container class: estilos.css uses .container, epic_theme.css uses .container-epic.
-   The rule .section > .container from estilos.css is specific.
    epic_theme.css has .section > .container-epic.
-   If pages use <section><div class="container"> (from estilos.css pattern), that rule will apply.
    If pages use <section><div class="container-epic"> (from epic_theme.css pattern), that rule will apply.
-   This is acceptable for now, as they style different class names.
 */
-.section > .container { /* This is from estilos.css, for pages using <div class="container"> directly in a section */
     position: relative;
     z-index: 1; /* Ensure content is above section's ::before if any */
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.9); /* Uses purple emperor background */
     padding: 30px;
-    border-radius: var(--global-border-radius); /* Mapped to epic var */
-    box-shadow: 0 0 15px rgba(var(--epic-text-color-rgb), 0.1); /* Mapped to epic var */
+    border-radius: var(--global-border-radius); 
+    box-shadow: 0 0 15px rgba(var(--epic-text-color-rgb), 0.1); 
 }
 
 
 /* SECCIÓN DE INTRODUCCIÓN DETALLADA y Bloques de Contenido de Página Interna */
 /* .detailed-intro-section .container uses .container, so the rule above applies. */
-/* .page-content-block is defined in both. epic_theme.css provides a base. Appended styles from estilos.css are more specific. */
 .detailed-intro-section .container {
     /* epic_theme.css .page-content-block provides base: bg, backdrop-filter, padding, border-radius, box-shadow */
-    /* estilos.css version adds more specific background and padding, potentially overriding epic_theme.css */
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.96); /* Mapped & slightly more opaque */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.96); 
     padding: clamp(30px, 5vw, 50px); /* Potentially different padding */
-    border-radius: var(--global-border-radius); /* Mapped, should be consistent */
-    box-shadow: var(--global-box-shadow-medium); /* Mapped, should be consistent */
+    border-radius: var(--global-border-radius); 
+    box-shadow: var(--global-box-shadow-medium); 
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -1257,19 +1200,19 @@ body.dark-mode .footer .social-links a:focus-visible {
     line-height: 1.85;
     /* text-align: center !important; */ /* Allowing left align from body now */
     margin-bottom: 1.6em;
-    color: var(--color-texto-principal, #2c1d12); /* Mapped */
+    color: var(--color-texto-principal, #2c1d12); 
 }
 .detailed-intro-section p:first-of-type,
 .page-content-block .intro-paragraph {
     font-size: clamp(1.2em, 2.8vw, 1.4em);
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
     font-style: italic;
     /* text-align: center; */ /* Allowing left align from body now, or specific centering if needed */
-    border-left: 4px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
-    border-right: 4px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
+    border-left: 4px solid var(--color-secundario-dorado, #B8860B); 
+    border-right: 4px solid var(--color-secundario-dorado, #B8860B); 
     padding: 0.7em 1.2em;
-    background-color: rgba(var(--color-piedra-arena-rgb, 200, 187, 174), 0.15); /* Mapped */
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
+    background-color: rgba(var(--color-piedra-arena-rgb, 200, 187, 174), 0.15); 
+    border-radius: var(--border-radius-suave, 5px); 
 }
 
 
@@ -1283,8 +1226,8 @@ body.dark-mode .footer .social-links a:focus-visible {
     overflow: hidden;
 }
 .image-gallery-intro img {
-    border: 6px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); /* Mapped */
+    border: 6px solid var(--color-piedra-media, #D2B48C); 
+    box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); 
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, filter 0.4s ease-in-out;
     margin: 0 auto;
     width: 100%;
@@ -1296,7 +1239,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 .image-gallery-intro img:hover {
     transform: scale(1.08) rotate(-2deg);
-    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
+    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); 
     filter: sepia(50%) contrast(1.1) brightness(0.85);
 }
 
@@ -1336,7 +1279,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     margin: 30px auto 60px auto;
     position: relative;
     animation: pulseStar 3.8s infinite ease-in-out;
-    filter: drop-shadow(0 0 8px rgba(var(--color-acento-amarillo-rgb, 255, 215, 0), 0.6)); /* Mapped */
+    filter: drop-shadow(0 0 8px rgba(var(--color-acento-amarillo-rgb, 255, 215, 0), 0.6)); 
 }
 @keyframes pulseStar {
     0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
@@ -1345,13 +1288,12 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 
 /* --- Tarjetas (Cards) --- */
-/* epic_theme.css has .card-grid and .card. estilos.css also has these. Appending for now. */
 
 .card--legacy-hover-effect {
-    background-color: var(--color-fondo-pagina, #fdfaf6); /* Mapped */
-    border: 2px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    border-radius: var(--border-radius-medio, 10px); /* Mapped */
-    box-shadow: 8px 8px 0px -2px var(--color-piedra-media, #D2B48C), 16px 16px 28px rgba(var(--epic-purple-emperor-rgb), 0.18); /* Mapped */
+    background-color: var(--color-fondo-pagina, #fdfaf6); 
+    border: 2px solid var(--color-piedra-media, #D2B48C); 
+    border-radius: var(--border-radius-medio, 10px); 
+    box-shadow: 8px 8px 0px -2px var(--color-piedra-media, #D2B48C), 16px 16px 28px rgba(var(--epic-purple-emperor-rgb), 0.18); 
     overflow: hidden;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
@@ -1362,13 +1304,13 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 .card--legacy-hover-effect:hover {
     transform: translateY(-18px) translateX(-9px) rotate(1.5deg);
-    box-shadow: 12px 12px 0px -2px var(--color-secundario-dorado, #B8860B), 22px 22px 35px rgba(var(--epic-purple-emperor-rgb), 0.25); /* Mapped */
+    box-shadow: 12px 12px 0px -2px var(--color-secundario-dorado, #B8860B), 22px 22px 35px rgba(var(--epic-purple-emperor-rgb), 0.25); 
 }
 
 /* --- Sección de Inmersión --- */
 .immersion-section {
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.95); /* Mapped */
-    color: var(--color-alabastro, #fdfaf6); /* Mapped */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.95); 
+    color: var(--color-alabastro, #fdfaf6); 
     padding: clamp(60px, 12vh, 100px) 20px;
     background-image:
         linear-gradient(rgba(var(--epic-purple-emperor-rgb),0.92), rgba(var(--epic-purple-emperor-rgb),0.97)),
@@ -1381,7 +1323,7 @@ body.dark-mode .footer .social-links a:focus-visible {
         );
     filter: none !important;
     margin: 30px 0;
-    border-radius: var(--border-radius-medio, 10px); /* Mapped */
+    border-radius: var(--border-radius-medio, 10px); 
 }
 .immersion-section::before {
     opacity: 0 !important;
@@ -1392,7 +1334,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 
 .immersion-section h2 {
-    color: var(--color-acento-amarillo, #FFD700); /* Mapped */
+    color: var(--color-acento-amarillo, #FFD700); 
     font-size: clamp(2em, 5vw, 3em);
 }
 .immersion-section p {
@@ -1408,62 +1350,18 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 .immersion-section .cta-button:hover, .immersion-section .cta-button:focus-visible {
     background-image: linear-gradient(to bottom, var(--color-alabastro, #fdfaf6), #e0dccc);
-    color: var(--epic-purple-emperor); /* Mapped */
-    border-color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
+    border-color: var(--epic-purple-emperor); 
     outline: none;
 }
 
-/* --- Estilos para la Línea de Tiempo (Timeline) --- */
-/* --- Estilos para la Línea de Tiempo (Timeline) --- */
-/* Both files have extensive timeline styling. epic_theme.css's version is kept as primary.
-   The version from estilos.css is very similar. Key differences might be variable names (mapped)
-   or minor cosmetic tweaks. For simplicity, we're relying on epic_theme.css's timeline styles.
-   If specific features from estilos.css timeline are missing, they would need to be merged granularly.
-   The general ul, ol, li text-align:center from estilos.css is a broad change and might be undesirable
-   globally if epic_theme.css has other list styles. It's better to apply text-align:center specifically where needed.
-*/
-/*
-.timeline-section { ... } // from estilos.css - omitted
-.timeline-intro { ... } // from estilos.css - epic_theme.css has its own
-.timeline { ... } // from estilos.css - epic_theme.css has its own
-ul, ol { list-style-position: inside; padding-left: 0; } // Broader rule from estilos.css, potentially unwanted globally
-ul li, ol li { text-align: center; } // Broader rule from estilos.css
-.timeline::before { ... } // from estilos.css - epic_theme.css has its own
-.timeline-item { ... } // from estilos.css - epic_theme.css has its own
-.timeline-icon { ... } // from estilos.css - epic_theme.css has its own
-.timeline-icon img { ... } // from estilos.css - epic_theme.css has its own
-.timeline-content { ... } // from estilos.css - epic_theme.css has its own
-.timeline-content h3 { ... } // from estilos.css - epic_theme.css has its own
-.timeline-content p { ... } // from estilos.css - epic_theme.css has its own
-.timeline-read-more { ... } // from estilos.css - epic_theme.css has its own
-.timeline-read-more:hover { ... } // from estilos.css - epic_theme.css has its own
-*/
-
 /* --- Footer --- */
 /* Both files have .footer styles. epic_theme.css's version is primary.
-   estilos.css version has a different ::before pseudo-element and some different padding/border.
    For consistency, we'll rely on epic_theme.css .footer.
-   If the specific ::before from estilos.css is desired, it would need careful merging.
 */
 /*
-.footer { ... } // from estilos.css - omitted
-.footer::before { ... } // from estilos.css - omitted
-.footer p { ... } // from estilos.css - omitted
-.footer a { ... } // from estilos.css - omitted
-.footer a:focus-visible { ... } // from estilos.css - omitted
-.footer a:hover { ... } // from estilos.css - omitted
-.footer .social-links { ... } // from estilos.css - omitted
-.footer .social-links a { ... } // from estilos.css - omitted
-.footer .social-links a:hover, .footer .social-links a:focus-visible { ... } // from estilos.css - omitted
 */
-
-
-/* --- Responsive Design (Media Queries from estilos.css) --- */
-/* Appending media queries from estilos.css. These should be placed after epic_theme.css's base styles and its own media queries. */
-/* Any conflicting rules within these media queries will be resolved by source order (later rules override earlier ones). */
 @media (max-width: 768px) {
-    /* Styles for .hero-content, .hero-escudo, .hero h1, .hero p for responsive hero (from estilos.css) */
-    /* These are more specific to the homepage hero from estilos.css and should apply there. */
     .hero-content {
         padding: 20px;
     }
@@ -1476,25 +1374,17 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 
     .detailed-intro-section p { text-align: justify !important; }
     .section-title::after { width: 40px; height: 40px; margin: 20px auto 35px auto; }
-
-    /* Timeline responsive from estilos.css */
     .timeline::before { left: 20px; }
     .timeline-item { padding-left: 60px; margin-bottom: 40px; }
     .timeline-icon { width: 40px; height: 40px; left: 0; }
     .timeline-icon img { width: 60%; height: 60%; }
-
-    /* Sidebar responsive styles from estilos.css (already somewhat covered by epic_theme.css sidebar styles) */
-    /* .navbar, .nav-toggle from estilos.css related to old navbar are omitted */
-    #sidebar .nav-links { /* This is from estilos.css, might conflict with epic_theme sidebar nav links */
-        /* max-height: none; */ /* This conflicts with how old nav-links were toggled */
+        /* max-height: none; */ 
         /* overflow: visible; */
     }
-    #sidebar .nav-links a { /* Styles for sidebar links from estilos.css */
         /* color: var(--color-piedra-clara); Ensure this is consistent */
     }
 }
 @media (max-width: 480px) {
-    /* Styles for .hero h1, .hero p, .cta-button, .detailed-intro-section h2, .section-title, .card-content, .section-title::after, .footer::before from estilos.css */
     .hero h1 { font-size: clamp(2.2em, 10vw, 3em); }
     .hero p { font-size: clamp(1em, 4vw, 1.2em); }
     .cta-button { padding: 15px 30px; font-size: clamp(1em, 4vw, 1.2em); }
@@ -1503,8 +1393,6 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     .section-title::after { width: 35px; height: 35px; }
     .footer::before { width: 50px; height: 50px; margin: -80px auto 20px auto; }
 }
-
-/* --- Page Specific Styles from estilos.css --- */
 
 /* Estilos para la página de Camino de Santiago */
 .camino-content-block {
@@ -1524,7 +1412,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .camino-text p {
     /* text-align: center; */ /* Will be left by default */
     font-size: clamp(1em, 2.1vw, 1.15em);
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped */
+    color: var(--color-texto-secundario, #2c1d12); 
 }
 .camino-image {
     flex: 1;
@@ -1532,29 +1420,29 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     /* text-align: center; */ /* Images are block centered with margin auto */
 }
 .camino-image img {
-    border: 4px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); /* Mapped */
+    border: 4px solid var(--color-piedra-media, #D2B48C); 
+    box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); 
     max-width: 100%;
     margin: 1em auto;
 }
 .camino-image .image-caption {
     font-size: 0.9em;
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped */
+    color: var(--color-texto-secundario, #2c1d12); 
     font-style: italic;
     margin-top: 0.8em;
 }
 .camino-image .image-caption i {
     margin-right: 6px;
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped */
+    color: var(--color-secundario-dorado, #B8860B); 
 }
 
 .camino-cta-block {
     /* text-align: center; */ /* Centered by .camino-cta-block */
     padding: 30px;
-    background-color: rgba(var(--color-piedra-clara-rgb, 234, 224, 208), 0.3); /* Mapped */
-    border-radius: var(--border-radius-medio, 10px); /* Mapped */
+    background-color: rgba(var(--color-piedra-clara-rgb, 234, 224, 208), 0.3); 
+    border-radius: var(--border-radius-medio, 10px); 
     margin-top: 3em;
-    border: 2px dashed var(--color-secundario-dorado, #B8860B); /* Mapped */
+    border: 2px dashed var(--color-secundario-dorado, #B8860B); 
 }
 .camino-cta-block .decorative-star-cta {
     width: 50px;
@@ -1564,7 +1452,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 .camino-cta-block p {
     font-size: clamp(1.1em, 2.3vw, 1.3em);
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
     margin-bottom: 1.5em;
 }
 
@@ -1594,7 +1482,6 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 
 /* Estilos para el índice de personajes y bloques de contenido de página interna */
-/* .page-content-block is already styled by epic_theme.css and earlier in this merge */
 .page-content-block .intro-paragraph { /* Refinement for intro-paragraph within page-content-block */
     font-style: normal;
     border: none;
@@ -1610,7 +1497,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .indice-categorias li {
     margin-bottom: 2em;
     padding-bottom: 1.5em;
-    border-bottom: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
+    border-bottom: 1px solid var(--color-piedra-media, #D2B48C); 
 }
 .indice-categorias li:last-child {
     border-bottom: none;
@@ -1619,14 +1506,14 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 .indice-categorias h3 {
     font-size: clamp(1.5em, 3.5vw, 2em);
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
     margin-bottom: 0.8em;
-    border-left: 4px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
+    border-left: 4px solid var(--color-secundario-dorado, #B8860B); 
     padding-left: 15px;
 }
 .indice-categorias h3 i {
     margin-right: 10px;
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped */
+    color: var(--color-secundario-dorado, #B8860B); 
 }
 .indice-personajes-lista {
     list-style: none;
@@ -1651,28 +1538,28 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 .indice-personajes-lista li a {
     font-size: clamp(1em, 2vw, 1.15em);
-    color: var(--color-texto-principal, #2c1d12); /* Mapped */
+    color: var(--color-texto-principal, #2c1d12); 
 }
 .indice-personajes-lista li a:hover {
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped */
+    color: var(--color-secundario-dorado, #B8860B); 
 }
 .back-to-link {
     display: inline-block;
     margin-top: 2em;
     padding: 12px 25px;
-    background-color: var(--color-secundario-dorado, #B8860B); /* Mapped */
-    color: var(--epic-purple-emperor) !important; /* Mapped */
+    background-color: var(--color-secundario-dorado, #B8860B); 
+    color: var(--epic-purple-emperor) !important; 
     border-radius: 25px;
     font-family: "Cinzel", serif; /* Use theme font */
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    border: 2px solid var(--epic-purple-emperor); /* Mapped */
+    border: 2px solid var(--epic-purple-emperor); 
     transition: background-color var(--global-transition-speed) ease, color var(--global-transition-speed) ease, transform var(--global-transition-speed) ease; /* Standardized */
 }
 .back-to-link:hover {
-    background-color: var(--epic-purple-emperor); /* Mapped */
-    color: var(--color-acento-amarillo, #FFD700) !important; /* Mapped */
+    background-color: var(--epic-purple-emperor); 
+    color: var(--color-acento-amarillo, #FFD700) !important; 
     text-decoration: none;
     transform: translateY(-2px);
 }
@@ -1681,23 +1568,23 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .page-content-block.personaje-detail-content img.personaje-imagen-principal {
     max-width: 300px;
     margin: 1em auto 2em auto;
-    border: 6px solid var(--color-piedra-media, #D2B48C); /* Mapped */
+    border: 6px solid var(--color-piedra-media, #D2B48C); 
     border-radius: 50%;
     -o-object-fit: contain;
        object-fit: contain; /* Avoid cropping */
     height: 300px;
-    background-color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
-    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
+    background-color: var(--color-piedra-clara, #EAE0C8); 
+    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); 
 }
 
 .page-content-block.personaje-detail-content h2 {
     text-align: center;
-    border-bottom: 3px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
+    border-bottom: 3px solid var(--color-secundario-dorado, #B8860B); 
     padding-bottom: 0.4em;
     margin-top: 0;
     margin-bottom: 1.2em;
     font-size: clamp(1.9em, 4.5vw, 2.6em);
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
 }
 .page-content-block.personaje-detail-content h2::after {
     display: none !important;
@@ -1705,10 +1592,10 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 
 .page-content-block.personaje-detail-content h3 {
     font-size: clamp(1.5em, 3.5vw, 2em);
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
     margin-top: 1.8em;
     margin-bottom: 0.8em;
-    border-bottom: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
+    border-bottom: 1px solid var(--color-piedra-media, #D2B48C); 
     padding-bottom: 0.2em;
 }
 
@@ -1736,12 +1623,12 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 .page-header.hero[style*="hero_personajes_background.jpg"] .hero-content p {
     font-size: clamp(1.1em, 2.3vw, 1.4em);
-    color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
+    color: var(--color-piedra-clara, #EAE0C8); 
 }
 
 .page-header-indice .hero-content h1 {
      color: #fff;
-     text-shadow: 2px 2px 6px var(--color-negro-contraste, #1A1A1A); /* Mapped */
+     text-shadow: 2px 2px 6px var(--color-negro-contraste, #1A1A1A); 
 }
 
 
@@ -1749,7 +1636,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .bibliografia-referencias {
     margin-top: 3em;
     padding-top: 2em;
-    border-top: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
+    border-top: 1px solid var(--color-piedra-media, #D2B48C); 
 }
 .bibliografia-referencias h3 {
     font-size: clamp(1.4em, 3vw, 1.9em);
@@ -1762,15 +1649,15 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .bibliografia-referencias ul li, .bibliografia-referencias ol li {
     margin-bottom: 0.6em;
     font-size: clamp(0.9em, 1.8vw, 1em);
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped */
+    color: var(--color-texto-secundario, #2c1d12); 
     text-align: left; /* Override global li centering */
 }
 .datos-historicos-alcazar {
     margin-top: 3em;
     padding: 20px;
-    background-color: rgba(var(--color-piedra-arena-rgb, 200, 187, 174), 0.2); /* Mapped */
-    border-left: 5px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
+    background-color: rgba(var(--color-piedra-arena-rgb, 200, 187, 174), 0.2); 
+    border-left: 5px solid var(--color-secundario-dorado, #B8860B); 
+    border-radius: var(--border-radius-suave, 5px); 
 }
 .datos-historicos-alcazar h3, .datos-historicos-alcazar h4 {
     margin-top: 0.5em;
@@ -1779,10 +1666,10 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     display: block;
     margin: 1em 0 1em 2em; /* Left margin will make it not centered */
     padding: 0.8em 1em;
-    background-color: rgba(var(--color-piedra-clara-rgb,234,224,208), 0.5); /* Mapped */
-    border-left: 3px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
+    background-color: rgba(var(--color-piedra-clara-rgb,234,224,208), 0.5); 
+    border-left: 3px solid var(--color-secundario-dorado, #B8860B); 
     font-style: italic;
-    color: var(--color-texto-principal, #2c1d12); /* Mapped */
+    color: var(--color-texto-principal, #2c1d12); 
     font-size: 0.95em;
     text-align: left; /* Override global centering */
 }
@@ -1802,20 +1689,20 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 .contact-info .email-link {
     font-weight: bold;
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
 }
 .contact-info .email-link:hover {
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped */
+    color: var(--color-secundario-dorado, #B8860B); 
 }
 
 .contact-form-container {
     max-width: 700px;
     margin: 0 auto;
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; /* Mapped */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; 
     padding: 30px 40px;
-    border-radius: var(--border-radius-medio, 10px); /* Mapped */
-    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
-    border: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
+    border-radius: var(--border-radius-medio, 10px); 
+    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); 
+    border: 1px solid var(--color-piedra-media, #D2B48C); 
 }
 .contact-form-container h2 {
     text-align: center; /* Form title centered */
@@ -1831,14 +1718,14 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     display: block;
     font-family: var(--font-titulos); /* Use theme font */
     font-weight: 700;
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
     margin-bottom: 8px;
     font-size: 1.1em;
     text-align: left; /* Override global centering */
 }
 .form-group label i {
     margin-right: 8px;
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped */
+    color: var(--color-secundario-dorado, #B8860B); 
 }
 
 .form-group input[type="text"],
@@ -1846,22 +1733,22 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .form-group textarea {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
+    border: 1px solid var(--color-piedra-media, #D2B48C); 
+    border-radius: var(--border-radius-suave, 5px); 
     font-family: var(--font-principal); /* Use theme font */
     font-size: 1em;
-    color: var(--color-texto-principal, #2c1d12); /* Mapped */
-    background-color: rgba(var(--color-fondo-pagina-base-rgb, 253, 250, 246), 0.7); /* Mapped */
+    color: var(--color-texto-principal, #2c1d12); 
+    background-color: rgba(var(--color-fondo-pagina-base-rgb, 253, 250, 246), 0.7); 
     transition: border-color var(--global-transition-speed) ease, box-shadow var(--global-transition-speed) ease; /* Standardized */
     text-align: left; /* Override global centering */
 }
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
-    border-color: var(--color-secundario-dorado, #B8860B); /* Mapped */
-    box-shadow: 0 0 0 3px rgba(var(--color-dorado-rgb, 184, 134, 11), 0.25); /* Mapped */
+    border-color: var(--color-secundario-dorado, #B8860B); 
+    box-shadow: 0 0 0 3px rgba(var(--color-dorado-rgb, 184, 134, 11), 0.25); 
     outline: none;
-    background-color: var(--color-fondo-pagina, #fdfaf6); /* Mapped */
+    background-color: var(--color-fondo-pagina, #fdfaf6); 
 }
 
 .form-group textarea {
@@ -1869,7 +1756,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     resize: vertical;
 }
 
-.submit-button { /* This class is used by .cta-button, so styling might be inherited or conflict. */
+.submit-button { 
     width: 100%;
     margin-top: 10px;
 }
@@ -1879,17 +1766,17 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .museum-gallery-section .container.page-content-block, /* Uses .container */
 .upload-section-galeria .container.page-content-block,  /* Uses .container */
 .photo-gallery-section .container.page-content-block { /* Uses .container */
-    background-color: rgba(var(--color-fondo-pagina-rgb, 253, 250, 246), 0.92); /* Mapped */
+    background-color: rgba(var(--color-fondo-pagina-rgb, 253, 250, 246), 0.92); 
 }
 
 .upload-form-container {
     max-width: 750px;
     margin: 0 auto;
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; /* Mapped */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; 
     padding: 30px 40px;
-    border-radius: var(--border-radius-medio, 10px); /* Mapped */
-    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); /* Mapped */
-    border: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
+    border-radius: var(--border-radius-medio, 10px); 
+    box-shadow: var(--box-shadow-elevado, 0 10px 35px rgba(10, 10, 10, 0.2)); 
+    border: 1px solid var(--color-piedra-media, #D2B48C); 
 }
 .upload-form-container h2 {
     text-align: center; /* Ensure form title is centered */
@@ -1897,7 +1784,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     margin-bottom: 30px;
 }
 .upload-form-container .form-group label i { /* Styles for icon in label */
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped */
+    color: var(--color-secundario-dorado, #B8860B); 
 }
 .upload-form-container .submit-button {
     width: 100%;
@@ -1906,13 +1793,12 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .preview-container img {
     max-height: 200px;
     margin: 0 auto 10px auto;
-    border: 2px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
+    border: 2px solid var(--color-piedra-media, #D2B48C); 
+    border-radius: var(--border-radius-suave, 5px); 
     display: block;
 }
 
 .museum-gallery-grid {
-    /* Los estilos de .card-grid ya se aplican from epic_theme.css or earlier estilos.css merge */
 }
 .museum-piece-card img { /* This is a class on a .card, so .card img styles apply. This adds cursor & filter. */
     cursor: pointer;
@@ -1923,14 +1809,14 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 .museum-piece-card .piece-author {
     font-size: 0.9em;
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped */
+    color: var(--color-texto-secundario, #2c1d12); 
     margin-top: -10px;
     margin-bottom: 10px;
     text-align: center; /* Ensure centered if not inherited */
 }
 .museum-piece-card .piece-description {
     font-size: 0.95em;
-    color: var(--color-texto-principal, #2c1d12); /* Mapped */
+    color: var(--color-texto-principal, #2c1d12); 
     text-align: center;
     min-height: 60px;
 }
@@ -1939,7 +1825,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     grid-column: 1 / -1;
     text-align: center;
     font-style: italic;
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped */
+    color: var(--color-texto-secundario, #2c1d12); 
     padding: 40px;
 }
 
@@ -1950,10 +1836,10 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     gap: 20px;
 }
 .photo-card {
-    background-color: var(--color-fondo-pagina, #fdfaf6); /* Mapped */
-    border: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
-    box-shadow: var(--box-shadow-sutil, 0 4px 10px rgba(74, 13, 103, 0.07)); /* Mapped */
+    background-color: var(--color-fondo-pagina, #fdfaf6); 
+    border: 1px solid var(--color-piedra-media, #D2B48C); 
+    border-radius: var(--border-radius-suave, 5px); 
+    box-shadow: var(--box-shadow-sutil, 0 4px 10px rgba(74, 13, 103, 0.07)); 
     overflow: hidden;
     transition: transform var(--global-transition-speed) ease, box-shadow var(--global-transition-speed) ease; /* Standardized */
     display: flex;
@@ -1961,14 +1847,14 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 .photo-card:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); /* Mapped */
+    box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); 
 }
 .photo-card img {
     width: 100%;
     height: auto;
     -o-object-fit: contain;
        object-fit: contain; /* Show complete photo */
-    border-radius: var(--border-radius-suave, 5px) var(--border-radius-suave, 5px) 0 0; /* Mapped */
+    border-radius: var(--border-radius-suave, 5px) var(--border-radius-suave, 5px) 0 0; 
     margin: 0;
     cursor: pointer;
 }
@@ -1980,11 +1866,11 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     font-size: clamp(1.1em, 2.5vw, 1.4em);
     margin-top: 0;
     margin-bottom: 8px;
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
 }
 .photo-card-caption p {
     font-size: 0.9em;
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped */
+    color: var(--color-texto-secundario, #2c1d12); 
     margin-bottom: 5px;
     line-height: 1.4;
     /* text-align: center; */ /* Inherits from .photo-card-caption */
@@ -1992,7 +1878,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .photo-author-gallery {
     font-size: 0.8em !important;
     font-style: italic;
-    color: var(--color-piedra-media, #D2B48C) !important; /* Mapped */
+    color: var(--color-piedra-media, #D2B48C) !important; 
     margin-top: 5px;
     /* text-align: center; */ /* Inherits from .photo-card-caption */
 }
@@ -2009,7 +1895,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.92); /* Mapped */
+  background-color: rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.92); 
 }
 .modal-content {
   margin: auto;
@@ -2019,8 +1905,8 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
   max-height: 85vh;
   animation-name: zoomModal;
   animation-duration: 0.5s;
-  border: 5px solid var(--color-piedra-clara, #EAE0C8); /* Mapped */
-  border-radius: var(--border-radius-suave, 5px); /* Mapped */
+  border: 5px solid var(--color-piedra-clara, #EAE0C8); 
+  border-radius: var(--border-radius-suave, 5px); 
 }
 @keyframes zoomModal {
   from {transform:scale(0.8)}
@@ -2032,7 +1918,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
   width: 80%;
   max-width: 700px;
   text-align: center;
-  color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
+  color: var(--color-piedra-clara, #EAE0C8); 
   padding: 15px 0;
   font-family: var(--font-titulos); /* Use theme font */
   font-size: 1.2em;
@@ -2041,14 +1927,14 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
   position: absolute;
   top: 15px;
   right: 35px;
-  color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
+  color: var(--color-piedra-clara, #EAE0C8); 
   font-size: 40px;
   font-weight: bold;
   transition: color var(--global-transition-speed) ease; /* Standardized */
 }
 .modal-close-button:hover,
 .modal-close-button:focus {
-  color: var(--color-acento-amarillo, #FFD700); /* Mapped */
+  color: var(--color-acento-amarillo, #FFD700); 
   text-decoration: none;
   cursor: pointer;
 }
@@ -2057,7 +1943,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .content-subsection {
     margin-bottom: 3.5em;
     padding-bottom: 2em;
-    border-bottom: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.3); /* Mapped */
+    border-bottom: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.3); 
 }
 
 .content-subsection:last-of-type {
@@ -2067,17 +1953,17 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 
 .content-subsection h3 {
     font-size: clamp(1.6em, 3.8vw, 2.2em);
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
     margin-bottom: 1em;
     padding-bottom: 0.3em;
-    border-bottom: 2px solid var(--color-secundario-dorado, #B8860B); /* Mapped */
+    border-bottom: 2px solid var(--color-secundario-dorado, #B8860B); 
     display: inline-block;
     text-align: left; /* Override global h3 centering if needed for this context */
 }
 
 .content-subsection h3 i {
     margin-right: 12px;
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped */
+    color: var(--color-secundario-dorado, #B8860B); 
 }
 
 .content-subsection p {
@@ -2094,11 +1980,11 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 
 .content-subsection figure {
     margin: 1em auto; /* Centered figure */
-    background-color: rgba(var(--color-fondo-pagina-rgb, 253, 250, 246), 0.5); /* Mapped */
+    background-color: rgba(var(--color-fondo-pagina-rgb, 253, 250, 246), 0.5); 
     padding: 10px;
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
-    box-shadow: var(--box-shadow-sutil, 0 4px 10px rgba(74, 13, 103, 0.07)); /* Mapped */
-    border: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.4); /* Mapped */
+    border-radius: var(--border-radius-suave, 5px); 
+    box-shadow: var(--box-shadow-sutil, 0 4px 10px rgba(74, 13, 103, 0.07)); 
+    border: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.4); 
     max-width: -moz-fit-content;
     max-width: fit-content; /* Allow figure to shrink to image size if image is smaller */
 }
@@ -2106,7 +1992,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .content-subsection figure img {
     border: none;
     margin-bottom: 0.5em;
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
+    border-radius: var(--border-radius-suave, 5px); 
     display: block; /* Ensure img is block for centering within figure */
     margin-left: auto; /* Center image within figure */
     margin-right: auto; /* Center image within figure */
@@ -2115,7 +2001,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .content-subsection figcaption {
     font-size: clamp(0.85em, 1.8vw, 0.95em);
     text-align: center; /* Figcaptions are often centered */
-    color: var(--color-texto-principal, #2c1d12); /* Mapped */
+    color: var(--color-texto-principal, #2c1d12); 
     font-style: italic;
     padding: 0.5em 0;
 }
@@ -2127,9 +2013,9 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 
 /* --- Styles for Comments Section --- */
 #comments-section {
-    background-color: rgba(var(--color-fondo-pagina-rgb, 253, 250, 246), 0.7); /* Mapped */
+    background-color: rgba(var(--color-fondo-pagina-rgb, 253, 250, 246), 0.7); 
     padding: 25px;
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
+    border-radius: var(--border-radius-suave, 5px); 
     margin-top: 2em;
 }
 
@@ -2140,16 +2026,16 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 
 #comments-section .contact-form-container { /* Re-using for comment form styling */
     box-shadow: none;
-    border: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.3); /* Mapped */
+    border: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.3); 
 }
 
 .comment-item {
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; /* Mapped */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; 
     padding: 15px;
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
+    border-radius: var(--border-radius-suave, 5px); 
     margin-bottom: 15px;
-    border: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    box-shadow: var(--box-shadow-sutil, 0 4px 10px rgba(74, 13, 103, 0.07)); /* Mapped */
+    border: 1px solid var(--color-piedra-media, #D2B48C); 
+    box-shadow: var(--box-shadow-sutil, 0 4px 10px rgba(74, 13, 103, 0.07)); 
 }
 
 .comment-item p {
@@ -2160,13 +2046,13 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 
 .comment-item strong {
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
     font-family: var(--font-titulos); /* Use theme font */
 }
 
 .comment-item small {
     font-size: 0.8em;
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped */
+    color: var(--color-texto-secundario, #2c1d12); 
     display: block;
     text-align: right;
     margin-top: 5px;
@@ -2185,16 +2071,16 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 
 .quiz-container {
-    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; /* Mapped */
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.75) !important; 
     padding: 20px;
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
-    border: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.4); /* Mapped */
+    border-radius: var(--border-radius-suave, 5px); 
+    border: 1px solid rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.4); 
 }
 
 .quiz-question {
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 1px dashed rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.3); /* Mapped */
+    border-bottom: 1px dashed rgba(var(--color-piedra-media-rgb, 210, 180, 140), 0.3); 
 }
 .quiz-question:last-of-type {
     border-bottom: none;
@@ -2203,7 +2089,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 
 .quiz-question p strong { /* Question text */
     font-family: var(--font-principal); /* Use theme font */
-    color: var(--color-texto-principal, #2c1d12); /* Mapped */
+    color: var(--color-texto-principal, #2c1d12); 
     text-align: left; /* Ensure question text is left aligned */
     display: block; /* Make it block for alignment */
 }
@@ -2223,18 +2109,18 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     padding: 10px 15px;
     font-family: var(--font-principal); /* Use theme font */
     font-size: 0.95em;
-    background-color: var(--color-piedra-clara, #EAE0C8); /* Mapped */
-    color: var(--color-texto-principal, #2c1d12); /* Mapped */
-    border: 1px solid var(--color-piedra-media, #D2B48C); /* Mapped */
-    border-radius: var(--border-radius-suave, 5px); /* Mapped */
+    background-color: var(--color-piedra-clara, #EAE0C8); 
+    color: var(--color-texto-principal, #2c1d12); 
+    border: 1px solid var(--color-piedra-media, #D2B48C); 
+    border-radius: var(--border-radius-suave, 5px); 
     cursor: pointer;
     transition: background-color var(--global-transition-speed), color var(--global-transition-speed); /* Standardized */
     text-align: left;
 }
 
 .quiz-options button:hover:not(:disabled) {
-    background-color: var(--color-secundario-dorado, #B8860B); /* Mapped */
-    color: var(--epic-purple-emperor); /* Mapped */
+    background-color: var(--color-secundario-dorado, #B8860B); 
+    color: var(--epic-purple-emperor); 
 }
 
 .quiz-options button:disabled {
@@ -2245,7 +2131,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 #quiz-feedback {
     min-height: 20px;
     font-size: 1.1em;
-    color: var(--epic-purple-emperor); /* Mapped */
+    color: var(--epic-purple-emperor); 
     text-align: center;
     opacity: 0;
     transform: translateY(10px);
@@ -2258,11 +2144,11 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 
 #gallery-promo-section .image-gallery-intro figure {
-    border: 2px solid var(--color-piedra-clara, #EAE0C8); /* Mapped */
+    border: 2px solid var(--color-piedra-clara, #EAE0C8); 
 }
 #gallery-promo-section .image-gallery-intro figcaption {
     font-size: 0.9em;
-    color: var(--color-texto-secundario, #2c1d12); /* Mapped */
+    color: var(--color-texto-secundario, #2c1d12); 
 }
 
 /* --- Scroll Animation Styling --- */
@@ -2290,12 +2176,8 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 
 .content-subsection figure:hover img {
     transform: scale(1.05);
-    box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); /* Mapped */
+    box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); 
 }
-
-
-/* --- Sidebar Styles from estilos.css --- */
-/* Sidebar styles from estilos.css were omitted as epic_theme.css provides comprehensive sidebar styling. */
 
 /* --- Styles from historia/nuestra_historia_nuevo4.html <style> block (Embedded in page) --- */
 /* These are highly specific to .article-content, so they should be fine. */
@@ -2306,7 +2188,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 }
 .article-content h3 {
     font-family: 'Cinzel', serif; /* Matches --font-headings */
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped to --epic-gold-secondary or similar */
+    color: var(--color-secundario-dorado, #B8860B); 
     margin-top: 1.5em;
     margin-bottom: 0.5em;
     text-align: left; /* Overrides global centering */
@@ -2314,7 +2196,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
 .article-content h4 {
     font-family: 'Lora', serif; /* Matches --font-primary */
     font-style: italic;
-    color: var(--epic-purple-emperor); /* Mapped to --epic-purple-emperor */
+    color: var(--epic-purple-emperor); 
     margin-top: 1em;
     margin-bottom: 0.3em;
     text-align: left; /* Overrides global centering */
@@ -2325,7 +2207,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     text-decoration: underline;
 }
 .article-content a:hover {
-    color: var(--color-secundario-dorado, #B8860B); /* Mapped to --epic-gold-secondary */
+    color: var(--color-secundario-dorado, #B8860B); 
 }
 /* --- End of styles from historia/nuestra_historia_nuevo4.html <style> block --- */
 
