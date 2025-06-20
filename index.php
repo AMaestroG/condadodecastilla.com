@@ -35,8 +35,8 @@ require_once __DIR__ . '/fragments/header.php';
     <header id="hero-video" class="relative h-screen w-full overflow-hidden">
         <video class="absolute inset-0 object-cover w-full h-full" src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" autoplay muted loop playsinline></video>
         <div id="hero-content" class="relative z-10 flex flex-col items-center justify-center h-full text-center opacity-0 transition-opacity duration-1000 ease-out">
-            <h1 class="font-serif text-yellow-300 text-3xl md:text-5xl shadow-lg drop-shadow-lg">Condado de Castilla: Cuna de Emperadores</h1>
-            <p class="mt-4 bg-black bg-opacity-50 text-white p-4 font-sans">Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.</p>
+            <h1 class="font-serif text-yellow-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl shadow-lg drop-shadow-lg">Condado de Castilla: Cuna de Emperadores</h1>
+            <p class="mt-4 bg-black bg-opacity-50 text-white p-4 sm:p-6 md:p-8 font-sans">Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.</p>
         </div>
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-yellow-300">
             <svg class="w-8 h-8 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,11 +54,11 @@ require_once __DIR__ . '/fragments/header.php';
         <a href="#inmersion" class="cta-button-small">Cultura Viva</a>
     </nav>
 
-    <section id="video" class="video-section section spotlight-active" data-aos="fade-up">
-        <div class="container-epic">
+    <section id="video" class="video-section section spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+        <div class="container-epic px-4 sm:px-6 lg:px-8">
             <h2 class="section-title">Un Vistazo a Nuestra Tierra</h2>
-            <div class="video-container">
-                <iframe
+            <div class="video-container mx-auto">
+                <iframe class="w-full h-full"
                     src="https://drive.google.com/file/d/1wm74VmKH21Nz7zFUkY8a8Z9672D4cyHN/preview"
                     title="Video promocional del Condado de Castilla y Cerezo de Río Tirón"
                     width="560" height="315"
@@ -73,8 +73,8 @@ require_once __DIR__ . '/fragments/header.php';
     </section>
 
     <main>
-        <section id="memoria" class="section detailed-intro-section spotlight-active" data-aos="fade-up">
-            <div class="container-epic">
+        <section id="memoria" class="section detailed-intro-section spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <div class="container-epic px-4 sm:px-6 lg:px-8">
                 <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', 'gradient-text tagline-background'); ?>
                 <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', ''); ?>
                 <p class="cta-group">
@@ -83,12 +83,12 @@ require_once __DIR__ . '/fragments/header.php';
             </div>
         </section>
 
-        <section id="legado" class="section alternate-bg spotlight-active" data-aos="fade-up">
-            <div class="container-epic">
+        <section id="legado" class="section alternate-bg spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <div class="container-epic px-4 sm:px-6 lg:px-8">
                 <h2 class="section-title">Explora Nuestro Legado</h2>
-                <div class="card-grid">
+                <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card">
-                        <img src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
+                        <img class="w-full h-auto" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
                         <div class="card-content">
                             <h3>Nuestra Historia</h3>
                             <p>Desde los Concanos y la Civitate Auca Patricia hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
@@ -96,7 +96,7 @@ require_once __DIR__ . '/fragments/header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
+                        <img class="w-full h-auto" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
                         <div class="card-content">
                             <h3>Lugares Emblemáticos</h3>
                             <p>Descubre el imponente Alcázar de Casio, los secretos de la Civitate Auca y otros tesoros arqueológicos que esperan ser explorados.</p>
@@ -104,7 +104,7 @@ require_once __DIR__ . '/fragments/header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
+                        <img class="w-full h-auto" src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
                         <div class="card-content">
                             <h3>Planifica Tu Visita</h3>
                             <p>Encuentra toda la información que necesitas para tu aventura en Cerezo de Río Tirón: cómo llegar, dónde alojarte y qué no te puedes perder.</p>
@@ -115,12 +115,12 @@ require_once __DIR__ . '/fragments/header.php';
             </div>
         </section>
 
-        <section id="personajes" class="section" data-aos="fade-up">
-            <div class="container-epic">
+        <section id="personajes" class="section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <div class="container-epic px-4 sm:px-6 lg:px-8">
                 <h2 class="section-title">Personajes de la Historia</h2>
-                <div class="card-grid">
+                <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card">
-                        <img src="/assets/img/Casio.png" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII">
+                        <img class="w-full h-auto" src="/assets/img/Casio.png" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII">
                         <div class="card-content">
                             <h3>Conde Casio</h3>
                             <p>Figura fundamental del siglo VIII, se le atribuye la construcción o refuerzo del Alcázar de Cerezo.</p>
@@ -128,7 +128,7 @@ require_once __DIR__ . '/fragments/header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/GonzaloTellez.png" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo">
+                        <img class="w-full h-auto" src="/assets/img/GonzaloTellez.png" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo">
                         <div class="card-content">
                             <h3>Gonzalo Téllez</h3>
                             <p>Conde de Lantarón y Cerezo (c. 897 - c. 913), personaje clave en la consolidación de los territorios.</p>
@@ -136,7 +136,7 @@ require_once __DIR__ . '/fragments/header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img src="/assets/img/FernandoDiaz.png" alt="Representación artística de Fernando Díaz, conde castellano">
+                        <img class="w-full h-auto" src="/assets/img/FernandoDiaz.png" alt="Representación artística de Fernando Díaz, conde castellano">
                         <div class="card-content">
                             <h3>Fernando Díaz</h3>
                             <p>Sucesor de Gonzalo Téllez, continuó la labor de defensa y organización en la primitiva Castilla.</p>
@@ -150,8 +150,8 @@ require_once __DIR__ . '/fragments/header.php';
             </div>
         </section>
         
-        <section id="timeline" class="section timeline-section-summary alternate-bg" data-aos="fade-up">
-            <div class="container-epic">
+        <section id="timeline" class="section timeline-section-summary alternate-bg py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <div class="container-epic px-4 sm:px-6 lg:px-8">
                 <h2 class="section-title">Nuestra Historia en el Tiempo</h2>
                 <p class="timeline-intro">Un recorrido conciso por los momentos más determinantes de nuestra región, desde la prehistoria hasta la consolidación del Condado. Cada época ha dejado una huella imborrable.</p>
                 <p class="cta-group">
@@ -160,8 +160,8 @@ require_once __DIR__ . '/fragments/header.php';
             </div>
         </section>
 
-        <section id="inmersion" class="section immersion-section" data-aos="fade-up">
-            <div class="container-epic">
+        <section id="inmersion" class="section immersion-section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <div class="container-epic px-4 sm:px-6 lg:px-8">
                 <h2>Sumérgete en la Historia Viva de Tu Cultura</h2>
                 <p>
                     Esta web es más que información; es una puerta a tus raíces. Un viaje al origen del castellano y la identidad hispana te espera.
