@@ -56,6 +56,6 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
 <?php endif; ?>
 </main>
 <?php include __DIR__.'/fragments/footer.php'; ?>
-<script src="/js/layout.js"></script>
+<script src="/assets/js/layout.js"></script>
 </body>
 </html>

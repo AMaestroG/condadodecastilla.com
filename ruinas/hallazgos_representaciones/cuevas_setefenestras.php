@@ -22,5 +22,5 @@
         <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">El acceso a estas cuevas es descrito como difícil y peligroso, recomendándose guía local. Se menciona que se "abrió camino" en 2018.</p>
         <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Las cuevas de Setefenestras también se relacionan con el Circo Romano de Auca Patricia y la iglesia de San Millán.</p>
     </div></section></main>
-    <?php require_once __DIR__ . '/../fragments/footer.php'; ?><script src="/js/layout.js"></script>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?><script src="/assets/js/layout.js"></script>
 </body></html>

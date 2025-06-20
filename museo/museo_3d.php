@@ -5,14 +5,14 @@
     <title>Museo 3D Interactivo - Condado de Castilla</title>
     <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/assets/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/assets/js/controls/PointerLockControls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/assets/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/assets/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/assets/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/assets/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/assets/js/shaders/CopyShader.js"></script>
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
 <body class="alabaster-bg">
@@ -37,15 +37,15 @@
     </section>
 
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
-    <script src="/js/config.js"></script>
-    <script src="/js/layout.js"></script>
-    <script src="/js/museum-3d/utils.js"></script>
-    <script src="/js/museum-3d/config.js"></script>
-    <script src="/js/museum-3d/sceneManager.js"></script>
-    <script src="/js/museum-3d/museumLayout.js"></script>
-    <script src="/js/museum-3d/playerControls.js"></script>
-    <script src="/js/museum-3d/exhibitManager.js"></script>
-    <script src="/js/museo-3d-main.js"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/museum-3d/utils.js"></script>
+    <script src="/assets/js/museum-3d/config.js"></script>
+    <script src="/assets/js/museum-3d/sceneManager.js"></script>
+    <script src="/assets/js/museum-3d/museumLayout.js"></script>
+    <script src="/assets/js/museum-3d/playerControls.js"></script>
+    <script src="/assets/js/museum-3d/exhibitManager.js"></script>
+    <script src="/assets/js/museo-3d-main.js"></script>
 
     <div id="pointer-lock-instructions" class="pointer-lock-instructions">
         <div>

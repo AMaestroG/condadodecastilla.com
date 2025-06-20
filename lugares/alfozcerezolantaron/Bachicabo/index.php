@@ -12,6 +12,6 @@
   <h2>Historia</h2>
   <p>Perteneciente al <a href="/alfoz/alfoz.php">Alfoz de Cerasio y Lantarón</a>. Las referencias escritas más antiguas que se conservan sobre el pueblo son del año 1028.</p>
   <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
-  <script src="/js/layout.js" defer></script>
+  <script src="/assets/js/layout.js" defer></script>
 </body>
 </html>
