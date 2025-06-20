@@ -5,83 +5,12 @@ document.addEventListener("DOMContentLoaded", function() {
     loadHeaderCss();
     loadFixedTogglesCss();
     loadIAToolsScript();
-    // initializeSidebarNavigation();
     // initializeIAChatSidebar();
 
 
     // Other interactive effects
     initializeLinterna();
 });
-
-// NEW: Function to handle sidebar interactions
-function initializeSidebarNavigation() {
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const body = document.body;
-
-    if (sidebarToggle && sidebar && body) { // Added body check
-        sidebarToggle.addEventListener('click', () => {
-            // alert("Sidebar toggle clicked! Test Non-Firefox PC."); // Temporary debug
-            const opening = !sidebar.classList.contains('sidebar-visible');
-            sidebar.classList.toggle('sidebar-visible');
-            body.classList.toggle('sidebar-active'); // For main content shift
-            // const iaToggle = document.getElementById('ia-chat-toggle');
-            // if (iaToggle) iaToggle.click(); // Prevent AI chat from opening with main sidebar
-            if (window.gsap) {
-                if (opening) {
-                    gsap.fromTo(sidebar, { x: '-100%' }, { x: '0%', duration: 0.35, ease: 'power2.out', clearProps: 'transform' });
-                } else {
-                    gsap.to(sidebar, { x: '-100%', duration: 0.35, ease: 'power2.in', onComplete: () => { sidebar.style.transform = ''; } });
-                }
-            }
-            // Optional: Change toggle button text/icon and ARIA attribute
-            if (sidebar.classList.contains('sidebar-visible')) {
-                sidebarToggle.setAttribute('aria-expanded', 'true');
-                // sidebarToggle.textContent = '✕'; // Example: Change to X
-            } else {
-                sidebarToggle.setAttribute('aria-expanded', 'false');
-                // sidebarToggle.textContent = '☰'; // Example: Change back to burger
-            }
-        });
-
-        const links = sidebar.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768 && sidebar.classList.contains('sidebar-visible')) {
-                    sidebar.classList.remove('sidebar-visible');
-                    body.classList.remove('sidebar-active');
-                    if (window.gsap) {
-                        gsap.to(sidebar, { x: '-100%', duration: 0.35, ease: 'power2.in', onComplete: () => { sidebar.style.transform = ''; } });
-                    }
-                    sidebarToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-            link.addEventListener('mouseenter', () => {
-                if (window.gsap) {
-                    gsap.to(link, { paddingLeft: '20px', duration: 0.2, ease: 'power2.out' });
-                }
-            });
-            link.addEventListener('mouseleave', () => {
-                if (window.gsap) {
-                    gsap.to(link, { paddingLeft: '12px', duration: 0.2, ease: 'power2.in' });
-                }
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && sidebar.classList.contains('sidebar-visible')) {
-                sidebar.classList.remove('sidebar-visible');
-                body.classList.remove('sidebar-active');
-                if (window.gsap) {
-                    gsap.to(sidebar, { x: '-100%', duration: 0.35, ease: 'power2.in', onComplete: () => { sidebar.style.transform = ''; } });
-                }
-                sidebarToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    } else {
-        console.error("Sidebar toggle, sidebar element, or body not found.");
-    }
-}
 
 // Initialize theme toggle button
 
@@ -112,37 +41,6 @@ function initializeLinterna() {
         s.addEventListener('mouseleave', deactivate);
     });
 }
-
-/*
-// OLD function to be removed or commented out:
-function initializeMobileNavigation() {
-    // Script para el menú de navegación móvil
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    // Check if elements exist before adding event listeners
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-            navToggle.setAttribute('aria-expanded', !isExpanded);
-            navLinks.classList.toggle('active');
-        });
-
-        // Opcional: Cerrar menú al hacer clic en un enlace
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Check if navLinks is active before trying to remove class and set attribute
-                if (navLinks.classList.contains('active')) {
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-    } else {
-        console.error("Mobile navigation elements not found. Header might not be loaded correctly.");
-    }
-}
-*/
 
 // --- Section Spotlight Effect ---
 document.addEventListener('DOMContentLoaded', () => {
