@@ -152,14 +152,15 @@
 #sidebar {
     position: fixed;
     top: 0;
-    left: -280px; /* Initial hidden state */
+    left: 0; /* Base position for transform */
     width: 280px;
     height: 100vh;
-    background-color: var(--epic-alabaster-bg);
-    backdrop-filter: blur(5px); /* Optional: frosted glass effect */
+    background-color: rgba(var(--epic-alabaster-bg-rgb, 253, 250, 246), 0.55);
+    backdrop-filter: blur(7px); /* Optional: frosted glass effect */
     padding: 25px 15px; /* Refined padding */
     box-shadow: 3px 0 15px rgba(var(--epic-text-color-rgb), 0.25);
-    transition: left var(--global-transition-speed) ease-in-out;
+    transform: translateX(-100%); /* Hidden off-screen */
+    transition: transform var(--global-transition-speed) ease-in-out;
     overflow-y: auto;
     z-index: 3000;
     display: flex;
@@ -168,7 +169,7 @@
 }
 
 #sidebar.sidebar-visible {
-    left: 0;
+    transform: translateX(0); /* Shown on-screen */
 }
 
 #sidebar-toggle {
@@ -263,7 +264,7 @@ body.sidebar-active #sidebar-toggle:hover .bar {
 #sidebar .nav-links a {
     display: block;
     padding: 12px 15px;
-    color: var(--epic-text-light); /* Light text for dark sidebar */
+    color: var(--epic-text-dark, #333333); /* Light text for dark sidebar */
     font-family: var(--font-headings);
     font-size: 1.1em;
     font-weight: 600;
@@ -315,6 +316,18 @@ body.sidebar-active {
     body.sidebar-active { margin-left: 0; }
     /* body.sidebar-active #sidebar-toggle { left: 15px; } */
     /* Right panel handled via body.menu-open-right in sliding_menu.css */
+
+    #sidebar {
+        /* Explicitly define for mobile - consistent with desktop for now */
+        background-color: rgba(var(--epic-alabaster-bg-rgb, 253, 250, 246), 0.55);
+        backdrop-filter: blur(7px);
+        width: 80vw; /* Responsive width for mobile */
+        max-width: 300px; /* Max width for mobile */
+    }
+    #sidebar .nav-links a {
+        /* Explicitly define for mobile - consistent with desktop for now */
+        color: var(--epic-text-dark, #333333);
+    }
 }
 
 /* Mute Toggle Button */

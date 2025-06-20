@@ -1,5 +1,20 @@
 (function(){
     function handleMenuToggle(open){
+        // Check global mute state from the mute button
+        const globalMuteButton = document.getElementById('mute-toggle');
+        const isMuted = globalMuteButton ? globalMuteButton.getAttribute('aria-pressed') === 'true' : false;
+
+        if (!isMuted) {
+            if (open) {
+                const audioOpen = new Audio('assets/sounds/menu-open.mp3');
+                audioOpen.play().catch(error => console.error("Error playing menu open sound:", error));
+            } else {
+                const audioClose = new Audio('assets/sounds/menu-close.mp3');
+                audioClose.play().catch(error => console.error("Error playing menu close sound:", error));
+            }
+        }
+
+        // Existing logic for adjusting volume of page media
         document.querySelectorAll('audio, video').forEach(el => {
             if(el.dataset.originalVolume === undefined){
                 el.dataset.originalVolume = el.volume;

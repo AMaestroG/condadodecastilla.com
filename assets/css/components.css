@@ -1,5 +1,10 @@
 /* Common reusable component styles */
 
+:root {
+    --epic-alabaster-bg-rgb: 253, 250, 246;
+    --global-transition-speed: 0.3s;
+}
+
 .article-content p {
     margin-bottom: 1em;
     line-height: 1.6;
