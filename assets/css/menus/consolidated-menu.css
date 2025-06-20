@@ -7,7 +7,7 @@
     margin-top: 0; /* Align button with top header */
     z-index: 1005 !important; /* keep above menu */
     padding: 8px 12px; /* Slightly more compact */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5);
     color: var(--epic-alabaster-bg);
     border: none;
     border-radius: 5px;
@@ -17,7 +17,7 @@
 }
 
 #consolidated-menu-button:hover {
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.75);
     color: var(--epic-gold-main);
 }
 
@@ -43,7 +43,7 @@
     width: 300px; /* Adjust width as needed */
     max-width: 80%; /* Max width for smaller screens */
     /* Purple translucent backdrop for the sliding menu */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.6); /* Semi-transparent purple */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5); /* Increased transparency */
     backdrop-filter: blur(5px); /* Blur effect for transparency */
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     z-index: 1000;
@@ -88,7 +88,7 @@
     width: 100%;
     padding: 10px 12px; /* Compacted */
     margin-bottom: 8px; /* Compacted */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.66);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5);
     border: 1px solid var(--epic-purple-emperor);
     border-radius: 4px;
     text-align: left;
@@ -100,7 +100,7 @@
 }
 
 .menu-panel .menu-item-button:hover {
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.9);
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.75);
     color: var(--epic-gold-main);
 }
 

@@ -8,7 +8,7 @@
     z-index: 4000;
     /* Combine alabaster texture with a semi-transparent purple overlay */
     height: var(--header-footer-height);
-    background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.85), rgba(var(--epic-purple-emperor-rgb), 0.85)), var(--alabaster-background-image);
+    background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.6), rgba(var(--epic-purple-emperor-rgb), 0.6)), var(--alabaster-background-image);
     background-size: cover;
     padding: 5px 10px;
     display: flex;
@@ -29,7 +29,7 @@
     left: 0;
     right: 0;
     height: 48px;
-    background: rgba(var(--epic-purple-emperor-rgb), 0.85);
+    background: rgba(var(--epic-purple-emperor-rgb), 0.6);
     z-index: 3000;
 }
 
