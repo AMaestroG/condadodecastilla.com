@@ -6,9 +6,10 @@
     left: 0;
     right: 0;
     z-index: 4000;
-    /* Use a semi-transparent purple tone for the fixed button bar */
+    /* Combine alabaster texture with a semi-transparent purple overlay */
     height: var(--header-footer-height);
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.85);
+    background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.85), rgba(var(--epic-purple-emperor-rgb), 0.85)), var(--alabaster-background-image);
+    background-size: cover;
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
@@ -17,8 +18,9 @@
 
 .header-action-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 8px; /* vertical spacing between buttons */
+    flex-direction: row; /* icons and buttons inline */
+    align-items: center;
+    gap: 8px; /* horizontal spacing between buttons */
 }
 
 .top-empty-bar {
