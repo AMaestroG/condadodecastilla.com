@@ -101,5 +101,13 @@ body.dark-mode #theme-toggle:hover i {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 4010;
-    pointer-events: none;
+    pointer-events: auto;
+}
+#header-escudo-overlay.reveal {
+    animation: escudoReveal 0.6s ease-in-out;
+}
+@keyframes escudoReveal {
+    0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { transform: translate(-50%, -50%) scale(1.2) rotate(5deg); }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
 }
