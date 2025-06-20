@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>Interpretación del Becerro Galicano</h3>
@@ -36,7 +36,7 @@
 <p>Leer bien como habla la fundación de tres Basílicas en tres lugares diferentes. Y dice muy claramente Civitate de Auki Patriciani, las separa con una coma y un Et. Remarcar lo de civitate pues no es lo mismo en territorio de Auka patriciani que en la ciudad de Auca Patriciani.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

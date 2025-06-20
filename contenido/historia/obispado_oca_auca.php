@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>La Sede Episcopal de Auca</h3>
@@ -28,7 +28,7 @@
 <p><strong>Mumio, Munio <em>o </em>Munimio (589-614*)</strong>. Asiste al III Concilio de Toledo (589), al II de Zaragoza (592) y al de Barcelona (599). Firma el III Concilio de Toledo, que se celebra bajo Recaredo. Leovigildo ha conquistado y sometido a los pueblos del norte en 574 y desde entonces empiezan a asistir a los Concilios sus obispos: el de Pamplona, el de Calahorra, el de Tarazona y el de Auca.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

@@ -32,7 +32,7 @@ load_page_css();
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/imagenes/mapa_antiguo_detalle.jpg');">
         <div class="hero-content">
             <h1><?php echo htmlspecialchars($titulo_pagina); ?></h1>
@@ -70,7 +70,7 @@ load_page_css();
             </div>
         </section>
     </main>
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

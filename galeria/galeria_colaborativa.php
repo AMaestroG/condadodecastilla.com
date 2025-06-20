@@ -55,7 +55,7 @@ if (is_dir($gallery_dir)) {
 <body class="alabaster-bg">
     <div id="linterna-condado" class="bg-linterna-gradient"></div> <!-- Para el efecto de linterna -->
     
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
     <header class="page-header hero hero-galeria">
         <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->
@@ -119,7 +119,7 @@ if (is_dir($gallery_dir)) {
         <div id="modalCaption"></div>
     </div>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 
     <!-- Tu script layout.js para cargar el header/sidebar -->
     <script src="/js/layout.js"></script> 

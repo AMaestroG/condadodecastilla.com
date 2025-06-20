@@ -1,7 +1,7 @@
 const fs = require('fs');
 const {JSDOM} = require('jsdom');
 
-const headerHtml = fs.readFileSync('_header.php', 'utf8');
+const headerHtml = fs.readFileSync('fragments/header.php', 'utf8');
 const scriptJs = fs.readFileSync('assets/js/main.js', 'utf8');
 
 const dom = new JSDOM(`<body>${headerHtml}</body>`, {

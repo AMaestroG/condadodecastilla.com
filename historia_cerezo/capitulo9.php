@@ -9,7 +9,7 @@
     <title>Capítulo 9: Cerezo en la Plena y Baja Edad Media (Siglos XII-XV): Entre el Esplendor y la Crisis</title>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . "/../_header.php"; ?>
+    <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
 <h1>Capítulo 9: Cerezo en la Plena y Baja Edad Media (Siglos XII-XV): Entre el Esplendor y la Crisis</h1>
 
@@ -63,7 +63,7 @@
     <p><a href="capitulo8.php">Volver al Capítulo 8</a></p>
     <p><a href="index.php">Volver al Índice Principal</a></p>
 
-    <?php require_once __DIR__ . "/../_footer.php"; ?>
+    <?php require_once __DIR__ . "/../fragments/footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

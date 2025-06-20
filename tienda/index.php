@@ -14,7 +14,7 @@ require_once __DIR__ . '/../includes/auth.php';
     ?>
 </head>
 <body class="alabaster-bg">
-<?php require_once __DIR__ . '/../_header.php'; ?>
+<?php require_once __DIR__ . '/../fragments/header.php'; ?>
 <main class="container page-content-block">
     <h1 class="section-title">Tienda</h1>
     <div class="card-grid">
@@ -44,6 +44,6 @@ require_once __DIR__ . '/../includes/auth.php';
         </div>
     </div>
 </main>
-<?php require_once __DIR__ . '/../_footer.php'; ?>
+<?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 </body>
 </html>

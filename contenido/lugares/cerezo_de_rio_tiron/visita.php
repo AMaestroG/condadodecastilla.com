@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>Planifica Tu Visita a Cerezo</h3>
@@ -13,7 +13,7 @@
 <p class="text-center" style="margin-top: 2em;"><a href="/visitas/visitas.html" class="cta-button cta-button-small">Ir a Planifica Tu Visita</a></p>
     </main>
 
-    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

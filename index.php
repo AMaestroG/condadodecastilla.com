@@ -29,7 +29,7 @@ require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
 <?php
 // Use dynamic PHP header if available so menu fragments can contain
 // server-side logic like the admin login menu.
-require_once __DIR__ . '/_header.php';
+require_once __DIR__ . '/fragments/header.php';
 ?>
 
     <header id="hero-video" class="relative h-screen w-full overflow-hidden">
@@ -172,7 +172,7 @@ require_once __DIR__ . '/_header.php';
         </section>
     </main>
 
-    <?php require_once __DIR__ . '/_footer.php'; ?>
+    <?php require_once __DIR__ . '/fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 
 </body>

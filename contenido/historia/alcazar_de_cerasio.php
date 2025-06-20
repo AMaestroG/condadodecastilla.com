@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>Construcción y Materiales</h3>
@@ -25,7 +25,7 @@
 <p>El origen de Castilla es Cerasio u su Alcázar de Alabastro de 1200 metros de largo con capacidad para albergar el Alcázar del Conde de Castilla y Alava a su corte de funcionarios sus soldados y familias, documentado que los primeros condes de Castilla gobernaron desde el Alcázar de Cerasio en Cerezo de Río Tirón. Con su extenso alfoz que cuenta con Valpuesta y Pancorvo dentro. El Alcázar fue construido en el siglo VIII por el Conde Casio, el Alcázar de Cerasio, con los restos de la ciudad romana de Auca Patriciani capital de la Cantabrica desde donde se gobernaban las Vardulias. La antigua segisamam donde César Augusto puso su cuartel general en las guerras Cantabras.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

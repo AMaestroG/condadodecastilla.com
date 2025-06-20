@@ -24,7 +24,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
     <title>Atapuerca</title>
 </head>
 <body class="alabaster-bg">
-<?php require_once __DIR__ . '/../_header.php'; ?>
+<?php require_once __DIR__ . '/../fragments/header.php'; ?>
     <header class="page-header hero hero-atapuerca"> <!-- Basic hero style -->
         <div class="hero-content">
             <h1><?php editableText('atapuerca_titulo_hero', $pdo, 'Los Yacimientos de la Sierra de Atapuerca'); ?></h1>
@@ -90,7 +90,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
             </div>
         </section>
     </main>
-<?php require_once __DIR__ . '/../_footer.php'; ?>
+<?php require_once __DIR__ . '/../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
