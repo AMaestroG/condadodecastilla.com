@@ -2,10 +2,11 @@
   "dependencies": {
     "sass": "^1.89.2"
   },
-    "devDependencies": {
-      "puppeteer": "^24.10.2",
-      "tailwindcss": "^4.1.10"
-    },
+  "devDependencies": {
+    "puppeteer": "^24.10.2",
+    "svgo": "^3.3.2",
+    "tailwindcss": "^4.1.10"
+  },
   "scripts": {
     "pretest:puppeteer": "php -S localhost:8080 >/dev/null 2>&1 &",
     "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/muteToggleTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js && node tests/moonToggleTest.js && node tests/linternaGradientTest.js",
