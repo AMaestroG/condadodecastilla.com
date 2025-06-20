@@ -97,12 +97,7 @@ body.menu-open-right {
 }
 
 @media (max-width: 768px) {
-  body.menu-compressed,
-  body.menu-open-left,
-  body.menu-open-right {
-    transform: none;
-  }
-
+  /* Preserve the compression effect also on small screens */
   #consolidated-menu-items {
     display: none !important;
   }
