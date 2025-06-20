@@ -6,4 +6,10 @@
   .bg-linterna-gradient {
     @apply bg-gradient-radial from-yellow-200 via-transparent;
   }
+  .font-headings {
+    font-family: var(--font-headings);
+  }
+  .font-body {
+    font-family: var(--font-primary);
+  }
 }
