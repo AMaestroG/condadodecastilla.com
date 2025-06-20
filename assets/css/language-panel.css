@@ -18,6 +18,12 @@
     z-index: 1000;
 }
 
+@media (max-width: 480px) {
+    #language-panel {
+        width: 90%;
+    }
+}
+
 #language-panel #google_translate_element {
     margin-bottom: 15px;
     display: none;
