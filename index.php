@@ -35,8 +35,8 @@ require_once __DIR__ . '/fragments/header.php';
     <header id="hero-video" class="relative h-screen w-full overflow-hidden">
         <video class="absolute inset-0 object-cover w-full h-full" src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" autoplay muted loop playsinline></video>
         <div id="hero-content" class="relative z-10 flex flex-col items-center justify-center h-full text-center opacity-0 transition-opacity duration-1000 ease-out">
-            <h1 class="font-serif text-yellow-300 text-3xl md:text-5xl shadow-lg drop-shadow-lg">Condado de Castilla: Cuna de Emperadores</h1>
-            <p class="mt-4 bg-black bg-opacity-50 text-white p-4 font-sans">Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.</p>
+            <h1 class="font-headings text-yellow-300 text-4xl md:text-5xl shadow-lg drop-shadow-lg">Condado de Castilla: Cuna de Emperadores</h1>
+            <p class="mt-4 bg-black bg-opacity-50 text-white p-4 font-body text-lg">Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.</p>
         </div>
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-yellow-300">
             <svg class="w-8 h-8 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

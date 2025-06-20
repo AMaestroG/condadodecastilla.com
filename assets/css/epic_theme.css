@@ -191,7 +191,8 @@ h1, h2, h3 {
     animation: slideUpFadeIn 0.6s ease-out forwards;
 }
 
-h1 { font-size: clamp(2.8em, 6vw, 4.2em); }
+/* Font size handled via Tailwind's text-4xl class */
+h1 {}
 
 /* Gradient Text for H1 */
 h1 {
@@ -202,7 +203,7 @@ h1 {
     color: transparent !important; /* Ensure this overrides other color settings */
 }
 
-h2 { font-size: clamp(2.2em, 5vw, 3.2em); color: var(--epic-gold-secondary); } /* Secondary gold for H2 for variety */
+h2 { color: var(--epic-gold-secondary); }
 h3 { font-size: clamp(1.8em, 4vw, 2.5em); }
 h4 { font-size: clamp(1.4em, 3.5vw, 2em); }
 h5 { font-size: clamp(1.2em, 3vw, 1.7em); }
@@ -239,6 +240,7 @@ p {
     /* margin-left: auto; and margin-right: auto; removed for default left align */
     text-shadow: 0 1px 2px rgba(var(--epic-alabaster-medium-rgb), 0.4); /* Subtle shadow for depth/readability */
     text-align: left;
+    /* Font size handled via Tailwind's text-lg class */
 }
 
 /* --- Links --- */
@@ -1663,7 +1665,7 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     background-color: var(--color-secundario-dorado, #B8860B); /* Mapped */
     color: var(--epic-purple-emperor) !important; /* Mapped */
     border-radius: 25px;
-    font-family: "Cinzel", serif; /* Use theme font */
+    font-family: var(--font-headings); /* Use theme font */
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -2305,14 +2307,14 @@ ul li, ol li { text-align: center; } // Broader rule from estilos.css
     /* text-align: left; is default for p in epic_theme.css, so this is fine */
 }
 .article-content h3 {
-    font-family: 'Cinzel', serif; /* Matches --font-headings */
+    font-family: var(--font-headings); /* Matches --font-headings */
     color: var(--color-secundario-dorado, #B8860B); /* Mapped to --epic-gold-secondary or similar */
     margin-top: 1.5em;
     margin-bottom: 0.5em;
     text-align: left; /* Overrides global centering */
 }
 .article-content h4 {
-    font-family: 'Lora', serif; /* Matches --font-primary */
+    font-family: var(--font-primary); /* Matches --font-primary */
     font-style: italic;
     color: var(--epic-purple-emperor); /* Mapped to --epic-purple-emperor */
     margin-top: 1em;

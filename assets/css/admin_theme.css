@@ -2,7 +2,7 @@
 
 /* Admin dashboard common styles */
 body.admin-page {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-primary);
     margin: 0;
     padding: 0;
     background-color: var(--epic-alabaster-bg);

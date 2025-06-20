@@ -42,12 +42,12 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
 <main class="container page-content-block">
 <?php if ($post_slug && isset($posts[$post_slug])): ?>
     <article class="blog-post">
-        <h1><?php echo htmlspecialchars($posts[$post_slug]['title']); ?></h1>
+        <h1 class="font-headings text-4xl"><?php echo htmlspecialchars($posts[$post_slug]['title']); ?></h1>
         <?php echo render_markdown(file_get_contents($posts[$post_slug]['file'])); ?>
-        <p><a href="blog.php">&larr; Volver al listado</a></p>
+        <p class="font-body text-lg"><a href="blog.php">&larr; Volver al listado</a></p>
     </article>
 <?php else: ?>
-    <h1>Blog</h1>
+    <h1 class="font-headings text-4xl">Blog</h1>
     <ul class="blog-list">
     <?php foreach ($posts as $slug => $info): ?>
         <li><a href="blog.php?post=<?php echo urlencode($slug); ?>"><?php echo htmlspecialchars($info['title']); ?></a></li>

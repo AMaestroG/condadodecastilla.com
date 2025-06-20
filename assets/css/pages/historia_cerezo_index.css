@@ -1,4 +1,4 @@
-        body { font-family: sans-serif; margin: 20px; }
+        body { font-family: var(--font-primary); margin: 20px; }
         nav ul { list-style-type: none; padding: 0; }
         nav ul li { margin-bottom: 10px; }
         nav h2 { margin-top: 30px; }

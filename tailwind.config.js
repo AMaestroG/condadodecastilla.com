@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        headings: ['Cinzel', 'serif'],
+        body: ['Lora', 'serif'],
+      },
       colors: {
         purple: '#800080',
         'old-gold': '#cfb53b',
