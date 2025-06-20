@@ -22,7 +22,7 @@ Este repositorio puede mostrar textos generados automáticamente. Estos contenid
 - Textos con degradados de alto contraste.
 - Paleta que cambia automáticamente según la hora del visitante (amanecer, mediodía, atardecer o noche) con opción manual.
 - Foro con cinco agentes expertos para dinamizar la comunidad.
-- El script `assets/js/audio-controller.js` atenúa el volumen de los elementos `<audio>` y `<video>` cuando cualquier menú deslizante está activo. Escucha el evento `menu-toggled` y expone la función `handleMenuToggle`, invocada directamente por otros scripts como `assets/js/main.js`.
+- El script `/assets/js/audio-controller.js` atenúa el volumen de los elementos `<audio>` y `<video>` cuando cualquier menú deslizante está activo. Escucha el evento `menu-toggled` y expone la función `handleMenuToggle`, invocada directamente por otros scripts como `assets/js/main.js`.
 
 ### Modo luna
 
