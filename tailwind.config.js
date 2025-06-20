@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   // Include tailwind_base.css so @layer directives inside it are processed
   content: [
@@ -16,11 +18,18 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       fontFamily: {
-        headings: ['Cinzel', 'serif'],
-        body: ['Lora', 'serif'],
+        headings: ['var(--font-headings)'],
+        body: ['var(--font-primary)'],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities, theme }) {
+      addUtilities({
+        '.font-headings': { fontFamily: theme('fontFamily.headings') },
+        '.font-body': { fontFamily: theme('fontFamily.body') },
+      })
+    }),
+  ],
 }
 
