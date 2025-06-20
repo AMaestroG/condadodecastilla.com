@@ -23,6 +23,7 @@ require_once __DIR__ . '/env_loader.php';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" />
 <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous"></script>
 <script defer src="/assets/js/polyfills.js"></script>
+<script defer src="/assets/js/homonexus-toggle.js"></script>
 <link rel="stylesheet" href="/assets/css/torch_cursor.css">
 <script defer src="/assets/js/torch_cursor.js"></script>
 <link rel="stylesheet" href="/assets/css/glow_filter.css">

@@ -322,3 +322,21 @@ body.sidebar-active {
     background-color: var(--epic-purple-emperor);
     color: var(--epic-gold-main);
 }
+
+/* Homonexus Toggle Button */
+#homonexus-toggle {
+    padding: 6px 10px;
+    background-image: linear-gradient(135deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    color: var(--epic-text-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-position 0.3s ease;
+    background-size: 200% 100%;
+    background-position: 0 0;
+}
+
+#homonexus-toggle:hover {
+    background-position: 100% 0;
+}
