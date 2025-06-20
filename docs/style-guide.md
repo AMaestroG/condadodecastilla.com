@@ -100,3 +100,20 @@ Para agilizar la carga se recomienda emplear formatos modernos y limitar las dim
 - Utiliza el script [`scripts/compress_images.sh`](../scripts/compress_images.sh) para generar versiones optimizadas o miniaturas.
 
 Actualmente existen archivos superiores a 2&nbsp;MB en `assets/img/` (por ejemplo `GonzaloTellez.png`), conviene reconvertirlos a WebP o aplicar compresión.
+
+
+## Accesibilidad
+
+Para resaltar los estados activos se emplean los atributos `aria-expanded` y `aria-hidden`.
+Cuando un botón está expandido (`aria-expanded="true"`) o un panel visible
+(`aria-hidden="false"`), se aplican colores variables para mayor contraste.
+
+```css
+#consolidated-menu-button[aria-expanded="true"] {
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+}
+.menu-panel[aria-hidden="false"] {
+    border: 2px solid var(--epic-gold-main);
+}
+```
