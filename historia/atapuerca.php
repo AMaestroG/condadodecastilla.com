@@ -43,6 +43,10 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                     <button class="lang-btn" data-lang="fr-ai" title="Simular traducción al Francés por IA">Francés (Traducción IA)</button>
                     <button class="lang-btn" data-lang="de-ai" title="Simular traducción al Alemán por IA">Alemán (Traducción IA)</button>
                 </div>
+                <p class="ai-notice-inline">
+                    Texto generado automáticamente. Consulta nuestra
+                    <a href="/docs/responsible-ai.md">política de uso de IA</a>.
+                </p>
                 <article class="content-article"> <!-- Using a generic class for content styling -->
                     <div id="textoPrincipalAtapuerca">
                         <h3><?php editableText('atapuerca_ctx_geo_titulo', $pdo, 'Contexto Geográfico y Geológico'); ?></h3>
@@ -64,6 +68,10 @@ require_once __DIR__ . '/../includes/ai_utils.php';
                 <div class="text-center my-30"> <!-- Contenedor para centrar el botón -->
                     <button id="btnResumenIA" class="cta-button cta-large">Ver Resumen Inteligente</button>
                 </div>
+                <p class="ai-notice-inline">
+                    Texto generado automáticamente. Consulta nuestra
+                    <a href="/docs/responsible-ai.md">política de uso de IA</a>.
+                </p>
                 <div id="resumenIAContenedor">
                     <!-- El resumen generado por IA se insertará aquí -->
                 </div>
