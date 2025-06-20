@@ -1,3 +1,4 @@
+@import url("../components/breakpoints.css");
 /* --- Navbar Styles ----------------------------------------------------- */
 /*
 .navbar {
@@ -307,7 +308,7 @@ body.sidebar-active {
 
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
     .navbar .nav-toggle,
     .navbar .nav-links {
         /* Sidebar handles mobile navigation */
@@ -330,7 +331,7 @@ body.sidebar-active {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: var(--breakpoint-lg)) {
     .navbar {
         padding: 0.5em 0;
     }
@@ -346,7 +347,7 @@ body.sidebar-active {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: var(--breakpoint-xs)) {
     .navbar {
         padding: 0.4em 0;
     }

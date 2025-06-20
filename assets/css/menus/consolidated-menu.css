@@ -1,3 +1,4 @@
+@import url("../components/breakpoints.css");
 /* assets/css/menus/consolidated-menu.css */
 
 /* Main toggle button for the consolidated menu */
@@ -229,7 +230,7 @@
 
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
     .menu-panel {
         width: 280px; /* Slightly narrower for mobile */
         padding: 10px; /* Compacted */
@@ -246,7 +247,7 @@
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: var(--breakpoint-lg)) {
     .menu-panel {
         width: 260px;
     }
@@ -255,7 +256,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: var(--breakpoint-xs)) {
     .menu-panel {
         width: 240px;
         padding: 8px;
