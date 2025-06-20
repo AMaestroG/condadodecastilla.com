@@ -19,16 +19,16 @@
     <header class="page-header hero hero-museo">
         <div class="hero-content">
             <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Sube una Pieza al Museo</h1>
-            <p>Comparte objetos o documentos históricos relacionados con el Alfoz y el Condado de Castilla.</p>
+            <h1 class="text-4xl font-headings">Sube una Pieza al Museo</h1>
+            <p class="text-lg font-body">Comparte objetos o documentos históricos relacionados con el Alfoz y el Condado de Castilla.</p>
         </div>
     </header>
 
     <main>
         <section class="section upload-section">
             <div class="container page-content-block">
-                <h2 class="section-title">Aporta tu Pieza <i class="fas fa-upload"></i></h2>
-                <p class="intro-paragraph">
+                <h2 class="section-title text-2xl font-headings">Aporta tu Pieza <i class="fas fa-upload"></i></h2>
+                <p class="intro-paragraph text-lg font-body">
                     ¿Tienes una fotografía de un objeto, ruina o documento? ¡Compártelo con nosotros!
                     <br><small>(Las piezas se guardarán si el backend está configurado correctamente).</small>
                 </p>

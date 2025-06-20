@@ -200,7 +200,7 @@ h1, h2, h3 {
     animation: slideUpFadeIn 0.6s ease-out forwards;
 }
 
-h1 { font-size: clamp(2.8em, 6vw, 4.2em); }
+/* h1 { font-size: clamp(2.8em, 6vw, 4.2em); } */
 
 /* Gradient Text for H1 */
 h1 {
@@ -211,11 +211,11 @@ h1 {
     color: transparent !important; /* Ensure this overrides other color settings */
 }
 
-h2 { font-size: clamp(2.2em, 5vw, 3.2em); color: var(--epic-gold-secondary); } /* Secondary gold for H2 for variety */
-h3 { font-size: clamp(1.8em, 4vw, 2.5em); }
-h4 { font-size: clamp(1.4em, 3.5vw, 2em); }
-h5 { font-size: clamp(1.2em, 3vw, 1.7em); }
-h6 { font-size: clamp(1em, 2.5vw, 1.4em); }
+/* h2 { font-size: clamp(2.2em, 5vw, 3.2em); color: var(--epic-gold-secondary); }  Secondary gold for H2 for variety */
+/* h3 { font-size: clamp(1.8em, 4vw, 2.5em); } */
+/* h4 { font-size: clamp(1.4em, 3.5vw, 2em); } */
+/* h5 { font-size: clamp(1.2em, 3vw, 1.7em); } */
+/* h6 { font-size: clamp(1em, 2.5vw, 1.4em); } */
 
 .gradient-text {
     background-image: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
@@ -404,7 +404,7 @@ th {
 #overlay-content h3 { /* #overlay-titulo */
     font-family: var(--font-headings);
     color: var(--epic-purple-emperor);
-    font-size: clamp(1.8em, 4vw, 2.5em);
+    /* font-size: clamp(1.8em, 4vw, 2.5em); */
     margin-top: 0;
     margin-bottom: 0.7em;
     border-bottom: 2px solid var(--epic-gold-secondary);
@@ -607,7 +607,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 
 .hero-content h1, .page-header .hero-content h1 {
-    font-size: clamp(2.5em, 7vw, 4.5em); /* Larger for hero titles */
+    /* font-size: clamp(2.5em, 7vw, 4.5em);  Larger for hero titles */
     color: var(--epic-gold-main); /* Gold for main hero titles */
     text-shadow: 2px 2px 5px rgba(var(--epic-text-color-rgb), 0.7);
     margin-top: 0;
@@ -1023,7 +1023,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     background-color: rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.7);
 }
 .page-header.hero .hero-content h1 {
-    font-size: clamp(2.5em, 6vw, 4em);
+    /* font-size: clamp(2.5em, 6vw, 4em); */
     margin-bottom: 0.3em;
 }
 .page-header.hero .hero-content p {
@@ -1084,8 +1084,8 @@ body.dark-mode .footer .social-links a:focus-visible {
     to { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
 }
 
-.hero h1 { 
-    font-size: clamp(3.2em, 10vw, 6em);
+.hero h1 {
+    /* font-size: clamp(3.2em, 10vw, 6em); */
     color: var(--color-alabastro, #fdfaf6); 
     margin-top: 0;
     margin-bottom: 0.5em;
@@ -1379,7 +1379,7 @@ body.dark-mode .footer .social-links a:focus-visible {
         /* Slightly larger on mobile as well */
         width: clamp(170px, 40vw, 250px);
     }
-    .hero h1 { font-size: clamp(2.4em, 7vw, 3.5em); }
+    /* .hero h1 { font-size: clamp(2.4em, 7vw, 3.5em); } */
     .hero p { font-size: clamp(1.05em, 3.5vw, 1.4em); max-width: 90%;}
 
     .detailed-intro-section p { text-align: justify !important; }
@@ -1395,10 +1395,10 @@ body.dark-mode .footer .social-links a:focus-visible {
     }
 }
 @media (max-width: 480px) {
-    .hero h1 { font-size: clamp(2.2em, 10vw, 3em); }
+    /* .hero h1 { font-size: clamp(2.2em, 10vw, 3em); } */
     .hero p { font-size: clamp(1em, 4vw, 1.2em); }
     .cta-button { padding: 15px 30px; font-size: clamp(1em, 4vw, 1.2em); }
-    .detailed-intro-section h2, .section-title { font-size: clamp(1.8em, 6vw, 2.5em); }
+    /* .detailed-intro-section h2, .section-title { font-size: clamp(1.8em, 6vw, 2.5em); } */
     .card-content { padding: 20px; }
     .section-title::after { width: 35px; height: 35px; }
     .footer::before { width: 50px; height: 50px; margin: -80px auto 20px auto; }
@@ -1477,7 +1477,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 .page-header.hero[style*="/imagenes/hero_contacto_background.jpg"] h1,
 .page-header.hero[style*="/imagenes/hero_museo_background.jpg"] h1,
 .page-header.hero[style*="/imagenes/hero_galeria_background.jpg"] h1 {
-    font-size: clamp(2.8em, 7vw, 4.5em) !important;
+    /* font-size: clamp(2.8em, 7vw, 4.5em) !important; */
 }
 .page-header.hero[style*="/imagenes/hero_historia_background.jpg"] p,
 .page-header.hero[style*="/imagenes/hero_alfoz_background.jpg"] p,
@@ -1629,7 +1629,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 .page-header.hero[style*="hero_personajes_background.jpg"] .hero-content h1 {
     color: var(--epic-text-light);
     text-shadow: 2px 2px 8px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.75);
-    font-size: clamp(2.8em, 6.5vw, 4.2em);
+    /* font-size: clamp(2.8em, 6.5vw, 4.2em); */
 }
 .page-header.hero[style*="hero_personajes_background.jpg"] .hero-content p {
     font-size: clamp(1.1em, 2.3vw, 1.4em);
