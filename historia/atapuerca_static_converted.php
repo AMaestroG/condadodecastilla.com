@@ -5,7 +5,7 @@
 </head>
 <body class="alabaster-bg">
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url('../assets/img/placeholder.jpg');"> <!-- Basic hero style -->
+    <header class="page-header hero bg-[url('../assets/img/placeholder.jpg')] bg-cover bg-center md:bg-center"> <!-- Basic hero style -->
         <div class="hero-content">
             <h1>Los Yacimientos de la Sierra de Atapuerca</h1>
         </div>

@@ -11,7 +11,7 @@
     <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
 
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/hero_alfoz_background.jpg'); min-height: 50vh;">
+    <header class="page-header hero bg-[url('/assets/img/hero_alfoz_background.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.5); padding: clamp(30px, 5vw, 50px);">
             <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header" style="width: clamp(50px, 8vw, 70px); margin-bottom:15px;">
             <h1 style="font-size: clamp(2.6em, 6.5vw, 4.2em);">El Alfoz de Cerasio y Lantarón</h1>
