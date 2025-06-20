@@ -11,7 +11,8 @@ load_page_css();
 
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
-    <header class="page-header hero bg-[url('/assets/img/hero_camino_santiago.jpg')] bg-cover bg-center md:bg-center">
+    <header class="page-header hero relative overflow-hidden">
+        <img src="/assets/img/hero_camino_santiago.jpg" alt="" class="hero-bg object-cover object-center sm:object-center md:object-top">
         <div class="hero-content">
             <img src="/assets/img/estrella.png" alt="Estrella de Venus" class="decorative-star-header">
             <h1>Cerezo de Río Tirón: Hito Histórico del Camino de Santiago</h1>

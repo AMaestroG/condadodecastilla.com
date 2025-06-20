@@ -642,6 +642,29 @@ body.dark-mode .footer .social-links a:focus-visible {
     box-shadow: 0 0 20px var(--epic-gold-main), inset 0 0 15px rgba(var(--epic-text-color-rgb),0.4);
 }
 
+/* Background media within hero sections */
+.hero > img.hero-bg,
+.page-header > img.hero-bg,
+.hero > video.hero-bg,
+.page-header > video.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+@media (min-width: 768px) {
+    .hero > img.hero-bg,
+    .page-header > img.hero-bg,
+    .hero > video.hero-bg,
+    .page-header > video.hero-bg {
+        object-position: top;
+    }
+}
+
 .cta-button { /* Call to Action button styling */
     display: inline-block;
     position: relative; /* For border animation pseudo-element */
