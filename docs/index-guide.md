@@ -116,6 +116,29 @@ return [
 
 Edita sus valores o añade nuevas claves para ampliar el listado de agentes.
 
+Los agentes deben respaldar la misión descrita en `docs/README.md`:
+*promocionar el turismo en Cerezo de Río Tirón y proteger su patrimonio arqueológico y cultural*. Cada experto contribuye a este objetivo desde su área:
+
+- **historian** contextualiza la historia local para turistas y residentes.
+- **archaeologist** vela por la preservación de hallazgos.
+- **guide** diseña rutas y comparte anécdotas.
+- **manager** impulsa proyectos culturales.
+- **technologist** difunde el legado en línea.
+
+Para añadir un nuevo agente basta con incorporar otra clave al array:
+
+```php
+// config/forum_agents.php
+return [
+    // ... agentes existentes ...
+    'event_planner' => [
+        'name' => 'Fernando el Planificador',
+        'bio' => 'Organiza ferias y actividades que atraen visitantes y celebran la tradición local.',
+        'expertise' => 'Coordinación de eventos y turismo cultural'
+    ],
+];
+```
+
 ## Cajón IA y acciones personalizables
 
 El panel de chat con inteligencia artificial se carga desde
