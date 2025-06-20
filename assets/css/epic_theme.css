@@ -50,6 +50,7 @@
     --global-box-shadow-dark: 0 8px 25px rgba(var(--epic-text-color-rgb), 0.2);
     --alabaster-background-image: url('/assets/img/alabastro.jpg');
     --menu-extra-offset: 60px;
+    --header-footer-height: 60px;
     /* Altura reservada para la barra de idiomas superior (no usada en el panel lateral) */
     --language-bar-height: 40px;
     /* Espacio superior aplicado al menú, ajustado dinámicamente */
@@ -444,6 +445,7 @@ th {
 .footer {
     background: linear-gradient(to bottom, rgba(var(--epic-purple-emperor-rgb), 0.9), rgba(var(--epic-purple-emperor-rgb), 0.75));
     color: var(--epic-text-light);
+    height: var(--header-footer-height);
     padding: 3em 1em 2em 1em; /* More padding */
     text-align: center; /* Footer content should generally be centered */
     border-top: 8px solid var(--epic-gold-main);
