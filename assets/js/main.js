@@ -235,7 +235,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.toggle('fa-moon', !isDark);
                 icon.classList.toggle('fa-sun', isDark);
             }
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+}
+
+    const moonToggle = document.getElementById('moon-toggle');
+    if (moonToggle) {
+        const storedMoon = localStorage.getItem('moon');
+        if (storedMoon === 'on') {
+            document.body.classList.add('luna');
+        }
+        moonToggle.addEventListener('click', () => {
+            const active = document.body.classList.toggle('luna');
+            if (active) {
+                localStorage.setItem('moon', 'on');
+            } else {
+                localStorage.removeItem('moon');
+            }
         });
     }
 
