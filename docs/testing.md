@@ -52,6 +52,17 @@ sudo apt-get install php-cgi php-pgsql php-xml
 Además asegúrate de que un servidor de PostgreSQL esté disponible y las
 credenciales se definan en `.env` antes de lanzar PHPUnit.
 
+### Dependencias de Node para Puppeteer
+
+Antes de lanzar la suite de interfaz instala las dependencias de Node:
+
+```bash
+npm ci
+```
+
+Esto descargará `puppeteer` y los binarios de Chrome.
+
+
 
 ## Solucion de problemas
 
@@ -60,3 +71,4 @@ credenciales se definan en `.env` antes de lanzar PHPUnit.
 php -S localhost:8080
 ```
 - Si las dependencias fallaron al instalarse, vuelve a lanzar `./scripts/setup_environment.sh`.
+- Si Puppeteer informa que no se encuentra Chromium, ejecuta `npm ci` para reinstalar las dependencias.
