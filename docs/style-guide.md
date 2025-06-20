@@ -18,6 +18,23 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 | `--alert-text` | Texto de mensajes de alerta | `#d8000c` |
 | `--menu-extra-offset` | Separación adicional para el menú consolidado | `60px` |
 
+## Tipografías
+
+Se definen dos familias de fuentes base disponibles a través de Tailwind:
+
+| Clase | Fuente |
+|-------|-------|
+| `.font-headings` | `Cinzel`, serif |
+| `.font-body` | `Lora`, serif |
+
+Estas utilidades permiten asignar de forma coherente la tipografía a títulos y
+textos de párrafo:
+
+```html
+<h1 class="font-headings">Bienvenida</h1>
+<p class="font-body">Texto principal de ejemplo.</p>
+```
+
 Los equivalentes `-rgb` se encuentran en la misma hoja de estilos para crear transparencias con `rgba()`.
 
 ## Paleta Modo luna
