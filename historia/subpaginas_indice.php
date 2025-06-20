@@ -47,8 +47,8 @@ load_page_css();
                         <p><?php echo htmlspecialchars($error_message); ?></p>
                     </div>
                 <?php else: ?>
-                    <p style="text-align: center; max-width: 80ch; margin-left: auto; margin-right: auto; margin-bottom: 2em;"><?php echo htmlspecialchars($descripcion_general); ?></p>
-                    <p style="text-align: center; margin-bottom: 2.5em;"><a href="/historia/nuestra_historia_nuevo4.html" class="read-more" style="background-color: var(--color-primario-purpura);">&laquo; Volver a la página principal de Nuestra Historia</a></p>
+                    <p class="intro-centered"><?php echo htmlspecialchars($descripcion_general); ?></p>
+                    <p class="text-center mb-25"><a href="/historia/nuestra_historia_nuevo4.html" class="read-more" style="background-color: var(--color-primario-purpura);">&laquo; Volver a la página principal de Nuestra Historia</a></p>
                     <?php if (!empty($temas_detallados)): ?>
                         <ul class="subpage-index-list">
                             <?php foreach ($temas_detallados as $tema): ?>

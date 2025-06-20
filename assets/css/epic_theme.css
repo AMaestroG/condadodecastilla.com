@@ -2823,6 +2823,12 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
     border-radius: var(--global-border-radius);
 }
 
+/* Highlighted tool error messages */
+.ia-tool-error {
+    color: var(--epic-error-red, #D9534F);
+    text-align: center;
+}
+
 .section-divider {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -2851,6 +2857,20 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
 .mt-20 {
     margin-top: 20px;
 }
+
+/* Additional spacing utilities */
+.mt-25 { margin-top: 2.5em; }
+.mb-25 { margin-bottom: 2.5em; }
+
+/* Center introductory text blocks */
+.intro-centered {
+    text-align: center;
+    margin: 0 auto 2em;
+    max-width: 80ch;
+}
+
+/* Inline form layout */
+.inline-form { display: inline; }
 
 .hero-atapuerca {
     background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.55), rgba(var(--epic-purple-emperor-rgb), 0.55)), url('/assets/img/placeholder.jpg');

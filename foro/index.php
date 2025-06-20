@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 <?php endforeach; ?>
 </div>
 <main class="container page-content-block">
-    <h1 style="text-align:center;" class="gradient-text">Foro de Expertos</h1>
+    <h1 class="gradient-text text-center">Foro de Expertos</h1>
     <?php if (!empty($_SESSION['forum_error'])): ?>
         <p class="feedback error"><?php echo htmlspecialchars($_SESSION['forum_error']); unset($_SESSION['forum_error']); ?></p>
     <?php endif; ?>

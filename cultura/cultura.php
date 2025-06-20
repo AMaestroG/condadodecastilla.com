@@ -39,7 +39,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
     <main>
         <section class="section"> <div class="container page-content-block"> <?php editableText('cultura_intro_p1', $pdo, 'El Condado de Castilla no solo es un crisol de historia, sino también una fuente inagotable de cultura
                     y tradiciones que han perdurado a través de los siglos. Desde el nacimiento de un idioma universal
-                    hasta las costumbres que definen a sus gentes, te invitamos a explorar el alma de esta tierra.', 'p', 'intro-paragraph text-center', 'style="font-size: clamp(1.1em, 2.4vw, 1.3em); margin-bottom: 2.5em;"'); ?>
+                    hasta las costumbres que definen a sus gentes, te invitamos a explorar el alma de esta tierra.', 'p', 'intro-paragraph text-center mb-25'); ?>
 
                 <article class="culture-article-block">
                     <?php editableText('cultura_idioma_titulo_texto', $pdo, '<i class="fas fa-language"></i> El Origen del Idioma Castellano', 'h2'); ?>
@@ -121,7 +121,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                         <img src="/assets/img/placeholder.jpg" alt="Fotografía de una excavación arqueológica en curso en el yacimiento de Auca Patricia">
                         <?php editableText('cultura_arqueologia_caption_texto', $pdo, '<i class="fas fa-search-location"></i> Arqueólogos desenterrando los secretos del pasado.', 'p', 'image-caption'); ?>
                     </div>
-                    <p class="text-center" style="margin-top: 2em;">
+                    <p class="text-center mt-20">
                         <?php editableText('cultura_link_explora_lugares_texto', $pdo, 'Explora los Lugares Emblemáticos', 'a', 'cta-button cta-button-small', 'href="/lugares/lugares.php"'); ?>
                     </p>
                 </article>
