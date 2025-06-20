@@ -50,3 +50,12 @@ body {
 .purple-shadow {
     box-shadow: 0 4px 10px rgba(var(--epic-purple-emperor-rgb, 74, 13, 103), 0.4);
 }
+
+/* Utility classes using project color variables */
+.bg-epic-purple { background-color: var(--epic-purple-emperor); }
+.bg-epic-purple-50 { background-color: rgba(var(--epic-purple-emperor-rgb), 0.5); }
+.bg-epic-purple-70 { background-color: rgba(var(--epic-purple-emperor-rgb), 0.7); }
+.bg-epic-gold { background-color: var(--epic-gold-main); }
+.text-epic-light { color: var(--epic-text-light); }
+.text-epic-gold { color: var(--epic-gold-main); }
+.border-epic-purple { border-color: var(--epic-purple-emperor); }
