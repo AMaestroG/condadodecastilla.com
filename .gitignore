@@ -35,3 +35,6 @@ node_modules/
 # Generated artifacts
 broken_links_report_extended.txt
 scripts/temp_output/
+
+# Source maps
+assets/css/*.map
