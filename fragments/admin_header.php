@@ -1,7 +1,6 @@
 <div id="cave-mask"></div>
 <div id="fixed-header-elements" style="height: var(--header-footer-height);">
     <div class="header-action-buttons">
-        <img src="/assets/icons/star-of-venus.svg" class="header-icon" alt="Star of Venus icon" />
         <img src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
         <button id="admin-menu-button" data-menu-target="admin-menu-items" aria-label="Abrir menú administrador" aria-expanded="false" role="button" aria-controls="admin-menu-items">☰</button>
     </div>
