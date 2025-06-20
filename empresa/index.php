@@ -12,15 +12,13 @@ require_admin_login();
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-
-    <header class="page-header hero bg-[url('/assets/img/hero_contacto_background.jpg')] bg-cover bg-center md:bg-center">
-        <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Empresa de Gestión de Yacimientos</h1>
-            <p>Descubre cómo administramos y conservamos el patrimonio arqueológico de la región.</p>
-        </div>
-    </header>
+    <?php
+    require_once __DIR__ . '/../fragments/header.php';
+    require_once __DIR__ . '/../fragments/hero.php';
+    $hero_heading = '<h1>Empresa de Gestión de Yacimientos</h1>';
+    $hero_subheading = '<p>Descubre cómo administramos y conservamos el patrimonio arqueológico de la región.</p>';
+    render_hero($hero_heading, $hero_subheading, '/assets/img/hero_contacto_background.jpg');
+    ?>
 
     <main>
         <section class="section">

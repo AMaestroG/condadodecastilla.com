@@ -57,15 +57,16 @@ if (is_dir($gallery_dir)) {
     
     <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
-    <header class="page-header hero hero-galeria">
-        <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->
-        <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <span class="blend-screen" style="display:none"></span>
-            <?php editableText('galeria_colab_header_titulo', $pdo, 'Galería Colaborativa del Condado', 'h1', 'blend-overlay'); ?>
-            <?php editableText('galeria_colab_header_parrafo', $pdo, 'Un mosaico de miradas sobre la belleza, historia y rincones de nuestra tierra, creado por todos.', 'p', ''); ?>
-        </div>
-    </header>
+    <?php
+    require_once __DIR__ . '/../fragments/hero.php';
+    ob_start();
+    editableText('galeria_colab_header_titulo', $pdo, 'Galería Colaborativa del Condado', 'h1', 'blend-overlay');
+    $hero_heading = ob_get_clean();
+    ob_start();
+    editableText('galeria_colab_header_parrafo', $pdo, 'Un mosaico de miradas sobre la belleza, historia y rincones de nuestra tierra, creado por todos.', 'p', '');
+    $hero_subheading = ob_get_clean();
+    render_hero($hero_heading, $hero_subheading, '/imagenes/hero_galeria_background.jpg');
+    ?>
 
     <main>
         <section class="section upload-section-galeria">

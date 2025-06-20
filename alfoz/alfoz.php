@@ -26,15 +26,15 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 
     <?php
     require_once __DIR__ . '/../fragments/header.php';
+    require_once __DIR__ . '/../fragments/hero.php';
+    ob_start();
+    editableText('alfoz_hero_titulo', $pdo, 'El Alfoz de Cerasio y Lantarón', 'h1');
+    $hero_heading = ob_get_clean();
+    ob_start();
+    editableText('alfoz_hero_subtitulo', $pdo, 'Cimientos de Castilla, Génesis de la Hispanidad.', 'p');
+    $hero_subheading = ob_get_clean();
+    render_hero($hero_heading, $hero_subheading, '/assets/img/hero_mis_tierras.jpg');
     ?>
-
-    <header class="page-header hero bg-[url('/assets/img/hero_mis_tierras.jpg')] bg-cover bg-center md:bg-center">
-        <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <?php editableText('alfoz_hero_titulo', $pdo, 'El Alfoz de Cerasio y Lantarón', 'h1'); ?>
-            <?php editableText('alfoz_hero_subtitulo', $pdo, 'Cimientos de Castilla, Génesis de la Hispanidad.', 'p'); ?>
-        </div>
-    </header>
 
     <main>
         <section class="section">

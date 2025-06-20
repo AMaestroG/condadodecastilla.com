@@ -30,15 +30,13 @@
     <div id="crosshair" class="crosshair"></div>
     <div id="linterna-condado" class="bg-linterna-gradient"></div>
     
-    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-
-    <header class="page-header hero hero-museo">
-        <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Museo Colaborativo del Alfoz</h1>
-            <p>Un espacio para compartir y descubrir los tesoros históricos y arqueológicos de nuestra tierra, aportados por la comunidad.</p>
-        </div>
-    </header>
+    <?php
+    require_once __DIR__ . '/../fragments/header.php';
+    require_once __DIR__ . '/../fragments/hero.php';
+    $hero_heading = '<h1>Museo Colaborativo del Alfoz</h1>';
+    $hero_subheading = '<p>Un espacio para compartir y descubrir los tesoros históricos y arqueológicos de nuestra tierra, aportados por la comunidad.</p>';
+    render_hero($hero_heading, $hero_subheading, '/imagenes/hero_museo_background.jpg');
+    ?>
 
     <main>
         <section class="section upload-section">

@@ -26,15 +26,15 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 
     <?php
     require_once __DIR__ . '/../fragments/header.php';
+    require_once __DIR__ . '/../fragments/hero.php';
+    ob_start();
+    editableText('cultura_hero_titulo', $pdo, 'Cultura Viva y Legado Perenne', 'h1');
+    $hero_heading = ob_get_clean();
+    ob_start();
+    editableText('cultura_hero_subtitulo', $pdo, 'Las tradiciones, el idioma y el espíritu de una tierra forjada en la historia.', 'p');
+    $hero_subheading = ob_get_clean();
+    render_hero($hero_heading, $hero_subheading, '/assets/img/hero_cultura_background.jpg');
     ?>
-
-    <header class="page-header hero bg-[url('/assets/img/hero_cultura_background.jpg')] bg-cover bg-center md:bg-center">
-        <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <?php editableText('cultura_hero_titulo', $pdo, 'Cultura Viva y Legado Perenne', 'h1'); ?>
-            <?php editableText('cultura_hero_subtitulo', $pdo, 'Las tradiciones, el idioma y el espíritu de una tierra forjada en la historia.', 'p'); ?>
-        </div>
-    </header>
 
     <main>
         <section class="section"> <div class="container page-content-block"> <?php editableText('cultura_intro_p1', $pdo, 'El Condado de Castilla no solo es un crisol de historia, sino también una fuente inagotable de cultura

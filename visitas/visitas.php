@@ -9,15 +9,13 @@ load_page_css();
 </head>
 <body class="alabaster-bg">
 
-    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-
-    <header class="page-header hero bg-[url('/assets/img/hero_visitas_background.jpg')] bg-cover bg-center md:bg-center">
-        <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Planifica Tu Viaje al Corazón de Castilla</h1>
-            <p>Todo lo que necesitas saber para una experiencia inolvidable en Cerezo de Río Tirón.</p>
-        </div>
-    </header>
+    <?php
+    require_once __DIR__ . '/../fragments/header.php';
+    require_once __DIR__ . '/../fragments/hero.php';
+    $hero_heading = '<h1>Planifica Tu Viaje al Corazón de Castilla</h1>';
+    $hero_subheading = '<p>Todo lo que necesitas saber para una experiencia inolvidable en Cerezo de Río Tirón.</p>';
+    render_hero($hero_heading, $hero_subheading, '/assets/img/hero_visitas_background.jpg');
+    ?>
 
     <main>
         <section class="section"> <div class="container page-content-block"> <p class="intro-paragraph">

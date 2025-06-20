@@ -9,15 +9,13 @@ load_page_css();
 </head>
 <body class="alabaster-bg">
 
-    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-
-    <header class="page-header hero bg-[url('/assets/img/hero_camino_santiago.jpg')] bg-cover bg-center md:bg-center">
-        <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus" class="decorative-star-header">
-            <h1>Cerezo de Río Tirón: Hito Histórico del Camino de Santiago</h1>
-            <p>Descubre el antiguo trazado jacobeo que atravesaba nuestras tierras y el legado hospitalario que marcó nuestra historia.</p>
-        </div>
-    </header>
+    <?php
+    require_once __DIR__ . '/../fragments/header.php';
+    require_once __DIR__ . '/../fragments/hero.php';
+    $hero_heading = '<h1>Cerezo de Río Tirón: Hito Histórico del Camino de Santiago</h1>';
+    $hero_subheading = '<p>Descubre el antiguo trazado jacobeo que atravesaba nuestras tierras y el legado hospitalario que marcó nuestra historia.</p>';
+    render_hero($hero_heading, $hero_subheading, '/assets/img/hero_camino_santiago.jpg');
+    ?>
 
     <main>
         <section class="section detailed-intro-section">

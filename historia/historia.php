@@ -5,14 +5,13 @@
 </head>
 <body class="alabaster-bg">
 
-    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-
-    <header class="page-header hero bg-[url('/assets/img/hero_historia_background.jpg')] bg-cover bg-center md:bg-center">
-        <div class="hero-content">
-            <h1 class="gradient-text">Línea de Tiempo de Nuestra Historia</h1>
-            <p>Un recorrido cronológico por los eventos y eras que forjaron el Condado de Castilla y la identidad de Cerezo de Río Tirón.</p>
-        </div>
-    </header>
+    <?php
+    require_once __DIR__ . '/../fragments/header.php';
+    require_once __DIR__ . '/../fragments/hero.php';
+    $hero_heading = '<h1 class="gradient-text">Línea de Tiempo de Nuestra Historia</h1>';
+    $hero_subheading = '<p>Un recorrido cronológico por los eventos y eras que forjaron el Condado de Castilla y la identidad de Cerezo de Río Tirón.</p>';
+    render_hero($hero_heading, $hero_subheading, '/assets/img/hero_historia_background.jpg');
+    ?>
 
     <main>
         <section class="section timeline-section alternate-bg">

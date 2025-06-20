@@ -18,6 +18,19 @@ Para usar anclas basta con añadir `id="..."` a cada elemento. Por ejemplo:
 <section id="video" class="video-section section spotlight-active">...
 ```
 
+## Parcial `fragments/hero.php`
+
+Para mantener un estilo homogéneo en los encabezados principales se creó el archivo `fragments/hero.php`. La función `render_hero($headingHtml, $subheadingHtml = '', $backgroundUrl = '')` genera el bloque `<header class="page-header hero">` con la imagen de la estrella, el título y un subtítulo opcional.
+
+Ejemplo de uso básico:
+
+```php
+require_once __DIR__ . '/fragments/hero.php';
+$heading = '<h1>Lugares Emblemáticos</h1>';
+$sub = '<p>Un recorrido por los vestigios que narran nuestra historia.</p>';
+render_hero($heading, $sub, '/assets/img/hero_lugares_background.jpg');
+```
+
 ## Cómo `fragments/header.php` carga los menús
 El archivo `fragments/header.php` genera el panel deslizante derecho e inserta las diferentes secciones de menú leyendo los archivos de `fragments/menus/`:
 ```php

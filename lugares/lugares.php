@@ -10,15 +10,13 @@
 
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-
-    <header class="page-header hero bg-[url('/assets/img/hero_lugares_background.jpg')] bg-cover bg-center md:bg-center">
-        <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
-            <h1>Lugares Emblemáticos: Huellas de la Historia</h1>
-            <p>Un recorrido por los vestigios que narran el pasado milenario de Cerezo de Río Tirón y el Condado de Castilla.</p>
-        </div>
-    </header>
+    <?php
+    require_once __DIR__ . '/../fragments/header.php';
+    require_once __DIR__ . '/../fragments/hero.php';
+    $hero_heading = '<h1>Lugares Emblemáticos: Huellas de la Historia</h1>';
+    $hero_subheading = '<p>Un recorrido por los vestigios que narran el pasado milenario de Cerezo de Río Tirón y el Condado de Castilla.</p>';
+    render_hero($hero_heading, $hero_subheading, '/assets/img/hero_lugares_background.jpg');
+    ?>
 
     <main>
         <section class="section detailed-intro-section"> <div class="container page-content-block"> <p class="intro-paragraph">
