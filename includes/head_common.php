@@ -27,6 +27,7 @@ require_once __DIR__ . '/env_loader.php';
 <script defer src="/assets/js/torch_cursor.js"></script>
 <link rel="stylesheet" href="/assets/css/glow_filter.css">
 <link rel="stylesheet" href="/assets/css/custom-pointer.css">
+<link rel="stylesheet" href="/assets/css/mobile_contrast.css" media="(max-width: 768px)">
 <?php
 $svgFilterPath = __DIR__ . '/../fragments/header/svg_filters.html';
 if (file_exists($svgFilterPath)) {
