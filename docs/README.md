@@ -130,6 +130,7 @@ crear nuevas secciones del menú.
 - [Interfaz de la base de datos de grafo](graph_db.md)
 - [Guía de Testing](testing.md)
 - [Gráfica de Influencia Romana](roman_influence_graph.md)
+- [Relaciones de Parentesco](parent_child_pairs.md)
 
 La guía de estilo recoge la paleta en tonos morado y oro viejo con fondos de
 alabastro.
