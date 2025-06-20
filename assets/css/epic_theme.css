@@ -1550,7 +1550,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     background-color: var(--color-secundario-dorado, #B8860B); 
     color: var(--epic-purple-emperor) !important; 
     border-radius: 25px;
-    font-family: "Cinzel", serif; /* Use theme font */
+    font-family: var(--font-headings); /* Use theme font */
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -1716,7 +1716,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 .form-group label {
     display: block;
-    font-family: var(--font-titulos); /* Use theme font */
+    font-family: var(--font-headings); /* Use theme font */
     font-weight: 700;
     color: var(--epic-purple-emperor); 
     margin-bottom: 8px;
@@ -1735,7 +1735,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     padding: 12px 15px;
     border: 1px solid var(--color-piedra-media, #D2B48C); 
     border-radius: var(--border-radius-suave, 5px); 
-    font-family: var(--font-principal); /* Use theme font */
+    font-family: var(--font-primary); /* Use theme font */
     font-size: 1em;
     color: var(--color-texto-principal, #2c1d12); 
     background-color: rgba(var(--color-fondo-pagina-base-rgb, 253, 250, 246), 0.7); 
@@ -1920,7 +1920,7 @@ body.dark-mode .footer .social-links a:focus-visible {
   text-align: center;
   color: var(--color-piedra-clara, #EAE0C8); 
   padding: 15px 0;
-  font-family: var(--font-titulos); /* Use theme font */
+  font-family: var(--font-headings); /* Use theme font */
   font-size: 1.2em;
 }
 .modal-close-button {
@@ -2047,7 +2047,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 
 .comment-item strong {
     color: var(--epic-purple-emperor); 
-    font-family: var(--font-titulos); /* Use theme font */
+    font-family: var(--font-headings); /* Use theme font */
 }
 
 .comment-item small {
@@ -2088,7 +2088,7 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 
 .quiz-question p strong { /* Question text */
-    font-family: var(--font-principal); /* Use theme font */
+    font-family: var(--font-primary); /* Use theme font */
     color: var(--color-texto-principal, #2c1d12); 
     text-align: left; /* Ensure question text is left aligned */
     display: block; /* Make it block for alignment */
@@ -2107,7 +2107,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     display: block;
     width: 100%;
     padding: 10px 15px;
-    font-family: var(--font-principal); /* Use theme font */
+    font-family: var(--font-primary); /* Use theme font */
     font-size: 0.95em;
     background-color: var(--color-piedra-clara, #EAE0C8); 
     color: var(--color-texto-principal, #2c1d12); 
@@ -2187,14 +2187,14 @@ body.dark-mode .footer .social-links a:focus-visible {
     /* text-align: left; is default for p in epic_theme.css, so this is fine */
 }
 .article-content h3 {
-    font-family: 'Cinzel', serif; /* Matches --font-headings */
+    font-family: var(--font-headings); /* Matches --font-headings */
     color: var(--color-secundario-dorado, #B8860B); 
     margin-top: 1.5em;
     margin-bottom: 0.5em;
     text-align: left; /* Overrides global centering */
 }
 .article-content h4 {
-    font-family: 'Lora', serif; /* Matches --font-primary */
+    font-family: var(--font-primary); /* Matches --font-primary */
     font-style: italic;
     color: var(--epic-purple-emperor); 
     margin-top: 1em;
