@@ -24,8 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const closeMenu = (menu) => {
         menu.classList.remove('active');
+        menu.setAttribute('aria-hidden', 'true');
         const btn = document.querySelector(`[data-menu-target="${menu.id}"]`);
-        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (btn) {
+            btn.setAttribute('aria-expanded', 'false');
+            btn.focus();
+        }
         const side = menu.classList.contains('left-panel') ? 'left'
                     : (menu.classList.contains('right-panel') ? 'right' : '');
         if (side) document.body.classList.remove(`menu-open-${side}`);
@@ -47,9 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const open = !menu.classList.contains('active');
         menu.classList.toggle('active', open);
         btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
         if (open && menu.id === 'language-panel' && typeof primeTranslateLoad === 'function') {
             primeTranslateLoad();
+        }
+        if (open) {
+            const first = menu.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            (first || menu).focus();
         }
 
         const anyOpen = document.querySelectorAll('.menu-panel.active').length > 0;
