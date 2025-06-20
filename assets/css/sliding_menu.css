@@ -19,7 +19,7 @@
 }
 
 #fixed-header .site-title {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-headings);
     font-size: 1.4rem;
     background: linear-gradient(45deg, var(--primary-purple), var(--old-gold));
     -webkit-background-clip: text;

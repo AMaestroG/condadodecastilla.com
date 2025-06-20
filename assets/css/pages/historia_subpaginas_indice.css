@@ -11,13 +11,13 @@
             box-shadow: 0 4px 8px rgba(var(--color-negro-contraste-rgb), 0.05);
         }
         .subpage-index-item h3 {
-            font-family: 'Cinzel', serif;
+            font-family: var(--font-headings);
             color: var(--color-primario-purpura);
             margin-top: 0;
             margin-bottom: 0.5em;
         }
         .subpage-index-item p {
-            font-family: 'Lora', serif;
+            font-family: var(--font-primary);
             line-height: 1.6;
             color: var(--color-texto-principal);
             margin-bottom: 1em;
