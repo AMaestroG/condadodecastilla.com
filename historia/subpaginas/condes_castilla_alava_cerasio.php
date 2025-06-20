@@ -9,7 +9,7 @@
     <title>Condes de Castilla y Álava en el Alcázar de Cerasio</title>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . "/../../_header.php"; ?>
+    <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
 <header id="hero-condes-castilla-alava-cerasio" class="page-header hero">
         <div class="hero-content">
@@ -38,7 +38,7 @@
         </section>
     </main>
 
-    <?php require_once __DIR__ . "/../../_footer.php"; ?>
+    <?php require_once __DIR__ . "/../../fragments/footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

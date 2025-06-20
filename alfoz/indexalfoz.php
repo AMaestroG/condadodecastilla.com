@@ -8,7 +8,7 @@ load_page_css();
 ?>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
   <header>
     <h1>🌿 Alfoz de Cerezo y Lantarón</h1>
     <p>Explora los pueblos que formaron el corazón del primer condado de Castilla.</p>
@@ -76,7 +76,7 @@ load_page_css();
     </ul>
   </main>
 
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

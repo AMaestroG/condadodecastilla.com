@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>El Alfoz de Cerezo y la Lengua Castellana</h3>
@@ -21,7 +21,7 @@
 <p>Fijaros que la historia de Cerezo es la historia de nuestra cultura, cuando más profundicemos en la historia de Cerezo, más claro va ser quienes somos: nuestro idioma apenas si tiene paso visigodo por el... Luego ves que éramos un reducto romano hasta que el tonto de Abundio perdió la Civita frente a Leovigildo, en el 574, luego recadero vuelve otra vez a castigar a Cerezo porque se había vuelto Franco, así que de 120 años de dominación Visigoda, nunca dominaron Cerezo, si hubo un pequeño cambio cultural, pero auca Patricia tal y como dicen sus restos y su historia, nunca fue muy Visigoda. Pasando de ser Romana a Árabe, de la Civitate Auca Patricia romana al Alcazar de Casio en tiempo record.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

@@ -95,16 +95,16 @@ La misión principal es *promocionar el turismo en Cerezo de Río Tirón y*
 Los encabezados y pies de página se extraen a ficheros reutilizables para
 simplificar el mantenimiento:
 
-- `_header.php` incluye los menús deslizantes y los fragmentos situados en
+- `fragments/header.php` incluye los menús deslizantes y los fragmentos situados en
   `fragments/header/` y `fragments/menus/`.
-- `_footer.php` carga los scripts comunes y el menú social.
+- `fragments/footer.php` carga los scripts comunes y el menú social.
 
 Para insertar estas partes en una página basta con:
 
 ```php
-<?php require_once __DIR__ . '/_header.php'; ?>
+<?php require_once __DIR__ . '/fragments/header.php'; ?>
 <!-- contenido de la página -->
-<?php require_once __DIR__ . '/_footer.php'; ?>
+<?php require_once __DIR__ . '/fragments/footer.php'; ?>
 ```
 
 Los fragmentos del directorio `fragments/` pueden copiarse o modificarse para

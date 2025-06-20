@@ -9,7 +9,7 @@
     <title><?php echo htmlspecialchars($titulo_pagina_actual); ?> - Cerezo de Río Tirón</title>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . "/../../_header.php"; ?>
+    <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
 <?php
 $id_tema_actual = "auca_patricia_ubicacion"; // ID de esta página específica
@@ -131,7 +131,7 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
             });
     </script>
 
-    <?php require_once __DIR__ . "/../../_footer.php"; ?>
+    <?php require_once __DIR__ . "/../../fragments/footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

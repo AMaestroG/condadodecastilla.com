@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>Ruinas que Hablan: El Alcázar y Auca Patricia</h3>
@@ -18,7 +18,7 @@
 <p>Explorar estas ruinas es como abrir un libro de historia escrito en piedra, donde cada estrato revela un capítulo del pasado de Castilla.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

@@ -18,8 +18,8 @@ Para usar anclas basta con añadir `id="..."` a cada elemento. Por ejemplo:
 <section id="video" class="video-section section spotlight-active">...
 ```
 
-## Cómo `_header.php` carga los menús
-El archivo `_header.php` genera el panel deslizante derecho e inserta las diferentes secciones de menú leyendo los archivos de `fragments/menus/`:
+## Cómo `fragments/header.php` carga los menús
+El archivo `fragments/header.php` genera el panel deslizante derecho e inserta las diferentes secciones de menú leyendo los archivos de `fragments/menus/`:
 ```php
 <?php
 if (file_exists(__DIR__ . '/fragments/menus/main-menu.php')) {

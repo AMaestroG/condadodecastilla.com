@@ -9,7 +9,7 @@
     <title>Historia de Cerezo: Cuna y Origen de Castilla</title>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . "/../_header.php"; ?>
+    <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
 <h1>Historia de Cerezo: Cuna y Origen de Castilla</h1>
     <nav>
@@ -33,7 +33,7 @@
             <li><a href="indices/temas_clave.php">Índice de Temas Clave</a></li>
     </nav>
 
-    <?php require_once __DIR__ . "/../_footer.php"; ?>
+    <?php require_once __DIR__ . "/../fragments/footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

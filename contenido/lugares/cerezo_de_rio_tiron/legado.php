@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>Legado Cultural y Lingüístico</h3>
@@ -14,7 +14,7 @@
 <p>Visitar Cerezo es también conectar con esa herencia intangible, con las raíces de una lengua hablada por cientos de millones de personas en todo el mundo. Es un lugar para reflexionar sobre cómo la historia, la geografía y el encuentro de civilizaciones dan forma a nuestra identidad más profunda.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

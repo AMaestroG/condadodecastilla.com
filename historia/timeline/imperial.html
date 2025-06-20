@@ -5,7 +5,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="alabaster-bg">
-<?php require_once __DIR__ . '/../../_header.php'; ?>
+<?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 <main>
 <section id="imperial-timeline" class="relative bg-gray-900 bg-opacity-50 py-16 px-6 flex flex-col items-center">
     <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-yellow-700 md:hidden"></div>
@@ -85,7 +85,7 @@
     </div>
 </section>
 </main>
-<?php require_once __DIR__ . '/../../_footer.php'; ?>
+<?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const items = document.querySelectorAll('#imperial-timeline .animate-on-scroll');

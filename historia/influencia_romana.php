@@ -15,7 +15,7 @@
     </style>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . '/../_header.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/header.php'; ?>
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb),0.7), rgba(var(--color-negro-contraste-rgb),0.85)), url('/assets/img/hero_historia_background.jpg');">
         <div class="hero-content">
             <h1 class="gradient-text">Influencia Romana en la Región</h1>
@@ -30,7 +30,7 @@
             </div>
         </section>
     </main>
-    <?php require_once __DIR__ . '/../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="/assets/js/influencia_romana.js"></script>
     <script src="/js/layout.js"></script>

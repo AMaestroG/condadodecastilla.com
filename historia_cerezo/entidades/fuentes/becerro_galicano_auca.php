@@ -9,7 +9,7 @@
     <title>El Becerro Galicano y la Mención de Auca/Area Paterniani</title>
 </head>
 <body class="alabaster-bg">
-    <?php require_once __DIR__ . "/../../../_header.php"; ?>
+    <?php require_once __DIR__ . "/../../../fragments/header.php"; ?>
 
 <h1>El Becerro Galicano y la Mención de Auca/Area Paterniani</h1>
 
@@ -35,7 +35,7 @@
         <p>"Lo que está claro que en el Becerro Galicano de San Millán de la cogolla en el folio 142 y en el folio 190 nos habla que Castilla nace de las ruinas de la Ciudad de Auca Patricia."</p>
     </section>
 
-    <?php require_once __DIR__ . "/../../../_footer.php"; ?>
+    <?php require_once __DIR__ . "/../../../fragments/footer.php"; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

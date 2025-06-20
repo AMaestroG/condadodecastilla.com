@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>Un Pasado Milenario: De Cerasio a Condado</h3>
@@ -15,7 +15,7 @@
 <p>La villa fue también un importante cruce de caminos, incluido el <a href="/camino_santiago/camino_santiago.html">Camino de Santiago</a>, que trajo consigo un flujo constante de gentes, ideas y comercio, enriqueciendo su tejido social y cultural.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

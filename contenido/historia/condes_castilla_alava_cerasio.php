@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>El Gobierno desde Cerasio</h3>
@@ -23,7 +23,7 @@
 <p>En la episcopi de San Martín en Auca están enterrados todos los condes y condesas de Castilla hasta Fernán González incluido el padre de Fernán González que dice Fray Luis Perez Urbiel que fue enterrado en Cerezo por su mujer Munaidona.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

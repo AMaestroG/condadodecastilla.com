@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/../../includes/head_common.php'; ?>
 </head>
 <body>
-    <?php require_once __DIR__ . '/../../_header.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <main class="container page-content-block">
         <h3>La Identificación de Auca Patricia</h3>
@@ -26,7 +26,7 @@
 <p>Matizar que la ciudad fue Abandonada en el siglo VIII y no se construyo nada hasta finales del siglo XX, bueno, nada no es correcto, se edifico un ermita, la de San Martín, aun puedes ver su retablo en la iglesia de San Nicolas de Barí, en Cerezo de Rio Tirón.</p>
     </main>
 
-    <?php require_once __DIR__ . '/../../_footer.php'; ?>
+    <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
     <script src="/js/layout.js"></script>
 </body>
 </html>

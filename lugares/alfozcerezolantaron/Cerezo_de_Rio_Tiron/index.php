@@ -9,7 +9,7 @@
 
 </head>
 <body class="alabaster-bg">
-  <?php require_once __DIR__ . '/../../_header.php'; ?>
+  <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
 
     <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/Muralla.jpg');">
         <div class="hero-content">
@@ -416,7 +416,7 @@
         });
     </script>
 
-  <?php require_once __DIR__ . '/../../_footer.php'; ?>
+  <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>
   <script src="/js/layout.js" defer></script>
 </body>
 </html>
