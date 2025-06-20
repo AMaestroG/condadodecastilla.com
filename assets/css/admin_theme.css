@@ -2,11 +2,15 @@
 
 /* Admin dashboard common styles */
 body.admin-page {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-primary);
     margin: 0;
     padding: 0;
     background-color: var(--epic-alabaster-bg);
     color: var(--epic-text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
 }
 
 body.admin-page.centered {
