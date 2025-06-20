@@ -440,7 +440,7 @@ th {
     outline: none;
 }
 
-/* --- Footer Styling (.footer from _footer.html) --- */
+/* --- Footer Styling (.footer from fragments/footer.php) --- */
 .footer {
     background: linear-gradient(to bottom, rgba(var(--epic-purple-emperor-rgb), 0.9), rgba(var(--epic-purple-emperor-rgb), 0.75));
     color: var(--epic-text-light);
