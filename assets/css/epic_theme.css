@@ -77,6 +77,14 @@
     --epic-input-border: #ccc;
     --epic-text-muted: #666;
     --epic-action-bg: #f0fff0;
+    /* Time-based palette variables */
+    --epic-alabaster-dawn: #e5e5e5; /* Soft morning light */
+    --epic-gold-soft: #f3e5ab;      /* Gentle dawn gold */
+    --epic-purple-vibrant: #6b46c1; /* Bright daytime purple */
+    --epic-alabaster-dusk: #efe2d2; /* Warm dusk background */
+    --epic-gold-dusk: #f0b429;      /* Intense dusk gold */
+    --epic-orange-sunset: #f97316;  /* Sunset orange accent */
+    --epic-text-night: #e0e0e0;     /* Light text for night mode */
     /* Alert variables */
     --alert-bg: #ffdddd;
     --alert-border: #ff0000;

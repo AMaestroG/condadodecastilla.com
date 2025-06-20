@@ -12,6 +12,13 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 | `--color-texto-principal` | Marrón oscuro para la tipografía | `#2c1d12` |
 | `--color-fondo-pagina` | Blanco hueso sutil de fondo | `#fdfaf6` |
 | `--epic-alabaster-bg` | Fondo principal de alabastro | `#fdfaf6` |
+| `--epic-alabaster-dawn` | Variante gris suave para el amanecer | `#e5e5e5` |
+| `--epic-gold-soft` | Oro pálido de las primeras horas | `#f3e5ab` |
+| `--epic-purple-vibrant` | Morado intenso para el día | `#6b46c1` |
+| `--epic-alabaster-dusk` | Fondo cálido del atardecer | `#efe2d2` |
+| `--epic-gold-dusk` | Dorado profundo del atardecer | `#f0b429` |
+| `--epic-orange-sunset` | Naranja brillante del ocaso | `#f97316` |
+| `--epic-text-night` | Texto claro para el modo nocturno | `#e0e0e0` |
 | `--color-negro-contraste` | Negro de alto contraste | `#1A1A1A` |
 | `--alert-bg` | Fondo de mensajes de alerta | `#ffdddd` |
 | `--alert-border` | Borde de mensajes de alerta | `#ff0000` |
