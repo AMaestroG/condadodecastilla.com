@@ -256,19 +256,6 @@ function loadAos() {
     }
 }
 
-function insertHtmlWithScripts(container, html) {
-    container.innerHTML = html;
-    const scripts = container.querySelectorAll('script');
-    scripts.forEach(oldScript => {
-        const newScript = document.createElement('script');
-        Array.from(oldScript.attributes).forEach(attr => {
-            newScript.setAttribute(attr.name, attr.value);
-        });
-        newScript.textContent = oldScript.textContent;
-        document.head.appendChild(newScript);
-        oldScript.remove();
-    });
-}
 
 function loadIAToolsScript() {
     if (!document.querySelector('script[src="/js/ia-tools.js"]')) {
