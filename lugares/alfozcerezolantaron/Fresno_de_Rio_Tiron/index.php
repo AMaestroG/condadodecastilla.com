@@ -6,7 +6,7 @@
 </head>
 <body class="alabaster-bg">
   <?php require_once __DIR__ . '/../../fragments/header.php'; ?>
-  <h1>Fresno de Río Tirón</h1>
+  <h1 class="gradient-text">Fresno de Río Tirón</h1>
   <p>Bienvenido al archivo del pueblo de <strong>Fresno de Río Tirón</strong>, integrante del histórico Alfoz de Cerezo y Lantarón.</p>
   <p><a href="/lugares/lugares.php" class="back-link">&laquo; Volver al Índice de Lugares</a></p>
   <h2>Historia</h2>

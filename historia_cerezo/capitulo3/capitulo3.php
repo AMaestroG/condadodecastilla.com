@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
-<h1>Capítulo 3: Vestigios y Legado en Cerezo de Río Tirón</h1>
+<h1 class="gradient-text">Capítulo 3: Vestigios y Legado en Cerezo de Río Tirón</h1>
 
     <section>
         <h2 id="estructuras">Estructuras Defensivas, Religiosas y Civiles: Un Paisaje Histórico</h2>

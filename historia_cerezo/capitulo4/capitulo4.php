@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
-<h1>Capítulo 4: Interpretaciones y Debate Histórico (Trazas Cruzadas)</h1>
+<h1 class="gradient-text">Capítulo 4: Interpretaciones y Debate Histórico (Trazas Cruzadas)</h1>
 
     <section>
         <h2 id="fuentes-primarias">La Crucial Relectura de las Fuentes Primarias</h2>

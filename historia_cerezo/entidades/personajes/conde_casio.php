@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../../fragments/header.php"; ?>
 
-<h1>El Conde Casio</h1>
+<h1 class="gradient-text">El Conde Casio</h1>
 
     <section>
         <h2>Origen y Contexto</h2>

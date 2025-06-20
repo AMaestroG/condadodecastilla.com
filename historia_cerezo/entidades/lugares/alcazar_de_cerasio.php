@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../../fragments/header.php"; ?>
 
-<h1>El Alcázar de Cerasio</h1>
+<h1 class="gradient-text">El Alcázar de Cerasio</h1>
 
     <section>
         <h2>Descripción General</h2>

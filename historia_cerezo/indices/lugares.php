@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
-<h1>Índice de Lugares Relevantes</h1>
+<h1 class="gradient-text">Índice de Lugares Relevantes</h1>
     <ul>
         <li>Auca Patricia / Ciudad de Oca: <a href="../capitulo1/capitulo1.php">Ver Capítulo 1: Auca Patricia, la Ciudad Perdida</a></li>
         <li>Alcázar de Cerasio: <a href="../entidades/lugares/alcazar_de_cerasio.php">Ver módulo del Alcázar de Cerasio</a></li>

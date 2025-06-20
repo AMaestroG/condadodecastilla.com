@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../../../fragments/header.php"; ?>
 
-<h1>El Becerro Galicano y la Mención de Auca/Area Paterniani</h1>
+<h1 class="gradient-text">El Becerro Galicano y la Mención de Auca/Area Paterniani</h1>
 
     <section>
         <h2>Citas Relevantes del Becerro</h2>

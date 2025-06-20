@@ -11,7 +11,7 @@
 <body class="alabaster-bg">
     <?php require_once __DIR__ . "/../fragments/header.php"; ?>
 
-<h1>Capítulo 5: Cerezo en la Alta Edad Media: Entre Condes y Reyes</h1>
+<h1 class="gradient-text">Capítulo 5: Cerezo en la Alta Edad Media: Entre Condes y Reyes</h1>
 
     <section id="introduccion-baluarte">
         <h2>Introducción: Cerasio, Baluarte Consolidado</h2>
