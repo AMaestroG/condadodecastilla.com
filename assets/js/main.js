@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const open = !menu.classList.contains('sidebar-visible');
         menu.classList.toggle('sidebar-visible', open);
         document.body.classList.toggle('sidebar-active', open);
+        document.body.classList.toggle('menu-compressed', open);
         updateAria(btn, menu, open);
 
         if (open) {
@@ -93,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     : (menu.classList.contains('right-panel') ? 'right' : '');
         const open = !menu.classList.contains('active');
         menu.classList.toggle('active', open);
+        document.body.classList.toggle('menu-compressed', open);
         updateAria(btn, menu, open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
 
@@ -119,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const sidebarOpen = document.getElementById(sidebarMenuId)?.classList.contains('sidebar-visible');
         const anyOpen = anyPanelOpen || sidebarOpen;
 
-        document.body.classList.toggle('menu-compressed', anyOpen && !sidebarOpen); // menu-compressed might only apply to panels
+        document.body.classList.toggle('menu-compressed', anyOpen);
 
         if (window.audioController && typeof window.audioController.handleMenuToggle === 'function') {
             window.audioController.handleMenuToggle(anyOpen);

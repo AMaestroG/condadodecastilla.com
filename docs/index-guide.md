@@ -38,7 +38,7 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 
 Al pulsar un botón con el atributo `data-menu-target="id-del-panel"`,
 `assets/js/main.js` abre el panel de menú indicado y añade la clase
-`menu-compressed` al elemento `<body>`. También se aplica
+`menu-compressed` al elemento `<body>` para escalar la página. También se aplica
 `menu-open-left` o `menu-open-right` según el lado del que se despliegue
 el panel. Estas clases están definidas en
 `assets/css/sliding_menu.css`:
@@ -46,15 +46,20 @@ el panel. Estas clases están definidas en
 ```css
 body.menu-compressed {
     transition: transform 0.3s ease;
-    transform: scaleX(0.95);
+    transform: scale(0.96);
 }
 body.menu-open-left {
-    transform: translateX(260px) scaleX(0.95);
+    transform: translateX(260px) scale(0.96);
 }
 body.menu-open-right {
-    transform: translateX(-260px) scaleX(0.95);
+    transform: translateX(-260px) scale(0.96);
 }
 ```
+
+`assets/js/main.js` actualiza los atributos `aria-expanded` y `aria-hidden`
+de los botones y paneles cada vez que se abre o cierra un menú, y
+añade o quita la clase `menu-compressed` para aplicar la animación de
+escala.
 
 El contenido de la página se desplaza y se escala horizontalmente,
 comprimiéndose hacia el lado opuesto al menú abierto. Al cerrar todos
