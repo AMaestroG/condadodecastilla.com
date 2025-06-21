@@ -121,7 +121,7 @@ return [
 Edita sus valores o añade nuevas claves para ampliar el listado de agentes.
 
 Los agentes deben respaldar la misión descrita en `docs/README.md`:
-*promocionar el turismo en Cerezo de Río Tirón y proteger su patrimonio arqueológico y cultural*. Cada experto contribuye a este objetivo desde su área:
+*promocionar el turismo en Cerezo de Río Tirón y gestionar su patrimonio arqueológico y cultural*. Cada experto contribuye a este objetivo desde su área:
 
 - **historian** contextualiza la historia local para turistas y residentes.
 - **archaeologist** vela por la preservación de hallazgos.

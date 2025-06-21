@@ -2,7 +2,7 @@
 
 ## Misión
 
-Promocionar el turismo de **Cerezo de Río Tirón** y proteger su patrimonio arqueológico y cultural.
+Promocionar el turismo de **Cerezo de Río Tirón** y gestionar su patrimonio arqueológico y cultural.
 
 ## Estructura principal
 
