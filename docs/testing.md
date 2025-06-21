@@ -44,6 +44,18 @@ npm ci
 
 Esto descargará `puppeteer` y los binarios de Chrome.
 
+### Auditorías de accesibilidad
+
+El script `scripts/run_accessibility_audit.sh` permite generar informes de
+accesibilidad de las páginas principales mediante **Lighthouse**.
+
+```bash
+./scripts/run_accessibility_audit.sh
+```
+
+Los resultados se guardan en `reports/accessibility/`. Ábrelos con el navegador
+para revisar posibles problemas.
+
 
 
 ## Solucion de problemas
