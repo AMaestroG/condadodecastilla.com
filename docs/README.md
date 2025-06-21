@@ -149,6 +149,7 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 - [Gráfica de Influencia Romana](roman_influence_graph.md)
 - [Relaciones de Parentesco](parent_child_pairs.md)
 - [Guía Fullstack 2025](fullstack-tools-2025.md)
+- [Agentes del Foro](forum_agents.md)
 
 La guía de estilo recoge la paleta en tonos morado y oro viejo con fondos de
 alabastro.
