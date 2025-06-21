@@ -6,6 +6,7 @@ if ($geminiNotice) {
     echo "<div class='notice-error' role='alert'>" . htmlspecialchars($geminiNotice) . "</div>";
 }
 ?>
+<header class="bg-imperial-purple text-old-gold texture-alabaster">
 <div id="cave-mask"></div>
 <img id="header-escudo-overlay" class="hero-escudo" src="/assets/img/escudo.jpg" alt="Escudo de Cerezo de Río Tirón">
 <div id="fixed-header-elements" style="height: var(--header-footer-height);">
@@ -72,3 +73,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+</header>
