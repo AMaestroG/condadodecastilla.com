@@ -50,7 +50,21 @@ $foto_id = isset($path_segments[3]) ? intval($path_segments[3]) : null;
 switch ($request_method) {
     case 'GET':
         if ($foto_id !== null) {
-            json_response(['error' => 'Fetching a single photo is not implemented.'], 404);
+            try {
+                $stmt = $pdo->prepare("SELECT id, titulo, descripcion, autor, imagen_nombre, fecha_subida FROM fotos_galeria WHERE id = :id");
+                $stmt->bindParam(':id', $foto_id, PDO::PARAM_INT);
+                $stmt->execute();
+                $foto = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (!$foto) {
+                    json_response(['error' => 'Photo not found'], 404);
+                }
+                $base_url = get_base_url();
+                $upload_path_segment = trim(UPLOAD_DIR_BASE, '/');
+                $foto['imagenUrl'] = $base_url . '/' . $upload_path_segment . '/' . $foto['imagen_nombre'];
+                json_response($foto);
+            } catch (PDOException $e) {
+                json_response(['error' => 'Failed to fetch photo', 'details' => $e->getMessage()], 500);
+            }
         } else {
             try {
                 $stmt = $pdo->query("SELECT id, titulo, descripcion, autor, imagen_nombre, fecha_subida FROM fotos_galeria ORDER BY fecha_subida DESC");

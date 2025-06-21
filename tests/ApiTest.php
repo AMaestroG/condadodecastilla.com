@@ -21,20 +21,23 @@ class ApiTest extends TestCase {
             'HTTP_HOST' => 'localhost',
         ];
         $prepend = realpath(__DIR__.'/fixtures/prepend.php');
+        $scriptPath = realpath($script);
         $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
             escapeshellarg($prepend),
-            escapeshellarg($script)
+            escapeshellarg($scriptPath)
         );
         $env['PATH'] = getenv('PATH');
         $env['REDIRECT_STATUS'] = '1';
-        $env['SCRIPT_FILENAME'] = $script;
+        $env['SCRIPT_FILENAME'] = $scriptPath;
         $env['TEST_SQLITE_PATH'] = $this->dbFile;
         $descriptor = [1 => ['pipe','w'], 2 => ['pipe','w']];
         $proc = proc_open($cmd, $descriptor, $pipes, null, $env);
-        $output = stream_get_contents($pipes[1]);
+        $rawOutput = stream_get_contents($pipes[1]);
         $err = stream_get_contents($pipes[2]);
         $status = proc_close($proc);
-        return [$status, $output, $err];
+        $parts = preg_split("/\r?\n\r?\n/", $rawOutput, 2);
+        $body = $parts[1] ?? $rawOutput;
+        return [$status, $body, $err];
     }
 
     public function testMuseoGet(): void {
@@ -57,6 +60,18 @@ class ApiTest extends TestCase {
         $data = json_decode($out, true);
         $this->assertIsArray($data);
         $this->assertSame('foto1', $data[0]['titulo']);
+    }
+
+    public function testGaleriaGetById(): void {
+        [$status, $out, $err] = $this->runScript(__DIR__.'/../api_galeria.php', [
+            'REQUEST_METHOD' => 'GET',
+            'REQUEST_URI' => '/api/galeria/fotos/1'
+        ]);
+        $this->assertSame(0, $status, $err);
+        $data = json_decode($out, true);
+        $this->assertIsArray($data);
+        $this->assertSame('foto1', $data['titulo']);
+        $this->assertArrayHasKey('imagenUrl', $data);
     }
 
     public function testTiendaGet(): void {
