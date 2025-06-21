@@ -32,6 +32,9 @@ jobs:
       - name: Install test dependencies
         run: ./scripts/install_dev_deps.sh
 
+      - name: Install Node modules
+        run: npm ci
+
       - name: Run PHPUnit
         run: vendor/bin/phpunit
 
