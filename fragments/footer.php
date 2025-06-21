@@ -29,16 +29,23 @@
         <li>Consulta la agenda de eventos culturales.</li>
     </ul>
 </div>
+<?php
+$app_debug = filter_var($_ENV['APP_DEBUG'] ?? false, FILTER_VALIDATE_BOOLEAN);
+if ($app_debug) {
+?>
 <script src="/assets/js/main.js"></script>
 <script src="/assets/js/cave_mask.js"></script>
 <script src="/assets/js/hero.js"></script>
 <script src="/assets/js/scroll-fade.js"></script>
 <script src="/assets/js/parallax.js"></script>
-<script src="/js/lang-bar.js"></script>
 <script src="/assets/js/audio-controller.js"></script>
 <script src="/assets/js/escudo-reveal.js"></script>
 <script src="/assets/js/escudo-drag.js"></script>
 <script defer src="/assets/js/custom-pointer.js"></script>
 <script src="/assets/js/homonexus-toggle.js"></script>
-<script src="/js/layout.js"></script>
 <script src="/assets/js/help.js"></script>
+<?php } else { ?>
+<script src="/assets/vendor/js/main.min.js"></script>
+<?php } ?>
+<script src="/js/lang-bar.js"></script>
+<script src="/js/layout.js"></script>
