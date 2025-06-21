@@ -57,5 +57,24 @@ $post_slug = isset($_GET['post']) ? $_GET['post'] : null;
 </main>
 <?php require_once __DIR__.'/fragments/footer.php'; ?>
 
+<?php if ($post_slug && isset($posts[$post_slug])): ?>
+<script type="application/ld+json">
+<?php
+    $published = date('c', filemtime($posts[$post_slug]['file']));
+    $data = [
+        '@context' => 'https://schema.org',
+        '@type' => 'Article',
+        'headline' => $posts[$post_slug]['title'],
+        'datePublished' => $published,
+        'author' => [
+            '@type' => 'Organization',
+            'name' => 'Condado de Castilla'
+        ]
+    ];
+    echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+?>
+</script>
+<?php endif; ?>
+
 </body>
 </html>

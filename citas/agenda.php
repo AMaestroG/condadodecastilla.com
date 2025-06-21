@@ -73,5 +73,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     ?>
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Reserva de visita guiada",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "startDate": "2025-08-01T10:00:00+02:00",
+        "location": {
+            "@type": "Place",
+            "name": "Cerezo de Río Tirón",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Cerezo de Río Tirón",
+                "addressRegion": "Burgos",
+                "addressCountry": "ES"
+            }
+        },
+        "description": "Formulario para programar citas de visitas guiadas"
+    }
+    </script>
 </body>
 </html>

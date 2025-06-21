@@ -127,6 +127,28 @@ load_page_css();
     </main>
 
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
-    
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Visita guiada a Cerezo de Río Tirón",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "startDate": "2025-08-01T10:00:00+02:00",
+        "location": {
+            "@type": "Place",
+            "name": "Cerezo de Río Tirón",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Cerezo de Río Tirón",
+                "addressRegion": "Burgos",
+                "addressCountry": "ES"
+            }
+        },
+        "description": "Información sobre visitas y experiencias guiadas en Cerezo de Río Tirón"
+    }
+    </script>
+
 </body>
 </html>
