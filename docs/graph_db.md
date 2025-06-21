@@ -64,3 +64,31 @@ all_links = db.get_all_links()
 ```
 
 Esta herramienta sirve de apoyo para organizar la información relacionada con Cerezo de Río Tirón y facilitar su análisis dentro del proyecto de promoción turística y gestión patrimonial.
+
+## Endpoint `/api/graph`
+
+El servicio Flask incluye una ruta para obtener todo el contenido del grafo en formato JSON.
+
+### Uso
+
+```
+GET /api/graph
+```
+
+Parámetros opcionales:
+
+- `start_date` – fecha en formato ISO‑8601 para filtrar los nodos y enlaces creados a partir de ese momento.
+- `limit` – número máximo de nodos a devolver. Los enlaces se limitan a los que conectan nodos presentes en el resultado.
+
+### Respuesta
+
+```json
+{
+  "nodes": [
+    {"url": "http://example.com", "last_crawled_at": "2024-01-01T00:00:00"}
+  ],
+  "links": [
+    {"source_url": "http://example.com", "target_url": "http://example.net"}
+  ]
+}
+```
