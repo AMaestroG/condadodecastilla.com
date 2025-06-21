@@ -10,26 +10,7 @@
     <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>
 <body class="font-body bg-[color:var(--epic-alabaster-bg)] text-gray-900">
-    <header class="fixed w-full bg-imperial-purple bg-opacity-90 text-old-gold shadow z-20">
-        <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
-            <h1 class="font-headings text-xl md:text-2xl gradient-text">Condado de Castilla</h1>
-            <button id="menu-toggle" aria-label="Abrir menú" class="text-old-gold md:hidden focus:outline-none">☰</button>
-            <nav class="hidden md:flex space-x-4 font-body" aria-label="Navegación principal">
-                <a href="#hero" class="hover:underline font-body">Inicio</a>
-                <a href="#timeline" class="hover:underline font-body">Historia</a>
-                <a href="#arqueologia" class="hover:underline font-body">Arqueología</a>
-                <a href="#foro" class="hover:underline font-body">Foro</a>
-            </nav>
-        </div>
-        <div id="mobile-menu" class="slide-menu left texture-alabaster md:hidden" aria-label="Menú móvil">
-            <ul class="py-4 font-body">
-                <li><a href="#hero" class="block px-4 py-2">Inicio</a></li>
-                <li><a href="#timeline" class="block px-4 py-2">Historia</a></li>
-                <li><a href="#arqueologia" class="block px-4 py-2">Arqueología</a></li>
-                <li><a href="#foro" class="block px-4 py-2">Foro</a></li>
-            </ul>
-        </div>
-    </header>
+    <?php require_once '_header.php'; ?>
 
     <main class="pt-20 space-y-20">
         <section id="hero" class="relative text-center text-old-gold texture-alabaster bg-imperial-purple bg-opacity-75 py-20">
