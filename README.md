@@ -11,6 +11,7 @@ Promocionar el turismo de **Cerezo de Río Tirón** y proteger su patrimonio arq
 - `museo/` – páginas del museo y fichas de piezas.
 - `foro/` – área de debate gestionada por cinco agentes expertos.
 - `backend/` – API en Python (Flask) y herramientas de IA.
+- `nuevaweb/` – rediseño experimental del sitio ([nuevaweb/README.md](nuevaweb/README.md)).
 - `docs/` – documentación completa.
 - `scripts/` – utilidades de desarrollo y mantenimiento.
 - `scripts_admin.php` – interfaz protegida para ejecutar esos scripts y revisar la salida.
