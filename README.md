@@ -33,12 +33,13 @@ Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los se
 ## Museo en Astro
 
 Se añadió una página experimental en `frontend/astro-app` que usa **Astro** y **TailwindCSS** para mostrar las piezas del museo definidas en `museo/piezas.json`.
-Para ejecutarla:
+Para ejecutarla desde la raíz del proyecto basta con:
 
 ```bash
-npm install
 npm run dev:astro
 ```
+
+Consulta [frontend/astro-app/README.md](frontend/astro-app/README.md) si prefieres lanzarla dentro de su carpeta. Allí se detallan también la ubicación del directorio de salida y otros apuntes.
 
 La página principal se genera en `/piezas` y presenta las piezas en una cuadrícula adaptable.
 
