@@ -89,3 +89,7 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
    ```
 
 También se proporciona `scripts/run_tests.sh` para instalar `requirements.txt` y lanzar la suite de forma directa.
+
+## Estilo de mensajes de commit
+
+Utiliza títulos breves en modo imperativo que describan el cambio, p.ej. `Add recursive menu renderer with root flag`. Si añades un cuerpo opcional, explica _qué_ y _por qué_. Consulta [docs/commit-style.md](docs/commit-style.md) para ver la guía completa.
