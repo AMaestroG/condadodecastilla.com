@@ -42,7 +42,6 @@ npm run dev:astro
 
 La página principal se genera en `/piezas` y presenta las piezas en una cuadrícula adaptable.
 
-
 ## Mapa interactivo
 
 Visita `lugares/mapa_interactivo.php` para explorar los principales monumentos y poblaciones sobre un mapa dinámico.

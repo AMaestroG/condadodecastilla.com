@@ -1,10 +1,12 @@
 # Lista de tareas
+
 - [x] Implementar menús deslizantes que compriman el contenido lateral.
 - [x] Aplicar paleta de morado y oro viejo según `docs/style-guide.md`.
 - [x] Añadir degradados de alto contraste en títulos.
 - [x] Crear un foro con cinco agentes expertos que dinamicen la comunidad.
 
 ## Nuevas tareas
+
 - [x] Documentar el crawler y la base de datos de grafo de conocimiento.
 - [x] Revisar la accesibilidad y el rendimiento en dispositivos móviles.
 - [x] Integrar el modo Homonexus y el chat IA en todas las páginas.
@@ -24,6 +26,7 @@ verificó que el botón `#consolidated-menu-button` permanece visible al hacer
 scroll en pantallas de 768 px o menos.
 
 ## Tareas en curso
+
 - [ ] Implementacion del efecto de compresion en los menus.
 - [ ] Creacion del componente de foro en React.
 - [ ] Extension de la API Flask para comentarios.
