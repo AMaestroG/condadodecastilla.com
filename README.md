@@ -179,6 +179,22 @@ python flask_app.py
 ```
 
 Si no defines la variable, `flask_app.py` ejecutará `app.run(debug=False)` por defecto.
+### Entorno de desarrollo con Docker
+
+Se proporciona un `Dockerfile` para lanzar de manera conjunta el frontend en Astro y la API desarrollada con FastAPI. Construye la imagen con:
+
+```bash
+docker build -t condado-dev .
+```
+
+Después ejecuta la imagen exponiendo los puertos de cada servicio:
+
+```bash
+docker run --rm -p 4321:4321 -p 8000:8000 condado-dev
+```
+
+El frontend quedará disponible en `http://localhost:4321` y la API en `http://localhost:8000`.
+
 
 ## Instalación de dependencias
 
