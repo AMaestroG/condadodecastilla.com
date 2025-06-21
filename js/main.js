@@ -394,4 +394,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cargar tema al inicio
     loadTheme();
+
+    // ==========================================================================
+    // 7. Efecto Ripple en Clics
+    // ==========================================================================
+    function createRipple(event) {
+        const button = event.currentTarget; // El elemento que disparó el evento
+
+        // Crear el elemento span para el ripple
+        const ripple = document.createElement("span");
+        ripple.classList.add("ripple");
+
+        // Calcular el tamaño del ripple (basado en el tamaño del botón)
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+
+        // Calcular la posición del clic relativa al botón
+        const rect = button.getBoundingClientRect();
+        const rippleX = event.clientX - rect.left - radius;
+        const rippleY = event.clientY - rect.top - radius;
+
+        // Establecer el tamaño y la posición del ripple
+        ripple.style.width = ripple.style.height = `${diameter}px`;
+        ripple.style.left = `${rippleX}px`;
+        ripple.style.top = `${rippleY}px`;
+
+        // Añadir el ripple al botón
+        button.appendChild(ripple);
+
+        // Eliminar el ripple después de que la animación termine
+        ripple.addEventListener('animationend', () => {
+            ripple.remove();
+        });
+    }
+
+    const rippleElements = document.querySelectorAll(
+        '.nav-menu-link, .nav-submenu-link, .sliding-panel ul li a, .theme-toggle-button, .nav-toggle, .submenu-toggle, .sliding-panel-close'
+    );
+
+    rippleElements.forEach(element => {
+        // Asegurar que los elementos tengan position: relative y overflow: hidden si no lo tienen ya
+        // (CSS se encarga de .nav-menu-link, .nav-submenu-link, .sliding-panel ul li a)
+        // Los botones como theme-toggle-button, nav-toggle, etc., también necesitan estas propiedades
+        // si no las tienen directamente.
+        const computedStyle = getComputedStyle(element);
+        if (computedStyle.position === 'static') {
+            element.style.position = 'relative';
+        }
+        if (computedStyle.overflow !== 'hidden') {
+            // No forzar overflow:hidden aquí si rompe el diseño de otros elementos (ej. el ::after de los links)
+            // Es mejor manejarlo en CSS donde sea posible. .nav-menu-link ya lo tiene.
+            // Los botones simples generalmente no tienen contenido que se desborde, por lo que el ripple
+            // simplemente se superpondrá y se desvanecerá.
+        }
+
+        element.addEventListener('mousedown', createRipple);
+    });
+
 });

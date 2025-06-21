@@ -31,6 +31,7 @@
     --page-bg: var(--page-bg-light);
     --page-text: var(--page-text-light);
     --border-color: var(--border-color-light);
+    --ripple-color: rgba(255, 255, 255, 0.4); /* Ripple para tema claro */
     /* Añadir transition a html para suavizar cambio de tema en propiedades no heredadas directamente */
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
@@ -43,6 +44,7 @@ html[data-theme="dark"] {
     --page-bg: var(--page-bg-dark);
     --page-text: var(--page-text-dark);
     --border-color: var(--border-color-dark);
+    --ripple-color: rgba(255, 255, 255, 0.2); /* Ripple para tema oscuro (más sutil sobre fondos oscuros) */
 }
 
 *,
@@ -51,8 +53,6 @@ html[data-theme="dark"] {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* Transición para propiedades que no se heredan directamente o para elementos específicos */
-    /* transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease; */
 }
 
 body {
@@ -68,50 +68,43 @@ body {
 .theme-toggle-button {
     background: none;
     border: none;
-    color: var(--primary-text); /* Hereda el color del texto del header */
+    color: var(--primary-text);
     cursor: pointer;
-    padding: 0; /* Ajustar según el tamaño del icono/contenedor */
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px; /* Mismo tamaño que el nav-toggle para consistencia */
-    height: 100%; /* Ocupar altura del nav-menu-item */
+    width: 44px;
+    height: 100%;
     border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed) ease, transform 0.1s ease-out;
 }
 .theme-toggle-button:hover,
 .theme-toggle-button:focus {
-    background-color: var(--secondary-bg); /* Mismo hover que otros links */
+    background-color: var(--secondary-bg);
+}
+.theme-toggle-button:active {
+    transform: scale(0.92);
 }
 .theme-toggle-button svg {
-    width: 22px; /* Tamaño del icono */
+    width: 22px;
     height: 22px;
-    fill: currentColor; /* El color del icono será el color del texto del botón */
+    fill: currentColor;
     transition: fill var(--transition-speed) ease;
 }
 
-/* Ocultar/mostrar icono correcto según el tema (controlado por JS añadiendo/quitando una clase o data-attribute al botón o a html) */
-html[data-theme="dark"] .theme-icon-sun {
-    display: none;
-}
-html[data-theme="dark"] .theme-icon-moon {
-    display: inline-block; /* o block */
-}
-html[data-theme="light"] .theme-icon-sun {
-    display: inline-block; /* o block */
-}
-html[data-theme="light"] .theme-icon-moon {
-    display: none;
-}
-/* Por defecto (si no hay data-theme o es light), mostrar sol y ocultar luna */
-.theme-icon-moon { display: none; }
-.theme-icon-sun { display: inline-block; }
+html[data-theme="dark"] .theme-icon-sun { display: none; }
+html[data-theme="dark"] .theme-icon-moon { display: inline-block; }
+html[data-theme="light"] .theme-icon-sun { display: inline-block; }
+html[data-theme="light"] .theme-icon-moon { display: none; }
+.theme-icon-moon { display: none; } /* Default hide moon */
+.theme-icon-sun { display: inline-block; } /* Default show sun */
 
 
 .content {
     padding: 30px 20px;
     text-align: center;
-    min-height: calc(100vh - 80px); /* Asumiendo altura del header */
-    /* No necesita transición aquí si body ya la tiene */
+    min-height: calc(100vh - 80px);
 }
 
 /* Estilos del Header y Navegación Principal */
@@ -132,7 +125,7 @@ html[data-theme="light"] .theme-icon-moon {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    height: 70px; /* Altura fija para el header */
+    height: 70px;
 }
 
 .nav-logo {
@@ -153,37 +146,37 @@ html[data-theme="light"] .theme-icon-moon {
 }
 
 .nav-menu-item {
-    position: relative; /* Para los submenús */
-    display: flex; /* Para alinear el link verticalmente */
+    position: relative;
+    display: flex;
     align-items: center;
 }
 
 .nav-menu-link {
     color: var(--primary-text);
     text-decoration: none;
-    padding: 0 20px; /* Padding horizontal, vertical se ajusta por altura del item */
+    padding: 0 20px;
     display: flex;
     align-items: center;
     height: 100%;
     font-size: 1em;
-    position: relative;
-    /* transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; */ /* Removido para el efecto de barrido */
-    transition: color var(--transition-speed) ease; /* Solo transición de color de texto por defecto */
-    overflow: hidden; /* Necesario para el efecto de barrido del ::before */
+    position: relative; /* Necesario para ripple */
+    transition: color var(--transition-speed) ease;
+    overflow: hidden;  /* Necesario para ripple y efecto ::before */
+    -webkit-mask-image: -webkit-radial-gradient(white, black); /* Para Safari y Chrome con bordes redondeados en overflow:hidden */
 }
-.nav-menu-link::before { /* Elemento para el efecto de barrido del fondo */
+.nav-menu-link::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%; /* Inicia fuera a la izquierda */
+    left: -100%;
     width: 100%;
     height: 100%;
     background-color: var(--secondary-bg);
-    z-index: -1; /* Detrás del texto del enlace */
-    transition: transform var(--transition-speed) cubic-bezier(0.77, 0, 0.175, 1); /* Un easing más "épico" */
+    z-index: -1;
+    transition: transform var(--transition-speed) cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.nav-menu-link::after { /* Subrayado animado para hover/focus */
+.nav-menu-link::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -192,50 +185,57 @@ html[data-theme="light"] .theme-icon-moon {
     width: 0;
     height: 3px;
     background-color: var(--accent-color);
-    transition: width var(--transition-speed) ease;
+    transition: width var(--transition-speed) ease 0.1s;
 }
 
-.nav-menu-link:hover,
-.nav-menu-link:focus,
-.nav-menu-item.is-active-link > .nav-menu-link { /* Para indicar página activa */
-    background-color: var(--secondary-bg);
-    color: #fff; /* Un blanco más brillante para contraste */
+.nav-menu-link:hover::before,
+.nav-menu-link:focus::before {
+    transform: translateX(100%);
 }
+.nav-menu-link:hover,
+.nav-menu-link:focus {
+    color: #fff;
+}
+
 .nav-menu-link:hover::after,
 .nav-menu-link:focus::after {
     width: 100%;
 }
-/* Estilo específico para el enlace activo y cuando un submenú tiene un hijo activo */
+
 .nav-menu-item.is-active-link > .nav-menu-link,
 .nav-menu-item.has-active-child > .nav-menu-link {
-    background-color: var(--secondary-bg);
-    color: #fff; /* Un blanco más brillante para contraste */
+    color: #fff;
 }
+.nav-menu-item.is-active-link > .nav-menu-link::before,
+.nav-menu-item.has-active-child > .nav-menu-link::before {
+    transform: translateX(100%);
+}
+
 .nav-menu-item.is-active-link > .nav-menu-link::after,
 .nav-menu-item.has-active-child > .nav-menu-link::after {
-    width: 100%; /* Mantiene el subrayado para el activo o padre de activo */
+    width: 100%;
 }
 .nav-submenu-item.is-active-link > .nav-submenu-link {
-    background-color: var(--primary-bg); /* Un poco más oscuro para destacar en submenú */
-    color: var(--accent-color); /* Usar color de acento para el texto */
+    background-color: var(--primary-bg);
+    color: var(--accent-color);
     font-weight: bold;
     padding-left: 25px;
 }
 .nav-submenu-item.has-active-child > .nav-submenu-link {
-    font-weight: bold; /* Solo negrita si es padre de activo pero no el activo mismo */
+    font-weight: bold;
 }
 
 /* Mega Menú Específico */
 .nav-menu-item.has-megamenu .nav-submenu {
-    display: none; /* Ocultar el submenú estándar en escritorio si es un megamenú */
+    display: none;
 }
 
 .mega-menu-container {
     position: absolute;
-    top: 100%; /* Debajo del item de menú padre */
+    top: 100%;
     left: 0;
-    width: 100%; /* Ocupa el ancho del .main-nav o un ancho fijo grande */
-    max-width: 800px; /* O ajustar según diseño */
+    width: 100%;
+    max-width: 800px;
     background-color: var(--secondary-bg);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -246,26 +246,24 @@ html[data-theme="light"] .theme-icon-moon {
     transition: opacity var(--transition-speed) ease,
                 visibility var(--transition-speed) ease,
                 transform var(--transition-speed) ease;
-    z-index: 1000; /* Ligeramente por debajo de submenús normales si se solapan, o igual */
-    display: flex; /* Para centrar el .mega-menu-content si es necesario */
+    z-index: 1000;
+    display: flex;
     justify-content: center;
 }
 
-/* El contenedor real del contenido del mega menú, para poder centrarlo si width es menor que el nav */
 .mega-menu-content {
     display: flex;
-    gap: 20px; /* Espacio entre columnas */
+    gap: 20px;
     width: 100%;
 }
 
 .mega-menu-column {
-    flex: 1; /* Las columnas comparten el espacio */
-    min-width: 180px; /* Ancho mínimo para cada columna */
+    flex: 1;
+    min-width: 180px;
     opacity: 0;
     transform: translateY(10px);
     animation: fadeInUpColumn 0.4s ease-out forwards;
 }
-/* Aplicar delays escalonados a las columnas del mega menú */
 .nav-menu-item.has-megamenu:hover .mega-menu-column:nth-child(1),
 .nav-menu-item.has-megamenu:focus-within .mega-menu-column:nth-child(1) {
     animation-delay: 0.1s;
@@ -278,7 +276,6 @@ html[data-theme="light"] .theme-icon-moon {
 .nav-menu-item.has-megamenu:focus-within .mega-menu-column:nth-child(3) {
     animation-delay: 0.3s;
 }
-/* Si hubiera más columnas, se seguiría este patrón */
 
 @keyframes fadeInUpColumn {
     to {
@@ -288,8 +285,8 @@ html[data-theme="light"] .theme-icon-moon {
 }
 
 .mega-menu-column-promo {
-    flex-grow: 0.7; /* La columna de promo puede ser más pequeña si es necesario */
-    border-left: 1px solid var(--border-color); /* Usar variable de borde */
+    flex-grow: 0.7;
+    border-left: 1px solid var(--border-color);
     padding-left: 20px;
 }
 
@@ -316,6 +313,9 @@ html[data-theme="light"] .theme-icon-moon {
     display: block;
     padding: 5px 0;
     transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+    position: relative; /* Para ripple */
+    overflow: hidden;   /* Para ripple */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .mega-menu-list li a:hover,
 .mega-menu-list li a:focus {
@@ -338,8 +338,6 @@ html[data-theme="light"] .theme-icon-moon {
     text-decoration: none;
 }
 
-
-/* Mostrar el Mega Menú en hover/focus (solo escritorio) */
 @media (min-width: 769px) {
     .nav-menu-item.has-megamenu:hover > .mega-menu-container,
     .nav-menu-item.has-megamenu:focus-within > .mega-menu-container {
@@ -347,12 +345,10 @@ html[data-theme="light"] .theme-icon-moon {
         visibility: visible;
         transform: translateY(0);
     }
-    /* En escritorio, si es un megamenú, el submenú normal (para móvil) debe estar oculto */
     .nav-menu-item.has-megamenu > .nav-submenu {
         display: none !important;
     }
 }
-
 
 /* Botón de Hamburguesa */
 .nav-toggle {
@@ -362,12 +358,15 @@ html[data-theme="light"] .theme-icon-moon {
     color: var(--primary-text);
     cursor: pointer;
     padding: 10px;
-    z-index: 1001; /* Encima del menú en móvil */
-    width: 44px; /* Buen tamaño para tap target */
+    z-index: 1001;
+    width: 44px;
     height: 44px;
     position: relative;
+    transition: transform 0.1s ease-out;
 }
-
+.nav-toggle:active {
+    transform: scale(0.92);
+}
 .nav-toggle .hamburger-line {
     display: block;
     width: 25px;
@@ -380,7 +379,7 @@ html[data-theme="light"] .theme-icon-moon {
     transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
 }
 .nav-toggle .hamburger-line:nth-child(1) { top: 10px; }
-.nav-toggle .hamburger-line:nth-child(2) { top: 19px; } /* Centro */
+.nav-toggle .hamburger-line:nth-child(2) { top: 19px; }
 .nav-toggle .hamburger-line:nth-child(3) { top: 28px; }
 
 
@@ -402,17 +401,17 @@ html[data-theme="light"] .theme-icon-moon {
                 transform var(--transition-speed) ease;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    padding: 5px 0; /* Espacio interno */
+    padding: 5px 0;
 }
 
 .nav-submenu-nested {
-    top: -5px; /* Alineado con el padding del padre */
+    top: -5px;
     left: 100%;
-    border-radius: var(--border-radius); /* Todas las esquinas redondeadas */
+    border-radius: var(--border-radius);
 }
 
-.nav-menu-item.has-submenu:hover > .nav-submenu,
-.nav-menu-item.has-submenu:focus-within > .nav-submenu,
+.nav-menu-item.has-submenu:not(.has-megamenu):hover > .nav-submenu,
+.nav-menu-item.has-submenu:not(.has-megamenu):focus-within > .nav-submenu,
 .nav-submenu-item.has-submenu:hover > .nav-submenu-nested,
 .nav-submenu-item.has-submenu:focus-within > .nav-submenu-nested {
     opacity: 1;
@@ -427,16 +426,19 @@ html[data-theme="light"] .theme-icon-moon {
     display: block;
     font-size: 0.95em;
     transition: background-color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+    position: relative; /* Para ripple */
+    overflow: hidden;   /* Para ripple */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .nav-submenu-link:hover,
 .nav-submenu-link:focus {
-    background-color: var(--primary-bg); /* Más oscuro que el fondo del submenú */
-    padding-left: 25px; /* Ligero indentado al hacer hover */
+    background-color: var(--primary-bg);
+    padding-left: 25px;
 }
 
 .submenu-toggle {
-    display: none; /* Oculto en desktop por defecto */
+    display: none;
 }
 
 
@@ -444,31 +446,27 @@ html[data-theme="light"] .theme-icon-moon {
 .sliding-panel {
     position: fixed;
     top: 0;
-    right: -100%; /* Inicia fuera de la pantalla, usando porcentaje para transición suave */
-    width: 320px; /* Un poco más ancho */
-    max-width: 90%; /* Para pantallas muy pequeñas */
+    right: 0;
+    width: 320px;
+    max-width: 90%;
     height: 100vh;
     background-color: var(--primary-bg);
     color: var(--primary-text);
     padding: 25px;
     box-shadow: -3px 0 15px rgba(0,0,0,0.25);
-    /* Usaremos transform para la transición principal para mejor rendimiento y flexibilidad con clip-path si se decide más tarde */
-    transform: translateX(100%); /* Inicia fuera a la derecha */
+    transform: translateX(100%);
     transition: transform var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1002;
     overflow-y: auto;
-    /* Para que el right:0 funcione con transform, necesitamos asegurar que esté posicionado correctamente */
-    right: 0; /* Mantenemos right:0 para que translateX(100%) lo mueva fuera de la vista */
 }
 
 .sliding-panel.is-open {
-    transform: translateX(0); /* Vuelve a su posición original */
+    transform: translateX(0);
 }
 
-/* Animación para elementos internos del panel */
 .sliding-panel.is-open .sliding-panel-item {
     opacity: 0;
-    transform: translateX(20px); /* Vienen desde la derecha del panel */
+    transform: translateX(20px);
     animation: fadeInSlideInPanelItem 0.4s ease-out forwards;
 }
 
@@ -478,15 +476,13 @@ html[data-theme="light"] .theme-icon-moon {
         transform: translateX(0);
     }
 }
-/* Los delays se aplicarán con JS */
-
 
 .sliding-panel-close {
     background: none;
     border: none;
     color: var(--primary-text);
-    font-size: 2em; /* Más grande */
-    line-height: 1; /* Para alinear bien la X */
+    font-size: 2em;
+    line-height: 1;
     position: absolute;
     top: 15px;
     right: 20px;
@@ -496,7 +492,10 @@ html[data-theme="light"] .theme-icon-moon {
 .sliding-panel-close:hover,
 .sliding-panel-close:focus {
     color: var(--accent-color);
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(1.1);
+}
+.sliding-panel-close:active {
+    transform: rotate(90deg) scale(0.92);
 }
 
 .sliding-panel h2 {
@@ -518,6 +517,9 @@ html[data-theme="light"] .theme-icon-moon {
     display: block;
     transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
     border-bottom: 1px solid var(--secondary-bg);
+    position: relative; /* Para ripple */
+    overflow: hidden;   /* Para ripple */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .sliding-panel ul li:last-child a {
     border-bottom: none;
@@ -533,20 +535,20 @@ html[data-theme="light"] .theme-icon-moon {
 /* Estilos para Móvil y Tablet (ej. breakpoint a 768px) */
 @media (max-width: 768px) {
     .main-nav {
-        height: 60px; /* Un poco menos de altura en móvil */
+        height: 60px;
     }
     .nav-menu {
         display: none;
         flex-direction: column;
-        position: fixed; /* Para cubrir toda la pantalla */
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh; /* Ocupa toda la altura */
+        height: 100vh;
         background-color: var(--primary-bg);
-        padding-top: 70px; /* Espacio para el header que queda arriba */
-        overflow-y: auto; /* Si el menú es muy largo */
-        transform: translateX(-100%); /* Inicia fuera de la pantalla */
+        padding-top: 70px;
+        overflow-y: auto;
+        transform: translateX(-100%);
         transition: transform var(--transition-speed) ease-in-out;
         box-shadow: none;
     }
@@ -559,33 +561,33 @@ html[data-theme="light"] .theme-icon-moon {
     .nav-menu-item {
         width: 100%;
         border-top: 1px solid var(--secondary-bg);
-        display: flex; /* Para .has-submenu */
-        flex-wrap: wrap; /* Para que el submenú vaya debajo */
-        align-items: center; /* Centrar link y botón */
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
     }
     .nav-menu-item:first-child {
         border-top: none;
     }
 
-    .nav-menu-link {
+    .nav-menu-link { /* Ya tiene overflow:hidden de la regla general */
         padding: 18px 25px;
-        height: auto; /* Altura automática */
-        width: 100%; /* Ocupar todo el ancho posible */
+        height: auto;
+        width: 100%;
     }
     .nav-menu-item.has-submenu > .nav-menu-link {
-         width: calc(100% - 50px); /* Espacio para el toggle */
+         width: calc(100% - 50px);
     }
-    .nav-menu-link::after { /* Desactivar subrayado en móvil */
+    .nav-menu-link::after {
         display: none;
     }
     .nav-menu-link:hover,
     .nav-menu-link:focus {
-        background-color: var(--secondary-bg); /* Mantener hover sutil */
+        background-color: var(--secondary-bg);
     }
 
 
     .nav-toggle {
-        display: flex; /* Usar flex para centrar las líneas si es necesario */
+        display: flex;
         align-items: center;
         justify-content: center;
     }
@@ -594,39 +596,33 @@ html[data-theme="light"] .theme-icon-moon {
     .nav-submenu,
     .nav-submenu-nested {
         position: static;
-        /* opacity: 1; Ya no se controla aquí directamente */
-        /* visibility: visible; Ya no se controla aquí directamente */
-        /* transform: none; Ya no se controla aquí directamente */
         background-color: rgba(0,0,0,0.1);
         min-width: 100%;
         box-shadow: none;
         border-radius: 0;
-        /* display: none; Se maneja por max-height y overflow */
         padding-left: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), /* Easing suave */
+        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
                     padding-top 0.35s ease,
                     padding-bottom 0.35s ease,
-                    opacity 0.3s ease-in-out; /* Añadir transición de opacidad al contenedor */
-        opacity: 0; /* Inicia oculto también por opacidad */
+                    opacity 0.3s ease-in-out;
+        opacity: 0;
     }
 
     .nav-submenu.is-open,
     .nav-submenu-nested.is-open {
-        /* display: block; No es estrictamente necesario si max-height > 0 lo hace visible */
-        max-height: 500px; /* Ajustar según contenido máximo esperado */
-        padding-top: 8px;  /* Más padding */
+        max-height: 500px;
+        padding-top: 8px;
         padding-bottom: 8px;
-        opacity: 1; /* Hacer visible con opacidad */
+        opacity: 1;
     }
 
-    /* Estilos para los items dentro del submenú móvil */
     .nav-submenu .nav-submenu-item,
     .nav-submenu-nested .nav-submenu-item {
         opacity: 0;
         transform: translateY(-10px);
-        transition: opacity 0.3s ease-out 0.1s, /* Delay para que aparezcan después de expandir */
+        transition: opacity 0.3s ease-out 0.1s,
                     transform 0.3s ease-out 0.1s;
     }
 
@@ -636,21 +632,17 @@ html[data-theme="light"] .theme-icon-moon {
         transform: translateY(0);
     }
 
-    /* Aplicar delay escalonado a los items del submenú si se desea (más complejo sin JS para N hijos) */
-    /* Ejemplo para los primeros 3 items, requeriría más selectores para más items */
     .nav-submenu.is-open .nav-submenu-item:nth-child(1),
     .nav-submenu-nested.is-open .nav-submenu-item:nth-child(1) { transition-delay: 0.15s; }
     .nav-submenu.is-open .nav-submenu-item:nth-child(2),
     .nav-submenu-nested.is-open .nav-submenu-item:nth-child(2) { transition-delay: 0.20s; }
     .nav-submenu.is-open .nav-submenu-item:nth-child(3),
     .nav-submenu-nested.is-open .nav-submenu-item:nth-child(3) { transition-delay: 0.25s; }
-    /* ... y así sucesivamente si se quiere un escalonado fino */
 
 
-    .nav-submenu-link {
+    .nav-submenu-link { /* Ya tiene overflow:hidden de la regla general */
         padding: 12px 25px 12px 40px;
         font-size: 0.9em;
-        /* La transición de color ya está en el selector general de links */
     }
     .nav-submenu-nested .nav-submenu-link {
         padding-left: 55px;
@@ -659,11 +651,9 @@ html[data-theme="light"] .theme-icon-moon {
 
     .nav-menu-item.has-submenu:hover > .nav-submenu,
     .nav-submenu-item.has-submenu:hover > .nav-submenu-nested {
-        display: none; /* Desactivar hover en móvil para submenús */
+        display: none;
     }
-    /* No necesitamos .is-active-submenu si .is-open en el submenú ya lo controla */
 
-    /* Animación de entrada para items del menú móvil */
     .nav-menu.is-active .nav-menu-item {
         opacity: 0;
         transform: translateX(-20px);
@@ -676,7 +666,6 @@ html[data-theme="light"] .theme-icon-moon {
             transform: translateX(0);
         }
     }
-    /* Para el efecto escalonado, el delay se aplicará con JS */
 
 
     .submenu-toggle {
@@ -688,33 +677,34 @@ html[data-theme="light"] .theme-icon-moon {
         color: var(--primary-text);
         cursor: pointer;
         padding: 0;
-        width: 50px; /* Ancho fijo para el área del toggle */
-        height: 56px; /* Alineado con altura del .nav-menu-link + padding */
+        width: 50px;
+        height: 56px;
         position: absolute;
         right: 0;
         top: 0;
-        /* transform: translateY(-50%); No necesario con flex en el padre */
+        transition: transform 0.1s ease-out;
     }
-    .submenu-toggle::after {
-        content: '';
+.submenu-toggle::after {
+    content: '';
         display: block;
         width: 10px;
         height: 10px;
         border-right: 2px solid var(--primary-text);
         border-bottom: 2px solid var(--primary-text);
-        transform: rotate(45deg); /* Flecha hacia abajo */
+        transform: rotate(45deg);
         transition: transform var(--transition-speed) ease;
     }
+    .submenu-toggle:active {
+        transform: scale(0.9);
+    }
     .submenu-toggle.is-open::after {
-        transform: rotate(-135deg); /* Flecha hacia arriba */
+        transform: rotate(-135deg);
     }
 
     .nav-menu-item.has-submenu > .nav-submenu {
         width: 100%;
     }
 
-    /* Ajuste para el panel deslizante en móvil si se superpone con el menú abierto */
-    /* No es necesario si el menú principal es pantalla completa y el panel se abre desde un ítem */
 }
 
 /* Mejoras de accesibilidad */
@@ -723,12 +713,12 @@ html[data-theme="light"] .theme-icon-moon {
 .nav-toggle:focus,
 .submenu-toggle:focus,
 .sliding-panel-close:focus,
-.sliding-panel a:focus {
+.sliding-panel a:focus,
+.theme-toggle-button:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px var(--secondary-bg), 0 0 0 4px var(--accent-color); /* Efecto de doble borde */
+    box-shadow: 0 0 0 2px var(--secondary-bg), 0 0 0 4px var(--accent-color);
 }
-/* Quitar el subrayado animado del link principal cuando el submenú está abierto por teclado */
 .nav-menu-item.has-submenu:focus-within > .nav-menu-link::after {
     width: 0;
 }
@@ -753,10 +743,29 @@ html[data-theme="light"] .theme-icon-moon {
 }
 .nav-toggle.is-active .hamburger-line:nth-child(2) {
     opacity: 0;
-    transform: translateX(-100%); /* Moverla fuera para que no interfiera */
+    transform: translateX(-100%);
 }
 .nav-toggle.is-active .hamburger-line:nth-child(3) {
     transform: translateX(-50%) translateY(-9px) rotate(-45deg);
 }
 
+/* Estilos para el Efecto Ripple */
+/* Contenedores de Ripple ya tienen position:relative y overflow:hidden donde se necesita (ej .nav-menu-link) */
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--ripple-color);
+    transform: scale(0);
+    animation: rippleAnimation 0.6s ease-out;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes rippleAnimation {
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
 ```
