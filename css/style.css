@@ -1,50 +1,92 @@
 /* Reset básico y configuración general */
 :root {
     /* Tema Claro (Default) */
-    --primary-bg-light: #2c3e50;    /* Header, Panel BG */
-    --primary-text-light: #ecf0f1;  /* Texto en Header/Panel */
-    --secondary-bg-light: #34495e;  /* Submenús, Hover BG */
-    --accent-color-light: #e74c3c;  /* Acentos, Links Activos */
-    --page-bg-light: #f8f9fa;       /* Fondo de la página */
-    --page-text-light: #343a40;     /* Texto principal en página */
-    --border-color-light: #4a617a;  /* Bordes sutiles en tema claro */
+    --primary-bg-light: linear-gradient(170deg, #3a506b, #2c3e50);
+    --primary-solid-bg-light: #2c3e50;
+    --primary-text-light: #ecf0f1;
+    --secondary-bg-light: linear-gradient(to right, #3f5a78, #34495e);
+    --secondary-solid-bg-light: #34495e;
+    --accent-color-light: #e74c3c;
+    --page-bg-light: #f8f9fa;
+    --page-text-light: #343a40;
+    --border-color-light: #4a617a;
+    --glass-bg-light: rgba(220, 225, 230, 0.7);
+    --glass-border-light: rgba(44, 62, 80, 0.2);
 
     /* Tema Oscuro */
-    --primary-bg-dark: #1a202c;     /* Header, Panel BG */
-    --primary-text-dark: #e2e8f0;   /* Texto en Header/Panel */
-    --secondary-bg-dark: #2d3748;   /* Submenús, Hover BG */
-    --accent-color-dark: #f56565;   /* Acentos (puede ser más brillante) */
-    --page-bg-dark: #171923;        /* Fondo de la página */
-    --page-text-dark: #f7fafc;      /* Texto principal en página */
-    --border-color-dark: #4a5568;   /* Bordes sutiles en tema oscuro */
+    --primary-bg-dark: linear-gradient(170deg, #2d3748, #1a202c);
+    --primary-solid-bg-dark: #1a202c;
+    --primary-text-dark: #e2e8f0;
+    --secondary-bg-dark: linear-gradient(to right, #3c4a5f, #2d3748);
+    --secondary-solid-bg-dark: #2d3748;
+    --accent-color-dark: #f56565;
+    --page-bg-dark: #171923;
+    --page-text-dark: #f7fafc;
+    --border-color-dark: #4a5568;
+    --glass-bg-dark: rgba(26, 32, 44, 0.75);
+    --glass-border-dark: rgba(226, 232, 240, 0.15);
+
+    /* Variables de Sombra (Default para tema claro) */
+    --shadow-color-rgb: 0, 0, 0;
+    --shadow-opacity-low: 0.06;
+    --shadow-opacity-medium: 0.07;
+    --shadow-opacity-high: 0.08;
+
+    --shadow-elevation-low:
+        0 1px 2px rgba(var(--shadow-color-rgb), var(--shadow-opacity-low)),
+        0 2px 4px rgba(var(--shadow-color-rgb), var(--shadow-opacity-low));
+    --shadow-elevation-medium:
+        0 3px 6px rgba(var(--shadow-color-rgb), var(--shadow-opacity-medium)),
+        0 7px 14px rgba(var(--shadow-color-rgb), var(--shadow-opacity-medium));
+    --shadow-elevation-high:
+        0 10px 20px rgba(var(--shadow-color-rgb), var(--shadow-opacity-high)),
+        0 15px 30px rgba(var(--shadow-color-rgb), var(--shadow-opacity-high));
+    --shadow-panel-left:
+        -2px 0 8px rgba(var(--shadow-color-rgb), var(--shadow-opacity-low)),
+        -5px 0 15px rgba(var(--shadow-color-rgb), var(--shadow-opacity-low));
 
     /* Variables Comunes */
     --border-radius: 4px;
+    --glass-blur-intensity: 8px;
     --transition-speed: 0.3s;
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     /* Asignación inicial (Tema Claro por defecto) */
     --primary-bg: var(--primary-bg-light);
+    --primary-solid-bg: var(--primary-solid-bg-light);
     --primary-text: var(--primary-text-light);
     --secondary-bg: var(--secondary-bg-light);
+    --secondary-solid-bg: var(--secondary-solid-bg-light);
     --accent-color: var(--accent-color-light);
     --page-bg: var(--page-bg-light);
     --page-text: var(--page-text-light);
     --border-color: var(--border-color-light);
-    --ripple-color: rgba(255, 255, 255, 0.4); /* Ripple para tema claro */
-    /* Añadir transition a html para suavizar cambio de tema en propiedades no heredadas directamente */
+    --ripple-color: rgba(255, 255, 255, 0.4);
+    --glass-bg: var(--glass-bg-light);
+    --glass-border: var(--glass-border-light);
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 html[data-theme="dark"] {
     --primary-bg: var(--primary-bg-dark);
+    --primary-solid-bg: var(--primary-solid-bg-dark);
     --primary-text: var(--primary-text-dark);
     --secondary-bg: var(--secondary-bg-dark);
+    --secondary-solid-bg: var(--secondary-solid-bg-dark);
     --accent-color: var(--accent-color-dark);
     --page-bg: var(--page-bg-dark);
     --page-text: var(--page-text-dark);
     --border-color: var(--border-color-dark);
-    --ripple-color: rgba(255, 255, 255, 0.2); /* Ripple para tema oscuro (más sutil sobre fondos oscuros) */
+    --ripple-color: rgba(255, 255, 255, 0.2);
+    --glass-bg: var(--glass-bg-dark);
+    --glass-border: var(--glass-border-dark);
+
+    /* Sombras para tema oscuro (más sutiles, pueden ser de un color muy claro o casi imperceptibles) */
+    --shadow-color-rgb: 45, 55, 72; /* Un color oscuro del tema, para sombras aún más oscuras y sutiles */
+    --shadow-opacity-low: 0.1; /* Opacidad ligeramente mayor porque el fondo es oscuro */
+    --shadow-opacity-medium: 0.12;
+    --shadow-opacity-high: 0.15;
+    /* Las variables de elevación se recalculan automáticamente con las nuevas opacidades y color base */
 }
 
 *,
@@ -81,7 +123,7 @@ body {
 }
 .theme-toggle-button:hover,
 .theme-toggle-button:focus {
-    background-color: var(--secondary-bg);
+    background-color: var(--secondary-solid-bg); /* Usar color sólido para hover de botón */
 }
 .theme-toggle-button:active {
     transform: scale(0.92);
@@ -97,8 +139,8 @@ html[data-theme="dark"] .theme-icon-sun { display: none; }
 html[data-theme="dark"] .theme-icon-moon { display: inline-block; }
 html[data-theme="light"] .theme-icon-sun { display: inline-block; }
 html[data-theme="light"] .theme-icon-moon { display: none; }
-.theme-icon-moon { display: none; } /* Default hide moon */
-.theme-icon-sun { display: inline-block; } /* Default show sun */
+.theme-icon-moon { display: none; }
+.theme-icon-sun { display: inline-block; }
 
 
 .content {
@@ -109,14 +151,14 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
 
 /* Estilos del Header y Navegación Principal */
 .main-header {
-    background-color: var(--primary-bg);
+    background: var(--primary-bg);
     color: var(--primary-text);
     padding: 0 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    box-shadow: var(--shadow-elevation-medium); /* Sombra mejorada */
+    transition: background var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
 .main-nav {
@@ -159,10 +201,11 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     align-items: center;
     height: 100%;
     font-size: 1em;
-    position: relative; /* Necesario para ripple */
+    font-weight: 500; /* Ligero aumento de peso para links principales */
+    position: relative;
     transition: color var(--transition-speed) ease;
-    overflow: hidden;  /* Necesario para ripple y efecto ::before */
-    -webkit-mask-image: -webkit-radial-gradient(white, black); /* Para Safari y Chrome con bordes redondeados en overflow:hidden */
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .nav-menu-link::before {
     content: '';
@@ -171,7 +214,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: var(--secondary-bg);
+    background: var(--secondary-bg);
     z-index: -1;
     transition: transform var(--transition-speed) cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -216,7 +259,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     width: 100%;
 }
 .nav-submenu-item.is-active-link > .nav-submenu-link {
-    background-color: var(--primary-bg);
+    background: var(--primary-bg); /* Aplicar gradiente si es primario */
     color: var(--accent-color);
     font-weight: bold;
     padding-left: 25px;
@@ -236,16 +279,20 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     left: 0;
     width: 100%;
     max-width: 800px;
-    background-color: var(--secondary-bg);
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur-intensity));
+    -webkit-backdrop-filter: blur(var(--glass-blur-intensity));
+    border: 1px solid var(--glass-border);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-elevation-high); /* Sombra mejorada */
     padding: 20px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(15px);
     transition: opacity var(--transition-speed) ease,
                 visibility var(--transition-speed) ease,
-                transform var(--transition-speed) ease;
+                transform var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease; /* Transicionar sombra */
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -292,10 +339,11 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
 
 .mega-menu-heading {
     font-size: 1.1em;
+    font-weight: 600; /* Aumento de peso para encabezados de mega menú */
     color: var(--primary-text);
     margin-bottom: 15px;
     padding-bottom: 5px;
-    border-bottom: 1px solid var(--primary-bg);
+    border-bottom: 1px solid var(--primary-solid-bg); /* Usar color sólido para borde interno */
 }
 
 .mega-menu-list {
@@ -313,8 +361,8 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     display: block;
     padding: 5px 0;
     transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
-    position: relative; /* Para ripple */
-    overflow: hidden;   /* Para ripple */
+    position: relative;
+    overflow: hidden;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .mega-menu-list li a:hover,
@@ -390,7 +438,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--secondary-bg);
+    background: var(--secondary-bg); /* Usar gradiente secundario */
     min-width: 220px;
     z-index: 1001;
     opacity: 0;
@@ -398,9 +446,10 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     transform: translateY(15px);
     transition: opacity var(--transition-speed) ease,
                 visibility var(--transition-speed) ease,
-                transform var(--transition-speed) ease;
+                transform var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease; /* Transicionar sombra */
     border-radius: 0 0 var(--border-radius) var(--border-radius);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-elevation-medium); /* Sombra mejorada */
     padding: 5px 0;
 }
 
@@ -408,6 +457,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     top: -5px;
     left: 100%;
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow-elevation-medium); /* También para sub-submenús */
 }
 
 .nav-menu-item.has-submenu:not(.has-megamenu):hover > .nav-submenu,
@@ -426,14 +476,14 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     display: block;
     font-size: 0.95em;
     transition: background-color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
-    position: relative; /* Para ripple */
-    overflow: hidden;   /* Para ripple */
+    position: relative;
+    overflow: hidden;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .nav-submenu-link:hover,
 .nav-submenu-link:focus {
-    background-color: var(--primary-bg);
+    background: var(--primary-bg); /* Usar gradiente primario para hover */
     padding-left: 25px;
 }
 
@@ -450,12 +500,18 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     width: 320px;
     max-width: 90%;
     height: 100vh;
-    background-color: var(--primary-bg);
-    color: var(--primary-text);
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur-intensity));
+    -webkit-backdrop-filter: blur(var(--glass-blur-intensity));
+    border-left: 1px solid var(--glass-border);
+    color: var(--page-text);
     padding: 25px;
-    box-shadow: -3px 0 15px rgba(0,0,0,0.25);
+    box-shadow: var(--shadow-panel-left); /* Sombra mejorada */
     transform: translateX(100%);
-    transition: transform var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                background-color var(--transition-speed) ease,
+                border-color var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease; /* Transicionar sombra */
     z-index: 1002;
     overflow-y: auto;
 }
@@ -480,7 +536,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
 .sliding-panel-close {
     background: none;
     border: none;
-    color: var(--primary-text);
+    color: var(--primary-text); /* Debería ser --page-text si el panel es glassmorphic */
     font-size: 2em;
     line-height: 1;
     position: absolute;
@@ -489,6 +545,12 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     cursor: pointer;
     transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
+html[data-theme="dark"] .sliding-panel-close,
+html[data-theme="light"] .sliding-panel .sliding-panel-close { /* Asegurar que el color del texto del botón de cierre sea el del texto de la página */
+    color: var(--page-text);
+}
+
+
 .sliding-panel-close:hover,
 .sliding-panel-close:focus {
     color: var(--accent-color);
@@ -501,9 +563,10 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
 .sliding-panel h2 {
     margin-top: 10px;
     margin-bottom: 20px;
-    border-bottom: 1px solid var(--secondary-bg);
+    border-bottom: 1px solid var(--border-color); /* Usar var(--border-color) */
     padding-bottom: 15px;
     font-size: 1.6em;
+    color: var(--page-text); /* Asegurar que use el color de texto de la página */
 }
 
 .sliding-panel ul {
@@ -511,14 +574,14 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
 }
 
 .sliding-panel ul li a {
-    color: var(--primary-text);
+    color: var(--page-text); /* Usar color de texto de la página */
     text-decoration: none;
     padding: 10px 0;
     display: block;
     transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
-    border-bottom: 1px solid var(--secondary-bg);
-    position: relative; /* Para ripple */
-    overflow: hidden;   /* Para ripple */
+    border-bottom: 1px solid var(--border-color); /* Usar var(--border-color) */
+    position: relative;
+    overflow: hidden;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .sliding-panel ul li:last-child a {
@@ -545,12 +608,12 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
         left: 0;
         width: 100%;
         height: 100vh;
-        background-color: var(--primary-bg);
+        background: var(--primary-bg); /* Usar gradiente */
         padding-top: 70px;
         overflow-y: auto;
         transform: translateX(-100%);
         transition: transform var(--transition-speed) ease-in-out;
-        box-shadow: none;
+        box-shadow: none; /* Sin sombra para menú móvil pantalla completa */
     }
 
     .nav-menu.is-active {
@@ -560,7 +623,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
 
     .nav-menu-item {
         width: 100%;
-        border-top: 1px solid var(--secondary-bg);
+        border-top: 1px solid var(--border-color); /* Usar var(--border-color) */
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -569,7 +632,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
         border-top: none;
     }
 
-    .nav-menu-link { /* Ya tiene overflow:hidden de la regla general */
+    .nav-menu-link {
         padding: 18px 25px;
         height: auto;
         width: 100%;
@@ -582,7 +645,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     }
     .nav-menu-link:hover,
     .nav-menu-link:focus {
-        background-color: var(--secondary-bg);
+        background: var(--secondary-bg); /* Usar gradiente secundario */
     }
 
 
@@ -596,7 +659,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     .nav-submenu,
     .nav-submenu-nested {
         position: static;
-        background-color: rgba(0,0,0,0.1);
+        background-color: rgba(0,0,0,0.1); /* Mantener un fondo simple para submenús móviles */
         min-width: 100%;
         box-shadow: none;
         border-radius: 0;
@@ -640,7 +703,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     .nav-submenu-nested.is-open .nav-submenu-item:nth-child(3) { transition-delay: 0.25s; }
 
 
-    .nav-submenu-link { /* Ya tiene overflow:hidden de la regla general */
+    .nav-submenu-link {
         padding: 12px 25px 12px 40px;
         font-size: 0.9em;
     }
@@ -717,7 +780,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
 .theme-toggle-button:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px var(--secondary-bg), 0 0 0 4px var(--accent-color);
+    box-shadow: 0 0 0 2px var(--secondary-solid-bg), 0 0 0 4px var(--accent-color); /* Usar color sólido para el primer anillo */
 }
 .nav-menu-item.has-submenu:focus-within > .nav-menu-link::after {
     width: 0;
@@ -750,8 +813,6 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
 }
 
 /* Estilos para el Efecto Ripple */
-/* Contenedores de Ripple ya tienen position:relative y overflow:hidden donde se necesita (ej .nav-menu-link) */
-
 .ripple {
     position: absolute;
     border-radius: 50%;
