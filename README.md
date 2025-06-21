@@ -89,3 +89,7 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
    ```
 
 También se proporciona `scripts/run_tests.sh` para instalar `requirements.txt` y lanzar la suite de forma directa.
+
+## Contribuir
+
+Para sugerir mejoras sigue la [Guía de Contribución](docs/CONTRIBUTING.md).

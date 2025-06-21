@@ -6,7 +6,7 @@ El archivo `index.php` actúa como portada del sitio y se organiza en varias sec
 
 | Sección (clase)                              | Contenido                                    | ID sugerido  |
 | -------------------------------------------- | -------------------------------------------- | ------------ |
-| `<header class="hero">`                      | Escudo, texto editable y botón de historia   | `hero`       |
+| `<header class="hero">`                      | Escudo, texto editable y botón de historia (enlaza a [Historia ampliada](historia_ampliada_nuevo4.md)) | `hero`       |
 | `<section class="video-section">`            | Vídeo promocional de la zona                 | `video`      |
 | `<section class="detailed-intro-section">`   | Introducción a la memoria de la Hispanidad   | `memoria`    |
 | `<section class="alternate-bg">`             | Tarjetas "Explora Nuestro Legado"            | `legado`     |

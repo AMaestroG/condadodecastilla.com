@@ -155,6 +155,7 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 - [Guía Fullstack 2025](fullstack-tools-2025.md)
 - [Agentes del Foro](forum_agents.md)
 - [Guía de mensajes de commit](commit-style.md)
+- [Guía de Contribución](CONTRIBUTING.md)
 
 ## Demos
 
