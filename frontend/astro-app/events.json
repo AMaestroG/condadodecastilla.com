@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Fundación de Auca Patricia",
+    "date": "74",
+    "epoch": "Antigüedad",
+    "description": "Orígenes romanos de la actual Cerezo de Río Tirón."
+  },
+  {
+    "id": 2,
+    "title": "Construcción del Alcázar de Cerasio",
+    "date": "720",
+    "epoch": "Medievo",
+    "description": "La fortaleza de alabastro que dominó el valle."
+  },
+  {
+    "id": 3,
+    "title": "Unión con el Condado de Lantarón",
+    "date": "860",
+    "epoch": "Medievo",
+    "description": "Cerezo se convierte en núcleo de poder castellano."
+  }
+]
