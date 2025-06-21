@@ -326,7 +326,7 @@
                         setTimeout(() => {
                            if (questionsAnswered === totalQuestions && quizFeedback) {
                                 quizFeedback.textContent = '¡Quiz completado!';
-                                quizFeedback.style.color = 'var(--color-primario-purpura)'; // Reset color
+                                quizFeedback.style.color = 'var(--epic-purple-emperor)'; // Reset color
                                 quizFeedback.classList.add('visible'); // Fade in completion message
                                 // Optional: Auto-hide completion message after a few more seconds
                                 // setTimeout(() => quizFeedback.classList.remove('visible'), 3000);

@@ -3,8 +3,8 @@
             padding: 0;
         }
         .subpage-index-item {
-            background-color: rgba(var(--color-primario-purpura-rgb), 0.05);
-            border: 1px solid rgba(var(--color-primario-purpura-rgb), 0.2);
+            background-color: rgba(var(--epic-purple-emperor-rgb), 0.05);
+            border: 1px solid rgba(var(--epic-purple-emperor-rgb), 0.2);
             padding: 1.5em;
             margin-bottom: 1.5em;
             border-radius: 8px;
@@ -12,7 +12,7 @@
         }
         .subpage-index-item h3 {
             font-family: var(--font-headings);
-            color: var(--color-primario-purpura);
+            color: var(--epic-purple-emperor);
             margin-top: 0;
             margin-bottom: 0.5em;
         }
@@ -33,7 +33,7 @@
             transition: background-color 0.3s ease;
         }
         .read-more:hover {
-            background-color: var(--color-secundario-dorado);
+            background-color: var(--epic-gold-main);
             color: var(--color-negro-contraste);
         }
         .error-message {

@@ -48,7 +48,7 @@ load_page_css();
                     </div>
                 <?php else: ?>
                     <p class="intro-centered"><?php echo htmlspecialchars($descripcion_general); ?></p>
-                    <p class="text-center mb-25"><a href="/historia/nuestra_historia_nuevo4.html" class="read-more" style="background-color: var(--color-primario-purpura);">&laquo; Volver a la página principal de Nuestra Historia</a></p>
+                    <p class="text-center mb-25"><a href="/historia/nuestra_historia_nuevo4.html" class="read-more" style="background-color: var(--epic-purple-emperor);">&laquo; Volver a la página principal de Nuestra Historia</a></p>
                     <?php if (!empty($temas_detallados)): ?>
                         <ul class="subpage-index-list">
                             <?php foreach ($temas_detallados as $tema): ?>

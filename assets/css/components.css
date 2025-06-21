@@ -12,7 +12,7 @@
 
 .article-content h3 {
     font-family: var(--font-headings);
-    color: var(--color-secundario-dorado);
+    color: var(--epic-gold-main);
     margin-top: 1.5em;
     margin-bottom: 0.5em;
 }
@@ -20,7 +20,7 @@
 .article-content h4 {
     font-family: var(--font-primary);
     font-style: italic;
-    color: var(--color-primario-purpura);
+    color: var(--epic-purple-emperor);
     margin-top: 1em;
     margin-bottom: 0.3em;
 }
@@ -31,23 +31,23 @@
 }
 
 .article-content a:hover {
-    color: var(--color-secundario-dorado);
+    color: var(--epic-gold-main);
 }
 
 .back-link {
     display: inline-block;
     margin-bottom: 2em;
     font-size: 0.9em;
-    color: var(--color-primario-purpura);
+    color: var(--epic-purple-emperor);
     text-decoration: none;
-    border: 1px solid var(--color-primario-purpura);
+    border: 1px solid var(--epic-purple-emperor);
     padding: 0.5em 1em;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .back-link:hover {
-    background-color: var(--color-primario-purpura);
+    background-color: var(--epic-purple-emperor);
     color: var(--color-blanco-fondo);
 }
 

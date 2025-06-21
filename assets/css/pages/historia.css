@@ -1,17 +1,17 @@
 .explore-detailed-topics {
     padding: 20px;
-    background: linear-gradient(135deg, rgba(var(--color-primario-purpura-rgb), 0.05), rgba(var(--epic-gold-main-rgb), 0.1)), var(--epic-alabaster-bg);
+    background: linear-gradient(135deg, rgba(var(--epic-purple-emperor-rgb), 0.05), rgba(var(--epic-gold-main-rgb), 0.1)), var(--epic-alabaster-bg);
     border-radius: var(--global-border-radius, 8px);
     margin: 30px 0;
-    border: 1px solid rgba(var(--color-primario-purpura-rgb), 0.3);
+    border: 1px solid rgba(var(--epic-purple-emperor-rgb), 0.3);
 }
 
 .explore-link {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
-    background-image: linear-gradient(135deg, var(--epic-gold-main), var(--color-primario-purpura));
-    color: var(--color-primario-purpura);
+    background-image: linear-gradient(135deg, var(--epic-gold-main), var(--epic-purple-emperor));
+    color: var(--epic-purple-emperor);
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
@@ -19,7 +19,7 @@
 }
 
 .explore-link:hover {
-    background-image: linear-gradient(135deg, var(--color-primario-purpura), var(--epic-gold-main));
+    background-image: linear-gradient(135deg, var(--epic-purple-emperor), var(--epic-gold-main));
     color: var(--epic-alabaster-bg);
 }
 

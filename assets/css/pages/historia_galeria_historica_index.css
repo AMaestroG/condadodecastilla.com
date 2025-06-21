@@ -37,7 +37,7 @@
         }
         .gallery-item-description h3 {
             margin-top: 0;
-            color: var(--color-primario-purpura);
+            color: var(--epic-purple-emperor);
         }
         .gallery-item-description p {
             font-size: 0.9em;
@@ -46,7 +46,7 @@
         }
         .gallery-item-description a {
             font-size: 0.9em;
-            color: var(--color-secundario-dorado);
+            color: var(--epic-gold-main);
         }
 
         /* Responsive adjustments */
