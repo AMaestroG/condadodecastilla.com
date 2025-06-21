@@ -29,7 +29,7 @@
         <li>Consulta la agenda de eventos culturales.</li>
     </ul>
 </div>
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.js"></script>
 <script src="/assets/js/cave_mask.js"></script>
 <script src="/assets/js/hero.js"></script>
 <script src="/assets/js/scroll-fade.js"></script>
