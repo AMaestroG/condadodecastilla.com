@@ -11,6 +11,7 @@ La siguiente tabla se genera a partir de [`config/main_menu.php`](../config/main
 | historia/influencia_romana.php | Influencia Romana |
 | alfoz/alfoz.php | El Alfoz |
 | lugares/lugares.php | Lugares Emblemáticos |
+| lugares/mapa_interactivo.php | Mapa Interactivo |
 | ruinas/index.php | Ruinas y Vestigios |
 | camino_santiago/camino_santiago.php | Camino de Santiago |
 | museo/galeria.php | Museo Colaborativo |
@@ -25,6 +26,8 @@ La siguiente tabla se genera a partir de [`config/main_menu.php`](../config/main
 | empresa/index.php | Gestión de Yacimientos |
 | foro/index.php | Foro |
 | blog.php | Blog |
+| docs/index.php | Documentación |
+| tailwind_index.php | Demostración Tailwind |
 | contacto/contacto.php | Contacto |
 
 ## Etiquetas de grupo
