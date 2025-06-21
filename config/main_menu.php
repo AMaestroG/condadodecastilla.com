@@ -7,6 +7,7 @@ return [
     ['label' => 'menu_influencia_romana', 'url' => 'historia/influencia_romana.php'],
     ['label' => 'menu_alfoz', 'url' => 'alfoz/alfoz.php'],
     ['label' => 'menu_lugares', 'url' => 'lugares/lugares.php'],
+    ['label' => 'menu_mapa_interactivo', 'url' => 'lugares/mapa_interactivo.php'],
     ['label' => 'menu_ruinas', 'url' => 'ruinas/index.php'],
     ['label' => 'menu_camino_santiago', 'url' => 'camino_santiago/camino_santiago.php'],
     ['label' => 'menu_museo_colaborativo', 'url' => 'museo/galeria.php'],
