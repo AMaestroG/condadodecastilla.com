@@ -1,0 +1,39 @@
+.forum {
+  font-family: sans-serif;
+  color: var(--epic-text-color);
+}
+.agents-menu {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.agents-menu button {
+  background: var(--epic-gold-main);
+  color: white;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.agents-menu button.active {
+  opacity: 1;
+}
+.agent-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.comments-list {
+  margin-top: 0.5rem;
+  text-align: left;
+}
+.comment-item {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
