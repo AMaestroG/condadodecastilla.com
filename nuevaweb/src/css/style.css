@@ -1,4 +1,7 @@
-@import "../../assets/css/epic_theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
     background: var(--epic-alabaster-bg);
