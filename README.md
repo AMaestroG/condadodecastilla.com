@@ -40,8 +40,8 @@ El proyecto emplea PHP y Python con Flask. Para nuevos módulos se aconseja usar
 docker-compose up --build
 ```
 
-Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles.
-El frontend se sirve en `http://localhost:4321` y la API de Flask en `http://localhost:5000`.
+Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles (`frontend`, `backend` y `db`).
+El frontend se sirve en `http://localhost:4321`, la API de Flask en `http://localhost:5000` y la base de datos PostgreSQL en `localhost:5432`.
 
 ## Museo en Astro
 
