@@ -6,6 +6,7 @@ La siguiente tabla se genera a partir de [`config/main_menu.php`](../config/main
 | -------------------------------------------- | ---------------------- |
 | index.php                                    | Inicio                 |
 | historia/historia.php                        | Nuestra Historia       |
+| historia/historia_ampliada.php               | Historia Ampliada      |
 | historia_cerezo/index.php                    | Historia de Cerezo     |
 | historia/subpaginas/obispado_auca_cerezo.php | Obispado de Auca       |
 | historia/influencia_romana.php               | Influencia Romana      |
