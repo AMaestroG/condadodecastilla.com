@@ -157,4 +157,6 @@ También se proporciona `scripts/run_tests.sh` para instalar `requirements.txt` 
 
 ## Estilo de mensajes de commit
 
-Utiliza títulos breves en modo imperativo que describan el cambio, p.ej. `Add recursive menu renderer with root flag`. Si añades un cuerpo opcional, explica _qué_ y _por qué_. Consulta [docs/commit-style.md](docs/commit-style.md) para ver la guía completa.
+Utiliza títulos breves en modo imperativo que describan el cambio, p.ej. `Add GSAP page transitions with overlay and tests`. Si añades un cuerpo opcional, explica _qué_ y _por qué_. Consulta [docs/commit-style.md](docs/commit-style.md) para ver la guía completa.
+
+Se incluye `.gitmessage.txt` como plantilla de ejemplo. Puedes activarla con `git config commit.template .gitmessage.txt` para redactar mensajes consistentes.

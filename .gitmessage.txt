@@ -1,0 +1,6 @@
+# Commit Message Template
+
+# Title (imperative, max 72 chars)
+
+# Body (optional): describe what and why in short sentences.
+# Example: Add GSAP page transitions with overlay and tests
