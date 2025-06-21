@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Sistema de Menús Avanzado</title> <!-- Título actualizado -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Se podría añadir un favicon aquí -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+</head>
+<body>
+
+    <!-- Encabezado principal del sitio, contiene la navegación -->
+    <header class="main-header">
+        <!-- Navegación principal del sitio -->
+        <nav class="main-nav" id="mainNav" aria-label="Navegación Principal">
+            <!-- Logo del sitio -->
+            <a href="#" class="nav-logo">MiLogo</a>
+
+            <!-- Botón para alternar el menú en dispositivos móviles (hamburguesa) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainNavList">
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="hamburger-line" aria-hidden="true"></span>
+            </button>
+
+            <!-- Lista de elementos del menú principal -->
+            <ul class="nav-menu" id="mainNavList">
+                <!-- Ítem de menú simple -->
+                <li class="nav-menu-item"><a href="index.html" class="nav-menu-link">Inicio</a></li>
+
+                <!-- Ítem de menú con submenú -->
+                <li class="nav-menu-item has-submenu">
+                    <a href="productos.html" class="nav-menu-link" aria-haspopup="true" aria-expanded="false">Productos</a>
+                    <!-- Botón para desplegar submenú en móvil (controlado por JS) -->
+                    <button class="submenu-toggle" aria-label="Mostrar submenú de Productos" aria-expanded="false"></button>
+                    <!-- Submenú de primer nivel -->
+                    <ul class="nav-submenu">
+                        <li class="nav-submenu-item"><a href="producto-a.html" class="nav-submenu-link">Producto A</a></li>
+                        <li class="nav-submenu-item"><a href="producto-b.html" class="nav-submenu-link">Producto B</a></li>
+                        <!-- Ítem de submenú con otro submenú anidado -->
+                        <li class="nav-submenu-item has-submenu">
+                            <a href="producto-c.html" class="nav-submenu-link" aria-haspopup="true" aria-expanded="false">Producto C (Más opciones)</a>
+                            <button class="submenu-toggle" aria-label="Mostrar submenú de Producto C" aria-expanded="false"></button>
+                            <!-- Submenú anidado (segundo nivel) -->
+                            <ul class="nav-submenu-nested">
+                                <li class="nav-submenu-item"><a href="opcion-c1.html" class="nav-submenu-link">Opción C.1</a></li>
+                                <li class="nav-submenu-item"><a href="opcion-c2.html" class="nav-submenu-link">Opción C.2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-menu-item"><a href="servicios.html" class="nav-menu-link">Servicios</a></li>
+
+                <li class="nav-menu-item has-submenu">
+                    <a href="acerca-de.html" class="nav-menu-link" aria-haspopup="true" aria-expanded="false">Acerca de</a>
+                    <button class="submenu-toggle" aria-label="Mostrar submenú de Acerca de Nosotros" aria-expanded="false"></button>
+                    <ul class="nav-submenu">
+                        <li class="nav-submenu-item"><a href="nosotros.html" class="nav-submenu-link">Nosotros</a></li>
+                        <li class="nav-submenu-item"><a href="equipo.html" class="nav-submenu-link">Equipo</a></li>
+                        <li class="nav-submenu-item"><a href="historia.html" class="nav-submenu-link">Historia</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-menu-item"><a href="contacto.html" class="nav-menu-link">Contacto</a></li>
+
+                <!-- Ítem de menú que activa el panel deslizante -->
+                <li class="nav-menu-item nav-menu-item-sliding-panel-trigger">
+                    <a href="#" class="nav-menu-link" id="openSlidingPanel" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="slidingPanel">Perfil</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Panel deslizante (ej. para perfil de usuario, configuraciones) -->
+    <!-- aria-hidden se gestiona con JS -->
+    <aside class="sliding-panel" id="slidingPanel" role="dialog" aria-modal="true" aria-labelledby="slidingPanelTitle" aria-hidden="true">
+        <button class="sliding-panel-close" id="closeSlidingPanel" aria-label="Cerrar panel de perfil">×</button>
+        <h2 id="slidingPanelTitle">Panel de Usuario</h2>
+        <p>Bienvenido/a. Aquí puedes ver tus opciones de perfil.</p>
+        <ul>
+            <li><a href="perfil/opcion1.html">Ver mi Perfil</a></li>
+            <li><a href="perfil/opcion2.html">Configuración</a></li>
+            <li><a href="logout.html">Cerrar Sesión</a></li>
+        </ul>
+    </aside>
+
+    <!-- Contenido principal de la página -->
+    <main class="content">
+        <h1>Contenido Principal de la Página</h1>
+        <p>Este es un ejemplo de contenido para demostrar el nuevo sistema de menús avanzado.
+           Intenta interactuar con el menú en diferentes tamaños de pantalla y con el teclado.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </main>
+
+    <!-- Script principal para la interactividad del menú -->
+    <script src="js/main.js"></script>
+</body>
+</html>
