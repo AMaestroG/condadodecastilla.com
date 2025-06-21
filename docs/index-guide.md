@@ -33,6 +33,7 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 * **Estilos**: modifica `assets/css/menus/consolidated-menu.css` para cambiar colores morado y oro viejo, anchura u otros efectos del panel `.menu-panel`.
 * **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
 * **Añadir páginas**: edita `fragments/menus/main-menu.php` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
+* **Historia ampliada**: para un recorrido más detallado consulta [historia_ampliada_nuevo4.md](historia_ampliada_nuevo4.md).
 
 ### Clase `menu-compressed` y transformación de la página
 
