@@ -365,4 +365,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     populateSidebarContents(); // Call it on initial load to populate the sidebar
+
+    // Simple mobile menu for tailwind_index.php
+    const simpleToggle = document.getElementById('menu-toggle');
+    const simpleMenu = document.getElementById('mobile-menu');
+    if (simpleToggle && simpleMenu) {
+        simpleToggle.addEventListener('click', () => {
+            simpleMenu.classList.toggle('open');
+            document.body.classList.toggle('menu-compressed', simpleMenu.classList.contains('open'));
+            document.body.classList.toggle('menu-open-left', simpleMenu.classList.contains('open'));
+        });
+    }
 });
