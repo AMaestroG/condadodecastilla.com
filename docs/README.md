@@ -111,6 +111,22 @@ Para insertar estas partes en una página basta con:
 Los fragmentos del directorio `fragments/` pueden copiarse o modificarse para
 crear nuevas secciones del menú.
 
+### Breadcrumbs
+
+El fragmento `fragments/breadcrumbs.php` genera automáticamente una lista de enlaces según la URL actual. Se usa así:
+
+```php
+<?php
+require_once __DIR__ . '/fragments/breadcrumbs.php';
+render_breadcrumbs([
+    'historia' => 'Nuestra Historia',
+    'subpaginas' => 'Índice Detallado',
+]);
+?>
+```
+
+Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ubicacion.css`.
+
 ## Añadir nuevas páginas
 
 1. Crea el archivo dentro de la carpeta adecuada (`historia/`, `lugares/`, etc.).

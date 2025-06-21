@@ -12,53 +12,8 @@
     <?php require_once __DIR__ . "/../../fragments/header.php"; ?>
 
 <?php
+$titulo_pagina_actual = "Auca Patricia: Ubicación";
 $id_tema_actual = "auca_patricia_ubicacion"; // ID de esta página específica
-
-// Variables para los breadcrumbs
-$breadcrumb_inicio_url = "/index.php"; // O la URL correcta de tu página de inicio
-$breadcrumb_inicio_texto = "Inicio";
-$breadcrumb_historia_url = "/historia/historia.html"; // Enlace a la página principal de historia
-$breadcrumb_historia_texto = "Nuestra Historia"; // Texto por defecto
-$breadcrumb_indice_url = "/historia/subpaginas_indice.php";
-$breadcrumb_indice_texto = "Índice Detallado"; // Texto por defecto
-$breadcrumb_tema_actual_texto = "Tema Actual"; // Texto por defecto
-// Cargar JSON de índice detallado
-$json_indice_detallado_path = __DIR__ . '/../../../data/historia/indice_detallado.json';
-$indice_detallado_data = null;
-$error_message_breadcrumb = '';
-if (file_exists($json_indice_detallado_path)) {
-    $json_content = file_get_contents($json_indice_detallado_path);
-    $decoded_data = json_decode($json_content, true);
-    if (json_last_error() === JSON_ERROR_NONE) {
-        $indice_detallado_data = $decoded_data;
-        $breadcrumb_indice_texto = $indice_detallado_data['titulo_pagina'] ?? $breadcrumb_indice_texto;
-        // Encontrar el título del tema actual
-        if (isset($indice_detallado_data['temas_detallados']) && is_array($indice_detallado_data['temas_detallados'])) {
-            foreach ($indice_detallado_data['temas_detallados'] as $tema) {
-                if (isset($tema['id_tema']) && $tema['id_tema'] === $id_tema_actual) {
-                    $breadcrumb_tema_actual_texto = $tema['titulo_tema'] ?? $breadcrumb_tema_actual_texto;
-                    break;
-                }
-            }
-        }
-    } else {
-        $error_message_breadcrumb .= 'Error al decodificar indice_detallado.json. ';
-    }
-} else {
-    $error_message_breadcrumb .= 'No se pudo encontrar indice_detallado.json. ';
-}
-// Cargar JSON de historia_indice (para el título de "Nuestra Historia", si aplica)
-$json_historia_indice_path = __DIR__ . '/../../../data/historia/historia_indice.json';
-if (file_exists($json_historia_indice_path)) {
-    $json_content_hist = file_get_contents($json_historia_indice_path);
-    $decoded_data_hist = json_decode($json_content_hist, true);
-    if (json_last_error() === JSON_ERROR_NONE && isset($decoded_data_hist['titulo_general'])) {
-        // Podrías buscar una sección específica si la estructura lo permitiera mejor.
-        // Por ahora, si queremos ser más específicos, podríamos tomar el título de una sección si coincide con "historia.html"
-        // o simplemente usar el $breadcrumb_historia_texto = $decoded_data_hist['titulo_general']; si es apropiado.
-        // Para este ejemplo, mantendré el "Nuestra Historia" fijo ya que la estructura de historia_indice.json no está diseñada para esto.
-        $error_message_breadcrumb .= 'Error al decodificar historia_indice.json o título no encontrado. ';
-    $error_message_breadcrumb .= 'No se pudo encontrar historia_indice.json. ';
 // Título de la página actual (podría venir del JSON si esta página también fuera generada por el script)
 // Asumiendo que $pdo no está disponible aún, o para asegurar que sí lo esté.
 require_once __DIR__ . '/../../../includes/db_connect.php'; // Ajustar ruta si es necesario
@@ -77,19 +32,10 @@ require_once __DIR__ . '/../../../includes/text_manager.php';
     <main>
         <section class="section">
             <div class="container-epic">
-                <div class="breadcrumb-container">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li><a href="<?php echo htmlspecialchars($breadcrumb_inicio_url); ?>"><?php echo htmlspecialchars($breadcrumb_inicio_texto); ?></a></li>
-                            <li><a href="<?php echo htmlspecialchars($breadcrumb_historia_url); ?>"><?php echo htmlspecialchars($breadcrumb_historia_texto); ?></a></li>
-                            <li><a href="<?php echo htmlspecialchars($breadcrumb_indice_url); ?>"><?php echo htmlspecialchars($breadcrumb_indice_texto); ?></a></li>
-                            <li class="active" aria-current="page"><?php echo htmlspecialchars($breadcrumb_tema_actual_texto); ?></li>
-                        </ol>
-                    </nav>
-                    <?php if (!empty($error_message_breadcrumb)): ?>
-                        <p class="breadcrumb-error">Error en datos para breadcrumbs: <?php echo htmlspecialchars(trim($error_message_breadcrumb)); ?></p>
-                    <?php endif; ?>
-                </div>
+                <?php
+                require_once __DIR__ . "/../../fragments/breadcrumbs.php";
+                render_breadcrumbs(["historia" => "Nuestra Historia", "subpaginas" => "Índice Detallado"]);
+                ?>
                 <div class="article-content">
                     <p><a href="/historia/subpaginas_indice.php" class="back-link">&laquo; Volver al Índice Detallado</a></p>
                     <h3>La Identificación de Auca Patricia</h3>
