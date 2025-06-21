@@ -67,3 +67,54 @@ body {
 .text-epic-light { color: var(--epic-text-light); }
 .text-epic-gold { color: var(--epic-gold-main); }
 .border-epic-purple { border-color: var(--epic-purple-emperor); }
+
+/* help toggle and panel */
+#help-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.8);
+    color: var(--epic-gold-main);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+#help-panel {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    max-width: 300px;
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.95);
+    border: 2px solid var(--epic-gold-main);
+    box-shadow: var(--global-box-shadow-dark);
+    padding: 1em;
+    border-radius: var(--global-border-radius);
+    color: var(--epic-text-color);
+    z-index: 1100;
+}
+
+#help-panel.hidden {
+    display: none;
+}
+
+#help-panel h2 {
+    margin-top: 0;
+    color: var(--epic-purple-emperor);
+    font-size: 1.2rem;
+}
+
+#help-close {
+    float: right;
+    background: none;
+    border: none;
+    color: var(--epic-purple-emperor);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
