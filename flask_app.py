@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_caching import Cache
 from graph_db_interface import GraphDBInterface
+from dataclasses import asdict
+from datetime import datetime
 import os
 import subprocess
 
@@ -11,6 +13,31 @@ cache = Cache(app, config={
 })
 
 db = GraphDBInterface()
+
+
+@app.route('/api/graph', methods=['GET'])
+def graph_handler():
+    """Return resources and links from the graph database."""
+    start_date_str = request.args.get('start_date')
+    limit = request.args.get('limit', type=int)
+
+    resources = [asdict(r) if not isinstance(r, dict) else r for r in db.get_all_resources()]
+    links = [asdict(l) if not isinstance(l, dict) else l for l in db.get_all_links()]
+
+    if start_date_str:
+        try:
+            start_dt = datetime.fromisoformat(start_date_str)
+            resources = [r for r in resources if 'last_crawled_at' in r and datetime.fromisoformat(r['last_crawled_at']) >= start_dt]
+            links = [l for l in links if 'created_at' in l and datetime.fromisoformat(l['created_at']) >= start_dt]
+        except ValueError:
+            return jsonify({'error': 'Invalid start_date format'}), 400
+
+    if limit is not None and limit >= 0:
+        resources = resources[:limit]
+        node_urls = {r['url'] for r in resources}
+        links = [l for l in links if l.get('source_url') in node_urls and l.get('target_url') in node_urls]
+
+    return jsonify({'nodes': resources, 'links': links})
 
 @app.route('/api/resource', methods=['GET', 'POST'])
 def resource_collection():
