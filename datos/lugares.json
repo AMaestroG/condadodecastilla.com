@@ -6,44 +6,44 @@
   "localidades": [
     {
       "nombre": "Alcedo",
-      "archivo_markdown": "contenido/lugares/alcedo.md"
+      "archivo_markdown": "contenido/lugares/alcedo.php"
     },
     {
       "nombre": "Ameyugo",
-      "archivo_markdown": "contenido/lugares/ameyugo.md"
+      "archivo_markdown": "contenido/lugares/ameyugo.php"
     },
     {
       "nombre": "Bachicabo",
-      "archivo_markdown": "contenido/lugares/bachicabo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Bachicabo/index.php"
     },
     {
       "nombre": "Barrio",
-      "archivo_markdown": "contenido/lugares/barrio.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Barrio/index.php"
     },
     {
       "nombre": "Belorado",
-      "archivo_markdown": "contenido/lugares/belorado.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Belorado/index.php"
     },
     {
       "nombre": "Berguenda",
-      "archivo_markdown": "contenido/lugares/berguenda.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Berguenda/index.php"
     },
     {
       "nombre": "Caicedo_de_Yuso",
       "slug": "caicedo_de_yuso",
-      "archivo_markdown": "contenido/lugares/caicedo_de_yuso.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Caicedo_de_Yuso/index.php"
     },
     {
       "nombre": "Carcamo",
-      "archivo_markdown": "contenido/lugares/carcamo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Carcamo/index.php"
     },
     {
       "nombre": "Castellum",
-      "archivo_markdown": "contenido/lugares/castellum.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Castellum/index.php"
     },
     {
       "nombre": "Cellorigo",
-      "archivo_markdown": "contenido/lugares/cellorigo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Cellorigo/index.php"
     },
     {
       "nombre": "Cerezo_de_Rio_Tiron",
@@ -51,228 +51,229 @@
       "subsecciones": [
         {
           "titulo": "Un Viaje al Corazón de la Historia",
-          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/introduccion.md",
+          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/introduccion.php",
           "id_original": "historia-cerezo"
         },
         {
           "titulo": "Ruinas que Hablan: El Alcázar y Auca Patricia",
-          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/ruinas.md",
+          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/ruinas.php",
           "id_original": "ruinas-alcazar-auca"
         },
         {
           "titulo": "Legado Cultural y Lingüístico",
-          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/legado.md",
+          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/legado.php",
           "id_original": "legado-cultural"
         },
         {
           "titulo": "Planifica Tu Visita a Cerezo",
-          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/visita.md",
+          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/visita.php",
           "id_original": "como-llegar-info"
         },
         {
           "titulo": "Participa y Descubre",
-          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/interactivo.md",
+          "archivo_markdown": "contenido/lugares/cerezo_de_rio_tiron/interactivo.php",
           "id_original": "interactive-elements-cerezo"
         }
-      ]
+      ],
+      "archivo_markdown": "lugares/alfozcerezolantaron/Cerezo_de_Rio_Tiron/index.php"
     },
     {
       "nombre": "Comunion",
-      "archivo_markdown": "contenido/lugares/comunion.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Comunion/index.php"
     },
     {
       "nombre": "Cuzcurrita_de_Rio_Tiron",
       "slug": "cuzcurrita_de_rio_tiron",
-      "archivo_markdown": "contenido/lugares/cuzcurrita_de_rio_tiron.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Cuzcurrita_de_Rio_Tiron/index.php"
     },
     {
       "nombre": "Espejo",
-      "archivo_markdown": "contenido/lugares/espejo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Espejo/index.php"
     },
     {
       "nombre": "Fontecha",
-      "archivo_markdown": "contenido/lugares/fontecha.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Fontecha/index.php"
     },
     {
       "nombre": "Fresno_de_Rio_Tiron",
       "slug": "fresno_de_rio_tiron",
-      "archivo_markdown": "contenido/lugares/fresno_de_rio_tiron.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Fresno_de_Rio_Tiron/index.php"
     },
     {
       "nombre": "Granon",
-      "archivo_markdown": "contenido/lugares/granon.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Granon/index.php"
     },
     {
       "nombre": "Gurendes",
-      "archivo_markdown": "contenido/lugares/gurendes.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Gurendes/index.php"
     },
     {
       "nombre": "Herramelluri",
-      "archivo_markdown": "contenido/lugares/herramelluri.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Herramelluri/index.php"
     },
     {
       "nombre": "Ibrillos",
-      "archivo_markdown": "contenido/lugares/ibrillos.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Ibrillos/index.php"
     },
     {
       "nombre": "Lecinana_del_Camino",
       "slug": "lecinana_del_camino",
-      "archivo_markdown": "contenido/lugares/lecinana_del_camino.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Lecinana_del_Camino/index.php"
     },
     {
       "nombre": "Molinilla",
-      "archivo_markdown": "contenido/lugares/molinilla.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Molinilla/index.php"
     },
     {
       "nombre": "Monte",
-      "archivo_markdown": "contenido/lugares/monte.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Monte/index.php"
     },
     {
       "nombre": "Nograro",
-      "archivo_markdown": "contenido/lugares/nograro.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Nograro/index.php"
     },
     {
       "nombre": "Ochanduri",
-      "archivo_markdown": "contenido/lugares/ochanduri.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Ochanduri/index.php"
     },
     {
       "nombre": "Pancorbo",
-      "archivo_markdown": "contenido/lugares/pancorbo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Pancorbo/index.php"
     },
     {
       "nombre": "Pinedo",
-      "archivo_markdown": "contenido/lugares/pinedo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Pinedo/index.php"
     },
     {
       "nombre": "Posada",
-      "archivo_markdown": "contenido/lugares/posada.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Posada/index.php"
     },
     {
       "nombre": "Poza_de_la_Sal",
       "slug": "poza_de_la_sal",
-      "archivo_markdown": "contenido/lugares/poza_de_la_sal.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Poza_de_la_Sal/index.php"
     },
     {
       "nombre": "Puentelarra",
-      "archivo_markdown": "contenido/lugares/puentelarra.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Puentelarra/index.php"
     },
     {
       "nombre": "Quejo",
-      "archivo_markdown": "contenido/lugares/quejo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Quejo/index.php"
     },
     {
       "nombre": "Quintanaloranco",
-      "archivo_markdown": "contenido/lugares/quintanaloranco.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Quintanaloranco/index.php"
     },
     {
       "nombre": "Quintanilla_San_Garcia",
       "slug": "quintanilla_san_garcia",
-      "archivo_markdown": "contenido/lugares/quintanilla_san_garcia.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Quintanilla_San_Garcia/index.php"
     },
     {
       "nombre": "Quintanilla_del_Monte",
       "slug": "quintanilla_del_monte",
-      "archivo_markdown": "contenido/lugares/quintanilla_del_monte.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Quintanilla_del_Monte/index.php"
     },
     {
       "nombre": "Recilla",
-      "archivo_markdown": "contenido/lugares/recilla.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Recilla/index.php"
     },
     {
       "nombre": "Redecilla_del_Campo",
       "slug": "redecilla_del_campo",
-      "archivo_markdown": "contenido/lugares/redecilla_del_campo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Redecilla_del_Campo/index.php"
     },
     {
       "nombre": "Salcedo",
-      "archivo_markdown": "contenido/lugares/salcedo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Salcedo/index.php"
     },
     {
       "nombre": "San_Emilianus",
       "slug": "san_emilianus",
-      "archivo_markdown": "contenido/lugares/san_emilianus.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/San_Emilianus/index.php"
     },
     {
       "nombre": "San_Millan_de_Yecora",
       "slug": "san_millan_de_yecora",
-      "archivo_markdown": "contenido/lugares/san_millan_de_yecora.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/San_Millan_de_Yecora/index.php"
     },
     {
       "nombre": "San_Zadornil",
       "slug": "san_zadornil",
-      "archivo_markdown": "contenido/lugares/san_zadornil.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/San_Zadornil/index.php"
     },
     {
       "nombre": "Sobron",
-      "archivo_markdown": "contenido/lugares/sobron.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Sobron/index.php"
     },
     {
       "nombre": "Sotillo_de_Rioja",
       "slug": "sotillo_de_rioja",
-      "archivo_markdown": "contenido/lugares/sotillo_de_rioja.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Sotillo_de_Rioja/index.php"
     },
     {
       "nombre": "Tirgo",
-      "archivo_markdown": "contenido/lugares/tirgo.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Tirgo/index.php"
     },
     {
       "nombre": "Tormantos",
-      "archivo_markdown": "contenido/lugares/tormantos.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Tormantos/index.php"
     },
     {
       "nombre": "Trevino",
-      "archivo_markdown": "contenido/lugares/trevino.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Trevino/index.php"
     },
     {
       "nombre": "Tuesta",
-      "archivo_markdown": "contenido/lugares/tuesta.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Tuesta/index.php"
     },
     {
       "nombre": "Turiso",
-      "archivo_markdown": "contenido/lugares/turiso.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Turiso/index.php"
     },
     {
       "nombre": "Valluercanes",
-      "archivo_markdown": "contenido/lugares/valluercanes.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Valluercanes/index.php"
     },
     {
       "nombre": "Valpuesta",
-      "archivo_markdown": "contenido/lugares/valpuesta.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Valpuesta/index.php"
     },
     {
       "nombre": "Velasco",
-      "archivo_markdown": "contenido/lugares/velasco.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Velasco/index.php"
     },
     {
       "nombre": "Villafranca_Montes_de_Oca",
       "slug": "villafranca_montes_de_oca",
-      "archivo_markdown": "contenido/lugares/villafranca_montes_de_oca.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Villafranca_Montes_de_Oca/index.php"
     },
     {
       "nombre": "Villafria",
-      "archivo_markdown": "contenido/lugares/villafria.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Villafria/index.php"
     },
     {
       "nombre": "Villamaderne",
-      "archivo_markdown": "contenido/lugares/villamaderne.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Villamaderne/index.php"
     },
     {
       "nombre": "Villanue",
-      "archivo_markdown": "contenido/lugares/villanue.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Villanue/index.php"
     },
     {
       "nombre": "Villanueva_Soportilla",
       "slug": "villanueva_soportilla",
-      "archivo_markdown": "contenido/lugares/villanueva_soportilla.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Villanueva_Soportilla/index.php"
     },
     {
       "nombre": "Villanueva_de_Gurendes",
       "slug": "villanueva_de_gurendes",
-      "archivo_markdown": "contenido/lugares/villanueva_de_gurendes.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Villanueva_de_Gurendes/index.php"
     },
     {
       "nombre": "Zubillaga",
-      "archivo_markdown": "contenido/lugares/zubillaga.md"
+      "archivo_markdown": "lugares/alfozcerezolantaron/Zubillaga/index.php"
     }
   ]
 }
