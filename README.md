@@ -68,6 +68,7 @@ Si no deseas usar Docker Compose puedes arrancar cada servicio por separado:
    pip install flask
    python nuevaweb/flask_app.py
    ```
+   Es un servicio de demostración que solo expone ``/api/hello`` y no sustituye a la API principal de Flask.
 5. **PostgreSQL**:
    ```bash
    docker run --name condado_db -p 5432:5432 \

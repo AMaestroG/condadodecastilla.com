@@ -1,3 +1,11 @@
+"""Main API for Condado de Castilla.
+
+This Flask application exposes endpoints for resources, chat integration and
+forum comments. It is the primary backend used by the project and is exercised
+by the test suite. ``nuevaweb/flask_app.py`` is a separate minimal demo and does
+not replace this module.
+"""
+
 from flask import Flask, request, jsonify
 from flask_caching import Cache
 from graph_db_interface import GraphDBInterface
