@@ -1,0 +1,12 @@
+#page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--epic-purple-emperor);
+  z-index: 9999;
+  transition: opacity 0.4s ease-out;
+}
+
+#page-transition-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
