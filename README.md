@@ -58,7 +58,9 @@ Para detalles sobre la paleta de colores y la tipografía consulta [docs/style-g
 
 Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar todas las pruebas. Los pasos básicos son:
 
-1. Instala las dependencias con `./scripts/setup_environment.sh`.
+1. Instala las dependencias con `./scripts/setup_environment.sh`. Ese script
+   ejecuta `npm ci` para descargar **Puppeteer** y el resto de dependencias de
+   desarrollo.
 2. Si la suite incluye pruebas de interfaz, arranca un servidor PHP con:
    ```bash
    php -S localhost:8080
