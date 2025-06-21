@@ -1,3 +1,7 @@
+## Notas preliminares
+Este archivo contiene apuntes sin filtrar.
+Consulte [docs/historia_ampliada_nuevo4.md](../docs/historia_ampliada_nuevo4.md) para un resumen estructado.
+
 
  
 Y ver cómo Pancorvo del Alfoz de cerezo, Valpuesta del Alfoz de cerezo, y Auca
