@@ -2,9 +2,8 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  mode: 'jit',
   // Include tailwind_base.css so @layer directives inside it are processed
-  purge: [
+  content: [
     './**/*.{php,html}',
     './assets/js/**/*.js',
     './assets/css/tailwind_base.css',
