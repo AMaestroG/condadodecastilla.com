@@ -27,9 +27,12 @@ scroll en pantallas de 768 px o menos.
 
 ## Tareas en curso
 
-- [x] Implementacion del efecto de compresion en los menus.
 - [ ] Creacion del componente de foro en React.
 - [ ] Extension de la API Flask para comentarios.
 - [ ] Nuevas pruebas de `GraphDBInterface`.
+
+### Nuevas tareas
+
+- [ ] Documentar la extensión de la API Flask y la estructura del foro en React.
 
 Todos los cambios deben mantener la paleta de morado y oro viejo sobre fondos de alabastro segun [docs/style-guide.md](style-guide.md).
