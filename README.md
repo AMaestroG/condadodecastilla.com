@@ -78,6 +78,14 @@ npm run dev:astro
 
 Consulta [frontend/astro-app/README.md](frontend/astro-app/README.md) si prefieres lanzarla dentro de su carpeta. Allí se detallan también la ubicación del directorio de salida y otros apuntes.
 
+Si modificas el código del foro es necesario regenerar sus archivos estáticos. Basta con ejecutar desde la raíz:
+
+```bash
+./scripts/build_forum.sh
+```
+
+El script compila el proyecto con Vite y deja la salida en `assets/forum-app/`.
+
 La página principal se genera en `/piezas` y presenta las piezas en una cuadrícula adaptable.
 
 ## Demo Tailwind
