@@ -106,14 +106,14 @@ if (is_dir($gallery_dir)) {
         <section class="section photo-gallery-section alternate-bg">
             <div class="container-epic"> 
                 <h2 class="section-title"><?php editableText('galeria_colab_galeria_titulo', $pdo, 'Nuestra Galería Compartida', 'span', ''); ?> <i class="fas fa-images"></i></h2>
-                <div id="photoGalleryGrid" class="photo-gallery-grid">
+                <div id="photoGalleryGrid" class="photo-gallery-grid" role="region" aria-live="polite" tabindex="0" aria-label="Galería de fotos">
                     <p class="no-photos-message" id="noPhotosMessage">Cargando fotografías...</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="imageModal" class="modal">
+    <div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-modal="true">
         <span class="modal-close-button">&times;</span>
         <img class="modal-content" id="modalImage" alt="Imagen ampliada de la galería">
         <div id="modalCaption"></div>
@@ -139,6 +139,8 @@ if (is_dir($gallery_dir)) {
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
             const modalCloseButton = document.querySelector('.modal-close-button');
+            let currentPhotoIndex = -1;
+            let currentPhotos = [];
             
             const API_BASE_URL_GALERIA = '/api/galeria';
 
@@ -159,11 +161,14 @@ if (is_dir($gallery_dir)) {
                     }
                     const photos = await response.json();
                     localGalleryPhotos = photos;
+                    currentPhotos = photos;
                 } catch (error) {
                     console.error('Fallo al obtener fotos desde la API:', error);
                     localGalleryPhotos = phpGalleryPhotos;
+                    currentPhotos = phpGalleryPhotos;
                 }
-                renderPhotoGallery(localGalleryPhotos);
+                currentPhotos = localGalleryPhotos;
+                renderPhotoGallery(currentPhotos);
             }
             
             // Cargar fotos desde la API; se usará la lista generada por PHP si la llamada falla
@@ -242,7 +247,8 @@ if (is_dir($gallery_dir)) {
             
             function renderPhotoGallery(photosArray) {
                 if (!galleryGrid || !noPhotosMsg) return;
-                galleryGrid.innerHTML = ''; 
+                currentPhotos = photosArray;
+                galleryGrid.innerHTML = '';
                 if (!photosArray || photosArray.length === 0) {
                     noPhotosMsg.style.display = 'block';
                     noPhotosMsg.textContent = 'Aún no se han compartido fotografías. ¡Anímate a ser el primero!';
@@ -250,9 +256,11 @@ if (is_dir($gallery_dir)) {
                 }
                 noPhotosMsg.style.display = 'none';
 
-                photosArray.forEach(photo => {
+                photosArray.forEach((photo, index) => {
                     const photoCard = document.createElement('div');
-                    photoCard.classList.add('photo-card'); 
+                    photoCard.classList.add('photo-card');
+                    photoCard.setAttribute('tabindex', '0');
+                    photoCard.dataset.index = index;
                     
                     const img = document.createElement('img');
                     let imageUrl = photo.imagenUrl;
@@ -269,7 +277,13 @@ if (is_dir($gallery_dir)) {
                         this.src='https://placehold.co/400x300/D2B48C/2c1d12?text=Foto+no+disponible';
                         this.alt = `Error al cargar foto: ${photo.titulo}`;
                     };
-                    img.addEventListener('click', () => openModal(img.src, `${photo.titulo}${photo.autor && photo.autor.toLowerCase() !== 'anónimo' ? ' - por ' + photo.autor : ''}`));
+                    img.addEventListener('click', () => openModal(index));
+                    photoCard.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openModal(index);
+                        }
+                    });
 
                     const captionDiv = document.createElement('div');
                     captionDiv.classList.add('photo-card-caption');
@@ -343,13 +357,28 @@ if (is_dir($gallery_dir)) {
                 }
             }
             
-            function openModal(src, caption) {
-                if(modal && modalImage && modalCaption) {
+            function openModal(index) {
+                currentPhotoIndex = index;
+                const photo = currentPhotos[index];
+                if(modal && modalImage && modalCaption && photo) {
                     modal.style.display = "block";
-                    modalImage.src = src;
-                    modalCaption.innerHTML = caption;
+                    modalImage.src = photo.imagenUrl || photo.src || '';
+                    modalCaption.innerHTML = `${photo.titulo}${photo.autor && photo.autor.toLowerCase() !== 'anónimo' ? ' - por ' + photo.autor : ''}`;
+                    modal.focus();
                 }
             }
+
+            document.addEventListener('keydown', (e) => {
+                if(modal && modal.style.display === 'block') {
+                    if (e.key === 'Escape') {
+                        modal.style.display = 'none';
+                    } else if (e.key === 'ArrowRight') {
+                        if (currentPhotoIndex < currentPhotos.length - 1) openModal(currentPhotoIndex + 1);
+                    } else if (e.key === 'ArrowLeft') {
+                        if (currentPhotoIndex > 0) openModal(currentPhotoIndex - 1);
+                    }
+                }
+            });
 
             if (modalCloseButton) {
                 modalCloseButton.onclick = function() {

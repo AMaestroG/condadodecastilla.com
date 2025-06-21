@@ -56,7 +56,7 @@ require_once __DIR__ . '/fragments/header.php';
     <section id="video" class="video-section section spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
         <div class="container-epic px-4 sm:px-6 lg:px-8">
             <h2 class="section-title text-2xl font-headings">Un Vistazo a Nuestra Tierra</h2>
-            <div class="video-container mx-auto">
+            <figure class="video-container mx-auto">
                 <iframe class="w-full h-full"
                     src="https://drive.google.com/file/d/1wm74VmKH21Nz7zFUkY8a8Z9672D4cyHN/preview"
                     title="Video promocional del Condado de Castilla y Cerezo de Río Tirón"
@@ -65,9 +65,13 @@ require_once __DIR__ . '/fragments/header.php';
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
                     loading="lazy"
-                    allowfullscreen>
-                </iframe>
-            </div>
+                    allowfullscreen></iframe>
+                <figcaption class="text-center mt-2">
+                    <a href="/docs/transcripts/video_promocional.md" class="video-transcript-link underline">
+                        Ver transcripción del video
+                    </a>
+                </figcaption>
+            </figure>
         </div>
     </section>
 

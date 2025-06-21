@@ -117,7 +117,7 @@
         <section class="section museum-gallery-section alternate-bg" id="gallery-2d-section">
             <div class="container-epic">
                 <h2 class="section-title text-2xl font-headings">Galería del Museo <i class="fas fa-landmark"></i></h2>
-                <div id="museumGalleryGrid" class="card-grid museum-gallery-grid">
+                <div id="museumGalleryGrid" class="card-grid museum-gallery-grid" role="region" aria-live="polite" tabindex="0" aria-label="Galería del museo">
                     <p class="no-pieces-message text-lg font-body" id="noPiecesMessage">Cargando piezas del museo...</p>
                 </div>
             </div>
@@ -134,7 +134,7 @@
         </div>
     </section>
 
-    <div id="imageModal" class="modal">
+    <div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-modal="true">
         <span class="modal-close-button">&times;</span>
         <img class="modal-content" id="modalImage" alt="Imagen ampliada de la pieza del museo">
         <div id="modalCaption"></div>
