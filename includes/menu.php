@@ -17,7 +17,7 @@ function render_menu_items(array $items, string $parentPath = '', int &$counter 
         if (isset($item['children']) && is_array($item['children'])) {
             $counter++;
             $id = 'submenu-' . md5($path);
-            echo '<li class="has-submenu">';
+            echo '<li class="has-submenu" role="menuitem">';
             echo '<button class="submenu-toggle" aria-expanded="false" aria-controls="' . $id . '">' . $label . '</button>';
             echo '<ul id="' . $id . '" class="submenu" aria-hidden="true">';
             render_menu_items($item['children'], $path, $counter, $current);
@@ -30,7 +30,7 @@ function render_menu_items(array $items, string $parentPath = '', int &$counter 
                 $classes[] = 'active-link';
             }
             $classAttr = $classes ? ' class="'.implode(' ', $classes).'"' : '';
-            echo "<li><a href=\"$url\"$classAttr>$label</a></li>";
+            echo "<li role=\"menuitem\"><a href=\"$url\"$classAttr>$label</a></li>";
         }
     }
 }
