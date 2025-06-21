@@ -46,16 +46,17 @@ declaran las familias `headings` y `body` basadas en estas variables:
 
 Los equivalentes `-rgb` se encuentran en la misma hoja de estilos para crear transparencias con `rgba()`.
 
-## Paleta Modo luna
+## Paleta modo oscuro
 
-El modo luna ofrece un aspecto nocturno con gran contraste. Se activa añadiendo la clase
-`luna` al elemento `<body>` y define las siguientes variables:
+El tema adapta automáticamente la interfaz cuando el navegador está en modo oscuro (`prefers-color-scheme: dark`).
+En ese caso se redefinen varios colores principales para mantener el contraste.
 
 | Variable | Descripción | Valor |
 |----------|-------------|-------|
-| `--moon-bg` | Fondo principal oscuro | `#0d1117` |
-| `--moon-text` | Texto claro de alto contraste | `#e0e0e0` |
-| `--moon-accent` | Detalle en púrpura intenso | `#663399` |
+| `--epic-alabaster-bg` | Fondo principal oscuro | `#252B38` |
+| `--epic-alabaster-medium` | Tono intermedio para paneles | `#2a2f39` |
+| `--epic-text-color` | Texto principal claro | `#F0F0F0` |
+| `--epic-text-light` | Texto secundario | `#D8D8D8` |
 
 ## Texto con degradado
 
@@ -64,6 +65,10 @@ definida en `assets/css/epic_theme.css`. Esta clase aplica un degradado
 diagonal que combina el morado principal (`--epic-purple-emperor`) y el
 oro viejo (`--epic-gold-main`) y aprovecha `background-clip: text` para
 dejar a la vista los colores de la paleta.
+
+```html
+<h1 class="gradient-text">Descubre Cerezo</h1>
+```
 
 ## Botones de llamada a la acción
 
