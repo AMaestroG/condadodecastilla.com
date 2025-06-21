@@ -2,3 +2,5 @@ const API_BASE_URL = '';
 window.API_BASE_URL = API_BASE_URL;
 const DEBUG_MODE = false;
 window.DEBUG_MODE = DEBUG_MODE;
+const FORUM_COMMENTS_ENDPOINT = `${API_BASE_URL}/api/forum/comments`;
+window.FORUM_COMMENTS_ENDPOINT = FORUM_COMMENTS_ENDPOINT;

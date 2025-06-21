@@ -51,5 +51,31 @@ class FlaskApiTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 500)
         self.assertIn('error', res.get_json())
 
+    @patch('flask_app.get_forum_comments_from_db')
+    def test_forum_comments_get(self, mock_get):
+        mock_get.return_value = {'hist': [{'comment': 'ok', 'created_at': 'now'}]}
+        res = self.client.get('/api/forum/comments')
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.get_json(), {'hist': [{'comment': 'ok', 'created_at': 'now'}]})
+
+    @patch('flask_app.subprocess.run')
+    def test_forum_comments_post_success(self, mock_run):
+        mock_run.return_value = SimpleNamespace(returncode=0, stdout='success', stderr='')
+        res = self.client.post('/api/forum/comments', json={'agent': 'hist', 'comment': 'Hi'})
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.get_json(), {'success': True})
+
+    def test_forum_comments_post_missing_fields(self):
+        res = self.client.post('/api/forum/comments', json={'agent': 'hist'})
+        self.assertEqual(res.status_code, 400)
+        self.assertIn('error', res.get_json())
+
+    @patch('flask_app.subprocess.run')
+    def test_forum_comments_post_error(self, mock_run):
+        mock_run.return_value = SimpleNamespace(returncode=1, stdout='', stderr='fail')
+        res = self.client.post('/api/forum/comments', json={'agent': 'hist', 'comment': 'Hi'})
+        self.assertEqual(res.status_code, 500)
+        self.assertIn('error', res.get_json())
+
 if __name__ == '__main__':
     unittest.main()
