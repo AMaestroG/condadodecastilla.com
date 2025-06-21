@@ -21,3 +21,26 @@ services:
     volumes:
       - ./:/app
     command: ["python", "flask_app.py"]
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-condado_castilla_db}
+      DB_USER: ${DB_USER:-condado_user}
+      CONDADO_DB_PASSWORD: ${CONDADO_DB_PASSWORD:-condado_password}
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-condado_castilla_db}
+      POSTGRES_USER: ${DB_USER:-condado_user}
+      POSTGRES_PASSWORD: ${CONDADO_DB_PASSWORD:-condado_password}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
