@@ -52,3 +52,23 @@ Visita `lugares/mapa_interactivo.php` para explorar los principales monumentos y
 El script `scripts/daily_agent.py` se ejecuta cada noche mediante GitHub Actions para revisar y actualizar `knowledge_graph_db.json`.
 
 Para detalles sobre la paleta de colores y la tipografía consulta [docs/style-guide.md](docs/style-guide.md), en especial las líneas 1‑24 que enumeran todas las variables CSS.
+
+## Testing
+
+Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar todas las pruebas. Los pasos básicos son:
+
+1. Instala las dependencias con `./scripts/setup_environment.sh`.
+2. Si la suite incluye pruebas de interfaz, arranca un servidor PHP con:
+   ```bash
+   php -S localhost:8080
+   ```
+3. Ejecuta las pruebas de PHP:
+   ```bash
+   vendor/bin/phpunit
+   ```
+4. Ejecuta la batería completa de pruebas de Python:
+   ```bash
+   python -m unittest discover -s tests
+   ```
+
+También se proporciona `scripts/run_tests.sh` para instalar `requirements.txt` y lanzar la suite de forma directa.
