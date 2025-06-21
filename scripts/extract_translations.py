@@ -2,6 +2,21 @@ import os
 import re
 import json
 from bs4 import BeautifulSoup
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 EXCLUDE_DIRS = {"tests", "assets"}
 FILE_EXTENSIONS = {".php", ".html"}
@@ -69,7 +84,7 @@ def main() -> None:
     with open('translations/gl.json', 'w', encoding='utf-8') as f:
         json.dump(gl, f, ensure_ascii=False, indent=2)
 
-    print(f"Extracted {len(all_strings)} unique strings.")
+    logger.info("Extracted %d unique strings.", len(all_strings))
 
 
 if __name__ == '__main__':

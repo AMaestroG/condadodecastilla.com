@@ -3,6 +3,21 @@ import re
 import json
 import unicodedata
 from bs4 import BeautifulSoup
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 
 def normalize(name: str) -> str:
@@ -76,4 +91,4 @@ with open(output_path, 'w', encoding='utf-8') as f:
     f.write("\n".join(lines))
     f.write("\n")
 
-print(f"Generated {output_path} with {len(unique_pairs)} pairs.")
+logger.info("Generated %s with %d pairs.", output_path, len(unique_pairs))

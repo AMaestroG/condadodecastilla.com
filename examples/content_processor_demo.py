@@ -1,4 +1,19 @@
 from content_processor import ContentProcessor
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 """Demonstration of ContentProcessor usage."""
 
 if __name__ == '__main__':
@@ -26,28 +41,28 @@ if __name__ == '__main__':
     </html>
     """
 
-    print("Original HTML:\n", sample_html)
+    logger.info("Original HTML:\n%s", sample_html)
 
     # Test extract_text_from_html
     extracted_text = processor.extract_text_from_html(sample_html)
-    print("\nExtracted Text (from extract_text_from_html):\n", extracted_text)
+    logger.info("\nExtracted Text (from extract_text_from_html):\n%s", extracted_text)
 
     # Test extract_main_content
     main_content_text = processor.extract_main_content(sample_html)
-    print("\nMain Content Text (from extract_main_content):\n", main_content_text)
+    logger.info("\nMain Content Text (from extract_main_content):\n%s", main_content_text)
 
     # Test process_content
     processed_data = processor.process_content(sample_html)
-    print("\nProcessed Data (from process_content):\n", processed_data)
+    logger.info("\nProcessed Data (from process_content):\n%s", processed_data)
 
     # Test with empty HTML
     empty_html = ""
-    print("\nProcessing empty HTML string:")
+    logger.info("\nProcessing empty HTML string:")
     processed_empty = processor.process_content(empty_html)
-    print("Processed Data for empty HTML:\n", processed_empty)
+    logger.info("Processed Data for empty HTML:\n%s", processed_empty)
 
     # Test with HTML having only script/style
     script_style_only_html = "<script>var x=1;</script><style>p{color:red;}</style>"
-    print("\nProcessing HTML with only script/style tags:")
+    logger.info("\nProcessing HTML with only script/style tags:")
     processed_script_style = processor.process_content(script_style_only_html)
-    print("Processed Data for script/style only HTML:\n", processed_script_style)
+    logger.info("Processed Data for script/style only HTML:\n%s", processed_script_style)

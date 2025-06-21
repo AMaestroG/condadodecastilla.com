@@ -1,5 +1,20 @@
 import re, json
 from pathlib import Path
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 table_path = Path('docs/parent_child_pairs.md')
 output_path = Path('personajes/parent_child_pairs.json')
@@ -30,4 +45,4 @@ for line in table_path.read_text(encoding='utf-8').splitlines():
         })
 
 output_path.write_text(json.dumps(pairs, ensure_ascii=False, indent=2), encoding='utf-8')
-print(f"Wrote {output_path} with {len(pairs)} records")
+logger.info("Wrote %s with %d records", output_path, len(pairs))

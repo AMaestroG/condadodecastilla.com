@@ -2,6 +2,21 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 import json
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 def build_tree(url, visited_urls=None, max_depth=2, current_depth=0):
     """
@@ -29,20 +44,20 @@ def build_tree(url, visited_urls=None, max_depth=2, current_depth=0):
         # print(f"Skipping URL {url}: already visited or max depth ({max_depth}) exceeded at {current_depth}.")
         return None
 
-    print(f"Processing: {url} at depth {current_depth}")
+    logger.info("Processing: %s at depth %d", url, current_depth)
     visited_urls.add(url)
 
     try:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching URL {url}: {e}")
+        logger.error("Error fetching URL %s: %s", url, e)
         return None
 
     try:
         soup = BeautifulSoup(response.content, 'html.parser')
     except Exception as e:
-        print(f"Error parsing HTML from {url}: {e}")
+        logger.error("Error parsing HTML from %s: %s", url, e)
         return None
 
     title_tag = soup.find('title')
@@ -150,27 +165,27 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.test_condensation:
-        print(f"--- Test Condensation Mode ---")
+        logger.info("--- Test Condensation Mode ---")
         filepath = args.test_condensation
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 loaded_data = json.load(f)
-            print(f"Successfully loaded tree data from {filepath}")
+            logger.info("Successfully loaded tree data from %s", filepath)
 
-            print("\n--- Condensing loaded tree ---")
+            logger.info("\n--- Condensing loaded tree ---")
             condensed_from_file = condense_tree(loaded_data) # Assumes condense_tree modifies in place or returns the modified tree
 
-            print("\n--- Result of Condensation (from file) ---")
-            print(json.dumps(condensed_from_file, indent=2, ensure_ascii=False))
+            logger.info("\n--- Result of Condensation (from file) ---")
+            logger.info(json.dumps(condensed_from_file, indent=2, ensure_ascii=False))
 
         except FileNotFoundError:
-            print(f"Error: File not found at {filepath}", file=sys.stderr)
+            logger.error("Error: File not found at %s", filepath)
             sys.exit(1)
         except json.JSONDecodeError as e:
-            print(f"Error: Invalid JSON in {filepath} - {e}", file=sys.stderr)
+            logger.error("Error: Invalid JSON in %s - %s", filepath, e)
             sys.exit(1)
         except Exception as e:
-            print(f"An unexpected error occurred during test condensation: {e}", file=sys.stderr)
+            logger.error("An unexpected error occurred during test condensation: %s", e)
             sys.exit(1)
         sys.exit(0) # Successfully exit after test mode
 
@@ -179,23 +194,23 @@ if __name__ == '__main__':
     visited_urls_global = set()
     crawl_max_depth = 2 # Set depth to 2 for this run
 
-    print(f"--- Processing Main URL (max_depth={crawl_max_depth}): {main_url} ---")
+    logger.info("--- Processing Main URL (max_depth=%d): %s ---", crawl_max_depth, main_url)
 
     homepage_tree = build_tree(main_url, visited_urls=visited_urls_global, max_depth=crawl_max_depth, current_depth=0)
 
     if homepage_tree:
-        print("\n--- Condensing Tree ---")
+        logger.info("\n--- Condensing Tree ---")
         condensed_tree = condense_tree(homepage_tree)
 
         output_filename = "condensed_website_tree.json"
         try:
             with open(output_filename, 'w', encoding='utf-8') as f:
                 json.dump(condensed_tree, f, indent=2, ensure_ascii=False)
-            print(f"\n--- Condensed tree successfully written to {output_filename} ---")
+            logger.info("\n--- Condensed tree successfully written to %s ---", output_filename)
         except IOError as e:
-            print(f"\n--- Error writing condensed tree to file: {e} ---", file=sys.stderr)
+            logger.error("\n--- Error writing condensed tree to file: %s ---", e)
     else:
-        print(f"Failed to retrieve data for {main_url}")
+        logger.error("Failed to retrieve data for %s", main_url)
     # print("\n--- Processing Main Sections (individually, not recursively from homepage) ---")
     # section_urls = [
     #     "https://www.condadodecastilla.es/historia/",

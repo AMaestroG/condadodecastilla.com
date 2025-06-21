@@ -12,6 +12,21 @@ import os
 from pathlib import Path
 from collections import defaultdict
 from bs4 import BeautifulSoup
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -115,7 +130,7 @@ def generate_report() -> str:
 
 
 def main() -> None:
-    print(generate_report())
+    logger.info(generate_report())
 
 
 if __name__ == "__main__":

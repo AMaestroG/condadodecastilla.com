@@ -1,7 +1,22 @@
 import argparse
 import json
 from datetime import datetime
-import uuid # For generating IDs if not provided by crawler/processor
+import uuid  # For generating IDs if not provided by crawler/processor
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 # Assuming all module files are in the same directory
 from graph_db_interface import GraphDBInterface
@@ -23,33 +38,37 @@ def handle_add_url(url_to_crawl: str):
     """
     Handles crawling a URL, processing its content, and adding it to the graph.
     """
-    print(f"Attempting to crawl and process URL: {url_to_crawl}...")
+    logger.info("Attempting to crawl and process URL: %s", url_to_crawl)
 
     # 1. Fetch Page (using WebCrawler's fetch_page for raw HTML)
     # fetch_page returns: html_content, error_message
     raw_html_content, fetch_error = crawler.fetch_page(url_to_crawl)
 
     if fetch_error:
-        print(f"Error fetching URL: {fetch_error}")
+        logger.error("Error fetching URL: %s", fetch_error)
         return
 
     if not raw_html_content:
-        print("No HTML content fetched. Cannot process.")
+        logger.error("No HTML content fetched. Cannot process.")
         return
 
-    print(f"Successfully fetched content for {url_to_crawl}.")
+    logger.info("Successfully fetched content for %s", url_to_crawl)
 
     # 2. Process Content (using ContentProcessor for text extraction)
     # process_content returns: {"processed_text": text}
     processed_data = content_processor.process_content(raw_html_content)
     main_text_content = processed_data.get("processed_text", "")
-    print(f"Processed text content (length: {len(main_text_content)}).")
+    logger.info("Processed text content (length: %d).", len(main_text_content))
 
     # 3. Parse HTML (using WebCrawler's parse_html for title and links)
     # parse_html returns: title, list_of_link_dicts
     # Each link_dict from parse_html is like: {"anchor_text": "...", "target_url": "..."}
     page_title, extracted_links_info = crawler.parse_html(raw_html_content, url_to_crawl)
-    print(f"Parsed HTML. Title: '{page_title}'. Found {len(extracted_links_info)} links.")
+    logger.info(
+        "Parsed HTML. Title: '%s'. Found %d links.",
+        page_title,
+        len(extracted_links_info),
+    )
 
     # 4. Construct WebResource Data
     # Based on data_structures.md and what crawler/processor provide
@@ -67,11 +86,15 @@ def handle_add_url(url_to_crawl: str):
 
     # 5. Add/Update Resource in DB
     db_interface.add_or_update_resource(web_resource_data)
-    print(f"Resource for {url_to_crawl} added/updated in the database with ID: {resource_id}.")
+    logger.info(
+        "Resource for %s added/updated in the database with ID: %s",
+        url_to_crawl,
+        resource_id,
+    )
 
     # 6. Construct and Add Links Data
     if extracted_links_info:
-        print("Adding extracted links to the database...")
+        logger.info("Adding extracted links to the database...")
         for link_info in extracted_links_info:
             # Link data structure needs source_url and target_url for GraphDBInterface
             # source_resource_id will be set by add_link based on source_url
@@ -83,51 +106,55 @@ def handle_add_url(url_to_crawl: str):
                 "created_at": datetime.utcnow().isoformat()
             }
             db_interface.add_link(db_link_data)
-        print(f"Added {len(extracted_links_info)} links originating from {url_to_crawl}.")
+        logger.info(
+            "Added %d links originating from %s.",
+            len(extracted_links_info),
+            url_to_crawl,
+        )
     else:
-        print(f"No links found on {url_to_crawl} to add.")
+        logger.info("No links found on %s to add.", url_to_crawl)
 
-    print(f"Processing complete for {url_to_crawl}.")
+    logger.info("Processing complete for %s.", url_to_crawl)
 
 
 def handle_show_resource(url: str):
     """Shows a specific resource from the database."""
-    print(f"Looking up resource: {url}...")
+    logger.info("Looking up resource: %s...", url)
     resource = db_interface.get_resource(url)
     if resource:
-        print(json.dumps(resource, indent=2, sort_keys=True))
+        logger.info(json.dumps(resource, indent=2, sort_keys=True))
     else:
-        print("Resource not found.")
+        logger.info("Resource not found.")
 
 def handle_list_resources():
     """Lists all resources in the database."""
-    print("Fetching all resources...")
+    logger.info("Fetching all resources...")
     resources = db_interface.get_all_resources()
     if resources:
-        print(json.dumps(resources, indent=2, sort_keys=True))
+        logger.info(json.dumps(resources, indent=2, sort_keys=True))
     else:
-        print("No resources found in the database.")
+        logger.info("No resources found in the database.")
 
 def handle_find_uncrawled(limit: int):
     """Finds uncrawled links."""
-    print(f"Finding up to {limit} uncrawled links...")
+    logger.info("Finding up to %d uncrawled links...", limit)
     uncrawled_urls = link_discoverer.find_uncrawled_links(limit=limit)
     if uncrawled_urls:
-        print("Uncrawled URLs:")
+        logger.info("Uncrawled URLs:")
         for url in uncrawled_urls:
-            print(f"  - {url}")
+            logger.info("  - %s", url)
     else:
-        print("No uncrawled links found (or all known links are crawled).")
+        logger.info("No uncrawled links found (or all known links are crawled).")
 
 def handle_run_consistency_check():
     """Runs consistency checks on the graph."""
-    print("Running consistency analysis on the graph...")
+    logger.info("Running consistency analysis on the graph...")
     issues = consistency_analyzer.analyze_graph_consistency()
     if issues:
-        print("Consistency issues found:")
-        print(json.dumps(issues, indent=2, sort_keys=True))
+        logger.info("Consistency issues found:")
+        logger.info(json.dumps(issues, indent=2, sort_keys=True))
     else:
-        print("No consistency issues found.")
+        logger.info("No consistency issues found.")
 
 # --- Main CLI Logic ---
 def main():

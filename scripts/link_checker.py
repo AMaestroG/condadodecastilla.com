@@ -1,6 +1,21 @@
 import os
 from html.parser import HTMLParser
 from urllib.parse import urldefrag
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 class LinkExtractor(HTMLParser):
     def __init__(self, current_file_path):
@@ -77,7 +92,7 @@ def main():
             with open(html_file_path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
         except Exception as e:
-            print(f"Error reading file {html_file_path}: {e}")
+            logger.error("Error reading file %s: %s", html_file_path, e)
             continue
 
         # Relative path from repo root for reporting
@@ -109,13 +124,13 @@ def main():
                 })
 
     if broken_links_report:
-        print("Broken links found:")
+        logger.info("Broken links found:")
         for entry in broken_links_report:
-            print(f"- Source HTML: {entry['source_file']}")
-            print(f"  Link Href: {entry['link_href']}")
-            print(f"  Resolved Path (Broken): {entry['resolved_path']}\n")
+            logger.info("- Source HTML: %s", entry['source_file'])
+            logger.info("  Link Href: %s", entry['link_href'])
+            logger.info("  Resolved Path (Broken): %s\n", entry['resolved_path'])
     else:
-        print("No broken links found.")
+        logger.info("No broken links found.")
 
 if __name__ == "__main__":
     main()

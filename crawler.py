@@ -3,6 +3,21 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import uuid
 from datetime import datetime
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 class WebCrawler:
     def __init__(self, user_agent="KnowledgeGraphBot/0.1"):
@@ -132,41 +147,41 @@ if __name__ == '__main__':
     crawler = WebCrawler()
 
     # Test with the example.com URL
-    print("Crawling http://example.com...")
+    logger.info("Crawling http://example.com...")
     resource, links, error = crawler.crawl("http://example.com")
     if error:
-        print(f"Error: {error}")
+        logger.error("Error: %s", error)
     else:
-        print("\nWebResource Data:")
-        print(resource)
-        print("\nLinks Data:")
+        logger.info("\nWebResource Data:")
+        logger.info(resource)
+        logger.info("\nLinks Data:")
         for link in links:
-            print(link)
+            logger.info(link)
 
-    print("\n" + "="*50 + "\n")
+    logger.info("\n" + "=" * 50 + "\n")
 
     # Test with another example.com URL
-    print("Crawling http://example.com/another-page...")
+    logger.info("Crawling http://example.com/another-page...")
     resource, links, error = crawler.crawl("http://example.com/another-page")
     if error:
-        print(f"Error: {error}")
+        logger.error("Error: %s", error)
     else:
-        print("\nWebResource Data:")
-        print(resource)
-        print("\nLinks Data:")
+        logger.info("\nWebResource Data:")
+        logger.info(resource)
+        logger.info("\nLinks Data:")
         for link in links:
-            print(link)
+            logger.info(link)
 
-    print("\n" + "="*50 + "\n")
+    logger.info("\n" + "=" * 50 + "\n")
 
     # Test with a non-implemented URL
-    print("Crawling http://nonexistentpage.com...")
+    logger.info("Crawling http://nonexistentpage.com...")
     resource, links, error = crawler.crawl("http://nonexistentpage.com")
     if error:
-        print(f"Error: {error}")
+        logger.error("Error: %s", error)
     else:
-        print("\nWebResource Data:")
-        print(resource)
-        print("\nLinks Data:")
+        logger.info("\nWebResource Data:")
+        logger.info(resource)
+        logger.info("\nLinks Data:")
         for link in links:
-            print(link)
+            logger.info(link)
