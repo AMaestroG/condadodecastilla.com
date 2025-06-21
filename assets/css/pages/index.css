@@ -17,3 +17,25 @@
 .align-with-menu {
     margin-top: var(--menu-top-offset);
 }
+
+#hero-video::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/img/hero_mis_tierras.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    animation: medievalScroll 60s linear infinite;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+@keyframes medievalScroll {
+    from { background-position: center 0; }
+    to { background-position: center 1000px; }
+}
+
+#updates ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+}
