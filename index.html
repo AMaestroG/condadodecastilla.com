@@ -123,13 +123,13 @@
     <!-- Panel deslizante (ej. para perfil de usuario, configuraciones) -->
     <!-- aria-hidden se gestiona con JS -->
     <aside class="sliding-panel" id="slidingPanel" role="dialog" aria-modal="true" aria-labelledby="slidingPanelTitle" aria-hidden="true">
-        <button class="sliding-panel-close" id="closeSlidingPanel" aria-label="Cerrar panel de perfil">×</button>
-        <h2 id="slidingPanelTitle">Panel de Usuario</h2>
-        <p>Bienvenido/a. Aquí puedes ver tus opciones de perfil.</p>
-        <ul>
-            <li><a href="perfil/opcion1.html">Ver mi Perfil</a></li>
-            <li><a href="perfil/opcion2.html">Configuración</a></li>
-            <li><a href="logout.html">Cerrar Sesión</a></li>
+        <button class="sliding-panel-close sliding-panel-item" id="closeSlidingPanel" aria-label="Cerrar panel de perfil">×</button>
+        <h2 id="slidingPanelTitle" class="sliding-panel-item">Panel de Usuario</h2>
+        <p class="sliding-panel-item">Bienvenido/a. Aquí puedes ver tus opciones de perfil.</p>
+        <ul class="sliding-panel-item">
+            <li class="sliding-panel-item"><a href="perfil/opcion1.html">Ver mi Perfil</a></li>
+            <li class="sliding-panel-item"><a href="perfil/opcion2.html">Configuración</a></li>
+            <li class="sliding-panel-item"><a href="logout.html">Cerrar Sesión</a></li>
         </ul>
     </aside>
 

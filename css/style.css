@@ -167,8 +167,22 @@ html[data-theme="light"] .theme-icon-moon {
     height: 100%;
     font-size: 1em;
     position: relative;
-    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    /* transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; */ /* Removido para el efecto de barrido */
+    transition: color var(--transition-speed) ease; /* Solo transición de color de texto por defecto */
+    overflow: hidden; /* Necesario para el efecto de barrido del ::before */
 }
+.nav-menu-link::before { /* Elemento para el efecto de barrido del fondo */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Inicia fuera a la izquierda */
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-bg);
+    z-index: -1; /* Detrás del texto del enlace */
+    transition: transform var(--transition-speed) cubic-bezier(0.77, 0, 0.175, 1); /* Un easing más "épico" */
+}
+
 .nav-menu-link::after { /* Subrayado animado para hover/focus */
     content: '';
     position: absolute;
@@ -247,10 +261,35 @@ html[data-theme="light"] .theme-icon-moon {
 .mega-menu-column {
     flex: 1; /* Las columnas comparten el espacio */
     min-width: 180px; /* Ancho mínimo para cada columna */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUpColumn 0.4s ease-out forwards;
 }
+/* Aplicar delays escalonados a las columnas del mega menú */
+.nav-menu-item.has-megamenu:hover .mega-menu-column:nth-child(1),
+.nav-menu-item.has-megamenu:focus-within .mega-menu-column:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.nav-menu-item.has-megamenu:hover .mega-menu-column:nth-child(2),
+.nav-menu-item.has-megamenu:focus-within .mega-menu-column:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.nav-menu-item.has-megamenu:hover .mega-menu-column:nth-child(3),
+.nav-menu-item.has-megamenu:focus-within .mega-menu-column:nth-child(3) {
+    animation-delay: 0.3s;
+}
+/* Si hubiera más columnas, se seguiría este patrón */
+
+@keyframes fadeInUpColumn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .mega-menu-column-promo {
     flex-grow: 0.7; /* La columna de promo puede ser más pequeña si es necesario */
-    border-left: 1px solid var(--primary-bg); /* Separador visual */
+    border-left: 1px solid var(--border-color); /* Usar variable de borde */
     padding-left: 20px;
 }
 
@@ -413,14 +452,34 @@ html[data-theme="light"] .theme-icon-moon {
     color: var(--primary-text);
     padding: 25px;
     box-shadow: -3px 0 15px rgba(0,0,0,0.25);
-    transition: right var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Custom easing */
+    /* Usaremos transform para la transición principal para mejor rendimiento y flexibilidad con clip-path si se decide más tarde */
+    transform: translateX(100%); /* Inicia fuera a la derecha */
+    transition: transform var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1002;
     overflow-y: auto;
+    /* Para que el right:0 funcione con transform, necesitamos asegurar que esté posicionado correctamente */
+    right: 0; /* Mantenemos right:0 para que translateX(100%) lo mueva fuera de la vista */
 }
 
 .sliding-panel.is-open {
-    right: 0;
+    transform: translateX(0); /* Vuelve a su posición original */
 }
+
+/* Animación para elementos internos del panel */
+.sliding-panel.is-open .sliding-panel-item {
+    opacity: 0;
+    transform: translateX(20px); /* Vienen desde la derecha del panel */
+    animation: fadeInSlideInPanelItem 0.4s ease-out forwards;
+}
+
+@keyframes fadeInSlideInPanelItem {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Los delays se aplicarán con JS */
+
 
 .sliding-panel-close {
     background: none;
@@ -535,35 +594,66 @@ html[data-theme="light"] .theme-icon-moon {
     .nav-submenu,
     .nav-submenu-nested {
         position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        background-color: rgba(0,0,0,0.1); /* Ligeramente diferente para anidación */
+        /* opacity: 1; Ya no se controla aquí directamente */
+        /* visibility: visible; Ya no se controla aquí directamente */
+        /* transform: none; Ya no se controla aquí directamente */
+        background-color: rgba(0,0,0,0.1);
         min-width: 100%;
         box-shadow: none;
         border-radius: 0;
-        display: none;
-        padding-left: 0; /* Sin padding global, se controla en el link */
+        /* display: none; Se maneja por max-height y overflow */
+        padding-left: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                    padding-top var(--transition-speed) ease,
-                    padding-bottom var(--transition-speed) ease;
+        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), /* Easing suave */
+                    padding-top 0.35s ease,
+                    padding-bottom 0.35s ease,
+                    opacity 0.3s ease-in-out; /* Añadir transición de opacidad al contenedor */
+        opacity: 0; /* Inicia oculto también por opacidad */
     }
 
     .nav-submenu.is-open,
     .nav-submenu-nested.is-open {
-        display: block; /* Necesario para que max-height funcione */
-        max-height: 500px; /* Un valor suficientemente grande, o calcular con JS */
-        padding-top: 5px;
-        padding-bottom: 5px;
+        /* display: block; No es estrictamente necesario si max-height > 0 lo hace visible */
+        max-height: 500px; /* Ajustar según contenido máximo esperado */
+        padding-top: 8px;  /* Más padding */
+        padding-bottom: 8px;
+        opacity: 1; /* Hacer visible con opacidad */
     }
+
+    /* Estilos para los items dentro del submenú móvil */
+    .nav-submenu .nav-submenu-item,
+    .nav-submenu-nested .nav-submenu-item {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease-out 0.1s, /* Delay para que aparezcan después de expandir */
+                    transform 0.3s ease-out 0.1s;
+    }
+
+    .nav-submenu.is-open .nav-submenu-item,
+    .nav-submenu-nested.is-open .nav-submenu-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Aplicar delay escalonado a los items del submenú si se desea (más complejo sin JS para N hijos) */
+    /* Ejemplo para los primeros 3 items, requeriría más selectores para más items */
+    .nav-submenu.is-open .nav-submenu-item:nth-child(1),
+    .nav-submenu-nested.is-open .nav-submenu-item:nth-child(1) { transition-delay: 0.15s; }
+    .nav-submenu.is-open .nav-submenu-item:nth-child(2),
+    .nav-submenu-nested.is-open .nav-submenu-item:nth-child(2) { transition-delay: 0.20s; }
+    .nav-submenu.is-open .nav-submenu-item:nth-child(3),
+    .nav-submenu-nested.is-open .nav-submenu-item:nth-child(3) { transition-delay: 0.25s; }
+    /* ... y así sucesivamente si se quiere un escalonado fino */
+
+
     .nav-submenu-link {
-        padding: 12px 25px 12px 40px; /* Mayor indentación */
+        padding: 12px 25px 12px 40px;
         font-size: 0.9em;
+        /* La transición de color ya está en el selector general de links */
     }
     .nav-submenu-nested .nav-submenu-link {
-        padding-left: 55px; /* Aún más indentación */
+        padding-left: 55px;
     }
 
 
@@ -572,6 +662,22 @@ html[data-theme="light"] .theme-icon-moon {
         display: none; /* Desactivar hover en móvil para submenús */
     }
     /* No necesitamos .is-active-submenu si .is-open en el submenú ya lo controla */
+
+    /* Animación de entrada para items del menú móvil */
+    .nav-menu.is-active .nav-menu-item {
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: fadeInSlideIn 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeInSlideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    /* Para el efecto escalonado, el delay se aplicará con JS */
+
 
     .submenu-toggle {
         display: flex;
