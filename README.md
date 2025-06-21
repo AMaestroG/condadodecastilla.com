@@ -41,3 +41,14 @@ npm run dev:astro
 ```
 
 La página principal se genera en `/piezas` y presenta las piezas en una cuadrícula adaptable.
+
+
+## Mapa interactivo
+
+Visita `lugares/mapa_interactivo.php` para explorar los principales monumentos y poblaciones sobre un mapa dinámico.
+
+## Actualización diaria del grafo de conocimiento
+
+El script `scripts/daily_agent.py` se ejecuta cada noche mediante GitHub Actions para revisar y actualizar `knowledge_graph_db.json`.
+
+Para detalles sobre la paleta de colores y la tipografía consulta [docs/style-guide.md](docs/style-guide.md), en especial las líneas 1‑24 que enumeran todas las variables CSS.
