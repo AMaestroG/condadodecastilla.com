@@ -21,7 +21,10 @@ class MainMenuLinksTest extends TestCase {
     }
 
     public static function urlProvider(): array {
-        $html = file_get_contents(__DIR__.'/../fragments/menus/main-menu.php');
+        ob_start();
+        include __DIR__ . '/../fragments/menus/main-menu.php';
+        $html = ob_get_clean();
+
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML($html);
@@ -29,6 +32,9 @@ class MainMenuLinksTest extends TestCase {
         foreach ($dom->getElementsByTagName('a') as $a) {
             $href = $a->getAttribute('href');
             if ($href !== '') {
+                if ($href[0] !== '/') {
+                    $href = '/' . $href;
+                }
                 $urls[] = [$href];
             }
         }
