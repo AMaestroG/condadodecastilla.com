@@ -29,9 +29,9 @@ jobs:
           node-version: '18'
 
       - name: Install project dependencies
-        run: ./scripts/setup_environment.sh
+        run: ./packages/devops/setup_environment.sh
       - name: Install test dependencies
-        run: ./scripts/install_dev_deps.sh
+        run: ./packages/devops/install_dev_deps.sh
 
       - name: Check internal links
         run: |
@@ -50,11 +50,11 @@ jobs:
       - name: Run PHPStan
         run: vendor/bin/phpstan
 
-      - name: Run PHPUnit
-        run: vendor/bin/phpunit --coverage-clover build/coverage.xml
+      - name: Run Backend tests
+        run: npx nx run backend:test
 
-      - name: Run Puppeteer tests
-        run: npm run test:puppeteer
+      - name: Run Frontend tests
+        run: npx nx run frontend:test
 
       - name: Upload coverage artifact
         if: success() && always()

@@ -72,7 +72,7 @@ Consulta la [guía de index.php](docs/index-guide.md#configuracion-de-los-agente
 - **Composer** 2.x para gestionar las dependencias.
 - **PostgreSQL** 9.6 o superior.
 - **PHPUnit** se instala como dependencia de desarrollo con Composer.
-- Para ejecutar las pruebas necesitas las dependencias de Composer y los paquetes de Python listados en `requirements.txt`. Ejecuta `./scripts/install_dev_deps.sh` para instalarlas.
+- Para ejecutar las pruebas necesitas las dependencias de Composer y los paquetes de Python listados en `requirements.txt`. Ejecuta `./packages/devops/install_dev_deps.sh` para instalarlas.
 
 ### Instalación rápida en Linux
 
@@ -142,7 +142,7 @@ source venv/bin/activate
 2. Instala las dependencias definidas en `requirements.txt`:
 
 ```bash
-pip install -r requirements.txt
+pip install -r apps/backend/requirements.txt
 ```
 
 3. Copia `.env.example` a `.env` y define al menos `GEMINI_API_KEY` y `CONDADO_DB_PASSWORD`.
@@ -185,10 +185,10 @@ Si no defines la variable, `flask_app.py` ejecutará `app.run(debug=False)` por 
 La forma recomendada de instalar todas las dependencias de PHP, Node.js y Python es ejecutar el script:
 
 ```bash
-./scripts/setup_environment.sh
+./packages/devops/setup_environment.sh
 ```
 
-También puedes usar `./scripts/install_dev_deps.sh` para instalar solo las librerías de Composer y los paquetes de Python necesarios para los tests.
+También puedes usar `./packages/devops/install_dev_deps.sh` para instalar solo las librerías de Composer y los paquetes de Python necesarios para los tests.
 
 Este script comprueba que tu sistema cumpla las versiones mínimas indicadas en la sección [Requisitos](#requisitos). Si alguno de los gestores no está disponible, mostrará una advertencia y continuará con los restantes.
 
@@ -203,12 +203,12 @@ bibliotecas de JavaScript necesarias ejecutando:
 
 ```bash
 composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwriter --ignore-platform-req=ext-xml
-pip install -r requirements.txt
+pip install -r apps/backend/requirements.txt
 ./scripts/setup_frontend_libs.sh
 ```
 
 `composer install` descargará todas las librerías de PHP necesarias, incluido **PHPUnit**, que quedará disponible en `vendor/bin/phpunit`.
-pip install -r requirements.txt
+pip install -r apps/backend/requirements.txt
 
 Este proyecto utiliza la librería **league/commonmark** para transformar a HTML los archivos Markdown del blog. La dependencia se instala automáticamente con el comando anterior.
 
@@ -296,11 +296,18 @@ Antes de ejecutar `npm test` o cualquier suite de PHPUnit asegúrate de haber in
 ```bash
 npm install
 composer install
-pip install -r requirements.txt
+pip install -r apps/backend/requirements.txt
+```
+Para ejecutar las pruebas con Nx puedes usar:
+
+```bash
+npx nx run backend:test
+npx nx run frontend:test
 ```
 
-Si el repositorio incluye el script `./scripts/setup_environment.sh`, ejecútalo para automatizar la instalación de los paquetes de PHP, Python y Node.
-También puedes usar `./scripts/install_dev_deps.sh` para instalar solo las librerías de Composer y los paquetes de Python necesarios para los tests.
+
+Si el repositorio incluye el script `./packages/devops/setup_environment.sh`, ejecútalo para automatizar la instalación de los paquetes de PHP, Python y Node.
+También puedes usar `./packages/devops/install_dev_deps.sh` para instalar solo las librerías de Composer y los paquetes de Python necesarios para los tests.
 
 Asegúrate además de tener **Composer** y **PHPUnit** instalados. `PHPUnit` puede utilizarse de forma global o mediante el binario que se genera en `vendor/bin/phpunit` tras `composer install`. Las pruebas no se ejecutarán correctamente sin la interfaz de línea de comandos de PHP (PHP CLI).
 
@@ -319,7 +326,7 @@ php -S localhost:8080
 ```
 
 `composer install` descarga **PHPUnit** en `vendor/bin` y `npm install` instala **Puppeteer**, ambas necesarias para las suites de tests.
-pip install -r requirements.txt
+pip install -r apps/backend/requirements.txt
 
 Con las dependencias ya instaladas, ejecuta cada conjunto de tests de forma explícita:
 
@@ -348,7 +355,7 @@ Si las pruebas muestran errores de módulos no encontrados, verifica que las car
 ```bash
 npm install
 composer install
-pip install -r requirements.txt
+pip install -r apps/backend/requirements.txt
 ```
 
 Además se proporcionan scripts auxiliares para validar el estado del código:

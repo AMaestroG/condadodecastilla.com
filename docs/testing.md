@@ -14,7 +14,7 @@ de no encontrarlas o si son antiguas. Tras solventar cualquier ausencia podrás
 ejecutar manualmente el paso correspondiente y repetir la preparación.
 
 ```bash
-./scripts/setup_environment.sh
+./packages/devops/setup_environment.sh
 ```
 
 ## Servidor PHP local para Puppeteer
@@ -70,5 +70,5 @@ Esto descargará `puppeteer` y los binarios de Chrome.
 ```bash
 php -S localhost:8080
 ```
-- Si las dependencias fallaron al instalarse, vuelve a lanzar `./scripts/setup_environment.sh`.
+- Si las dependencias fallaron al instalarse, vuelve a lanzar `./packages/devops/setup_environment.sh`.
 - Si Puppeteer informa que no se encuentra Chromium, ejecuta `npm ci` para reinstalar las dependencias.

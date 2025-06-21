@@ -16,7 +16,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 vendor/
-!assets/vendor/
+!apps/frontend/assets/vendor/
 .phpunit.result.cache
 .php-cs-fixer.cache
 
@@ -37,4 +37,11 @@ broken_links_report_extended.txt
 scripts/temp_output/
 
 # Source maps
-assets/css/*.map
+apps/frontend/assets/css/*.map
+
+# Nx cache
+.nx/cache
+.nx/workspace-data
+
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
