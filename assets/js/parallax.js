@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!layers.length) return;
 
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let active = !mediaQuery.matches;
+  const minWidth = 768;
+  let active = !mediaQuery.matches && window.innerWidth >= minWidth;
+  let rafId;
 
   const update = () => {
     const offset = window.pageYOffset;
@@ -15,32 +17,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const loop = () => {
+    if (!active) return;
+    update();
+    rafId = requestAnimationFrame(loop);
+  };
+
   const enable = () => {
-    if (!active) {
+    if (!active && !mediaQuery.matches && window.innerWidth >= minWidth) {
       active = true;
-      window.addEventListener('scroll', update, { passive: true });
-      update();
+      rafId = requestAnimationFrame(loop);
     }
   };
 
   const disable = () => {
     if (active) {
       active = false;
-      window.removeEventListener('scroll', update);
+      if (rafId) cancelAnimationFrame(rafId);
       layers.forEach(el => (el.style.transform = ''));
+    }
+  };
+
+  const handleResize = () => {
+    if (window.innerWidth < minWidth) {
+      disable();
+    } else if (!mediaQuery.matches) {
+      enable();
     }
   };
 
   mediaQuery.addEventListener('change', () => {
     if (mediaQuery.matches) {
       disable();
-    } else {
+    } else if (window.innerWidth >= minWidth) {
       enable();
     }
   });
 
+  window.addEventListener('resize', handleResize);
+
   if (active) {
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+    rafId = requestAnimationFrame(loop);
   }
 });
