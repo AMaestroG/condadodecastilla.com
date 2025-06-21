@@ -11,7 +11,7 @@ Este documento recopila los scripts disponibles en el directorio `scripts/` y su
 | `check_db.sh`                | Comprueba la conectividad con la base de datos PostgreSQL.                     |
 | `compress_images.sh`         | Crea versiones optimizadas y miniaturas de imágenes.                           |
 | `daily_agent.py`             | Ejecuta tareas periódicas como generar el sitemap o revisar enlaces.           |
-| `export_menu_links.php`      | Lista las URL del menú principal para revisarlas rápidamente.                  |
+| `export_menu_links.php`      | Lista las URL del menú principal para revisarlas rápidamente. Ejemplo: `php scripts/export_menu_links.php > docs/menu-structure.md`. Requiere tener PHP instalado. |
 | `extract_parent_child.py`    | Genera `docs/parent_child_pairs.md` con relaciones de parentesco.              |
 | `extract_translations.py`    | Reúne cadenas de texto y produce archivos JSON de traducción.                  |
 | `gemini_request.sh`          | Ejemplo de petición a la API Gemini.                                           |
