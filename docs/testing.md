@@ -9,6 +9,7 @@ Esta guía explica cómo preparar el entorno y ejecutar las pruebas automatizada
 ```bash
 ./scripts/setup_environment.sh
 ```
+> **Nota:** ejecuta `pip install -r requirements.txt` o `scripts/setup_environment.sh` antes de lanzar cualquier prueba.
 
 2. Si vas a ejecutar la suite de interfaz, abre otro terminal y arranca un servidor PHP local:
 
