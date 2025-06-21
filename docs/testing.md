@@ -15,8 +15,13 @@ php -S localhost:8080
 vendor/bin/phpunit
 ```
 4. Ejecuta las pruebas de Python:
+   - Solo la suite de la interfaz de grafo:
 ```bash
-python -m unittest tests/test_flask_api.py tests/test_graph_db_interface.py
+python -m unittest tests/test_graph_db_interface.py
+```
+   - Toda la batería de pruebas de Python:
+```bash
+python -m unittest discover -s tests
 ```
 5. Ejecuta las pruebas de interfaz con Puppeteer:
 ```bash
