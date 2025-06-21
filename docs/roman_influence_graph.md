@@ -29,13 +29,26 @@ Dentro del `<head>` de la misma página se define la adaptación al modo oscuro:
 
 ```html
 <style>
-    #roman-chart { position: relative; width: 100%; max-width: 700px; margin: 40px auto; }
-    .tooltip { background: rgba(255,255,255,0.9); color: var(--color-negro-contraste); }
-    @media (prefers-color-scheme: dark) {
-        .tooltip { background: rgba(0,0,0,0.85); color: var(--epic-text-light); }
-        #roman-chart .axis path,
-        #roman-chart .axis line { stroke: var(--epic-text-light); }
+  #roman-chart {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 40px auto;
+  }
+  .tooltip {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-negro-contraste);
+  }
+  @media (prefers-color-scheme: dark) {
+    .tooltip {
+      background: rgba(0, 0, 0, 0.85);
+      color: var(--epic-text-light);
     }
+    #roman-chart .axis path,
+    #roman-chart .axis line {
+      stroke: var(--epic-text-light);
+    }
+  }
 </style>
 ```
 

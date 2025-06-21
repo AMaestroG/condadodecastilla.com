@@ -1,8 +1,8 @@
 # Documentación
 
 Este directorio reúne todas las guías del proyecto **Condado de Castilla**.
-La misión principal es *promocionar el turismo en Cerezo de Río Tirón y*
-*proteger su patrimonio arqueológico y cultural*.
+La misión principal es _promocionar el turismo en Cerezo de Río Tirón y_
+_proteger su patrimonio arqueológico y cultural_.
 
 ## Árbol de directorios
 

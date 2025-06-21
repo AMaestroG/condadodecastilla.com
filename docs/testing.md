@@ -1,32 +1,46 @@
 # Guía de Testing
 
 Esta guía explica cómo preparar el entorno y ejecutar las pruebas automatizadas del proyecto.
+
 ## Paso a paso
+
 1. Prepara el entorno y sus dependencias ejecutando `setup_environment.sh` (ver [script_catalog.md](script_catalog.md)):
+
 ```bash
 ./scripts/setup_environment.sh
 ```
+
 2. Si vas a ejecutar la suite de interfaz, abre otro terminal y arranca un servidor PHP local:
+
 ```bash
 php -S localhost:8080
 ```
+
 3. Ejecuta las pruebas de PHP:
+
 ```bash
 vendor/bin/phpunit
 ```
+
 4. Ejecuta las pruebas de Python:
    - Solo la suite de la interfaz de grafo:
+
 ```bash
 python -m unittest tests/test_graph_db_interface.py
 ```
-   - Toda la batería de pruebas de Python:
+
+- Toda la batería de pruebas de Python:
+
 ```bash
 python -m unittest discover -s tests
 ```
+
 5. Ejecuta las pruebas de interfaz con Puppeteer:
+
 ```bash
 npm run test:puppeteer
 ```
+
 ### Requisitos adicionales de PHP
 
 Las pruebas de PHP necesitan la interfaz **php-cgi** y la extensión
@@ -57,17 +71,17 @@ Consulta las opciones del script en [script_catalog.md](script_catalog.md).
 ./scripts/run_accessibility_audit.sh
 ```
 
-
-
-
 ## Solucion de problemas
 
 - Si al ejecutar `npm run test:puppeteer` obtienes un TimeoutError, comprueba que tienes un servidor PHP en marcha con:
+
 ```bash
 php -S localhost:8080
 ```
+
 - Si las dependencias fallaron al instalarse, consulta [script_catalog.md](script_catalog.md) para volver a ejecutar el script de preparación.
 - Si Puppeteer informa que no se encuentra Chromium, ejecuta `npm ci` para reinstalar las dependencias.
+
 ## Resultados del 20/06/2025
 
 - `vendor/bin/phpunit`: 34 tests executed with 3 errors and 19 failures. Tras instalar `php-cgi` y `pdo_pgsql` las pruebas que requieren conexión a PostgreSQL siguieron fallando porque la base de datos no estaba disponible.

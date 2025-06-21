@@ -2,38 +2,38 @@
 
 Esta guía resume la paleta de colores usada de forma consistente en todo el proyecto. Las variables CSS se definen en `assets/css/epic_theme.css` y pueden reutilizarse en cualquier página.
 
-| Variable | Descripción | Valor |
-|----------|-------------|-------|
-| `--color-primario-purpura` | Morado principal inspirado en el escudo | `#4A0D67` |
-| `--color-secundario-dorado` | Oro viejo para detalles y bordes | `#B8860B` |
-| `--color-acento-amarillo` | Acento amarillo brillante | `#FFD700` |
-| `--color-piedra-clara` | Beige claro para texto y fondos ligeros | `#EAE0C8` |
-| `--color-piedra-media` | Arenisca media para fondos secundarios | `#D2B48C` |
-| `--color-texto-principal` | Marrón oscuro para la tipografía | `#2c1d12` |
-| `--color-fondo-pagina` | Blanco hueso sutil de fondo | `#fdfaf6` |
-| `--epic-alabaster-bg` | Fondo principal de alabastro | `#fdfaf6` |
-| `--epic-alabaster-dawn` | Variante gris suave para el amanecer | `#e5e5e5` |
-| `--epic-gold-soft` | Oro pálido de las primeras horas | `#f3e5ab` |
-| `--epic-purple-vibrant` | Morado intenso para el día | `#6b46c1` |
-| `--epic-alabaster-dusk` | Fondo cálido del atardecer | `#efe2d2` |
-| `--epic-gold-dusk` | Dorado profundo del atardecer | `#f0b429` |
-| `--epic-orange-sunset` | Naranja brillante del ocaso | `#f97316` |
-| `--epic-text-night` | Texto claro para el modo nocturno | `#e0e0e0` |
-| `--color-negro-contraste` | Negro de alto contraste | `#1A1A1A` |
-| `--alert-bg` | Fondo de mensajes de alerta | `#ffdddd` |
-| `--alert-border` | Borde de mensajes de alerta | `#ff0000` |
-| `--alert-text` | Texto de mensajes de alerta | `#d8000c` |
-| `--menu-extra-offset` | Separación adicional para el menú consolidado | `60px` |
+| Variable                    | Descripción                                   | Valor     |
+| --------------------------- | --------------------------------------------- | --------- |
+| `--color-primario-purpura`  | Morado principal inspirado en el escudo       | `#4A0D67` |
+| `--color-secundario-dorado` | Oro viejo para detalles y bordes              | `#B8860B` |
+| `--color-acento-amarillo`   | Acento amarillo brillante                     | `#FFD700` |
+| `--color-piedra-clara`      | Beige claro para texto y fondos ligeros       | `#EAE0C8` |
+| `--color-piedra-media`      | Arenisca media para fondos secundarios        | `#D2B48C` |
+| `--color-texto-principal`   | Marrón oscuro para la tipografía              | `#2c1d12` |
+| `--color-fondo-pagina`      | Blanco hueso sutil de fondo                   | `#fdfaf6` |
+| `--epic-alabaster-bg`       | Fondo principal de alabastro                  | `#fdfaf6` |
+| `--epic-alabaster-dawn`     | Variante gris suave para el amanecer          | `#e5e5e5` |
+| `--epic-gold-soft`          | Oro pálido de las primeras horas              | `#f3e5ab` |
+| `--epic-purple-vibrant`     | Morado intenso para el día                    | `#6b46c1` |
+| `--epic-alabaster-dusk`     | Fondo cálido del atardecer                    | `#efe2d2` |
+| `--epic-gold-dusk`          | Dorado profundo del atardecer                 | `#f0b429` |
+| `--epic-orange-sunset`      | Naranja brillante del ocaso                   | `#f97316` |
+| `--epic-text-night`         | Texto claro para el modo nocturno             | `#e0e0e0` |
+| `--color-negro-contraste`   | Negro de alto contraste                       | `#1A1A1A` |
+| `--alert-bg`                | Fondo de mensajes de alerta                   | `#ffdddd` |
+| `--alert-border`            | Borde de mensajes de alerta                   | `#ff0000` |
+| `--alert-text`              | Texto de mensajes de alerta                   | `#d8000c` |
+| `--menu-extra-offset`       | Separación adicional para el menú consolidado | `60px`    |
 
 ## Tipografías
 
 Se definen dos familias de fuentes base disponibles a través de Tailwind. Las
 fuentes se gestionan mediante variables CSS:
 
-| Clase | Fuente |
-|-------|-------|
+| Clase            | Fuente                 |
+| ---------------- | ---------------------- |
 | `.font-headings` | `var(--font-headings)` |
-| `.font-body` | `var(--font-primary)` |
+| `.font-body`     | `var(--font-primary)`  |
 
 Estas utilidades permiten asignar de forma coherente la tipografía a títulos y
 textos de párrafo. Las clases se generan desde `tailwind.config.js`, donde se
@@ -51,12 +51,12 @@ Los equivalentes `-rgb` se encuentran en la misma hoja de estilos para crear tra
 El tema adapta automáticamente la interfaz cuando el navegador está en modo oscuro (`prefers-color-scheme: dark`).
 En ese caso se redefinen varios colores principales para mantener el contraste.
 
-| Variable | Descripción | Valor |
-|----------|-------------|-------|
-| `--epic-alabaster-bg` | Fondo principal oscuro | `#252B38` |
+| Variable                  | Descripción                  | Valor     |
+| ------------------------- | ---------------------------- | --------- |
+| `--epic-alabaster-bg`     | Fondo principal oscuro       | `#252B38` |
 | `--epic-alabaster-medium` | Tono intermedio para paneles | `#2a2f39` |
-| `--epic-text-color` | Texto principal claro | `#F0F0F0` |
-| `--epic-text-light` | Texto secundario | `#D8D8D8` |
+| `--epic-text-color`       | Texto principal claro        | `#F0F0F0` |
+| `--epic-text-light`       | Texto secundario             | `#D8D8D8` |
 
 ## Texto con degradado
 
@@ -111,7 +111,6 @@ Para agilizar la carga se recomienda emplear formatos modernos y limitar las dim
 
 Actualmente existen archivos superiores a 2&nbsp;MB en `assets/img/` (por ejemplo `GonzaloTellez.png`), conviene reconvertirlos a WebP o aplicar compresión.
 
-
 ## Accesibilidad
 
 Para resaltar los estados activos se emplean los atributos `aria-expanded` y `aria-hidden`.
@@ -120,11 +119,11 @@ Cuando un botón está expandido (`aria-expanded="true"`) o un panel visible
 
 ```css
 #consolidated-menu-button[aria-expanded="true"] {
-    background-color: var(--epic-gold-main);
-    color: var(--epic-purple-emperor);
+  background-color: var(--epic-gold-main);
+  color: var(--epic-purple-emperor);
 }
 .menu-panel[aria-hidden="false"] {
-    border: 2px solid var(--epic-gold-main);
+  border: 2px solid var(--epic-gold-main);
 }
 ```
 
