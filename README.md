@@ -13,6 +13,7 @@ Promocionar el turismo de **Cerezo de Río Tirón** y proteger su patrimonio arq
 - `backend/` – API en Python (Flask) y herramientas de IA.
 - `docs/` – documentación completa.
 - `scripts/` – utilidades de desarrollo y mantenimiento.
+- `scripts_admin.php` – interfaz protegida para ejecutar esos scripts y revisar la salida.
 - `tests/` – pruebas automáticas.
 
 ## Tecnologías recomendadas

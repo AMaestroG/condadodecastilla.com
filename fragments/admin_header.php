@@ -28,6 +28,7 @@ if ($geminiNotice) {
             <li><a href="/museo/editar_pieza.php">Piezas Museo</a></li>
             <li><a href="/foro/manage_comments.php">Comentarios</a></li>
             <li><a href="/dashboard/create_user.php">Crear Usuario</a></li>
+            <li><a href="/scripts_admin.php">Scripts</a></li>
             <li><a href="/dashboard/logout.php">Cerrar sesión</a></li>
             <li><a href="/index.php">Inicio Sitio</a></li>
         </ul>

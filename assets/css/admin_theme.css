@@ -166,3 +166,12 @@ body.edit-pieza-page td {
 body.edit-pieza-page th {
     background-color: var(--epic-neutral-bg);
 }
+
+.code-output {
+    background-color: var(--epic-neutral-bg);
+    padding: 10px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    max-width: 100%;
+}
