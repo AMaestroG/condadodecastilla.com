@@ -1,4 +1,4 @@
-const CACHE_NAME = 'assets-cache-v2';
+const CACHE_NAME = 'assets-cache-v3';
 const CORE_ROUTES = ['/index.php', '/foro/index.php'];
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -7,7 +7,17 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 });
 self.addEventListener('activate', event => {
-  event.waitUntil(clients.claim());
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(name => {
+          if (name !== CACHE_NAME) {
+            return caches.delete(name);
+          }
+        })
+      );
+    }).then(() => self.clients.claim())
+  );
 });
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
