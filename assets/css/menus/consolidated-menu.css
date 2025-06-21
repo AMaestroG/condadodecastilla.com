@@ -167,6 +167,34 @@
     color: var(--epic-gold-main);
 }
 
+/* --- Nested submenu styles --- */
+#main-menu li.has-submenu > .submenu-toggle {
+    background: none;
+    border: none;
+    color: var(--epic-purple-emperor);
+    cursor: pointer;
+    padding: 8px 12px;
+    text-align: left;
+    width: 100%;
+    font-weight: 600;
+}
+
+#main-menu li.has-submenu > .submenu {
+    list-style: none;
+    margin: 0;
+    padding-left: 1rem;
+    display: none;
+}
+
+#main-menu li.has-submenu > .submenu-toggle[aria-expanded="true"] {
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+}
+
+#main-menu li.has-submenu > .submenu-toggle[aria-expanded="true"] + .submenu {
+    display: block;
+}
+
 /* AI Chat Panel Specifics */
 #ai-chat-panel {
     display: flex; /* ensure ai-drawer inside behaves as expected */
