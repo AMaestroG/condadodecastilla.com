@@ -1,0 +1,46 @@
+@import "../../assets/css/epic_theme.css";
+
+body {
+    background: var(--epic-alabaster-bg);
+    color: var(--epic-text-color);
+    font-family: var(--font-body);
+    margin: 0;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.slider-menu {
+    position: relative;
+}
+
+.slider-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: -220px;
+    width: 200px;
+    height: 100%;
+    background: var(--epic-purple-emperor);
+    transition: left 0.3s ease;
+}
+
+.slider-menu ul.open {
+    left: 0;
+}
+
+.slider-menu a {
+    display: block;
+    padding: 1rem;
+    color: var(--epic-gold-main);
+    text-decoration: none;
+}
+
+body.menu-compressed {
+    overflow: hidden;
+}
