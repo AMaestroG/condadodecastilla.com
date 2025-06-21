@@ -30,6 +30,27 @@ services:
       DB_USER: ${DB_USER:-condado_user}
       CONDADO_DB_PASSWORD: ${CONDADO_DB_PASSWORD:-condado_password}
 
+  nuevaweb_php:
+    image: php:8.2-cli
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./nuevaweb:/var/www/html/nuevaweb
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8082 -t nuevaweb
+
+  nuevaweb_flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./:/app
+    working_dir: /app/nuevaweb
+    command: ["python", "flask_app.py"]
+
   db:
     image: postgres:16
     restart: unless-stopped
