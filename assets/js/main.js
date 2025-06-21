@@ -147,6 +147,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Toggle nested submenus
+    document.addEventListener('click', (e) => {
+        const toggle = e.target.closest('.submenu-toggle');
+        if (toggle && toggle.nextElementSibling && toggle.nextElementSibling.classList.contains('submenu')) {
+            e.preventDefault();
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            toggle.nextElementSibling.setAttribute('aria-hidden', String(expanded));
+        }
+    });
+
     document.addEventListener('click', (e) => {
         // Close panel menus if click is outside
         document.querySelectorAll('.menu-panel.active').forEach(menu => {
