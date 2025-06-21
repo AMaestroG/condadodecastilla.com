@@ -196,35 +196,178 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    // 4. Inicialización de Estados ARIA
+    // 4. Inicialización de Estados ARIA y Enlace Activo
     // ==========================================================================
-    // Asegura que los estados ARIA iniciales sean correctos al cargar la página.
 
-    // Para los toggles de submenús (móvil)
-    allSubmenuToggles.forEach(toggle => {
-        const submenu = toggle.nextElementSibling;
-        if (submenu && (submenu.classList.contains('nav-submenu') || submenu.classList.contains('nav-submenu-nested'))) {
-            const isOpen = submenu.classList.contains('is-open');
-            toggle.setAttribute('aria-expanded', isOpen.toString());
+    /**
+     * Establece los atributos ARIA iniciales para los componentes interactivos.
+     */
+    function initializeAriaStates() {
+        // Para los toggles de submenús (móvil)
+        allSubmenuToggles.forEach(toggle => {
+            const submenu = toggle.nextElementSibling;
+            if (submenu && (submenu.classList.contains('nav-submenu') || submenu.classList.contains('nav-submenu-nested'))) {
+                const isOpen = submenu.classList.contains('is-open');
+                toggle.setAttribute('aria-expanded', isOpen.toString());
+            }
+        });
+
+        // Para el menú principal móvil
+        if (navToggle && mainNavList) {
+            const isExpanded = mainNavList.classList.contains('is-active');
+            navToggle.setAttribute('aria-expanded', isExpanded.toString());
+        }
+
+        // Para el panel deslizante
+        if (slidingPanel) {
+            slidingPanel.setAttribute('aria-hidden', !slidingPanel.classList.contains('is-open').toString());
+        }
+    }
+
+    /**
+     * Identifica y marca el enlace de navegación activo basado en la URL actual.
+     * Añade la clase '.is-active-link' al <li> padre del enlace activo.
+     * Añade la clase '.has-active-child' a los <li> padres en la jerarquía si el activo es un submenú.
+     */
+    function setActiveLink() {
+        const currentLocation = window.location.pathname; // Obtiene la ruta, ej. "/productos.html" o "/"
+        const allLinks = document.querySelectorAll('.nav-menu-link, .nav-submenu-link');
+
+        allLinks.forEach(link => {
+            const linkPath = new URL(link.href).pathname;
+            const listItem = link.closest('.nav-menu-item, .nav-submenu-item');
+
+            if (listItem) {
+                listItem.classList.remove('is-active-link', 'has-active-child');
+            }
+
+            // Considerar la página de inicio (index.html o /) de forma especial
+            let isActive = false;
+            if (currentLocation === linkPath) {
+                isActive = true;
+            } else if (linkPath === '/index.html' && currentLocation === '/') { // Caso para servidor que sirve index.html en /
+                isActive = true;
+            }
+
+
+            if (isActive && listItem) {
+                listItem.classList.add('is-active-link');
+                link.setAttribute('aria-current', 'page'); // Marcar el enlace actual para accesibilidad
+
+                // Propagar 'has-active-child' a los padres
+                let parent = listItem.parentElement.closest('.has-submenu');
+                while (parent) {
+                    parent.classList.add('has-active-child');
+                    // Si estamos en móvil y el submenú padre está colapsado, podríamos abrirlo
+                    // if (window.innerWidth <= 768) {
+                    //    const parentSubmenu = parent.querySelector('.nav-submenu, .nav-submenu-nested');
+                    //    const parentToggle = parent.querySelector('.submenu-toggle');
+                    //    if (parentSubmenu && parentToggle && !parentSubmenu.classList.contains('is-open')) {
+                    //        parentSubmenu.classList.add('is-open');
+                    //        parentToggle.classList.add('is-open');
+                    //        parentToggle.setAttribute('aria-expanded', 'true');
+                    //    }
+                    // }
+                    parent = parent.parentElement.closest('.has-submenu');
+                }
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    // ==========================================================================
+    // 5. Cierre de Submenús Móviles al Hacer Clic Fuera
+    // ==========================================================================
+    document.addEventListener('click', (event) => {
+        if (window.innerWidth <= 768) { // Solo aplicar en vista móvil
+            const openMobileMenu = mainNavList && mainNavList.classList.contains('is-active');
+            if (!openMobileMenu) return; // No hacer nada si el menú principal móvil no está abierto
+
+            const openSubmenus = document.querySelectorAll('.nav-submenu.is-open, .nav-submenu-nested.is-open');
+            if (openSubmenus.length === 0) return; // No hay submenús abiertos
+
+            // Verificar si el clic fue en un toggle de submenú o dentro de un submenú abierto
+            const clickedOnToggle = event.target.closest('.submenu-toggle');
+            const clickedInsideOpenSubmenu = event.target.closest('.nav-submenu.is-open, .nav-submenu-nested.is-open');
+
+            if (!clickedOnToggle && !clickedInsideOpenSubmenu) {
+                // Si el clic fue fuera de cualquier submenú abierto y no en un toggle, cerrar todos.
+                // Esto es un comportamiento simple. Podríamos refinarlo para cerrar solo el específico si es necesario.
+                closeAllSubmenus();
+            }
         }
     });
 
-    // Para el menú principal móvil
-    if (navToggle && mainNavList) {
-        const isExpanded = mainNavList.classList.contains('is-active');
-        navToggle.setAttribute('aria-expanded', isExpanded.toString());
-    }
 
-    // Para el panel deslizante
-    if (slidingPanel) {
-        slidingPanel.setAttribute('aria-hidden', !slidingPanel.classList.contains('is-open').toString());
-    }
+    // Inicializaciones al cargar el DOM
+    initializeAriaStates();
+    setActiveLink();
 
     // Nota sobre submenús de escritorio:
     // La interactividad (hover/focus) de los submenús de escritorio se maneja principalmente con CSS.
     // Los atributos ARIA como `aria-expanded` son más cruciales para interacciones basadas en JS (clics),
     // que es el caso de los submenús en móvil. Si los submenús de escritorio también se activaran
     // por clic, se necesitaría una lógica similar a la de `allSubmenuToggles`.
-    // La clase `is-active-link` para marcar la página actual requeriría JS adicional
-    // para comparar `window.location.href` con los `href` de los enlaces del menú.
+
+    // ==========================================================================
+    // 6. Funcionalidad de Cambio de Tema (Dark/Light Mode)
+    // ==========================================================================
+    const themeToggleButton = document.getElementById('themeToggleBtn');
+    // Iconos dentro del botón de tema, si existen.
+    const sunIcon = themeToggleButton ? themeToggleButton.querySelector('.theme-icon-sun') : null;
+    const moonIcon = themeToggleButton ? themeToggleButton.querySelector('.theme-icon-moon') : null;
+    // Podríamos añadir un span para anunciar cambios de tema a lectores de pantalla.
+    // <span id="theme-status" class="sr-only" aria-live="polite"></span>
+
+    /**
+     * Aplica el tema especificado (light/dark) al documento y guarda la preferencia.
+     * Actualiza el icono del botón de tema y su etiqueta ARIA.
+     * @param {string} theme - El tema a aplicar ("light" o "dark").
+     */
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // const themeStatus = document.getElementById('theme-status'); // Para anunciar el cambio
+
+        if (theme === 'dark') {
+            if (sunIcon) sunIcon.style.display = 'none';
+            if (moonIcon) moonIcon.style.display = 'inline-block'; // Asegurar que sea visible
+            if (themeToggleButton) themeToggleButton.setAttribute('aria-label', 'Activar tema claro');
+            // if (themeStatus) themeStatus.textContent = "Tema oscuro activado.";
+        } else {
+            if (sunIcon) sunIcon.style.display = 'inline-block'; // Asegurar que sea visible
+            if (moonIcon) moonIcon.style.display = 'none';
+            if (themeToggleButton) themeToggleButton.setAttribute('aria-label', 'Activar tema oscuro');
+            // if (themeStatus) themeStatus.textContent = "Tema claro activado.";
+        }
+    }
+
+    /**
+     * Carga el tema preferido desde localStorage o detecta la preferencia del sistema.
+     */
+    function loadTheme() {
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (storedTheme) {
+            applyTheme(storedTheme);
+        } else if (systemPrefersDark) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light'); // Default theme
+        }
+    }
+
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+    }
+
+    // Cargar tema al inicio
+    loadTheme();
 });

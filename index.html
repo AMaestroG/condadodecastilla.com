@@ -30,22 +30,62 @@
                 <li class="nav-menu-item"><a href="index.html" class="nav-menu-link">Inicio</a></li>
 
                 <!-- Ítem de menú con submenú -->
-                <li class="nav-menu-item has-submenu">
+                <li class="nav-menu-item has-submenu has-megamenu"> <!-- Nueva clase .has-megamenu -->
                     <a href="productos.html" class="nav-menu-link" aria-haspopup="true" aria-expanded="false">Productos</a>
                     <!-- Botón para desplegar submenú en móvil (controlado por JS) -->
                     <button class="submenu-toggle" aria-label="Mostrar submenú de Productos" aria-expanded="false"></button>
-                    <!-- Submenú de primer nivel -->
+
+                    <!-- Mega Menú (para escritorio) -->
+                    <div class="mega-menu-container">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4 class="mega-menu-heading">Categoría Alpha</h4>
+                                <ul class="mega-menu-list">
+                                    <li><a href="producto-a1.html">Producto A.1</a></li>
+                                    <li><a href="producto-a2.html">Producto A.2</a></li>
+                                    <li><a href="producto-a3.html">Producto A.3 Especial</a></li>
+                                </ul>
+                                <h4 class="mega-menu-heading">Categoría Beta</h4>
+                                <ul class="mega-menu-list">
+                                    <li><a href="producto-b1.html">Producto B.1</a></li>
+                                    <li><a href="producto-b2.html">Producto B.2</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4 class="mega-menu-heading">Producto C (Más Opciones)</h4>
+                                <ul class="mega-menu-list">
+                                    <li><a href="opcion-c1.html">Opción C.1 Detallada</a></li>
+                                    <li><a href="opcion-c2.html">Opción C.2 Avanzada</a></li>
+                                    <li><a href="opcion-c3.html">Opción C.3 Nueva</a></li>
+                                    <li><a href="opcion-c4.html">Opción C.4 Otra</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column mega-menu-column-promo">
+                                <h4 class="mega-menu-heading">Oferta Destacada</h4>
+                                <!-- Aquí podría ir una imagen o un bloque promocional -->
+                                <a href="oferta-especial.html" class="promo-block">
+                                    <img src="https://via.placeholder.com/200x100.png?text=Promo+Aqui" alt="Promoción especial" class="promo-image">
+                                    <p class="promo-text">Descubre nuestra nueva línea de productos con descuento.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submenú estándar para móvil (duplica la estructura de forma simplificada) -->
                     <ul class="nav-submenu">
-                        <li class="nav-submenu-item"><a href="producto-a.html" class="nav-submenu-link">Producto A</a></li>
-                        <li class="nav-submenu-item"><a href="producto-b.html" class="nav-submenu-link">Producto B</a></li>
-                        <!-- Ítem de submenú con otro submenú anidado -->
-                        <li class="nav-submenu-item has-submenu">
+                        <li class="nav-submenu-item"><a href="producto-a1.html" class="nav-submenu-link">Producto A.1</a></li>
+                        <li class="nav-submenu-item"><a href="producto-a2.html" class="nav-submenu-link">Producto A.2</a></li>
+                        <li class="nav-submenu-item"><a href="producto-a3.html" class="nav-submenu-link">Producto A.3 Especial</a></li>
+                        <li class="nav-submenu-item"><a href="producto-b1.html" class="nav-submenu-link">Producto B.1</a></li>
+                        <li class="nav-submenu-item"><a href="producto-b2.html" class="nav-submenu-link">Producto B.2</a></li>
+                        <li class="nav-submenu-item has-submenu"> <!-- Submenú anidado para "Producto C" en móvil -->
                             <a href="producto-c.html" class="nav-submenu-link" aria-haspopup="true" aria-expanded="false">Producto C (Más opciones)</a>
                             <button class="submenu-toggle" aria-label="Mostrar submenú de Producto C" aria-expanded="false"></button>
-                            <!-- Submenú anidado (segundo nivel) -->
                             <ul class="nav-submenu-nested">
-                                <li class="nav-submenu-item"><a href="opcion-c1.html" class="nav-submenu-link">Opción C.1</a></li>
-                                <li class="nav-submenu-item"><a href="opcion-c2.html" class="nav-submenu-link">Opción C.2</a></li>
+                                <li class="nav-submenu-item"><a href="opcion-c1.html" class="nav-submenu-link">Opción C.1 Detallada</a></li>
+                                <li class="nav-submenu-item"><a href="opcion-c2.html" class="nav-submenu-link">Opción C.2 Avanzada</a></li>
+                                <li class="nav-submenu-item"><a href="opcion-c3.html" class="nav-submenu-link">Opción C.3 Nueva</a></li>
+                                <li class="nav-submenu-item"><a href="opcion-c4.html" class="nav-submenu-link">Opción C.4 Otra</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -68,6 +108,13 @@
                 <!-- Ítem de menú que activa el panel deslizante -->
                 <li class="nav-menu-item nav-menu-item-sliding-panel-trigger">
                     <a href="#" class="nav-menu-link" id="openSlidingPanel" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="slidingPanel">Perfil</a>
+                </li>
+                <!-- Botón para cambiar el tema -->
+                <li class="nav-menu-item theme-toggle-item">
+                    <button id="themeToggleBtn" class="theme-toggle-button" aria-label="Activar tema oscuro/claro" title="Cambiar tema">
+                        <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3zM12 2c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1V3c0-.55.45-1 1-1zM12 18c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1v-2c0-.55.45-1 1-1zM4.22 5.64c.39-.39 1.02-.39 1.41 0l1.41 1.41c.39.39.39 1.02 0 1.41-.39.39-1.02.39-1.41 0L4.22 7.05c-.39-.39-.39-1.02 0-1.41zM16.97 18.39c.39-.39 1.02-.39 1.41 0l1.41 1.41c.39.39.39 1.02 0 1.41-.39.39-1.02.39-1.41 0l-1.41-1.41c-.39-.39-.39-1.02 0-1.41zM2 12c0-.55.45-1 1-1h2c.55 0 1 .45 1 1s-.45 1-1 1H3c-.55 0-1-.45-1-1zM18 12c0-.55.45-1 1-1h2c.55 0 1 .45 1 1s-.45 1-1 1h-2c-.55 0-1-.45-1-1zM5.64 16.97c-.39.39-.39 1.02 0 1.41l1.41 1.41c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.05 16.97c-.39-.39-1.02-.39-1.41 0zM18.39 4.22c-.39.39-.39 1.02 0 1.41l1.41 1.41c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L19.8 4.22c-.39-.39-1.02-.39-1.41 0z"/></svg>
+                        <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="display:none;"><path d="M11.5 2C6.81 2 3 6.81 3 11.5S6.81 21 11.5 21c.83 0 1.63-.12 2.38-.34-.3-.64-.48-1.37-.48-2.16 0-2.48 2.02-4.5 4.5-4.5.79 0 1.52.18 2.16.48C19.12 9.13 19.00 8.33 19.00 7.5C19.00 4.46 16.54 2 13.5 2c-.83 0-1.63.12-2.38.34C10.82 2.12 10.00 2 10.00 2C10.5 2 11 2 11.5 2z"/></svg>
+                    </button>
                 </li>
             </ul>
         </nav>
