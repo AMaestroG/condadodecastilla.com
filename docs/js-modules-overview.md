@@ -4,10 +4,10 @@ This document summarizes the purpose of the main JavaScript files present in the
 
 | File                             | Description                                                                                                                                                                                                     |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assets/js/main.js`              | Handles sliding menu interactions, closing behavior, and the light/dark theme toggle used across all pages.                                                                                                     |
+| `assets/js/app.js`              | Handles sliding menu interactions, closing behavior, and the light/dark theme toggle used across all pages.                                                                                                     |
 | `assets/js/homonexus-toggle.js`  | Toggles Homonexus mode, storing the preference in a cookie.                                                                                                                                                     |
 | `assets/js/foro.js`              | Simple toggling for the forum agents menu.                                                                                                                                                                      |
-| `/assets/js/audio-controller.js` | Lowers audio/video volume when sliding menus open. Other scripts, such as `assets/js/main.js`, invoke its `handleMenuToggle` function directly.                                                                 |
+| `/assets/js/audio-controller.js` | Lowers audio/video volume when sliding menus open. Other scripts, such as `assets/js/app.js`, invoke its `handleMenuToggle` function directly.                                                                 |
 | `js/config.js`                   | Defines `API_BASE_URL` and `DEBUG_MODE` globals for other scripts.                                                                                                                                              |
 | `js/layout.js`                   | Loads external CSS/JS libraries on demand, initializes the flashlight effect and other page-level utilities. If CDN requests fail, it falls back to bundled copies of GSAP and AOS located in `assets/vendor/`. |
 | ~~Header loader script~~         | **Deprecated.** The header is now loaded directly without this helper. See the README note on its removal.                                                                                                      |
@@ -20,7 +20,7 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `js/museum-3d/`                  | Additional modules used by the 3D viewer.                                                                                                                                                                       |
 | `assets/js/toc-generator.js`     | Builds a table of contents from headings inside `<main>` and injects a list of links styled with Tailwind.                                                                                                      |
 
-Deprecated or merged scripts such as `js/menu-controller.js` and `js/sliding-menu.js` have been removed in favour of `assets/js/main.js`. The old header loading helper was also dropped as noted in the project README.
+Deprecated or merged scripts such as `js/menu-controller.js` and `js/sliding-menu.js` have been removed in favour of `assets/js/app.js`. The old header loading helper was also dropped as noted in the project README.
 
 ## Simplified Translation
 

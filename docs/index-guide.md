@@ -37,13 +37,13 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 ## Personalización del menú deslizante y nuevas páginas
 
 - **Estilos**: modifica `assets/css/menus/consolidated-menu.css` para cambiar colores morado y oro viejo, anchura u otros efectos del panel `.menu-panel`.
-- **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
+- **Comportamiento**: `assets/js/app.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
 - **Añadir páginas**: edita `fragments/menus/main-menu.php` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
 
 ### Clase `menu-compressed` y transformación de la página
 
 Al pulsar un botón con el atributo `data-menu-target="id-del-panel"`,
-`assets/js/main.js` abre el panel de menú indicado y añade la clase
+`assets/js/app.js` abre el panel de menú indicado y añade la clase
 `menu-compressed` al elemento `<body>` para escalar la página. También se aplica
 `menu-open-left` o `menu-open-right` según el lado del que se despliegue
 el panel. Estas clases están definidas en
@@ -62,7 +62,7 @@ body.menu-open-right {
 }
 ```
 
-`assets/js/main.js` actualiza los atributos `aria-expanded` y `aria-hidden`
+`assets/js/app.js` actualiza los atributos `aria-expanded` y `aria-hidden`
 de los botones y paneles cada vez que se abre o cierra un menú, y
 añade o quita la clase `menu-compressed` para aplicar la animación de
 escala.
@@ -172,7 +172,7 @@ Su estructura principal es la siguiente:
 - `<dialog id="ai-dialog">` y el área `#ai-response-box` sirven para
   mostrar la respuesta completa.
 
-`assets/js/main.js` controla la apertura y cierre de este panel utilizando
+`assets/js/app.js` controla la apertura y cierre de este panel utilizando
 el atributo `data-menu-target="ai-chat-panel"`. Cuando el panel se abre,
 el script enfoca `#gemini-chat-area` y permite cerrarlo al pulsar
 `#close-ai-drawer`. Las funciones concretas de cada botón se encuentran en
