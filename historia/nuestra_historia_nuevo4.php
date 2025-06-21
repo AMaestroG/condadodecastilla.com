@@ -11,7 +11,7 @@
     <header class="page-header hero hero-nuestra-historia-specific">
         <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.5); padding: clamp(30px, 5vw, 50px);">
             <h1 style="font-size: clamp(2.5em, 6vw, 4em);">Auca Patricia, Cerasio y el Origen de Castilla</h1>
-            <img src="/assets/img/AlfozCerasioLantaron.jpg" alt="Logo Alfoz de Cerasio y Lantarón" class="logo-image">
+            <img loading="lazy" src="/assets/img/AlfozCerasioLantaron.jpg" alt="Logo Alfoz de Cerasio y Lantarón" class="logo-image">
             <p style="font-size: clamp(1em, 2.2vw, 1.4em); max-width: 70ch;">Exploraciones y reflexiones sobre los fundamentos históricos de nuestra tierra, basados en el análisis de Iván García Blanco.</p>
         </div>
     </header>

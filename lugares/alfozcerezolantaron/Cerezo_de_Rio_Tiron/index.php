@@ -13,7 +13,7 @@
 
     <header class="page-header hero bg-[url('/assets/img/Muralla.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content">
-            <img src="/assets/img/estrellaGordita.png" alt="Estrella Decorativa de Cerezo" class="decorative-star-header decorative-star-header-highlighted">
+            <img loading="lazy" src="/assets/img/estrellaGordita.png" alt="Estrella Decorativa de Cerezo" class="decorative-star-header decorative-star-header-highlighted">
             <h1 class="gradient-text">Cerezo de Río Tirón</h1>
             <p>Descubre el alma de la primitiva Castilla, un enclave de historia milenaria, ruinas imponentes y un legado que pervive.</p>
         </div>
@@ -35,11 +35,11 @@
                     <p>Con la llegada de Roma, la cercana <strong>Auca Patricia</strong> (identificada en sus inmediaciones) floreció como una importante <em>civitas</em> y sede episcopal, testimonio de la romanización de la región. Sin embargo, es en la Alta Edad Media cuando Cerezo adquiere una relevancia crucial. Convertida en fortaleza y cabeza del <strong>Alfoz de Cerezo</strong>, fue uno de los pilares en la formación del Condado de Castilla. Figuras legendarias como el <a href="/personajes/Militares_y_Gobernantes/conde_casio_cerasio.php">Conde Casio</a>, quien según la tradición fortificó el primer castillo en el siglo VIII, y condes castellanos como <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.php">Gonzalo Téllez</a> y <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernan_gonzalez.php">Fernán González</a> están intrínsecamente ligados a su historia, defendiendo y expandiendo la frontera cristiana.</p>
                     <div class="image-gallery-intro" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
                         <figure>
-                            <img src="/assets/img/Iglesia de la llana (2).jpg" alt="Exterior de la Iglesia de Santa María de la Llana en Cerezo de Río Tirón">
+                            <img loading="lazy" src="/assets/img/Iglesia de la llana (2).jpg" alt="Exterior de la Iglesia de Santa María de la Llana en Cerezo de Río Tirón">
                             <figcaption>Iglesia de Santa María de la Llana, testigo de siglos de fe.</figcaption>
                         </figure>
                         <figure>
-                            <img src="/assets/img/Muralla.jpg" alt="Restos de la muralla de Cerezo de Río Tirón">
+                            <img loading="lazy" src="/assets/img/Muralla.jpg" alt="Restos de la muralla de Cerezo de Río Tirón">
                             <figcaption>Fragmentos de la antigua muralla que defendió la villa.</figcaption>
                         </figure>
                     </div>
@@ -50,26 +50,26 @@
                     <p>El legado monumental de Cerezo de Río Tirón es imponente. Su <strong>Alcázar</strong>, aunque en ruinas, se alza majestuoso sobre un cerro testigo, dominando el paisaje. Sus muros desgastados y torres desmochadas evocan imágenes de asedios, batallas y la vida cotidiana de una fortaleza fronteriza. Se pueden apreciar diferentes fases constructivas, desde posibles orígenes tardorromanos o visigodos, hasta la fortaleza condal y señorial de la Edad Media.</p>
                     <div class="image-gallery-intro" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom:1.5em;">
                         <figure>
-                            <img src="/assets/img/Foto de la Alcazaba desde el 3 foso del Alcazar.jpg" alt="Vista del Alcázar de Cerezo de Río Tirón desde uno de sus fosos">
+                            <img loading="lazy" src="/assets/img/Foto de la Alcazaba desde el 3 foso del Alcazar.jpg" alt="Vista del Alcázar de Cerezo de Río Tirón desde uno de sus fosos">
                             <figcaption>El imponente Alcázar de Cerezo, guardián de la historia.</figcaption>
                         </figure>
                         <figure>
-                            <img src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Otra perspectiva del Castillo de Cerezo">
+                            <img loading="lazy" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Otra perspectiva del Castillo de Cerezo">
                             <figcaption>El Castillo de Cerezo, atribuido a Rodrigo Tabliega en algunas fuentes.</figcaption>
                         </figure>
                         <figure>
-                            <img src="/assets/img/Saetera de la torre del homenaje.jpg" alt="Detalle de una saetera en la torre del homenaje del castillo de Cerezo">
+                            <img loading="lazy" src="/assets/img/Saetera de la torre del homenaje.jpg" alt="Detalle de una saetera en la torre del homenaje del castillo de Cerezo">
                             <figcaption>Saetera en la Torre del Homenaje, vestigio defensivo.</figcaption>
                         </figure>
                     </div>
                     <p>En las cercanías de Cerezo, los arqueólogos han situado la <em>civitas</em> de <strong>Auca Patricia</strong>. Aunque el debate sobre su ubicación exacta continúa, los hallazgos en la zona, como los de `imagenes/x.jpg` (descrita como "Vista panorámica del yacimiento arqueológico de Auca Patricia") y `imagenes/xx.jpg`, apuntan a un importante núcleo urbano de época romana y visigoda. Esta ciudad fue sede episcopal y un centro administrativo clave antes de su declive.</p>
                     <div class="image-gallery-intro" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
                         <figure>
-                            <img src="/assets/img/x.jpg" alt="Yacimiento arqueológico de Auca Patricia">
+                            <img loading="lazy" src="/assets/img/x.jpg" alt="Yacimiento arqueológico de Auca Patricia">
                             <figcaption>Extensión del yacimiento de Auca Patricia.</figcaption>
                         </figure>
                         <figure>
-                            <img src="/assets/img/xx.jpg" alt="Detalles constructivos en Auca Patricia">
+                            <img loading="lazy" src="/assets/img/xx.jpg" alt="Detalles constructivos en Auca Patricia">
                             <figcaption>Vestigios constructivos en Auca Patricia.</figcaption>
                         </figure>
                     </div>
@@ -80,7 +80,7 @@
                     <p>Cerezo de Río Tirón no es solo un conjunto de monumentos; es un crisol de culturas y un punto neurálgico en la historia del idioma castellano. La confluencia de pueblos prerromanos, la profunda huella de Roma, la presencia visigoda y la posterior influencia de la cultura islámica en las zonas de frontera, crearon un caldo de cultivo único.</p>
                     <div class="image-gallery-intro" style="grid-template-columns: 1fr; gap: 15px; max-width: 400px; margin: 1.5em auto;">
                         <figure>
-                            <img src="/assets/img/PrimerEscritoCastellano.jpg" alt="Representación simbólica del origen del castellano">
+                            <img loading="lazy" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Representación simbólica del origen del castellano">
                             <figcaption>Cerezo, en la encrucijada de caminos que vieron nacer el castellano.</figcaption>
                         </figure>
                     </div>
@@ -170,11 +170,11 @@
                     <p>Descubre más sobre la historia y el patrimonio de nuestra tierra a través de las aportaciones de la comunidad en nuestro Museo y Galería Colaborativa. Podrías encontrar piezas y fotografías directamente relacionadas con Cerezo.</p>
                     <div class="image-gallery-intro" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; align-items: center;">
                         <figure>
-                            <img src="/assets/img/museo_ceramica_ejemplo.jpg" alt="Ejemplo de pieza del museo colaborativo">
+                            <img loading="lazy" src="/assets/img/museo_ceramica_ejemplo.jpg" alt="Ejemplo de pieza del museo colaborativo">
                             <figcaption>Piezas del Museo</figcaption>
                         </figure>
                         <figure>
-                            <img src="/assets/img/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg" alt="Ejemplo de foto de la galería colaborativa">
+                            <img loading="lazy" src="/assets/img/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg" alt="Ejemplo de foto de la galería colaborativa">
                             <figcaption>Fotos de la Galería</figcaption>
                         </figure>
                     </div>
@@ -189,7 +189,7 @@
 
     <div id="imageModal" class="modal">
         <span class="modal-close-button">&times;</span>
-        <img class="modal-content" id="modalImage" alt="Imagen ampliada">
+        <img loading="lazy" class="modal-content" id="modalImage" alt="Imagen ampliada">
         <div id="modalCaption"></div>
     </div>
 

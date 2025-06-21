@@ -87,7 +87,7 @@ require_once __DIR__ . '/fragments/header.php';
                 <h2 class="section-title text-2xl font-headings">Explora Nuestro Legado</h2>
                 <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card">
-                        <img class="w-full h-auto" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
+                        <img loading="lazy" class="w-full h-auto" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
                         <div class="card-content">
                             <h3 class="font-headings">Nuestra Historia</h3>
                             <p class="text-lg font-body">Desde los Concanos y la Civitate Auca Patricia hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
@@ -95,7 +95,7 @@ require_once __DIR__ . '/fragments/header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img class="w-full h-auto" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
+                        <img loading="lazy" class="w-full h-auto" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
                         <div class="card-content">
                             <h3 class="font-headings">Lugares Emblemáticos</h3>
                             <p class="text-lg font-body">Descubre el imponente Alcázar de Casio, los secretos de la Civitate Auca y otros tesoros arqueológicos que esperan ser explorados.</p>
@@ -103,7 +103,7 @@ require_once __DIR__ . '/fragments/header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img class="w-full h-auto" src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
+                        <img loading="lazy" class="w-full h-auto" src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
                         <div class="card-content">
                             <h3 class="font-headings">Planifica Tu Visita</h3>
                             <p class="text-lg font-body">Encuentra toda la información que necesitas para tu aventura en Cerezo de Río Tirón: cómo llegar, dónde alojarte y qué no te puedes perder.</p>
@@ -119,7 +119,7 @@ require_once __DIR__ . '/fragments/header.php';
                 <h2 class="section-title text-2xl font-headings">Personajes de la Historia</h2>
                 <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card">
-                        <img class="w-full h-auto" src="/assets/img/Casio.png" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII">
+                        <img loading="lazy" class="w-full h-auto" src="/assets/img/Casio.png" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII">
                         <div class="card-content">
                             <h3 class="font-headings">Conde Casio</h3>
                             <p class="text-lg font-body">Figura fundamental del siglo VIII, se le atribuye la construcción o refuerzo del Alcázar de Cerezo.</p>
@@ -127,7 +127,7 @@ require_once __DIR__ . '/fragments/header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img class="w-full h-auto" src="/assets/img/GonzaloTellez.png" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo">
+                        <img loading="lazy" class="w-full h-auto" src="/assets/img/GonzaloTellez.png" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo">
                         <div class="card-content">
                             <h3 class="font-headings">Gonzalo Téllez</h3>
                             <p class="text-lg font-body">Conde de Lantarón y Cerezo (c. 897 - c. 913), personaje clave en la consolidación de los territorios.</p>
@@ -135,7 +135,7 @@ require_once __DIR__ . '/fragments/header.php';
                         </div>
                     </div>
                     <div class="card">
-                        <img class="w-full h-auto" src="/assets/img/FernandoDiaz.png" alt="Representación artística de Fernando Díaz, conde castellano">
+                        <img loading="lazy" class="w-full h-auto" src="/assets/img/FernandoDiaz.png" alt="Representación artística de Fernando Díaz, conde castellano">
                         <div class="card-content">
                             <h3 class="font-headings">Fernando Díaz</h3>
                             <p class="text-lg font-body">Sucesor de Gonzalo Téllez, continuó la labor de defensa y organización en la primitiva Castilla.</p>

@@ -60,7 +60,7 @@ if (is_dir($gallery_dir)) {
     <header class="page-header hero hero-galeria">
         <!-- IMPORTANTE: Asegúrate de tener /imagenes/hero_galeria_background.jpg -->
         <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img loading="lazy" src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <span class="blend-screen" style="display:none"></span>
             <?php editableText('galeria_colab_header_titulo', $pdo, 'Galería Colaborativa del Condado', 'h1', 'blend-overlay'); ?>
             <?php editableText('galeria_colab_header_parrafo', $pdo, 'Un mosaico de miradas sobre la belleza, historia y rincones de nuestra tierra, creado por todos.', 'p', ''); ?>
@@ -96,7 +96,7 @@ if (is_dir($gallery_dir)) {
                         <small>Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 2MB.</small>
                     </div>
                     <div class="form-group preview-container preview-hidden" id="photoPreviewContainer">
-                        <img id="photoPreview" src="#" alt="Vista previa de la fotografía" class="photo-preview"/>
+                        <img loading="lazy" id="photoPreview" src="#" alt="Vista previa de la fotografía" class="photo-preview"/>
                     </div>
                     <button type="submit" class="cta-button submit-button"><i class="fas fa-share-square"></i> Compartir Fotografía</button>
                 </form>
@@ -115,7 +115,7 @@ if (is_dir($gallery_dir)) {
 
     <div id="imageModal" class="modal">
         <span class="modal-close-button">&times;</span>
-        <img class="modal-content" id="modalImage" alt="Imagen ampliada de la galería">
+        <img loading="lazy" class="modal-content" id="modalImage" alt="Imagen ampliada de la galería">
         <div id="modalCaption"></div>
     </div>
 

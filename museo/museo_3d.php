@@ -22,7 +22,7 @@
 
     <header class="page-header hero hero-museo">
         <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img loading="lazy" src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1 class="text-4xl font-headings">Explora el Museo en 3D</h1>
             <p class="text-lg font-body">Recorre un entorno tridimensional con nuestras piezas destacadas.</p>
         </div>

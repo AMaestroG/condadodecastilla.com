@@ -18,7 +18,7 @@
 
     <header class="page-header hero hero-museo">
         <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img loading="lazy" src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1 class="text-4xl font-headings">Sube una Pieza al Museo</h1>
             <p class="text-lg font-body">Comparte objetos o documentos históricos relacionados con el Alfoz y el Condado de Castilla.</p>
         </div>
@@ -53,7 +53,7 @@
                         <small>Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 2MB.</small>
                     </div>
                     <div class="form-group preview-container preview-hidden" id="imagePreviewContainer">
-                        <img id="imagePreview" src="#" alt="Vista previa de la imagen" class="photo-preview"/>
+                        <img loading="lazy" id="imagePreview" src="#" alt="Vista previa de la imagen" class="photo-preview"/>
                     </div>
 
                     <fieldset class="form-fieldset">

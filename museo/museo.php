@@ -34,7 +34,7 @@
 
     <header class="page-header hero hero-museo">
         <div class="hero-content">
-            <img src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img loading="lazy" src="/imagenes/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1 class="text-4xl font-headings">Museo Colaborativo del Alfoz</h1>
             <p class="text-lg font-body">Un espacio para compartir y descubrir los tesoros históricos y arqueológicos de nuestra tierra, aportados por la comunidad.</p>
         </div>
@@ -69,7 +69,7 @@
                         <small>Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 2MB.</small>
                     </div>
                     <div class="form-group preview-container preview-hidden" id="imagePreviewContainer">
-                        <img id="imagePreview" src="#" alt="Vista previa de la imagen subida" class="photo-preview"/>
+                        <img loading="lazy" id="imagePreview" src="#" alt="Vista previa de la imagen subida" class="photo-preview"/>
                     </div>
 
                     <fieldset class="form-fieldset">
@@ -136,7 +136,7 @@
 
     <div id="imageModal" class="modal">
         <span class="modal-close-button">&times;</span>
-        <img class="modal-content" id="modalImage" alt="Imagen ampliada de la pieza del museo">
+        <img loading="lazy" class="modal-content" id="modalImage" alt="Imagen ampliada de la pieza del museo">
         <div id="modalCaption"></div>
     </div>
 
