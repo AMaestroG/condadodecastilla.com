@@ -525,9 +525,9 @@ if (file_exists($ruta_linea_tiempo_html)) {
     echo "Error: No se encontró el archivo " . $ruta_linea_tiempo_html . "\n";
 }
 
-// Procesar historia/nuestra_historia_nuevo4.html
+// Procesar historia/historia_ampliada_nuevo4.md
 // Este se procesará como una subpágina detallada, pero con un id_tema y ruta_json_salida específicos
-$ruta_nuestra_historia_html = DIR_BASE_HTML . 'nuestra_historia_nuevo4.html';
+$ruta_nuestra_historia_html = DIR_BASE_HTML . 'historia_ampliada_nuevo4.md';
 $id_tema_nuestra_historia = 'origenes_castilla'; // Según el punto 7 del requerimiento
 // $ruta_json_nuestra_historia debe usar la nueva DIR_OUTPUT para la escritura temporal
 $ruta_json_escritura_nuestra_historia = DIR_OUTPUT . $id_tema_nuestra_historia . '.json';
@@ -539,7 +539,7 @@ if (file_exists($ruta_nuestra_historia_html)) {
         // Llamamos a procesar_subpagina_detallada directamente
             echo "Preparando para procesar y guardar origenes_castilla.json (nuestra_historia_nuevo4) en: " . $ruta_json_escritura_nuestra_historia . "\n"; // DEBUG
         procesar_subpagina_detallada(
-            'historia/nuestra_historia_nuevo4.html',
+            'historia/historia_ampliada_nuevo4.md',
             $id_tema_nuestra_historia,
                 $ruta_json_escritura_nuestra_historia,
             $xpath_nh,

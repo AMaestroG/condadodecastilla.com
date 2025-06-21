@@ -91,7 +91,7 @@
                         <div class="timeline-content">
                             <h3 class="gradient-text">Explorando Auca Patricia, Cerasio y los Orígenes de Castilla</h3>
                             <p>Un análisis detallado sobre la importancia de Auca Patricia, el Alcázar de Cerasio y su papel fundamental en la historia y origen de Castilla, basado en investigaciones y textos históricos.</p>
-                            <a href="/historia/nuestra_historia_nuevo4.php" class="read-more timeline-read-more">Leer Más Sobre los Orígenes de Castilla</a>
+                            <a href="/docs/historia_ampliada_nuevo4.md" class="read-more timeline-read-more">Resumen de Auca Patricia y Cerasio</a>
                         </div>
                     </li>
                     <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
