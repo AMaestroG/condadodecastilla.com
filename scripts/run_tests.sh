@@ -5,4 +5,5 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 
 pip install -r requirements.txt
+python -m unittest tests/test_i18n_keys.py
 python -m unittest discover -s tests

@@ -42,6 +42,13 @@ python -m unittest tests/test_graph_db_interface.py
 python -m unittest tests/test_translation_keys.py
 ```
 
+   - Verificar que `i18n/es.json` usa el mismo conjunto de claves que los
+     archivos en `translations/`:
+
+```bash
+python -m unittest tests/test_i18n_keys.py
+```
+
 - Toda la batería de pruebas de Python:
 
 ```bash
