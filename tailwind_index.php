@@ -77,5 +77,17 @@
         <p class="font-body">Difundiendo el legado de Castilla y Cerezo de Río Tirón.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            if (!toggle || !menu) return;
+            toggle.addEventListener('click', function () {
+                const open = menu.classList.toggle('open');
+                document.body.classList.toggle('menu-open-left', open);
+            });
+        });
+    </script>
+
 </body>
 </html>
