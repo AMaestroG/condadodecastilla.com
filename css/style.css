@@ -1,14 +1,48 @@
 /* Reset básico y configuración general */
 :root {
-    --primary-bg: #2c3e50; /* Azul oscuro/grisáceo */
-    --primary-text: #ecf0f1; /* Blanco grisáceo */
-    --secondary-bg: #34495e; /* Azul más oscuro para hover/submenús */
-    --accent-color: #e74c3c; /* Rojo/Naranja para acentos */
-    --light-bg: #f8f9fa; /* Fondo claro para la página */
-    --dark-text: #343a40; /* Texto oscuro para contenido */
+    /* Tema Claro (Default) */
+    --primary-bg-light: #2c3e50;    /* Header, Panel BG */
+    --primary-text-light: #ecf0f1;  /* Texto en Header/Panel */
+    --secondary-bg-light: #34495e;  /* Submenús, Hover BG */
+    --accent-color-light: #e74c3c;  /* Acentos, Links Activos */
+    --page-bg-light: #f8f9fa;       /* Fondo de la página */
+    --page-text-light: #343a40;     /* Texto principal en página */
+    --border-color-light: #4a617a;  /* Bordes sutiles en tema claro */
+
+    /* Tema Oscuro */
+    --primary-bg-dark: #1a202c;     /* Header, Panel BG */
+    --primary-text-dark: #e2e8f0;   /* Texto en Header/Panel */
+    --secondary-bg-dark: #2d3748;   /* Submenús, Hover BG */
+    --accent-color-dark: #f56565;   /* Acentos (puede ser más brillante) */
+    --page-bg-dark: #171923;        /* Fondo de la página */
+    --page-text-dark: #f7fafc;      /* Texto principal en página */
+    --border-color-dark: #4a5568;   /* Bordes sutiles en tema oscuro */
+
+    /* Variables Comunes */
     --border-radius: 4px;
     --transition-speed: 0.3s;
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Asignación inicial (Tema Claro por defecto) */
+    --primary-bg: var(--primary-bg-light);
+    --primary-text: var(--primary-text-light);
+    --secondary-bg: var(--secondary-bg-light);
+    --accent-color: var(--accent-color-light);
+    --page-bg: var(--page-bg-light);
+    --page-text: var(--page-text-light);
+    --border-color: var(--border-color-light);
+    /* Añadir transition a html para suavizar cambio de tema en propiedades no heredadas directamente */
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+html[data-theme="dark"] {
+    --primary-bg: var(--primary-bg-dark);
+    --primary-text: var(--primary-text-dark);
+    --secondary-bg: var(--secondary-bg-dark);
+    --accent-color: var(--accent-color-dark);
+    --page-bg: var(--page-bg-dark);
+    --page-text: var(--page-text-dark);
+    --border-color: var(--border-color-dark);
 }
 
 *,
@@ -17,31 +51,79 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* Transición para propiedades que no se heredan directamente o para elementos específicos */
+    /* transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease; */
 }
 
 body {
     font-family: var(--font-family);
     line-height: 1.6;
-    background-color: var(--light-bg);
-    color: var(--dark-text);
+    background-color: var(--page-bg);
+    color: var(--page-text);
     font-size: 16px;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
+
+/* Estilos para el botón de cambio de tema */
+.theme-toggle-button {
+    background: none;
+    border: none;
+    color: var(--primary-text); /* Hereda el color del texto del header */
+    cursor: pointer;
+    padding: 0; /* Ajustar según el tamaño del icono/contenedor */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; /* Mismo tamaño que el nav-toggle para consistencia */
+    height: 100%; /* Ocupar altura del nav-menu-item */
+    border-radius: var(--border-radius);
+}
+.theme-toggle-button:hover,
+.theme-toggle-button:focus {
+    background-color: var(--secondary-bg); /* Mismo hover que otros links */
+}
+.theme-toggle-button svg {
+    width: 22px; /* Tamaño del icono */
+    height: 22px;
+    fill: currentColor; /* El color del icono será el color del texto del botón */
+    transition: fill var(--transition-speed) ease;
+}
+
+/* Ocultar/mostrar icono correcto según el tema (controlado por JS añadiendo/quitando una clase o data-attribute al botón o a html) */
+html[data-theme="dark"] .theme-icon-sun {
+    display: none;
+}
+html[data-theme="dark"] .theme-icon-moon {
+    display: inline-block; /* o block */
+}
+html[data-theme="light"] .theme-icon-sun {
+    display: inline-block; /* o block */
+}
+html[data-theme="light"] .theme-icon-moon {
+    display: none;
+}
+/* Por defecto (si no hay data-theme o es light), mostrar sol y ocultar luna */
+.theme-icon-moon { display: none; }
+.theme-icon-sun { display: inline-block; }
+
 
 .content {
     padding: 30px 20px;
     text-align: center;
     min-height: calc(100vh - 80px); /* Asumiendo altura del header */
+    /* No necesita transición aquí si body ya la tiene */
 }
 
 /* Estilos del Header y Navegación Principal */
 .main-header {
     background-color: var(--primary-bg);
     color: var(--primary-text);
-    padding: 0 20px; /* Padding vertical controlado por altura de elementos internos */
+    padding: 0 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 .main-nav {
@@ -106,9 +188,130 @@ body {
     color: #fff; /* Un blanco más brillante para contraste */
 }
 .nav-menu-link:hover::after,
-.nav-menu-link:focus::after,
-.nav-menu-item.is-active-link > .nav-menu-link::after {
+.nav-menu-link:focus::after {
     width: 100%;
+}
+/* Estilo específico para el enlace activo y cuando un submenú tiene un hijo activo */
+.nav-menu-item.is-active-link > .nav-menu-link,
+.nav-menu-item.has-active-child > .nav-menu-link {
+    background-color: var(--secondary-bg);
+    color: #fff; /* Un blanco más brillante para contraste */
+}
+.nav-menu-item.is-active-link > .nav-menu-link::after,
+.nav-menu-item.has-active-child > .nav-menu-link::after {
+    width: 100%; /* Mantiene el subrayado para el activo o padre de activo */
+}
+.nav-submenu-item.is-active-link > .nav-submenu-link {
+    background-color: var(--primary-bg); /* Un poco más oscuro para destacar en submenú */
+    color: var(--accent-color); /* Usar color de acento para el texto */
+    font-weight: bold;
+    padding-left: 25px;
+}
+.nav-submenu-item.has-active-child > .nav-submenu-link {
+    font-weight: bold; /* Solo negrita si es padre de activo pero no el activo mismo */
+}
+
+/* Mega Menú Específico */
+.nav-menu-item.has-megamenu .nav-submenu {
+    display: none; /* Ocultar el submenú estándar en escritorio si es un megamenú */
+}
+
+.mega-menu-container {
+    position: absolute;
+    top: 100%; /* Debajo del item de menú padre */
+    left: 0;
+    width: 100%; /* Ocupa el ancho del .main-nav o un ancho fijo grande */
+    max-width: 800px; /* O ajustar según diseño */
+    background-color: var(--secondary-bg);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity var(--transition-speed) ease,
+                visibility var(--transition-speed) ease,
+                transform var(--transition-speed) ease;
+    z-index: 1000; /* Ligeramente por debajo de submenús normales si se solapan, o igual */
+    display: flex; /* Para centrar el .mega-menu-content si es necesario */
+    justify-content: center;
+}
+
+/* El contenedor real del contenido del mega menú, para poder centrarlo si width es menor que el nav */
+.mega-menu-content {
+    display: flex;
+    gap: 20px; /* Espacio entre columnas */
+    width: 100%;
+}
+
+.mega-menu-column {
+    flex: 1; /* Las columnas comparten el espacio */
+    min-width: 180px; /* Ancho mínimo para cada columna */
+}
+.mega-menu-column-promo {
+    flex-grow: 0.7; /* La columna de promo puede ser más pequeña si es necesario */
+    border-left: 1px solid var(--primary-bg); /* Separador visual */
+    padding-left: 20px;
+}
+
+.mega-menu-heading {
+    font-size: 1.1em;
+    color: var(--primary-text);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--primary-bg);
+}
+
+.mega-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.mega-menu-list li {
+    margin-bottom: 8px;
+}
+.mega-menu-list li a {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    padding: 5px 0;
+    transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+}
+.mega-menu-list li a:hover,
+.mega-menu-list li a:focus {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.promo-block .promo-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+.promo-block .promo-text {
+    font-size: 0.85em;
+    line-height: 1.4;
+    color: var(--primary-text);
+}
+.promo-block {
+    text-decoration: none;
+}
+
+
+/* Mostrar el Mega Menú en hover/focus (solo escritorio) */
+@media (min-width: 769px) {
+    .nav-menu-item.has-megamenu:hover > .mega-menu-container,
+    .nav-menu-item.has-megamenu:focus-within > .mega-menu-container {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    /* En escritorio, si es un megamenú, el submenú normal (para móvil) debe estar oculto */
+    .nav-menu-item.has-megamenu > .nav-submenu {
+        display: none !important;
+    }
 }
 
 
