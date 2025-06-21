@@ -6,15 +6,19 @@ import logging
 import os
 from filelock import FileLock
 
-# Configure module-level logger. This basic configuration writes
-# timestamped messages with the module name and log level.
-# Applications embedding this module can override the configuration
-# if needed.
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-logger = logging.getLogger(__name__)
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 
 @dataclass
