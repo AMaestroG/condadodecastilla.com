@@ -1,0 +1,28 @@
+---
+import sites from '../sites.json';
+---
+
+<div id="map" style="height: 400px; width: 100%;"></div>
+
+<script define:vars={{ sites }} type="module">
+  import L from 'leaflet';
+  const map = L.map('map').setView([sites[0].lat, sites[0].lon], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  const icon = L.divIcon({ className: 'custom-icon' });
+  sites.forEach(s => {
+    L.marker([s.lat, s.lon], { icon }).addTo(map).bindTooltip(s.name);
+  });
+</script>
+
+<style>
+  .custom-icon {
+    background: radial-gradient(circle, #800080 0%, #CFB53B 100%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #CFB53B;
+    opacity: 0.9;
+  }
+</style>

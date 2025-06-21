@@ -1,0 +1,13 @@
+{
+  "name": "astro-app",
+  "type": "module",
+  "dependencies": {
+    "astro": "^4.0.0",
+    "leaflet": "^1.9.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  }
+}
