@@ -829,4 +829,158 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close { /* Asegurar que e
         opacity: 0;
     }
 }
+
+/* Barra de Comandos / Búsqueda Universal */
+.command-palette-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--shadow-color-rgb), 0.5); /* Fondo oscuro semi-transparente */
+    display: flex;
+    align-items: flex-start; /* Alinear arriba */
+    justify-content: center;
+    padding-top: 15vh; /* Espacio desde arriba */
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10000;
+    transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+}
+.command-palette-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.command-palette {
+    background-color: var(--primary-solid-bg); /* Usar color sólido del tema primario */
+    color: var(--primary-text);
+    border-radius: 8px; /* Bordes más redondeados */
+    box-shadow: var(--shadow-elevation-high), 0 0 0 1px var(--border-color); /* Sombra y un borde sutil */
+    width: 100%;
+    max-width: 640px; /* Ancho máximo */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.95) translateY(-10px);
+    opacity: 0;
+    transition: transform calc(var(--transition-speed) * 1.2) cubic-bezier(0.34, 1.56, 0.64, 1), /* Efecto de rebote ligero */
+                opacity calc(var(--transition-speed) * 0.8) ease;
+}
+.command-palette-overlay.is-open .command-palette {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.command-palette-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+.command-palette-search-icon {
+    margin-right: 12px;
+    color: var(--primary-text);
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+.command-palette-search-input {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.15em; /* Ligeramente más grande */
+    color: inherit;
+    padding: 8px 0;
+}
+.command-palette-search-input::placeholder {
+    color: var(--primary-text);
+    opacity: 0.5;
+}
+
+.command-palette-close {
+    background: none;
+    border: none;
+    color: var(--primary-text);
+    opacity: 0.6;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 12px;
+    border-radius: var(--border-radius);
+    transition: opacity var(--transition-speed) ease, background-color var(--transition-speed) ease, transform 0.1s ease-out;
+    flex-shrink: 0;
+}
+.command-palette-close:hover,
+.command-palette-close:focus {
+    opacity: 1;
+    background-color: var(--secondary-solid-bg);
+}
+.command-palette-close:active {
+    transform: scale(0.92);
+}
+.command-palette-close svg { display: block; } /* Para asegurar que el SVG se renderice bien */
+
+.command-palette-results {
+    max-height: 45vh; /* Altura máxima basada en viewport height */
+    overflow-y: auto;
+    padding: 8px 0;
+    flex-grow: 1;
+}
+.command-palette-result-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    margin: 2px 8px; /* Margen para que el fondo de hover no toque los bordes */
+    text-decoration: none;
+    color: var(--primary-text);
+    border-radius: var(--border-radius);
+    transition: background-color calc(var(--transition-speed) * 0.5) ease, color calc(var(--transition-speed) * 0.5) ease;
+    cursor: pointer;
+}
+.command-palette-result-item:hover,
+.command-palette-result-item:focus,
+.command-palette-result-item.is-active-descendant { /* Para navegación por teclado */
+    background-color: var(--accent-color);
+    color: #fff; /* Texto blanco sobre fondo de acento */
+    outline: none;
+}
+.command-palette-result-item .result-icon {
+    opacity: 0.8;
+    font-size: 1.1em;
+}
+.command-palette-result-item .result-text {
+    flex-grow: 1;
+}
+.command-palette-result-item .result-category {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.command-palette-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 10px 16px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.8em;
+    color: var(--primary-text);
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+.command-palette-footer span strong {
+    background-color: var(--secondary-solid-bg);
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-right: 4px;
+}
+
+/* Ajustes para tema oscuro en la paleta si es necesario (más allá de variables) */
+html[data-theme="dark"] .command-palette-search-input::placeholder {
+    opacity: 0.6;
+}
+html[data-theme="dark"] .command-palette-result-item.is-active-descendant {
+    color: var(--primary-solid-bg-dark); /* Texto oscuro sobre acento brillante */
+}
 ```
