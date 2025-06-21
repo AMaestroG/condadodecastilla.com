@@ -1,0 +1,22 @@
+{
+  "name": "nuevaweb",
+  "version": "1.0.0",
+  "description": "Este subdirectorio contiene la evolución del proyecto Condado de Castilla. Usa la paleta en morados y tonos de oro viejo con fondos de alabastro. Integra PHP para el sitio público y un API minimal en Flask.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.10",
+    "@tailwindcss/postcss": "^4.1.10",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5"
+  }
+}
