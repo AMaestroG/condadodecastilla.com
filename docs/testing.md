@@ -4,12 +4,18 @@ Esta guía explica cómo preparar el entorno y ejecutar las pruebas automatizada
 
 ## Paso a paso
 
-1. Prepara el entorno y sus dependencias ejecutando `setup_environment.sh` (ver [script_catalog.md](script_catalog.md)):
+1. Prepara el entorno y sus dependencias ejecutando
+   `setup_environment.sh` (ver
+   [script_catalog.md](script_catalog.md)):
 
 ```bash
 ./scripts/setup_environment.sh
 ```
-> **Nota:** ejecuta `pip install -r requirements.txt` o `scripts/setup_environment.sh` antes de lanzar cualquier prueba.
+Este script instala paquetes de Python como **Flask** y **filelock**,
+además de las extensiones de PHP necesarias (**php-cgi**, **pdo_pgsql** y
+**php-xml**).
+> **Nota:** ejecuta `pip install -r requirements.txt` o
+> `scripts/setup_environment.sh` antes de lanzar cualquier prueba.
 
 2. Si vas a ejecutar la suite de interfaz, abre otro terminal y arranca un servidor PHP local:
 
