@@ -1,3 +1,4 @@
+<header class="bg-imperial-purple text-old-gold texture-alabaster">
 <div id="cave-mask"></div>
 <img id="header-escudo-overlay" class="hero-escudo" src="/assets/img/escudo.jpg" alt="Escudo de Cerezo de Río Tirón">
 <img id="header-subphoto" class="header-subphoto" src="/assets/img/hero_mis_tierras.jpg" alt="Paisaje de Cerezo de Río Tirón">
@@ -70,3 +71,4 @@
         echo '<div id="language-panel" class="menu-panel right-panel" role="dialog" aria-labelledby="flag-toggle" tabindex="-1" aria-hidden="true"><p>Flags not found.</p></div>';
     }
 ?>
+</header>

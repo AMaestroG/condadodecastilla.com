@@ -193,7 +193,7 @@
         <div id="modalCaption"></div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer bg-imperial-purple text-old-gold texture-alabaster">
         <div class="container-epic">
             <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
             <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
