@@ -356,6 +356,7 @@ Además se proporcionan scripts auxiliares para validar el estado del código:
 - `./check_links.sh` revisa enlaces rotos en las páginas principales.
 - `./check_links_extended.sh` amplía la comprobación a los fragmentos HTML.
 - `./scripts/check_alt_texts.sh` detecta imágenes sin atributo `alt`.
+- `./scripts/structure_analyzer.py` revisa duplicados y la ubicación de etiquetas `<link>` y `<script>`.
 
 ## Elementos del menú principal
 
@@ -387,6 +388,16 @@ Ejecuta el script `check_alt_texts.sh` para detectar imágenes sin atributo `alt
 Esta comprobación se ejecuta automáticamente en cada pull request gracias a la configuración de GitHub Actions.
 
 Puedes indicar una ruta concreta como argumento si solo quieres escanear una carpeta determinada. El comando mostrará las líneas problemáticas y devolverá un código de salida distinto de cero si encuentra imágenes sin descripción.
+
+### Análisis de estructura
+
+Para revisar archivos duplicados y detectar etiquetas mal ubicadas ejecuta:
+
+```bash
+python scripts/structure_analyzer.py
+```
+
+El informe resume los duplicados encontrados y señala si hay `<link>` o `<script>` fuera de su posición recomendada. Complementa las comprobaciones básicas de los demás scripts.
 
 ## Tema predeterminado
 
