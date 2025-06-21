@@ -41,6 +41,7 @@ docker-compose up --build
 ```
 
 Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles.
+El frontend se sirve en `http://localhost:4321` y la API de Flask en `http://localhost:5000`.
 
 ## Museo en Astro
 
