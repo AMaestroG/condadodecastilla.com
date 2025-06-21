@@ -2224,7 +2224,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     box-shadow: var(--box-shadow-medio, 0 6px 18px rgba(74, 13, 103, 0.1)); 
 }
 
-/* --- Styles from historia/nuestra_historia_nuevo4.html <style> block (Embedded in page) --- */
+/* --- Styles from historia_ampliada_nuevo4.md <style> block (Embedded in page) --- */
 /* These are highly specific to .article-content, so they should be fine. */
 .article-content p {
     margin-bottom: 1em;
@@ -2254,15 +2254,15 @@ body.dark-mode .footer .social-links a:focus-visible {
 .article-content a:hover {
     color: var(--epic-gold-main, #B8860B); 
 }
-/* --- End of styles from historia/nuestra_historia_nuevo4.html <style> block --- */
+/* --- End of styles from historia_ampliada_nuevo4.md <style> block --- */
 
-/* --- Styles from inline attributes in historia/nuestra_historia_nuevo4.html --- */
+/* --- Styles from inline attributes in historia_ampliada_nuevo4.md --- */
 /* This creates a specific hero style for one page. */
 .page-header.hero.hero-nuestra-historia-specific {
     background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb, 74, 13, 103), 0.7), rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.85)), url('/assets/img/cerezo_vista_aerea.jpg');
     min-height: 50vh;
 }
-/* --- End of styles from inline attributes in historia/nuestra_historia_nuevo4.html --- */
+/* --- End of styles from inline attributes in historia_ampliada_nuevo4.md --- */
 
 /* The .section::before (dark overlay) is already defined.
    The spotlight will appear on top of the ::before overlay, but behind the .container-epic content.
