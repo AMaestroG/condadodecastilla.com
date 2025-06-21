@@ -152,3 +152,7 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 
 La guía de estilo recoge la paleta en tonos morado y oro viejo con fondos de
 alabastro.
+
+## Diseño e identidad visual
+
+La interfaz usa una combinación predominante de morado y oro viejo sobre fondos de alabastro. Los menús laterales se deslizan y, al abrirse, comprimen ligeramente la página para mejorar la navegación en móviles. Consulta [style-guide.md](style-guide.md) para ver todas las variables CSS disponibles.
