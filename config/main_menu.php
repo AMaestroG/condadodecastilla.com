@@ -22,5 +22,6 @@ return [
     ['label' => 'menu_gestion_yacimientos', 'url' => 'empresa/index.php'],
     ['label' => 'menu_foro', 'url' => 'foro/index.php'],
     ['label' => 'menu_blog', 'url' => 'blog.php'],
+    ['label' => 'menu_documentacion', 'url' => 'docs/index.php'],
     ['label' => 'menu_contacto', 'url' => 'contacto/contacto.php'],
 ];
