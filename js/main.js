@@ -30,12 +30,29 @@ document.addEventListener('DOMContentLoaded', () => {
             navToggle.classList.toggle('is-active');
 
             const isExpanded = mainNavList.classList.contains('is-active');
-            // Actualiza el atributo ARIA para accesibilidad
             navToggle.setAttribute('aria-expanded', isExpanded.toString());
 
-            // Si el menú se cierra, también se cierran todos los submenús que pudieran estar abiertos.
-            if (!isExpanded) {
+            if (isExpanded) {
+                // Animar ítems del menú móvil al abrir
+                const menuItems = mainNavList.querySelectorAll('.nav-menu-item');
+                menuItems.forEach((item, index) => {
+                    // Resetear estilo por si se abre y cierra rápido
+                    item.style.animationDelay = '';
+                    item.style.opacity = ''; // Asegurar que la animación CSS pueda empezar desde opacity 0
+                    item.style.transform = ''; // Asegurar que la animación CSS pueda empezar desde transformX -20px
+
+                    // Aplicar delay para efecto escalonado
+                    // La animación 'fadeInSlideIn' se define en CSS y se aplica cuando .nav-menu tiene .is-active
+                    item.style.animationDelay = `${index * 0.07}s`;
+                });
+            } else {
+                // Si el menú se cierra, también se cierran todos los submenús.
                 closeAllSubmenus();
+                // Opcional: limpiar delays si es necesario, aunque la animación solo corre al añadir .is-active
+                const menuItems = mainNavList.querySelectorAll('.nav-menu-item');
+                menuItems.forEach(item => {
+                    item.style.animationDelay = '';
+                });
             }
         });
     }
@@ -114,13 +131,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /** Abre el panel deslizante. */
         const openPanel = () => {
-            previousActiveElement = document.activeElement; // Guarda el elemento activo
-            slidingPanel.classList.add('is-open'); // Muestra el panel (controlado por CSS)
-            slidingPanel.setAttribute('aria-hidden', 'false'); // Indica que el panel es visible para lectores de pantalla
+            previousActiveElement = document.activeElement;
+            slidingPanel.classList.add('is-open');
+            slidingPanel.setAttribute('aria-hidden', 'false');
 
-            // Mueve el foco al primer elemento enfocable del panel (ej. botón de cierre)
-            // Se usa setTimeout para asegurar que la transición CSS haya comenzado y el elemento sea enfocable.
             setTimeout(() => closeSlidingPanelButton.focus(), 50);
+
+            // Animar elementos internos del panel
+            const panelItems = slidingPanel.querySelectorAll('.sliding-panel-item');
+            panelItems.forEach((item, index) => {
+                item.style.animationDelay = ''; // Reset
+                item.style.opacity = '';      // Reset
+                item.style.transform = '';    // Reset
+                item.style.animationDelay = `${0.1 + index * 0.07}s`; // Delay base + escalonado
+            });
 
             // Añade listeners para manejo de teclado (Escape y atrapar foco)
             document.addEventListener('keydown', handlePanelKeyDown);
