@@ -137,6 +137,7 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 ## Archivos relevantes en `docs/`
 
 - [Historia](historia.md)
+- [Historia ampliada](historia_ampliada_nuevo4.md)
 - [Arqueología](arqueologia.md)
 - [Tradición](tradicion.md)
 - [Guía de index.php y menús](index-guide.md)
@@ -155,3 +156,6 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 
 La guía de estilo recoge la paleta en tonos morado y oro viejo con fondos de
 alabastro.
+
+La síntesis extendida de la historia de Cerezo de Río Tirón se encuentra en
+[historia_ampliada_nuevo4.md](historia_ampliada_nuevo4.md).

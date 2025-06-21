@@ -7,3 +7,4 @@ Los apartados principales son:
 - [Historia](docs/historia.md)
 - [Arqueología](docs/arqueologia.md)
 - [Tradición](docs/tradicion.md)
+- [Historia ampliada](docs/historia_ampliada_nuevo4.md)
