@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadFixedTogglesCss();
     loadIAToolsScript();
     // initializeIAChatSidebar();
+    prepareInteractiveMap();
 
 
     // Other interactive effects
@@ -174,4 +175,59 @@ function loadIAToolsScript() {
         script.src = '/js/ia-tools.js';
         document.head.appendChild(script);
     }
+}
+
+function loadLeaflet() {
+    return new Promise(resolve => {
+        if (window.L) { resolve(); return; }
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        css.integrity = 'sha256-sA+e2Fj9uo6pfaSb0OPCfGze5krs+Bx0Yo1ZPKKXFxA=';
+        css.crossOrigin = '';
+        document.head.appendChild(css);
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        script.integrity = 'sha256-o9N1j7kG3Y1mCqo4HCpO2m6EaWEzhbso5Lr2Rsu7m9I=';
+        script.crossOrigin = '';
+        script.onload = () => resolve();
+        script.onerror = () => resolve();
+        document.head.appendChild(script);
+    });
+}
+
+function initializeInteractiveMap() {
+    if (!window.L || !window.alfozPlaces) return;
+    const mapEl = document.getElementById('interactive-map');
+    if (!mapEl) return;
+    const purple = getComputedStyle(document.documentElement).getPropertyValue('--color-primario-purpura').trim() || '#4A0D67';
+    const gold = getComputedStyle(document.documentElement).getPropertyValue('--color-secundario-dorado').trim() || '#B8860B';
+    const map = L.map(mapEl).setView([42.55, -3.3], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    window.alfozPlaces.forEach((place, idx) => {
+        const lat = 42.55 + 0.1 * Math.sin(idx / 5);
+        const lng = -3.3 + 0.1 * Math.cos(idx / 5);
+        L.circleMarker([lat, lng], {
+            color: purple,
+            fillColor: gold,
+            fillOpacity: 0.9,
+            radius: 6
+        }).addTo(map).bindPopup(`<a href="${place.path}">${place.name}</a><br>${place.description}`);
+    });
+}
+
+function prepareInteractiveMap() {
+    if (!document.getElementById('interactive-map')) return;
+    loadLeaflet().then(() => {
+        const waitForData = () => {
+            if (window.alfozPlaces && window.alfozPlaces.length) {
+                initializeInteractiveMap();
+            } else {
+                setTimeout(waitForData, 100);
+            }
+        };
+        waitForData();
+    });
 }
