@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<?php require_once __DIR__ . '/../includes/head_common.php'; ?>
+<?php $load_aos = true; require_once __DIR__ . '/../includes/head_common.php'; ?>
 </head>
 <body class="alabaster-bg">
 

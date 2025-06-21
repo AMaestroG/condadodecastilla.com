@@ -2,6 +2,13 @@
 require_once __DIR__ . '/session.php';
 ensure_session_started();
 require_once __DIR__ . '/env_loader.php';
+
+if (!isset($load_bootstrap)) {
+    $load_bootstrap = false;
+}
+if (!isset($load_aos)) {
+    $load_aos = false;
+}
 ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +18,9 @@ require_once __DIR__ . '/env_loader.php';
 <link rel="stylesheet" href="/assets/css/header.css">
 <link rel="stylesheet" href="/assets/css/sliding_menu.css">
 <link rel="stylesheet" href="/assets/css/language-panel.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" integrity="sha384-JwsW+0ELqRMx9x6pRP70dNDO7xjoMnIKPQ4j/wcgUp3NE6PFcAckU4iigFsMghvY" crossorigin="anonymous">
+<?php if ($load_bootstrap): ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" integrity="sha384-JwsW+0ELqRMx9x6pRP70dNDO7xjoMnIKPQ4j/wcgUp3NE6PFcAckU4iigFsMghvY" crossorigin="anonymous" onerror="this.onerror=null;this.href='/assets/vendor/css/bootstrap.min.css';">
+<?php endif; ?>
 <link rel="stylesheet" href="/assets/css/custom.css">
 <link rel="stylesheet" href="/assets/css/parallax.css">
 <link rel="stylesheet" href="/assets/css/time_palettes.css">
@@ -19,9 +28,13 @@ require_once __DIR__ . '/env_loader.php';
 <link rel="stylesheet" href="/assets/css/cave_mask.css">
 <link rel="stylesheet" href="/assets/css/admin_theme.css">
 <link rel="stylesheet" href="/assets/vendor/css/tailwind.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-SN33kWx+ihQ/HVbUaz2QmiFjCwXTlzAIXazhbugzuDUFc1l1b/HFB70dNFuPu6j6" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" />
-<script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous"></script>
+<?php if ($load_bootstrap): ?>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-SN33kWx+ihQ/HVbUaz2QmiFjCwXTlzAIXazhbugzuDUFc1l1b/HFB70dNFuPu6j6" crossorigin="anonymous" onerror="this.onerror=null;this.src='/assets/vendor/js/bootstrap.bundle.min.js';"></script>
+<?php endif; ?>
+<?php if ($load_aos): ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" onerror="this.onerror=null;this.href='/assets/vendor/css/aos.css';" />
+<script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" onerror="this.onerror=null;this.src='/assets/vendor/js/aos.js';"></script>
+<?php endif; ?>
 <script defer src="/assets/js/polyfills.js"></script>
 <link rel="stylesheet" href="/assets/css/torch_cursor.css">
 <script defer src="/assets/js/torch_cursor.js"></script>
