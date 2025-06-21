@@ -43,5 +43,20 @@ class RenderMainMenuTest extends TestCase {
             $this->assertSame('submenu', $submenu->getAttribute('class'));
         }
     }
+
+    public function testMenuGroupRendered(): void {
+        ob_start();
+        render_main_menu();
+        $html = ob_get_clean();
+
+        $dom = new DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($html);
+        $xpath = new DOMXPath($dom);
+        $groups = $xpath->query('//li[contains(@class, "menu-group")]');
+        $this->assertGreaterThan(0, $groups->length, 'No menu group element found');
+        $first = $groups->item(0);
+        $this->assertStringContainsString(t('group_historia_cultura'), $first->textContent);
+    }
 }
 ?>

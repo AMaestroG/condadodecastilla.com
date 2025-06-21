@@ -1,6 +1,20 @@
 # Estructura del menú principal
 
-La siguiente tabla se genera a partir de [`config/main_menu.php`](../config/main_menu.php). Debe regenerarse cada vez que cambien los enlaces del menú principal.
+La siguiente tabla se genera a partir de [`config/main_menu.php`](../config/main_menu.php). Ahora el archivo organiza las entradas por **grupos** utilizando claves de la forma `group_<nombre>`.
+Cada clave de grupo contiene un array con sus elementos:
+
+```php
+return [
+    'group_historia_cultura' => [
+        ['label' => 'menu_historia', 'url' => 'historia/historia.php'],
+        // ...
+    ],
+    // más grupos
+];
+```
+
+El texto visible para cada grupo se obtiene con `t('group_<nombre>')`.
+Debe regenerarse la tabla cuando cambien los enlaces del menú principal.
 
 | URL                                          | Etiqueta               |
 | -------------------------------------------- | ---------------------- |
