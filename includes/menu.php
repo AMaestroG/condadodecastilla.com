@@ -42,7 +42,7 @@ function render_main_menu(): void {
         $current = ltrim($_SERVER['SCRIPT_NAME'], '/');
     }
 
-    echo '<ul id="main-menu" class="nav-links">';
+    echo '<ul id="main-menu" class="nav-links" role="menu">';
     $counter = 0;
     render_menu_items($items, '', $counter, $current);
     echo '</ul>';
