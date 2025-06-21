@@ -36,3 +36,32 @@
     padding: 6px 12px;
     border-radius: 4px;
 }
+
+.agent-avatar,
+.comment-avatar,
+.avatar-mini {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+}
+
+.avatar-mini {
+    width: 24px;
+    height: 24px;
+}
+
+.role-icon {
+    color: var(--color-secundario-dorado);
+    margin-right: 4px;
+}
+
+.comment-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.comment-content {
+    flex: 1;
+}
