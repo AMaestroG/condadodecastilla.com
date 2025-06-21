@@ -101,7 +101,12 @@ fi
 
 # Install Python dependencies
 if command -v pip >/dev/null 2>&1; then
-    if ! pip install -r requirements.txt; then
+    PYTHON_DEPS_DIR="vendor/python-deps"
+    PIP_EXTRA_ARGS=""
+    if [ -d "$PYTHON_DEPS_DIR" ] && ls "$PYTHON_DEPS_DIR"/*.whl "$PYTHON_DEPS_DIR"/*.tar.gz >/dev/null 2>&1; then
+        PIP_EXTRA_ARGS="--no-index --find-links $PYTHON_DEPS_DIR"
+    fi
+    if ! pip install $PIP_EXTRA_ARGS -r requirements.txt; then
         echo "Warning: pip install failed." >&2
     fi
 else

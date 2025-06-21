@@ -16,6 +16,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 vendor/
+!vendor/python-deps/
 !assets/vendor/
 .phpunit.result.cache
 .php-cs-fixer.cache

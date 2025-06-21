@@ -71,6 +71,20 @@ Consulta las opciones del script en [script_catalog.md](script_catalog.md).
 ./scripts/run_accessibility_audit.sh
 ```
 
+### Dependencias de Python sin conexión
+
+Si necesitas ejecutar las pruebas en un entorno sin acceso a Internet, descarga
+los paquetes indicados en `requirements.txt` y guárdalos en el directorio
+`vendor/python-deps/`:
+
+```bash
+pip download -d vendor/python-deps -r requirements.txt
+```
+
+Al lanzar `setup_environment.sh` se detectará el contenido de esa carpeta y se
+ejecutará `pip install --no-index --find-links vendor/python-deps -r
+requirements.txt` para instalar desde esos archivos locales.
+
 ## Solucion de problemas
 
 - Si al ejecutar `npm run test:puppeteer` obtienes un TimeoutError, comprueba que tienes un servidor PHP en marcha con:
