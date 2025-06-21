@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Use event delegation so dynamically injected buttons still work
-    document.addEventListener('click', (e) => {
+    const handleToggleEvent = (e) => {
         const btn = e.target.closest('[data-menu-target]');
         if (btn) {
             e.preventDefault();
@@ -147,7 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleMenu(btn);
             }
         }
-    });
+    };
+    document.addEventListener('click', handleToggleEvent);
+    document.addEventListener('touchstart', handleToggleEvent);
 
     document.addEventListener('click', (e) => {
         // Close panel menus if click is outside
