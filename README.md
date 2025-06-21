@@ -126,8 +126,8 @@ El comando genera los archivos finales en `dist/` y `assets/css`. Consulta [docs
 Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar todas las pruebas. Los pasos básicos son:
 
 1. Ejecuta [`scripts/setup_environment.sh`](scripts/setup_environment.sh) **antes de cualquier prueba**. El script instala Python
-   (`flask`, `filelock`, etc.) y las extensiones de PHP necesarias (`php-cgi`,
-   `pdo_pgsql`, `php-xml`).
+   (`flask`, `filelock`, etc.), las extensiones de PHP necesarias (`php-cgi`,
+   `pdo_pgsql`, `php-xml`) y las dependencias de Node.
 2. Si la suite incluye pruebas de interfaz, arranca un servidor PHP con:
    ```bash
    php -S localhost:8080
@@ -140,7 +140,7 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
    ```bash
    python -m unittest discover -s tests
    ```
-5. Ejecuta las pruebas de Node (Puppeteer):
+5. Ejecuta las pruebas de Node (Puppeteer) tras instalar las dependencias con `npm ci` (o usando `scripts/setup_environment.sh`):
    ```bash
    npm run test:puppeteer
    ```

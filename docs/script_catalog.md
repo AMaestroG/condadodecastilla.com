@@ -21,7 +21,7 @@ Este documento recopila los scripts disponibles en el directorio `scripts/` y su
 | `link_checker.py`            | Escanea el HTML del repositorio y detecta enlaces rotos.                       |
 | `process_characters.py`      | Combina el parser y el generador de whispers para producir datos enriquecidos. |
 | `run_accessibility_audit.sh` | Ejecuta Lighthouse para auditar la accesibilidad de varias páginas.            |
-| `run_tests.sh`               | Instala dependencias de Python y ejecuta la batería completa de pruebas.       |
+| `run_tests.sh`               | Instala dependencias de Python y ejecuta la batería completa de pruebas. Ejecuta `npm ci` o `setup_environment.sh` antes de las pruebas de Node.       |
 | `setup_environment.sh`       | Verifica e instala runtimes y dependencias básicas.                            |
 | `setup_frontend_libs.sh`     | Descarga bibliotecas JS/CSS y las copia a `assets/vendor`.                     |
 | `setup_project.sh`           | Configura el proyecto completo y crea archivos iniciales.                      |

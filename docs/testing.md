@@ -68,13 +68,13 @@ credenciales se definan en `.env` antes de lanzar PHPUnit.
 
 ### Dependencias de Node para Puppeteer
 
-Antes de lanzar la suite de interfaz instala las dependencias de Node:
+Antes de lanzar la suite de interfaz instala las dependencias de Node. Ejecuta:
 
 ```bash
 npm ci
 ```
 
-Esto descargará `puppeteer` y los binarios de Chrome.
+o bien lanza `scripts/setup_environment.sh`, que realiza la misma instalación.
 
 ### Auditorías de accesibilidad
 
