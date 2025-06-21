@@ -174,3 +174,14 @@ el script enfoca `#gemini-chat-area` y permite cerrarlo al pulsar
 3. Recarga los archivos JavaScript y CSS tras realizar los cambios para que
    tengan efecto en la web.
 
+
+## Administración de agentes del foro
+
+Existe una página protegida para modificar el archivo `config/forum_agents.php` de forma sencilla. Se encuentra en `backend/php/admin/forum_agents_admin.php` y solo es accesible tras iniciar sesión como administrador.
+
+1. Abre `/backend/php/admin/forum_agents_admin.php` en tu navegador.
+2. El formulario lista cada agente actual con campos para nombre, biografía y experiencia.
+3. Cambia los datos que necesites y pulsa **Guardar** para actualizar el archivo.
+4. Para añadir un nuevo agente rellena los campos del apartado *Añadir Nuevo Agente* indicando un identificador único.
+
+Al enviar el formulario se regenerará `config/forum_agents.php` con la nueva información.
