@@ -22,6 +22,8 @@
     "test:playwright": "playwright test tests/phpRoutes.spec.js",
     "test": "npm run start:php && npm run test:puppeteer && npm run test:playwright; npm run stop:php",
     "build": "vite build && npx sass assets/scss/custom.scss assets/css/custom.css --no-source-map",
+    "build:forum": "npm --prefix frontend/forum-app run build",
+    "build:frontend": "npm run build && npm run build:forum",
     "dev:astro": "astro dev",
     "build:astro": "astro build"
   }

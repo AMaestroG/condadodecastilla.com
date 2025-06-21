@@ -1,9 +1,9 @@
-import '../styles/theme.css';
+import Heading from '../components/Heading.jsx';
 
 export default function App() {
   return (
     <div className="app">
-      <h1 style={{ color: 'var(--epic-gold-main)' }}>React Example</h1>
+      <Heading text="React Example" />
     </div>
   );
 }
