@@ -450,3 +450,18 @@ Los siguientes resúmenes se utilizan en los atributos `integrity` para los arch
 - **GSAP 3.13.0**: `sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc`
 - **AOS 2.3.4 CSS**: `sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9`
 - **AOS 2.3.4 JS**: `sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ`
+
+## Internationalization
+
+Para extraer todas las cadenas de texto del proyecto y generar los ficheros de
+traducción ejecuta:
+
+```bash
+python scripts/extract_translations.py
+```
+
+El script recorre el repositorio ignorando `tests/` y `assets/`. Guarda los
+resultados en `translations/es.json`, `translations/en.json` y
+`translations/gl.json`. La versión en español se rellena con los textos
+existentes y las columnas de inglés y gallego quedan en blanco a la espera de su
+traducción.
