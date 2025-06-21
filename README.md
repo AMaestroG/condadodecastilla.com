@@ -41,14 +41,14 @@ El proyecto emplea PHP y Python con Flask. Para nuevos módulos se aconseja usar
 docker-compose up --build
 ```
 
-Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles (`frontend`, `backend` y `db`).
-El frontend se sirve en `http://localhost:4321`, la API de Flask en `http://localhost:5000` y la base de datos PostgreSQL en `localhost:5432`.
+Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles (`frontend`, `backend`, `nuevaweb_php`, `nuevaweb_flask` y `db`).
+El frontend se sirve en `http://localhost:4321`, la API de Flask principal en `http://localhost:5000`, la web PHP de `nuevaweb` en `http://localhost:8082`, la API secundaria de Flask en `http://localhost:5002` y la base de datos PostgreSQL en `localhost:5432`.
 
 ## Ejecuci\u00f3n manual
 
 Si no deseas usar Docker Compose puedes arrancar cada servicio por separado:
 
-1. **API de Flask**:
+1. **API de Flask (raíz)**:
    ```bash
    pip install -r requirements.txt
    python flask_app.py
@@ -59,7 +59,16 @@ Si no deseas usar Docker Compose puedes arrancar cada servicio por separado:
    pnpm install
    pnpm run dev --host 0.0.0.0
    ```
-3. **PostgreSQL**:
+3. **Web PHP de nuevaweb**:
+   ```bash
+   php -S localhost:8082 -t nuevaweb
+   ```
+4. **API de Flask de nuevaweb**:
+   ```bash
+   pip install flask
+   python nuevaweb/flask_app.py
+   ```
+5. **PostgreSQL**:
    ```bash
    docker run --name condado_db -p 5432:5432 \
       -e POSTGRES_DB=condado_castilla_db \
