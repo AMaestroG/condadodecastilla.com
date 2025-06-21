@@ -98,13 +98,16 @@ botón `#theme-toggle`.
 ## Configuración de los agentes del foro
 
 El archivo `config/forum_agents.php` define los expertos que responden en el foro. Cada entrada del array contiene estos campos:
+`name`, `bio`, `expertise`, `avatar` y `role_icon`.
 
 ```php
 return [
     'historian' => [
         'name' => 'Alicia la Historiadora',
         'bio' => 'Con años de investigación tras ella, Alicia relata... ',
-        'expertise' => 'Historia medieval y orígenes de Castilla'
+        'expertise' => 'Historia medieval y orígenes de Castilla',
+        'avatar' => '/assets/img/GonzaloTellez.png',
+        'role_icon' => 'fas fa-scroll'
     ],
     // ...
 ];

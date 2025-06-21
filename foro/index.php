@@ -64,7 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 <button id="menu-btn" class="menu-btn" data-menu-target="agents-menu">☰ Expertos</button>
 <div id="agents-menu" class="menu-panel left-panel">
 <?php foreach ($agents as $id => $ag): ?>
-    <a href="#<?php echo $id; ?>" class="gradient-text"><?php echo htmlspecialchars($ag['name']); ?></a>
+    <a href="#<?php echo $id; ?>" class="gradient-text menu-agent-link">
+        <img src="<?php echo htmlspecialchars($ag['avatar']); ?>" alt="avatar" class="avatar-mini">
+        <i class="<?php echo htmlspecialchars($ag['role_icon']); ?> role-icon"></i>
+        <?php echo htmlspecialchars($ag['name']); ?>
+    </a>
 <?php endforeach; ?>
 </div>
 <main class="container page-content-block">
@@ -74,7 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     <?php endif; ?>
     <?php foreach ($agents as $id => $ag): ?>
     <section id="<?php echo $id; ?>" class="agent-profile">
-        <h2 class="gradient-text"><?php echo htmlspecialchars($ag['name']); ?></h2>
+        <h2 class="gradient-text">
+            <img src="<?php echo htmlspecialchars($ag['avatar']); ?>" alt="avatar" class="agent-avatar">
+            <i class="<?php echo htmlspecialchars($ag['role_icon']); ?> role-icon"></i>
+            <?php echo htmlspecialchars($ag['name']); ?>
+        </h2>
         <p><?php echo htmlspecialchars($ag['bio']); ?></p>
         <?php if (!empty($ag['expertise'])): ?>
         <p class="expertise"><strong>Especialidad:</strong> <?php echo htmlspecialchars($ag['expertise']); ?></p>
@@ -92,8 +100,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
             <?php else: ?>
                 <?php foreach ($comments as $c): ?>
                 <div class="comment-item">
-                    <p><?php echo htmlspecialchars($c['comment']); ?></p>
-                    <small><?php echo htmlspecialchars(date('d/m/Y H:i', strtotime($c['created_at']))); ?></small>
+                    <img src="<?php echo htmlspecialchars($ag['avatar']); ?>" alt="avatar" class="comment-avatar">
+                    <div class="comment-content">
+                        <i class="<?php echo htmlspecialchars($ag['role_icon']); ?> role-icon"></i>
+                        <p><?php echo htmlspecialchars($c['comment']); ?></p>
+                        <small><?php echo htmlspecialchars(date('d/m/Y H:i', strtotime($c['created_at']))); ?></small>
+                    </div>
                 </div>
                 <?php endforeach; ?>
             <?php endif; ?>
