@@ -154,6 +154,11 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 - [Guía Fullstack 2025](fullstack-tools-2025.md)
 - [Agentes del Foro](forum_agents.md)
 
+## Demos
+
+- [Museo en Astro](../README.md#museo-en-astro)
+- [Tailwind demo](../tailwind_index.php) – muestra los estilos de Tailwind y los menús deslizantes.
+
 La guía de estilo recoge la paleta en tonos morado y oro viejo con fondos de
 alabastro.
 
