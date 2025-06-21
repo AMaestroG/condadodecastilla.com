@@ -1,0 +1,38 @@
+[
+  {
+    "parent": "Diego Rodriguez Porcelos",
+    "parent_link": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/diego_rodriguez_porcelos.html",
+    "child": "Fernando Díaz",
+    "child_link": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html"
+  },
+  {
+    "parent": "Gonzalo Fernández (Primer Conde de Burgos",
+    "parent_link": null,
+    "child": "Fernan Gonzalez",
+    "child_link": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernan_gonzalez.html"
+  },
+  {
+    "parent": "Magno Clemente Máximo",
+    "parent_link": "/personajes/Emperadores_Romanos_Hispanos_Auca/magno_clemente_maximo.html",
+    "child": "Flavio Victor",
+    "child_link": "/personajes/Emperadores_Romanos_Hispanos_Auca/flavio_victor.html"
+  },
+  {
+    "parent": "Máximo",
+    "parent_link": null,
+    "child": "Flavio Teodosio I El Grande",
+    "child_link": "/personajes/Emperadores_Romanos_Hispanos_Auca/teodosio_i.html"
+  },
+  {
+    "parent": "Rodrigo",
+    "parent_link": null,
+    "child": "Diego Rodriguez Porcelos",
+    "child_link": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/diego_rodriguez_porcelos.html"
+  },
+  {
+    "parent": "Rodrigo El Conde",
+    "parent_link": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/rodrigo_el_conde.html",
+    "child": "Diego Rodríguez Porcelos",
+    "child_link": "/personajes/Condes_de_Castilla_Alava_y_Lantaron/diego_rodriguez_porcelos.html"
+  }
+]
