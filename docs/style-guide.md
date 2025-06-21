@@ -102,7 +102,7 @@ Para agilizar la carga se recomienda emplear formatos modernos y limitar las dim
 - Formato **WebP** para fotos y capturas; **PNG** solo cuando se necesite transparencia.
 - Anchura máxima de **1920&nbsp;px** en imágenes de cabecera y **800&nbsp;px** para el resto.
 - El peso ideal está por debajo de **300&nbsp;KB**. Cualquier imagen que supere **1&nbsp;MB** debería revisarse.
-- Utiliza el script [`scripts/compress_images.sh`](../scripts/compress_images.sh) para generar versiones optimizadas o miniaturas.
+- Para generar versiones optimizadas o miniaturas se dispone de un script descrito en [script_catalog.md](script_catalog.md).
 
 Actualmente existen archivos superiores a 2&nbsp;MB en `assets/img/` (por ejemplo `GonzaloTellez.png`), conviene reconvertirlos a WebP o aplicar compresión.
 

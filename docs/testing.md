@@ -2,7 +2,7 @@
 
 Esta guía explica cómo preparar el entorno y ejecutar las pruebas automatizadas del proyecto.
 ## Paso a paso
-1. Prepara el entorno y sus dependencias:
+1. Prepara el entorno y sus dependencias ejecutando `setup_environment.sh` (ver [script_catalog.md](script_catalog.md)):
 ```bash
 ./scripts/setup_environment.sh
 ```
@@ -46,15 +46,12 @@ Esto descargará `puppeteer` y los binarios de Chrome.
 
 ### Auditorías de accesibilidad
 
-El script `scripts/run_accessibility_audit.sh` permite generar informes de
-accesibilidad de las páginas principales mediante **Lighthouse**.
+Consulta las opciones del script en [script_catalog.md](script_catalog.md).
 
 ```bash
 ./scripts/run_accessibility_audit.sh
 ```
 
-Los resultados se guardan en `reports/accessibility/`. Ábrelos con el navegador
-para revisar posibles problemas.
 
 
 
@@ -64,7 +61,7 @@ para revisar posibles problemas.
 ```bash
 php -S localhost:8080
 ```
-- Si las dependencias fallaron al instalarse, vuelve a lanzar `./scripts/setup_environment.sh`.
+- Si las dependencias fallaron al instalarse, consulta [script_catalog.md](script_catalog.md) para volver a ejecutar el script de preparación.
 - Si Puppeteer informa que no se encuentra Chromium, ejecuta `npm ci` para reinstalar las dependencias.
 ## Resultados del 20/06/2025
 
