@@ -82,6 +82,16 @@ require_once __DIR__ . '/fragments/header.php';
             </div>
         </section>
 
+        <section id="updates" class="section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <div class="container-epic px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-2xl font-headings gradient-text">Novedades</h2>
+                <h3 class="font-headings text-xl mt-4">Últimos artículos</h3>
+                <ul id="latest-articles" class="space-y-2"></ul>
+                <h3 class="font-headings text-xl mt-8">Próximas visitas</h3>
+                <ul id="upcoming-visits" class="space-y-2"></ul>
+            </div>
+        </section>
+
         <section id="legado" class="section alternate-bg spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
             <div class="container-epic px-4 sm:px-6 lg:px-8">
                 <h2 class="section-title text-2xl font-headings">Explora Nuestro Legado</h2>
@@ -167,6 +177,16 @@ require_once __DIR__ . '/fragments/header.php';
                     Siente la llamada de la historia y conecta con el legado que nos une.
                 </p>
                 <a href="/cultura/cultura.php" class="cta-button">Cultura</a>
+            </div>
+        </section>
+
+        <section id="colabora" class="section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <div class="container-epic px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title text-2xl font-headings gradient-text">¿Quieres colaborar?</h2>
+                <p class="text-lg font-body mt-4">Únete a nuestro foro y comparte tus ideas para preservar y difundir el legado de Cerezo de Río Tirón.</p>
+                <p class="cta-group mt-6">
+                    <a href="/foro/index.php" class="cta-button">Participar en el Foro</a>
+                </p>
             </div>
         </section>
     </main>
