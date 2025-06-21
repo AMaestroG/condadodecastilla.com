@@ -1,4 +1,5 @@
 <?php
+// Field descriptions are listed in docs/forum_agents.md
 return [
     'historian' => [
         'name' => 'Alicia la Historiadora',
