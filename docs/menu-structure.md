@@ -26,3 +26,7 @@ La siguiente tabla se genera a partir de [`config/main_menu.php`](../config/main
 | foro/index.php | Foro |
 | blog.php | Blog |
 | contacto/contacto.php | Contacto |
+
+## Etiquetas de grupo
+
+Para los menús que agrupan varias entradas se usa un identificador de grupo. Cada grupo requiere una clave de traducción `group_<nombre>` que debe definirse en `i18n/es.json` y en los demás archivos de idioma. Por ejemplo, el grupo Historia y Cultura se traduce mediante la clave `group_historia_cultura`.
