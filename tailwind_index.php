@@ -77,5 +77,8 @@
         <p class="font-body">Difundiendo el legado de Castilla y Cerezo de Río Tirón.</p>
     </footer>
 
+    <script type="module" src="/assets/js/mobile-menu.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
+
 </body>
 </html>
