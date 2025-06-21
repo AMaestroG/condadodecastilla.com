@@ -75,6 +75,19 @@
 
 
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
-    
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Auca Patricia, Cerasio y el Origen de Castilla",
+        "author": {
+            "@type": "Organization",
+            "name": "Condado de Castilla"
+        },
+        "datePublished": "2024-01-01"
+    }
+    </script>
+
 </body>
 </html>
