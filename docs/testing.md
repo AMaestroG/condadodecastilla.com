@@ -16,7 +16,8 @@ vendor/bin/phpunit
 ```
 4. Ejecuta las pruebas de Python:
 ```bash
-python -m unittest tests/test_flask_api.py tests/test_graph_db_interface.py
+python -m unittest tests/test_flask_api.py tests/test_graph_db_interface.py \
+  tests/test_consistency_analyzer.py
 ```
 5. Ejecuta las pruebas de interfaz con Puppeteer:
 ```bash
