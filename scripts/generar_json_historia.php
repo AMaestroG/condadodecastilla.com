@@ -1,5 +1,9 @@
 <?php
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use League\CommonMark\CommonMarkConverter;
+
 // --- Configuración y directorios ---
 define('DIR_BASE_HTML', '../historia/'); // Ajusta según la ubicación real de tus HTML
 define('DIR_OUTPUT', '/app/data/historia/'); // Usar ruta absoluta
@@ -315,7 +319,7 @@ function procesar_subpagina_detallada(string $ruta_html_subpagina, string $id_te
     }
 
     // Para el caso específico de origenes_castilla, buscar autor
-    if ($id_tema === 'origenes_castilla' || $id_tema === 'nuestra_historia_nuevo4') { // Comparar con el id_tema generado
+    if ($id_tema === 'origenes_castilla') {
         // Intentar encontrar "Iván García Blanco". Esto es muy específico.
         // Podrías buscar en párrafos, o en elementos con clase "author" o "autor"
         $posible_autor = $xpath_sub->query("//*[contains(text(), 'Iván García Blanco')]")->item(0);
@@ -525,28 +529,33 @@ if (file_exists($ruta_linea_tiempo_html)) {
     echo "Error: No se encontró el archivo " . $ruta_linea_tiempo_html . "\n";
 }
 
-// Procesar historia/nuestra_historia_nuevo4.html
+// Procesar docs/historia_ampliada_nuevo4.md
 // Este se procesará como una subpágina detallada, pero con un id_tema y ruta_json_salida específicos
-$ruta_nuestra_historia_html = DIR_BASE_HTML . 'nuestra_historia_nuevo4.html';
+$ruta_nuestra_historia_html = '../docs/historia_ampliada_nuevo4.md';
 $id_tema_nuestra_historia = 'origenes_castilla'; // Según el punto 7 del requerimiento
 // $ruta_json_nuestra_historia debe usar la nueva DIR_OUTPUT para la escritura temporal
 $ruta_json_escritura_nuestra_historia = DIR_OUTPUT . $id_tema_nuestra_historia . '.json';
 
 if (file_exists($ruta_nuestra_historia_html)) {
+    $markdown_nh = file_get_contents($ruta_nuestra_historia_html);
+    $converter_nh = new CommonMarkConverter();
+    $temp_html_nh = tempnam(sys_get_temp_dir(), 'origenes_castilla') . '.html';
+    file_put_contents($temp_html_nh, $converter_nh->convert($markdown_nh)->getContent());
+
     $doc_nh = new DOMDocument();
-    if (@$doc_nh->loadHTMLFile($ruta_nuestra_historia_html)) {
+    if (@$doc_nh->loadHTMLFile($temp_html_nh)) {
         $xpath_nh = new DOMXPath($doc_nh);
         // Llamamos a procesar_subpagina_detallada directamente
-            echo "Preparando para procesar y guardar origenes_castilla.json (nuestra_historia_nuevo4) en: " . $ruta_json_escritura_nuestra_historia . "\n"; // DEBUG
+        echo "Preparando para procesar y guardar origenes_castilla.json (origenes_castilla) en: " . $ruta_json_escritura_nuestra_historia . "\n"; // DEBUG
         procesar_subpagina_detallada(
-            'historia/nuestra_historia_nuevo4.html',
+            'docs/historia_ampliada_nuevo4.md',
             $id_tema_nuestra_historia,
-                $ruta_json_escritura_nuestra_historia,
+            $ruta_json_escritura_nuestra_historia,
             $xpath_nh,
             $doc_nh
         );
-            // Actualizar $archivos_procesados con la ruta final esperada
-            $archivos_procesados[$id_tema_nuestra_historia] = 'data/historia/' . $id_tema_nuestra_historia . '.json';
+        // Actualizar $archivos_procesados con la ruta final esperada
+        $archivos_procesados[$id_tema_nuestra_historia] = 'data/historia/' . $id_tema_nuestra_historia . '.json';
 
     } else {
         echo "Error: No se pudo parsear el archivo HTML: " . $ruta_nuestra_historia_html . "\n";
