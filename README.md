@@ -29,3 +29,13 @@ docker-compose up --build
 ```
 
 Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles.
+
+## Internationalization
+
+Las cadenas visibles se almacenan en `translations/*.json`. Para añadir nuevas entradas sin perder las traducciones existentes ejecuta:
+
+```bash
+python scripts/update_translations.py
+```
+
+El script examina los archivos PHP y HTML, detecta cadenas no registradas y las incorpora a los catálogos de español, inglés y gallego. Si se necesita generar los ficheros desde cero, utiliza `scripts/extract_translations.py`.
