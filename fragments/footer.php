@@ -19,6 +19,16 @@
         <p class="ai-notice">Este sitio incluye contenido generado con ayuda de IA. <a href="/docs/responsible-ai.md">Más información</a>.</p>
 </div>
 </footer>
+<div id="help-toggle" aria-expanded="false" aria-controls="help-panel" title="Ayuda">?</div>
+<div id="help-panel" class="hidden" aria-hidden="true">
+    <button id="help-close" aria-label="Cerrar ayuda">&times;</button>
+    <h2>Consejos rápidos</h2>
+    <ul>
+        <li>Explora las secciones desde el menú principal.</li>
+        <li>Visita el foro para compartir con la comunidad.</li>
+        <li>Consulta la agenda de eventos culturales.</li>
+    </ul>
+</div>
 <script src="/assets/js/main.js"></script>
 <script src="/assets/js/cave_mask.js"></script>
 <script src="/assets/js/hero.js"></script>
@@ -31,3 +41,4 @@
 <script defer src="/assets/js/custom-pointer.js"></script>
 <script src="/assets/js/homonexus-toggle.js"></script>
 <script src="/js/layout.js"></script>
+<script src="/assets/js/help.js"></script>
