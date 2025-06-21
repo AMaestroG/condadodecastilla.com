@@ -56,6 +56,16 @@ Consulta [frontend/astro-app/README.md](frontend/astro-app/README.md) si prefier
 
 La página principal se genera en `/piezas` y presenta las piezas en una cuadrícula adaptable.
 
+## Demo Tailwind
+
+El archivo `tailwind_index.php` es un prototipo que muestra la paleta morada y oro viejo con menús deslizantes. Para probarlo ejecuta desde la raíz:
+
+```bash
+php -S localhost:8000
+```
+
+Luego abre `http://localhost:8000/tailwind_index.php` en tu navegador.
+
 ## Mapa interactivo
 
 Visita `lugares/mapa_interactivo.php` para explorar los principales monumentos y poblaciones sobre un mapa dinámico.
