@@ -330,3 +330,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     populateSidebarContents(); // Call it on initial load to populate the sidebar
 });
+\nexport {};

@@ -144,7 +144,7 @@
 
     <script src="/js/config.js"></script>
     
-    <script src="/js/museo-2d-gallery.js"></script>
+    <script type="module" src="/assets/js/modules/gallery.js"></script>
     <!-- Museo 3D Modules -->
     <script src="/js/museum-3d/utils.js"></script>
     <script src="/js/museum-3d/config.js"></script>

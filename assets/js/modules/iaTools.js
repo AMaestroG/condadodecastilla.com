@@ -301,3 +301,4 @@ function showChatDialog(text) {
         dialog.style.display = 'block';
     }
 }
+\nexport {};

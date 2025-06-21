@@ -326,3 +326,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetchPieces(); // Initial fetch of pieces for the gallery
 });
+\nexport {};

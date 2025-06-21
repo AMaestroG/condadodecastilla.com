@@ -169,9 +169,10 @@ function loadAos() {
 
 
 function loadIAToolsScript() {
-    if (!document.querySelector('script[src="/js/ia-tools.js"]')) {
+    if (!document.querySelector('script[src="/assets/js/modules/iaTools.js"]')) {
         const script = document.createElement('script');
-        script.src = '/js/ia-tools.js';
+        script.type = 'module';
+        script.src = '/assets/js/modules/iaTools.js';
         document.head.appendChild(script);
     }
 }

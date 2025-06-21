@@ -2,7 +2,7 @@ const fs = require('fs');
 const {JSDOM} = require('jsdom');
 
 const headerHtml = fs.readFileSync('fragments/header.php', 'utf8');
-const scriptJs = fs.readFileSync('assets/js/main.js', 'utf8');
+const scriptJs = fs.readFileSync('assets/js/modules/menu.js', 'utf8');
 
 const dom = new JSDOM(`<body>${headerHtml}</body>`, {
   runScripts: "dangerously",
@@ -14,6 +14,7 @@ const {window} = dom;
 window.localStorage.setItem('theme', 'dark');
 
 const scriptEl = window.document.createElement('script');
+scriptEl.type = 'module';
 scriptEl.textContent = scriptJs;
 window.document.body.appendChild(scriptEl);
 

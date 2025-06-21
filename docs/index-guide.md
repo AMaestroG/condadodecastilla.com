@@ -31,13 +31,13 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 
 ## Personalización del menú deslizante y nuevas páginas
 * **Estilos**: modifica `assets/css/menus/consolidated-menu.css` para cambiar colores morado y oro viejo, anchura u otros efectos del panel `.menu-panel`.
-* **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
+* **Comportamiento**: `assets/js/modules/menu.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
 * **Añadir páginas**: edita `fragments/menus/main-menu.php` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
 
 ### Clase `menu-compressed` y transformación de la página
 
 Al pulsar un botón con el atributo `data-menu-target="id-del-panel"`,
-`assets/js/main.js` abre el panel de menú indicado y añade la clase
+`assets/js/modules/menu.js` abre el panel de menú indicado y añade la clase
 `menu-compressed` al elemento `<body>`. También se aplica
 `menu-open-left` o `menu-open-right` según el lado del que se despliegue
 el panel. Estas clases están definidas en
@@ -154,18 +154,18 @@ Su estructura principal es la siguiente:
 - `<dialog id="ai-dialog">` y el área `#ai-response-box` sirven para
   mostrar la respuesta completa.
 
-`assets/js/main.js` controla la apertura y cierre de este panel utilizando
+`assets/js/modules/menu.js` controla la apertura y cierre de este panel utilizando
 el atributo `data-menu-target="ai-chat-panel"`. Cuando el panel se abre,
 el script enfoca `#gemini-chat-area` y permite cerrarlo al pulsar
 `#close-ai-drawer`. Las funciones concretas de cada botón se encuentran en
-`js/ia-tools.js`.
+`assets/js/modules/iaTools.js`.
 
 ### Modificar etiquetas o añadir nuevas acciones
 
 1. Abre `fragments/header/ai-drawer.html` y cambia el texto de los botones
    que necesites dentro de `#ia-tools-menu`.
 2. Si deseas una acción adicional, duplica un botón con un nuevo `id` y
-   escribe su manejador en `js/ia-tools.js` siguiendo el estilo de
+   escribe su manejador en `assets/js/modules/iaTools.js` siguiendo el estilo de
    `handleSummary()` o `handleResearch()`.
 3. Recarga los archivos JavaScript y CSS tras realizar los cambios para que
    tengan efecto en la web.

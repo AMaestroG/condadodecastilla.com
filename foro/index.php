@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     <?php endforeach; ?>
 </main>
 <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
-<script src="/assets/js/foro.js"></script>
+<script type="module" src="/assets/js/modules/forum.js"></script>
 
 </body>
 </html>

@@ -19,7 +19,7 @@
         <p class="ai-notice">Este sitio incluye contenido generado con ayuda de IA. <a href="/docs/responsible-ai.md">Más información</a>.</p>
 </div>
 </footer>
-<script src="/assets/js/main.js"></script>
+<script type="module" src="/assets/js/modules/menu.js"></script>
 <script src="/assets/js/cave_mask.js"></script>
 <script src="/assets/js/hero.js"></script>
 <script src="/assets/js/scroll-fade.js"></script>
