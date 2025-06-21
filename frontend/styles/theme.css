@@ -3,8 +3,8 @@
     --epic-error-red: #D9534F; /* Default error red */
     --epic-purple-emperor: #4A0D67;
     --epic-purple-emperor-rgb: 74, 13, 103;
-    --epic-gold-main: #CFB53B; /* Old gold tone */
-    --epic-gold-main-rgb: 207, 181, 59;
+    --epic-gold-main: #a03c00; /* Accessible gold tone */
+    --epic-gold-main-rgb: 160, 60, 0;
     --epic-gold-secondary: #9A6700;
     --epic-gold-secondary-rgb: 154, 103, 0;
     --epic-alabaster-bg: #fdfaf6; /* Alabaster white page background */
@@ -83,7 +83,7 @@
     --epic-gold-soft: #f3e5ab;      /* Gentle dawn gold */
     --epic-purple-vibrant: #6b46c1; /* Bright daytime purple */
     --epic-alabaster-dusk: #efe2d2; /* Warm dusk background */
-    --epic-gold-dusk: #f0b429;      /* Intense dusk gold */
+    --epic-gold-dusk: #a04600;      /* Accessible dusk gold */
     --epic-orange-sunset: #f97316;  /* Sunset orange accent */
     --epic-text-night: #e0e0e0;     /* Light text for night mode */
     /* Alert variables */

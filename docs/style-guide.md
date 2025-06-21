@@ -16,7 +16,7 @@ Esta guía resume la paleta de colores usada de forma consistente en todo el pro
 | `--epic-gold-soft` | Oro pálido de las primeras horas | `#f3e5ab` |
 | `--epic-purple-vibrant` | Morado intenso para el día | `#6b46c1` |
 | `--epic-alabaster-dusk` | Fondo cálido del atardecer | `#efe2d2` |
-| `--epic-gold-dusk` | Dorado profundo del atardecer | `#f0b429` |
+| `--epic-gold-dusk` | Dorado profundo del atardecer | `#a04600` |
 | `--epic-orange-sunset` | Naranja brillante del ocaso | `#f97316` |
 | `--epic-text-night` | Texto claro para el modo nocturno | `#e0e0e0` |
 | `--color-negro-contraste` | Negro de alto contraste | `#1A1A1A` |
@@ -122,3 +122,15 @@ Cuando un botón está expandido (`aria-expanded="true"`) o un panel visible
     border: 2px solid var(--epic-gold-main);
 }
 ```
+
+## Resultados de contraste
+
+Las combinaciones principales de color se revisaron con una herramienta de contraste.
+Todas superan la relación 4.5:1 tras los ajustes realizados:
+
+| Texto | Fondo | Ratio |
+|-------|-------|------|
+| `--epic-purple-emperor` (`#4A0D67`) | `--epic-alabaster-bg` (`#fdfaf6`) | **13.06** |
+| `--epic-purple-vibrant` (`#6b46c1`) | `--epic-alabaster-dawn` (`#e5e5e5`) | **5.10** |
+| `--epic-gold-main` (`#a03c00`) | `--epic-alabaster-bg` (`#fdfaf6`) | **6.43** |
+| `--epic-gold-dusk` (`#a04600`) | `--epic-alabaster-dusk` (`#efe2d2`) | **4.89** |
