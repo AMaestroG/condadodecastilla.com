@@ -109,6 +109,18 @@ El script `scripts/daily_agent.py` se ejecuta cada noche mediante GitHub Actions
 
 Para detalles sobre la paleta de colores y la tipografía consulta [docs/style-guide.md](docs/style-guide.md), en especial las líneas 1‑24 que enumeran todas las variables CSS.
 
+## Transiciones de página
+
+Se añadió un módulo de **transiciones de página** que aprovecha `GSAP` para animar la entrada y salida de contenido. Gracias a la suavidad de estos efectos, la visita resulta más atractiva y ayuda a cumplir la misión de *promocionar el turismo en Cerezo de Río Tirón y proteger su patrimonio arqueológico y cultural*.
+
+Para empaquetar los scripts y estilos utiliza:
+
+```bash
+npm run build
+```
+
+El comando genera los archivos finales en `dist/` y `assets/css`. Consulta [docs/page-transitions.md](docs/page-transitions.md) para obtener todos los detalles de configuración.
+
 ## Testing
 
 Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar todas las pruebas. Los pasos básicos son:
