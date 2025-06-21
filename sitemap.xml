@@ -25,6 +25,10 @@
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
+    <loc>https://condadodecastilla.com/ajax_actions/save_comment.php</loc>
+    <lastmod>2025-06-21</lastmod>
+  </url>
+  <url>
     <loc>https://condadodecastilla.com/alfoz/alfoz.php</loc>
     <lastmod>2025-06-21</lastmod>
   </url>
@@ -149,6 +153,10 @@
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
+    <loc>https://condadodecastilla.com/docs/index.php</loc>
+    <lastmod>2025-06-21</lastmod>
+  </url>
+  <url>
     <loc>https://condadodecastilla.com/empresa/index.php</loc>
     <lastmod>2025-06-21</lastmod>
   </url>
@@ -157,11 +165,19 @@
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
+    <loc>https://condadodecastilla.com/foro/comments_api.php</loc>
+    <lastmod>2025-06-21</lastmod>
+  </url>
+  <url>
     <loc>https://condadodecastilla.com/foro/index.php</loc>
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
     <loc>https://condadodecastilla.com/foro/manage_comments.php</loc>
+    <lastmod>2025-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/frontend/forum-app/index.html</loc>
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
@@ -625,6 +641,10 @@
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
+    <loc>https://condadodecastilla.com/lugares/mapa_interactivo.php</loc>
+    <lastmod>2025-06-21</lastmod>
+  </url>
+  <url>
     <loc>https://condadodecastilla.com/museo/editar_pieza.php</loc>
     <lastmod>2025-06-21</lastmod>
   </url>
@@ -789,6 +809,10 @@
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
+    <loc>https://condadodecastilla.com/personajes/arbol_genealogico.php</loc>
+    <lastmod>2025-06-21</lastmod>
+  </url>
+  <url>
     <loc>https://condadodecastilla.com/personajes/galeria_3d.html</loc>
     <lastmod>2025-06-21</lastmod>
   </url>
@@ -937,6 +961,10 @@
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
+    <loc>https://condadodecastilla.com/scripts_admin.php</loc>
+    <lastmod>2025-06-21</lastmod>
+  </url>
+  <url>
     <loc>https://condadodecastilla.com/secciones_index/historia_tiempo_resumen.html</loc>
     <lastmod>2025-06-21</lastmod>
   </url>
@@ -950,6 +978,10 @@
   </url>
   <url>
     <loc>https://condadodecastilla.com/tailwind_index.php</loc>
+    <lastmod>2025-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://condadodecastilla.com/tests/ActiveLinkTest.php</loc>
     <lastmod>2025-06-21</lastmod>
   </url>
   <url>
