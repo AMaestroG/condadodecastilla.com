@@ -9,14 +9,11 @@ function get_main_menu_items(): array {
     return $menu;
 }
 
-function render_main_menu(): void {
-    $items = get_main_menu_items();
-    $current = '';
-    if (!empty($_SERVER['SCRIPT_NAME'])) {
-        $current = ltrim($_SERVER['SCRIPT_NAME'], '/');
-    }
-
-    echo '<ul id="main-menu" class="nav-links">';
+function render_menu_items(array $items, string $current, int $depth = 0, bool $root = false): void {
+    $ulClass = $root ? 'nav-links' : 'submenu';
+    $idAttr = $root ? ' id="main-menu"' : '';
+    $roleAttr = $root ? ' role="menu"' : '';
+    echo "<ul{$idAttr} class=\"{$ulClass}\"{$roleAttr}>";
     foreach ($items as $item) {
         $label = htmlspecialchars(t($item['label']));
         $url = htmlspecialchars($item['url']);
@@ -25,7 +22,21 @@ function render_main_menu(): void {
             $classes[] = 'active-link';
         }
         $classAttr = $classes ? ' class="'.implode(' ', $classes).'"' : '';
-        echo "<li><a href=\"$url\"$classAttr>$label</a></li>";
+        echo "<li><a href=\"$url\"$classAttr>$label</a>";
+        if (isset($item['children']) && is_array($item['children'])) {
+            render_menu_items($item['children'], $current, $depth + 1);
+        }
+        echo '</li>';
     }
     echo '</ul>';
+}
+
+function render_main_menu(): void {
+    $items = get_main_menu_items();
+    $current = '';
+    if (!empty($_SERVER['SCRIPT_NAME'])) {
+        $current = ltrim($_SERVER['SCRIPT_NAME'], '/');
+    }
+
+    render_menu_items($items, $current, 0, true);
 }
