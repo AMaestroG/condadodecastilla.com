@@ -22,3 +22,11 @@ garantizando que su posición fija no obstaculice la navegación en móviles.
 Tras preparar el entorno con `setup_environment.sh` (ver [script_catalog.md](script_catalog.md)) y servir la web con `php -S`, se
 verificó que el botón `#consolidated-menu-button` permanece visible al hacer
 scroll en pantallas de 768 px o menos.
+
+## Tareas en curso
+- [ ] Implementacion del efecto de compresion en los menus.
+- [ ] Creacion del componente de foro en React.
+- [ ] Extension de la API Flask para comentarios.
+- [ ] Nuevas pruebas de `GraphDBInterface`.
+
+Todos los cambios deben mantener la paleta de morado y oro viejo sobre fondos de alabastro segun [docs/style-guide.md](style-guide.md).
