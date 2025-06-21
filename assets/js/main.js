@@ -148,8 +148,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
-    document.addEventListener('click', handleToggleEvent);
-    document.addEventListener('touchstart', handleToggleEvent);
+
+    let touchHandled = false;
+    document.addEventListener('touchstart', (e) => {
+        touchHandled = true;
+        handleToggleEvent(e);
+    });
+    document.addEventListener('click', (e) => {
+        if (touchHandled) {
+            touchHandled = false;
+            return;
+        }
+        handleToggleEvent(e);
+    });
 
     document.addEventListener('click', (e) => {
         const link = e.target.closest('.menu-panel a[href]');
