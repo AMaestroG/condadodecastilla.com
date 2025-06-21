@@ -9,6 +9,7 @@ export default defineConfig({
     }
   },
   build: {
+    minify: true,
     cssCodeSplit: false,
     rollupOptions: {
       input: 'tailwind_entry.js',

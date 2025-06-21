@@ -8,6 +8,8 @@
     "puppeteer": "^24.10.2",
     "svgo": "^3.3.2",
     "tailwindcss": "^4.1.10",
+    "@tailwindcss/postcss": "^4.1.10",
+    "autoprefixer": "^10.4.21",
     "vite": "^6.3.5",
     "@playwright/test": "^1.42.1"
   },
