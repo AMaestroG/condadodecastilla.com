@@ -1,7 +1,7 @@
-<style global>
-@import '../styles/theme.css';
-</style>
+<script>
+  import Heading from '../components/Heading.svelte';
+</script>
 
 <main>
-  <h1 style="color: var(--epic-gold-main)">Svelte Example</h1>
+  <Heading text="Svelte Example" />
 </main>
