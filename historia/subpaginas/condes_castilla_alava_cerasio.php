@@ -18,6 +18,12 @@
     </header>
     <main>
         <section class="section">
+            <div class="container">
+                <?php
+                require_once __DIR__ . "/../../fragments/breadcrumbs.php";
+                render_breadcrumbs(["historia" => "Nuestra Historia", "subpaginas" => "Índice Detallado"]);
+                ?>
+            </div>
             <div class="container article-content">
                 <p><a href="/historia/historia.php" class="back-link">&laquo; Volver a Nuestra Historia</a></p>
                 <h3>El Gobierno desde Cerasio</h3>
