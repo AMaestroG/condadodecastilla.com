@@ -27,6 +27,15 @@ class GraphDBInterfaceTestCase(unittest.TestCase):
         self.db.add_or_update_resource(updated)
         self.assertEqual(self.db.get_resource(url).content, "actualizado")
 
+    def test_resource_persistence_across_instances(self):
+        url = "http://example.com/persist"
+        data = Resource(url=url, content="first")
+        self.db.add_or_update_resource(data)
+        # Reload DB from the same file path to verify persistence
+        new_db = GraphDBInterface(db_filepath=self.db.db_filepath)
+        self.assertTrue(new_db.resource_exists(url))
+        self.assertEqual(new_db.get_resource(url).content, "first")
+
     def test_add_link_creates_placeholders_and_prevents_duplicates(self):
         link = Link(source_url="http://src.com", target_url="http://dst.com")
         self.db.add_link(link)
