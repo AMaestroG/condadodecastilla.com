@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[#faf7f4];
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-purple to-oldgold text-transparent bg-clip-text font-bold;
+}
