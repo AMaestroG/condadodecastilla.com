@@ -2,6 +2,7 @@
 return [
     ['label' => 'menu_inicio', 'url' => 'index.php'],
     ['label' => 'menu_historia', 'url' => 'historia/historia.php'],
+    ['label' => 'menu_historia_ampliada', 'url' => 'historia/historia_ampliada.php'],
     ['label' => 'menu_historia_cerezo', 'url' => 'historia_cerezo/index.php'],
     ['label' => 'menu_obispado_auca', 'url' => 'historia/subpaginas/obispado_auca_cerezo.php'],
     ['label' => 'menu_influencia_romana', 'url' => 'historia/influencia_romana.php'],
