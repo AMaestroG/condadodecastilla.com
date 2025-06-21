@@ -10,7 +10,17 @@ function get_main_menu_items(): array {
 }
 
 function render_menu_items(array $items, string $parentPath = '', int &$counter = 0, string $current = ''): void {
-    foreach ($items as $item) {
+    foreach ($items as $key => $item) {
+        if (is_string($key) && is_array($item)) {
+            echo '<li class="menu-group">';
+            echo '<span class="group-title">' . htmlspecialchars(t($key)) . '</span>';
+            echo '<ul>';
+            render_menu_items($item, $parentPath, $counter, $current);
+            echo '</ul>';
+            echo '</li>';
+            continue;
+        }
+
         $label = htmlspecialchars(t($item['label']));
         $path = $parentPath . '/' . $item['label'];
 
@@ -18,7 +28,7 @@ function render_menu_items(array $items, string $parentPath = '', int &$counter 
             $counter++;
             $id = 'submenu-' . md5($path);
             echo '<li class="has-submenu" role="menuitem">';
-            echo '<button class="submenu-toggle" aria-expanded="false" aria-controls="' . $id . '">' . $label . '</button>';
+            echo '<button class="submenu-toggle" role="menuitem" aria-expanded="false" aria-controls="' . $id . '">' . $label . '</button>';
             echo '<ul id="' . $id . '" class="submenu" aria-hidden="true">';
             render_menu_items($item['children'], $path, $counter, $current);
             echo '</ul>';
