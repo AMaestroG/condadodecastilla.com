@@ -22,35 +22,6 @@ if ($pdo) {
 
 
 
-function fetchComments(string $agent, ?PDO $pdo): array {
-    if (!$pdo) return [];
-    $stmt = $pdo->prepare('SELECT comment, created_at FROM forum_comments WHERE agent = :agent ORDER BY created_at DESC');
-    $stmt->execute([':agent' => $agent]);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
-    $agent = $_POST['agent'] ?? '';
-    $comment = trim($_POST['comment'] ?? '');
-    $token = $_POST['csrf_token'] ?? '';
-    $maxLength = 500;
-    $rateLimit = FORUM_COMMENT_COOLDOWN; // seconds
-
-    if (!verify_csrf_token($token)) {
-        $_SESSION['forum_error'] = 'CSRF token inválido.';
-    } elseif (strlen($comment) > $maxLength) {
-        $_SESSION['forum_error'] = 'Comentario demasiado largo.';
-    } elseif (isset($_SESSION['last_comment_time']) && (time() - $_SESSION['last_comment_time']) < $rateLimit) {
-        $_SESSION['forum_error'] = 'Espera unos segundos antes de comentar de nuevo.';
-    } elseif ($agent && $comment && isset($agents[$agent])) {
-        $stmt = $pdo->prepare('INSERT INTO forum_comments (agent, comment) VALUES (:agent, :comment)');
-        $stmt->execute([':agent' => $agent, ':comment' => $comment]);
-        $_SESSION['last_comment_time'] = time();
-    }
-
-    header('Location: ' . $_SERVER['PHP_SELF'] . '#' . $agent);
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -58,63 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     <title>Foro de Expertos</title>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="stylesheet" href="/assets/css/pages/foro.css">
+    <link rel="stylesheet" href="/assets/forum-app/forum-index.css">
 </head>
 <body class="alabaster-bg">
 <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-<button id="menu-btn" class="menu-btn" data-menu-target="agents-menu" aria-label="Abrir menú de expertos" aria-haspopup="true" aria-expanded="false" role="button" aria-controls="agents-menu">☰ Expertos</button>
-<div id="agents-menu" class="menu-panel left-panel" role="navigation" aria-labelledby="menu-btn" tabindex="-1" aria-hidden="true">
-<?php foreach ($agents as $id => $ag): ?>
-    <a href="#<?php echo $id; ?>" class="gradient-text menu-agent-link">
-        <img src="<?php echo htmlspecialchars($ag['avatar']); ?>" alt="avatar" class="avatar-mini">
-        <i class="<?php echo htmlspecialchars($ag['role_icon']); ?> role-icon"></i>
-        <?php echo htmlspecialchars($ag['name']); ?>
-    </a>
-<?php endforeach; ?>
-</div>
-<main class="container page-content-block">
-    <h1 class="gradient-text text-center">Foro de Expertos</h1>
-    <?php if (!empty($_SESSION['forum_error'])): ?>
-        <p class="feedback error"><?php echo htmlspecialchars($_SESSION['forum_error']); unset($_SESSION['forum_error']); ?></p>
-    <?php endif; ?>
-    <?php foreach ($agents as $id => $ag): ?>
-    <section id="<?php echo $id; ?>" class="agent-profile">
-        <h2 class="gradient-text">
-            <img src="<?php echo htmlspecialchars($ag['avatar']); ?>" alt="avatar" class="agent-avatar">
-            <i class="<?php echo htmlspecialchars($ag['role_icon']); ?> role-icon"></i>
-            <?php echo htmlspecialchars($ag['name']); ?>
-        </h2>
-        <p><?php echo htmlspecialchars($ag['bio']); ?></p>
-        <?php if (!empty($ag['expertise'])): ?>
-        <p class="expertise"><strong>Especialidad:</strong> <?php echo htmlspecialchars($ag['expertise']); ?></p>
-        <?php endif; ?>
-        <form method="post">
-            <input type="hidden" name="agent" value="<?php echo $id; ?>">
-            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(get_csrf_token()); ?>">
-            <textarea name="comment" rows="3" required placeholder="Comparte tu consejo o comentario"></textarea>
-            <button type="submit" class="cta-button submit-button">Publicar</button>
-        </form>
-        <?php $comments = fetchComments($id, $pdo); ?>
-        <div class="comments-list">
-            <?php if (empty($comments)): ?>
-                <p style="font-style: italic;">Aún no hay comentarios.</p>
-            <?php else: ?>
-                <?php foreach ($comments as $c): ?>
-                <div class="comment-item">
-                    <img src="<?php echo htmlspecialchars($ag['avatar']); ?>" alt="avatar" class="comment-avatar">
-                    <div class="comment-content">
-                        <i class="<?php echo htmlspecialchars($ag['role_icon']); ?> role-icon"></i>
-                        <p><?php echo htmlspecialchars($c['comment']); ?></p>
-                        <small><?php echo htmlspecialchars(date('d/m/Y H:i', strtotime($c['created_at']))); ?></small>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
-    </section>
-    <?php endforeach; ?>
-</main>
+<div id="forum-root" class="container page-content-block"></div>
+<script type="module" src="/assets/forum-app/forum.js"></script>
 <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
-<script src="/assets/js/foro.js"></script>
 
 </body>
 </html>
