@@ -29,6 +29,12 @@ vendor/bin/phpunit
 python -m unittest tests/test_graph_db_interface.py
 ```
 
+   - Comprobar que todas las traducciones contienen las mismas claves:
+
+```bash
+python -m unittest tests/test_translation_keys.py
+```
+
 - Toda la batería de pruebas de Python:
 
 ```bash
