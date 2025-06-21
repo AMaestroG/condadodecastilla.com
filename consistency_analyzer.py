@@ -1,6 +1,21 @@
-from graph_db_interface import GraphDBInterface # Assuming graph_db_interface.py is in the same directory
+from graph_db_interface import GraphDBInterface  # Assuming graph_db_interface.py is in the same directory
 from datetime import datetime
 import uuid
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 class ConsistencyAnalyzer:
     def __init__(self, db_interface: GraphDBInterface):
@@ -8,7 +23,7 @@ class ConsistencyAnalyzer:
         Initializes the analyzer with a GraphDBInterface instance.
         """
         self.db = db_interface
-        print("ConsistencyAnalyzer initialized.")
+        logger.info("ConsistencyAnalyzer initialized.")
 
     def check_resource_completeness(self, resource_data: dict) -> dict:
         """
@@ -104,14 +119,14 @@ class ConsistencyAnalyzer:
         """
         all_issues = []
 
-        print("\nAnalyzing resource completeness...")
+        logger.info("\nAnalyzing resource completeness...")
         all_resources = self.db.get_all_resources()
         for resource in all_resources:
             completeness_check = self.check_resource_completeness(resource)
             if not completeness_check["complete"]:
                 all_issues.append(completeness_check)
 
-        print("\nAnalyzing link topical coherence...")
+        logger.info("\nAnalyzing link topical coherence...")
         all_links = self.db.get_all_links()
         for link in all_links:
             # Skip coherence check if source or target content is known to be insufficient
@@ -121,7 +136,9 @@ class ConsistencyAnalyzer:
             if not coherence_check["consistent"]:
                 all_issues.append(coherence_check)
 
-        print(f"\nConsistency analysis complete. Found {len(all_issues)} issues.")
+        logger.info(
+            "\nConsistency analysis complete. Found %d issues.", len(all_issues)
+        )
         return all_issues
 
 if __name__ == "__main__":
@@ -200,27 +217,41 @@ if __name__ == "__main__":
     analyzer = ConsistencyAnalyzer(db)
 
     # 3. Call analyze_graph_consistency() and print results
-    print("\n--- Running Consistency Analysis ---")
+    logger.info("\n--- Running Consistency Analysis ---")
     issues = analyzer.analyze_graph_consistency()
 
     if not issues:
-        print("\nNo consistency issues found.")
+        logger.info("\nNo consistency issues found.")
     else:
-        print(f"\nFound {len(issues)} consistency issues:")
+        logger.info("\nFound %d consistency issues:", len(issues))
         for issue in issues:
-            print(f"  - Type: {issue['check_name']}")
+            logger.info("  - Type: %s", issue['check_name'])
             if "resource_url" in issue:
-                print(f"    Resource URL: {issue['resource_url']}")
+                logger.info("    Resource URL: %s", issue['resource_url'])
             if "link_id" in issue:
-                 print(f"    Link ID: {issue['link_id']} (From: {issue['source_url']} To: {issue['target_url']})")
-            print(f"    Status: {'Complete' if issue.get('complete', False) else 'Incomplete' if 'complete' in issue else ''}{'Consistent' if issue.get('consistent', False) else 'Inconsistent' if 'consistent' in issue else ''}")
-            print(f"    Reason: {issue['reason']}")
+                logger.info(
+                    "    Link ID: %s (From: %s To: %s)",
+                    issue['link_id'],
+                    issue['source_url'],
+                    issue['target_url'],
+                )
+            logger.info(
+                "    Status: %s%s",
+                'Complete' if issue.get('complete', False) else 'Incomplete' if 'complete' in issue else '',
+                'Consistent' if issue.get('consistent', False) else 'Inconsistent' if 'consistent' in issue else '',
+            )
+            logger.info("    Reason: %s", issue['reason'])
             if "score" in issue:
-                print(f"    Score: {issue['score']}")
-            print("-" * 20)
+                logger.info("    Score: %s", issue['score'])
+            logger.info("-" * 20)
 
-    print("\n--- Verifying DB state after analysis (especially for placeholders) ---")
+    logger.info("\n--- Verifying DB state after analysis (especially for placeholders) ---")
     all_db_resources = db.get_all_resources()
-    print(f"Total resources in DB now: {len(all_db_resources)}")
+    logger.info("Total resources in DB now: %d", len(all_db_resources))
     for res in all_db_resources:
-        print(f"  URL: {res['url']}, Title: {res.get('metadata', {}).get('title', 'N/A')}, Content: '{res.get('content', '')[:30]}...'")
+        logger.info(
+            "  URL: %s, Title: %s, Content: '%s...'",
+            res['url'],
+            res.get('metadata', {}).get('title', 'N/A'),
+            res.get('content', '')[:30],
+        )

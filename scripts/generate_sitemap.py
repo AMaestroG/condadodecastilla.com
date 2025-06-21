@@ -2,6 +2,21 @@ import os
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from datetime import datetime
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 # Base URL used in each entry of the sitemap. Can be overridden with an
 # environment variable for local testing or different deployments.
@@ -57,7 +72,7 @@ def main() -> None:
     paths = collect_files('.')
     tree = build_sitemap(paths)
     write_pretty_xml(tree, 'sitemap.xml')
-    print(f"Generated sitemap with {len(paths)} entries.")
+    logger.info("Generated sitemap with %d entries.", len(paths))
 
 
 if __name__ == '__main__':

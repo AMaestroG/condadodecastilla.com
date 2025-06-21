@@ -1,7 +1,22 @@
 import os
 import json
 import sys
-import random # <--- Add this import
+import random  # <--- Add this import
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 # Ensure the scripts directory is in the Python path for module imports
 # This is important if the script is run from the repository root.
@@ -13,9 +28,13 @@ try:
     from character_parser import parse_character_html
     from ai_whisper_generator import generate_whisper
 except ImportError as e:
-    print(f"Error importing modules: {e}")
-    print("Please ensure character_parser.py and ai_whisper_generator.py are in the same directory or accessible in PYTHONPATH.")
-    print("If running from a different directory, ensure 'scripts' is in PYTHONPATH or adjust imports.")
+    logger.error("Error importing modules: %s", e)
+    logger.error(
+        "Please ensure character_parser.py and ai_whisper_generator.py are in the same directory or accessible in PYTHONPATH."
+    )
+    logger.error(
+        "If running from a different directory, ensure 'scripts' is in PYTHONPATH or adjust imports."
+    )
     exit(1)
 
 
@@ -32,11 +51,14 @@ def get_character_html_files(base_dir):
     # If this script is in 'scripts/' and base_dir is 'personajes/', adjust path:
     abs_base_dir = os.path.join(os.path.dirname(current_dir), base_dir) # Go up one level from 'scripts'
     if not os.path.isdir(abs_base_dir):
-        print(f"Error: Base directory '{abs_base_dir}' not found. Make sure it exists relative to the project root.")
+        logger.error(
+            "Error: Base directory '%s' not found. Make sure it exists relative to the project root.",
+            abs_base_dir,
+        )
         # Try base_dir as is, in case it's already a full path or correct relative path from execution point
         abs_base_dir = base_dir
         if not os.path.isdir(abs_base_dir):
-             print(f"Error: Base directory '{base_dir}' also not found.")
+             logger.error("Error: Base directory '%s' also not found.", base_dir)
              return []
 
 
@@ -60,17 +82,17 @@ def main():
     project_root = os.path.dirname(current_dir) # Assumes script is in 'scripts/' directory
     abs_output_dir = os.path.join(project_root, output_dir)
 
-    print(f"Starting character processing...")
-    print(f"Character HTML base directory: {base_character_dir}")
-    print(f"Output JSON directory: {abs_output_dir}")
+    logger.info("Starting character processing...")
+    logger.info("Character HTML base directory: %s", base_character_dir)
+    logger.info("Output JSON directory: %s", abs_output_dir)
 
     character_html_files = get_character_html_files(base_character_dir)
 
     if not character_html_files:
-        print("No character HTML files found. Exiting.")
+        logger.info("No character HTML files found. Exiting.")
         return
 
-    print(f"Found {len(character_html_files)} character HTML files to process.")
+    logger.info("Found %d character HTML files to process.", len(character_html_files))
 
     enriched_characters_data = []
     coord_counter = 0
@@ -78,7 +100,7 @@ def main():
 
     for file_path in character_html_files:
         relative_file_path = file_path.replace(os.path.join(project_root, "").replace("\\", "/"), "")
-        print(f"\nProcessing: {relative_file_path}...")
+        logger.info("\nProcessing: %s...", relative_file_path)
 
         char_data = parse_character_html(file_path)
 
@@ -108,20 +130,28 @@ def main():
             char_data['web_path'] = f"/{web_accessible_path}" # Prepend / for absolute path from site root
 
             enriched_characters_data.append(char_data)
-            print(f"Successfully processed and enriched: {char_data.get('name')} (Category: {char_data.get('category', 'N/A')})")
-            print(f"  Whisper: {char_data['whisper'][:50]}...")
-            print(f"  Coordinates: {char_data['coordinates']}")
-            print(f"  Web Path: {char_data['web_path']}")
+            logger.info(
+                "Successfully processed and enriched: %s (Category: %s)",
+                char_data.get('name'),
+                char_data.get('category', 'N/A'),
+            )
+            logger.info("  Whisper: %s...", char_data['whisper'][:50])
+            logger.info("  Coordinates: %s", char_data['coordinates'])
+            logger.info("  Web Path: %s", char_data['web_path'])
 
         elif char_data: # Parsed but no name, still log category if available
-            processing_errors +=1
-            print(f"Processed file (no name found, skipped): {relative_file_path} (Category: {char_data.get('category', 'N/A')})")
+            processing_errors += 1
+            logger.info(
+                "Processed file (no name found, skipped): %s (Category: %s)",
+                relative_file_path,
+                char_data.get('category', 'N/A'),
+            )
         else: # char_data is None
-            processing_errors +=1
-            print(f"Failed to parse (returned None): {relative_file_path}")
+            processing_errors += 1
+            logger.error("Failed to parse (returned None): %s", relative_file_path)
 
     if not enriched_characters_data:
-        print("\nNo characters were successfully processed. Output JSON will be empty or not created.")
+        logger.info("\nNo characters were successfully processed. Output JSON will be empty or not created.")
         return
 
     # Ensure output directory exists
@@ -131,12 +161,12 @@ def main():
     try:
         with open(output_json_path, 'w', encoding='utf-8') as f:
             json.dump(enriched_characters_data, f, indent=4, ensure_ascii=False)
-        print(f"\nSuccessfully wrote enriched character data to: {output_json_path}")
-        print(f"Total characters processed: {len(enriched_characters_data)}")
-        print(f"Processing errors (skipped files): {processing_errors}")
+        logger.info("\nSuccessfully wrote enriched character data to: %s", output_json_path)
+        logger.info("Total characters processed: %d", len(enriched_characters_data))
+        logger.info("Processing errors (skipped files): %d", processing_errors)
     except Exception as e:
-        print(f"\nError writing JSON file: {e}")
+        logger.error("\nError writing JSON file: %s", e)
 
 if __name__ == '__main__':
     main()
-    print("\n--- Character processing script finished ---")
+    logger.info("\n--- Character processing script finished ---")

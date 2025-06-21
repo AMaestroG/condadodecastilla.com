@@ -2,6 +2,21 @@ from link_discoverer import LinkDiscoverer
 from graph_db_interface import GraphDBInterface
 import uuid
 from datetime import datetime
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 """Demonstration of LinkDiscoverer usage."""
 
 if __name__ == "__main__":
@@ -74,32 +89,32 @@ if __name__ == "__main__":
     discoverer = LinkDiscoverer(db)
 
     # 3. Call find_uncrawled_links()
-    print("\n--- Finding Uncrawled Links ---")
+    logger.info("\n--- Finding Uncrawled Links ---")
     uncrawled = discoverer.find_uncrawled_links(limit=5)
-    print("\nUncrawled URLs found:")
+    logger.info("\nUncrawled URLs found:")
     if uncrawled:
         for url in uncrawled:
-            print(f"  - {url}")
+            logger.info("  - %s", url)
     else:
-        print("  No uncrawled URLs found (up to limit).")
+        logger.info("  No uncrawled URLs found (up to limit).")
 
     # Expected: no_content_res_url, placeholder_content_res_url, non_existent_url1, non_existent_url2
 
     # 4. Call suggest_search_queries_from_topics()
-    print("\n--- Suggesting Search Queries ---")
+    logger.info("\n--- Suggesting Search Queries ---")
     queries = discoverer.suggest_search_queries_from_topics(top_n_resources=3)
-    print("\nSuggested Search Queries:")
+    logger.info("\nSuggested Search Queries:")
     if queries:
         for q in queries:
-            print(f"  - \"{q}\"")
+            logger.info("  - \"%s\"", q)
     else:
-        print("  No queries suggested.")
+        logger.info("  No queries suggested.")
 
     # Expected queries based on titles of "Crawled Page Title", "No Content Page Title", "Placeholder Content Page Title"
 
-    print("\n--- Verifying DB state (placeholders for non-existent links are created by GraphDBInterface.add_link) ---")
+    logger.info("\n--- Verifying DB state (placeholders for non-existent links are created by GraphDBInterface.add_link) ---")
     all_db_resources = db.get_all_resources()
-    print(f"Total resources in DB: {len(all_db_resources)}")
+    logger.info("Total resources in DB: %d", len(all_db_resources))
     # for res in all_db_resources:
     #     print(f"  URL: {res['url']}, Content: '{res.get('content', '')[:30]}...'")
     assert db.resource_exists(non_existent_url1) # Should have been created as placeholder by add_link
@@ -108,4 +123,4 @@ if __name__ == "__main__":
     res_ne1 = db.get_resource(non_existent_url1)
     assert res_ne1 and res_ne1.get("content") == "N/A (placeholder)"
 
-    print("\nDemo complete.")
+    logger.info("\nDemo complete.")

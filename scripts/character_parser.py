@@ -1,5 +1,20 @@
 import os
 from bs4 import BeautifulSoup
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 def parse_character_html(file_path):
     """
@@ -46,7 +61,7 @@ def parse_character_html(file_path):
 
     except Exception as e:
         # This error would be very unusual for basic path operations
-        print(f"Error extracting category from path {file_path}: {e}")
+        logger.error("Error extracting category from path %s: %s", file_path, e)
         category_name = "Unknown"
 
     character_data = {
@@ -61,10 +76,10 @@ def parse_character_html(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             html_content = f.read()
     except FileNotFoundError:
-        print(f"Error: File not found at {file_path}")
+        logger.error("Error: File not found at %s", file_path)
         return None
     except Exception as e:
-        print(f"Error reading file {file_path}: {e}")
+        logger.error("Error reading file %s: %s", file_path, e)
         return None
 
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -200,26 +215,26 @@ if __name__ == '__main__':
     os.makedirs(os.path.dirname(dummy_html_path), exist_ok=True)
     with open(dummy_html_path, 'w', encoding='utf-8') as f:
         f.write(dummy_html_content)
-    print(f"Created dummy HTML file at: {dummy_html_path}")
+    logger.info("Created dummy HTML file at: %s", dummy_html_path)
 
-    print(f"\n--- Parsing {dummy_html_path} ---")
+    logger.info("\n--- Parsing %s ---", dummy_html_path)
     parsed_data = parse_character_html(dummy_html_path)
     if parsed_data:
-        print(f"Name: {parsed_data['name']}")
-        print(f"Bio Snippet: {parsed_data['bio_snippet']}")
-        print(f"Key Facts: {parsed_data['key_facts']}")
-        print(f"File Path: {parsed_data['file_path']}")
-        print(f"Category: {parsed_data['category']} (Expected: {dummy_category_name})")
+        logger.info("Name: %s", parsed_data['name'])
+        logger.info("Bio Snippet: %s", parsed_data['bio_snippet'])
+        logger.info("Key Facts: %s", parsed_data['key_facts'])
+        logger.info("File Path: %s", parsed_data['file_path'])
+        logger.info("Category: %s (Expected: %s)", parsed_data['category'], dummy_category_name)
     else:
-        print("No data parsed or file not suitable.")
+        logger.info("No data parsed or file not suitable.")
 
     # Test with a non-existent file
-    print(f"\n--- Parsing non_existent_file.html ---")
+    logger.info("\n--- Parsing non_existent_file.html ---")
     parsed_data_non_existent = parse_character_html("personajes/non_existent_file.html")
     if parsed_data_non_existent:
-        print("Parsed data from non-existent file (should not happen).")
+        logger.info("Parsed data from non-existent file (should not happen).")
     else:
-        print("Correctly handled non-existent file.")
+        logger.info("Correctly handled non-existent file.")
 
     # Test with a file that might be missing some elements (e.g. no Hitos)
     dummy_no_hitos_path = "personajes/dummy_no_hitos.html"
@@ -231,18 +246,21 @@ if __name__ == '__main__':
     os.makedirs(os.path.dirname(dummy_no_hitos_path), exist_ok=True)
     with open(dummy_no_hitos_path, 'w', encoding='utf-8') as f:
         f.write(dummy_no_hitos_content)
-    print(f"Created dummy HTML file (no hitos) at: {dummy_no_hitos_path}")
+    logger.info("Created dummy HTML file (no hitos) at: %s", dummy_no_hitos_path)
 
-    print(f"\n--- Parsing {dummy_no_hitos_path} ---")
+    logger.info("\n--- Parsing %s ---", dummy_no_hitos_path)
     parsed_data_no_hitos = parse_character_html(dummy_no_hitos_path)
     if parsed_data_no_hitos:
-        print(f"Name: {parsed_data_no_hitos['name']}")
-        print(f"Bio Snippet: {parsed_data_no_hitos['bio_snippet']}")
-        print(f"Key Facts: {parsed_data_no_hitos['key_facts']} (Expected: [])")
-        print(f"File Path: {parsed_data_no_hitos['file_path']}")
-        print(f"Category: {parsed_data_no_hitos['category']} (Expected: personajes or Unknown based on path)")
+        logger.info("Name: %s", parsed_data_no_hitos['name'])
+        logger.info("Bio Snippet: %s", parsed_data_no_hitos['bio_snippet'])
+        logger.info("Key Facts: %s (Expected: [])", parsed_data_no_hitos['key_facts'])
+        logger.info("File Path: %s", parsed_data_no_hitos['file_path'])
+        logger.info(
+            "Category: %s (Expected: personajes or Unknown based on path)",
+            parsed_data_no_hitos['category'],
+        )
     else:
-        print("No data parsed or file not suitable for no-hitos test.")
+        logger.info("No data parsed or file not suitable for no-hitos test.")
 
     # Test with a real file path if available (example, adjust if needed)
     # This path needs to exist in the repo structure when the script is run.
@@ -258,4 +276,4 @@ if __name__ == '__main__':
     # else:
     #     print(f"\nSkipping test for real file {real_file_path} as it does not exist at this location.")
 
-    print("\n--- Parser script finished ---")
+    logger.info("\n--- Parser script finished ---")

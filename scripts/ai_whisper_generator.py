@@ -1,5 +1,20 @@
 import random
 import re
+import logging
+
+
+def configure_logger() -> logging.Logger:
+    """Return a logger configured once for this module."""
+    logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    return logger
+
+
+logger = configure_logger()
 
 # Keywords that might be found in bios, and associated descriptive terms
 BIO_KEYWORDS_MAP = {
@@ -162,21 +177,21 @@ if __name__ == '__main__':
         'file_path': 'path/to/formerio.html'
     }
 
-    print("--- Generating Whispers ---")
+    logger.info("--- Generating Whispers ---")
     for i in range(3): # Generate a few for each to see variety
-        print(f"\nWhisper for {sample_data_1['name']} ({i+1}):")
-        print(generate_whisper(sample_data_1))
+        logger.info("\nWhisper for %s (%d):", sample_data_1['name'], i + 1)
+        logger.info(generate_whisper(sample_data_1))
 
     for i in range(3):
-        print(f"\nWhisper for {sample_data_2['name']} ({i+1}):")
-        print(generate_whisper(sample_data_2))
+        logger.info("\nWhisper for %s (%d):", sample_data_2['name'], i + 1)
+        logger.info(generate_whisper(sample_data_2))
 
     for i in range(3):
-        print(f"\nWhisper for {sample_data_3['name']} ({i+1}):")
-        print(generate_whisper(sample_data_3))
+        logger.info("\nWhisper for %s (%d):", sample_data_3['name'], i + 1)
+        logger.info(generate_whisper(sample_data_3))
 
     for i in range(3):
-        print(f"\nWhisper for {sample_data_4['name']} ({i+1}):")
-        print(generate_whisper(sample_data_4))
+        logger.info("\nWhisper for %s (%d):", sample_data_4['name'], i + 1)
+        logger.info(generate_whisper(sample_data_4))
 
-    print("\n--- Whisper generation test finished ---")
+    logger.info("\n--- Whisper generation test finished ---")
