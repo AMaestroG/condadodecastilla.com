@@ -198,31 +198,22 @@ Asegúrate primero de tener instalado **PHP CLI** y **Composer**. En sistemas ba
 sudo apt-get install php-cli composer
 ```
 
-Una vez clonado el repositorio instala todas las dependencias de PHP y descarga las
-bibliotecas de JavaScript necesarias ejecutando:
+Una vez clonado el repositorio instala todas las dependencias de PHP, Python y Node ejecutando:
 
 ```bash
 composer install --ignore-platform-req=ext-dom --ignore-platform-req=ext-xmlwriter --ignore-platform-req=ext-xml
 pip install -r requirements.txt
+npm install
 ./scripts/setup_frontend_libs.sh
 ```
 
 `composer install` descargará todas las librerías de PHP necesarias, incluido **PHPUnit**, que quedará disponible en `vendor/bin/phpunit`.
-pip install -r requirements.txt
 
 Este proyecto utiliza la librería **league/commonmark** para transformar a HTML los archivos Markdown del blog. La dependencia se instala automáticamente con el comando anterior.
 
-El script descarga las bibliotecas **jQuery**, **Bootstrap** y **Tailwind CSS 4.1.10**
-en `assets/vendor`. **Cuando aparezcan nuevas versiones estables** de estas
-dos primeras librerías, actualiza las variables `JQUERY_VERSION` y
-`BOOTSTRAP_VERSION` en `scripts/setup_frontend_libs.sh` antes de volver a
-ejecutar el script. Tras la descarga se genera la hoja
-`assets/vendor/css/tailwind.min.css`.
+El script copia **Bootstrap** y **jQuery** desde `node_modules` a `assets/vendor` y, tras `npm run build`, se genera `assets/vendor/css/tailwind.min.css` mediante Vite.
 
-Ejecuta `npm run build` al instalar el proyecto y cada vez que modifiques
-`tailwind.config.js` o `assets/css/tailwind_base.css`. El script compila
-automáticamente Tailwind y los estilos SCSS para que los cambios se reflejen en
-las hojas finales.
+Ejecuta `npm run build` al instalar el proyecto y cada vez que modifiques `tailwind.config.js` o `assets/css/tailwind_base.css`. El comando usa Vite para compilar Tailwind y los estilos SCSS, dejando los resultados listos en la carpeta `assets/vendor`.
 
 ### Dependencias de npm
 

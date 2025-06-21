@@ -1,11 +1,14 @@
 {
   "dependencies": {
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "bootstrap": "^5.3.7",
+    "jquery": "^3.7.1"
   },
   "devDependencies": {
     "puppeteer": "^24.10.2",
     "svgo": "^3.3.2",
     "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5",
     "@playwright/test": "^1.42.1"
   },
   "scripts": {
@@ -14,6 +17,6 @@
     "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/muteToggleTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js && node tests/moonToggleTest.js && node tests/linternaGradientTest.js && node tests/menuKeyboardNavigationTest.js",
     "test:playwright": "playwright test tests/phpRoutes.spec.js",
     "test": "npm run start:php && npm run test:puppeteer && npm run test:playwright; npm run stop:php",
-    "build": "npx tailwindcss -i assets/css/tailwind_base.css -o assets/vendor/css/tailwind.min.css --minify && npx sass assets/scss/custom.scss assets/css/custom.css --no-source-map"
+    "build": "vite build && npx sass assets/scss/custom.scss assets/css/custom.css --no-source-map"
   }
 }
