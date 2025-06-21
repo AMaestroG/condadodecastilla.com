@@ -1,0 +1,28 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Condado de Castilla</title>
+    <link rel="stylesheet" href="../../styles/theme.css">
+  </head>
+  <body>
+    <Header navMainLabel="Navegaci\u00F3n Principal" adminLabel="Admin" socialLabel="Social">
+      <ul slot="main-menu">
+        <li><a href="#">Inicio</a></li>
+      </ul>
+      <div slot="admin-menu"></div>
+      <div slot="social-menu"></div>
+      <div slot="ai-panel">
+        <p>AI Chat coming soon...</p>
+      </div>
+      <div slot="language-flags"></div>
+    </Header>
+    <main class="container-epic">
+      <h1>Bienvenido a Condado de Castilla</h1>
+    </main>
+    <Footer />
+  </body>
+</html>
