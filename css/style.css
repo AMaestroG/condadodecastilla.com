@@ -1,0 +1,453 @@
+/* Reset básico y configuración general */
+:root {
+    --primary-bg: #2c3e50; /* Azul oscuro/grisáceo */
+    --primary-text: #ecf0f1; /* Blanco grisáceo */
+    --secondary-bg: #34495e; /* Azul más oscuro para hover/submenús */
+    --accent-color: #e74c3c; /* Rojo/Naranja para acentos */
+    --light-bg: #f8f9fa; /* Fondo claro para la página */
+    --dark-text: #343a40; /* Texto oscuro para contenido */
+    --border-radius: 4px;
+    --transition-speed: 0.3s;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    font-size: 16px;
+}
+
+.content {
+    padding: 30px 20px;
+    text-align: center;
+    min-height: calc(100vh - 80px); /* Asumiendo altura del header */
+}
+
+/* Estilos del Header y Navegación Principal */
+.main-header {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    padding: 0 20px; /* Padding vertical controlado por altura de elementos internos */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70px; /* Altura fija para el header */
+}
+
+.nav-logo {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.nav-logo:hover {
+    color: var(--accent-color);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    height: 100%;
+}
+
+.nav-menu-item {
+    position: relative; /* Para los submenús */
+    display: flex; /* Para alinear el link verticalmente */
+    align-items: center;
+}
+
+.nav-menu-link {
+    color: var(--primary-text);
+    text-decoration: none;
+    padding: 0 20px; /* Padding horizontal, vertical se ajusta por altura del item */
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 1em;
+    position: relative;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+.nav-menu-link::after { /* Subrayado animado para hover/focus */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-menu-link:hover,
+.nav-menu-link:focus,
+.nav-menu-item.is-active-link > .nav-menu-link { /* Para indicar página activa */
+    background-color: var(--secondary-bg);
+    color: #fff; /* Un blanco más brillante para contraste */
+}
+.nav-menu-link:hover::after,
+.nav-menu-link:focus::after,
+.nav-menu-item.is-active-link > .nav-menu-link::after {
+    width: 100%;
+}
+
+
+/* Botón de Hamburguesa */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--primary-text);
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Encima del menú en móvil */
+    width: 44px; /* Buen tamaño para tap target */
+    height: 44px;
+    position: relative;
+}
+
+.nav-toggle .hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-text);
+    border-radius: 3px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+.nav-toggle .hamburger-line:nth-child(1) { top: 10px; }
+.nav-toggle .hamburger-line:nth-child(2) { top: 19px; } /* Centro */
+.nav-toggle .hamburger-line:nth-child(3) { top: 28px; }
+
+
+/* Submenús (Desktop) */
+.nav-submenu,
+.nav-submenu-nested {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--secondary-bg);
+    min-width: 220px;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity var(--transition-speed) ease,
+                visibility var(--transition-speed) ease,
+                transform var(--transition-speed) ease;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 5px 0; /* Espacio interno */
+}
+
+.nav-submenu-nested {
+    top: -5px; /* Alineado con el padding del padre */
+    left: 100%;
+    border-radius: var(--border-radius); /* Todas las esquinas redondeadas */
+}
+
+.nav-menu-item.has-submenu:hover > .nav-submenu,
+.nav-menu-item.has-submenu:focus-within > .nav-submenu,
+.nav-submenu-item.has-submenu:hover > .nav-submenu-nested,
+.nav-submenu-item.has-submenu:focus-within > .nav-submenu-nested {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-submenu-link {
+    color: var(--primary-text);
+    text-decoration: none;
+    padding: 12px 20px;
+    display: block;
+    font-size: 0.95em;
+    transition: background-color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+}
+
+.nav-submenu-link:hover,
+.nav-submenu-link:focus {
+    background-color: var(--primary-bg); /* Más oscuro que el fondo del submenú */
+    padding-left: 25px; /* Ligero indentado al hacer hover */
+}
+
+.submenu-toggle {
+    display: none; /* Oculto en desktop por defecto */
+}
+
+
+/* Panel Deslizante */
+.sliding-panel {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Inicia fuera de la pantalla, usando porcentaje para transición suave */
+    width: 320px; /* Un poco más ancho */
+    max-width: 90%; /* Para pantallas muy pequeñas */
+    height: 100vh;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    padding: 25px;
+    box-shadow: -3px 0 15px rgba(0,0,0,0.25);
+    transition: right var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Custom easing */
+    z-index: 1002;
+    overflow-y: auto;
+}
+
+.sliding-panel.is-open {
+    right: 0;
+}
+
+.sliding-panel-close {
+    background: none;
+    border: none;
+    color: var(--primary-text);
+    font-size: 2em; /* Más grande */
+    line-height: 1; /* Para alinear bien la X */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+.sliding-panel-close:hover,
+.sliding-panel-close:focus {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+.sliding-panel h2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--secondary-bg);
+    padding-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.sliding-panel ul {
+    list-style: none;
+}
+
+.sliding-panel ul li a {
+    color: var(--primary-text);
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+    transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+    border-bottom: 1px solid var(--secondary-bg);
+}
+.sliding-panel ul li:last-child a {
+    border-bottom: none;
+}
+
+.sliding-panel ul li a:hover,
+.sliding-panel ul li a:focus {
+    color: var(--accent-color);
+    padding-left: 10px;
+}
+
+
+/* Estilos para Móvil y Tablet (ej. breakpoint a 768px) */
+@media (max-width: 768px) {
+    .main-nav {
+        height: 60px; /* Un poco menos de altura en móvil */
+    }
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: fixed; /* Para cubrir toda la pantalla */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Ocupa toda la altura */
+        background-color: var(--primary-bg);
+        padding-top: 70px; /* Espacio para el header que queda arriba */
+        overflow-y: auto; /* Si el menú es muy largo */
+        transform: translateX(-100%); /* Inicia fuera de la pantalla */
+        transition: transform var(--transition-speed) ease-in-out;
+        box-shadow: none;
+    }
+
+    .nav-menu.is-active {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    .nav-menu-item {
+        width: 100%;
+        border-top: 1px solid var(--secondary-bg);
+        display: flex; /* Para .has-submenu */
+        flex-wrap: wrap; /* Para que el submenú vaya debajo */
+        align-items: center; /* Centrar link y botón */
+    }
+    .nav-menu-item:first-child {
+        border-top: none;
+    }
+
+    .nav-menu-link {
+        padding: 18px 25px;
+        height: auto; /* Altura automática */
+        width: 100%; /* Ocupar todo el ancho posible */
+    }
+    .nav-menu-item.has-submenu > .nav-menu-link {
+         width: calc(100% - 50px); /* Espacio para el toggle */
+    }
+    .nav-menu-link::after { /* Desactivar subrayado en móvil */
+        display: none;
+    }
+    .nav-menu-link:hover,
+    .nav-menu-link:focus {
+        background-color: var(--secondary-bg); /* Mantener hover sutil */
+    }
+
+
+    .nav-toggle {
+        display: flex; /* Usar flex para centrar las líneas si es necesario */
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Submenús en móvil */
+    .nav-submenu,
+    .nav-submenu-nested {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: rgba(0,0,0,0.1); /* Ligeramente diferente para anidación */
+        min-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        display: none;
+        padding-left: 0; /* Sin padding global, se controla en el link */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                    padding-top var(--transition-speed) ease,
+                    padding-bottom var(--transition-speed) ease;
+    }
+
+    .nav-submenu.is-open,
+    .nav-submenu-nested.is-open {
+        display: block; /* Necesario para que max-height funcione */
+        max-height: 500px; /* Un valor suficientemente grande, o calcular con JS */
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .nav-submenu-link {
+        padding: 12px 25px 12px 40px; /* Mayor indentación */
+        font-size: 0.9em;
+    }
+    .nav-submenu-nested .nav-submenu-link {
+        padding-left: 55px; /* Aún más indentación */
+    }
+
+
+    .nav-menu-item.has-submenu:hover > .nav-submenu,
+    .nav-submenu-item.has-submenu:hover > .nav-submenu-nested {
+        display: none; /* Desactivar hover en móvil para submenús */
+    }
+    /* No necesitamos .is-active-submenu si .is-open en el submenú ya lo controla */
+
+    .submenu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        color: var(--primary-text);
+        cursor: pointer;
+        padding: 0;
+        width: 50px; /* Ancho fijo para el área del toggle */
+        height: 56px; /* Alineado con altura del .nav-menu-link + padding */
+        position: absolute;
+        right: 0;
+        top: 0;
+        /* transform: translateY(-50%); No necesario con flex en el padre */
+    }
+    .submenu-toggle::after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid var(--primary-text);
+        border-bottom: 2px solid var(--primary-text);
+        transform: rotate(45deg); /* Flecha hacia abajo */
+        transition: transform var(--transition-speed) ease;
+    }
+    .submenu-toggle.is-open::after {
+        transform: rotate(-135deg); /* Flecha hacia arriba */
+    }
+
+    .nav-menu-item.has-submenu > .nav-submenu {
+        width: 100%;
+    }
+
+    /* Ajuste para el panel deslizante en móvil si se superpone con el menú abierto */
+    /* No es necesario si el menú principal es pantalla completa y el panel se abre desde un ítem */
+}
+
+/* Mejoras de accesibilidad */
+.nav-menu-link:focus,
+.nav-submenu-link:focus,
+.nav-toggle:focus,
+.submenu-toggle:focus,
+.sliding-panel-close:focus,
+.sliding-panel a:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--secondary-bg), 0 0 0 4px var(--accent-color); /* Efecto de doble borde */
+}
+/* Quitar el subrayado animado del link principal cuando el submenú está abierto por teclado */
+.nav-menu-item.has-submenu:focus-within > .nav-menu-link::after {
+    width: 0;
+}
+
+
+/* Ocultar visualmente pero mantener accesible para screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Animación para el botón hamburguesa */
+.nav-toggle.is-active .hamburger-line:nth-child(1) {
+    transform: translateX(-50%) translateY(9px) rotate(45deg);
+}
+.nav-toggle.is-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-100%); /* Moverla fuera para que no interfiera */
+}
+.nav-toggle.is-active .hamburger-line:nth-child(3) {
+    transform: translateX(-50%) translateY(-9px) rotate(-45deg);
+}
+
+```
