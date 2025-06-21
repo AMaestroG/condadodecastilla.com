@@ -66,6 +66,11 @@ diagonal que combina el morado principal (`--epic-purple-emperor`) y el
 oro viejo (`--epic-gold-main`) y aprovecha `background-clip: text` para
 dejar a la vista los colores de la paleta.
 
+Para dispositivos móviles existe una hoja específica,
+`mobile_contrast.css`, que desactiva estos degradados y define
+colores sólidos de alto contraste. Así se garantiza que los encabezados
+se lean con claridad incluso en pantallas pequeñas.
+
 ```html
 <h1 class="gradient-text">Descubre Cerezo</h1>
 ```
