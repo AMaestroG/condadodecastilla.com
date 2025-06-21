@@ -64,3 +64,18 @@ all_links = db.get_all_links()
 ```
 
 Esta herramienta sirve de apoyo para organizar la información relacionada con Cerezo de Río Tirón y facilitar su análisis dentro del proyecto de promoción turística y gestión patrimonial.
+
+## Actualización del grafo
+El script `scripts/update_graph.py` automatiza el proceso de rastrear páginas y actualizar `knowledge_graph_db.json`. Utiliza `crawler.py` para obtener los enlaces y `GraphDBInterface` para almacenarlos. Al finalizar ejecuta `ConsistencyAnalyzer.analyze_graph_consistency()` para detectar problemas.
+
+### Ejecución
+
+```bash
+python scripts/update_graph.py http://example.com
+```
+
+Se puede pasar una lista de URL para rastrear varias páginas seguidas.
+
+### Automatización
+
+Para mantener la base al día se recomienda programar este script de forma periódica (por ejemplo cada noche) mediante `cron` o una GitHub Action que lo ejecute en el repositorio.
