@@ -15,6 +15,7 @@
     </header>
 
     <main>
+        <div id="toc" class="container-epic my-8"></div>
         <section class="section timeline-section alternate-bg">
             <div class="container-epic">
                 <h2 class="section-title gradient-text">Un Viaje Milenario</h2>
@@ -139,6 +140,8 @@
     </main>
 
     <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
+    <script src="/assets/js/toc-generator.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', () => generateTOC());</script>
     
 </body>
 </html>

@@ -122,3 +122,10 @@ Cuando un botón está expandido (`aria-expanded="true"`) o un panel visible
     border: 2px solid var(--epic-gold-main);
 }
 ```
+
+## Desplazamiento Suave
+
+Todas las páginas emplean la regla `scroll-behavior: smooth;` definida en
+`assets/css/epic_theme.css`. Basta con incluir una lista de enlaces internos,
+como el índice generado por `toc-generator.js`, para que los saltos entre
+secciones realicen una animación de desplazamiento fluida.

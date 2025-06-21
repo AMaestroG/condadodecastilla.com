@@ -18,6 +18,7 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `js/museo-2d-gallery.js` | Logic for the collaborative museum 2D gallery including uploads and modals. |
 | `js/museo-3d-main.js` | Initializes the 3D museum viewer built on Three.js. |
 | `js/museum-3d/` | Additional modules used by the 3D viewer. |
+| `assets/js/toc-generator.js` | Builds a table of contents from headings inside `<main>` and injects a list of links styled with Tailwind. |
 
 Deprecated or merged scripts such as `js/menu-controller.js` and `js/sliding-menu.js` have been removed in favour of `assets/js/main.js`. The old header loading helper was also dropped as noted in the project README.
 
