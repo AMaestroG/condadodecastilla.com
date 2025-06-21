@@ -129,15 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.dispatchEvent(new CustomEvent('menu-toggled', { detail: { open: anyOpen } }));
     };
 
-    // Use event delegation so dynamically injected buttons still work
-    document.addEventListener('click', (e) => {
+    const handleMenuToggleEvent = (e) => {
         const btn = e.target.closest('[data-menu-target]');
         if (btn) {
             e.preventDefault();
             if (btn.id === 'consolidated-menu-button' && window.innerWidth <= 768) {
                 toggleMobileSidebar(btn);
             } else {
-                // If #consolidated-menu-items is the target on desktop, ensure sidebar is closed
                 if (btn.id === 'consolidated-menu-button' && btn.getAttribute('data-menu-target') === 'consolidated-menu-items') {
                     const sidebar = document.getElementById(sidebarMenuId);
                     if (sidebar && sidebar.classList.contains('sidebar-visible')) {
@@ -147,7 +145,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleMenu(btn);
             }
         }
+    };
+
+    // Use event delegation so dynamically injected buttons work on click/touch
+    document.addEventListener('click', handleMenuToggleEvent);
+    document.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'touch') {
+            handleMenuToggleEvent(e);
+        }
     });
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('.menu-panel a');
+        if (link) {
+            const panel = link.closest('.menu-panel');
+            const btn = document.querySelector(`[data-menu-target="${panel.id}"]`);
+            if (panel && btn) {
+                closeMenu(panel, btn);
+            }
+        }
+        const sidebarLink = e.target.closest('#sidebar a');
+        if (sidebarLink) {
+            const sidebar = document.getElementById(sidebarMenuId);
+            const btn = document.getElementById('consolidated-menu-button');
+            if (sidebar && btn) {
+                closeMobileSidebar(sidebar, btn);
+            }
+        }
+    }, true);
 
     document.addEventListener('click', (e) => {
         // Close panel menus if click is outside
