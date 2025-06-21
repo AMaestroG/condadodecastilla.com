@@ -43,6 +43,30 @@ docker-compose up --build
 Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles (`frontend`, `backend` y `db`).
 El frontend se sirve en `http://localhost:4321`, la API de Flask en `http://localhost:5000` y la base de datos PostgreSQL en `localhost:5432`.
 
+## Ejecuci\u00f3n manual
+
+Si no deseas usar Docker Compose puedes arrancar cada servicio por separado:
+
+1. **API de Flask**:
+   ```bash
+   pip install -r requirements.txt
+   python flask_app.py
+   ```
+2. **Frontend** (Vite):
+   ```bash
+   cd frontend
+   pnpm install
+   pnpm run dev --host 0.0.0.0
+   ```
+3. **PostgreSQL**:
+   ```bash
+   docker run --name condado_db -p 5432:5432 \
+      -e POSTGRES_DB=condado_castilla_db \
+      -e POSTGRES_USER=condado_user \
+      -e POSTGRES_PASSWORD=condado_password \
+      postgres:16
+   ```
+
 ## Museo en Astro
 
 Se añadió una página experimental en `frontend/astro-app` que usa **Astro** y **TailwindCSS** para mostrar las piezas del museo definidas en `museo/piezas.json`.
