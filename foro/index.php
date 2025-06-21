@@ -61,8 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 </head>
 <body class="alabaster-bg">
 <?php require_once __DIR__ . '/../fragments/header.php'; ?>
-<button id="menu-btn" class="menu-btn" data-menu-target="agents-menu">☰ Expertos</button>
-<div id="agents-menu" class="menu-panel left-panel">
+<button id="menu-btn" class="menu-btn" data-menu-target="agents-menu" aria-label="Abrir menú de expertos" aria-haspopup="true" aria-expanded="false" role="button" aria-controls="agents-menu">☰ Expertos</button>
+<div id="agents-menu" class="menu-panel left-panel" role="navigation" aria-labelledby="menu-btn" tabindex="-1" aria-hidden="true">
 <?php foreach ($agents as $id => $ag): ?>
     <a href="#<?php echo $id; ?>" class="gradient-text menu-agent-link">
         <img src="<?php echo htmlspecialchars($ag['avatar']); ?>" alt="avatar" class="avatar-mini">
