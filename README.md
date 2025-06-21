@@ -13,6 +13,7 @@ su patrimonio arqueológico y cultural.
 - [Guía de index.php y menús](docs/index-guide.md)
 - [Estructura del menú](docs/menu-structure.md)
 - [Guía Fullstack 2025](docs/fullstack-tools-2025.md)
+- [Estructura del frontend](docs/frontend-structure.md)
 
 ## Respuestas generadas por IA
 Este repositorio puede mostrar textos generados automáticamente. Estos contenidos son experimentales y pueden contener errores. Para más información, consulta la [política de uso responsable](docs/responsible-ai.md).
