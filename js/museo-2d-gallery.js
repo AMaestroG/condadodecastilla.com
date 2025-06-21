@@ -10,8 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
-    const modalCaption = document.getElementById('modalCaption');
-    const modalCloseButton = document.querySelector('.modal-close-button');
+const modalCaption = document.getElementById('modalCaption');
+const modalCloseButton = document.querySelector('.modal-close-button');
+let currentPieceIndex = -1;
+let currentPieces = [];
 
     const museum3DSection = document.getElementById('museo-3d-section');
     const show2DGalleryBtn = document.getElementById('show-2d-gallery-btn');
@@ -66,11 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const pieces = await response.json();
             localMuseumPieces = pieces;
-            renderGallery(localMuseumPieces);
+            currentPieces = pieces;
+            renderGallery(currentPieces);
         } catch (error) {
             console.error('Error fetching pieces from backend:', error);
             localMuseumPieces = loadSamplePieces(); // Fallback to sample data
-            renderGallery(localMuseumPieces);
+            currentPieces = localMuseumPieces;
+            renderGallery(currentPieces);
             if(noPiecesMessage) {
                 noPiecesMessage.textContent = 'Could not load pieces from server. Displaying examples.';
                 const br = document.createElement('br');
@@ -190,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Gallery grid or noPiecesMessage element not found for rendering.");
             return;
         }
+        currentPieces = piecesArray;
         museumGalleryGrid.innerHTML = '';
         if (!piecesArray || piecesArray.length === 0) {
             noPiecesMessage.style.display = 'block';
@@ -198,9 +203,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         noPiecesMessage.style.display = 'none';
 
-        piecesArray.forEach(pieza => {
+        piecesArray.forEach((pieza, index) => {
             const card = document.createElement('div');
             card.classList.add('card', 'museum-piece-card');
+            card.setAttribute('tabindex', '0');
+            card.dataset.index = index;
 
             const img = document.createElement('img');
             // The API now returns full imagenUrl, so no need to prepend API_BASE_URL here
@@ -218,7 +225,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.src='https://placehold.co/300x200/D2B48C/2c1d12?text=Image+not+available';
                 this.alt = `Error loading image for ${pieza.titulo}`;
             };
-            img.addEventListener('click', () => openModal(img.src, `${pieza.titulo} - by ${pieza.autor || 'Unknown'}`));
+            img.addEventListener('click', () => openModal(index));
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(index);
+                }
+            });
 
             const cardContent = document.createElement('div');
             cardContent.classList.add('card-content');
@@ -262,13 +275,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Modal Logic ---
-    function openModal(src, caption) {
-        if(modal && modalImage && modalCaption) {
+    function openModal(index) {
+        currentPieceIndex = index;
+        const pieza = currentPieces[index];
+        if(modal && modalImage && modalCaption && pieza) {
             modal.style.display = "block";
-            modalImage.src = src;
-            modalCaption.textContent = caption;
+            modalImage.src = pieza.imagenUrl;
+            modalCaption.textContent = `${pieza.titulo} - by ${pieza.autor || 'Unknown'}`;
+            modal.focus();
         }
     }
+
+    document.addEventListener('keydown', (e) => {
+        if(modal && modal.style.display === 'block') {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+            } else if (e.key === 'ArrowRight') {
+                if (currentPieceIndex < currentPieces.length - 1) openModal(currentPieceIndex + 1);
+            } else if (e.key === 'ArrowLeft') {
+                if (currentPieceIndex > 0) openModal(currentPieceIndex - 1);
+            }
+        }
+    });
 
     if (modalCloseButton) {
         modalCloseButton.onclick = function() {
