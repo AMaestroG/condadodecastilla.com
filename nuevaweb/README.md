@@ -13,6 +13,11 @@ Integra PHP para el sitio público y un API minimal en Flask.
 ## Uso rápido
 1. Instala las dependencias de PHP con `composer install` y las de Python con `pip install -r ../requirements.txt`.
 2. Sirve `index.php` con el servidor integrado de PHP:
+   - Instala las dependencias de Python y PHP si aún no lo has hecho:
+     ```bash
+     pip install -r ../requirements.txt
+     composer install
+     ```
    ```bash
    php -S localhost:8000
    ```
