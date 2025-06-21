@@ -8,3 +8,5 @@ El alabastro de la ciudad romana sirvió para erigir el Alcázar de Cerasio y di
 
 ## Conservación y turismo
 Los hallazgos arqueológicos forman parte del patrimonio de Cerezo de Río Tirón. Su estudio contribuye a entender la transición de la Antigüedad al medievo y a fomentar el turismo cultural. Las visitas guiadas permiten descubrir la relevancia de este asentamiento en el origen de Castilla.
+
+Para consultar el índice completo de la documentación, visita [nuevo4.md](../nuevo4.md).

@@ -11,3 +11,5 @@ Desde Cerezo se gobernó un extenso territorio durante la Alta Edad Media. Figur
 
 ## Legado cultural
 La proximidad de Valpuesta y San Millán de la Cogolla sitúa a la comarca en el origen del castellano. La tradición recuerda a Cerezo como centro de poder y lugar de paso del Camino de Santiago. Hoy su patrimonio histórico invita a descubrir cómo surgió Castilla en torno a estas tierras.
+
+Para consultar el índice completo de la documentación, visita [nuevo4.md](../nuevo4.md).
