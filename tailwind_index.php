@@ -72,21 +72,6 @@
         </section>
     </main>
 
-    <footer class="bg-imperial-purple text-old-gold text-center py-4 texture-alabaster">
-        <p class="font-headings">© 2024 Condado de Castilla</p>
-        <p class="font-body">Difundiendo el legado de Castilla y Cerezo de Río Tirón.</p>
-    </footer>
-
-    <script>
-        const toggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('mobile-menu');
-        if (toggle && menu) {
-            toggle.addEventListener('click', () => {
-                menu.classList.toggle('open');
-                document.body.classList.toggle('menu-compressed', menu.classList.contains('open'));
-                document.body.classList.toggle('menu-open-left', menu.classList.contains('open'));
-            });
-        }
-    </script>
+    <?php require_once '_footer.php'; ?>
 </body>
 </html>
