@@ -9,7 +9,9 @@
     "svgo": "^3.3.2",
     "tailwindcss": "^4.1.10",
     "vite": "^6.3.5",
-    "@playwright/test": "^1.42.1"
+    "@playwright/test": "^1.42.1",
+    "astro": "^5.10.0",
+    "@astrojs/tailwind": "^6.0.2"
   },
   "scripts": {
     "start:php": "sh -c 'php -S localhost:8080 >/dev/null 2>&1 & echo $! > .php_server.pid'",
@@ -17,6 +19,8 @@
     "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/muteToggleTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js && node tests/moonToggleTest.js && node tests/linternaGradientTest.js && node tests/menuKeyboardNavigationTest.js",
     "test:playwright": "playwright test tests/phpRoutes.spec.js",
     "test": "npm run start:php && npm run test:puppeteer && npm run test:playwright; npm run stop:php",
-    "build": "vite build && npx sass assets/scss/custom.scss assets/css/custom.css --no-source-map"
+    "build": "vite build && npx sass assets/scss/custom.scss assets/css/custom.css --no-source-map",
+    "dev:astro": "astro dev",
+    "build:astro": "astro build"
   }
 }

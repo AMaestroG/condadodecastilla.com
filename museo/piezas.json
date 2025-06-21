@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "imagen": "/assets/img/105296723_3444421175570910_9131546571639445898_n.jpg",
+    "titulo": "Vasija Romana",
+    "descripcion": "Una pieza de cerámica hallada en excavaciones locales.",
+    "enlace": "#"
+  },
+  {
+    "id": 2,
+    "imagen": "/assets/img/143348269_4069420249737663_313454645275625753_n.jpg",
+    "titulo": "Moneda Antígua",
+    "descripcion": "Ejemplo de moneda utilizada en el comercio medieval.",
+    "enlace": "#"
+  },
+  {
+    "id": 3,
+    "imagen": "/assets/img/30832168158_2671f1b853_c.jpg",
+    "titulo": "Herramienta Prehistórica",
+    "descripcion": "Instrumento utilizado por los primeros asentamientos.",
+    "enlace": "#"
+  }
+]
