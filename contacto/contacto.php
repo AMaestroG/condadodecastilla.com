@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 
     <header class="page-header hero bg-[url('/assets/img/hero_contacto_background.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img loading="lazy" src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <?php editableText('contacto_hero_titulo', $pdo, 'Ponte en Contacto', 'h1'); ?>
             <?php editableText('contacto_hero_subtitulo', $pdo, '¿Preguntas, sugerencias o deseas colaborar? Estamos aquí para escucharte.', 'p'); ?>
         </div>

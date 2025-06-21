@@ -26,9 +26,9 @@
 <h4>Alabastro y Otros Materiales</h4>
 <p>Cerezo es precioso pueblo alba, hecho con alabastro puro. Me da que los de cerezo no se han dado cuenta aun que viven en un pueblo de Alabastro puro. [...] La tumba de Santo Domingo esta echa con Alabastro de Cerezo. [...] La prueba es que es traslucido asi sabreis si es alabastro.</p>
 <p>Cuando veo en mi imaginación Auca Patricia revestido de alabastro del que quedan aún toneladas de ello en el Alcázar y las casas de Cerezo de Río Tirón, veo no el Alabastro que tenemos ahora meteorizado durante 2000 años, me imagino Alabastro bien pulido como el del museo del teatro de Zaragoza.</p>
-<p><img alt="Moneda del emperador Máximo" src="/imagenes/moneda_maximo_detalle.jpg" title="Moneda del emperador Máximo" /></p>
-<p><img alt="Moneda de Constantino" src="/imagenes/moneda_constantino_detalle.jpg" title="Moneda de Constantino" /></p>
-<p><img alt="Estela de Cerezo" src="/imagenes/estela_cerezo_detalle.jpg" title="Estela de Cerezo" /></p>
+<p><img loading="lazy" alt="Moneda del emperador Máximo" src="/imagenes/moneda_maximo_detalle.jpg" title="Moneda del emperador Máximo" /></p>
+<p><img loading="lazy" alt="Moneda de Constantino" src="/imagenes/moneda_constantino_detalle.jpg" title="Moneda de Constantino" /></p>
+<p><img loading="lazy" alt="Estela de Cerezo" src="/imagenes/estela_cerezo_detalle.jpg" title="Estela de Cerezo" /></p>
     </main>
 
     <?php require_once __DIR__ . '/../../fragments/footer.php'; ?>

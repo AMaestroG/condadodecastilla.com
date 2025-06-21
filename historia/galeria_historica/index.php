@@ -24,17 +24,17 @@ load_page_css();
                 <div class="gallery-container">
                     <!-- Example Gallery Item 1: Image -->
                     <div class="gallery-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
-                        <img src="/assets/img/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg" alt="Ejemplo de Imagen Histórica 1">
+                        <img loading="lazy" src="/assets/img/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg" alt="Ejemplo de Imagen Histórica 1">
                         <div class="gallery-item-description">
                             <h3>Atardecer en el Alcázar</h3>
                             <p>Una vista evocadora del Alcázar de Cerasio al atardecer. Esta fortaleza fue crucial en la defensa y consolidación temprana de Castilla.</p>
                         </div>
                     </div>
                      <div class="gallery-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
-                        <img src="/assets/img/Llana.jpg" alt="Iglesia de la Llana">
+                        <img loading="lazy" src="/assets/img/Llana.jpg" alt="Iglesia de la Llana">
                             <h3>Iglesia de la Llana</h3>
                             <p>Fotografía de la Iglesia de la Llana, un importante hito arquitectónico y espiritual en la región, con posibles orígenes en una mezquita.</p>
-                        <img src="/assets/img/Muralla.jpg" alt="Restos de Muralla">
+                        <img loading="lazy" src="/assets/img/Muralla.jpg" alt="Restos de Muralla">
                             <h3>Restos de Muralla</h3>
                             <p>Vestigios de las antiguas murallas que protegían asentamientos clave en el Condado de Castilla, testigos de un pasado defensivo.</p>
                 </div>

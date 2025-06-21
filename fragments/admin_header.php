@@ -10,7 +10,7 @@ if ($geminiNotice) {
 <img id="header-escudo-overlay" class="hero-escudo" src="/assets/img/escudo.jpg" alt="Escudo de Cerezo de Río Tirón">
 <div id="fixed-header-elements" style="height: var(--header-footer-height);">
     <div class="header-action-buttons">
-        <img src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
+        <img loading="lazy" src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
         <button id="admin-menu-button" data-menu-target="admin-menu-items" aria-label="Abrir menú administrador" aria-expanded="false" role="button" aria-controls="admin-menu-items">☰</button>
         <button id="homonexus-toggle" aria-label="Activar Homonexus" aria-pressed="false">👥</button>
     </div>

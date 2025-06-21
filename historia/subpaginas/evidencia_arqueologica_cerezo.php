@@ -40,9 +40,9 @@
                 <p>Cerezo es precioso pueblo alba, hecho con alabastro puro. Me da que los de cerezo no se han dado cuenta aun que viven en un pueblo de Alabastro puro. [...] La tumba de Santo Domingo esta echa con Alabastro de Cerezo. [...] La prueba es que es traslucido asi sabreis si es alabastro.</p>
                 <p>Cuando veo en mi imaginación Auca Patricia revestido de alabastro del que quedan aún toneladas de ello en el Alcázar y las casas de Cerezo de Río Tirón, veo no el Alabastro que tenemos ahora meteorizado durante 2000 años, me imagino Alabastro bien pulido como el del museo del teatro de Zaragoza.</p>
                 <div class="image-gallery">
-                    <img src="/imagenes/moneda_maximo_detalle.jpg" alt="Moneda del emperador Máximo">
-                    <img src="/imagenes/moneda_constantino_detalle.jpg" alt="Moneda de Constantino">
-                    <img src="/imagenes/estela_cerezo_detalle.jpg" alt="Estela de Cerezo">
+                    <img loading="lazy" src="/imagenes/moneda_maximo_detalle.jpg" alt="Moneda del emperador Máximo">
+                    <img loading="lazy" src="/imagenes/moneda_constantino_detalle.jpg" alt="Moneda de Constantino">
+                    <img loading="lazy" src="/imagenes/estela_cerezo_detalle.jpg" alt="Estela de Cerezo">
                 </div>
             </div>
         </section>

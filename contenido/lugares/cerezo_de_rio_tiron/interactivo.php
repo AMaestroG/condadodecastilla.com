@@ -32,8 +32,8 @@
 
 <h3>Explora el Legado Visual</h3>
 <p>Descubre más sobre la historia y el patrimonio de nuestra tierra a través de las aportaciones de la comunidad en nuestro Museo y Galería Colaborativa. Podrías encontrar piezas y fotografías directamente relacionadas con Cerezo.</p>
-<p><img alt="Ejemplo de pieza del museo colaborativo" src="/assets/img/museo_ceramica_ejemplo.jpg" title="Piezas del Museo" />
-<img alt="Ejemplo de foto de la galería colaborativa" src="/assets/img/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg" title="Fotos de la Galería" /></p>
+<p><img loading="lazy" alt="Ejemplo de pieza del museo colaborativo" src="/assets/img/museo_ceramica_ejemplo.jpg" title="Piezas del Museo" />
+<img loading="lazy" alt="Ejemplo de foto de la galería colaborativa" src="/assets/img/galeria_colaborativa/ejemplo_atardecer_alcazar.jpg" title="Fotos de la Galería" /></p>
 <div class="text-center" style="margin-top: 1em; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
     [Visitar Museo](/museo/museo.php){: .cta-button .cta-button-small}
     [Visitar Galería](/galeria/galeria_colaborativa.php){: .cta-button .cta-button-small}

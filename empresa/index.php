@@ -17,7 +17,7 @@ require_admin_login();
     <header class="page-header hero relative overflow-hidden">
         <img src="/assets/img/hero_contacto_background.jpg" alt="" class="hero-bg object-cover object-center sm:object-center md:object-top">
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img loading="lazy" src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1>Empresa de Gestión de Yacimientos</h1>
             <p>Descubre cómo administramos y conservamos el patrimonio arqueológico de la región.</p>
         </div>

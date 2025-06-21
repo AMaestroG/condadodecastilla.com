@@ -3,7 +3,7 @@
 <img id="header-subphoto" class="header-subphoto" src="/assets/img/hero_mis_tierras.jpg" alt="Paisaje de Cerezo de Río Tirón">
 <div id="fixed-header-elements" style="height: var(--header-footer-height);">
     <div class="header-action-buttons">
-        <img src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
+        <img loading="lazy" src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
         <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-haspopup="true" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
         <button id="flag-toggle" data-menu-target="language-panel" aria-label="Seleccionar idioma" aria-haspopup="true" aria-expanded="false" role="button" aria-controls="language-panel"><i class="fas fa-flag"></i></button>
         <button id="mute-toggle" aria-pressed="false" aria-label="Silenciar">🔊</button>

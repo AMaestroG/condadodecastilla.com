@@ -13,7 +13,7 @@ load_page_css();
 
     <header class="page-header hero bg-[url('/assets/img/hero_visitas_background.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img loading="lazy" src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1>Planifica Tu Viaje al Corazón de Castilla</h1>
             <p>Todo lo que necesitas saber para una experiencia inolvidable en Cerezo de Río Tirón.</p>
         </div>
@@ -75,7 +75,7 @@ load_page_css();
                         <li><strong>Ruta de los Monasterios (Coche):</strong> Combina la visita a Cerezo con los cercanos monasterios de San Millán de la Cogolla y Santo Domingo de Silos, cunas del castellano.</li>
                     </ul>
                      <div class="image-container-internal">
-                        <img src="/assets/img/placeholder.jpg" alt="Senderista disfrutando de una ruta histórica en los paisajes de Castilla">
+                        <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Senderista disfrutando de una ruta histórica en los paisajes de Castilla">
                         <p class="image-caption"><i class="fas fa-hiking"></i> Explora a tu ritmo los caminos de la historia.</p>
                     </div>
                 </article>

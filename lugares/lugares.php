@@ -14,7 +14,7 @@
 
     <header class="page-header hero bg-[url('/assets/img/hero_lugares_background.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img loading="lazy" src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
             <h1>Lugares Emblemáticos: Huellas de la Historia</h1>
             <p>Un recorrido por los vestigios que narran el pasado milenario de Cerezo de Río Tirón y el Condado de Castilla.</p>
         </div>
@@ -55,9 +55,9 @@
                         </p>
                     </div>
                     <div class="place-gallery">
-                        <img src="/assets/img/placeholder.jpg" alt="Detalle de las Setefenestras en el Alcázar de Cerezo">
-                        <img src="/assets/img/placeholder.jpg" alt="Vista general del Alcázar de Cerezo dominando el paisaje">
-                        <img src="/assets/img/placeholder.jpg" alt="Primer plano de las antiguas murallas de piedra del Alcázar">
+                        <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Detalle de las Setefenestras en el Alcázar de Cerezo">
+                        <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Vista general del Alcázar de Cerezo dominando el paisaje">
+                        <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Primer plano de las antiguas murallas de piedra del Alcázar">
                     </div>
                      <!-- <p class="link-to-page"><a href="/lugares/alcazar_casio.php" class="read-more">Más sobre el Alcázar de Casio</a></p> -->
                 </article>
@@ -78,8 +78,8 @@
                         </p>
                     </div>
                     <div class="place-gallery">
-                         <img src="/assets/img/placeholder.jpg" alt="Mosaico romano descubierto en el yacimiento de Auca Patricia">
-                        <img src="/assets/img/placeholder.jpg" alt="Ruinas excavadas de edificaciones en la Civitate Auca Patricia">
+                         <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Mosaico romano descubierto en el yacimiento de Auca Patricia">
+                        <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Ruinas excavadas de edificaciones en la Civitate Auca Patricia">
                     </div>
                 </article>
 
@@ -107,8 +107,8 @@
                         </p>
                     </div>
                      <div class="place-gallery">
-                         <img src="/assets/img/placeholder.jpg" alt="Paisaje del yacimiento prerromano de El Culebrón">
-                        <img src="/assets/img/placeholder.jpg" alt="Hallazgos arqueológicos del sitio de Charrera">
+                         <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Paisaje del yacimiento prerromano de El Culebrón">
+                        <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Hallazgos arqueológicos del sitio de Charrera">
                     </div>
                 </article>
                 
@@ -125,9 +125,9 @@
                         </p>
                     </div>
                      <div class="place-gallery">
-                         <img src="/assets/img/placeholder.jpg" alt="Ermita en ruinas en los alrededores de Cerezo">
-                        <img src="/assets/img/placeholder.jpg" alt="Antiguo puente medieval sobre el Río Tirón">
-                        <img src="/assets/img/placeholder.jpg" alt="Restos de una antigua muralla o construcción defensiva en Cerezo">
+                         <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Ermita en ruinas en los alrededores de Cerezo">
+                        <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Antiguo puente medieval sobre el Río Tirón">
+                        <img loading="lazy" src="/assets/img/placeholder.jpg" alt="Restos de una antigua muralla o construcción defensiva en Cerezo">
                     </div>
                 </article>
 

@@ -19,7 +19,7 @@ require_once __DIR__ . '/../includes/auth.php';
     <h1 class="section-title">Tienda</h1>
     <div class="card-grid">
         <div class="card">
-            <img src="/assets/img/AlfozCerasioLantaron.jpg" alt="Producto 1">
+            <img loading="lazy" src="/assets/img/AlfozCerasioLantaron.jpg" alt="Producto 1">
             <div class="card-content">
                 <h3>Producto 1</h3>
                 <p>Descripción breve del producto 1.</p>
@@ -27,7 +27,7 @@ require_once __DIR__ . '/../includes/auth.php';
             </div>
         </div>
         <div class="card">
-            <img src="/assets/img/escudo.jpg" alt="Producto 2">
+            <img loading="lazy" src="/assets/img/escudo.jpg" alt="Producto 2">
             <div class="card-content">
                 <h3>Producto 2</h3>
                 <p>Descripción breve del producto 2.</p>
@@ -35,7 +35,7 @@ require_once __DIR__ . '/../includes/auth.php';
             </div>
         </div>
         <div class="card">
-            <img src="/assets/img/Yanna.jpg" alt="Producto 3">
+            <img loading="lazy" src="/assets/img/Yanna.jpg" alt="Producto 3">
             <div class="card-content">
                 <h3>Producto 3</h3>
                 <p>Descripción breve del producto 3.</p>
