@@ -118,6 +118,11 @@ body.lang-bar-visible {
     box-sizing: border-box;
 }
 
+:focus-visible {
+    outline: 2px solid var(--epic-gold-main);
+    outline-offset: 2px;
+}
+
 html {
     font-size: 102.5%;
     scroll-behavior: smooth;
@@ -443,7 +448,8 @@ th {
     background-color: var(--epic-gold-main);
     border-color: var(--epic-gold-main);
     color: var(--epic-purple-emperor);
-    outline: none;
+    outline: 2px solid var(--epic-gold-main);
+    outline-offset: 2px;
 }
 
 /* --- Footer Styling (.footer from fragments/footer.php) --- */
@@ -709,7 +715,8 @@ body.dark-mode .footer .social-links a:focus-visible {
     border-color: var(--epic-gold-main);
     transform: translateY(-3px) scale(1.03);
     box-shadow: var(--global-box-shadow-dark), inset 0 -2px 3px rgba(var(--epic-text-color-rgb), 0.1);
-    outline: none;
+    outline: 2px solid var(--epic-gold-main);
+    outline-offset: 2px;
 }
 
 .cta-button:hover::after, .cta-button:focus-visible::after {
@@ -908,7 +915,8 @@ body.dark-mode .footer .social-links a:focus-visible {
     background-color: var(--epic-gold-secondary);
     color: var(--epic-alabaster-bg); /* Light text on gold bg */
     text-decoration: none;
-    outline: none;
+    outline: 2px solid var(--epic-gold-main);
+    outline-offset: 2px;
 }
 
 /* --- Estilos para Selector de Idioma (Demostración) --- */
@@ -1154,7 +1162,8 @@ body.dark-mode .footer .social-links a:focus-visible {
     transform: translateY(-6px) scale(1.08);
     box-shadow: 0 16px 40px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.5), inset 0 -2px 3px rgba(var(--color-negro-contraste-rgb, 10, 10, 10), 0.1);
     filter: brightness(1.2);
-    outline: none;
+    outline: 2px solid var(--epic-gold-main);
+    outline-offset: 2px;
     animation: borderDash 0.4s forwards;
 }
 
@@ -1388,9 +1397,10 @@ body.dark-mode .footer .social-links a:focus-visible {
 }
 .immersion-section .cta-button:hover, .immersion-section .cta-button:focus-visible {
     background-image: linear-gradient(to bottom, var(--color-alabastro, #fdfaf6), #e0dccc);
-    color: var(--epic-purple-emperor); 
-    border-color: var(--epic-purple-emperor); 
-    outline: none;
+    color: var(--epic-purple-emperor);
+    border-color: var(--epic-purple-emperor);
+    outline: 2px solid var(--epic-gold-main);
+    outline-offset: 2px;
 }
 
 /* --- Footer --- */
@@ -1783,10 +1793,11 @@ body.dark-mode .footer .social-links a:focus-visible {
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
-    border-color: var(--color-secundario-dorado, #B8860B); 
-    box-shadow: 0 0 0 3px rgba(var(--color-dorado-rgb, 184, 134, 11), 0.25); 
-    outline: none;
-    background-color: var(--color-fondo-pagina, #fdfaf6); 
+    border-color: var(--color-secundario-dorado, #B8860B);
+    box-shadow: 0 0 0 3px rgba(var(--color-dorado-rgb, 184, 134, 11), 0.25);
+    outline: 2px solid var(--epic-gold-main);
+    outline-offset: 2px;
+    background-color: var(--color-fondo-pagina, #fdfaf6);
 }
 
 .form-group textarea {
@@ -2456,7 +2467,8 @@ body.dark-mode .footer .social-links a:focus-visible {
     background-color: var(--epic-gold-secondary);
     color: var(--epic-alabaster-bg);
     text-decoration: none;
-    outline: none;
+    outline: 2px solid var(--epic-gold-main);
+    outline-offset: 2px;
 }
 
 /* ============================================= */
