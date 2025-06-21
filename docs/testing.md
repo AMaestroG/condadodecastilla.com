@@ -14,9 +14,9 @@ php -S localhost:8080
 ```bash
 vendor/bin/phpunit
 ```
-4. Ejecuta las pruebas de Python:
+4. Ejecuta las pruebas de Python (todas las del directorio `tests`):
 ```bash
-python -m unittest tests/test_flask_api.py tests/test_graph_db_interface.py
+python -m unittest discover -s tests -v
 ```
 5. Ejecuta las pruebas de interfaz con Puppeteer:
 ```bash
