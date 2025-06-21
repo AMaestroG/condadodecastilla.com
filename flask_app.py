@@ -1,9 +1,14 @@
 from flask import Flask, request, jsonify
+from flask_caching import Cache
 from graph_db_interface import GraphDBInterface
 import os
 import subprocess
 
 app = Flask(__name__)
+cache = Cache(app, config={
+    'CACHE_TYPE': 'SimpleCache',
+    'CACHE_DEFAULT_TIMEOUT': 60
+})
 
 db = GraphDBInterface()
 
@@ -14,9 +19,13 @@ def resource_collection():
         if not data.get('url'):
             return jsonify({'error': "'url' field is required"}), 400
         db.add_or_update_resource(data)
+        cache.delete('all_resources')
         return jsonify({'success': True}), 201
     else:  # GET
-        resources = db.get_all_resources()
+        resources = cache.get('all_resources')
+        if resources is None:
+            resources = db.get_all_resources()
+            cache.set('all_resources', resources)
         return jsonify(resources)
 
 

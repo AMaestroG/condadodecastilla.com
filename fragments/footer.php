@@ -42,3 +42,12 @@
 <script src="/assets/js/homonexus-toggle.js"></script>
 <script src="/js/layout.js"></script>
 <script src="/assets/js/help.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/service-worker.js').catch(function (e) {
+            console.error('SW registration failed', e);
+        });
+    });
+}
+</script>
