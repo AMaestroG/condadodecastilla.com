@@ -88,4 +88,5 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
    npm run test:puppeteer
    ```
 
-También se proporciona `scripts/run_tests.sh` para instalar `requirements.txt` y lanzar la suite de forma directa.
+También se proporciona `scripts/run_tests.sh` para instalar dependencias y
+ejecutar de manera secuencial las pruebas de PHP, Node y Python.
