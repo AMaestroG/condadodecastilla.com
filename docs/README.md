@@ -1,8 +1,20 @@
 # Documentación
 
 Este directorio reúne todas las guías del proyecto **Condado de Castilla**.
+
 La misión principal es _promocionar el turismo en Cerezo de Río Tirón y_
 _proteger su patrimonio arqueológico y cultural_.
+
+## Estructura principal
+
+- `assets/` – imágenes, estilos y scripts. Los módulos JavaScript se agrupan en
+  `assets/js` y se describen brevemente en
+  [js-modules-overview.md](js-modules-overview.md).
+- `includes/` – fragmentos PHP y utilidades comunes.
+- `museo/` – páginas del museo y fichas de piezas.
+- `foro/` – área gestionada por agentes expertos.
+- `backend/` – API en Flask e integración de IA.
+- `docs/` – documentación completa.
 
 ## Árbol de directorios
 
