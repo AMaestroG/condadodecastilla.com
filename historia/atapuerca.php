@@ -31,6 +31,7 @@ require_once __DIR__ . '/../includes/ai_utils.php';
         </div>
     </header>
     <main>
+        <div id="toc" class="container-epic my-8"></div>
         <section class="section alternate-bg">
             <div class="container-epic">
                 <h2 class="section-title"><?php editableText('atapuerca_titulo_seccion', $pdo, 'Un Tesoro de la Prehistoria'); ?></h2>
@@ -99,6 +100,8 @@ require_once __DIR__ . '/../includes/ai_utils.php';
         </section>
     </main>
 <?php require_once __DIR__ . '/../fragments/footer.php'; ?>
+<script src="/assets/js/toc-generator.js"></script>
+<script>document.addEventListener('DOMContentLoaded', () => generateTOC());</script>
     
         <script>
         document.addEventListener('DOMContentLoaded', function() {
