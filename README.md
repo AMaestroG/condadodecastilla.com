@@ -29,3 +29,15 @@ docker-compose up --build
 ```
 
 Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles.
+
+## Museo en Astro
+
+Se añadió una página experimental en `frontend/astro-app` que usa **Astro** y **TailwindCSS** para mostrar las piezas del museo definidas en `museo/piezas.json`.
+Para ejecutarla:
+
+```bash
+npm install
+npm run dev:astro
+```
+
+La página principal se genera en `/piezas` y presenta las piezas en una cuadrícula adaptable.

@@ -1,0 +1,23 @@
+---
+import piezas from '../../../museo/piezas.json';
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piezas del Museo</title>
+  </head>
+  <body class="min-h-screen bg-white font-sans p-4">
+    <h1 class="text-2xl font-bold mb-4 text-purple">Piezas del Museo</h1>
+    <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {piezas.map((pieza) => (
+        <div class="border rounded shadow p-2 bg-white/80" key={pieza.id}>
+          <img src={pieza.imagen} alt={pieza.titulo} class="w-full h-48 object-cover mb-2" />
+          <h2 class="text-lg font-semibold text-purple mb-1">{pieza.titulo}</h2>
+          <p class="text-sm mb-2">{pieza.descripcion}</p>
+          <a class="text-old-gold underline" href={pieza.enlace}>Más info</a>
+        </div>
+      ))}
+    </div>
+  </body>
+</html>
