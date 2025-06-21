@@ -20,6 +20,17 @@ Promocionar el turismo de **Cerezo de Río Tirón** y proteger su patrimonio arq
 
 El proyecto emplea PHP y Python con Flask. Para nuevos módulos se aconseja usar los frameworks modernos listados en [docs/fullstack-tools-2025.md](docs/fullstack-tools-2025.md): React, Next.js, Vue 3, Svelte/SvelteKit, Astro, SolidJS, Vite y TailwindCSS en el frontend, junto con FastAPI o NestJS para la capa de servicios. Se sugiere Docker y Docker Compose para un entorno reproducible.
 
+## Configuración del entorno
+
+1. Copia el archivo `.env.example` a `.env`:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Sustituye los valores de ejemplo por tus credenciales locales (base de datos, claves de API y ajustes de depuración).
+
+
 ## Puesta en marcha rápida
 
 1. Clona este repositorio y verifica que tengas **Docker** y **Docker Compose** instalados.
@@ -57,7 +68,7 @@ Para detalles sobre la paleta de colores y la tipografía consulta [docs/style-g
 
 Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar todas las pruebas. Los pasos básicos son:
 
-1. Instala las dependencias con `./scripts/setup_environment.sh`.
+1. Instala las dependencias con [`scripts/setup_environment.sh`](scripts/setup_environment.sh).
 2. Si la suite incluye pruebas de interfaz, arranca un servidor PHP con:
    ```bash
    php -S localhost:8080
@@ -69,6 +80,10 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
 4. Ejecuta la batería completa de pruebas de Python:
    ```bash
    python -m unittest discover -s tests
+   ```
+5. Ejecuta las pruebas de Node (Puppeteer):
+   ```bash
+   npm run test:puppeteer
    ```
 
 También se proporciona `scripts/run_tests.sh` para instalar `requirements.txt` y lanzar la suite de forma directa.
