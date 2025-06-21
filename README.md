@@ -60,6 +60,15 @@ La página principal se genera en `/piezas` y presenta las piezas en una cuadrí
 
 Visita `lugares/mapa_interactivo.php` para explorar los principales monumentos y poblaciones sobre un mapa dinámico.
 
+### Forum Application
+See [docs/frontend-structure.md](docs/frontend-structure.md) for details. To build:
+
+```bash
+cd frontend/forum-app
+npm install
+npm run build
+```
+
 ## Actualización diaria del grafo de conocimiento
 
 El script `scripts/daily_agent.py` se ejecuta cada noche mediante GitHub Actions para revisar y actualizar `knowledge_graph_db.json`.
