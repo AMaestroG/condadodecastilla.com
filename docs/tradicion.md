@@ -8,3 +8,5 @@ Desde la Edad Media, el trazado del Camino de Santiago atravesaba la localidad. 
 
 ## Patrimonio vivo
 La arquitectura popular en alabastro y las tradiciones orales conservan la identidad de Cerezo. Las asociaciones locales promueven iniciativas para difundir el patrimonio cultural y mantener viva la huella de Castilla en este rincón burgalés.
+
+Para consultar el índice completo de la documentación, visita [nuevo4.md](../nuevo4.md).
