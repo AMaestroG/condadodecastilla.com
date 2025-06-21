@@ -54,7 +54,7 @@
     </main>
 
     <footer class="bg-imperial-purple text-old-gold text-center py-4 texture-alabaster">
-        <p class="font-headings">© 2024 Condado de Castilla</p>
+        <p class="font-headings"><?php echo t('© %YEAR% Condado de Castilla'); ?></p>
         <p class="font-body">Difundiendo el legado de Castilla y Cerezo de Río Tirón.</p>
     </footer>
 

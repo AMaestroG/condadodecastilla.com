@@ -18,11 +18,13 @@ function t(string $key, ?string $lang = null): string {
     }
 
     if (array_key_exists($key, $catalogs[$lang])) {
-        return $catalogs[$lang][$key];
+        $result = $catalogs[$lang][$key];
+    } else {
+        mark_untranslated($key, $lang);
+        $result = $key;
     }
 
-    mark_untranslated($key, $lang);
-    return $key;
+    return str_replace('%YEAR%', date('Y'), $result);
 }
 
 /** @var array<string,array<string,bool>> */
