@@ -11,9 +11,19 @@ Sigue estas pautas para mantener un historial claro y uniforme.
 ## Ejemplos
 
 - `Add menu group translations (es/en/gl)`
-  
+
   Cuerpo: "Adds `about.us` and `forum.rules` keys".
 - `Fix broken link in footer`
 - `Update gallery API docs`
+- `Add GSAP page transitions with overlay and tests`
 
 Al añadir traducciones, enumera en el cuerpo las claves nuevas o modificadas.
+
+## Plantilla
+
+El repositorio incluye `.gitmessage.txt` como ejemplo de plantilla. Puedes
+configurarla con:
+
+```bash
+git config commit.template .gitmessage.txt
+```
