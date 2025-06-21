@@ -133,3 +133,12 @@ Todas las páginas emplean la regla `scroll-behavior: smooth;` definida en
 `assets/css/epic_theme.css`. Basta con incluir una lista de enlaces internos,
 como el índice generado por `toc-generator.js`, para que los saltos entre
 secciones realicen una animación de desplazamiento fluida.
+
+## Menú móvil
+
+Los paneles de menú deslizante utilizan la clase `.open` para mostrarse y
+desaparecer al quitársela. Al activarse, `assets/js/main.js` añade la clase
+`menu-compressed` al elemento `<body>` junto con `menu-open-left` o
+`menu-open-right` según el lateral. Esta combinación desplaza la página y aplica
+detalles en morado principal (`--color-primario-purpura`) con bordes en oro viejo
+(`--color-secundario-dorado`) para resaltar el estado activo.
