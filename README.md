@@ -83,9 +83,9 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
    ```bash
    python -m unittest discover -s tests
    ```
-5. Ejecuta las pruebas de Node (Puppeteer):
+5. Ejecuta las pruebas de Node (Puppeteer y Playwright):
    ```bash
-   npm run test:puppeteer
+   npm run test:puppeteer && npm run test:playwright
    ```
 
-También se proporciona `scripts/run_tests.sh` para instalar `requirements.txt` y lanzar la suite de forma directa.
+También se proporciona `scripts/run_tests.sh` para instalar dependencias, arrancar y detener el servidor PHP y ejecutar todas las pruebas de PHP, Python y Node de forma directa.

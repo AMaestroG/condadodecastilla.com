@@ -11,19 +11,21 @@ Esta guía explica cómo preparar el entorno y ejecutar las pruebas automatizada
 ```
 > **Nota:** ejecuta `pip install -r requirements.txt` o `scripts/setup_environment.sh` antes de lanzar cualquier prueba.
 
-2. Si vas a ejecutar la suite de interfaz, abre otro terminal y arranca un servidor PHP local:
+2. Para lanzar todas las pruebas en un único paso ejecuta `scripts/run_tests.sh`. Este script instala dependencias, arranca y detiene el servidor PHP y ejecuta las suites de PHP, Python y Node.
+
+3. Si vas a ejecutar la suite de interfaz manualmente, abre otro terminal y arranca un servidor PHP local:
 
 ```bash
 php -S localhost:8080
 ```
 
-3. Ejecuta las pruebas de PHP:
+4. Ejecuta las pruebas de PHP:
 
 ```bash
 vendor/bin/phpunit
 ```
 
-4. Ejecuta las pruebas de Python:
+5. Ejecuta las pruebas de Python:
    - Solo la suite de la interfaz de grafo:
 
 ```bash
@@ -42,7 +44,7 @@ python -m unittest tests/test_translation_keys.py
 python -m unittest discover -s tests
 ```
 
-5. Ejecuta las pruebas de interfaz con Puppeteer:
+6. Ejecuta las pruebas de interfaz con Puppeteer o Playwright:
 
 ```bash
 npm run test:puppeteer
