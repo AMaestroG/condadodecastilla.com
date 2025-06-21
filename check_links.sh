@@ -4,8 +4,13 @@
 # Files to check
 files_to_check=("index.php" "fragments/header.php" "fragments/footer.php")
 
-# Output file for broken links
-output_file="broken_links_report.txt"
+# Temporary log file for broken links
+TMP_LOG=$(mktemp)
+# Ensure the temporary log file is removed on script exit or error
+trap 'rm -f "$TMP_LOG"' EXIT
+
+# Use the temp log file as the output file
+output_file="$TMP_LOG"
 echo "Broken Link Report:" > "$output_file"
 echo "---------------------" >> "$output_file"
 
@@ -96,3 +101,4 @@ done
 
 echo "Link checking complete. Report generated in $output_file"
 cat "$output_file"
+rm "$TMP_LOG"
