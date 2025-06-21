@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const open = !menu.classList.contains('sidebar-visible');
         menu.classList.toggle('sidebar-visible', open);
         document.body.classList.toggle('sidebar-active', open);
-        document.body.classList.toggle('menu-compressed', open);
         updateAria(btn, menu, open);
 
         if (open) {
@@ -94,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     : (menu.classList.contains('right-panel') ? 'right' : '');
         const open = !menu.classList.contains('active');
         menu.classList.toggle('active', open);
-        document.body.classList.toggle('menu-compressed', open);
         updateAria(btn, menu, open);
         if (side) document.body.classList.toggle(`menu-open-${side}`, open);
 

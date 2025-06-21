@@ -4,6 +4,10 @@
     --old-gold: var(--epic-gold-main, #CFB53B);
 }
 
+body {
+    transition: transform 0.3s ease;
+}
+
 #fixed-header {
     position: fixed;
     top: 0;
@@ -77,23 +81,32 @@ body.menu-open-right {
     transform-origin: right center;
 }
 
+body.sidebar-active {
+    transform: translateX(260px) scale(0.96);
+    transform-origin: left center;
+    margin-left: 0 !important;
+}
+
 #slide-menu-right ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-#slide-menu-right a {
+.slide-menu a {
     display: block;
     padding: 0.5rem 1rem;
-    color: var(--primary-purple);
+    font-weight: 600;
+    background: linear-gradient(45deg, var(--old-gold), var(--primary-purple));
+    -webkit-background-clip: text;
+    color: transparent;
     text-decoration: none;
 }
 
-#slide-menu-right a:hover,
-#slide-menu-right a:focus-visible {
-    background: var(--epic-gold-main);
-    color: var(--primary-purple);
+.slide-menu a:hover,
+.slide-menu a:focus-visible {
+    background: var(--primary-purple);
+    color: var(--old-gold);
 }
 
 @media (max-width: 768px) {
