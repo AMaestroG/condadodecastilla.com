@@ -396,58 +396,259 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTheme();
 
     // ==========================================================================
-    // 7. Efecto Ripple en Clics
+    // 7. Efecto Ripple en Clics (movido más abajo para agrupar con otros event listeners)
+    // ==========================================================================
+
+    // ==========================================================================
+    // 8. Barra de Comandos / Búsqueda Universal
+    // ==========================================================================
+    const commandPaletteOverlay = document.getElementById('commandPaletteOverlay');
+    const commandPalette = document.getElementById('commandPalette');
+    const commandPaletteSearchInput = document.getElementById('commandPaletteSearchInput');
+    const commandPaletteResults = document.getElementById('commandPaletteResults');
+    const commandPaletteCloseBtn = document.getElementById('commandPaletteCloseBtn');
+    let searchableItems = [];
+    let commandPalettePreviousActiveElement;
+    let activeDescendantIndex = -1;
+
+    function collectSearchableItems() {
+        const items = [];
+        // Recolectar de Menú Principal y Submenús
+        document.querySelectorAll('.nav-menu-link, .nav-submenu-link, .mega-menu-list li a').forEach(link => {
+            if (!link.closest('.theme-toggle-item') && link.id !== 'openSlidingPanel') { // Excluir items no navegables
+                const text = link.textContent.trim();
+                const href = link.getAttribute('href');
+                let category = "Navegación";
+                const parentMenu = link.closest('.has-megamenu') ? link.closest('.has-megamenu').querySelector('.nav-menu-link') :
+                                 link.closest('.nav-submenu') ? link.closest('.nav-submenu').previousElementSibling.previousElementSibling :
+                                 link.closest('.nav-submenu-nested') ? link.closest('.nav-submenu-nested').previousElementSibling.previousElementSibling :
+                                 null;
+                if (parentMenu && parentMenu.textContent.trim()) {
+                    category = parentMenu.textContent.trim();
+                } else if (link.classList.contains('nav-menu-link')) {
+                     category = "Principal";
+                }
+                if (text && href && href !== '#') {
+                    items.push({ text, href, category });
+                }
+            }
+        });
+        // Recolectar de Panel Deslizante
+        document.querySelectorAll('.sliding-panel ul li a').forEach(link => {
+            const text = link.textContent.trim();
+            const href = link.getAttribute('href');
+            if (text && href && href !== '#') {
+                items.push({ text, href, category: "Panel de Usuario" });
+            }
+        });
+        // Añadir acciones como "Cambiar Tema"
+        if (themeToggleButton) {
+            items.push({ text: "Cambiar Tema (Claro/Oscuro)", action: 'toggleTheme', category: "Acciones" });
+        }
+        // Añadir acción para abrir panel de perfil
+        if (openSlidingPanelButton){
+            items.push({ text: "Abrir Panel de Perfil", action: 'openProfilePanel', category: "Acciones" });
+        }
+
+        searchableItems = items;
+    }
+
+    function renderSearchResults(results) {
+        commandPaletteResults.innerHTML = ''; // Limpiar resultados anteriores
+        activeDescendantIndex = -1; // Resetear índice de descendiente activo
+        commandPaletteSearchInput.removeAttribute('aria-activedescendant');
+
+        if (results.length === 0) {
+            commandPaletteResults.innerHTML = '<p class="command-palette-no-results">No se encontraron resultados.</p>';
+            return;
+        }
+
+        results.forEach((item, index) => {
+            const resultItem = document.createElement('a'); // Usar <a> para que sea navegable por defecto
+            resultItem.classList.add('command-palette-result-item');
+            resultItem.href = item.href || '#'; // Usar href si existe, sino '#' para acciones
+            resultItem.setAttribute('role', 'option');
+            resultItem.id = `command-result-item-${index}`;
+
+            // Icono (Placeholder, se puede mejorar)
+            let icon = '📄'; // Icono por defecto
+            if (item.category === "Acciones") icon = '⚙️';
+            else if (item.category === "Panel de Usuario") icon = '👤';
+
+            resultItem.innerHTML = `
+                <span class="result-icon">${icon}</span>
+                <span class="result-text">${item.text}</span>
+                <span class="result-category">${item.category}</span>
+            `;
+
+            resultItem.addEventListener('click', (e) => {
+                if (item.action) {
+                    e.preventDefault(); // Prevenir navegación para acciones
+                    if (item.action === 'toggleTheme' && themeToggleButton) {
+                        themeToggleButton.click();
+                    } else if (item.action === 'openProfilePanel' && openSlidingPanelButton) {
+                        openSlidingPanelButton.click();
+                    }
+                }
+                // Para enlaces href, la navegación es automática
+                closeCommandPalette();
+            });
+            commandPaletteResults.appendChild(resultItem);
+        });
+    }
+
+    function handleCommandPaletteSearch() {
+        const searchTerm = commandPaletteSearchInput.value.toLowerCase().trim();
+        if (!searchTerm) {
+            renderSearchResults(searchableItems.slice(0, 8)); // Mostrar todos o algunos por defecto
+            return;
+        }
+        const filteredItems = searchableItems.filter(item =>
+            item.text.toLowerCase().includes(searchTerm) ||
+            item.category.toLowerCase().includes(searchTerm)
+        );
+        renderSearchResults(filteredItems);
+    }
+
+    function openCommandPalette() {
+        if (!commandPaletteOverlay) return;
+        commandPalettePreviousActiveElement = document.activeElement;
+        commandPaletteOverlay.classList.add('is-open');
+        commandPaletteOverlay.setAttribute('aria-hidden', 'false');
+        commandPalette.setAttribute('aria-hidden', 'false');
+        commandPaletteSearchInput.value = '';
+        handleCommandPaletteSearch(); // Renderizar inicial (todos o por defecto)
+        commandPaletteSearchInput.focus();
+        document.addEventListener('keydown', handleCommandPaletteKeyDown);
+    }
+
+    function closeCommandPalette() {
+        if (!commandPaletteOverlay) return;
+        commandPaletteOverlay.classList.remove('is-open');
+        commandPaletteOverlay.setAttribute('aria-hidden', 'true');
+        commandPalette.setAttribute('aria-hidden', 'true');
+        commandPaletteSearchInput.removeAttribute('aria-activedescendant');
+        if (commandPalettePreviousActiveElement) {
+            commandPalettePreviousActiveElement.focus();
+        }
+        document.removeEventListener('keydown', handleCommandPaletteKeyDown);
+    }
+
+    function handleCommandPaletteKeyDown(event) {
+        if (event.key === 'Escape') {
+            closeCommandPalette();
+            return;
+        }
+
+        const resultsItems = commandPaletteResults.querySelectorAll('.command-palette-result-item');
+        if (resultsItems.length === 0) return;
+
+        if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            activeDescendantIndex = (activeDescendantIndex + 1) % resultsItems.length;
+            updateActiveDescendant(resultsItems);
+        } else if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            activeDescendantIndex = (activeDescendantIndex - 1 + resultsItems.length) % resultsItems.length;
+            updateActiveDescendant(resultsItems);
+        } else if (event.key === 'Enter' && activeDescendantIndex >= 0) {
+            event.preventDefault();
+            resultsItems[activeDescendantIndex].click(); // Simular clic en el elemento activo
+        }
+    }
+
+    function updateActiveDescendant(items) {
+        items.forEach((item, index) => {
+            if (index === activeDescendantIndex) {
+                item.classList.add('is-active-descendant');
+                commandPaletteSearchInput.setAttribute('aria-activedescendant', item.id);
+                item.scrollIntoView({ block: 'nearest' });
+            } else {
+                item.classList.remove('is-active-descendant');
+            }
+        });
+    }
+
+    if (commandPaletteSearchInput) {
+        commandPaletteSearchInput.addEventListener('input', handleCommandPaletteSearch);
+        // También manejar keydown en el input para navegación si no está ya cubierto por el listener global
+        commandPaletteSearchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter') {
+                 // El listener global handleCommandPaletteKeyDown ya se encarga de esto
+                 // si el foco está en el input o dentro de la paleta.
+                 // Si no, podríamos llamar handleCommandPaletteKeyDown(e) aquí explícitamente.
+            }
+        });
+    }
+    if (commandPaletteCloseBtn) {
+        commandPaletteCloseBtn.addEventListener('click', closeCommandPalette);
+    }
+    if (commandPaletteOverlay) {
+        commandPaletteOverlay.addEventListener('click', (event) => {
+            if (event.target === commandPaletteOverlay) { // Solo si se hace clic en el overlay mismo
+                closeCommandPalette();
+            }
+        });
+    }
+
+    // Atajo para abrir la paleta
+    document.addEventListener('keydown', (event) => {
+        if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+            event.preventDefault();
+            if (commandPaletteOverlay.classList.contains('is-open')) {
+                closeCommandPalette();
+            } else {
+                openCommandPalette();
+            }
+        }
+    });
+
+    // Recolectar items buscables al inicio
+    collectSearchableItems();
+
+
+    // ==========================================================================
+    // Efecto Ripple en Clics (Reubicado)
     // ==========================================================================
     function createRipple(event) {
-        const button = event.currentTarget; // El elemento que disparó el evento
+        const element = event.currentTarget;
 
-        // Crear el elemento span para el ripple
         const ripple = document.createElement("span");
         ripple.classList.add("ripple");
 
-        // Calcular el tamaño del ripple (basado en el tamaño del botón)
-        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const diameter = Math.max(element.clientWidth, element.clientHeight);
         const radius = diameter / 2;
 
-        // Calcular la posición del clic relativa al botón
-        const rect = button.getBoundingClientRect();
+        const rect = element.getBoundingClientRect();
         const rippleX = event.clientX - rect.left - radius;
         const rippleY = event.clientY - rect.top - radius;
 
-        // Establecer el tamaño y la posición del ripple
         ripple.style.width = ripple.style.height = `${diameter}px`;
         ripple.style.left = `${rippleX}px`;
         ripple.style.top = `${rippleY}px`;
 
-        // Añadir el ripple al botón
-        button.appendChild(ripple);
+        element.appendChild(ripple);
 
-        // Eliminar el ripple después de que la animación termine
         ripple.addEventListener('animationend', () => {
             ripple.remove();
         });
     }
 
     const rippleElements = document.querySelectorAll(
-        '.nav-menu-link, .nav-submenu-link, .sliding-panel ul li a, .theme-toggle-button, .nav-toggle, .submenu-toggle, .sliding-panel-close'
+        '.nav-menu-link, .nav-submenu-link, .mega-menu-list li a, .sliding-panel ul li a, .theme-toggle-button, .nav-toggle, .submenu-toggle, .sliding-panel-close, .command-palette-close'
     );
 
     rippleElements.forEach(element => {
-        // Asegurar que los elementos tengan position: relative y overflow: hidden si no lo tienen ya
-        // (CSS se encarga de .nav-menu-link, .nav-submenu-link, .sliding-panel ul li a)
-        // Los botones como theme-toggle-button, nav-toggle, etc., también necesitan estas propiedades
-        // si no las tienen directamente.
         const computedStyle = getComputedStyle(element);
         if (computedStyle.position === 'static') {
+            // Solo aplicar position relative si es necesario y no lo tiene ya un ancestro.
+            // Para botones y links simples, suele ser seguro.
+            // Para elementos complejos, verificar si esto rompe el layout.
+            // Por ahora, lo aplicaremos directamente.
             element.style.position = 'relative';
         }
-        if (computedStyle.overflow !== 'hidden') {
-            // No forzar overflow:hidden aquí si rompe el diseño de otros elementos (ej. el ::after de los links)
-            // Es mejor manejarlo en CSS donde sea posible. .nav-menu-link ya lo tiene.
-            // Los botones simples generalmente no tienen contenido que se desborde, por lo que el ripple
-            // simplemente se superpondrá y se desvanecerá.
-        }
-
+         // overflow: hidden; es mejor manejarlo en CSS para los elementos que lo necesiten específicamente (como links).
+         // Los botones no suelen necesitarlo para el ripple.
         element.addEventListener('mousedown', createRipple);
     });
 
