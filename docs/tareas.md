@@ -27,7 +27,7 @@ scroll en pantallas de 768 px o menos.
 
 ## Tareas en curso
 
-- [ ] Implementacion del efecto de compresion en los menus.
+- [x] Implementacion del efecto de compresion en los menus.
 - [ ] Creacion del componente de foro en React.
 - [ ] Extension de la API Flask para comentarios.
 - [ ] Nuevas pruebas de `GraphDBInterface`.
