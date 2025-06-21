@@ -539,16 +539,15 @@ $ruta_json_escritura_nuestra_historia = DIR_OUTPUT . $id_tema_nuestra_historia .
 if (file_exists($ruta_nuestra_historia_html)) {
     $markdown_nh = file_get_contents($ruta_nuestra_historia_html);
     $converter_nh = new CommonMarkConverter();
-    $temp_html_nh = tempnam(sys_get_temp_dir(), 'origenes_castilla') . '.html';
-    file_put_contents($temp_html_nh, $converter_nh->convert($markdown_nh)->getContent());
+    $html_nh = $converter_nh->convert($markdown_nh)->getContent();
 
     $doc_nh = new DOMDocument();
-    if (@$doc_nh->loadHTMLFile($temp_html_nh)) {
+    if (@$doc_nh->loadHTML($html_nh)) {
         $xpath_nh = new DOMXPath($doc_nh);
         // Llamamos a procesar_subpagina_detallada directamente
         echo "Preparando para procesar y guardar origenes_castilla.json (origenes_castilla) en: " . $ruta_json_escritura_nuestra_historia . "\n"; // DEBUG
         procesar_subpagina_detallada(
-            'docs/historia_ampliada_nuevo4.md',
+            '../docs/historia_ampliada_nuevo4.md',
             $id_tema_nuestra_historia,
             $ruta_json_escritura_nuestra_historia,
             $xpath_nh,
