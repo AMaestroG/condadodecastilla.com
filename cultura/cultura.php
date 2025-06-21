@@ -12,7 +12,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Cultura y Legado - Condado de Castilla</title>
+    <title><?php echo t('Cultura y Legado - Condado de Castilla'); ?></title>
     <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 
 
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
 
     <header class="page-header hero bg-[url('/assets/img/hero_cultura_background.jpg')] bg-cover bg-center md:bg-center">
         <div class="hero-content">
-            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <img src="/assets/img/estrella.png" alt="<?php echo t('Estrella de Venus decorativa'); ?>" class="decorative-star-header">
             <?php editableText('cultura_hero_titulo', $pdo, 'Cultura Viva y Legado Perenne', 'h1'); ?>
             <?php editableText('cultura_hero_subtitulo', $pdo, 'Las tradiciones, el idioma y el espíritu de una tierra forjada en la historia.', 'p'); ?>
         </div>
@@ -54,7 +54,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                         que, con el tiempo, se convertiría en el idioma oficial de un vasto imperio y en un vehículo de 
                         expresión literaria de primer orden.', 'p'); ?>
                     <div class="image-container-internal">
-                        <img src="/assets/img/placeholder.jpg" alt="Detalle de un manuscrito medieval antiguo, representando los primeros escritos en castellano">
+                        <img src="/assets/img/placeholder.jpg" alt="<?php echo t('Detalle de un manuscrito medieval antiguo, representando los primeros escritos en castellano'); ?>">
                         <?php editableText('cultura_idioma_caption_texto', $pdo, '<i class="fas fa-scroll"></i> Fragmentos de historia: los primeros vestigios del castellano.', 'p', 'image-caption'); ?>
                     </div>
                 </article>
@@ -66,7 +66,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                         con celebraciones cristianas, fruto de siglos de sincretismo cultural.', 'p'); ?>
                     
                     <div class="featured-item">
-                        <img src="/assets/img/placeholder.jpg" alt="Imagen de una romería o fiesta popular en la región de Castilla">
+                        <img src="/assets/img/placeholder.jpg" alt="<?php echo t('Imagen de una romería o fiesta popular en la región de Castilla'); ?>">
                         <div class="featured-item-content">
                             <?php editableText('cultura_tradiciones_featured_titulo', $pdo, 'Romerías y Celebraciones Patronales', 'h3'); ?>
                             <?php editableText('cultura_tradiciones_featured_p1', $pdo, 'Las romerías a ermitas cercanas, las fiestas en honor a los santos patronos (como San Vitores en agosto), y las celebraciones
@@ -89,7 +89,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                         que trabajan la madera, el cuero, la forja o la cerámica con técnicas heredadas. Estos objetos, 
                         más allá de su utilidad, son portadores de una identidad y una historia.', 'p'); ?>
                     <div class="image-container-internal">
-                         <img src="/assets/img/placeholder.jpg" alt="Piezas de artesanía tradicional castellana, como cerámica o tallas de madera">
+                         <img src="/assets/img/placeholder.jpg" alt="<?php echo t('Piezas de artesanía tradicional castellana, como cerámica o tallas de madera'); ?>">
                         <?php editableText('cultura_artesania_manos_caption_texto', $pdo, '<i class="fas fa-tools"></i> La habilidad de las manos que conservan la tradición.', 'p', 'image-caption'); ?>
                     </div>
 
@@ -98,7 +98,7 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                         Platos como el cordero asado, la morcilla de Burgos, las sopas de ajo, las alubias rojas de Ibeas, y los quesos 
                         artesanales son imprescindibles en cualquier mesa. Los vinos de la Rioja Alta y de la Ribera del Duero, denominaciones cercanas, acompañan a la perfección estos manjares.', 'p'); ?>
                      <div class="featured-item">
-                         <img src="/assets/img/placeholder.jpg" alt="Plato de cordero asado, típico de la gastronomía castellana">
+                         <img src="/assets/img/placeholder.jpg" alt="<?php echo t('Plato de cordero asado, típico de la gastronomía castellana'); ?>">
                         <div class="featured-item-content">
                             <?php editableText('cultura_artesania_featured_titulo', $pdo, 'El Sabor de la Tradición', 'h3'); ?>
                             <?php editableText('cultura_artesania_featured_p1', $pdo, 'En Cerezo y sus alrededores, podrás degustar recetas transmitidas de abuelas a nietas,
@@ -118,11 +118,11 @@ require_once __DIR__ . '/../includes/text_manager.php';// For editableText()
                         estos esfuerzos y visitar los centros de interpretación o museos locales es una forma de conectar 
                         directamente con este legado y contribuir a su preservación.', 'p'); ?>
                     <div class="image-container-internal">
-                        <img src="/assets/img/placeholder.jpg" alt="Fotografía de una excavación arqueológica en curso en el yacimiento de Auca Patricia">
+                        <img src="/assets/img/placeholder.jpg" alt="<?php echo t('Fotografía de una excavación arqueológica en curso en el yacimiento de Auca Patricia'); ?>">
                         <?php editableText('cultura_arqueologia_caption_texto', $pdo, '<i class="fas fa-search-location"></i> Arqueólogos desenterrando los secretos del pasado.', 'p', 'image-caption'); ?>
                     </div>
                     <p class="text-center mt-20">
-                        <?php editableText('cultura_link_explora_lugares_texto', $pdo, 'Explora los Lugares Emblemáticos', 'a', 'cta-button cta-button-small', 'href="/lugares/lugares.php"'); ?>
+                        <?php editableText('cultura_link_explora_lugares_texto', $pdo, t('Explora los Lugares Emblemáticos'), 'a', 'cta-button cta-button-small', 'href="/lugares/lugares.php"'); ?>
                     </p>
                 </article>
             </div>

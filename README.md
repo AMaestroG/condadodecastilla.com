@@ -29,3 +29,13 @@ docker-compose up --build
 ```
 
 Consulta el archivo [docker-compose.yml](docker-compose.yml) para conocer los servicios disponibles.
+
+## Cambio de idioma
+
+Para ver el contenido traducido basta con añadir el parámetro `lang` en la URL. Por ejemplo:
+
+```
+https://ejemplo.com/index.php?lang=en
+```
+
+Actualmente se incluyen archivos de traducción para español, inglés y gallego en el directorio `translations/`.
