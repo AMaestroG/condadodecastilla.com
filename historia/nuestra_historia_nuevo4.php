@@ -22,7 +22,7 @@
                 <h2 class="section-title text-center" style="margin-bottom:1.5em;">Contexto y Reflexiones sobre Nuevo4.md</h2>
 
                 <div class="explore-detailed-topics text-center">
-                    <h3 style="margin-top:0; color: var(--color-primario-purpura);">Explorar Temas en Detalle</h3>
+                    <h3 style="margin-top:0; color: var(--epic-purple-emperor);">Explorar Temas en Detalle</h3>
                     <p class="scroll-fade opacity-0 transition-opacity duration-700 hover:opacity-100 focus:opacity-100" data-aos="fade-up" tabindex="0">Para una exploración más profunda de los temas tratados en este documento, visite nuestro índice de páginas detalladas.</p>
                     <a href="/historia/historia.php" class="read-more explore-link">Ver Índice Detallado</a>
                 </div>

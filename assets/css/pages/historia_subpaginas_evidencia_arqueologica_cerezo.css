@@ -17,5 +17,5 @@
         }
 
 #hero-evidencia-arqueologica-cerezo {
-    background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/arqueologia_cerezo.jpg')
+    background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.6), rgba(var(--color-negro-contraste-rgb), 0.7)), url('/imagenes/arqueologia_cerezo.jpg')
 }
