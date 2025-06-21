@@ -1,0 +1,12 @@
+#page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(var(--epic-alabaster-bg-rgb), 0.85);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999;
+}
+
+#page-transition-overlay.active {
+  pointer-events: auto;
+}

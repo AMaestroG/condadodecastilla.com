@@ -18,7 +18,7 @@
   "scripts": {
     "start:php": "sh -c 'php -S localhost:8080 >/dev/null 2>&1 & echo $! > .php_server.pid'",
     "stop:php": "sh -c 'if [ -f .php_server.pid ]; then kill $(cat .php_server.pid); rm .php_server.pid; fi'",
-    "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/muteToggleTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js && node tests/moonToggleTest.js && node tests/linternaGradientTest.js && node tests/menuKeyboardNavigationTest.js && node tests/timelineDataTest.js",
+    "test:puppeteer": "node tests/manual/langBarOffsetTest.js && node tests/menuCompressionTest.js && node tests/muteToggleTest.js && node tests/manual/languagePanelOffsetTest.js && node tests/languagePanelBodyClassTest.js && node tests/moonToggleTest.js && node tests/linternaGradientTest.js && node tests/menuKeyboardNavigationTest.js && node tests/timelineDataTest.js && node tests/pageTransitionsTest.js",
     "test:playwright": "playwright test tests/phpRoutes.spec.js",
     "test": "npm run start:php && npm run test:puppeteer && npm run test:playwright; npm run stop:php",
     "build": "vite build && npx sass assets/scss/custom.scss assets/css/custom.css --no-source-map",

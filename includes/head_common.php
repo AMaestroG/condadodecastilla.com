@@ -33,6 +33,9 @@ require_once __DIR__ . '/env_loader.php';
 <link rel="preload" href="/assets/js/torch_cursor.js" as="script">
 <script defer src="/assets/js/torch_cursor.js"></script>
 <link rel="preload" href="/assets/js/main.js" as="script">
+<link rel="stylesheet" href="/assets/css/page-transitions.css">
+<link rel="preload" href="/assets/js/page-transitions.js" as="script">
+<script defer src="/assets/js/page-transitions.js"></script>
 <link rel="stylesheet" href="/assets/css/glow_filter.css">
 <link rel="stylesheet" href="/assets/css/custom-pointer.css">
 <link rel="stylesheet" href="/assets/css/mobile_contrast.css" media="(max-width: 768px)">
