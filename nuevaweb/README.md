@@ -9,3 +9,16 @@ Integra PHP para el sitio público y un API minimal en Flask.
 - `assets/` – hojas de estilo y scripts.
 - `flask_app.py` – API en Python.
 - `templates/` – plantillas de Flask.
+
+## Uso rápido
+1. Instala las dependencias de PHP con `composer install` y las de Python con `pip install -r ../requirements.txt`.
+2. Sirve `index.php` con el servidor integrado de PHP:
+   ```bash
+   php -S localhost:8000
+   ```
+3. Ejecuta la API Flask en otra terminal:
+   ```bash
+   python3 flask_app.py
+   ```
+
+Consulta la [guía de estilo](../docs/style-guide.md) para ver la paleta completa y otras recomendaciones.
