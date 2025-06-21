@@ -1,0 +1,45 @@
+body {
+  background: var(--epic-alabaster-bg);
+  color: var(--color-texto-principal);
+  font-family: var(--font-body);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--color-primario-purpura), transparent 20%);
+  color: var(--color-secundario-dorado);
+}
+.title {
+  font-family: var(--font-headings);
+}
+.toggle {
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 1.5rem;
+}
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background: var(--epic-alabaster-bg);
+  border-right: 2px solid var(--color-secundario-dorado);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding: 1rem;
+}
+.slide-menu.open {
+  transform: translateX(0);
+}
+.gradient-text {
+  background: linear-gradient(90deg, var(--epic-purple-vibrant), var(--epic-gold-dusk));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.menu-compressed {
+  margin-left: 200px;
+  transition: margin-left 0.3s ease;
+}
