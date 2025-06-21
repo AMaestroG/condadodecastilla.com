@@ -154,6 +154,7 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 - [Visualizador del Árbol Genealógico](../personajes/genealogia/index.html)
 - [Guía Fullstack 2025](fullstack-tools-2025.md)
 - [Agentes del Foro](forum_agents.md)
+- [Guía de mensajes de commit](commit-style.md)
 
 La guía de estilo recoge la paleta en tonos morado y oro viejo con fondos de
 alabastro.
