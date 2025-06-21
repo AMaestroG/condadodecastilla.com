@@ -152,6 +152,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('touchstart', handleToggleEvent);
 
     document.addEventListener('click', (e) => {
+        const link = e.target.closest('.menu-panel a[href]');
+        if (link) {
+            const menu = link.closest('.menu-panel');
+            if (menu) {
+                if (menu.id === sidebarMenuId) {
+                    const sidebarBtn = document.getElementById('consolidated-menu-button');
+                    closeMobileSidebar(menu, sidebarBtn);
+                } else {
+                    const btn = document.querySelector(`[data-menu-target="${menu.id}"]`);
+                    closeMenu(menu, btn);
+                }
+            }
+        }
+
         // Close panel menus if click is outside
         document.querySelectorAll('.menu-panel.active').forEach(menu => {
             const btn = document.querySelector(`[data-menu-target="${menu.id}"]`);
