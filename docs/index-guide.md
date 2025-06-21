@@ -61,11 +61,7 @@ comprimiéndose hacia el lado opuesto al menú abierto. Al cerrar todos
 los paneles, el script elimina estas clases y la vista vuelve a su
 posición original.
 
-Tras cualquier modificación ejecuta las pruebas de PHP y Python si las dependencias están instaladas:
-```bash
-vendor/bin/phpunit
-python -m unittest tests/test_flask_api.py
-```
+Tras cualquier modificacion consulta la [Guia de Testing](testing.md) para ejecutar las pruebas.
 
 ## Contenedor `#fixed-header-elements`
 Este bloque fijo aparece al inicio de cada página y mantiene visibles los controles principales.

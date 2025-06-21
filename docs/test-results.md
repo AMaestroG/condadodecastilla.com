@@ -10,7 +10,6 @@ All tests passed.
 
 ## `npm run test:puppeteer`
 The suite failed with a timeout while waiting for `#google_translate_element`.
+Consulta la [Guia de Testing](testing.md) para revisar el paso a paso y la seccion de solucion de problemas.
 
-Consulta la sección [Solución de problemas](testing.md#solucion-de-problemas) de
-la guía de testing para intentar corregir estos fallos.
 

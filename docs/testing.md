@@ -1,45 +1,27 @@
 # Guía de Testing
 
 Esta guía explica cómo preparar el entorno y ejecutar las pruebas automatizadas del proyecto.
-
-## Configurar el entorno
-
-Antes de lanzar **cualquier** suite de pruebas ejecuta `setup_environment.sh`.
-Este script instala de una sola vez las dependencias de PHP, Python y Node. Si
-detecta que alguna de estas herramientas no está presente intentará instalarla
-mediante `apt-get` (por ejemplo **PHP CLI**, **Composer** o **Node.js 18**).
-El proyecto requiere como mínimo **PHP&nbsp;8.1**, **Node&nbsp;18** y
-**Python&nbsp;3.10**. El propio script comprueba estas versiones y avisa en caso
-de no encontrarlas o si son antiguas. Tras solventar cualquier ausencia podrás
-ejecutar manualmente el paso correspondiente y repetir la preparación.
-
+## Paso a paso
+1. Prepara el entorno y sus dependencias:
 ```bash
 ./scripts/setup_environment.sh
 ```
-
-## Servidor PHP local para Puppeteer
-
-Las pruebas de Puppeteer requieren servir los archivos PHP de forma local. Inicia un servidor en otro terminal antes de lanzar la suite:
-
+2. Si vas a ejecutar la suite de interfaz, abre otro terminal y arranca un servidor PHP local:
 ```bash
 php -S localhost:8080
 ```
-
-## Orden de ejecución de las pruebas
-
-Con las dependencias instaladas y el servidor en marcha, ejecuta las suites en el siguiente orden:
-
+3. Ejecuta las pruebas de PHP:
 ```bash
-# 1. Pruebas de PHP
 vendor/bin/phpunit
-
-# 2. Pruebas de Python
+```
+4. Ejecuta las pruebas de Python:
+```bash
 python -m unittest tests/test_flask_api.py tests/test_graph_db_interface.py
-
-# 3. Pruebas de interfaz con Puppeteer
+```
+5. Ejecuta las pruebas de interfaz con Puppeteer:
+```bash
 npm run test:puppeteer
 ```
-
 ### Requisitos adicionales de PHP
 
 Las pruebas de PHP necesitan la interfaz **php-cgi** y la extensión
@@ -72,3 +54,12 @@ php -S localhost:8080
 ```
 - Si las dependencias fallaron al instalarse, vuelve a lanzar `./scripts/setup_environment.sh`.
 - Si Puppeteer informa que no se encuentra Chromium, ejecuta `npm ci` para reinstalar las dependencias.
+## Resultados del 20/06/2025
+
+- `vendor/bin/phpunit`: 34 tests executed with 3 errors and 19 failures. Tras instalar `php-cgi` y `pdo_pgsql` las pruebas que requieren conexión a PostgreSQL siguieron fallando porque la base de datos no estaba disponible.
+
+- `python -m unittest`: todas las pruebas pasaron.
+
+- `npm run test:puppeteer`: la suite falló por un tiempo de espera mientras esperaba `#google_translate_element`.
+
+Consulta la sección [Solucion de problemas](#solucion-de-problemas) para intentar corregir estos fallos.
