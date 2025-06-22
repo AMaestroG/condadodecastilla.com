@@ -1,12 +1,18 @@
 /* Reset básico y configuración general */
 :root {
+    /* Colores corporativos */
+    --brand-purple: #6a0dad;
+    --brand-purple-dark: #54126d;
+    --brand-gold: #cfb53b;
+    --brand-gold-dark: #9b7a2d;
+
     /* Tema Claro (Default) */
-    --primary-bg-light: linear-gradient(170deg, #3a506b, #2c3e50);
-    --primary-solid-bg-light: #2c3e50;
-    --primary-text-light: #ecf0f1;
-    --secondary-bg-light: linear-gradient(to right, #3f5a78, #34495e);
-    --secondary-solid-bg-light: #34495e;
-    --accent-color-light: #e74c3c;
+    --primary-bg-light: linear-gradient(170deg, var(--brand-purple), var(--brand-purple-dark));
+    --primary-solid-bg-light: var(--brand-purple-dark);
+    --primary-text-light: #f5f5f5;
+    --secondary-bg-light: linear-gradient(to right, var(--brand-gold), var(--brand-gold-dark));
+    --secondary-solid-bg-light: var(--brand-gold-dark);
+    --accent-color-light: var(--brand-gold);
     --page-bg-light: #f8f9fa;
     --page-text-light: #343a40;
     --border-color-light: #4a617a;
@@ -14,12 +20,12 @@
     --glass-border-light: rgba(44, 62, 80, 0.2);
 
     /* Tema Oscuro */
-    --primary-bg-dark: linear-gradient(170deg, #2d3748, #1a202c);
-    --primary-solid-bg-dark: #1a202c;
-    --primary-text-dark: #e2e8f0;
-    --secondary-bg-dark: linear-gradient(to right, #3c4a5f, #2d3748);
-    --secondary-solid-bg-dark: #2d3748;
-    --accent-color-dark: #f56565;
+    --primary-bg-dark: linear-gradient(170deg, #311150, #1a0830);
+    --primary-solid-bg-dark: #1a0830;
+    --primary-text-dark: #e6e0f1;
+    --secondary-bg-dark: linear-gradient(to right, #7a5e1b, #4a360f);
+    --secondary-solid-bg-dark: #4a360f;
+    --accent-color-dark: var(--brand-gold);
     --page-bg-dark: #171923;
     --page-text-dark: #f7fafc;
     --border-color-dark: #4a5568;
@@ -107,6 +113,13 @@ body {
     font-size: 16px;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
     will-change: background-color, color;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, var(--brand-purple), var(--brand-gold));
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
 }
 
 /* Estilos para el botón de cambio de tema */
@@ -659,8 +672,10 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
         height: 60px;
     }
     .nav-menu {
-        display: none;
+        display: flex;
         flex-direction: column;
+        visibility: hidden;
+        pointer-events: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -669,15 +684,17 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
         background: var(--primary-bg);
         padding-top: 70px;
         overflow-y: auto;
-        transform: translateX(-100%);
+        transform: scaleX(0);
+        transform-origin: left;
         transition: transform var(--transition-speed) ease-in-out;
         box-shadow: none;
         will-change: transform;
     }
 
     .nav-menu.is-active {
-        display: flex;
-        transform: translateX(0);
+        transform: scaleX(1);
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-menu-item {
