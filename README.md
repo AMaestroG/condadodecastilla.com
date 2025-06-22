@@ -156,7 +156,7 @@ El comando genera los archivos finales en `dist/` y `assets/css`. Consulta [docs
 ## Testing
 
 Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar todas las pruebas. Los pasos básicos son:
-1. Instala todas las dependencias. Puedes ejecutar `scripts/setup_environment.sh` para instalarlas automáticamente o hacerlo manualmente:
+1. Instala todas las dependencias ejecutando `./scripts/setup_environment.sh`. El script descarga los paquetes de **PHP**, **Node** y **Python** necesarios para la suite completa y deja listo el entorno para las pruebas de PHP con `phpunit`, las pruebas de Node con **Puppeteer** y las pruebas de Python. También puedes hacerlo manualmente:
 
    ```bash
    pip install -r requirements.txt
