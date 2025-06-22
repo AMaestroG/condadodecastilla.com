@@ -229,6 +229,30 @@ h1 {
     text-shadow: 2px 2px 4px rgba(var(--color-negro-contraste-rgb), 0.8);
 }
 
+/* Fallbacks for browsers without background-clip:text */
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+    h1,
+    .gradient-text {
+        background-image: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+        color: var(--epic-purple-emperor);
+        text-shadow: none;
+    }
+    h1 {
+        color: var(--epic-gold-main);
+    }
+}
+
+/* Optional class to disable clipped text manually */
+.no-clip-text h1,
+.no-clip-text .gradient-text {
+    background-image: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: var(--epic-purple-emperor);
+}
+
 /* Utility classes to apply blend modes on text */
 .blend-screen {
     mix-blend-mode: screen;
@@ -240,6 +264,22 @@ h1 {
     mix-blend-mode: overlay;
     display: inline-block;
     color: var(--epic-gold-main); /* Ensure visibility when blend modes are unsupported */
+}
+
+/* Fallbacks for browsers without mix-blend-mode */
+@supports not (mix-blend-mode: screen) {
+    .blend-screen,
+    .blend-overlay {
+        mix-blend-mode: normal;
+        color: var(--epic-gold-main);
+    }
+}
+
+/* Optional class to disable blend modes manually */
+.no-blend .blend-screen,
+.no-blend .blend-overlay {
+    mix-blend-mode: normal;
+    color: var(--epic-gold-main);
 }
 
 /* --- Paragraphs --- */
