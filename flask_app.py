@@ -12,6 +12,7 @@ from graph_db_interface import GraphDBInterface
 import os
 import subprocess
 import sqlite3
+import json
 
 app = Flask(__name__)
 cache = Cache(app, config={
@@ -36,6 +37,16 @@ def get_forum_comments_from_db():
         comments.setdefault(row['agent'], []).append({'comment': row['comment'], 'created_at': row['created_at']})
     conn.close()
     return comments
+
+
+def get_forum_agents():
+    """Return forum agents from config/forum_agents.json"""
+    path = os.path.join(os.path.dirname(__file__), 'config', 'forum_agents.json')
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return {}
 
 @app.route('/api/resource', methods=['GET', 'POST'])
 def resource_collection():
@@ -73,6 +84,15 @@ def chat_handler():
             error_msg = result.stderr.strip() or 'Unknown error'
             return jsonify({'error': f'PHP error: {error_msg}'}), 500
         return jsonify({'response': result.stdout.strip()})
+    except Exception as exc:
+        return jsonify({'error': str(exc)}), 500
+
+
+@app.route('/api/forum/agents', methods=['GET'])
+def forum_agents_handler():
+    try:
+        agents = get_forum_agents()
+        return jsonify(agents)
     except Exception as exc:
         return jsonify({'error': str(exc)}), 500
 
