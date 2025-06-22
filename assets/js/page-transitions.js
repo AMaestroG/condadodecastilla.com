@@ -1,8 +1,28 @@
 (function() {
+  var TRANSITION_SOUND_URL = 'https://example.com/sounds/transition.mp3';
+  function isMuted() {
+    var btn = document.getElementById('mute-toggle');
+    return btn && btn.getAttribute('aria-pressed') === 'true';
+  }
+
+  function playTransitionSound() {
+    if (isMuted()) return;
+    try {
+      var audio = new Audio(TRANSITION_SOUND_URL);
+      audio.play();
+    } catch (err) {
+      console.error('Error playing transition sound:', err);
+    }
+  }
+
   function cleanupOverlay() {
     var overlay = document.getElementById('page-transition-overlay');
-    if (!overlay) return;
+    if (!overlay) {
+      playTransitionSound();
+      return;
+    }
     overlay.classList.add('fade-out');
+    playTransitionSound();
     overlay.addEventListener('transitionend', function() {
       if (overlay && overlay.parentNode) {
         overlay.parentNode.removeChild(overlay);

@@ -152,6 +152,7 @@ npm run build
 ```
 
 El comando genera los archivos finales en `dist/` y `assets/css`. Consulta [docs/page-transitions.md](docs/page-transitions.md) para obtener todos los detalles de configuración.
+El sonido opcional se obtiene de una URL externa (`https://example.com/sounds/transition.mp3`), por lo que no hay binarios que copiar.
 
 ## Testing
 

@@ -8,6 +8,8 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `assets/js/homonexus-toggle.js`  | Toggles Homonexus mode, storing the preference in a cookie.                                                                                                                                                     |
 | `assets/js/foro.js`              | Simple toggling for the forum agents menu.                                                                                                                                                                      |
 | `/assets/js/audio-controller.js` | Lowers audio/video volume when sliding menus open. Other scripts, such as `assets/js/main.js`, invoke its `handleMenuToggle` function directly.                                                                 |
+| `assets/js/page-transitions.js`  | Handles overlay fade-outs and optionally plays `https://example.com/sounds/transition.mp3` while respecting the global mute toggle.
+    |
 | `js/config.js`                   | Defines `API_BASE_URL` and `DEBUG_MODE` globals for other scripts.                                                                                                                                              |
 | `js/layout.js`                   | Loads external CSS/JS libraries on demand, initializes the flashlight effect and other page-level utilities. If CDN requests fail, it falls back to bundled copies of GSAP and AOS located in `assets/vendor/`. |
 | ~~Header loader script~~         | **Deprecated.** The header is now loaded directly without this helper. See the README note on its removal.                                                                                                      |
