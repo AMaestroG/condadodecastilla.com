@@ -1,7 +1,7 @@
-const puppeteer = require('puppeteer');
+const { launchBrowser, closeBrowser } = require('../helpers/puppeteerSetup');
 
 (async () => {
-  const browser = await puppeteer.launch({headless: 'new', args: ['--no-sandbox']});
+  const browser = await launchBrowser();
   const page = await browser.newPage();
   await page.goto('http://localhost:8080/tests/manual/test_language_panel.html');
   await page.waitForSelector('#flag-toggle');
@@ -15,9 +15,9 @@ const puppeteer = require('puppeteer');
   const isActive = await page.evaluate(() => document.getElementById('language-panel').classList.contains('active'));
   if (isActive) {
     console.error('Panel did not close');
-    await browser.close();
+    await closeBrowser(browser);
     process.exit(1);
   }
   console.log('Panel toggled correctly');
-  await browser.close();
+  await closeBrowser(browser);
 })();

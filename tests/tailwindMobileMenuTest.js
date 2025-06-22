@@ -1,7 +1,7 @@
-const puppeteer = require('puppeteer');
+const { launchBrowser, closeBrowser } = require('./helpers/puppeteerSetup');
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] });
+  const browser = await launchBrowser();
   for (const width of [1200, 375]) {
     const page = await browser.newPage();
     await page.setViewport({ width, height: 800 });
@@ -12,11 +12,11 @@ const puppeteer = require('puppeteer');
     const hasClass = await page.evaluate(() => document.body.classList.contains('menu-open-left'));
     if (!hasClass) {
       console.error(`menu-open-left not added for viewport ${width}`);
-      await browser.close();
+      await closeBrowser(browser);
       process.exit(1);
     }
     await page.close();
   }
   console.log('Tailwind mobile menu adds menu-open-left correctly');
-  await browser.close();
+  await closeBrowser(browser);
 })();

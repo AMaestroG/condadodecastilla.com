@@ -1,7 +1,7 @@
-const puppeteer = require('puppeteer');
+const { launchBrowser, closeBrowser } = require('../helpers/puppeteerSetup');
 
 (async () => {
-  const browser = await puppeteer.launch({headless: 'new', args: ['--no-sandbox']});
+  const browser = await launchBrowser();
   const page = await browser.newPage();
   await page.goto('http://localhost:8080/tests/manual/test_lang.html');
   await page.waitForSelector('#flag-toggle');
@@ -19,10 +19,10 @@ const puppeteer = require('puppeteer');
   const offset = bodyStyles.marginTop || bodyStyles.paddingTop;
   if (offset !== 0) {
     console.error(`Expected no body offset but got ${offset}`);
-    await browser.close();
+    await closeBrowser(browser);
     process.exit(1);
   } else {
     console.log('Body offset is zero as expected');
   }
-  await browser.close();
+  await closeBrowser(browser);
 })();
