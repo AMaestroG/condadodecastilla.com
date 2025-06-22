@@ -568,7 +568,6 @@ body.dark-mode .footer .social-links a:focus-visible {
     color: var(--epic-gold-secondary); /* Keep original color or a muted one */
 }
 
-
 /* --- Hero Sections (.hero, .page-header) --- */
 .hero, .page-header {
     position: relative;
@@ -754,11 +753,13 @@ body.dark-mode .footer .social-links a:focus-visible {
     outline: 2px solid var(--epic-gold-main);
     outline-offset: 2px;
 }
-
+.cta-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
 .cta-button:hover::after, .cta-button:focus-visible::after {
     animation: drawBorder 0.4s forwards;
 }
-
 
 /* --- Content Sections (.section, .page-content-block) --- */
 .section {
