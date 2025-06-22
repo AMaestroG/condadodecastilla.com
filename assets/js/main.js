@@ -369,4 +369,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     populateSidebarContents(); // Call it on initial load to populate the sidebar
+
+    const closeSidebarButton = document.getElementById('close-sidebar-button');
+    if (closeSidebarButton) {
+        closeSidebarButton.addEventListener('click', () => {
+            const sidebar = document.getElementById(sidebarMenuId); // sidebarMenuId is 'sidebar'
+            const consolidatedMenuButton = document.getElementById('consolidated-menu-button');
+            if (sidebar && sidebar.classList.contains('sidebar-visible')) {
+                closeMobileSidebar(sidebar, consolidatedMenuButton);
+            }
+        });
+    }
 });
