@@ -470,13 +470,39 @@ document.addEventListener('DOMContentLoaded', () => {
             resultItem.setAttribute('role', 'option');
             resultItem.id = `command-result-item-${index}`;
 
-            // Icono (Placeholder, se puede mejorar)
-            let icon = '📄'; // Icono por defecto
-            if (item.category === "Acciones") icon = '⚙️';
-            else if (item.category === "Panel de Usuario") icon = '👤';
+            let iconSVG = '';
+            // Asignar SVG basado en categoría o tipo de ítem
+            // Estos son SVGs simplificados, idealmente se usaría un set consistente.
+            // Width/height se controlarán por CSS: .command-palette-result-item .result-icon svg
+            switch (item.category) {
+                case "Acciones":
+                    if (item.action === 'toggleTheme') {
+                        // Usar un icono específico para tema si se desea, o el genérico de acción.
+                        // Por ahora, el genérico de acción.
+                        iconSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>'; // Rayo (Acción)
+                    } else {
+                        iconSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>'; // Rayo (Acción)
+                    }
+                    break;
+                case "Panel de Usuario":
+                    iconSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>'; // Usuario
+                    break;
+                case "Principal": // Para items del menú principal
+                    // Podríamos tener un mapeo más específico si los textos son fijos
+                    if (item.text.toLowerCase().includes("inicio")) {
+                        iconSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>'; // Casa
+                    } else if (item.text.toLowerCase().includes("productos")) {
+                        iconSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 7.28V20H3V7.28L12 3l9 4.28M12 5.47L5 9.05v9.07h14V9.05L12 5.47m-2 9.05h4v-2h-4v2m-4-3h12v-2H6v2z"/></svg>'; // Caja
+                    } else { // Default para otros principales
+                        iconSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>'; // Documento
+                    }
+                    break;
+                default: // Navegación general, submenús
+                    iconSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>'; // Documento
+            }
 
             resultItem.innerHTML = `
-                <span class="result-icon">${icon}</span>
+                <span class="result-icon">${iconSVG}</span>
                 <span class="result-text">${item.text}</span>
                 <span class="result-category">${item.category}</span>
             `;
@@ -611,6 +637,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Efecto Ripple en Clics (Reubicado)
     // ==========================================================================
     function createRipple(event) {
+        // Respetar preferencia de movimiento reducido
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+        }
+
         const element = event.currentTarget;
 
         const ripple = document.createElement("span");

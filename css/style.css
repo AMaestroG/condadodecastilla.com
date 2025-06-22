@@ -49,7 +49,10 @@
     --border-radius: 4px;
     --glass-blur-intensity: 8px;
     --transition-speed: 0.3s;
+    --fast-transition-speed: 0.15s;
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --icon-size-normal: 18px;
+    --icon-size-small: 16px;
 
     /* Asignación inicial (Tema Claro por defecto) */
     --primary-bg: var(--primary-bg-light);
@@ -65,7 +68,7 @@
     --glass-bg: var(--glass-bg-light);
     --glass-border: var(--glass-border-light);
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-    will-change: background-color, color; /* Para el cambio de tema en HTML */
+    will-change: background-color, color;
 }
 
 html[data-theme="dark"] {
@@ -103,7 +106,7 @@ body {
     color: var(--page-text);
     font-size: 16px;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-    will-change: background-color, color; /* Para cambio de tema en Body */
+    will-change: background-color, color;
 }
 
 /* Estilos para el botón de cambio de tema */
@@ -120,7 +123,7 @@ body {
     height: 100%;
     border-radius: var(--border-radius);
     transition: background-color var(--transition-speed) ease, transform 0.1s ease-out;
-    will-change: transform; /* Para el :active */
+    will-change: transform;
 }
 .theme-toggle-button:hover,
 .theme-toggle-button:focus {
@@ -129,12 +132,19 @@ body {
 .theme-toggle-button:active {
     transform: scale(0.92);
 }
-.theme-toggle-button svg {
+.theme-toggle-button svg { /* SVG específico para tema, tamaño más grande */
     width: 22px;
     height: 22px;
     fill: currentColor;
-    transition: fill var(--transition-speed) ease;
+    transition: fill var(--transition-speed) ease, transform var(--fast-transition-speed) ease;
 }
+.theme-toggle-button:hover svg {
+    transform: scale(1.1) rotate(15deg);
+}
+html[data-theme="dark"] .theme-toggle-button:hover svg.theme-icon-moon {
+    transform: scale(1.1) rotate(-15deg);
+}
+
 
 html[data-theme="dark"] .theme-icon-sun { display: none; }
 html[data-theme="dark"] .theme-icon-moon { display: inline-block; }
@@ -160,7 +170,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     z-index: 1000;
     box-shadow: var(--shadow-elevation-medium);
     transition: background var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    will-change: background, box-shadow; /* Para cambio de tema y scroll si afectara sombra */
+    will-change: background, box-shadow;
 }
 
 .main-nav {
@@ -195,6 +205,38 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     align-items: center;
 }
 
+/* Estilos para Iconos de Menú */
+.menu-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px; /* Espacio entre icono y texto */
+    line-height: 1; /* Para mejor alineación vertical */
+}
+.menu-icon svg {
+    width: var(--icon-size-normal);
+    height: var(--icon-size-normal);
+    fill: currentColor; /* Hereda color del texto del enlace */
+    transition: transform var(--fast-transition-speed) ease;
+}
+/* Iconos más pequeños para submenús */
+.nav-submenu .menu-icon svg,
+.nav-submenu-nested .menu-icon svg {
+    width: var(--icon-size-small);
+    height: var(--icon-size-small);
+    opacity: 0.9; /* Ligeramente más sutiles */
+}
+/* Efecto hover/focus en el icono */
+.nav-menu-link:hover .menu-icon svg,
+.nav-menu-link:focus .menu-icon svg,
+.nav-submenu-link:hover .menu-icon svg,
+.nav-submenu-link:focus .menu-icon svg,
+.sliding-panel ul li a:hover .menu-icon svg,
+.sliding-panel ul li a:focus .menu-icon svg {
+    transform: scale(1.15);
+}
+
+
 .nav-menu-link {
     color: var(--primary-text);
     text-decoration: none;
@@ -219,7 +261,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     background: var(--secondary-bg);
     z-index: -1;
     transition: transform var(--transition-speed) cubic-bezier(0.77, 0, 0.175, 1);
-    will-change: transform; /* Para el barrido */
+    will-change: transform;
 }
 
 .nav-menu-link::after {
@@ -232,7 +274,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     height: 3px;
     background-color: var(--accent-color);
     transition: width var(--transition-speed) ease 0.1s;
-    will-change: width; /* Para el subrayado */
+    will-change: width;
 }
 
 .nav-menu-link:hover::before,
@@ -300,7 +342,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     z-index: 1000;
     display: flex;
     justify-content: center;
-    will-change: opacity, transform, visibility; /* Para aparición/desaparición */
+    will-change: opacity, transform, visibility;
 }
 
 .mega-menu-content {
@@ -315,7 +357,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     opacity: 0;
     transform: translateY(10px);
     animation: fadeInUpColumn 0.4s ease-out forwards;
-    will-change: opacity, transform; /* Para su propia animación */
+    will-change: opacity, transform;
 }
 .nav-menu-item.has-megamenu:hover .mega-menu-column:nth-child(1),
 .nav-menu-item.has-megamenu:focus-within .mega-menu-column:nth-child(1) {
@@ -364,12 +406,14 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     color: var(--primary-text);
     text-decoration: none;
     font-size: 0.9em;
-    display: block;
+    display: block; /* Cambiado a block para que el span.menu-icon funcione bien si se añade */
     padding: 5px 0;
     transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
+    display: flex; /* Para alinear icono y texto si se añaden iconos */
+    align-items: center;
 }
 .mega-menu-list li a:hover,
 .mega-menu-list li a:focus {
@@ -417,7 +461,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     height: 44px;
     position: relative;
     transition: transform 0.1s ease-out;
-    will-change: transform; /* Para :active y animación de líneas */
+    will-change: transform;
 }
 .nav-toggle:active {
     transform: scale(0.92);
@@ -432,7 +476,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     left: 50%;
     transform: translateX(-50%);
     transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
-    will-change: transform, opacity; /* Para animación a 'X' */
+    will-change: transform, opacity;
 }
 .nav-toggle .hamburger-line:nth-child(1) { top: 10px; }
 .nav-toggle .hamburger-line:nth-child(2) { top: 19px; }
@@ -459,7 +503,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: var(--shadow-elevation-medium);
     padding: 5px 0;
-    will-change: opacity, transform, visibility; /* Para aparición/desaparición */
+    will-change: opacity, transform, visibility;
 }
 
 .nav-submenu-nested {
@@ -482,7 +526,8 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     color: var(--primary-text);
     text-decoration: none;
     padding: 12px 20px;
-    display: block;
+    display: flex; /* Para alinear icono y texto */
+    align-items: center;
     font-size: 0.95em;
     transition: background-color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
     position: relative;
@@ -523,7 +568,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
                 box-shadow var(--transition-speed) ease;
     z-index: 1002;
     overflow-y: auto;
-    will-change: transform, background-color, border-color, box-shadow; /* Para entrada y cambio de tema */
+    will-change: transform, background-color, border-color, box-shadow;
 }
 
 .sliding-panel.is-open {
@@ -534,7 +579,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     opacity: 0;
     transform: translateX(20px);
     animation: fadeInSlideInPanelItem 0.4s ease-out forwards;
-    will-change: opacity, transform; /* Para su animación */
+    will-change: opacity, transform;
 }
 
 @keyframes fadeInSlideInPanelItem {
@@ -555,7 +600,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
     right: 20px;
     cursor: pointer;
     transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    will-change: transform; /* Para hover y active */
+    will-change: transform;
 }
 html[data-theme="dark"] .sliding-panel-close,
 html[data-theme="light"] .sliding-panel .sliding-panel-close {
@@ -589,7 +634,8 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
     color: var(--page-text);
     text-decoration: none;
     padding: 10px 0;
-    display: block;
+    display: flex; /* Para alinear icono y texto */
+    align-items: center;
     transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
     border-bottom: 1px solid var(--border-color);
     position: relative;
@@ -626,7 +672,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
         transform: translateX(-100%);
         transition: transform var(--transition-speed) ease-in-out;
         box-shadow: none;
-        will-change: transform; /* Para apertura/cierre */
+        will-change: transform;
     }
 
     .nav-menu.is-active {
@@ -641,7 +687,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
         flex-wrap: wrap;
         align-items: center;
     }
-    .nav-menu.is-active .nav-menu-item { /* Para animación de entrada de items */
+    .nav-menu.is-active .nav-menu-item {
         will-change: opacity, transform;
     }
     .nav-menu-item:first-child {
@@ -687,7 +733,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
                     padding-bottom 0.35s ease,
                     opacity 0.3s ease-in-out;
         opacity: 0;
-        will-change: max-height, opacity; /* Para apertura/cierre */
+        will-change: max-height, opacity;
     }
 
     .nav-submenu.is-open,
@@ -704,7 +750,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
         transform: translateY(-10px);
         transition: opacity 0.3s ease-out 0.1s,
                     transform 0.3s ease-out 0.1s;
-        will-change: opacity, transform; /* Para su animación de entrada */
+        will-change: opacity, transform;
     }
 
     .nav-submenu.is-open .nav-submenu-item,
@@ -728,6 +774,14 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
     .nav-submenu-nested .nav-submenu-link {
         padding-left: 55px;
     }
+    /* Ajuste para padding de iconos en submenús móviles */
+    .nav-submenu-link .menu-icon {
+        margin-left: -20px; /* Para compensar el padding del link y alinear con texto padre */
+        margin-right: 10px;
+    }
+    .nav-submenu-nested .nav-submenu-link .menu-icon {
+        margin-left: -35px; /* Aún más para sub-submenús */
+    }
 
 
     .nav-menu-item.has-submenu:hover > .nav-submenu,
@@ -739,7 +793,6 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
         opacity: 0;
         transform: translateX(-20px);
         animation: fadeInSlideIn 0.3s ease-out forwards;
-        /* will-change ya está en .nav-menu-item más arriba para móvil */
     }
 
     @keyframes fadeInSlideIn {
@@ -765,7 +818,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
         right: 0;
         top: 0;
         transition: transform 0.1s ease-out;
-        will-change: transform; /* Para :active y animación de flecha */
+        will-change: transform;
     }
 .submenu-toggle::after {
     content: '';
@@ -776,7 +829,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
         border-bottom: 2px solid var(--primary-text);
         transform: rotate(45deg);
         transition: transform var(--transition-speed) ease;
-        will-change: transform; /* Para rotación de flecha */
+        will-change: transform;
     }
     .submenu-toggle:active {
         transform: scale(0.9);
@@ -842,7 +895,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
     animation: rippleAnimation 0.6s ease-out;
     pointer-events: none;
     z-index: 0;
-    will-change: transform, opacity; /* Para su animación */
+    will-change: transform, opacity;
 }
 
 @keyframes rippleAnimation {
@@ -868,7 +921,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
     visibility: hidden;
     z-index: 10000;
     transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
-    will-change: opacity, visibility; /* Para mostrar/ocultar */
+    will-change: opacity, visibility;
 }
 .command-palette-overlay.is-open {
     opacity: 1;
@@ -889,7 +942,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
     opacity: 0;
     transition: transform calc(var(--transition-speed) * 1.2) cubic-bezier(0.34, 1.56, 0.64, 1),
                 opacity calc(var(--transition-speed) * 0.8) ease;
-    will-change: transform, opacity; /* Para su animación de entrada */
+    will-change: transform, opacity;
 }
 .command-palette-overlay.is-open .command-palette {
     transform: scale(1) translateY(0);
@@ -934,7 +987,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
     border-radius: var(--border-radius);
     transition: opacity var(--transition-speed) ease, background-color var(--transition-speed) ease, transform 0.1s ease-out;
     flex-shrink: 0;
-    will-change: transform, opacity; /* Para hover y active */
+    will-change: transform, opacity;
 }
 .command-palette-close:hover,
 .command-palette-close:focus {
@@ -963,7 +1016,7 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
     border-radius: var(--border-radius);
     transition: background-color calc(var(--transition-speed) * 0.5) ease, color calc(var(--transition-speed) * 0.5) ease;
     cursor: pointer;
-    will-change: background-color, color; /* Para hover/focus */
+    will-change: background-color, color;
 }
 .command-palette-result-item:hover,
 .command-palette-result-item:focus,
@@ -974,7 +1027,14 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
 }
 .command-palette-result-item .result-icon {
     opacity: 0.8;
-    font-size: 1.1em;
+    font-size: 1.1em; /* Tamaño base para iconos de resultados */
+    display: inline-flex; /* Para alinear bien */
+    align-items: center;
+}
+.command-palette-result-item .result-icon svg { /* Si se usan SVGs aquí */
+    width: var(--icon-size-normal);
+    height: var(--icon-size-normal);
+    fill: currentColor;
 }
 .command-palette-result-item .result-text {
     flex-grow: 1;
@@ -1007,5 +1067,68 @@ html[data-theme="dark"] .command-palette-search-input::placeholder {
 }
 html[data-theme="dark"] .command-palette-result-item.is-active-descendant {
     color: var(--primary-solid-bg-dark);
+}
+
+/* Preferencias de Movimiento Reducido */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Desactivar animaciones de entrada específicas y asegurar estado final */
+    .nav-menu.is-active .nav-menu-item,
+    .mega-menu-column,
+    .sliding-panel.is-open .sliding-panel-item,
+    .nav-submenu .nav-submenu-item,
+    .nav-submenu-nested .nav-submenu-item {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Simplificar transiciones de contenedores a solo fundido muy rápido */
+    .mega-menu-container,
+    .nav-submenu, /* Escritorio y móvil */
+    .nav-submenu-nested, /* Escritorio y móvil */
+    .sliding-panel,
+    .command-palette-overlay,
+    .command-palette {
+        transition-property: opacity, visibility !important;
+        transform: none !important;
+    }
+    /* Asegurar que los estados abiertos sean visibles sin depender de transformaciones complejas */
+    .nav-menu-item.has-megamenu:hover > .mega-menu-container,
+    .nav-menu-item.has-megamenu:focus-within > .mega-menu-container,
+    .nav-menu-item.has-submenu:not(.has-megamenu):hover > .nav-submenu,
+    .nav-menu-item.has-submenu:not(.has-megamenu):focus-within > .nav-submenu,
+    .nav-submenu-item.has-submenu:hover > .nav-submenu-nested,
+    .nav-submenu-item.has-submenu:focus-within > .nav-submenu-nested,
+    .sliding-panel.is-open,
+    .command-palette-overlay.is-open .command-palette {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Barrido de links: mostrar fondo directamente */
+    .nav-menu-link::before {
+        transform: translateX(100%) !important;
+    }
+    /* Subrayado de links: mostrar directamente */
+    .nav-menu-link::after {
+        width: 100% !important;
+    }
+
+    /* Animación de hamburguesa: sin transición, solo cambio de estado */
+    .nav-toggle .hamburger-line {
+        transition: none !important;
+    }
+
+    /* Ripple: se desactivará por JS, pero por si acaso CSS */
+    .ripple {
+        display: none !important;
+    }
 }
 ```
