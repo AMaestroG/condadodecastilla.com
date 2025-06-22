@@ -6,6 +6,16 @@ class ForumCommentsTest extends TestCase {
 
     protected function setUp(): void {
         $this->dbFile = tempnam(sys_get_temp_dir(), 'forum');
+        // Crear la tabla forum_comments en la base de datos temporal
+        $pdo = new PDO('sqlite:' . $this->dbFile);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->exec("CREATE TABLE IF NOT EXISTS forum_comments (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            agent VARCHAR(50) NOT NULL,
+            comment TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )");
+        $pdo = null; // Cerrar la conexión
     }
 
     protected function tearDown(): void {
@@ -17,7 +27,8 @@ class ForumCommentsTest extends TestCase {
     private function runForum(array $env = []): array {
         $script = realpath(__DIR__.'/../foro/index.php');
         $prepend = realpath(__DIR__.'/fixtures/forum_prepend.php');
-        $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
+        // Forzar la carga de pdo_sqlite para esta invocación de php-cgi
+        $cmd = sprintf('php-cgi -d extension=pdo_sqlite.so -d auto_prepend_file=%s %s',
             escapeshellarg($prepend),
             escapeshellarg($script)
         );

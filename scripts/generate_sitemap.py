@@ -1,7 +1,7 @@
 import os
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
-from datetime import datetime
+from datetime import datetime, timezone
 import logging
 
 
@@ -51,7 +51,7 @@ def collect_files(base_dir: str) -> list[str]:
 
 def build_sitemap(paths: list[str]) -> ET.ElementTree:
     urlset = ET.Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
-    today = datetime.utcnow().date().isoformat()
+    today = datetime.now(timezone.utc).date().isoformat()
     for path in paths:
         url = ET.SubElement(urlset, 'url')
         loc = ET.SubElement(url, 'loc')

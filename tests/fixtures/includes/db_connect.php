@@ -43,4 +43,11 @@ $pdo->exec("INSERT INTO fotos_galeria (titulo, descripcion, autor, imagen_nombre
 $pdo->exec("INSERT INTO tienda_productos (nombre, descripcion, precio, imagen_nombre, stock, created_at) VALUES ('prod1','desc',10.5,'img.jpg',5,'2024-01-01 00:00:00');");
 $hash = password_hash('secret', PASSWORD_DEFAULT);
 $pdo->exec("INSERT INTO users (username, password_hash, role) VALUES ('admin', '{$hash}', 'admin');");
+
+$pdo->exec("CREATE TABLE IF NOT EXISTS forum_comments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    agent VARCHAR(50) NOT NULL,
+    comment TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);");
 ?>

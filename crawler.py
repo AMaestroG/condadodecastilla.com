@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 import logging
 
 
@@ -123,7 +123,7 @@ class WebCrawler:
             "id": str(uuid.uuid4()), # Generate a unique ID
             "url": url,
             "content": page_title if page_title else "N/A", # Simplified: using title as content
-            "last_crawled_at": datetime.utcnow().isoformat(),
+            "last_crawled_at": datetime.now(timezone.utc).isoformat(),
             "metadata": {"title": page_title if page_title else "N/A"} # Example metadata
         }
 
@@ -137,7 +137,7 @@ class WebCrawler:
                 # target_resource_id will be resolved when the target URL is crawled and gets its own WebResource ID
                 "target_url": link_info["target_url"],
                 "anchor_text": link_info["anchor_text"],
-                "created_at": datetime.utcnow().isoformat()
+                "created_at": datetime.now(timezone.utc).isoformat()
             })
 
         return web_resource_data, links_data, None

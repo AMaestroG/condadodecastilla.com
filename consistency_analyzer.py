@@ -1,5 +1,5 @@
 from graph_db_interface import GraphDBInterface  # Assuming graph_db_interface.py is in the same directory
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 import logging
 
@@ -150,7 +150,7 @@ if __name__ == "__main__":
     res_comp_valid = {
         "id": res_comp_valid_id, "url": "http://example.com/valid",
         "content": "This is a valid resource with sufficient processed content for analysis.",
-        "metadata": {"title": "Valid Page"}, "last_crawled_at": datetime.utcnow().isoformat()
+        "metadata": {"title": "Valid Page"}, "last_crawled_at": datetime.now(timezone.utc).isoformat()
     }
     db.add_or_update_resource(res_comp_valid)
 
@@ -158,7 +158,7 @@ if __name__ == "__main__":
     res_inc_no_title = {
         "id": res_inc_no_title_id, "url": "http://example.com/no-title",
         "content": "This page has content but is missing a title for the check.",
-        "metadata": {}, "last_crawled_at": datetime.utcnow().isoformat() # No title
+        "metadata": {}, "last_crawled_at": datetime.now(timezone.utc).isoformat() # No title
     }
     db.add_or_update_resource(res_inc_no_title)
 
@@ -166,7 +166,7 @@ if __name__ == "__main__":
     res_inc_short_content = {
         "id": res_inc_short_content_id, "url": "http://example.com/short-content",
         "content": "Too short.", # Content too short
-        "metadata": {"title": "Short Content Page"}, "last_crawled_at": datetime.utcnow().isoformat()
+        "metadata": {"title": "Short Content Page"}, "last_crawled_at": datetime.now(timezone.utc).isoformat()
     }
     db.add_or_update_resource(res_inc_short_content)
 
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     res_placeholder = {
         "id": res_placeholder_id, "url": "http://example.com/placeholder-page",
         "content": "N/A (placeholder)",
-        "metadata": {"title": "Placeholder Page", "status": "placeholder"}, "last_crawled_at": datetime.utcnow().isoformat()
+        "metadata": {"title": "Placeholder Page", "status": "placeholder"}, "last_crawled_at": datetime.now(timezone.utc).isoformat()
     }
     db.add_or_update_resource(res_placeholder)
 
@@ -185,31 +185,31 @@ if __name__ == "__main__":
     # Link 1: Valid source and target with content
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": "http://example.com/valid", "target_url": "http://example.com/no-title",
-        "anchor_text": "Link to no-title page", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link to no-title page", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Link 2: Source has content, target has short/insufficient content
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": "http://example.com/valid", "target_url": "http://example.com/short-content",
-        "anchor_text": "Link to short-content page", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link to short-content page", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Link 3: Source has content, target is a placeholder page
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": "http://example.com/valid", "target_url": "http://example.com/placeholder-page",
-        "anchor_text": "Link to placeholder page", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link to placeholder page", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Link 4: Source is a placeholder page
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": "http://example.com/placeholder-page", "target_url": "http://example.com/valid",
-        "anchor_text": "Link from placeholder page", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link from placeholder page", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Link 5: Target resource does not exist at all (will be created as placeholder by add_link)
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": "http://example.com/valid", "target_url": "http://example.com/non-existent-target",
-        "anchor_text": "Link to non-existent page", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link to non-existent page", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
 
