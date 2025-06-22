@@ -30,19 +30,27 @@ composer require --dev phpunit/phpunit
 
    Esto asegura que las librerías de Python, las dependencias de Node (incluido `puppeteer`) y `phpunit` estén disponibles.
 
-2. Si vas a ejecutar la suite de interfaz, abre otro terminal y arranca un servidor PHP local:
+2. **Compila los estilos de CSS**. El script `npm run build` ahora ejecuta PostCSS con Autoprefixer tras compilar Tailwind y Sass:
+
+   ```bash
+   npm run build
+   ```
+
+   Esto generará `assets/css/custom.css` con los prefijos necesarios para los navegadores soportados.
+
+3. Si vas a ejecutar la suite de interfaz, abre otro terminal y arranca un servidor PHP local:
 
 ```bash
 php -S localhost:8080
 ```
 
-3. Ejecuta las pruebas de PHP:
+4. Ejecuta las pruebas de PHP:
 
 ```bash
 vendor/bin/phpunit
 ```
 
-4. Ejecuta las pruebas de Python:
+5. Ejecuta las pruebas de Python:
    - Solo la suite de la interfaz de grafo:
 
 ```bash
@@ -61,10 +69,16 @@ python -m unittest tests/test_translation_keys.py
 python -m unittest discover -s tests
 ```
 
-5. Ejecuta las pruebas de interfaz con Puppeteer:
+6. Ejecuta las pruebas de interfaz con Puppeteer:
 
 ```bash
 npm run test:puppeteer
+```
+
+7. Ejecuta la batería de Playwright en los navegadores Chromium, Firefox y WebKit:
+
+```bash
+npm run test:playwright
 ```
 
 ### Requisitos adicionales de PHP
