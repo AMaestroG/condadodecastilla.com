@@ -29,8 +29,14 @@ if ($app_debug) {
     error_reporting(E_ALL);
 }
 // --- Fin de manejo de modo debug ---
-
 // Configuración de la base de datos PostgreSQL
+$pdo = null; // Inicializar $pdo
+if (!extension_loaded('pdo_pgsql')) {
+    error_log('pdo_pgsql extension not loaded');
+    echo "<p>La extensión <code>pdo_pgsql</code> no está instalada. Instale el paquete <code>php-pgsql</code> vía apt o en su imagen Docker.</p>";
+    $pdo = null;
+    return;
+}
 $db_host = getenv('DB_HOST');
 if ($db_host === false) {
     error_log('DB_HOST not set');
