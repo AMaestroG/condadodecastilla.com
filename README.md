@@ -112,6 +112,19 @@ Luego abre `http://localhost:8000/tailwind_index.php` en tu navegador.
 
 Visita `lugares/mapa_interactivo.php` para explorar los principales monumentos y poblaciones sobre un mapa dinámico.
 
+## Nueva web experimental
+
+Encontraras un nuevo conjunto de paginas en `nuevaweb/` que reutilizan la paleta de colores y los menus deslizantes descritos en [docs/style-guide.md](docs/style-guide.md). Consulta [nuevaweb/README.md](nuevaweb/README.md) para mas informacion.
+
+Para probar el sitio, inicia la API Flask y despues arranca la web PHP:
+
+```bash
+python flask_app.py
+php -S localhost:8082 -t nuevaweb
+```
+
+Luego abre `http://localhost:8082/index.php` en tu navegador.
+
 ### Forum Application
 See [docs/frontend-structure.md](docs/frontend-structure.md) for details. To build:
 
