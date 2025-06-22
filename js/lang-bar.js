@@ -11,7 +11,7 @@ function loadGoogleTranslate(callback) {
         }, 'google_translate_element');
         if (typeof callback === 'function') callback();
     };
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     script.async = true;
     script.onload = function() { window.googleTranslateLoaded = true; };
