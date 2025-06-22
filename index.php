@@ -32,18 +32,6 @@ require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
 require_once __DIR__ . '/fragments/header.php';
 ?>
 
-    <header id="hero-video" class="relative h-screen w-full overflow-hidden">
-        <div id="hero-content" class="relative z-10 flex flex-col items-center justify-center h-full text-center opacity-0 transition-opacity duration-1000 ease-out">
-            <h1 class="gradient-text blend-overlay text-4xl font-headings sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-lg">Condado de Castilla: Cuna de Emperadores</h1>
-            <p class="mission-tagline text-lg font-body mt-4 bg-black bg-opacity-50 text-white p-4 sm:p-6 md:p-8">Promocionamos el turismo en Cerezo de Río Tirón y cuidamos su patrimonio arqueológico y cultural.</p>
-        </div>
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-yellow-300">
-            <svg class="w-8 h-8 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-        </div>
-    </header>
-
     <nav id="page-nav" class="section-nav cta-group">
         <a href="#video" class="cta-button-small">Video</a>
         <a href="#memoria" class="cta-button-small">Memoria</a>
