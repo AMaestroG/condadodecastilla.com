@@ -20,21 +20,15 @@ composer require --dev phpunit/phpunit
 
 ## Paso a paso
 
-1. **Antes de ejecutar cualquier prueba, prepara el entorno**
-   lanzando `scripts/setup_environment.sh` (consulta
-   [script_catalog.md](script_catalog.md)):
+1. **Prepara el entorno de desarrollo**. Puedes ejecutar `scripts/setup_environment.sh` para instalar todo de forma automática o instalar cada grupo de dependencias manualmente:
 
-```bash
-./scripts/setup_environment.sh
-```
-Este script instala los paquetes indicados en `requirements.txt`
-(incluyendo **Flask** y **filelock**) y las extensiones de PHP necesarias
-(**php-cgi**, **pdo_pgsql** y **php-xml**).
+   ```bash
+   pip install -r requirements.txt
+   npm install
+   composer install
+   ```
 
-> **Nota:** si lo prefieres puedes ejecutar manualmente
-> `pip install -r requirements.txt`, pero la forma recomendada es usar
-> `scripts/setup_environment.sh` para asegurar la instalación de todas las
-> dependencias.
+   Esto asegura que las librerías de Python, las dependencias de Node (incluido `puppeteer`) y `phpunit` estén disponibles.
 
 2. Si vas a ejecutar la suite de interfaz, abre otro terminal y arranca un servidor PHP local:
 
@@ -90,7 +84,7 @@ credenciales se definan en `.env` antes de lanzar PHPUnit.
 Antes de lanzar la suite de interfaz instala las dependencias de Node. Ejecuta:
 
 ```bash
-npm ci
+npm install
 ```
 
 o bien lanza `scripts/setup_environment.sh`, que realiza la misma instalación.
@@ -126,7 +120,7 @@ php -S localhost:8080
 ```
 
 - Si las dependencias fallaron al instalarse, consulta [script_catalog.md](script_catalog.md) para volver a ejecutar el script de preparación.
-- Si Puppeteer informa que no se encuentra Chromium, ejecuta `npm ci` para reinstalar las dependencias.
+- Si Puppeteer informa que no se encuentra Chromium, ejecuta `npm install` para reinstalar las dependencias.
 
 ## Resultados del 20/06/2025
 

@@ -156,10 +156,16 @@ El comando genera los archivos finales en `dist/` y `assets/css`. Consulta [docs
 ## Testing
 
 Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar todas las pruebas. Los pasos básicos son:
+1. Instala todas las dependencias. Puedes ejecutar `scripts/setup_environment.sh` para instalarlas automáticamente o hacerlo manualmente:
 
-1. Ejecuta [`scripts/setup_environment.sh`](scripts/setup_environment.sh) **antes de cualquier prueba**. El script instala Python
-   (`flask`, `filelock`, etc.), las extensiones de PHP necesarias (`php-cgi`,
-   `pdo_pgsql`, `php-xml`) y las dependencias de Node.
+   ```bash
+   pip install -r requirements.txt
+   npm install
+   composer install
+   ```
+
+   Estos pasos garantizan que `phpunit`, `puppeteer` y las librerías de Python estén disponibles.
+
 2. Si la suite incluye pruebas de interfaz, arranca un servidor PHP con:
    ```bash
    php -S localhost:8080
@@ -172,7 +178,7 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
    ```bash
    python -m unittest discover -s tests
    ```
-5. Ejecuta las pruebas de Node (Puppeteer) tras instalar las dependencias con `npm ci` (o usando `scripts/setup_environment.sh`):
+5. Ejecuta las pruebas de Node (Puppeteer) tras instalar las dependencias con `npm install` (o usando `scripts/setup_environment.sh`):
    ```bash
    npm run test:puppeteer
    ```
