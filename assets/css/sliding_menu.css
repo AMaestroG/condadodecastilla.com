@@ -5,6 +5,18 @@
     /* Palette defined in docs/style-guide.md */
 }
 
+@keyframes slideBounce {
+    0% {
+        transform: translateX(var(--slide-start, -100%));
+    }
+    60% {
+        transform: translateX(var(--slide-overshoot, 15%));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 body {
     transition: transform 0.3s ease;
 }
@@ -58,9 +70,22 @@ body {
     transition: transform 0.3s ease;
     z-index: 9999;
 }
-.slide-menu.left { left: 0; transform: translateX(-100%); }
-.slide-menu.right { right: 0; transform: translateX(100%); }
-.slide-menu.open { transform: translateX(0); }
+.slide-menu.left {
+    left: 0;
+    transform: translateX(-100%);
+    --slide-start: -100%;
+    --slide-overshoot: 15%;
+}
+.slide-menu.right {
+    right: 0;
+    transform: translateX(100%);
+    --slide-start: 100%;
+    --slide-overshoot: -15%;
+}
+.slide-menu.open {
+    transform: translateX(0);
+    animation: slideBounce 0.3s ease;
+}
 
 /* Slightly scale down the page when any slide menu is active */
 body.menu-compressed {
