@@ -1,5 +1,20 @@
 // assets/js/main.js - simplified menu controller and theme toggle
 
+function handleHeaderScroll() {
+    const headerElement = document.getElementById('fixed-header-elements');
+    if (!headerElement) {
+        return;
+    }
+
+    const scrollThreshold = 50; // Píxeles desde la parte superior para activar el cambio
+
+    if (window.pageYOffset > scrollThreshold) {
+        headerElement.classList.add('header-scrolled');
+    } else {
+        headerElement.classList.remove('header-scrolled');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const paletteClasses = ['palette-dawn','palette-day','palette-dusk','palette-night'];
 
@@ -316,4 +331,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     populateSidebarContents(); // Call it on initial load to populate the sidebar
+
+    // Listener para el efecto de scroll en el header
+    window.addEventListener('scroll', handleHeaderScroll);
+    // Llamada inicial para establecer el estado del header al cargar la página
+    handleHeaderScroll();
 });

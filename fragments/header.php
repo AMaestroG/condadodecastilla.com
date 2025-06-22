@@ -1,6 +1,11 @@
 <div id="cave-mask"></div>
 <img id="header-escudo-overlay" class="hero-escudo" src="/assets/img/escudo.jpg" alt="Escudo de Cerezo de Río Tirón">
 <div id="fixed-header-elements" style="height: var(--header-footer-height);">
+    <div class="site-branding">
+        <a href="/" class="logo-link-header" aria-label="Página de inicio de Condado de Castilla">
+            <span class="site-title-header">Condado de Castilla</span>
+        </a>
+    </div>
     <div class="header-action-buttons">
         <img src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
         <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-haspopup="true" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>

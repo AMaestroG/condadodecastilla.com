@@ -14,6 +14,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: padding 0.3s ease-in-out, background-image 0.3s ease-in-out;
+}
+
+#fixed-header-elements.header-scrolled {
+    padding: 2px 10px; /* Reduced padding */
+    background-image: linear-gradient(rgba(var(--epic-purple-emperor-rgb), 0.95), rgba(var(--epic-purple-emperor-rgb), 0.95)), var(--alabaster-background-image); /* More opaque background */
 }
 
 .header-action-buttons {
@@ -23,16 +29,68 @@
     gap: 8px; /* horizontal spacing between buttons */
 }
 
-.top-empty-bar {
-    position: fixed;
-    top: var(--menu-top-offset);
-    left: 0;
-    right: 0;
-    height: 48px;
-    background: rgba(var(--epic-purple-emperor-rgb), 0.85);
-    z-index: 3000;
+/* Base styles for items within header-action-buttons */
+.header-action-buttons > button,
+.header-action-buttons > .header-icon {
+    background-color: transparent;
+    border: none;
+    color: var(--epic-alabaster-bg, #fdfaf6); /* Light color for contrast on purple header */
+    padding: 0.5rem; /* Default padding */
+    border-radius: var(--global-border-radius, 4px);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    vertical-align: middle; /* Ensures alignment if heights differ slightly */
 }
 
+/* Specific styles for SVG icon */
+.header-action-buttons > .header-icon {
+    width: 28px;  /* Specific size for the SVG */
+    height: 28px;
+    padding: 0.2rem; /* Slightly less padding for the icon if it has internal spacing */
+}
+
+/* Specific adjustments for individual buttons */
+#consolidated-menu-button { /* Hamburger icon ☰ */
+    font-size: 1.6rem; /* Larger icon */
+    padding: 0.3rem 0.5rem; /* Adjust padding to maintain similar overall size */
+}
+
+#flag-toggle i, /* FontAwesome flag icon */
+#mute-toggle {   /* Emoji/text mute button 🔊 */
+    font-size: 1.3rem; /* Consistent size for these icons */
+    padding: 0.5rem; /* Keep default padding */
+}
+/* Ensure mute toggle, which might be text/emoji, aligns well */
+#mute-toggle {
+    line-height: 1; /* Helps if it's an emoji or text character */
+}
+
+
+/* Hover and Focus states for action items */
+.header-action-buttons > button:hover,
+.header-action-buttons > .header-icon:hover {
+    background-color: var(--epic-gold-main, #CFB53B);
+    color: var(--epic-purple-emperor, #4A0D67);
+}
+
+.header-action-buttons > button:focus-visible, /* Prefer focus-visible for modern browsers */
+.header-action-buttons > .header-icon:focus-visible {
+    outline: 2px solid var(--epic-gold-main, #CFB53B);
+    outline-offset: 1px;
+    background-color: var(--epic-gold-highlight, #E0C450); /* Slightly different bg for focus */
+    color: var(--epic-purple-emperor, #4A0D67);
+}
+/* Fallback for older browsers that don't support focus-visible, or if a general focus style is preferred */
+.header-action-buttons > button:focus,
+.header-action-buttons > .header-icon:focus {
+    outline: 2px solid var(--epic-gold-main, #CFB53B);
+    outline-offset: 1px;
+    background-color: var(--epic-gold-highlight, #E0C450); /* Slightly different bg for focus */
+    color: var(--epic-purple-emperor, #4A0D67);
+}
 
 
 /* Hide Google translate banner */
@@ -102,4 +160,98 @@ body.dark-mode #theme-toggle:hover i {
     transform: translateX(-50%);
     z-index: 4010;
     pointer-events: none;
+}
+
+/* Site Branding Styles */
+.site-branding {
+    /* Inherits flex alignment from #fixed-header-elements */
+    /* Add some right margin to separate from action buttons if they are close */
+    margin-right: auto; /* Pushes action buttons to the right */
+}
+
+.logo-link-header {
+    text-decoration: none;
+    color: inherit; /* Color will be defined by .site-title-header */
+}
+
+.site-title-header {
+    font-family: 'Georgia', serif; /* Elegant serif font */
+    color: var(--epic-alabaster-bg, #fdfaf6); /* Light color for dark header background */
+    font-size: 1.6rem; /* Adjust as needed based on header height */
+    font-weight: bold;
+    /* text-shadow: 1px 1px 1px rgba(var(--epic-purple-emperor-rgb), 0.6); */ /* Optional: subtle shadow against alabaster if needed, or dark shadow if text is gold */
+    /* letter-spacing: 0.5px; */ /* Optional */
+}
+
+/* Responsive adjustments for header elements */
+@media (max-width: 768px) {
+    .site-title-header {
+        font-size: 1.3rem;
+    }
+
+    .header-action-buttons {
+        gap: 6px; /* Reduced gap for smaller screens */
+    }
+
+    .header-action-buttons > button,
+    .header-action-buttons > .header-icon {
+        padding: 0.4rem; /* Adjusted base padding for items */
+    }
+
+    #consolidated-menu-button {
+        font-size: 1.5rem;
+        padding: 0.25rem 0.4rem;
+    }
+
+    #flag-toggle i,
+    #mute-toggle {
+        font-size: 1.2rem;
+    }
+
+    .header-action-buttons > .header-icon { /* SVG icon */
+        width: 24px;
+        height: 24px;
+        padding: 0.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title-header {
+        font-size: 1.1rem;
+        /* Optional: Truncate long titles on very small screens */
+        /*
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 120px; /* Adjust as needed */
+        */
+    }
+
+    /* Further adjustments for very small screens if needed */
+    .header-action-buttons {
+        gap: 4px;
+    }
+    .header-action-buttons > button,
+    .header-action-buttons > .header-icon {
+        padding: 0.3rem;
+    }
+    #consolidated-menu-button {
+        font-size: 1.4rem;
+        padding: 0.2rem 0.3rem;
+    }
+    #flag-toggle i,
+    #mute-toggle {
+        font-size: 1.1rem;
+    }
+    .header-action-buttons > .header-icon { /* SVG icon */
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Optional: Hide less critical icons on very small screens */
+    /*
+    .header-action-buttons > .header-icon[alt*="Roman column icon"] {
+        display: none;
+    }
+    */
 }
