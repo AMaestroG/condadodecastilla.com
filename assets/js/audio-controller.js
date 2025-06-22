@@ -48,5 +48,18 @@
         });
     });
 
-    window.audioController = { handleMenuToggle };
+    function playTransitionSound(){
+        const globalMuteButton = document.getElementById('mute-toggle');
+        const isMuted = globalMuteButton ? globalMuteButton.getAttribute('aria-pressed') === 'true' : false;
+
+        if (isMuted) {
+            return Promise.resolve();
+        }
+
+        const audio = new Audio('https://example.com/audio/transition.mp3');
+        audio.currentTime = 0;
+        return audio.play().catch(err => console.error('Error playing transition sound:', err));
+    }
+
+    window.audioController = { handleMenuToggle, playTransitionSound };
 })();
