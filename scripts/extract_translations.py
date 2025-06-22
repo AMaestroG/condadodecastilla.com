@@ -70,18 +70,18 @@ def main() -> None:
     for file in gather_files('.'):
         all_strings.update(extract_strings(file))
 
-    os.makedirs('translations', exist_ok=True)
+    os.makedirs('i18n', exist_ok=True)
     ordered = sorted(all_strings)
 
     es = {s: s for s in ordered}
     en = {s: "" for s in ordered}
     gl = {s: "" for s in ordered}
 
-    with open('translations/es.json', 'w', encoding='utf-8') as f:
+    with open('i18n/es.json', 'w', encoding='utf-8') as f:
         json.dump(es, f, ensure_ascii=False, indent=2)
-    with open('translations/en.json', 'w', encoding='utf-8') as f:
+    with open('i18n/en.json', 'w', encoding='utf-8') as f:
         json.dump(en, f, ensure_ascii=False, indent=2)
-    with open('translations/gl.json', 'w', encoding='utf-8') as f:
+    with open('i18n/gl.json', 'w', encoding='utf-8') as f:
         json.dump(gl, f, ensure_ascii=False, indent=2)
 
     logger.info("Extracted %d unique strings.", len(all_strings))
