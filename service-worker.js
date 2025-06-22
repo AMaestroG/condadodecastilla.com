@@ -1,5 +1,10 @@
-const CACHE_NAME = 'assets-cache-v3';
-const CORE_ROUTES = ['/index.php', '/foro/index.php'];
+const CACHE_NAME = 'assets-cache-v4';
+const CORE_ROUTES = [
+  '/index.php',
+  '/foro/index.php',
+  '/museo/museo.php',
+  '/lugares/lugares.php'
+];
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_ROUTES))
@@ -35,7 +40,9 @@ self.addEventListener('fetch', event => {
     );
     return;
   }
-  if (url.pathname.startsWith('/assets/')) {
+  if (url.pathname.startsWith('/assets/') ||
+      url.pathname.startsWith('/museo/') ||
+      url.pathname.startsWith('/lugares/')) {
     event.respondWith(
       caches.match(event.request).then(resp => {
         if (resp) return resp;
