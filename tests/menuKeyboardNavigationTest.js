@@ -7,7 +7,14 @@ const puppeteer = require('puppeteer');
   await page.waitForSelector('#consolidated-menu-button');
   await page.focus('#consolidated-menu-button');
   await page.keyboard.press('Enter');
-  await page.waitForTimeout(300);
+  await page.waitForFunction(() => {
+    const menu = document.getElementById('consolidated-menu-items');
+    const btn = document.getElementById('consolidated-menu-button');
+    return menu.classList.contains('active') &&
+      menu.getAttribute('aria-hidden') === 'false' &&
+      btn.getAttribute('aria-expanded') === 'true' &&
+      menu.contains(document.activeElement);
+  });
   const open = await page.$eval('#consolidated-menu-items', el => el.classList.contains('active'));
   const ariaOpen = await page.$eval('#consolidated-menu-items', el => el.getAttribute('aria-hidden') === 'false');
   const btnExpanded = await page.$eval('#consolidated-menu-button', el => el.getAttribute('aria-expanded') === 'true');
@@ -21,7 +28,13 @@ const puppeteer = require('puppeteer');
     process.exit(1);
   }
   await page.keyboard.press('Escape');
-  await page.waitForTimeout(300);
+  await page.waitForFunction(() => {
+    const menu = document.getElementById('consolidated-menu-items');
+    const btn = document.getElementById('consolidated-menu-button');
+    return !menu.classList.contains('active') &&
+      menu.getAttribute('aria-hidden') === 'true' &&
+      btn.getAttribute('aria-expanded') === 'false';
+  });
   const closed = await page.$eval('#consolidated-menu-items', el => !el.classList.contains('active'));
   const ariaClosed = await page.$eval('#consolidated-menu-items', el => el.getAttribute('aria-hidden') === 'true');
   const btnCollapsed = await page.$eval('#consolidated-menu-button', el => el.getAttribute('aria-expanded') === 'false');

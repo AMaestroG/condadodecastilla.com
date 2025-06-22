@@ -11,7 +11,7 @@ const puppeteer = require('puppeteer');
   const top = await page.$eval('#language-panel', el => getComputedStyle(el).top);
   console.log('Panel top offset:', top);
   await page.click('#flag-toggle');
-  await page.waitForTimeout(300);
+  await page.waitForFunction(() => !document.getElementById('language-panel').classList.contains('active'));
   const isActive = await page.evaluate(() => document.getElementById('language-panel').classList.contains('active'));
   if (isActive) {
     console.error('Panel did not close');

@@ -8,7 +8,7 @@ const puppeteer = require('puppeteer');
     await page.goto('http://localhost:8080/tailwind_index.php');
     await page.waitForSelector('#menu-toggle');
     await page.evaluate(() => document.getElementById('menu-toggle').click());
-    await page.waitForTimeout(300);
+    await page.waitForFunction(() => document.body.classList.contains('menu-open-left'));
     const hasClass = await page.evaluate(() => document.body.classList.contains('menu-open-left'));
     if (!hasClass) {
       console.error(`menu-open-left not added for viewport ${width}`);

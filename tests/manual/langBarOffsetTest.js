@@ -7,8 +7,10 @@ const puppeteer = require('puppeteer');
   await page.waitForSelector('#flag-toggle');
   await page.click('#flag-toggle');
   await page.waitForSelector('#google_translate_element', {visible: true});
-  // give time for height calculation
-  await page.waitForTimeout(500);
+  await page.waitForFunction(() => {
+    const el = document.getElementById('google_translate_element');
+    return el && el.offsetHeight > 0;
+  });
 
   const barHeight = await page.$eval('#google_translate_element', el => el.offsetHeight);
   const bodyStyles = await page.evaluate(() => ({
