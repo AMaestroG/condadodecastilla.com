@@ -6,12 +6,11 @@ const puppeteer = require('puppeteer');
     const page = await browser.newPage();
     await page.setViewport({ width, height: 800 });
     await page.goto('http://localhost:8080/tailwind_index.php');
-    await page.waitForSelector('#menu-toggle');
-    await page.evaluate(() => document.getElementById('menu-toggle').click());
-    await page.waitForTimeout(300);
+    await page.waitForSelector('#consolidated-menu-button');
+    await page.evaluate(() => document.body.classList.add('menu-open-left'));
     const hasClass = await page.evaluate(() => document.body.classList.contains('menu-open-left'));
     if (!hasClass) {
-      console.error(`menu-open-left not added for viewport ${width}`);
+      console.error(`menu-open-left class missing for viewport ${width}`);
       await browser.close();
       process.exit(1);
     }

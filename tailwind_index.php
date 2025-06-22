@@ -7,7 +7,6 @@
     <title>Condado de Castilla - Página Principal</title>
     <link rel="stylesheet" href="/assets/vendor/css/tailwind.min.css">
     <link rel="stylesheet" href="/assets/css/tailwind_custom.css">
-    <link rel="stylesheet" href="/assets/css/epic_theme.css">
 </head>
 <body class="font-body bg-[color:var(--epic-alabaster-bg)] text-gray-900">
     <?php require_once '_header.php'; ?>

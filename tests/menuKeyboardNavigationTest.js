@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
   await page.waitForSelector('#consolidated-menu-button');
   await page.focus('#consolidated-menu-button');
   await page.keyboard.press('Enter');
-  await page.waitForTimeout(300);
+  await new Promise(r => setTimeout(r, 300));
   const open = await page.$eval('#consolidated-menu-items', el => el.classList.contains('active'));
   const ariaOpen = await page.$eval('#consolidated-menu-items', el => el.getAttribute('aria-hidden') === 'false');
   const btnExpanded = await page.$eval('#consolidated-menu-button', el => el.getAttribute('aria-expanded') === 'true');
@@ -21,7 +21,7 @@ const puppeteer = require('puppeteer');
     process.exit(1);
   }
   await page.keyboard.press('Escape');
-  await page.waitForTimeout(300);
+  await new Promise(r => setTimeout(r, 300));
   const closed = await page.$eval('#consolidated-menu-items', el => !el.classList.contains('active'));
   const ariaClosed = await page.$eval('#consolidated-menu-items', el => el.getAttribute('aria-hidden') === 'true');
   const btnCollapsed = await page.$eval('#consolidated-menu-button', el => el.getAttribute('aria-expanded') === 'false');
