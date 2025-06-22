@@ -27,12 +27,19 @@
             <!-- Lista de elementos del menú principal -->
             <ul class="nav-menu" id="mainNavList">
                 <!-- Ítem de menú simple -->
-                <li class="nav-menu-item"><a href="index.html" class="nav-menu-link">Inicio</a></li>
+                <li class="nav-menu-item">
+                    <a href="index.html" class="nav-menu-link">
+                        <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
+                        <span class="menu-text">Inicio</span>
+                    </a>
+                </li>
 
                 <!-- Ítem de menú con submenú -->
-                <li class="nav-menu-item has-submenu has-megamenu"> <!-- Nueva clase .has-megamenu -->
-                    <a href="productos.html" class="nav-menu-link" aria-haspopup="true" aria-expanded="false">Productos</a>
-                    <!-- Botón para desplegar submenú en móvil (controlado por JS) -->
+                <li class="nav-menu-item has-submenu has-megamenu">
+                    <a href="productos.html" class="nav-menu-link" aria-haspopup="true" aria-expanded="false">
+                        <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M21 7.28V20H3V7.28L12 3l9 4.28M12 5.47L5 9.05v9.07h14V9.05L12 5.47m-2 9.05h4v-2h-4v2m-4-3h12v-2H6v2z"/></svg></span>
+                        <span class="menu-text">Productos</span>
+                    </a>
                     <button class="submenu-toggle" aria-label="Mostrar submenú de Productos" aria-expanded="false"></button>
 
                     <!-- Mega Menú (para escritorio) -->
@@ -91,27 +98,57 @@
                     </ul>
                 </li>
 
-                <li class="nav-menu-item"><a href="servicios.html" class="nav-menu-link">Servicios</a></li>
+                <li class="nav-menu-item">
+                    <a href="servicios.html" class="nav-menu-link">
+                        <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.44 12.99l-.01.02c.04-.33.08-.67.08-1.01s-.04-.68-.08-1.01l.01.02A9.51 9.51 0 0012 2.5a9.51 9.51 0 00-7.43 10.5L4.56 13a7.5 7.5 0 010-2l.01-.02A9.51 9.51 0 0012 21.5a9.51 9.51 0 007.43-10.5l.01-.02M12 17.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11m3.73-8.07l1.89-1.89a1 1 0 00-1.41-1.41l-1.9 1.89A5.47 5.47 0 0012 6.5a5.47 5.47 0 00-2.22.51L7.89 5.12a1 1 0 00-1.41 1.41l1.89 1.9A5.47 5.47 0 006.5 12a5.47 5.47 0 00.51 2.22l-1.89 1.9a1 1 0 101.41 1.41l1.9-1.89A5.47 5.47 0 0012 17.5a5.47 5.47 0 002.22-.51l1.9 1.89a1 1 0 101.41-1.41l-1.89-1.9A5.47 5.47 0 0017.5 12a5.47 5.47 0 00-.51-2.22M12 15.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/></svg></span>
+                        <span class="menu-text">Servicios</span>
+                    </a>
+                </li>
 
                 <li class="nav-menu-item has-submenu">
-                    <a href="acerca-de.html" class="nav-menu-link" aria-haspopup="true" aria-expanded="false">Acerca de</a>
+                    <a href="acerca-de.html" class="nav-menu-link" aria-haspopup="true" aria-expanded="false">
+                        <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
+                        <span class="menu-text">Acerca de</span>
+                    </a>
                     <button class="submenu-toggle" aria-label="Mostrar submenú de Acerca de Nosotros" aria-expanded="false"></button>
                     <ul class="nav-submenu">
-                        <li class="nav-submenu-item"><a href="nosotros.html" class="nav-submenu-link">Nosotros</a></li>
-                        <li class="nav-submenu-item"><a href="equipo.html" class="nav-submenu-link">Equipo</a></li>
-                        <li class="nav-submenu-item"><a href="historia.html" class="nav-submenu-link">Historia</a></li>
+                        <li class="nav-submenu-item">
+                            <a href="nosotros.html" class="nav-submenu-link">
+                                <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 5.5A3.5 3.5 0 0115.5 9a3.5 3.5 0 01-3.5 3.5A3.5 3.5 0 018.5 9 3.5 3.5 0 0112 5.5M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"/></svg></span>
+                                <span class="menu-text">Nosotros</span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu-item">
+                            <a href="equipo.html" class="nav-submenu-link">
+                                <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
+                                <span class="menu-text">Equipo</span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu-item">
+                            <a href="historia.html" class="nav-submenu-link">
+                                <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></span>
+                                <span class="menu-text">Historia</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
-                <li class="nav-menu-item"><a href="contacto.html" class="nav-menu-link">Contacto</a></li>
-
-                <!-- Ítem de menú que activa el panel deslizante -->
-                <li class="nav-menu-item nav-menu-item-sliding-panel-trigger">
-                    <a href="#" class="nav-menu-link" id="openSlidingPanel" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="slidingPanel">Perfil</a>
+                <li class="nav-menu-item">
+                    <a href="contacto.html" class="nav-menu-link">
+                        <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                        <span class="menu-text">Contacto</span>
+                    </a>
                 </li>
-                <!-- Botón para cambiar el tema -->
+
+                <li class="nav-menu-item nav-menu-item-sliding-panel-trigger">
+                    <a href="#" class="nav-menu-link" id="openSlidingPanel" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="slidingPanel">
+                        <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></span>
+                        <span class="menu-text">Perfil</span>
+                    </a>
+                </li>
                 <li class="nav-menu-item theme-toggle-item">
                     <button id="themeToggleBtn" class="theme-toggle-button" aria-label="Activar tema oscuro/claro" title="Cambiar tema">
+                        {/* Iconos Sol/Luna ya están aquí y son SVGs */}
                         <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3zM12 2c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1V3c0-.55.45-1 1-1zM12 18c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1v-2c0-.55.45-1 1-1zM4.22 5.64c.39-.39 1.02-.39 1.41 0l1.41 1.41c.39.39.39 1.02 0 1.41-.39.39-1.02.39-1.41 0L4.22 7.05c-.39-.39-.39-1.02 0-1.41zM16.97 18.39c.39-.39 1.02-.39 1.41 0l1.41 1.41c.39.39.39 1.02 0 1.41-.39.39-1.02.39-1.41 0l-1.41-1.41c-.39-.39-.39-1.02 0-1.41zM2 12c0-.55.45-1 1-1h2c.55 0 1 .45 1 1s-.45 1-1 1H3c-.55 0-1-.45-1-1zM18 12c0-.55.45-1 1-1h2c.55 0 1 .45 1 1s-.45 1-1 1h-2c-.55 0-1-.45-1-1zM5.64 16.97c-.39.39-.39 1.02 0 1.41l1.41 1.41c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.05 16.97c-.39-.39-1.02-.39-1.41 0zM18.39 4.22c-.39.39-.39 1.02 0 1.41l1.41 1.41c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L19.8 4.22c-.39-.39-1.02-.39-1.41 0z"/></svg>
                         <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="display:none;"><path d="M11.5 2C6.81 2 3 6.81 3 11.5S6.81 21 11.5 21c.83 0 1.63-.12 2.38-.34-.3-.64-.48-1.37-.48-2.16 0-2.48 2.02-4.5 4.5-4.5.79 0 1.52.18 2.16.48C19.12 9.13 19.00 8.33 19.00 7.5C19.00 4.46 16.54 2 13.5 2c-.83 0-1.63.12-2.38.34C10.82 2.12 10.00 2 10.00 2C10.5 2 11 2 11.5 2z"/></svg>
                     </button>
@@ -127,9 +164,24 @@
         <h2 id="slidingPanelTitle" class="sliding-panel-item">Panel de Usuario</h2>
         <p class="sliding-panel-item">Bienvenido/a. Aquí puedes ver tus opciones de perfil.</p>
         <ul class="sliding-panel-item">
-            <li class="sliding-panel-item"><a href="perfil/opcion1.html">Ver mi Perfil</a></li>
-            <li class="sliding-panel-item"><a href="perfil/opcion2.html">Configuración</a></li>
-            <li class="sliding-panel-item"><a href="logout.html">Cerrar Sesión</a></li>
+            <li class="sliding-panel-item">
+                <a href="perfil/opcion1.html">
+                    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+                    <span class="menu-text">Ver mi Perfil</span>
+                </a>
+            </li>
+            <li class="sliding-panel-item">
+                <a href="perfil/opcion2.html">
+                    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.44 2.65 14.18 2 13.78 2h-3.56c-.4 0-.66.65-.79 1.02l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.13.37.39.98.79.98h3.56c.4 0 .66-.65.79-1.02l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg></span>
+                    <span class="menu-text">Configuración</span>
+                </a>
+            </li>
+            <li class="sliding-panel-item">
+                <a href="logout.html">
+                    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg></span>
+                    <span class="menu-text">Cerrar Sesión</span>
+                </a>
+            </li>
         </ul>
     </aside>
 
