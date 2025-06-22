@@ -1,6 +1,6 @@
 (function(){
     function loadScript(src, callback){
-        var s = document.createElement('script');
+        const s = document.createElement('script');
         s.src = src;
         s.onload = callback || function(){};
         document.head.appendChild(s);
@@ -16,7 +16,7 @@
     }
     if(typeof HTMLDialogElement === 'undefined'){
         loadScript('https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5/dist/dialog-polyfill.min.js', function(){
-            var link = document.createElement('link');
+            const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5/dist/dialog-polyfill.min.css';
             document.head.appendChild(link);

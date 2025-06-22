@@ -1,6 +1,6 @@
 (function() {
   function cleanupOverlay() {
-    var overlay = document.getElementById('page-transition-overlay');
+    const overlay = document.getElementById('page-transition-overlay');
     if (!overlay) return;
     overlay.classList.add('fade-out');
     overlay.addEventListener('transitionend', function() {
