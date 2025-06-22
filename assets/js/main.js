@@ -72,9 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = triggerButton || document.querySelector(`[data-menu-target="${menu.id}"]`);
         updateAria(btn, menu, false);
         if (btn && triggerButton) btn.focus(); // Only focus if we passed the button explicitly
-        const side = menu.classList.contains('left-panel') ? 'left'
-                    : (menu.classList.contains('right-panel') ? 'right' : '');
-        if (side) document.body.classList.remove(`menu-open-${side}`);
         // Recalculate anyOpen and update body classes
         updateGlobalMenuState();
         vibrateFeedback();
@@ -98,12 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (m !== menu) closeMenu(m, document.querySelector(`[data-menu-target="${m.id}"]`));
         });
 
-        const side = menu.classList.contains('left-panel') ? 'left'
-                    : (menu.classList.contains('right-panel') ? 'right' : '');
         const open = !menu.classList.contains('active');
         menu.classList.toggle('active', open);
         updateAria(btn, menu, open);
-        if (side) document.body.classList.toggle(`menu-open-${side}`, open);
 
         if (open && menu.id === 'language-panel' && typeof primeTranslateLoad === 'function') {
             primeTranslateLoad();
@@ -128,8 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const anyPanelOpen = document.querySelectorAll('.menu-panel.active').length > 0;
         const sidebarOpen = document.getElementById(sidebarMenuId)?.classList.contains('sidebar-visible');
         const anyOpen = anyPanelOpen || sidebarOpen;
-
-        document.body.classList.toggle('menu-compressed', anyOpen);
 
         if (window.audioController && typeof window.audioController.handleMenuToggle === 'function') {
             window.audioController.handleMenuToggle(anyOpen);
@@ -238,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Reset body classes that might persist if not handled by individual close functions
-        document.body.classList.remove('menu-compressed', 'sidebar-active', 'menu-open-left', 'menu-open-right');
+        document.body.classList.remove('sidebar-active');
         updateGlobalMenuState(); // Final state update
     };
 
@@ -250,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const panel = document.getElementById('ai-chat-panel');
             if (panel && panel.classList.contains('active')) { // Ensure panel is active before closing
                 const btn = document.querySelector(`[data-menu-target="ai-chat-panel"]`);
-                closeMenu(panel, btn); // Pass button for focus, menu-compressed handled by updateGlobalMenuState
+                closeMenu(panel, btn); // Pass button for focus
             }
         });
     }

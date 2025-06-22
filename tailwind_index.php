@@ -64,8 +64,7 @@
             const menu = document.getElementById('mobile-menu');
             if (!toggle || !menu) return;
             toggle.addEventListener('click', function () {
-                const open = menu.classList.toggle('open');
-                document.body.classList.toggle('menu-open-left', open);
+                menu.classList.toggle('open');
             });
         });
     </script>

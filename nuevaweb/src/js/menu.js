@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!btn || !menu) return;
     btn.addEventListener('click', () => {
         const open = menu.classList.toggle('open');
-        document.body.classList.toggle('menu-compressed', open);
         btn.setAttribute('aria-expanded', open);
     });
 });
