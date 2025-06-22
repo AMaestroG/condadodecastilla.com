@@ -58,16 +58,10 @@
         <p class="font-body">Difundiendo el legado de Castilla y Cerezo de Río Tirón.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const toggle = document.getElementById('menu-toggle');
-            const menu = document.getElementById('mobile-menu');
-            if (!toggle || !menu) return;
-            toggle.addEventListener('click', function () {
-                menu.classList.toggle('open');
-            });
-        });
-    </script>
+    <!-- El script local para #menu-toggle y #mobile-menu ha sido eliminado
+         ya que _header.php carga fragments/header.php, que usa el sistema
+         de menú global con #consolidated-menu-button y #sidebar.
+         El JS global assets/js/main.js maneja esa funcionalidad. -->
 
 </body>
 </html>

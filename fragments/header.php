@@ -72,3 +72,36 @@
     }
 ?>
 </header>
+
+<!-- Sidebar HTML Structure -->
+<div id="sidebar" aria-hidden="true" tabindex="-1">
+    <div class="sidebar-header" style="padding: 15px; text-align: center; border-bottom: 1px solid rgba(var(--epic-gold-main-rgb), 0.3);">
+        <a href="/" class="logo-link">
+            <img src="/assets/img/escudo.jpg" alt="Logo Condado de Castilla" style="max-width: 100px; height: auto; border-radius: var(--global-border-radius); border: 1px solid var(--epic-gold-secondary); background-color: rgba(var(--epic-alabaster-bg-rgb), 0.8);">
+        </a>
+        <button id="close-sidebar-button" aria-label="Cerrar menú" style="position: absolute; top: 15px; right: 15px; font-size: 2em; background: none; border: none; color: var(--epic-text-color); cursor: pointer; line-height: 1;">&times;</button>
+    </div>
+    <div class="sidebar-content" style="padding: 15px; overflow-y: auto; height: calc(100% - 70px);"> {/* Approx header height */}
+        <div id="ai-chat-trigger-placeholder-mobile" class="menu-section" style="margin-bottom: 15px;">
+            <!-- El botón de Chat IA se clonará aquí para móvil por main.js -->
+        </div>
+        <div class="menu-section" style="margin-bottom: 15px;">
+            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase; color: var(--epic-purple-emperor);">Navegación</h4>
+            <div id="main-menu-placeholder">
+                <!-- El menú principal (ul#main-menu) se clonará aquí -->
+            </div>
+        </div>
+        <div id="admin-menu-placeholder-container" class="menu-section" style="margin-bottom: 15px;">
+            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase; color: var(--epic-purple-emperor);">Admin</h4>
+            <div id="admin-menu-placeholder">
+                <!-- El menú de admin (contenido de #admin-menu-source-content) se clonará aquí -->
+            </div>
+        </div>
+        <div class="menu-section">
+            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase; color: var(--epic-purple-emperor);">Social</h4>
+            <div id="social-menu-placeholder">
+                <!-- Los enlaces sociales (contenido de #social-menu-source-content) se clonará aquí -->
+            </div>
+        </div>
+    </div>
+</div>

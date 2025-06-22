@@ -12,15 +12,49 @@
     background-size: cover;
     padding: 5px 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Changed from space-between to avoid issues if content is too wide */
     align-items: center;
+    overflow-x: auto; /* Add scroll if content overflows horizontally, as a last resort */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .header-action-buttons {
     display: flex;
     flex-direction: row; /* icons and buttons inline */
+    flex-shrink: 0; /* Prevent this container from shrinking if fixed-header-elements has limited space */
     align-items: center;
     gap: 8px; /* horizontal spacing between buttons */
+}
+
+.header-action-buttons > * {
+    flex-shrink: 0; /* Prevent individual buttons from shrinking too much by default */
+}
+
+.header-action-buttons .cta-button {
+    white-space: nowrap; /* Prevent text in button from wrapping */
+}
+
+@media (max-width: 480px) { /* Example breakpoint for very small screens */
+    .header-action-buttons {
+        gap: 4px; /* Reduce gap on very small screens */
+    }
+    #fixed-header-elements {
+        padding: 5px; /* Reduce padding of the header bar itself */
+    }
+    .header-action-buttons button,
+    .header-action-buttons .cta-button {
+        font-size: 0.9em !important; /* Slightly smaller font, !important to override specific button styles if needed */
+        padding: 6px 8px !important; /* Adjust padding, !important for same reason */
+    }
+    /* Special care for icon-only buttons vs text buttons */
+    .header-action-buttons button i,
+    .header-action-buttons button { /* If button contains only icon or emoji and for base button style */
+        line-height: 1 !important; /* Ensure height is minimal */
+    }
+     .header-action-buttons .header-icon { /* The column icon */
+        width: 28px !important; /* Ensure it doesn't take too much space */
+        height: 28px !important;
+    }
 }
 
 .top-empty-bar {
