@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const vibrateFeedback = () => {
         if (navigator.vibrate) {
-            navigator.vibrate([50]);
+            navigator.vibrate([20,40,20]);
         }
     };
 
