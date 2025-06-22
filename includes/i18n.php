@@ -64,13 +64,15 @@ function t(string $key, ?string $lang = null): string {
     }
 
     // Usar $active_lang_for_path para la búsqueda en el catálogo
+    $default_language = $default_lang ?? 'es';
+
     if (array_key_exists($key, $catalogs[$active_lang_for_path] ?? [])) {
         $result = $catalogs[$active_lang_for_path][$key];
+    } elseif (array_key_exists($key, $catalogs[$default_language] ?? [])) {
+        mark_untranslated($key, $active_lang_for_path);
+        $result = $catalogs[$default_language][$key];
     } else {
         mark_untranslated($key, $active_lang_for_path);
-        $result = $catalogs[$lang][$key];
-    } else {
-        mark_untranslated($key, $lang);
         $result = $key;
     }
 
