@@ -75,6 +75,11 @@ se lean con claridad incluso en pantallas pequeñas.
 <h1 class="gradient-text">Descubre Cerezo</h1>
 ```
 
+Si el navegador no soporta `background-clip: text` se aplica
+automáticamente un color sólido mediante una regla `@supports`.
+También puedes añadir la clase `.no-clip-text` al contenedor para
+forzar esta versión.
+
 ## Botones de llamada a la acción
 
 Los botones de tipo CTA están definidos en
@@ -99,6 +104,11 @@ Para integrar titulares sobre fondos complejos se disponen las clases `.blend-sc
 <h1 class="blend-overlay">Título</h1>
 <p class="blend-screen">Texto destacado</p>
 ```
+
+Los navegadores que no admiten `mix-blend-mode` muestran estos
+elementos en un color sólido. El CSS incluye una regla `@supports`
+para gestionar este caso y una clase opcional `.no-blend` que puede
+añadirse manualmente.
 
 ## Optimización de imágenes
 
