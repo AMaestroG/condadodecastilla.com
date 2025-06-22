@@ -14,6 +14,7 @@ if ($geminiNotice) {
         <img loading="lazy" src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
         <button id="admin-menu-button" data-menu-target="admin-menu-items" aria-label="Abrir menú administrador" aria-expanded="false" role="button" aria-controls="admin-menu-items">☰</button>
         <button id="homonexus-toggle" aria-label="Activar Homonexus" aria-pressed="false">👥</button>
+        <a href="/nuevaweb/index.php" class="cta-button cta-button-small">Nueva Web</a>
     </div>
 </div>
 
