@@ -119,7 +119,7 @@ Para agilizar la carga se recomienda emplear formatos modernos y limitar las dim
 - El peso ideal está por debajo de **300&nbsp;KB**. Cualquier imagen que supere **1&nbsp;MB** debería revisarse.
 - Para generar versiones optimizadas o miniaturas se dispone de un script descrito en [script_catalog.md](script_catalog.md).
 
-Actualmente existen archivos superiores a 2&nbsp;MB en `assets/img/` (por ejemplo `GonzaloTellez.png`), conviene reconvertirlos a WebP o aplicar compresión.
+Si una imagen supera los 2&nbsp;MB (por ejemplo `https://placehold.co/1024x1536.webp?text=Gonzalo+Tellez`), conviene reconvertirla a WebP o alojarla en un servicio externo para evitar añadir archivos pesados al repositorio.
 
 ## Accesibilidad
 
