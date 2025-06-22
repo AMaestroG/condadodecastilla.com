@@ -9,7 +9,7 @@
 #custom-pointer .outer{
   width:2.5rem;
   height:2.5rem;
-  border:2px solid rgba(207,181,59,0.6);
+  border:2px solid rgba(var(--epic-gold-main-rgb),0.6); /* see docs/style-guide.md */
   border-radius:9999px;
 }
 #custom-pointer .inner{
@@ -18,12 +18,12 @@
   left:50%;
   width:0.625rem;
   height:0.625rem;
-  background-color:#cfb53b;
+  background-color:var(--epic-gold-main); /* see docs/style-guide.md */
   border-radius:9999px;
   transform:translate(-50%,-50%);
 }
 #custom-pointer.active .outer{
-  border-color:#800080;
+  border-color:var(--epic-purple-emperor); /* see docs/style-guide.md */
 }
 body.cursor-none{
   cursor:none;

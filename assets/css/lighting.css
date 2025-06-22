@@ -14,7 +14,7 @@
     height: 100vh;
     z-index: 9998;
     mix-blend-mode: lighten;
-    background-image: radial-gradient(circle var(--linterna-radio) at var(--mouse-x) var(--mouse-y), #fef08a 0%, transparent 60%), url('/assets/img/alabastro.jpg');
+    background-image: radial-gradient(circle var(--linterna-radio) at var(--mouse-x) var(--mouse-y), var(--color-acento-amarillo) 0%, transparent 60%), url('/assets/img/alabastro.jpg'); /* see docs/style-guide.md */
     background-size: var(--linterna-radio) var(--linterna-radio), cover;
     background-repeat: no-repeat;
     background-position: center center;

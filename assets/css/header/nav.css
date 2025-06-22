@@ -281,7 +281,7 @@ body.sidebar-active #sidebar-toggle:hover .bar {
 #sidebar .nav-links a {
     display: block;
     padding: 12px 15px;
-    color: var(--epic-text-dark, #333333); /* Light text for dark sidebar */
+    color: var(--epic-text-color); /* see docs/style-guide.md */
     font-family: var(--font-headings);
     font-size: 1.1em;
     font-weight: 600;
@@ -344,7 +344,7 @@ body.sidebar-active {
     }
     #sidebar .nav-links a {
         /* Explicitly define for mobile - consistent with desktop for now */
-        color: var(--epic-text-dark, #333333);
+        color: var(--epic-text-color); /* see docs/style-guide.md */
     }
 }
 

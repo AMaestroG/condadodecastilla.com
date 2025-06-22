@@ -69,7 +69,7 @@ header { /* New header for hamburger only */
     left: 0;
     width: 100%;
     z-index: 1030; /* Above sidebar but below modals if any */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(var(--color-negro-contraste-rgb),0.1); /* see docs/style-guide.md */
 }
 
 #menu-toggle {
@@ -93,7 +93,7 @@ header { /* New header for hamburger only */
     padding-top: 60px; /* Espacio para el header fijo */
     transition: left 0.3s ease-in-out;
     overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 5px rgba(var(--color-negro-contraste-rgb),0.1); /* see docs/style-guide.md */
 }
 
 #sidebar.open {
@@ -189,7 +189,7 @@ header { /* New header for hamburger only */
     height: 100%;
     background-color: var(--current-sidebar-bg); /* Usar el mismo fondo que el sidebar */
     color: var(--current-text);
-    box-shadow: -3px 0 8px rgba(0,0,0,0.15);
+    box-shadow: -3px 0 8px rgba(var(--color-negro-contraste-rgb),0.15); /* see docs/style-guide.md */
     z-index: 1050; /* Encima de otros elementos */
     transition: right 0.35s ease-in-out;
     display: flex;
