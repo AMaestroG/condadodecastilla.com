@@ -4,6 +4,8 @@
 
 Promocionar el turismo de **Cerezo de Río Tirón** y proteger su patrimonio arqueológico y cultural.
 
+Los colores predominantes son el morado principal, el oro viejo y el alabastro. Encontrarás la paleta completa en [docs/style-guide.md](docs/style-guide.md). Para referencia rápida puedes usar las variables `--color-primario-purpura` y `--color-secundario-dorado`.
+
 ## Estructura principal
 
 - `assets/` – imágenes, estilos y scripts.
