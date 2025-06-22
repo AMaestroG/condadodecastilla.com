@@ -6,10 +6,10 @@
 
         if (!isMuted) {
             if (open) {
-                const audioOpen = new Audio('assets/sounds/menu-open.mp3');
+                const audioOpen = new Audio('https://example.com/audio/menu-open.mp3');
                 audioOpen.play().catch(error => console.error("Error playing menu open sound:", error));
             } else {
-                const audioClose = new Audio('assets/sounds/menu-close.mp3');
+                const audioClose = new Audio('https://example.com/audio/menu-close.mp3');
                 audioClose.play().catch(error => console.error("Error playing menu close sound:", error));
             }
         }
