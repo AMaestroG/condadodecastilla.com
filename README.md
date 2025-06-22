@@ -31,6 +31,15 @@ El proyecto emplea PHP y Python con Flask. Para nuevos módulos se aconseja usar
 
 2. Sustituye los valores de ejemplo por tus credenciales locales (base de datos, claves de API y ajustes de depuración).
 
+### Solución de problemas de base de datos
+
+Si la aplicación no puede conectarse a PostgreSQL:
+
+1. Verifica que las variables de conexión en tu archivo `.env` sean correctas.
+2. Ejecuta `scripts/check_db.sh` para comprobar la disponibilidad de la base de datos y detectar valores faltantes.
+3. Asegúrate de que el servicio de PostgreSQL esté ejecutándose y accesible desde la dirección configurada.
+4. Algunas pruebas necesitan la extensión **pdo_pgsql**; consulta [docs/testing.md](docs/testing.md) para instalarla en caso de errores de conexión.
+
 
 ## Puesta en marcha rápida
 
