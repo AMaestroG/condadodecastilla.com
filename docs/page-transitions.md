@@ -25,3 +25,7 @@ The output CSS is written to `assets/css/custom.css` and the JS bundle in `dist/
 Include the generated files in your template and call `initPageTransitions()` from `js/page-transitions.js`.
 
 The module fades the old page out and slides in the new content using Cerezo purple and old gold colors. The effect reinforces the mission by offering a smooth and appealing navigation experience that invites visitors to explore the heritage of **Cerezo de Río Tirón**.
+
+## Audio feedback
+
+`assets/js/page-transitions.js` reproduce un sonido de transición cuando la superposición desaparece o se carga una página nueva. Para habilitarlo, coloca `assets/sounds/transition.mp3` junto al resto de archivos estáticos. Si el archivo no existe o el sitio está silenciado mediante `assets/js/audio-controller.js`, no se reproduce nada.

@@ -152,6 +152,7 @@ npm run build
 ```
 
 El comando genera los archivos finales en `dist/` y `assets/css`. Consulta [docs/page-transitions.md](docs/page-transitions.md) para obtener todos los detalles de configuración.
+Puedes añadir sonido opcional copiando `assets/sounds/transition.mp3` durante el proceso de bundling. Si el archivo no está presente, la animación se reproducirá en silencio.
 
 ## Testing
 
