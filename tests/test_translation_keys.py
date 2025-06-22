@@ -22,5 +22,20 @@ class TranslationKeysTest(unittest.TestCase):
             missing = all_keys - keys
             self.assertFalse(missing, f'Missing keys in {name}: {", ".join(sorted(missing))}')
 
+    def test_no_empty_values(self):
+        translation_dir = Path(__file__).resolve().parent.parent / 'translations'
+        files = list(translation_dir.glob('*.json'))
+        self.assertTrue(files, 'No translation files found')
+
+        for file in files:
+            with open(file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+
+            empty_values = [k for k, v in data.items() if v == ""]
+            self.assertFalse(
+                empty_values,
+                f'File {file.name} has empty values for keys: {", ".join(empty_values)}'
+            )
+
 if __name__ == '__main__':
     unittest.main()
