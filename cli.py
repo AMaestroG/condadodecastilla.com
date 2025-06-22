@@ -1,6 +1,6 @@
 import argparse
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid  # For generating IDs if not provided by crawler/processor
 import logging
 
@@ -77,7 +77,7 @@ def handle_add_url(url_to_crawl: str):
         "id": resource_id,
         "url": url_to_crawl,
         "content": main_text_content, # Using main_text_content from ContentProcessor
-        "last_crawled_at": datetime.utcnow().isoformat(),
+        "last_crawled_at": datetime.now(timezone.utc).isoformat(),
         "metadata": {
             "title": page_title if page_title else "N/A",
             # Potentially other metadata if ContentProcessor provided more
@@ -103,7 +103,7 @@ def handle_add_url(url_to_crawl: str):
                 "source_url": url_to_crawl, # The page we just crawled
                 "target_url": link_info["target_url"],
                 "anchor_text": link_info.get("anchor_text", ""),
-                "created_at": datetime.utcnow().isoformat()
+                "created_at": datetime.now(timezone.utc).isoformat()
             }
             db_interface.add_link(db_link_data)
         logger.info(

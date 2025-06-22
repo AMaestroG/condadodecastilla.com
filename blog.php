@@ -29,7 +29,22 @@ function render_markdown(string $markdown): string {
 }
 
 $posts = get_blog_posts();
-$post_slug = isset($_GET['post']) ? $_GET['post'] : null;
+$post_slug_raw = isset($_GET['post']) ? $_GET['post'] : null;
+$post_slug = null;
+
+if ($post_slug_raw) {
+    // Sanitizar el slug: permitir solo alfanuméricos, guiones bajos y guiones.
+    // Los slugs generados por basename en get_blog_posts() son seguros,
+    // pero sanitizamos la entrada del usuario para consistencia y para evitar
+    // cualquier intento de manipulación de la clave del array $posts.
+    $post_slug = preg_replace('/[^a-zA-Z0-9_-]/', '', $post_slug_raw);
+
+    // Opcional: si el slug sanitizado es diferente al original, podría indicar un intento de manipulación.
+    // if ($post_slug !== $post_slug_raw) {
+    //     // Loguear intento o manejar como error, por ahora simplemente usamos el sanitizado.
+    //     // error_log("Slug manipulado detectado: original '{$post_slug_raw}', sanitizado '{$post_slug}'");
+    // }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

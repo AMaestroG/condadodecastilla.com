@@ -23,16 +23,25 @@ class ToolsMenuLinksTest extends TestCase {
     public static function urlProvider(): array {
         $path = __DIR__.'/../fragments/menus/tools-menu.html';
         if (!file_exists($path)) {
+            // Lanzar SkippedTestError si el archivo no existe, para que la prueba se marque como omitida.
+            // Necesitamos asegurarnos de que la clase SkippedTestError esté disponible.
+            // Si no, simplemente devolver un array vacío y dejar que PHPUnit lo maneje.
+            // Por ahora, para evitar el error "Class not found", volvemos a return [].
+            // El test en sí deberá marcarse como skipped.
             return [];
         }
         $html = file_get_contents($path);
         $dom = new DOMDocument();
-        libxml_use_internal_errors(true);
-        $dom->loadHTML($html);
+        libxml_use_internal_errors(true); // Suprimir errores de HTML mal formado
+        if (!empty($html)) {
+            $dom->loadHTML($html);
+        }
+        libxml_clear_errors(); // Limpiar errores de libxml
+
         $urls = [];
         foreach ($dom->getElementsByTagName('a') as $a) {
             $href = $a->getAttribute('href');
-            if ($href !== '') {
+            if ($href && $href !== '#') { // Solo URLs válidas y no solo anclas
                 $urls[] = [$href];
             }
         }
@@ -43,18 +52,33 @@ class ToolsMenuLinksTest extends TestCase {
      * @dataProvider urlProvider
      */
     public function testLinkLoads(string $href): void {
+        // Marcar la prueba como omitida si el archivo HTML del menú no existe.
+        // Esto se hace aquí porque el dataProvider es estático y no puede usar $this->markTestSkipped.
+        // Si urlProvider devuelve un array vacío, este test no se ejecutará para ningún dato.
+        // Para una omisión más explícita si el archivo falta, el provider podría devolver un dataset especial
+        // y el test comprobarlo. O la prueba podría comprobar la existencia del archivo aquí.
+        $menuHtmlPath = __DIR__.'/../fragments/menus/tools-menu.html';
+        if (!file_exists($menuHtmlPath)) {
+            $this->markTestSkipped('El archivo fragments/menus/tools-menu.html no existe, omitiendo prueba de enlaces de menú de herramientas.');
+        }
+
         $path = __DIR__.'/..'.$href;
         if (is_dir($path)) {
-            $path .= '/index.php';
+            $path .= '/index.php'; // Asumir index.php para directorios
         }
-        $this->assertFileExists($path, "Missing file for $href");
+
+        $this->assertFileExists($path, "El archivo referenciado por el enlace '$href' no existe en '$path'.");
+
         if (pathinfo($path, PATHINFO_EXTENSION) === 'php') {
+            // Usar la función runPage de la clase para ejecutar scripts PHP
             [$status, $out, $err] = $this->runPage($path);
-            $this->assertSame(0, $status, $err);
-            $this->assertNotEmpty($out);
+            $this->assertSame(0, $status, "Error al ejecutar $path: $err");
+            $this->assertNotEmpty($out, "La salida de $path está vacía.");
         } else {
+            // Para otros tipos de archivo (ej. HTML), simplemente leer el contenido
             $content = file_get_contents($path);
-            $this->assertNotFalse($content, "Failed to read $path");
+            $this->assertNotFalse($content, "No se pudo leer el archivo $path.");
+            $this->assertNotEmpty($content, "El archivo $path está vacío.");
         }
     }
 }

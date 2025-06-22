@@ -1,6 +1,6 @@
 import uuid
 from dataclasses import dataclass, asdict, field
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 import logging
 import os
@@ -26,7 +26,7 @@ class Resource:
     url: str
     content: str = "N/A (placeholder)"
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    last_crawled_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    last_crawled_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     metadata: dict = field(default_factory=dict)
 
 
@@ -37,7 +37,7 @@ class Link:
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
     source_resource_id: str | None = None
     target_resource_id: str | None = None
-    created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     anchor_text: str | None = None
 
 class GraphDBInterface:

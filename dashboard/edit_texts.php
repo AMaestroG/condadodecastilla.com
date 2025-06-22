@@ -38,7 +38,13 @@ try {
     error_log("edit_texts.php PDOException: " . $e->getMessage());
 }
 
-$edit_id_highlight = $_GET['edit_id'] ?? null;
+$edit_id_raw = $_GET['edit_id'] ?? null;
+$edit_id_highlight = null;
+if ($edit_id_raw) {
+    // Sanitizar el ID: permitir solo alfanuméricos, guiones bajos y guiones.
+    $edit_id_highlight = preg_replace('/[^a-zA-Z0-9_-]/', '', $edit_id_raw);
+    // Opcional: loguear si $edit_id_raw contenía caracteres no válidos.
+}
 
 ?>
 <!DOCTYPE html>

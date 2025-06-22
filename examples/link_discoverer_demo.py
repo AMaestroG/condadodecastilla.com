@@ -1,7 +1,7 @@
 from link_discoverer import LinkDiscoverer
 from graph_db_interface import GraphDBInterface
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 import logging
 
 
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     db.add_or_update_resource({
         "id": crawled_res_id, "url": crawled_res_url,
         "content": "This is the detailed processed content of the crawled page. It's long enough.",
-        "metadata": {"title": "Crawled Page Title"}, "last_crawled_at": datetime.utcnow().isoformat()
+        "metadata": {"title": "Crawled Page Title"}, "last_crawled_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Resource 2: Exists but lacks "processed_content" (content is empty)
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     db.add_or_update_resource({
         "id": no_content_res_id, "url": no_content_res_url,
         "content": "", # Empty content
-        "metadata": {"title": "No Content Page Title"}, "last_crawled_at": datetime.utcnow().isoformat()
+        "metadata": {"title": "No Content Page Title"}, "last_crawled_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Resource 3: Exists but content is placeholder
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     db.add_or_update_resource({
         "id": placeholder_content_res_id, "url": placeholder_content_res_url,
         "content": "N/A (placeholder)",
-        "metadata": {"title": "Placeholder Content Page Title"}, "last_crawled_at": datetime.utcnow().isoformat()
+        "metadata": {"title": "Placeholder Content Page Title"}, "last_crawled_at": datetime.now(timezone.utc).isoformat()
     })
 
 
@@ -55,33 +55,33 @@ if __name__ == "__main__":
     # Link to the resource without content
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": crawled_res_url, "target_url": no_content_res_url,
-        "anchor_text": "Link to no-content", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link to no-content", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Link to the resource with placeholder content
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": crawled_res_url, "target_url": placeholder_content_res_url,
-        "anchor_text": "Link to placeholder-content", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link to placeholder-content", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Link to a URL that doesn't exist as a resource yet
     non_existent_url1 = "http://example.com/non-existent-page1"
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": crawled_res_url, "target_url": non_existent_url1,
-        "anchor_text": "Link to non-existent 1", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link to non-existent 1", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Link to another URL that doesn't exist as a resource yet
     non_existent_url2 = "http://example.com/non-existent-page2"
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": crawled_res_url, "target_url": non_existent_url2,
-        "anchor_text": "Link to non-existent 2", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link to non-existent 2", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
     # Link from no_content_res_url to crawled_res_url (to ensure it's not picked as uncrawled)
     db.add_link({
         "id": str(uuid.uuid4()), "source_url": no_content_res_url, "target_url": crawled_res_url,
-        "anchor_text": "Link back to crawled", "created_at": datetime.utcnow().isoformat()
+        "anchor_text": "Link back to crawled", "created_at": datetime.now(timezone.utc).isoformat()
     })
 
 

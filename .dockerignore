@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Node
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-store/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Database
+*.sqlite
+*.sqlite3
+db_data/
+
+# OS / Editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~

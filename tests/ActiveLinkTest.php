@@ -4,7 +4,8 @@ use PHPUnit\Framework\TestCase;
 class ActiveLinkTest extends TestCase {
     private function runPage(string $script): array {
         $prepend = realpath(__DIR__.'/fixtures/page_prepend.php');
-        $cmd = sprintf('php-cgi -d auto_prepend_file=%s %s',
+        // Forzar la carga de pdo_sqlite para esta invocación de php-cgi
+        $cmd = sprintf('php-cgi -d extension=pdo_sqlite.so -d auto_prepend_file=%s %s',
             escapeshellarg($prepend),
             escapeshellarg($script)
         );
