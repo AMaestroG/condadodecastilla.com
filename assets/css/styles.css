@@ -70,101 +70,12 @@ header { /* New header for hamburger only */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-#menu-toggle {
-    background: none;
-    border: none;
-    color: var(--current-text);
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0.5rem;
-}
+/* #menu-toggle styles removed as it was part of tailwind_index.html specific header */
 
-#sidebar {
-    height: 100%;
-    width: 280px; /* Ancho del menú lateral */
-    position: fixed;
-    z-index: 1040; /* Debajo del header del menú hamburguesa si es fijo */
-    top: 0;
-    left: -280px; /* Comienza oculto */
-    background-color: var(--current-sidebar-bg);
-    color: var(--current-text);
-    padding-top: 60px; /* Espacio para el header fijo */
-    transition: left 0.3s ease-in-out;
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-}
-
-#sidebar.open {
-    left: 0; /* Muestra el menú */
-}
-
-#sidebar .main-menu, #sidebar .tools-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#sidebar .main-menu a, #sidebar .tools-menu button {
-    display: flex; /* Para alinear icono y texto */
-    align-items: center;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    color: var(--current-text);
-    transition: background-color 0.2s ease, color 0.2s ease;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-}
-
-#sidebar .main-menu a:hover, #sidebar .tools-menu button:hover {
-    background-color: var(--current-link-hover-color);
-    color: var(--current-button-text); /* Ajustar si el hover cambia mucho el fondo */
-}
-/* Específico para el texto del botón cuando hover */
-[data-theme="dark"] #sidebar .main-menu a:hover,
-[data-theme="dark"] #sidebar .tools-menu button:hover {
-    color: var(--dark-text); /* Asegurar contraste en modo oscuro */
-}
-[data-theme="light"] #sidebar .main-menu a:hover,
-[data-theme="light"] #sidebar .tools-menu button:hover {
-    color: var(--light-text); /* Asegurar contraste en modo claro */
-}
-
-
-#sidebar .main-menu a img, #sidebar .tools-menu button img {
-    margin-right: 10px;
-    width: 20px; /* Tamaño de los iconos */
-    height: 20px;
-    filter: var(--current-icon-filter); /* Aplicar filtro para tema oscuro */
-}
-
-#sidebar .separator {
-    border: none;
-    height: 1px;
-    background-color: var(--current-separator);
-    margin: 10px 20px;
-}
-
-#sidebar .language-selector {
-    display: flex;
-    justify-content: space-around;
-    padding: 15px 20px;
-}
-
-#sidebar .language-selector img {
-    width: 30px; /* Tamaño de las banderas */
-    height: auto;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: transform 0.2s ease;
-}
-
-#sidebar .language-selector img:hover {
-    transform: scale(1.1);
-}
+/* Styles for the old #sidebar (related to tailwind_index.html menu system) removed. */
+/* The new unified sidebar is primarily styled in assets/css/header/nav.css */
+/* Theme-related variables like --current-sidebar-bg are still available for nav.css if needed, */
+/* but nav.css currently uses its own specific background for the new sidebar. */
 
 #main-content {
     padding: 20px;
@@ -323,29 +234,14 @@ header { /* New header for hamburger only */
 }
 
 /* ================================================== */
-/* ESTILOS DEL PANEL DE CONTROL IZQUIERDO      */
+/* ESTILOS DEL PANEL DE CONTROL IZQUIERDO (Eliminado) */
 /* ================================================== */
 
-.left-control-panel {
-    position: fixed; /* Clave para que no se mueva con el scroll */
-    left: 15px;      /* Distancia desde la izquierda */
-    top: 60px;       /* Distancia desde arriba - Adjusted to be below #fixed-header-elements */
-    z-index: 1020;   /* Asegura que esté por encima de otros elementos, but below #fixed-header-elements */
+/* Las reglas para .left-control-panel y sus hijos han sido eliminadas
+   ya que la clase no se utiliza en el HTML o JS del proyecto. */
 
-    /* Diseño del panel */
-    display: flex;
-    flex-direction: column; /* Apila los elementos en vertical */
-    gap: 10px; /* Espacio entre la sección de idiomas y la de botones */
-
-    /* Estilo visual tipo "cristal" (opcional pero moderno) */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.8); /* Tu morado emperador con transparencia */
-    backdrop-filter: blur(5px);
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid var(--old-gold);
-}
-
-/* --- Estilos de los elementos dentro del panel --- */
+/* Estilos para .language-selector y .panel-separator se mantienen si son usados en otro contexto */
+/* Si #fixed-header-elements .language-selector es el único uso, se puede quedar aquí o moverse a topbar.css */
 
 /* Contenedor de las banderas dentro de #fixed-header-elements */
 #fixed-header-elements .language-selector {
@@ -377,61 +273,5 @@ header { /* New header for hamburger only */
     margin: 0;
 }
 
-/* Contenedor de los botones de acción (original, si aún se usa para otros botones) */
-.left-control-panel .action-buttons {
-    display: flex;
-    flex-direction: column; /* Apila los botones en vertical */
-    gap: 10px; /* Espacio entre cada botón */
-    align-items: center; /* Centra los botones en el panel */
-}
-
-/* Estilo para cada botón individual en el panel izquierdo original */
-.left-control-panel .action-buttons button {
-    background-color: var(--old-gold);
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-    width: 40px; /* Ancho fijo para los botones */
-    height: 40px; /* Alto fijo para los botones */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease;
-}
-
-.left-control-panel .action-buttons button:hover {
-    background-color: var(--epic-gold-main); /* Resalta con oro principal */
-    transform: scale(1.05);
-}
-
-.left-control-panel .action-buttons button img {
-    width: 24px; /* Tamaño del icono dentro del botón */
-    height: 24px;
-}
-
-/* Estilo para el #menu-toggle dentro de #fixed-header-elements */
-#fixed-header-elements #menu-toggle {
-    background-color: var(--old-gold);
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-    width: 40px; /* Ancho fijo para los botones */
-    height: 40px; /* Alto fijo para los botones */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease;
-    margin: 0; /* Reset margins */
-}
-
-#fixed-header-elements #menu-toggle:hover {
-    background-color: var(--epic-gold-main); /* Resalta con oro principal */
-    transform: scale(1.05);
-}
-
-#fixed-header-elements #menu-toggle img {
-    width: 24px; /* Tamaño del icono dentro del botón */
-    height: 24px;
-}
+/* Styles for #fixed-header-elements #menu-toggle removed as #menu-toggle is no longer used. */
+/* The new header buttons are styled in assets/css/header/topbar.css */

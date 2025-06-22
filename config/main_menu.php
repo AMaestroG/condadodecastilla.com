@@ -1,12 +1,12 @@
 <?php
 return [
-    ['label' => 'Inicio', 'url' => 'index.php'],
-    ['label' => 'Nuestra Historia', 'url' => 'historia/historia.php'],
+    ['label' => 'Inicio', 'url' => 'index.php#hero'],
+    ['label' => 'Nuestra Historia', 'url' => 'index.php#timeline'],
     ['label' => 'Historia de Cerezo', 'url' => 'historia_cerezo/index.php'],
     ['label' => 'Obispado de Auca', 'url' => 'historia/subpaginas/obispado_auca_cerezo.php'],
     ['label' => 'Influencia Romana', 'url' => 'historia/influencia_romana.php'],
     ['label' => 'El Alfoz', 'url' => 'alfoz/alfoz.php'],
-    ['label' => 'Lugares Emblemáticos', 'url' => 'lugares/lugares.php'],
+    ['label' => 'Lugares Emblemáticos', 'url' => 'index.php#arqueologia'],
     ['label' => 'Ruinas y Vestigios', 'url' => 'ruinas/index.php'],
     ['label' => 'Camino de Santiago', 'url' => 'camino_santiago/camino_santiago.php'],
     ['label' => 'Museo Colaborativo', 'url' => 'museo/galeria.php'],
@@ -19,7 +19,7 @@ return [
     ['label' => 'Cultura y Legado', 'url' => 'cultura/cultura.php'],
     ['label' => 'Personajes', 'url' => 'personajes/indice_personajes.html'],
     ['label' => 'Gestión de Yacimientos', 'url' => 'empresa/index.php'],
-    ['label' => 'Foro', 'url' => 'foro/index.php'],
+    ['label' => 'Foro', 'url' => 'index.php#foro'],
     ['label' => 'Blog', 'url' => 'blog.php'],
     ['label' => 'Contacto', 'url' => 'contacto/contacto.php'],
 ];
