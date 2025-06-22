@@ -65,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $agents = $updatedAgents; // Actualizar la variable local $agents
         $saved = true;
     }
-    $saved = true;
 }
 ?>
 <!DOCTYPE html>
@@ -96,3 +95,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
 </body>
 </html>
+
