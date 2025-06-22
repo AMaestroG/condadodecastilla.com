@@ -39,6 +39,7 @@ require_once __DIR__ . '/fragments/header.php';
         <a href="#personajes" class="cta-button-small">Personajes</a>
         <a href="#timeline" class="cta-button-small">Historia</a>
         <a href="#inmersion" class="cta-button-small">Cultura Viva</a>
+        <a href="/docs/db-help.md" class="cta-button-small">Ayuda BD</a>
     </nav>
 
     <section id="video" class="video-section section spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
