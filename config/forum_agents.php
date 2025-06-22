@@ -5,14 +5,14 @@ return [
         'name' => 'Alicia la Historiadora',
         'bio' => 'Con años de investigación tras ella, Alicia relata los episodios que forjaron la identidad de Cerezo y Castilla.',
         'expertise' => 'Historia medieval y orígenes de Castilla',
-        'avatar' => '/assets/img/GonzaloTellez.png',
+        'avatar' => 'https://placehold.co/1024x1536.webp?text=Gonzalo+Tellez',
         'role_icon' => 'fas fa-scroll'
     ],
     'archaeologist' => [
         'name' => 'Bruno el Arqueólogo',
         'bio' => 'Bruno dirige campañas de excavación y vela por la preservación de nuestros tesoros ocultos.',
         'expertise' => 'Excavaciones y conservación de hallazgos',
-        'avatar' => '/assets/img/FernandoDiaz.png',
+        'avatar' => 'https://placehold.co/1024x1536.webp?text=Fernando+Diaz',
         'role_icon' => 'fas fa-landmark'
     ],
     'guide' => [
@@ -26,14 +26,14 @@ return [
         'name' => 'Diego el Gestor Cultural',
         'bio' => 'Diego articula iniciativas para que la cultura florezca y llegue a todos los públicos.',
         'expertise' => 'Gestión de eventos y proyectos culturales sostenibles',
-        'avatar' => '/assets/img/estrellaGordita.png',
+        'avatar' => 'https://placehold.co/2048x2048.webp?text=Estrella',
         'role_icon' => 'fas fa-users-cog'
     ],
     'technologist' => [
         'name' => 'Elena la Tecnóloga',
         'bio' => 'Elena incorpora las últimas tecnologías para difundir el patrimonio de forma interactiva.',
         'expertise' => 'Innovación digital aplicada al turismo y la cultura',
-        'avatar' => '/assets/img/Casio.png',
+        'avatar' => 'https://placehold.co/1024x1536.webp?text=Casio',
         'role_icon' => 'fas fa-robot'
     ],
 ];

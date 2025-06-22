@@ -121,7 +121,7 @@ return [
         'name' => 'Alicia la Historiadora',
         'bio' => 'Con años de investigación tras ella, Alicia relata... ',
         'expertise' => 'Historia medieval y orígenes de Castilla',
-        'avatar' => '/assets/img/GonzaloTellez.png',
+        'avatar' => 'https://placehold.co/1024x1536.webp?text=Gonzalo+Tellez',
         'role_icon' => 'fas fa-scroll'
     ],
     // ...

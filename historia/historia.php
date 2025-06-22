@@ -86,7 +86,7 @@
                     </li>
                     <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
-                            <img loading="lazy" src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Explorando los Orígenes de Castilla">
+                            <img loading="lazy" src="https://placehold.co/2048x2048.webp?text=Estrella" alt="Hito en la línea de tiempo: Explorando los Orígenes de Castilla">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Explorando Auca Patricia, Cerasio y los Orígenes de Castilla</h3>
@@ -95,7 +95,7 @@
                     </li>
                     <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
-                            <img loading="lazy" src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Documentos Históricos">
+                            <img loading="lazy" src="https://placehold.co/2048x2048.webp?text=Estrella" alt="Hito en la línea de tiempo: Documentos Históricos">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Documentos Históricos del Condado</h3>
@@ -105,7 +105,7 @@
                     </li>
                     <li class="timeline-item scroll-fade opacity-0 transition-opacity duration-700" data-aos="fade-up" tabindex="0">
                         <div class="timeline-icon">
-                            <img loading="lazy" src="/assets/img/estrellaGordita.png" alt="Hito en la línea de tiempo: Galería Histórica">
+                            <img loading="lazy" src="https://placehold.co/2048x2048.webp?text=Estrella" alt="Hito en la línea de tiempo: Galería Histórica">
                         </div>
                         <div class="timeline-content">
                             <h3 class="gradient-text">Galería Visual de la Historia</h3>
