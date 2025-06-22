@@ -1,4 +1,5 @@
 const { launchBrowser, closeBrowser } = require('../helpers/puppeteerSetup');
+const awaitTranslateOrSkip = require('../utils/skipIfNoTranslate');
 
 (async () => {
   const browser = await launchBrowser();
@@ -6,7 +7,7 @@ const { launchBrowser, closeBrowser } = require('../helpers/puppeteerSetup');
   await page.goto('http://localhost:8080/tests/manual/test_lang.html');
   await page.waitForSelector('#flag-toggle');
   await page.click('#flag-toggle');
-  await page.waitForSelector('#google_translate_element', {visible: true});
+  await awaitTranslateOrSkip(page);
   await page.waitForFunction(() => {
     const el = document.getElementById('google_translate_element');
     return el && el.offsetHeight > 0;
