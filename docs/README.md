@@ -160,6 +160,7 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 - [Interfaz de la base de datos de grafo](graph_db.md)
 - [API de consulta de grafo](../api/graph)
 - [API de la Galería Colaborativa](galeria_api.md)
+- [API de agentes del foro](forum_agents_api.md)
 - [Guía de Testing](testing.md)
 - [Gráfica de Influencia Romana](roman_influence_graph.md)
 - [Relaciones de Parentesco](parent_child_pairs.md)

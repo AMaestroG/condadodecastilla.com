@@ -77,5 +77,12 @@ class FlaskApiTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 500)
         self.assertIn('error', res.get_json())
 
+    def test_forum_agents_endpoint(self):
+        res = self.client.get('/api/forum/agents')
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertIsInstance(data, dict)
+        self.assertGreaterEqual(len(data), 5)
+
 if __name__ == '__main__':
     unittest.main()
