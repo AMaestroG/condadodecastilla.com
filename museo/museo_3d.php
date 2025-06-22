@@ -3,7 +3,7 @@
 <head>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <title>Museo 3D Interactivo - Condado de Castilla</title>
-    <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
+    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>

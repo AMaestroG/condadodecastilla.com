@@ -3,7 +3,7 @@
 <head>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <title>Galería del Museo - Condado de Castilla</title>
-    <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
+    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <!-- Google Fonts, FontAwesome, and epic_theme.css are now in head_common.php -->
 </head>
 <body class="alabaster-bg">
