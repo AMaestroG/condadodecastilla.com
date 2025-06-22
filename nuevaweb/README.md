@@ -2,7 +2,7 @@
 
 Este subdirectorio contiene la evolución del proyecto Condado de Castilla.
 Usa la paleta en morados y tonos de oro viejo con fondos de alabastro.
-Integra PHP para el sitio público y un API minimal en Flask.
+Integra PHP para el sitio público y un API minimal en Flask. Este servicio es solo un ejemplo y no está conectado con la API oficial ubicada en `../flask_app.py`.
 
 ## Estructura
 - `index.php` – página principal con menú deslizante.
@@ -20,5 +20,9 @@ Integra PHP para el sitio público y un API minimal en Flask.
    ```bash
    python3 flask_app.py
    ```
+
+### API de ejemplo
+
+`flask_app.py` implementa un único endpoint `/api/hello`. Su función es mostrar la estructura básica de un servicio Flask y no se integra con la API principal del proyecto.
 
 Consulta la [guía de estilo](../docs/style-guide.md) para ver la paleta completa y otras recomendaciones.
