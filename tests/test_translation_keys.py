@@ -4,7 +4,7 @@ from pathlib import Path
 
 class TranslationKeysTest(unittest.TestCase):
     def test_all_files_have_same_keys(self):
-        translation_dir = Path(__file__).resolve().parent.parent / 'translations'
+        translation_dir = Path(__file__).resolve().parent.parent / 'i18n'
         files = list(translation_dir.glob('*.json'))
         self.assertTrue(files, 'No translation files found')
 
@@ -23,7 +23,7 @@ class TranslationKeysTest(unittest.TestCase):
             self.assertFalse(missing, f'Missing keys in {name}: {", ".join(sorted(missing))}')
 
     def test_no_empty_values(self):
-        translation_dir = Path(__file__).resolve().parent.parent / 'translations'
+        translation_dir = Path(__file__).resolve().parent.parent / 'i18n'
         files = list(translation_dir.glob('*.json'))
         self.assertTrue(files, 'No translation files found')
 
