@@ -183,6 +183,17 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
    npm run test:puppeteer
    ```
 
+### Ejecutar pytest
+
+Si prefieres usar `pytest` en lugar de `unittest`, instala antes las dependencias de Python:
+
+```bash
+pip install -r requirements.txt
+pytest
+```
+
+Los errores `ModuleNotFoundError` o `ImportError` suelen indicar que faltan paquetes. Comprueba que has instalado todo lo indicado en [requirements.txt](requirements.txt).
+
 También se proporciona `scripts/run_tests.sh` para instalar `requirements.txt` y lanzar la suite de forma directa.
 
 Para verificar la accesibilidad del sitio ejecuta `scripts/run_accessibility_audit.sh`. El script inicia un servidor PHP local, ejecuta **Lighthouse** sobre las páginas principales y guarda los informes HTML en `reports/accessibility/`. Tras la ejecución, abre esos archivos en tu navegador para revisar los resultados.
