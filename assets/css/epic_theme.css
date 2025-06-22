@@ -1218,6 +1218,12 @@ body.dark-mode .footer .social-links a:focus-visible {
     /* Inherits from .cta-button hover */
 }
 
+.header-action-buttons .cta-button-small {
+    margin-top: 0;
+    padding: clamp(4px, 1vh, 8px) clamp(12px, 4vw, 18px);
+    font-size: clamp(0.8em, 2vw, 1em);
+}
+
 
 /* --- Sección de Video --- */
 .video-section {
