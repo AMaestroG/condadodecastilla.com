@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
         applyPalette(detectPalette());
     }
 
+    const vibrateFeedback = () => {
+        if (navigator.vibrate) {
+            navigator.vibrate([50]);
+        }
+    };
+
     const sidebarMenuId = 'sidebar'; // Assuming 'sidebar' is the ID of your sidebar
 
     const updateAria = (btn, menu, open) => {
@@ -37,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btn) btn.focus();
         // Recalculate anyOpen and update body classes
         updateGlobalMenuState();
+        vibrateFeedback();
     };
 
     const toggleMobileSidebar = (btn) => {
@@ -57,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // Recalculate anyOpen and update body classes
         updateGlobalMenuState();
+        vibrateFeedback();
     };
 
     const closeMenu = (menu, triggerButton = null) => { // Added triggerButton for focus
@@ -69,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (side) document.body.classList.remove(`menu-open-${side}`);
         // Recalculate anyOpen and update body classes
         updateGlobalMenuState();
+        vibrateFeedback();
     };
 
     const toggleMenu = (btn) => {
@@ -112,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 chatArea.focus();
             }
         }
+        vibrateFeedback();
     };
 
     const updateGlobalMenuState = () => {
@@ -132,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = e.target.closest('[data-menu-target]');
         if (btn) {
             e.preventDefault();
+            vibrateFeedback();
             if (btn.id === 'consolidated-menu-button' && window.innerWidth <= 768) {
                 toggleMobileSidebar(btn);
             } else {
@@ -156,6 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (touchHandled) {
             touchHandled = false;
             return;
+        }
+        if (e.target.closest('button')) {
+            vibrateFeedback();
         }
         handleToggleEvent(e);
     });
