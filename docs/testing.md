@@ -2,6 +2,22 @@
 
 Esta guía explica cómo preparar el entorno y ejecutar las pruebas automatizadas del proyecto.
 
+## Configuración inicial
+
+Asegúrate de instalar las dependencias básicas antes de ejecutar las pruebas:
+
+```bash
+pip install -r requirements.txt   # instala Flask, filelock y demás paquetes de Python
+npm ci                             # instala Puppeteer y el resto de dependencias de Node
+composer install                   # genera `vendor/bin/phpunit`
+```
+
+Si por algún motivo no se crea el binario de PHPUnit, ejecuta:
+
+```bash
+composer require --dev phpunit/phpunit
+```
+
 ## Paso a paso
 
 1. **Antes de ejecutar cualquier prueba, prepara el entorno**
