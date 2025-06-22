@@ -1,6 +1,7 @@
 <?php
 return [
     ['label' => 'menu_inicio', 'url' => 'index.php'],
+    ['label' => 'menu_nueva_web', 'url' => 'nuevaweb/index.php'],
     'group_historia_cultura' => [
         ['label' => 'menu_historia', 'url' => 'historia/historia.php'],
         ['label' => 'menu_historia_ampliada', 'url' => 'historia/historia_ampliada.php'],
