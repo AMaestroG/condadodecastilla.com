@@ -3,7 +3,7 @@
 <head>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <title>Museo Colaborativo del Condado - Condado de Castilla</title>
-    <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
+    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <script src="https://cdn.jsdelivr.net/npm/three@0.177.0/build/three.core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script type="module">

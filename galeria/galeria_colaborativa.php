@@ -45,7 +45,7 @@ if (is_dir($gallery_dir)) {
 <head>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <title>Galería Colaborativa - Condado de Castilla</title>
-    <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
+    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
 
     <?php
     require_once __DIR__ . '/../includes/load_page_css.php';

@@ -23,7 +23,7 @@ if (!$pdo) {
 }
 require_once __DIR__ . '/../../../includes/text_manager.php';
 ?>
-    <link rel="icon" href="/imagenes/escudo.jpg" type="image/jpeg">
+    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
     <header id="hero-auca-patricia-ubicacion" class="page-header hero">
         <div class="hero-content">
             <h1><?php echo htmlspecialchars($titulo_pagina_actual); ?></h1>
