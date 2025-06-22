@@ -21,6 +21,15 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `assets/js/toc-generator.js`     | Builds a table of contents from headings inside `<main>` and injects a list of links styled with Tailwind.                                                                                                      |
 
 Deprecated or merged scripts such as `js/menu-controller.js` and `js/sliding-menu.js` have been removed in favour of `assets/js/main.js`. The old header loading helper was also dropped as noted in the project README.
+## Sound Assets
+
+Small audio clips provide feedback when the menu opens or closes. To keep the repository lightweight, the MP3 files are not included.
+
+Download them from the links below and place them under `assets/sounds/`:
+
+- `menu-open.mp3` – <https://example.com/audio/menu-open.mp3>
+- `menu-close.mp3` – <https://example.com/audio/menu-close.mp3>
+
 
 ## Simplified Translation
 
