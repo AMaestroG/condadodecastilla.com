@@ -46,7 +46,7 @@
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.35); /* Lighter transparency */
     backdrop-filter: blur(5px); /* Blur effect for transparency */
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 11000; /* keep panels above header */
     overflow-y: hidden; /* STRICT NO-SCROLL as per user feedback refinement */
     display: flex; /* Added for flex-direction */
     flex-direction: column; /* Added to manage content flow */

@@ -40,37 +40,21 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 - **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
 - **Añadir páginas**: edita `fragments/menus/main-menu.php` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
 
-### Clase `menu-compressed` y transformación de la página
+### Apertura del panel y superposición
 
-Al pulsar un botón con el atributo `data-menu-target="id-del-panel"`,
-`assets/js/main.js` abre el panel de menú indicado y añade la clase
-`menu-compressed` al elemento `<body>` para escalar la página. También se aplica
-`menu-open-left` o `menu-open-right` según el lado del que se despliegue
-el panel. Estas clases están definidas en
-`assets/css/sliding_menu.css`:
+Al pulsar un botón con `data-menu-target="id-del-panel"`,
+`assets/js/main.js` abre el panel de menú indicado. A diferencia de versiones
+anteriores, el contenido de la página ya no se desplaza ni se escala. El panel
+`.menu-panel` se posiciona de forma fija y con un `z-index` alto para superponerse
+al resto de elementos.
 
-```css
-body.menu-compressed {
-  transition: transform 0.3s ease;
-  transform: scale(0.96);
-}
-body.menu-open-left {
-  transform: translateX(260px) scale(0.96);
-}
-body.menu-open-right {
-  transform: translateX(-260px) scale(0.96);
-}
-```
+El cuerpo de la página no recibe ya las clases `menu-compressed`,
+`menu-open-left` ni `menu-open-right`. Todo el comportamiento de
+apertura y cierre se gestiona mediante la propia clase `active` en el
+panel correspondiente.
 
-`assets/js/main.js` actualiza los atributos `aria-expanded` y `aria-hidden`
-de los botones y paneles cada vez que se abre o cierra un menú, y
-añade o quita la clase `menu-compressed` para aplicar la animación de
-escala.
-
-El contenido de la página se desplaza y se escala horizontalmente,
-comprimiéndose hacia el lado opuesto al menú abierto. Al cerrar todos
-los paneles, el script elimina estas clases y la vista vuelve a su
-posición original.
+`assets/js/main.js` sigue actualizando los atributos `aria-expanded` y
+`aria-hidden` de los botones y paneles para mantener la accesibilidad.
 
 Tras cualquier modificacion consulta la [Guia de Testing](testing.md) para ejecutar las pruebas.
 

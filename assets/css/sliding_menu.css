@@ -87,29 +87,17 @@ body {
     animation: slideBounce 0.3s ease;
 }
 
-/* Slightly scale down the page when any slide menu is active */
+/* Body class retained for backwards compatibility but no scaling */
 body.menu-compressed {
-    transition: transform 0.3s ease;
-    transform: scale(0.96);
-    transform-origin: center;
+    transition: none;
 }
 
 body.menu-open-left,
 body.menu-open-right {
-    transition: transform 0.3s ease;
-}
-body.menu-open-left {
-    transform: translateX(260px) scale(0.96);
-    transform-origin: left center;
-}
-body.menu-open-right {
-    transform: translateX(-260px) scale(0.96);
-    transform-origin: right center;
+    transition: none;
 }
 
 body.sidebar-active {
-    transform: translateX(260px) scale(0.96);
-    transform-origin: left center;
     margin-left: 0 !important;
 }
 

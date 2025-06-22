@@ -8,15 +8,15 @@ const { launchBrowser, closeBrowser } = require('./helpers/puppeteerSetup');
     await page.goto('http://localhost:8080/tailwind_index.php');
     await page.waitForSelector('#menu-toggle');
     await page.evaluate(() => document.getElementById('menu-toggle').click());
-    await page.waitForFunction(() => document.body.classList.contains('menu-open-left'));
+    await page.waitForTimeout(300);
     const hasClass = await page.evaluate(() => document.body.classList.contains('menu-open-left'));
-    if (!hasClass) {
-      console.error(`menu-open-left not added for viewport ${width}`);
+    if (hasClass) {
+      console.error(`menu-open-left should not be added for viewport ${width}`);
       await closeBrowser(browser);
       process.exit(1);
     }
     await page.close();
   }
-  console.log('Tailwind mobile menu adds menu-open-left correctly');
+  console.log('Tailwind mobile menu opens without body class');
   await closeBrowser(browser);
 })();

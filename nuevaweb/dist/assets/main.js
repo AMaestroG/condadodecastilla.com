@@ -1,1 +1,1 @@
-document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("menu-toggle"),t=document.getElementById("menu");!e||!t||e.addEventListener("click",()=>{const n=t.classList.toggle("open");document.body.classList.toggle("menu-compressed",n),e.setAttribute("aria-expanded",n)})});
+document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("menu-toggle"),t=document.getElementById("menu");!e||!t||e.addEventListener("click",()=>{const n=t.classList.toggle("open");e.setAttribute("aria-expanded",n)})});

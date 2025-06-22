@@ -55,20 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         const open = menu.classList.toggle('active');
         btn.setAttribute('aria-expanded', open);
-        document.body.classList.toggle('menu-open-left', open);
     });
     document.addEventListener('click', function(e) {
         if (!menu.contains(e.target) && !btn.contains(e.target)) {
             menu.classList.remove('active');
             btn.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('menu-open-left');
         }
     });
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             menu.classList.remove('active');
             btn.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('menu-open-left');
         }
     });
 });
