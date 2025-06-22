@@ -1,4 +1,5 @@
 const { launchBrowser, closeBrowser } = require('./helpers/puppeteerSetup');
+const awaitTranslateOrSkip = require('./utils/skipIfNoTranslate');
 
 (async () => {
   const browser = await launchBrowser();
@@ -7,7 +8,7 @@ const { launchBrowser, closeBrowser } = require('./helpers/puppeteerSetup');
   await page.waitForSelector('#flag-toggle');
   await page.click('#flag-toggle');
   await page.waitForFunction(() => document.body.classList.contains('menu-open-right'));
-  await page.waitForSelector('#language-panel #google_translate_element', {visible: true});
+  await awaitTranslateOrSkip(page);
   const hasClass = await page.evaluate(() => document.body.classList.contains('menu-open-right'));
   if (!hasClass) {
     console.error('menu-open-right not added');
