@@ -64,8 +64,8 @@ header[id^="hero-"] h1 {
 }
 
 .alabaster-bg {
-    background-color: var(--epic-alabaster-bg, #F9F7F4);
-    background-image: var(--alabaster-background-image, url(/assets/img/alabastro.jpg));
+    background-color: var(--epic-alabaster-bg); /* see docs/style-guide.md */
+    background-image: var(--alabaster-background-image); /* see docs/style-guide.md */
     background-size: cover;
     background-attachment: fixed;
 }

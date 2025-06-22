@@ -5,9 +5,9 @@
   left: 0;
   width: 8px;
   height: 8px;
-  background: #271700;
+  background: var(--color-negro-contraste); /* see docs/style-guide.md */
   border-radius: 50%;
-  box-shadow: 0 0 15px 5px rgba(253,184,67,0.9);
+  box-shadow: 0 0 15px 5px rgba(var(--epic-gold-main-rgb),0.9); /* see docs/style-guide.md */
   transform: translate(-50%, -50%);
   z-index: 10000;
 }
@@ -20,7 +20,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(253,184,67,0.6);
+  background: rgba(var(--epic-gold-main-rgb),0.6); /* see docs/style-guide.md */
   mix-blend-mode: lighten;
   filter: blur(20px);
   transform: translate(-50%, -50%);
@@ -28,7 +28,7 @@
 }
 
 #torch-cursor.focus::after {
-  background: rgba(104,60,180,0.8);
+  background: rgba(var(--epic-purple-emperor-rgb),0.8); /* see docs/style-guide.md */
   width: 40px;
   height: 40px;
 }

@@ -1,7 +1,8 @@
 :root {
-    --header-bg: var(--epic-alabaster-bg, #fdfaf6);
-    --primary-purple: var(--epic-purple-emperor, #4A0D67);
-    --old-gold: var(--epic-gold-main, #CFB53B);
+    --header-bg: var(--epic-alabaster-bg);
+    --primary-purple: var(--epic-purple-emperor);
+    --old-gold: var(--epic-gold-main);
+    /* Palette defined in docs/style-guide.md */
 }
 
 body {
@@ -14,7 +15,7 @@ body {
     left: 0;
     right: 0;
     background: var(--header-bg);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(var(--color-negro-contraste-rgb), 0.1); /* see docs/style-guide.md */
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -51,7 +52,7 @@ body {
     top: 0;
     bottom: 0;
     width: 280px;
-    background: rgba(var(--epic-alabaster-bg-rgb, 253,250,246), 0.45);
+    background: rgba(var(--epic-alabaster-bg-rgb), 0.45); /* see docs/style-guide.md */
     backdrop-filter: blur(8px);
     overflow-y: auto;
     transition: transform 0.3s ease;
