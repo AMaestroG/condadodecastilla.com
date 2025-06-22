@@ -214,3 +214,13 @@ Para verificar la accesibilidad del sitio ejecuta `scripts/run_accessibility_aud
 Utiliza títulos breves en modo imperativo que describan el cambio, p.ej. `Add GSAP page transitions with overlay and tests`. Si añades un cuerpo opcional, explica _qué_ y _por qué_. Consulta [docs/commit-style.md](docs/commit-style.md) para ver la guía completa.
 
 Se incluye `.gitmessage.txt` como plantilla de ejemplo. Puedes activarla con `git config commit.template .gitmessage.txt` para redactar mensajes consistentes.
+
+## Cómo contribuir
+
+Para instalar las dependencias y preparar tu entorno ejecuta:
+
+```bash
+./scripts/setup_environment.sh
+```
+
+El script se encarga de lanzar `composer install`, `pip install -r requirements.txt` y `npm install`. Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para detalles adicionales.
