@@ -40,10 +40,10 @@
     /* Place panel below the header and language bar */
     top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
     bottom: 0; /* Make panel full height */
-    width: 300px; /* Adjust width as needed */
+    width: 250px; /* Adjust width as needed */
     max-width: 80%; /* Max width for smaller screens */
     /* Purple translucent backdrop for the sliding menu */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5); /* Increased transparency */
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.35); /* Lighter transparency */
     backdrop-filter: blur(5px); /* Blur effect for transparency */
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     z-index: 1000;
@@ -245,7 +245,7 @@
 /* Responsive adjustments */
 @media (max-width: var(--breakpoint-md)) {
     .menu-panel {
-        width: 280px; /* Slightly narrower for mobile */
+        width: 230px; /* Slightly narrower for mobile */
         padding: 10px; /* Compacted */
         padding-top: 45px; /* Compacted */
         top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
@@ -262,7 +262,7 @@
 
 @media (max-width: var(--breakpoint-lg)) {
     .menu-panel {
-        width: 260px;
+        width: 210px;
     }
     #consolidated-menu-button {
         padding: 7px 11px;
@@ -271,7 +271,7 @@
 
 @media (max-width: var(--breakpoint-xs)) {
     .menu-panel {
-        width: 240px;
+        width: 190px;
         padding: 8px;
         padding-top: 40px;
     }
