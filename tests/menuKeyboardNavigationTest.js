@@ -1,7 +1,7 @@
-const puppeteer = require('puppeteer');
+const { launchBrowser, closeBrowser } = require('./helpers/puppeteerSetup');
 
 (async () => {
-  const browser = await puppeteer.launch({headless: 'new', args: ['--no-sandbox']});
+  const browser = await launchBrowser();
   const page = await browser.newPage();
   await page.goto('http://localhost:8080/index.php');
   await page.waitForSelector('#consolidated-menu-button');
@@ -24,7 +24,7 @@ const puppeteer = require('puppeteer');
   });
   if (!open || !ariaOpen || !btnExpanded || !focusedInside) {
     console.error('Menu did not open via keyboard');
-    await browser.close();
+    await closeBrowser(browser);
     process.exit(1);
   }
   await page.keyboard.press('Escape');
@@ -40,9 +40,9 @@ const puppeteer = require('puppeteer');
   const btnCollapsed = await page.$eval('#consolidated-menu-button', el => el.getAttribute('aria-expanded') === 'false');
   if (!closed || !ariaClosed || !btnCollapsed) {
     console.error('Menu did not close via Escape');
-    await browser.close();
+    await closeBrowser(browser);
     process.exit(1);
   }
   console.log('Keyboard navigation for menu works');
-  await browser.close();
+  await closeBrowser(browser);
 })();

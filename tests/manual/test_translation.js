@@ -1,6 +1,6 @@
-const puppeteer = require('puppeteer');
+const { launchBrowser, closeBrowser } = require('../helpers/puppeteerSetup');
 (async () => {
-  const browser = await puppeteer.launch({headless: 'new', args: ['--no-sandbox']});
+  const browser = await launchBrowser();
   const page = await browser.newPage();
   await page.goto('http://localhost:8080/tests/manual/test_lang.html?lang=en');
   await page.waitForSelector('#google_translate_element');
@@ -12,5 +12,5 @@ const puppeteer = require('puppeteer');
   const textFr = await page.$eval('#text', el => el.innerText);
   console.log('Text EN:', textEn);
   console.log('Text FR:', textFr);
-  await browser.close();
+  await closeBrowser(browser);
 })();

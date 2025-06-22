@@ -1,7 +1,7 @@
-const puppeteer = require('puppeteer');
+const { launchBrowser, closeBrowser } = require('./helpers/puppeteerSetup');
 
 (async () => {
-  const browser = await puppeteer.launch({headless: 'new', args: ['--no-sandbox']});
+  const browser = await launchBrowser();
   const page = await browser.newPage();
   await page.goto('http://localhost:8080/index.php');
   await page.waitForSelector('#mute-toggle');
@@ -14,9 +14,9 @@ const puppeteer = require('puppeteer');
   const afterClick = await page.$eval('#mute-toggle', el => el.getAttribute('aria-pressed'));
   if (initial === afterClick) {
     console.error('aria-pressed did not toggle');
-    await browser.close();
+    await closeBrowser(browser);
     process.exit(1);
   }
   console.log('Mute button toggled correctly');
-  await browser.close();
+  await closeBrowser(browser);
 })();
