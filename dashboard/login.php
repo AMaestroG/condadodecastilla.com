@@ -122,6 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn-primary">Entrar</button>
         </form>
+        <p class="help-link"><a href="/docs/db-help.md">¿Necesitas ayuda con la base de datos?</a></p>
     </div>
 </body>
 </html>
