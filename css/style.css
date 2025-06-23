@@ -115,12 +115,6 @@ body {
     will-change: background-color, color;
 }
 
-.gradient-text {
-    background: linear-gradient(to right, var(--brand-purple), var(--brand-gold));
-    -webkit-background-clip: text;
-    color: transparent;
-    font-weight: bold;
-}
 
 /* Estilos para el botón de cambio de tema */
 .theme-toggle-button {

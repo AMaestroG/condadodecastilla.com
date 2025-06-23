@@ -1,4 +1,5 @@
 <?php require_once __DIR__ . '/../fragments/header.php'; ?>
+<link rel="stylesheet" href="/assets/css/epic_theme.css">
 <link rel="stylesheet" href="/nuevaweb/dist/assets/style.css">
 
 <main class="container-epic px-4 py-8">
