@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { JSDOM } from 'jsdom'
 import fs from 'fs'
 
-const menuScript = fs.readFileSync('nuevaweb/src/js/menu.js', 'utf8')
+const menuScript = fs.readFileSync('assets/js/slider_menu.js', 'utf8')
 
 describe('menu.js toggle behavior', () => {
   it('toggles aria-expanded and open class', () => {
@@ -21,7 +21,7 @@ describe('menu.js toggle behavior', () => {
 
     btn.click()
     expect(menu.classList.contains('open')).toBe(true)
-    expect(window.document.body.classList.contains('menu-compressed')).toBe(false)
+    expect(window.document.body.classList.contains('menu-compressed')).toBe(true)
     expect(btn.getAttribute('aria-expanded')).toBe('true')
 
     btn.click()
