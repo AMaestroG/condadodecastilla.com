@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="alabaster-bg admin-page centered">
     <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
     <div class="admin-container narrow login-container">
-        <h1>Acceso de Administrador</h1>
+        <h1 class="gradient-text font-headings">Acceso de Administrador</h1>
         <?php if ($error_message): ?>
             <p class="error-message"><?php echo htmlspecialchars($error_message); ?></p>
         <?php endif; ?>

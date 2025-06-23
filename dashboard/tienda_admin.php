@@ -109,7 +109,7 @@ try {
 <body class="alabaster-bg admin-page">
     <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
 <div class="admin-container wide">
-    <h1>Administrar Productos</h1>
+    <h1 class="gradient-text font-headings">Administrar Productos</h1>
     <?php if ($feedback_message): ?>
         <div class="feedback <?php echo htmlspecialchars($feedback_type); ?>">
             <?php echo htmlspecialchars($feedback_message); ?>
