@@ -12,6 +12,16 @@
     text-shadow: 1px 1px 2px rgba(var(--color-negro-contraste-rgb), 0.6);
   }
 
+  /* Ensure menu button and sidebar links remain legible */
+  .menu-item-button span,
+  #sidebar .nav-links a {
+    background-image: none;
+    color: var(--epic-purple-emperor);
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    text-shadow: 1px 1px 2px rgba(var(--color-negro-contraste-rgb), 0.6);
+  }
+
   /* Slightly stronger background for tagline ribbons */
   .tagline-background {
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.5);
