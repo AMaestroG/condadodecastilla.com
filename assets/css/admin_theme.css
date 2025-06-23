@@ -175,3 +175,31 @@ body.edit-pieza-page th {
     font-family: monospace;
     max-width: 100%;
 }
+
+.server-setup-btn {
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.85);
+    color: var(--epic-gold-main);
+    border: 1px solid var(--epic-gold-main);
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color var(--global-transition-speed);
+}
+
+.server-setup-btn:hover {
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.95);
+}
+
+.server-setup-output {
+    display: none;
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.8);
+    color: var(--epic-purple-emperor);
+    border: 1px solid var(--epic-purple-emperor);
+    padding: 10px;
+    margin: 10px auto;
+    white-space: pre-wrap;
+    border-radius: 4px;
+    max-width: 90%;
+}

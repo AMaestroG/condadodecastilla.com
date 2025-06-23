@@ -30,11 +30,32 @@ require_admin_login();
         <canvas id="visitsChart"></canvas>
     </div>
     <div id="errorMessage"></div>
+    <div class="server-setup-block">
+        <button id="runSetupBtn" class="server-setup-btn">Configurar servidor</button>
+        <pre id="setupOutput" class="server-setup-output"></pre>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const canvas = document.getElementById('visitsChart');
             const errorMessageDiv = document.getElementById('errorMessage');
+            const runSetupBtn = document.getElementById('runSetupBtn');
+            const setupOutput = document.getElementById('setupOutput');
+
+            if (runSetupBtn) {
+                runSetupBtn.addEventListener('click', () => {
+                    setupOutput.textContent = 'Ejecutando configuración...';
+                    setupOutput.style.display = 'block';
+                    fetch('run_server_setup.php', { method: 'POST' })
+                        .then(resp => resp.json())
+                        .then(data => {
+                            setupOutput.textContent = data.output || data.message;
+                        })
+                        .catch(err => {
+                            setupOutput.textContent = 'Error al ejecutar: ' + err.message;
+                        });
+                });
+            }
 
             if (!canvas) {
                 console.error('Canvas element "visitsChart" not found!');
