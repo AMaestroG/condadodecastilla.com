@@ -11,7 +11,6 @@
         <a href="/nuevaweb/index.php" class="cta-button cta-button-small">Nueva Web</a>
     </div>
 </div>
-
 <!-- Left Sliding Panel for Main Menu -->
 <div id="consolidated-menu-items" class="menu-panel left-panel" role="navigation" aria-labelledby="consolidated-menu-button" tabindex="-1" aria-hidden="true">
     <button id="ai-chat-trigger" class="menu-item-button" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
@@ -105,3 +104,4 @@
         </div>
     </div>
 </div>
+<?php if (file_exists(__DIR__ . "/slider_menu.php")) { include __DIR__ . "/slider_menu.php"; } ?>

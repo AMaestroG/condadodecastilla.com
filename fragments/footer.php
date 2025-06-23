@@ -31,6 +31,7 @@
 </div>
 <script type="module" src="/assets/js/sliding-menu.js"></script>
 <script defer src="/assets/js/main.js"></script>
+<script defer src="/assets/js/slider_menu.js"></script>
 <script src="/assets/js/cave_mask.js"></script>
 <script src="/assets/js/hero.js"></script>
 <script src="/assets/js/scroll-fade.js"></script>
