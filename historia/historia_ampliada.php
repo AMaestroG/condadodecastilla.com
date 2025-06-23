@@ -1,18 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/head_common.php';
-require_once __DIR__ . '/../vendor/autoload.php';
-use League\CommonMark\CommonMarkConverter;
-
-function render_markdown_file(string $path): string {
-    static $converter = null;
-    if ($converter === null) {
-        $converter = new CommonMarkConverter([
-            'html_input' => 'strip'
-        ]);
-    }
-    $markdown = file_get_contents($path);
-    return $converter->convert($markdown)->getContent();
-}
+require_once __DIR__ . '/../includes/markdown_utils.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

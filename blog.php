@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/head_common.php';
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
-}
+require_once __DIR__ . '/includes/markdown_utils.php';
 
 function get_blog_posts() {
     $posts = [];
@@ -17,18 +15,6 @@ function get_blog_posts() {
     return $posts;
 }
 
-use League\CommonMark\CommonMarkConverter;
-
-function render_markdown(string $markdown): string {
-    static $converter = null;
-    if ($converter === null) {
-        $converter = new CommonMarkConverter([
-            'html_input' => 'strip'
-        ]);
-    }
-
-    return $converter->convert($markdown)->getContent();
-}
 
 $posts = get_blog_posts();
 $post_slug_raw = isset($_GET['post']) ? $_GET['post'] : null;
