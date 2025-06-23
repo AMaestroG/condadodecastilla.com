@@ -191,7 +191,7 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
    ```bash
    python -m unittest discover -s tests
    ```
-5. Ejecuta las pruebas de Node (Puppeteer) tras instalar las dependencias con `npm install` (o usando `scripts/setup_environment.sh`):
+5. Instala el paquete **Puppeteer** si aún no lo tienes. Puedes hacerlo con `npm install` o ejecutando `scripts/setup_environment.sh`. Las pruebas de Node dependen de esta librería, de modo que asegúrate de instalarla antes de lanzar:
    ```bash
    npm run test:puppeteer
    ```
