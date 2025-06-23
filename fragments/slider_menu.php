@@ -1,3 +1,4 @@
+<!--
 <nav class="slider-menu">
     <button id="menu-toggle" aria-expanded="false" class="cta-button">Menú</button>
     <ul id="menu">
@@ -7,3 +8,4 @@
         <li><a href="#foro">Foro</a></li>
     </ul>
 </nav>
+-->
