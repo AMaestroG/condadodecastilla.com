@@ -8,7 +8,6 @@
         <button id="flag-toggle" data-menu-target="language-panel" aria-label="Seleccionar idioma" aria-haspopup="true" aria-expanded="false" role="button" aria-controls="language-panel"><i class="fas fa-flag"></i></button>
         <button id="mute-toggle" aria-pressed="false" aria-label="Silenciar">🔊</button>
         <button id="homonexus-toggle" aria-label="Activar Homonexus" aria-pressed="false">👥</button>
-        <a href="/nuevaweb/index.php" class="cta-button cta-button-small">Nueva Web</a>
     </div>
 </div>
 <!-- Left Sliding Panel for Main Menu -->
