@@ -1,64 +1,8 @@
-// assets/js/main.js - Theme, Palette, and other UI controls
+// assets/js/main.js - Theme and other UI controls
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- PALETTE LOGIC ---
-    const paletteClasses = ['palette-dawn', 'palette-day', 'palette-dusk', 'palette-night'];
-    const paletteToggle = document.getElementById('sidebar-palette-toggle'); // New ID
-
-    const detectPalette = () => {
-        const h = new Date().getHours();
-        if (h >= 5 && h < 10) return 'dawn';
-        if (h >= 10 && h < 17) return 'day';
-        if (h >= 17 && h < 21) return 'dusk';
-        return 'night';
-    };
-
-    const applyPalette = (palette) => {
-        document.body.classList.remove(...paletteClasses);
-        if (palette && palette !== 'auto') {
-            document.body.classList.add(`palette-${palette}`);
-        }
-        // Update button text/icon if necessary
-        if (paletteToggle) {
-            const paletteText = paletteToggle.querySelector('span');
-            if (paletteText) paletteText.textContent = `Paleta (${palette || 'auto'})`;
-        }
-    };
-
-    let currentPalette = localStorage.getItem('palette') || 'auto';
-    if (currentPalette === 'auto') {
-        applyPalette(detectPalette()); // Apply detected on load if auto
-    } else {
-        applyPalette(currentPalette); // Apply stored palette
-    }
-    // Update button text on initial load
-     if (paletteToggle) {
-        const paletteText = paletteToggle.querySelector('span');
-        if (paletteText) paletteText.textContent = `Paleta (${currentPalette})`;
-    }
-
-
-    if (paletteToggle) {
-        const order = ['auto', 'dawn', 'day', 'dusk', 'night'];
-        let currentIndex = order.indexOf(currentPalette);
-
-        paletteToggle.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % order.length;
-            const newPalette = order[currentIndex];
-            localStorage.setItem('palette', newPalette);
-            currentPalette = newPalette; // update currentPalette
-
-            if (newPalette === 'auto') {
-                // localStorage.removeItem('palette'); // No, keep 'auto' stored
-                applyPalette(detectPalette());
-            } else {
-                applyPalette(newPalette);
-            }
-        });
-    }
-
     // --- THEME (DARK/LIGHT) LOGIC ---
-    const themeToggle = document.getElementById('sidebar-theme-toggle'); // New ID
+    const themeToggle = document.getElementById('sidebar-theme-toggle');
     if (themeToggle) {
         const themeIcon = themeToggle.querySelector('i'); // Assuming <i> for icon
         const themeText = themeToggle.querySelector('span');
@@ -95,41 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let newTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
             applyTheme(newTheme);
         });
-    }
-
-    // --- MOON MODE LOGIC ---
-    // Assuming a button with id="sidebar-moon-toggle" will be added to fragments/header.php sidebar
-    const moonToggle = document.getElementById('sidebar-moon-toggle'); // New ID, if created
-    if (moonToggle) {
-        const moonIcon = moonToggle.querySelector('i'); // Assuming <i> for icon
-        const moonText = moonToggle.querySelector('span');
-
-        const applyMoonMode = (isMoonMode) => {
-            if (isMoonMode) {
-                document.body.classList.add('luna'); // Class for moon mode styles
-                if (moonText) moonText.textContent = 'Modo Tierra'; // Or similar
-                // Update icon if necessary
-            } else {
-                document.body.classList.remove('luna');
-                if (moonText) moonText.textContent = 'Modo Luna';
-                // Update icon if necessary
-            }
-            localStorage.setItem('moon', isMoonMode ? 'on' : 'off');
-            moonToggle.setAttribute('aria-pressed', isMoonMode ? 'true' : 'false');
-        };
-
-        let currentMoonMode = localStorage.getItem('moon') === 'on';
-        applyMoonMode(currentMoonMode);
-
-        moonToggle.addEventListener('click', () => {
-            currentMoonMode = !currentMoonMode; // Toggle state
-            applyMoonMode(currentMoonMode);
-        });
-    } else {
-        // console.log("Moon toggle button (#sidebar-moon-toggle) not found. Moon mode inactive.");
-        // Clean up localStorage if button is definitely removed
-        // localStorage.removeItem('moon');
-        // document.body.classList.remove('luna');
     }
 
     // --- MUTE TOGGLE LOGIC (Placeholder - actual logic in audio-controller.js) ---

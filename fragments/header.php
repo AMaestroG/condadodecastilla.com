@@ -53,46 +53,55 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
             ?>
         </nav>
 
-        <div class="menu-section tools-section mb-6">
-            <h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Herramientas</h4>
+        <!-- Sección Personalizar Experiencia -->
+        <div class="menu-section settings-section mb-6">
+            <h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Personalizar Experiencia</h4>
             <ul class="space-y-2">
-                <li><button id="sidebar-theme-toggle" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-moon mr-2"></i> <span class="flex-1">Tema (Claro/Oscuro)</span></button></li> {/* Starts with moon icon for light theme */}
-                <li><button id="sidebar-palette-toggle" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-palette mr-2"></i> <span class="flex-1">Paleta de Colores</span></button></li>
-                <li><button id="sidebar-moon-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="far fa-moon mr-2"></i> <span class="flex-1">Modo Luna</span></button></li>
-                <li><button id="sidebar-mute-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-volume-up mr-2"></i> <span class="flex-1">Sonido (Silenciar/Activar)</span></button></li>
-                <li><button id="sidebar-homonexus-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-users mr-2"></i> <span class="flex-1">Homonexus</span></button></li>
+                <li><button id="sidebar-theme-toggle" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-moon mr-2 w-5 text-center"></i> <span class="flex-1">Tema (Claro/Oscuro)</span></button></li>
+                <li><button id="sidebar-mute-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-volume-up mr-2 w-5 text-center"></i> <span class="flex-1">Sonido (Silenciar/Activar)</span></button></li>
+                <li class="pt-1">
+                    <span class="block text-xs font-medium text-gray-500 mb-1 px-2">Idioma:</span>
+                    <?php
+                    if (file_exists(__DIR__ . '/header/language-flags.html')) {
+                        echo '<div class="flex space-x-3 justify-around px-2 py-1 bg-gray-700 rounded">';
+                        include __DIR__ . '/header/language-flags.html';
+                        echo '</div>';
+                    } else {
+                        echo '<p class="text-sm text-gray-500 px-2">Selector no disponible.</p>';
+                    }
+                    ?>
+                </li>
             </ul>
         </div>
 
-        <div class="menu-section language-section mb-6">
-            <h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Idioma</h4>
-            <?php
-            if (file_exists(__DIR__ . '/header/language-flags.html')) {
-                // We need to adapt language-flags.html to be a list or flex items for sidebar
-                // For now, just including. It might need restructuring.
-                // Example: wrap in a div with flex for horizontal flags
-                echo '<div class="flex space-x-2 justify-center">';
-                include __DIR__ . '/header/language-flags.html';
-                echo '</div>';
-            } else {
-                echo '<p class="text-sm text-gray-500">Selector de idioma no disponible.</p>';
-            }
-            ?>
+        <!-- Sección Comunidad -->
+        <div class="menu-section community-section mb-6">
+            <h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Comunidad</h4>
+            <ul class="space-y-1"> {/* Reduced space-y for tighter social icons list if preferred */}
+                <li>
+                    <?php
+                    if (file_exists(__DIR__ . '/menus/social-menu.html')) {
+                        echo '<div class="flex space-x-3 justify-around px-2 py-1 bg-gray-700 rounded">';
+                        include __DIR__ . '/menus/social-menu.html';
+                        echo '</div>';
+                    } else {
+                        echo '<p class="text-sm text-gray-500 px-2">Enlaces sociales no disponibles.</p>';
+                    }
+                    ?>
+                </li>
+                <!-- Considerar añadir enlace al foro aquí -->
+                <!-- <li><a href="/foro/index.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"><i class="fas fa-comments mr-2 w-5 text-center"></i> <span class="flex-1">Foro</span></a></li> -->
+            </ul>
         </div>
 
-        <?php
-        // Social Links
-        if (file_exists(__DIR__ . '/menus/social-menu.html')) {
-            echo '<div class="menu-section social-links-section">';
-            echo '<h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Social</h4>';
-            // social-menu.html likely contains a div with links.
-            // May need to adjust its styling for sidebar context.
-            echo '<div class="flex space-x-3 justify-center">';
-            include __DIR__ . '/menus/social-menu.html';
-            echo '</div>';
-            echo '</div>';
-        }
-        ?>
+        <!-- Sección Herramientas Especiales -->
+        <div class="menu-section special-tools-section mb-6">
+            <h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Herramientas Especiales</h4>
+            <ul class="space-y-2">
+                <li><button id="sidebar-homonexus-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-users mr-2 w-5 text-center"></i> <span class="flex-1">Homonexus</span></button></li>
+            </ul>
+        </div>
+
     </div>
 </aside>
 
