@@ -2,7 +2,7 @@
 
 #fixed-header-elements {
     position: fixed;
-    top: var(--menu-top-offset);
+    top: var(--language-bar-offset);
     left: 0;
     right: 0;
     z-index: 4000;
@@ -59,7 +59,7 @@
 
 .top-empty-bar {
     position: fixed;
-    top: var(--menu-top-offset);
+    top: var(--language-bar-offset);
     left: 0;
     right: 0;
     height: 48px;
