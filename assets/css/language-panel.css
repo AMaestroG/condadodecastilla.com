@@ -44,16 +44,25 @@
     gap: 12px;
 }
 
-#language-panel .flag-list img {
+#language-panel .flag-list button {
+    background: none;
+    border: none;
+    padding: 0;
     width: 40px;
     cursor: pointer;
     filter: drop-shadow(0 0 3px rgba(var(--epic-purple-emperor-rgb,74,13,103),0.4));
     transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-#language-panel .flag-list img:hover {
+#language-panel .flag-list button:hover {
     transform: scale(1.1);
     filter: drop-shadow(0 0 6px var(--epic-gold-main));
+}
+
+#language-panel .flag-list button img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 #flag-toggle {
