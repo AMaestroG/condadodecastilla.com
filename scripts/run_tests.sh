@@ -4,6 +4,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 
+# Ensure PYTHONPATH includes project root for module resolution
+export PYTHONPATH="$PROJECT_ROOT:${PYTHONPATH:-}"
+
 if ! command -v composer >/dev/null 2>&1; then
     echo "Composer not found. Installing..." >&2
     if apt-get update -y >/dev/null 2>&1 && apt-get install -y composer >/dev/null 2>&1; then

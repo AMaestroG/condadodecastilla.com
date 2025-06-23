@@ -22,6 +22,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 
+# Ensure project root is on PYTHONPATH so modules can be imported in tests
+export PYTHONPATH="$PROJECT_ROOT:${PYTHONPATH:-}"
+
 # Required tool versions
 REQUIRED_PHP_VERSION="8.1"
 REQUIRED_NODE_VERSION="18"
