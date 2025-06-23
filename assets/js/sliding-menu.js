@@ -304,4 +304,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const closeLanguagePanelButton = document.getElementById('close-language-panel');
+    if (closeLanguagePanelButton) {
+        closeLanguagePanelButton.addEventListener('click', () => {
+            const panel = document.getElementById('language-panel');
+            if (panel && panel.classList.contains('active')) {
+                const btn = document.querySelector('[data-menu-target="language-panel"]');
+                closeMenu(panel, btn);
+            }
+        });
+    }
 });
