@@ -659,6 +659,17 @@ html[data-theme="light"] .sliding-panel .sliding-panel-close {
     border-bottom: none;
 }
 
+body.panel-open .content {
+    transform: scale(0.96);
+    transition: transform var(--transition-speed) ease;
+}
+
+@media (min-width: 769px) {
+    body.panel-open .content {
+        margin-right: 320px; /* ancho del panel */
+    }
+}
+
 .sliding-panel ul li a:hover,
 .sliding-panel ul li a:focus {
     color: var(--accent-color);

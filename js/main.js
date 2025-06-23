@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             previousActiveElement = document.activeElement;
             slidingPanel.classList.add('is-open');
             slidingPanel.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('panel-open');
 
             setTimeout(() => closeSlidingPanelButton.focus(), 50);
 
@@ -154,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const closePanel = () => {
             slidingPanel.classList.remove('is-open'); // Oculta el panel
             slidingPanel.setAttribute('aria-hidden', 'true'); // Indica que está oculto
+            document.body.classList.remove('panel-open');
 
             // Devuelve el foco al elemento que lo tenía antes de abrir el panel
             if (previousActiveElement) {
