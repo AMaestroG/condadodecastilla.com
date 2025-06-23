@@ -1,20 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mainSidebar = document.getElementById('main-sidebar');
-    const openMainSidebarButton = document.getElementById('open-main-sidebar');
-    const closeMainSidebarButton = document.getElementById('close-main-sidebar');
-
-    const aiChatDrawer = document.getElementById('ai-chat-drawer');
-    const openAiChatButton = document.getElementById('open-ai-chat');
-    const closeAiChatButton = document.getElementById('close-ai-chat');
+    const unifiedPanel = document.getElementById('unified-panel');
+    const openUnifiedPanelButton = document.getElementById('open-unified-panel-button');
+    const closeUnifiedPanelButton = document.getElementById('close-unified-panel-button');
 
     const siteOverlay = document.getElementById('site-overlay');
 
     function openDrawer(drawer) {
         if (drawer) {
-            // Ensure other drawers are closed before opening a new one, if that's the desired behavior
-            // For now, they can be open simultaneously if triggered.
-
-            drawer.classList.remove('translate-x-full', '-translate-x-full'); // Handles both left and right drawers
+            drawer.classList.remove('translate-x-full'); // Panel is always on the right
             drawer.classList.add('translate-x-0');
             drawer.setAttribute('aria-hidden', 'false');
 
@@ -25,61 +18,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeDrawer(drawer) {
         if (drawer) {
-            if(drawer.id === 'main-sidebar') {
-                drawer.classList.add('-translate-x-full');
-            } else { // Handles ai-chat-drawer and any other right-side drawers
-                drawer.classList.add('translate-x-full');
-            }
+            drawer.classList.add('translate-x-full'); // Panel is always on the right
             drawer.classList.remove('translate-x-0');
             drawer.setAttribute('aria-hidden', 'true');
 
-            // Hide overlay only if no other drawer is intended to be open.
-            // This check ensures if one drawer is closed, but another was already open (or opened programmatically),
-            // the overlay stays if needed by another drawer.
-            // For simplicity, we'll assume closing one drawer means we check if ANY other drawer is still open.
-            const anyDrawerOpen = Array.from(document.querySelectorAll('#main-sidebar, #ai-chat-drawer')) // Add other drawer IDs if any
-                                      .some(d => d.getAttribute('aria-hidden') === 'false');
-
-            if (!anyDrawerOpen) {
-                siteOverlay.classList.add('hidden');
-                document.body.style.overflow = ''; // Restore scroll
-            }
+            // Overlay is always hidden when the single panel is closed
+            siteOverlay.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scroll
         }
     }
 
-    if (openMainSidebarButton) {
-        openMainSidebarButton.addEventListener('click', () => openDrawer(mainSidebar));
+    if (openUnifiedPanelButton) {
+        openUnifiedPanelButton.addEventListener('click', () => openDrawer(unifiedPanel));
     }
-    if (closeMainSidebarButton) {
-        closeMainSidebarButton.addEventListener('click', () => closeDrawer(mainSidebar));
-    }
-
-    if (openAiChatButton) {
-        openAiChatButton.addEventListener('click', () => openDrawer(aiChatDrawer));
-    }
-    if (closeAiChatButton) {
-        closeAiChatButton.addEventListener('click', () => closeDrawer(aiChatDrawer));
+    if (closeUnifiedPanelButton) {
+        closeUnifiedPanelButton.addEventListener('click', () => closeDrawer(unifiedPanel));
     }
 
     if (siteOverlay) {
         siteOverlay.addEventListener('click', () => {
-            // Close all drawers when overlay is clicked
-            if (mainSidebar && mainSidebar.getAttribute('aria-hidden') === 'false') {
-                closeDrawer(mainSidebar);
-            }
-            if (aiChatDrawer && aiChatDrawer.getAttribute('aria-hidden') === 'false') {
-                closeDrawer(aiChatDrawer);
+            if (unifiedPanel && unifiedPanel.getAttribute('aria-hidden') === 'false') {
+                closeDrawer(unifiedPanel);
             }
         });
     }
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
-            if (mainSidebar && mainSidebar.getAttribute('aria-hidden') === 'false') {
-                closeDrawer(mainSidebar);
-            }
-            if (aiChatDrawer && aiChatDrawer.getAttribute('aria-hidden') === 'false') {
-                closeDrawer(aiChatDrawer);
+            if (unifiedPanel && unifiedPanel.getAttribute('aria-hidden') === 'false') {
+                closeDrawer(unifiedPanel);
             }
         }
     });
