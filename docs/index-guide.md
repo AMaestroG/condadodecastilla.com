@@ -43,15 +43,12 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 ### Apertura del panel y superposición
 
 Al pulsar un botón con `data-menu-target="id-del-panel"`,
-`assets/js/main.js` abre el panel de menú indicado. A diferencia de versiones
-anteriores, el contenido de la página ya no se desplaza ni se escala. El panel
-`.menu-panel` se posiciona de forma fija y con un `z-index` alto para superponerse
-al resto de elementos.
-
-El cuerpo de la página no recibe ya las clases `menu-compressed`,
-`menu-open-left` ni `menu-open-right`. Todo el comportamiento de
-apertura y cierre se gestiona mediante la propia clase `active` en el
-panel correspondiente.
+`assets/js/main.js` abre el panel correspondiente y añade al elemento
+`<body>` la clase `menu-open-left` o `menu-open-right`, según el
+lateral del menú. Estas clases aplican un `transform` que desplaza el
+contenido de la página para dejar espacio al panel, generando un efecto
+de deslizamiento fluido. El panel `.menu-panel` mantiene la clase
+`active` para mostrarse u ocultarse.
 
 `assets/js/main.js` sigue actualizando los atributos `aria-expanded` y
 `aria-hidden` de los botones y paneles para mantener la accesibilidad.
