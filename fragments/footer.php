@@ -42,10 +42,10 @@
 <!-- <script src="/js/layout.js"></script> --> <!-- Revisar si es necesario, podría ser del layout antiguo -->
 <!-- <script src="/assets/js/hero.js"></script> --> <!-- Revisar, podría haber lógica útil o ser obsoleto para el hero antiguo -->
 
-
-<!-- Scripts del nuevo header (paneles deslizantes) ya están en fragments/header.php -->
-<!-- Si se decide externalizarlo, se llamaría aquí: -->
-<!-- <script type="module" src="/assets/js/header-drawers.js"></script> -->
+<!-- Nuevos archivos JS modularizados -->
+<script defer src="/assets/js/ui-drawers.js"></script>
+<script defer src="/assets/js/sidebar-menu.js"></script>
+<script defer src="/assets/js/video-modal.js"></script>
 
 
 <script>

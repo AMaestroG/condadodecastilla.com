@@ -126,49 +126,6 @@ require_once __DIR__ . '/fragments/header.php';
 
     <?php require_once __DIR__ . '/fragments/footer.php'; ?>
     
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const videoModal = document.getElementById('video-modal');
-    const openModalButtons = document.querySelectorAll('.open-video-modal');
-    const closeModalButtons = document.querySelectorAll('.close-video-modal');
-    const iframe = videoModal.querySelector('iframe');
-    const videoSrc = iframe.src; // Store original src
-
-    openModalButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            iframe.src = videoSrc; // Reset src to allow autoplay if configured
-            videoModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        });
-    });
-
-    closeModalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            videoModal.classList.add('hidden');
-            iframe.src = ''; // Stop video by removing src
-            document.body.style.overflow = ''; // Restore scrolling
-        });
-    });
-
-    // Close modal if backdrop is clicked
-    videoModal.addEventListener('click', (event) => {
-        if (event.target === videoModal) {
-            videoModal.classList.add('hidden');
-            iframe.src = ''; // Stop video
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Keyboard accessibility
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !videoModal.classList.contains('hidden')) {
-            videoModal.classList.add('hidden');
-            iframe.src = ''; // Stop video
-            document.body.style.overflow = '';
-        }
-    });
-});
-</script>
+<!-- Script for video modal is now in /assets/js/video-modal.js -->
 </body>
 </html>
