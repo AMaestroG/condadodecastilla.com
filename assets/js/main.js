@@ -2,15 +2,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- THEME (DARK/LIGHT) LOGIC ---
-    const themeToggle = document.getElementById('sidebar-theme-toggle');
+    const themeToggle = document.getElementById('unified-theme-toggle'); // UPDATED ID
     if (themeToggle) {
-        const themeIcon = themeToggle.querySelector('i'); // Assuming <i> for icon
+        const themeIcon = themeToggle.querySelector('i');
         const themeText = themeToggle.querySelector('span');
 
         const applyTheme = (theme) => {
             if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark'); // Apply to HTML for CSS vars
-                document.body.classList.add('dark-mode'); // For other selectors if needed
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.body.classList.add('dark-mode');
                 if (themeIcon) {
                     themeIcon.classList.remove('fa-moon');
                     themeIcon.classList.add('fa-sun');
@@ -42,16 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- MUTE TOGGLE LOGIC (Placeholder - actual logic in audio-controller.js) ---
-    // This just connects the new button to where the old logic might have been.
-    // audio-controller.js needs to be updated to find #sidebar-mute-toggle
-    const muteToggleSidebar = document.getElementById('sidebar-mute-toggle');
-    if (muteToggleSidebar && typeof window.toggleMute === 'function') { // Check if global toggleMute exists
-        muteToggleSidebar.addEventListener('click', () => {
-            window.toggleMute(); // Or however audio-controller.js exposes its function
-            // Update icon/text on muteToggleSidebar based on mute state from audio-controller
-            const isMuted = window.isMuted(); // Assuming audio-controller exposes this
-            const muteIcon = muteToggleSidebar.querySelector('i');
-            const muteText = muteToggleSidebar.querySelector('span');
+    // audio-controller.js needs to be updated to find #unified-mute-toggle
+    const muteToggleUnified = document.getElementById('unified-mute-toggle'); // UPDATED ID
+    if (muteToggleUnified && typeof window.toggleMute === 'function') {
+        muteToggleUnified.addEventListener('click', () => {
+            window.toggleMute();
+            const isMuted = window.isMuted ? window.isMuted() : false; // Assuming audio-controller exposes this
+            const muteIcon = muteToggleUnified.querySelector('i');
+            const muteText = muteToggleUnified.querySelector('span');
             if (isMuted) {
                 if (muteIcon) { muteIcon.classList.remove('fa-volume-up'); muteIcon.classList.add('fa-volume-mute');}
                 if (muteText) muteText.textContent = 'Sonido (Activar)';
@@ -60,29 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (muteText) muteText.textContent = 'Sonido (Silenciar)';
             }
         });
-        // Initial state update
-        // setTimeout(() => { // Delay slightly for audio-controller to init
-        //     const isMuted = window.isMuted ? window.isMuted() : false;
-        //     const muteIcon = muteToggleSidebar.querySelector('i');
-        //     const muteText = muteToggleSidebar.querySelector('span');
-        //     if (isMuted) {
-        //         if (muteIcon) { muteIcon.classList.remove('fa-volume-up'); muteIcon.classList.add('fa-volume-mute');}
-        //         if (muteText) muteText.textContent = 'Sonido (Activar)';
-        //     } else {
-        //         if (muteIcon) { muteIcon.classList.remove('fa-volume-mute'); muteIcon.classList.add('fa-volume-up');}
-        //         if (muteText) muteText.textContent = 'Sonido (Silenciar)';
-        //     }
-        // }, 100);
+        // Consider an initial state update if audio-controller.js loads and sets state before this runs
+        // For example, dispatch a custom event from audio-controller on init or state change.
     }
 
 
     // --- HOMONEXUS TOGGLE LOGIC (Placeholder - actual logic in homonexus-toggle.js) ---
-    // homonexus-toggle.js needs to be updated to find #sidebar-homonexus-toggle
-    const homonexusToggleSidebar = document.getElementById('sidebar-homonexus-toggle');
-    if (homonexusToggleSidebar && typeof window.toggleHomonexus === 'function') { // Check if global toggleHomonexus exists
-        homonexusToggleSidebar.addEventListener('click', () => {
+    // homonexus-toggle.js needs to be updated to find #unified-homonexus-toggle
+    const homonexusToggleUnified = document.getElementById('unified-homonexus-toggle'); // UPDATED ID
+    if (homonexusToggleUnified && typeof window.toggleHomonexus === 'function') {
+        homonexusToggleUnified.addEventListener('click', () => {
             window.toggleHomonexus();
-            // Update icon/text on homonexusToggleSidebar based on state from homonexus-toggle.js
+            // Update icon/text on homonexusToggleUnified based on state from homonexus-toggle.js
+            // e.g. const isActive = window.isHomonexusActive ? window.isHomonexusActive() : false;
+            // ... update button text/icon ...
         });
     }
 
