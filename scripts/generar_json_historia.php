@@ -538,7 +538,9 @@ $ruta_json_escritura_nuestra_historia = DIR_OUTPUT . $id_tema_nuestra_historia .
 
 if (file_exists($ruta_nuestra_historia_html)) {
     $markdown_nh = file_get_contents($ruta_nuestra_historia_html);
-    $converter_nh = new CommonMarkConverter();
+    $converter_nh = new CommonMarkConverter([
+        'html_input' => 'strip'
+    ]);
     $html_nh = $converter_nh->convert($markdown_nh)->getContent();
 
     $doc_nh = new DOMDocument();
