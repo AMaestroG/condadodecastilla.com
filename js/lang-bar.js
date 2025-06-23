@@ -1,6 +1,27 @@
+let bannerObserver;
+
+function observeTranslateBanner() {
+    if (bannerObserver) return;
+
+    const body = document.body;
+    const checkBanner = () => {
+        const visible = !!document.querySelector('.goog-te-banner-frame');
+        body.classList.toggle('lang-bar-visible', visible);
+        if (!visible && bannerObserver) {
+            bannerObserver.disconnect();
+            bannerObserver = null;
+        }
+    };
+
+    bannerObserver = new MutationObserver(checkBanner);
+    bannerObserver.observe(document.documentElement, { childList: true, subtree: true });
+    checkBanner();
+}
+
 function loadGoogleTranslate(callback) {
     if (window.googleTranslateElementInit) {
         window.googleTranslateElementInit();
+        observeTranslateBanner();
         if (typeof callback === 'function') callback();
         return;
     }
@@ -9,6 +30,7 @@ function loadGoogleTranslate(callback) {
             pageLanguage: 'es',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
         }, 'google_translate_element');
+        observeTranslateBanner();
         if (typeof callback === 'function') callback();
     };
     const script = document.createElement('script');
