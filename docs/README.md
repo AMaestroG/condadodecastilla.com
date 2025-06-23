@@ -166,7 +166,7 @@ Los estilos coinciden con `assets/css/pages/historia_subpaginas_auca_patricia_ub
 - [Relaciones de Parentesco](parent_child_pairs.md)
 - [Visualizador del Árbol Genealógico](../personajes/genealogia/index.html)
 - [Guía Fullstack 2025](fullstack-tools-2025.md)
-- [Agentes del Foro](forum_agents.md)
+- [Agentes del Foro](forum_agents.md) – incluye la sección [Cómo actualizar la lista](forum_agents.md#como-actualizar-la-lista-de-agentes)
 - [Guía de mensajes de commit](commit-style.md)
 - [Seguridad de Markdown](security.md)
 
