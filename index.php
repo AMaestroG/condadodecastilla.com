@@ -27,145 +27,148 @@ require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
     <div id="layer-grass" class="parallax-layer" data-speed="0.6"></div>
 <?php echo $db_warning; ?>
 <?php
-// Use dynamic PHP header if available so menu fragments can contain
-// server-side logic like the admin login menu.
 require_once __DIR__ . '/fragments/header.php';
 ?>
 
-    <nav id="page-nav" class="section-nav cta-group">
-        <a href="#video" class="cta-button-small">Video</a>
-        <a href="#memoria" class="cta-button-small">Memoria</a>
-        <a href="#legado" class="cta-button-small">Legado</a>
-        <a href="#personajes" class="cta-button-small">Personajes</a>
-        <a href="#timeline" class="cta-button-small">Historia</a>
-        <a href="#inmersion" class="cta-button-small">Cultura Viva</a>
-        <a href="/docs/db-help.md" class="cta-button-small">Ayuda BD</a>
-    </nav>
+    <main class="container-epic px-4 sm:px-6 lg:px-8 py-8">
+        <section id="hero" class="section hero-section text-center py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla', 'h1', 'text-4xl lg:text-6xl font-bold gradient-text tagline-background font-headings mb-4'); ?>
+            <?php editableText('hero_subtitulo_index', $pdo, 'Donde la historia, la cultura y tu lengua tomaron forma.', 'p', 'text-xl lg:text-2xl text-gray-700 dark:text-gray-300 font-body mb-8'); ?>
+            <p class="cta-group">
+                <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
+                <a href="/lugares/lugares.php" class="cta-button-secondary">Explora los Lugares</a>
+            </p>
+        </section>
 
-    <section id="video" class="video-section section spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-        <div class="container-epic px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title text-2xl font-headings">Un Vistazo a Nuestra Tierra</h2>
-            <figure class="video-container mx-auto">
-                <iframe class="w-full h-full"
-                    src="https://drive.google.com/file/d/1wm74VmKH21Nz7zFUkY8a8Z9672D4cyHN/preview"
-                    title="Video promocional del Condado de Castilla y Cerezo de Río Tirón"
-                    width="560" height="315"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    loading="lazy"
-                    allowfullscreen></iframe>
-                <figcaption class="text-center mt-2">
+        <section id="video-intro" class="section video-intro-section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="section-title text-3xl font-headings mb-4">Un Vistazo a Nuestra Tierra</h2>
+                    <?php editableText('video_descripcion_index', $pdo, 'Sumérgete en la belleza y el misterio del Condado de Castilla a través de nuestro video introductorio. Descubre paisajes que han sido testigos de la historia y maravíllate con el legado que perdura.', 'p', 'text-lg font-body mb-6'); ?>
+                    <a href="#video-modal" class="cta-button-small open-video-modal">Ver Video</a>
+                </div>
+                <figure class="video-placeholder-container rounded-lg shadow-xl overflow-hidden">
+                    <img src="/assets/img/hero_mis_tierras.jpg" alt="Paisaje del Condado de Castilla" class="w-full h-auto object-cover">
+                    <figcaption class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        Pulsa para ver el video promocional.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Modal para el video -->
+        <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-50" aria-labelledby="video-modal-title" role="dialog" aria-modal="true">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl max-w-3xl w-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="video-modal-title" class="text-xl font-headings">Video Promocional</h3>
+                    <button class="close-video-modal text-2xl text-gray-700 dark:text-gray-300 hover:text-red-500">&times;</button>
+                </div>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-full"
+                        src="https://drive.google.com/file/d/1wm74VmKH21Nz7zFUkY8a8Z9672D4cyHN/preview"
+                        title="Video promocional del Condado de Castilla y Cerezo de Río Tirón"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        loading="lazy"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="text-center mt-2 text-sm">
                     <a href="/docs/transcripts/video_promocional.md" class="video-transcript-link underline">
                         Ver transcripción del video
                     </a>
-                </figcaption>
-            </figure>
+                </p>
+            </div>
         </div>
-    </section>
 
-    <main>
-        <section id="memoria" class="section detailed-intro-section spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-            <div class="container-epic px-4 sm:px-6 lg:px-8">
-                <?php editableText('memoria_titulo_index', $pdo, 'Recuperando la Memoria de la Hispanidad Castellana', 'h2', 'gradient-text tagline-background text-2xl font-headings'); ?>
-                <?php editableText('memoria_parrafo_index', $pdo, 'Un profundo análisis de nuestras raíces culturales, la importancia de la arqueología y el legado de la Civitate Auca Patricia. Descubre cómo el pasado de Cerezo de Río Tirón es fundamental para entender la Hispanidad.', 'p', 'text-lg font-body'); ?>
-                <p class="cta-group">
-                    <a href="/secciones_index/memoria_hispanidad.html" class="cta-button">Leer Más Sobre Nuestra Memoria</a>
-                </p>
-            </div>
-        </section>
 
-        <section id="legado" class="section alternate-bg spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-            <div class="container-epic px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title text-2xl font-headings">Explora Nuestro Legado</h2>
-                <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card">
-                        <img loading="lazy" class="w-full h-auto" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Página de un manuscrito medieval iluminado, simbolizando la rica historia de Castilla">
-                        <div class="card-content">
-                            <h3 class="font-headings">Nuestra Historia</h3>
-                            <p class="text-lg font-body">Desde los Concanos y la Civitate Auca Patricia hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
-                            <a href="/historia/historia.php" class="read-more">Leer Más</a>
-                        </div>
+        <section id="legado-destacado" class="section alternate-bg spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
+            <h2 class="section-title text-3xl font-headings text-center mb-12">Explora Nuestro Legado</h2>
+            <div class="card-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg rounded-lg overflow-hidden">
+                    <img loading="lazy" class="w-full h-56 object-cover" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Manuscrito medieval, simbolizando la historia de Castilla">
+                    <div class="card-content p-6">
+                        <h3 class="font-headings text-xl mb-2">Nuestra Historia</h3>
+                        <p class="text-lg font-body mb-4">Desde los albores de la civilización hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
+                        <a href="/historia/historia.php" class="read-more-button">Leer Más <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
-                    <div class="card">
-                        <img loading="lazy" class="w-full h-auto" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Imponentes ruinas del Alcázar de Casio recortadas contra un cielo dramático">
-                        <div class="card-content">
-                            <h3 class="font-headings">Lugares Emblemáticos</h3>
-                            <p class="text-lg font-body">Descubre el imponente Alcázar de Casio, los secretos de la Civitate Auca y otros tesoros arqueológicos que esperan ser explorados.</p>
-                            <a href="/lugares/lugares.php" class="read-more">Explorar Sitios</a>
-                        </div>
+                </div>
+                <div class="card transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg rounded-lg overflow-hidden">
+                    <img loading="lazy" class="w-full h-56 object-cover" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Ruinas del Alcázar de Casio">
+                    <div class="card-content p-6">
+                        <h3 class="font-headings text-xl mb-2">Lugares Emblemáticos</h3>
+                        <p class="text-lg font-body mb-4">Descubre el imponente Alcázar de Casio, la misteriosa Civitate Auca y otros tesoros arqueológicos.</p>
+                        <a href="/lugares/lugares.php" class="read-more-button">Explorar Sitios <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
-                    <div class="card">
-                        <img loading="lazy" class="w-full h-auto" src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana, ejemplo del patrimonio arquitectónico de Cerezo">
-                        <div class="card-content">
-                            <h3 class="font-headings">Planifica Tu Visita</h3>
-                            <p class="text-lg font-body">Encuentra toda la información que necesitas para tu aventura en Cerezo de Río Tirón: cómo llegar, dónde alojarte y qué no te puedes perder.</p>
-                            <a href="/visitas/visitas.php" class="read-more">Organizar Viaje</a>
-                        </div>
+                </div>
+                <div class="card transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg rounded-lg overflow-hidden">
+                    <img loading="lazy" class="w-full h-56 object-cover" src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana">
+                    <div class="card-content p-6">
+                        <h3 class="font-headings text-xl mb-2">Cultura Viva</h3>
+                        <p class="text-lg font-body mb-4">Participa en nuestras tradiciones, explora el arte y la gastronomía local. Conecta con el espíritu de Castilla.</p>
+                        <a href="/cultura/cultura.php" class="read-more-button">Descubrir Cultura <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="personajes" class="section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-            <div class="container-epic px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title text-2xl font-headings">Personajes de la Historia</h2>
-                <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card">
-                        <img loading="lazy" class="w-full h-auto" src="https://placehold.co/1024x1536.webp?text=Casio" alt="Retrato idealizado o ilustración del Conde Casio, figura histórica del siglo VIII">
-                        <div class="card-content">
-                            <h3 class="font-headings">Conde Casio</h3>
-                            <p class="text-lg font-body">Figura fundamental del siglo VIII, se le atribuye la construcción o refuerzo del Alcázar de Cerezo.</p>
-                            <a href="/personajes/Militares_y_Gobernantes/conde_casio_cerasio.html" class="read-more">Saber Más</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img loading="lazy" class="w-full h-auto" src="https://placehold.co/1024x1536.webp?text=Gonzalo+Tellez" alt="Ilustración representando a Gonzalo Téllez, Conde de Lantarón y Cerezo">
-                        <div class="card-content">
-                            <h3 class="font-headings">Gonzalo Téllez</h3>
-                            <p class="text-lg font-body">Conde de Lantarón y Cerezo (c. 897 - c. 913), personaje clave en la consolidación de los territorios.</p>
-                            <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/gonzalo_tellez.html" class="read-more">Saber Más</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img loading="lazy" class="w-full h-auto" src="https://placehold.co/1024x1536.webp?text=Fernando+Diaz" alt="Representación artística de Fernando Díaz, conde castellano">
-                        <div class="card-content">
-                            <h3 class="font-headings">Fernando Díaz</h3>
-                            <p class="text-lg font-body">Sucesor de Gonzalo Téllez, continuó la labor de defensa y organización en la primitiva Castilla.</p>
-                            <a href="/personajes/Condes_de_Castilla_Alava_y_Lantaron/fernando_diaz.html" class="read-more">Saber Más</a>
-                        </div>
-                    </div>
-                </div>
-                 <p class="cta-group">
-                    <a href="/personajes/indice_personajes.html" class="cta-button">Personajes</a>
-                </p>
-            </div>
-        </section>
-        
-        <section id="timeline" class="section timeline-section-summary alternate-bg py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-            <div class="container-epic px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title text-2xl font-headings">Nuestra Historia en el Tiempo</h2>
-                <p class="timeline-intro text-lg font-body">Un recorrido conciso por los momentos más determinantes de nuestra región, desde la prehistoria hasta la consolidación del Condado. Cada época ha dejado una huella imborrable.</p>
-                <p class="cta-group">
-                    <a href="/secciones_index/historia_tiempo_resumen.html" class="cta-button">Explorar Resumen de la Historia</a>
-                </p>
-            </div>
-        </section>
-
-        <section id="inmersion" class="section immersion-section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-            <div class="container-epic px-4 sm:px-6 lg:px-8">
-                <h2 class="text-2xl font-headings">Sumérgete en la Historia Viva de Tu Cultura</h2>
-                <p class="text-lg font-body">
-                    Esta web es más que información; es una puerta a tus raíces. Un viaje al origen del castellano y la identidad hispana te espera.
-                    Siente la llamada de la historia y conecta con el legado que nos une.
-                </p>
-                <a href="/cultura/cultura.php" class="cta-button">Cultura</a>
+        <section id="llamada-accion" class="section py-12 sm:py-16 lg:py-20 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-headings mb-6">¿Listo para el Viaje?</h2>
+            <p class="text-xl font-body mb-8 max-w-2xl mx-auto">
+                Tu aventura en el corazón de la historia castellana comienza aquí. Planifica tu visita, únete a nuestra comunidad o simplemente aprende más sobre este fascinante rincón del mundo.
+            </p>
+            <div class="cta-group">
+                <a href="/visitas/visitas.php" class="cta-button">Planifica tu Visita</a>
+                <a href="/foro/index.php" class="cta-button-secondary">Únete al Foro</a>
             </div>
         </section>
     </main>
 
     <?php require_once __DIR__ . '/fragments/footer.php'; ?>
     
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const videoModal = document.getElementById('video-modal');
+    const openModalButtons = document.querySelectorAll('.open-video-modal');
+    const closeModalButtons = document.querySelectorAll('.close-video-modal');
+    const iframe = videoModal.querySelector('iframe');
+    const videoSrc = iframe.src; // Store original src
 
+    openModalButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            iframe.src = videoSrc; // Reset src to allow autoplay if configured
+            videoModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    closeModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            videoModal.classList.add('hidden');
+            iframe.src = ''; // Stop video by removing src
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+    });
+
+    // Close modal if backdrop is clicked
+    videoModal.addEventListener('click', (event) => {
+        if (event.target === videoModal) {
+            videoModal.classList.add('hidden');
+            iframe.src = ''; // Stop video
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Keyboard accessibility
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !videoModal.classList.contains('hidden')) {
+            videoModal.classList.add('hidden');
+            iframe.src = ''; // Stop video
+            document.body.style.overflow = '';
+        }
+    });
+});
+</script>
 </body>
 </html>

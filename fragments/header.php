@@ -1,106 +1,218 @@
-<header class="bg-imperial-purple text-old-gold texture-alabaster">
-<div id="cave-mask"></div>
-<img id="header-escudo-overlay" class="hero-escudo" src="/assets/img/escudo.jpg" alt="Escudo de Cerezo de Río Tirón">
-<div id="fixed-header-elements" style="height: var(--header-footer-height);">
-    <div class="header-action-buttons">
-        <img loading="lazy" src="/assets/icons/columna.svg" class="header-icon" alt="Roman column icon" />
-        <button id="consolidated-menu-button" data-menu-target="consolidated-menu-items" aria-label="Abrir menú principal" aria-haspopup="true" aria-expanded="false" role="button" aria-controls="consolidated-menu-items">☰</button>
-        <button id="flag-toggle" data-menu-target="language-panel" aria-label="Seleccionar idioma" aria-haspopup="true" aria-expanded="false" role="button" aria-controls="language-panel"><i class="fas fa-flag"></i></button>
-        <button id="mute-toggle" aria-pressed="false" aria-label="Silenciar">🔊</button>
-        <button id="homonexus-toggle" aria-label="Activar Homonexus" aria-pressed="false">👥</button>
-    </div>
-</div>
-<!-- Left Sliding Panel for Main Menu -->
-<div id="consolidated-menu-items" class="menu-panel left-panel" role="navigation" aria-labelledby="consolidated-menu-button" tabindex="-1" aria-hidden="true">
-    <button id="ai-chat-trigger" class="menu-item-button" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog"><i class="fas fa-comments"></i> <span>Chat IA</span></button>
-    <button id="theme-toggle" class="menu-item-button" aria-label="Cambiar tema"><i class="fas fa-moon"></i> <span>Modo</span></button>
-    <button id="moon-toggle" class="menu-item-button">🌙 Modo luna</button>
-    <button id="palette-toggle" class="menu-item-button" aria-label="Cambiar paleta"><i class="fas fa-palette"></i> <span>Paleta</span></button>
-
-    <div class="menu-section">
-        <h4 class="gradient-text">Navegación Principal</h4>
-        <?php
-        if (file_exists(__DIR__ . '/menus/main-menu.php')) {
-            include __DIR__ . '/menus/main-menu.php';
-        }
-        ?>
-    </div>
-    <div class="menu-section">
-        <h4 class="gradient-text">Admin</h4>
-        <?php
-        echo '<div id="admin-menu-source-content">';
-        include __DIR__ . '/menus/admin-menu.php';
-        echo '</div>';
-        ?>
-    </div>
-    <div class="menu-section">
-        <h4 class="gradient-text">Social</h4>
-        <?php
-        echo '<div id="social-menu-source-content">';
-        if (file_exists(__DIR__ . '/menus/social-menu.html')) {
-            echo file_get_contents(__DIR__ . '/menus/social-menu.html');
-        }
-        echo '</div>';
-        ?>
-    </div>
-    <!-- Add other menu items or buttons here as needed -->
-</div>
-
-<!-- Right Sliding Panel for AI Chat -->
-<div id="ai-chat-panel" class="menu-panel right-panel" role="dialog" aria-modal="true" aria-labelledby="ai-chat-title" tabindex="-1" aria-hidden="true">
-    <?php
-    // Content from ai-drawer.html will go here
-    // It includes the header, response area, input, and submit button for AI chat
-    if (file_exists(__DIR__ . '/header/ai-drawer.html')) {
-        // We might need to wrap or modify ai-drawer.html if its root element isn't suitable
-        // For now, directly include it.
-        echo file_get_contents(__DIR__ . '/header/ai-drawer.html');
-    } else {
-        echo '<p>Error: AI Chat interface not found.</p>';
-    }
-    ?>
-</div>
-
-<!-- Right Sliding Panel for Language Flags -->
 <?php
-    if (file_exists(__DIR__ . '/header/language-flags.html')) {
-        echo file_get_contents(__DIR__ . '/header/language-flags.html');
-    } else {
-        echo '<div id="language-panel" class="menu-panel right-panel" role="dialog" aria-labelledby="flag-toggle" tabindex="-1" aria-hidden="true"><p>Flags not found.</p></div>';
-    }
+// fragments/header.php
+// Simplified Header Structure
+require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
 ?>
+<header class="site-header bg-imperial-purple text-old-gold shadow-md sticky top-0 z-50">
+    <div class="container-epic mx-auto flex items-center justify-between p-4">
+        <div class="flex items-center">
+            <a href="/" class="logo-link flex items-center text-xl font-bold">
+                <img src="/assets/img/escudo.jpg" alt="Logo Condado de Castilla" class="h-10 w-10 mr-2 rounded-full border border-old-gold">
+                <span class="hidden sm:inline site-title">Condado de Castilla</span>
+            </a>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <button id="open-ai-chat" aria-label="Abrir Chat IA" class="text-old-gold hover:text-white transition-colors">
+                <i class="fas fa-comments text-xl"></i>
+            </button>
+            <button id="open-main-sidebar" aria-label="Abrir Menú" aria-expanded="false" aria-controls="main-sidebar" class="text-old-gold hover:text-white transition-colors">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
 </header>
 
-<!-- Sidebar HTML Structure -->
-<div id="sidebar" aria-hidden="true" tabindex="-1">
-    <div class="sidebar-header" style="padding: 15px; text-align: center; border-bottom: 1px solid rgba(var(--epic-gold-main-rgb), 0.3);">
-        <a href="/" class="logo-link">
-            <img src="/assets/img/escudo.jpg" alt="Logo Condado de Castilla" style="max-width: 100px; height: auto; border-radius: var(--global-border-radius); border: 1px solid var(--epic-gold-secondary); background-color: rgba(var(--epic-alabaster-bg-rgb), 0.8);">
-        </a>
-        <button id="close-sidebar-button" aria-label="Cerrar menú" style="position: absolute; top: 15px; right: 15px; font-size: 2em; background: none; border: none; color: var(--epic-text-color); cursor: pointer; line-height: 1;">&times;</button>
+<!-- Main Sidebar (Left) -->
+<aside id="main-sidebar" class="fixed top-0 left-0 w-72 h-full bg-gray-800 text-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-[60]" role="navigation" aria-hidden="true" tabindex="-1">
+    <div class="p-4">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-headings">Menú</h2>
+            <button id="close-main-sidebar" aria-label="Cerrar Menú" class="text-2xl hover:text-gray-300">&times;</button>
+        </div>
+
+        <nav id="sidebar-nav">
+            <?php
+            // Main Navigation
+            if (file_exists(__DIR__ . '/menus/main-menu.php')) {
+                echo '<div class="menu-section mb-6">';
+                echo '<h4 class="text-sm font-semibold uppercase text-gray-400 mb-2">Navegación</h4>';
+                include __DIR__ . '/menus/main-menu.php'; // Assumes this file outputs <ul>...</ul>
+                echo '</div>';
+            }
+
+            // Admin Menu
+            if (is_admin_logged_in()) {
+                if (file_exists(__DIR__ . '/menus/admin-menu.php')) {
+                    echo '<div class="menu-section mb-6">';
+                    echo '<h4 class="text-sm font-semibold uppercase text-gray-400 mb-2">Admin</h4>';
+                    include __DIR__ . '/menus/admin-menu.php'; // Assumes this file outputs <ul>...</ul>
+                    echo '</div>';
+                }
+            }
+            ?>
+        </nav>
+
+        <div class="menu-section tools-section mb-6">
+            <h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Herramientas</h4>
+            <ul class="space-y-2">
+                <li><button id="sidebar-theme-toggle" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-moon mr-2"></i> <span class="flex-1">Tema (Claro/Oscuro)</span></button></li> {/* Starts with moon icon for light theme */}
+                <li><button id="sidebar-palette-toggle" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-palette mr-2"></i> <span class="flex-1">Paleta de Colores</span></button></li>
+                <li><button id="sidebar-moon-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="far fa-moon mr-2"></i> <span class="flex-1">Modo Luna</span></button></li>
+                <li><button id="sidebar-mute-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-volume-up mr-2"></i> <span class="flex-1">Sonido (Silenciar/Activar)</span></button></li>
+                <li><button id="sidebar-homonexus-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-users mr-2"></i> <span class="flex-1">Homonexus</span></button></li>
+            </ul>
+        </div>
+
+        <div class="menu-section language-section mb-6">
+            <h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Idioma</h4>
+            <?php
+            if (file_exists(__DIR__ . '/header/language-flags.html')) {
+                // We need to adapt language-flags.html to be a list or flex items for sidebar
+                // For now, just including. It might need restructuring.
+                // Example: wrap in a div with flex for horizontal flags
+                echo '<div class="flex space-x-2 justify-center">';
+                include __DIR__ . '/header/language-flags.html';
+                echo '</div>';
+            } else {
+                echo '<p class="text-sm text-gray-500">Selector de idioma no disponible.</p>';
+            }
+            ?>
+        </div>
+
+        <?php
+        // Social Links
+        if (file_exists(__DIR__ . '/menus/social-menu.html')) {
+            echo '<div class="menu-section social-links-section">';
+            echo '<h4 class="text-sm font-semibold uppercase text-gray-400 mb-3">Social</h4>';
+            // social-menu.html likely contains a div with links.
+            // May need to adjust its styling for sidebar context.
+            echo '<div class="flex space-x-3 justify-center">';
+            include __DIR__ . '/menus/social-menu.html';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
     </div>
-    <div class="sidebar-content" style="padding: 15px; overflow-y: auto; height: calc(100% - 70px);"> <!-- Approx header height -->
-        <div id="ai-chat-trigger-placeholder-mobile" class="menu-section" style="margin-bottom: 15px;">
-            <!-- El botón de Chat IA se clonará aquí para móvil por main.js -->
+</aside>
+
+<!-- AI Chat Drawer (Right) -->
+<aside id="ai-chat-drawer" class="fixed top-0 right-0 w-96 h-full bg-white dark:bg-gray-900 shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-[70]" role="dialog" aria-modal="true" aria-labelledby="ai-chat-title" tabindex="-1" aria-hidden="true">
+    <div class="flex flex-col h-full">
+        <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
+            <h3 id="ai-chat-title" class="text-xl font-headings text-gray-800 dark:text-white">Asistente IA</h3>
+            <button id="close-ai-chat" aria-label="Cerrar Chat IA" class="text-2xl text-gray-600 dark:text-gray-300 hover:text-red-500">&times;</button>
         </div>
-        <div class="menu-section" style="margin-bottom: 15px;">
-            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase;">Navegación</h4>
-            <div id="main-menu-placeholder">
-                <!-- El menú principal (ul#main-menu) se clonará aquí -->
-            </div>
-        </div>
-        <div id="admin-menu-placeholder-container" class="menu-section" style="margin-bottom: 15px;">
-            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase;">Admin</h4>
-            <div id="admin-menu-placeholder">
-                <!-- El menú de admin (contenido de #admin-menu-source-content) se clonará aquí -->
-            </div>
-        </div>
-        <div class="menu-section">
-            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase;">Social</h4>
-            <div id="social-menu-placeholder">
-                <!-- Los enlaces sociales (contenido de #social-menu-source-content) se clonará aquí -->
-            </div>
+        <div class="flex-grow p-4 overflow-y-auto">
+            <?php
+            // Content from ai-drawer.html (or similar structure)
+            if (file_exists(__DIR__ . '/header/ai-drawer.html')) {
+                // This content needs to be styled appropriately for the drawer
+                // It might be better to rebuild this part for better integration
+                echo file_get_contents(__DIR__ . '/header/ai-drawer.html');
+            } else {
+                echo '<p class="text-gray-700 dark:text-gray-300">Interfaz de Chat IA no encontrada.</p>';
+            }
+            ?>
         </div>
     </div>
-</div>
-<?php if (file_exists(__DIR__ . "/slider_menu.php")) { include __DIR__ . "/slider_menu.php"; } ?>
+</aside>
+
+<!-- Overlay for modals/drawers -->
+<div id="site-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[55]" aria-hidden="true"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const mainSidebar = document.getElementById('main-sidebar');
+    const openMainSidebarButton = document.getElementById('open-main-sidebar');
+    const closeMainSidebarButton = document.getElementById('close-main-sidebar');
+
+    const aiChatDrawer = document.getElementById('ai-chat-drawer');
+    const openAiChatButton = document.getElementById('open-ai-chat');
+    const closeAiChatButton = document.getElementById('close-ai-chat');
+
+    const siteOverlay = document.getElementById('site-overlay');
+
+    function openDrawer(drawer) {
+        if (drawer) {
+            drawer.classList.remove('translate-x-full', '-translate-x-full');
+            drawer.classList.add('translate-x-0');
+            drawer.setAttribute('aria-hidden', 'false');
+            siteOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+    }
+
+    function closeDrawer(drawer) {
+        if (drawer) {
+            if(drawer.id === 'main-sidebar') {
+                drawer.classList.add('-translate-x-full');
+            } else {
+                drawer.classList.add('translate-x-full');
+            }
+            drawer.classList.remove('translate-x-0');
+            drawer.setAttribute('aria-hidden', 'true');
+
+            // Hide overlay only if no other drawer is open
+            const otherDrawerOpen = Array.from(document.querySelectorAll('[role="dialog"], [role="navigation"]'))
+                                      .some(d => d !== drawer && d.getAttribute('aria-hidden') === 'false' && (d.id === 'main-sidebar' || d.id === 'ai-chat-drawer'));
+            if (!otherDrawerOpen) {
+                siteOverlay.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scroll
+            }
+        }
+    }
+
+    openMainSidebarButton?.addEventListener('click', () => openDrawer(mainSidebar));
+    closeMainSidebarButton?.addEventListener('click', () => closeDrawer(mainSidebar));
+
+    openAiChatButton?.addEventListener('click', () => openDrawer(aiChatDrawer));
+    closeAiChatButton?.addEventListener('click', () => closeDrawer(aiChatDrawer));
+
+    siteOverlay?.addEventListener('click', () => {
+        closeDrawer(mainSidebar);
+        closeDrawer(aiChatDrawer);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            if (mainSidebar && mainSidebar.getAttribute('aria-hidden') === 'false') {
+                closeDrawer(mainSidebar);
+            }
+            if (aiChatDrawer && aiChatDrawer.getAttribute('aria-hidden') === 'false') {
+                closeDrawer(aiChatDrawer);
+            }
+        }
+    });
+
+    // Placeholder for theme, palette, mute, homonexus toggles inside sidebar
+    // These buttons will need their respective JS logic from assets/js/main.js or similar
+    // to be connected or refactored.
+    document.getElementById('sidebar-theme-toggle')?.addEventListener('click', () => {
+        // Logic for theme toggle, potentially calling functions from main.js or dedicated module
+        console.log('Sidebar Theme Toggle Clicked');
+        document.getElementById('theme-toggle')?.click(); // Example: trigger original if still exists
+    });
+    document.getElementById('sidebar-palette-toggle')?.addEventListener('click', () => {
+        console.log('Sidebar Palette Toggle Clicked');
+        document.getElementById('palette-toggle')?.click();
+    });
+    document.getElementById('sidebar-mute-toggle')?.addEventListener('click', () => {
+        console.log('Sidebar Mute Toggle Clicked');
+        document.getElementById('mute-toggle')?.click();
+    });
+     document.getElementById('sidebar-homonexus-toggle')?.addEventListener('click', () => {
+        console.log('Sidebar Homonexus Toggle Clicked');
+        document.getElementById('homonexus-toggle')?.click();
+    });
+
+});
+</script>
+<?php
+// Remove or comment out slider_menu.php inclusion if it's part of the old complex menu system
+// if (file_exists(__DIR__ . "/slider_menu.php")) { include __DIR__ . "/slider_menu.php"; }
+
+// Remove cave-mask and header-escudo-overlay if not used in the new design
+// <div id="cave-mask"></div>
+// <img id="header-escudo-overlay" class="hero-escudo" src="/assets/img/escudo.jpg" alt="Escudo de Cerezo de Río Tirón">
+?>

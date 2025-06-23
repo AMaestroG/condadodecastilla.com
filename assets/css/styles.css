@@ -1,439 +1,297 @@
-:root {
-    --emperador-purple: var(--epic-purple-emperor); /* Morado Emperador */
-    --old-gold: var(--epic-gold-main); /* Ouro Vello */
-    --light-text: var(--epic-text-light); /* Texto claro para fondos oscuros */
-    --dark-text: var(--epic-text-color); /* Texto oscuro para fondos claros */
-    --background-light: var(--epic-alabaster-bg);
-    --background-dark: var(--epic-alabaster-medium); /* Tono más oscuro para fondos */
-    --sidebar-bg-light: var(--epic-alabaster-bg);
-    --sidebar-bg-dark: var(--epic-alabaster-medium); /* Un poco más oscuro que el fondo principal */
-    --separator-light: var(--epic-gold-main);
-    --separator-dark: var(--epic-gold-secondary);
-    --button-bg-light: rgba(var(--epic-purple-emperor-rgb), 0.75);
-    --button-text-light: var(--light-text);
-    --button-bg-dark: var(--old-gold);
-    --button-text-dark: var(--dark-text); /* Oro sobre fondo oscuro puede necesitar texto oscuro */
+/* assets/css/styles.css */
 
-    /* Default to light theme */
-    --current-bg: var(--background-light);
-    --current-text: var(--dark-text);
-    --current-sidebar-bg: var(--sidebar-bg-light);
-    --current-separator: var(--separator-light);
-    --current-button-bg: var(--button-bg-light);
-    --current-button-text: var(--button-text-light);
-    --current-link-color: var(--epic-purple-emperor);
-    --current-link-hover-color: var(--epic-gold-secondary);
-    --current-icon-filter: none; /* Para invertir iconos en modo oscuro si son negros */
+/* ------------------------------------------------------------------------- */
+/* VARIABLES GLOBALES Y TEMAS (Conservado y Adaptado)                        */
+/* ------------------------------------------------------------------------- */
+:root {
+    /* Paleta Principal del Proyecto (Ejemplos, ajustar según guía de estilo) */
+    --color-primary: var(--epic-purple-emperor); /* Morado representativo */
+    --color-secondary: var(--epic-gold-main);    /* Dorado para acentos */
+    --color-background-light: var(--epic-alabaster-bg); /* Fondo claro principal */
+    --color-background-dark: #1f2937; /* Fondo oscuro principal (ej. gris oscuro azulado) */
+    --color-text-light: var(--epic-text-light);       /* Texto para fondos oscuros */
+    --color-text-dark: var(--epic-text-color);        /* Texto para fondos claros */
+
+    --font-primary: 'Roboto', sans-serif; /* Fuente principal para el cuerpo */
+    --font-headings: 'Georgia', serif;   /* Fuente para encabezados */
+
+    /* Variables de Tema Actual (Claro por defecto) */
+    --current-bg: var(--color-background-light);
+    --current-text: var(--color-text-dark);
+    --current-link-color: var(--color-primary);
+    --current-link-hover-color: var(--color-secondary);
+    --current-card-bg: #ffffff;
+    --current-border-color: #e5e7eb; /* Gris claro para bordes */
+    --current-icon-filter: none;
 }
 
 [data-theme="dark"] {
-    --current-bg: var(--background-dark);
-    --current-text: var(--light-text);
-    --current-sidebar-bg: var(--sidebar-bg-dark);
-    --current-separator: var(--separator-dark);
-    --current-button-bg: var(--button-bg-dark);
-    --current-button-text: var(--dark-text); /* Texto oscuro en botones dorados */
-    --current-link-color: var(--old-gold);
-    --current-link-hover-color: var(--emperador-purple);
-    --current-icon-filter: invert(1) hue-rotate(180deg); /* Ejemplo para invertir y colorear iconos SVG/PNG */
+    --current-bg: var(--color-background-dark);
+    --current-text: var(--color-text-light);
+    --current-link-color: var(--color-secondary);
+    --current-link-hover-color: var(--color-primary);
+    --current-card-bg: #2d3748; /* Gris más oscuro para tarjetas */
+    --current-border-color: #4a5568; /* Gris medio para bordes */
+    --current-icon-filter: invert(1) hue-rotate(180deg);
 }
 
+/* ------------------------------------------------------------------------- */
+/* ESTILOS BASE (Conservado y Adaptado)                                      */
+/* ------------------------------------------------------------------------- */
 html {
-    background-image: url('/assets/img/alabastro.jpg');
+    font-size: 16px; /* Base para REMs */
+    scroll-behavior: smooth;
+    background-image: url('/assets/img/alabastro.jpg'); /* Mantenido del original */
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     min-height: 100vh;
-    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 body {
     font-family: var(--font-primary);
-    background-color: transparent; /* MODIFIED: Was var(--current-bg) */
+    background-color: transparent; /* El fondo lo da HTML o un wrapper */
     color: var(--current-text);
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.3s ease, color 0.3s ease;
-    overflow-x: hidden; /* Prevent horizontal scrollbar during push */
+    overflow-x: hidden; /* Prevenir scroll horizontal general */
 }
 
-header { /* New header for hamburger only */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5); /* Slightly transparent purple */
-    backdrop-filter: blur(5px);
-    color: var(--epic-gold-main);
+/* Estilos para tipografía básica si no se usa Tailwind para todo */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--current-text); /* O un color específico para headings */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: var(--current-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--current-link-hover-color);
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------------- */
+/* ESTILOS PARA COMPONENTES DEL NUEVO DISEÑO (Tailwind debería cubrir mucho) */
+/* ------------------------------------------------------------------------- */
+
+/* Ajustes para el header fijo si es necesario (Tailwind 'sticky' ya lo maneja) */
+.site-header {
+    /* backdrop-filter: blur(5px); Podría añadirse si se quiere un efecto blur */
+}
+
+/* Estilos para el contenido principal para asegurar que no se solape con el header fijo */
+main {
+    padding-top: 60px; /* Ajustar a la altura real del header si es fijo y no sticky, o si sticky causa problemas de layout */
+                    /* Si el header es 'sticky', este padding podría no ser necesario o diferente */
+}
+
+
+/* Estilos para los cards en index.php (si se necesitan adicionales a Tailwind) */
+.card {
+    background-color: var(--current-card-bg);
+    border: 1px solid var(--current-border-color);
+    /* Clases Tailwind como shadow-lg, rounded-lg ya aplican buenos estilos */
+}
+.card .read-more-button { /* Ejemplo de botón dentro de una card */
+    display: inline-block;
     padding: 0.5rem 1rem;
-    position: fixed; /* Keep it at the top */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-radius: 0.25rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+.card .read-more-button:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark); /* Asumiendo que el secundario es claro */
+    text-decoration: none;
+}
+.card .read-more-button i { /* Para el icono de flecha */
+    transition: transform 0.2s ease-in-out;
+}
+.card:hover .read-more-button i {
+    transform: translateX(4px);
+}
+
+
+/* Estilos para el modal de video en index.php */
+#video-modal .aspect-w-16 { /* Tailwind aspect-ratio plugin no es estándar */
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+}
+#video-modal .aspect-w-16 iframe {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1030; /* Above sidebar but below modals if any */
-    box-shadow: 0 2px 4px rgba(var(--color-negro-contraste-rgb),0.1); /* see docs/style-guide.md */
-}
-
-#menu-toggle {
-    background: none;
-    border: none;
-    color: var(--epic-gold-main);
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-#sidebar {
     height: 100%;
-    width: 280px; /* Ancho del menú lateral */
-    position: fixed;
-    z-index: 1040; /* Debajo del header del menú hamburguesa si es fijo */
-    top: 0;
-    left: -280px; /* Comienza oculto */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5);
-    color: var(--current-text);
-    padding-top: 60px; /* Espacio para el header fijo */
-    transition: left 0.3s ease-in-out;
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(var(--color-negro-contraste-rgb),0.1); /* see docs/style-guide.md */
 }
 
-#sidebar.open {
-    left: 0; /* Muestra el menú */
-}
-
-#sidebar .main-menu, #sidebar .tools-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#sidebar .main-menu a, #sidebar .tools-menu button {
-    display: flex; /* Para alinear icono y texto */
-    align-items: center;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    color: var(--current-text);
-    transition: background-color 0.2s ease, color 0.2s ease;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-}
-
-#sidebar .main-menu a:hover, #sidebar .tools-menu button:hover {
-    background-color: var(--current-link-hover-color);
-    color: var(--current-button-text); /* Ajustar si el hover cambia mucho el fondo */
-}
-/* Específico para el texto del botón cuando hover */
-[data-theme="dark"] #sidebar .main-menu a:hover,
-[data-theme="dark"] #sidebar .tools-menu button:hover {
-    color: var(--dark-text); /* Asegurar contraste en modo oscuro */
-}
-[data-theme="light"] #sidebar .main-menu a:hover,
-[data-theme="light"] #sidebar .tools-menu button:hover {
-    color: var(--light-text); /* Asegurar contraste en modo claro */
-}
-
-
-#sidebar .main-menu a img, #sidebar .tools-menu button img {
-    margin-right: 10px;
-    width: 20px; /* Tamaño de los iconos */
-    height: 20px;
-    filter: var(--current-icon-filter); /* Aplicar filtro para tema oscuro */
-}
-
-#sidebar .separator {
-    border: none;
-    height: 1px;
-    background-color: var(--current-separator);
-    margin: 10px 20px;
-}
-
-#sidebar .language-selector {
-    display: flex;
-    justify-content: space-around;
-    padding: 15px 20px;
-}
-
-#sidebar .language-selector img {
-    width: 30px; /* Tamaño de las banderas */
-    height: auto;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: transform 0.2s ease;
-}
-
-#sidebar .language-selector img:hover {
-    transform: scale(1.1);
-}
-
-#main-content {
-    padding: 20px;
-    transition: margin-left 0.3s ease-in-out;
-    background: transparent !important;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#main-content.pushed {
-    margin-left: 280px; /* Mismo ancho que el sidebar */
-}
-
-/* Estilos del AI Drawer (manteniendo y adaptando los existentes) */
-.ai-drawer {
-    position: fixed;
-    right: -380px; /* Ancho + un poco más para que no se vea el borde */
-    top: 0;
-    width: 360px; /* Ancho del cajón de IA */
-    height: 100%;
-    background-color: var(--current-sidebar-bg); /* Usar el mismo fondo que el sidebar */
-    color: var(--current-text);
-    box-shadow: -3px 0 8px rgba(var(--color-negro-contraste-rgb),0.15); /* see docs/style-guide.md */
-    z-index: 1050; /* Encima de otros elementos */
-    transition: right 0.35s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    border-left: 1px solid var(--current-separator);
-}
-
-.ai-drawer.active {
-    right: 0; /* Deslizar para mostrar */
-}
-
-.ai-drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.7); /* More transparent for the AI header */
-    color: var(--light-text);
-    border-bottom: 1px solid var(--old-gold); /* Detalle con el otro color de la paleta */
-}
-[data-theme="dark"] .ai-drawer-header {
-    background-color: var(--old-gold);
-    color: var(--dark-text);
-    border-bottom: 1px solid var(--emperador-purple);
-}
-
-
-.ai-drawer-header h3 {
-    margin: 0;
-    font-size: 1.2em;
-    font-family: var(--font-headings); /* Fuente más temática si se desea */
-}
-
-#close-ai-drawer {
-    background: none;
-    border: none;
-    font-size: 1.6em;
-    cursor: pointer;
-    color: inherit; /* Hereda el color del header del drawer */
-    padding: 0.2rem 0.5rem;
-}
-
-.ai-drawer-content {
-    padding: 15px;
-    flex-grow: 1;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-#gemini-chat-area {
-    flex-grow: 1;
-    min-height: 150px; /* Más espacio para respuestas */
-    border: 1px solid var(--current-separator);
-    padding: 12px;
-    margin-bottom: 15px;
-    background-color: var(--current-bg); /* Fondo principal para el área de respuesta */
-    color: var(--current-text);
-    overflow-y: auto;
-    white-space: pre-wrap; /* Para mantener saltos de línea */
-    border-radius: 4px;
-}
-
-#gemini-chat-input {
-    width: calc(100% - 24px); /* Ajustar por padding */
-    padding: 12px;
-    border: 1px solid var(--current-separator);
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    background-color: var(--current-bg);
-    color: var(--current-text);
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-#gemini-chat-submit {
-    padding: 12px 18px;
-    background-image: linear-gradient(135deg,
-        var(--epic-purple-emperor), var(--epic-gold-main));
-    color: var(--epic-text-light);
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: bold;
-    background-size: 200% 100%;
-    background-position: 0% 0%;
-    box-shadow: var(--global-box-shadow-light);
-    transition: background-position 0.2s ease, box-shadow 0.2s ease;
-}
-
-#gemini-chat-submit:hover {
-    background-position: 100% 0%;
-    box-shadow: var(--global-box-shadow-medium);
-}
-
-#ai-dialog {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid var(--current-separator);
-    background-color: var(--current-bg);
-    color: var(--current-text);
-    border-radius: 4px;
-    width: 100%;
-    max-height: none;
-    height: auto;
-    overflow-y: auto;
-}
-
-/* Ajustes para que el contenido del main no se solape con el header fijo */
-/* El #main-content ya tiene margin-top, pero si hay otros headers fijos, se necesitaría más */
-
-/* Estilos adicionales para los elementos movidos a main-content si es necesario */
-#main-content .hero {
-    /* ... estilos para la sección hero si necesitan ajuste ... */
-    padding-top: 2rem; /* Ejemplo: más espacio arriba si es necesario */
-}
-
-#main-content .footer {
-    /* ... estilos para el footer si necesitan ajuste ... */
-    border-top: 1px solid var(--current-separator);
-    padding: 20px;
+/* Estilos para los botones CTA (Call to Action) */
+.cta-button, .cta-button-secondary {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem; /* rounded-md */
+    font-weight: 600; /* font-semibold */
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
     text-align: center;
 }
 
-/* Media query para responsividad del menú */
-@media (max-width: 768px) {
-    #main-content.pushed {
-        margin-left: 0; /* En móvil, el menú podría superponerse en lugar de empujar */
-    }
-    /* Aquí se podría cambiar el comportamiento del menú si se desea que cubra toda la pantalla, etc. */
-    /* Por ahora, el comportamiento de empuje se mantiene, pero se podría necesitar ajustar */
+.cta-button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-primary);
+}
+.cta-button:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 80%, black);
+    border-color: color-mix(in srgb, var(--color-primary) 80%, black);
+    color: var(--color-text-light);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* ================================================== */
-/* ESTILOS DEL PANEL DE CONTROL IZQUIERDO      */
-/* ================================================== */
-
-.left-control-panel {
-    position: fixed; /* Clave para que no se mueva con el scroll */
-    left: 15px;      /* Distancia desde la izquierda */
-    top: 60px;       /* Distancia desde arriba - Adjusted to be below #fixed-header-elements */
-    z-index: 1020;   /* Asegura que esté por encima de otros elementos, but below #fixed-header-elements */
-
-    /* Diseño del panel */
-    display: flex;
-    flex-direction: column; /* Apila los elementos en vertical */
-    gap: 10px; /* Espacio entre la sección de idiomas y la de botones */
-
-    /* Estilo visual tipo "cristal" (opcional pero moderno) */
-    background-color: rgba(var(--epic-purple-emperor-rgb), 0.6); /* Increased transparency */
-    backdrop-filter: blur(5px);
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid var(--old-gold);
+.cta-button-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+.cta-button-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-/* --- Estilos de los elementos dentro del panel --- */
-
-/* Contenedor de las banderas dentro de #fixed-header-elements */
-#fixed-header-elements .language-selector {
-    display: flex;
-    /* justify-content will be handled by #fixed-header-elements */
-    gap: 8px; /* Espacio entre banderas */
-    margin: 0; /* Reset margins if any */
-    padding: 0; /* Reset padding if any */
+/* Gradient Text (Ejemplo, si se usa fuera de Tailwind) */
+.gradient-text {
+  background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.language-selector img {
-    width: 30px; /* Un tamaño más pequeño y discreto */
-    height: auto;
-    border-radius: 3px;
-    transition: all 0.2s ease;
-}
+/* --- Estilos para el Sidebar y AI Drawer (si Tailwind no es suficiente) --- */
+/* El sidebar y AI drawer usan clases Tailwind para posicionamiento y transformación. */
+/* Los estilos para los elementos internos del menú (ul, li, a) se aplican con Tailwind en menu.php */
 
-.language-selector img:hover {
+#main-sidebar .language-selector img,
+#main-sidebar .social-links-section img { /* Para banderas e iconos sociales en sidebar */
+    filter: var(--current-icon-filter); /* Aplicar filtro para tema oscuro si son negros */
+    /* Ejemplo: hacerlos un poco más pequeños si es necesario */
+    max-width: 24px;
+    max-height: 24px;
+}
+#main-sidebar .language-selector .flex > *, /* Asumiendo que language-flags.html crea elementos directos */
+#main-sidebar .social-links-section .flex > * { /* Asumiendo que social-menu.html crea elementos directos */
+    transition: transform 0.2s ease;
+}
+#main-sidebar .language-selector .flex > *:hover,
+#main-sidebar .social-links-section .flex > *:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 5px var(--old-gold);
 }
 
-/* Línea separadora */
-.panel-separator {
-    border: none;
-    height: 1px;
-    background-color: var(--old-gold);
+
+/* ------------------------------------------------------------------------- */
+/* ESTILOS OBSOLETOS (A eliminar o revisar si alguna parte es reutilizable)  */
+/* ------------------------------------------------------------------------- */
+
+/* #sidebar (antiguo), .ai-drawer (antiguo), #main-content.pushed, .left-control-panel */
+/* La mayoría de los estilos de header.css y consolidated-menu.css también son obsoletos */
+
+/* Ejemplo de limpieza de un estilo obsoleto:
+#sidebar {
+    height: 100%;
+    width: 280px;
+    position: fixed;
+    z-index: 1040;
+    top: 0;
+    left: -280px;
+    background-color: rgba(var(--epic-purple-emperor-rgb), 0.5);
+    color: var(--current-text);
+    padding-top: 60px;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(var(--color-negro-contraste-rgb),0.1);
+}
+#sidebar.open { left: 0; }
+*/
+
+/* Parallax layers de index.php */
+.parallax-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1; /* Detrás del contenido principal */
 }
 
-/* Contenedor de los botones de acción (original, si aún se usa para otros botones) */
-.left-control-panel .action-buttons {
-    display: flex;
-    flex-direction: column; /* Apila los botones en vertical */
-    gap: 10px; /* Espacio entre cada botón */
-    align-items: center; /* Centra los botones en el panel */
+#layer-sky {
+    background-image: url('/assets/img/parallax/sky.png'); /* Reemplazar con imagen real */
+}
+#layer-ruins {
+    background-image: url('/assets/img/parallax/ruins.png'); /* Reemplazar con imagen real */
+}
+#layer-grass {
+    background-image: url('/assets/img/parallax/grass.png'); /* Reemplazar con imagen real */
 }
 
-/* Estilo para cada botón individual en el panel izquierdo original */
-.left-control-panel .action-buttons button {
-    background-color: var(--old-gold);
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-    width: 40px; /* Ancho fijo para los botones */
-    height: 40px; /* Alto fijo para los botones */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease;
+/* DB Warning */
+.db-warning {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+    color: #333;
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: center;
 }
 
-.left-control-panel .action-buttons button:hover {
-    background-color: var(--epic-gold-main); /* Resalta con oro principal */
-    transform: scale(1.05);
+/* Estilos para el panel de ayuda si no se usan clases Tailwind */
+/* #help-toggle y #help-panel ya tienen clases Tailwind en fragments/footer.php */
+
+/* Clases de paletas de tiempo (si se mantienen) */
+.palette-dawn { /* ... estilos ... */ }
+.palette-day { /* ... estilos ... */ }
+.palette-dusk { /* ... estilos ... */ }
+.palette-night { /* ... estilos ... */ }
+body.luna { /* ... estilos modo luna ... */ }
+
+/* Asegurar que el contenido principal tenga un fondo si el body es transparente */
+.main-container-wrapper { /* Añadir esta clase al div que envuelve el main y footer si es necesario */
+    background-color: var(--current-bg);
+    /* padding-top: 70px; /* Ajustar a la altura del header si es fixed y no sticky */
 }
 
-.left-control-panel .action-buttons button img {
-    width: 24px; /* Tamaño del icono dentro del botón */
-    height: 24px;
+/* Si se usa AOS (Animate On Scroll) */
+[data-aos] {
+    /* Podría necesitarse alguna configuración base o overrides */
 }
 
-/* Estilo para el #menu-toggle dentro de #fixed-header-elements */
-#fixed-header-elements #menu-toggle {
-    background-color: var(--old-gold);
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-    width: 40px; /* Ancho fijo para los botones */
-    height: 40px; /* Alto fijo para los botones */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease;
-    margin: 0; /* Reset margins */
-}
+/* Fuentes específicas si no están cargadas globalmente por Tailwind o head_common.php */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Georgia&display=swap'); */
+/* Asegurarse de que estas fuentes estén definidas en las variables --font-primary y --font-headings */
+/* Esto normalmente se maneja en <head> o con el config de Tailwind */
 
-#fixed-header-elements #menu-toggle:hover {
-    background-color: var(--epic-gold-main); /* Resalta con oro principal */
-    transform: scale(1.05);
-}
+/* Tailwind base, components, utilities (se supone que ya están enlazados o compilados) */
+/* Si no, se necesitaría @tailwind base; @tailwind components; @tailwind utilities; */
+/* O enlazar el archivo CSS de Tailwind generado. */
 
-#fixed-header-elements #menu-toggle img {
-    width: 24px; /* Tamaño del icono dentro del botón */
-    height: 24px;
-}
+/* Iconos FontAwesome (se supone que ya están enlazados) */
+/* Si no, se necesitaría el CSS de FontAwesome. */
