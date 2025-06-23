@@ -33,9 +33,9 @@ function initFlagPanel() {
     if (btn) {
         btn.addEventListener('click', primeTranslateLoad);
     }
-    document.querySelectorAll('#language-panel img[data-lang]').forEach(flag => {
-        flag.addEventListener('click', () => {
-            const lang = flag.getAttribute('data-lang');
+    document.querySelectorAll('#language-panel button[data-lang]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
             const translate = () => {
                 document.cookie = 'googtrans=/es/' + lang + ';path=/';
                 location.reload();

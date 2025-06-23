@@ -410,13 +410,22 @@ body.homonexus-active #sidebar .nav-links a:hover {
     gap: 10px;
 }
 
-#language-panel .flag-list img {
+#language-panel .flag-list button {
+    background: none;
+    border: none;
+    padding: 0;
     width: 32px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-#language-panel .flag-list img:hover {
+#language-panel .flag-list button:hover {
     transform: scale(1.1);
+}
+
+#language-panel .flag-list button img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
