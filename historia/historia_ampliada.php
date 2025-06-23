@@ -6,7 +6,9 @@ use League\CommonMark\CommonMarkConverter;
 function render_markdown_file(string $path): string {
     static $converter = null;
     if ($converter === null) {
-        $converter = new CommonMarkConverter();
+        $converter = new CommonMarkConverter([
+            'html_input' => 'strip'
+        ]);
     }
     $markdown = file_get_contents($path);
     return $converter->convert($markdown)->getContent();

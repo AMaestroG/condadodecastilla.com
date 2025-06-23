@@ -22,7 +22,9 @@ use League\CommonMark\CommonMarkConverter;
 function render_markdown(string $markdown): string {
     static $converter = null;
     if ($converter === null) {
-        $converter = new CommonMarkConverter();
+        $converter = new CommonMarkConverter([
+            'html_input' => 'strip'
+        ]);
     }
 
     return $converter->convert($markdown)->getContent();
