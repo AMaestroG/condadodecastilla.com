@@ -1,4 +1,7 @@
-@import url('header/layout.css');
-@import url('header/nav.css');
-@import url('header/topbar.css');
-@import url('menus/consolidated-menu.css');
+/* assets/css/header.css */
+/* Este archivo ha sido vaciado intencionalmente. */
+/* Los estilos para el nuevo header se manejan principalmente con Tailwind CSS */
+/* y ajustes en assets/css/styles.css. */
+
+/* Los imports anteriores (layout.css, nav.css, topbar.css, consolidated-menu.css) */
+/* probablemente son obsoletos debido al rediseño. */

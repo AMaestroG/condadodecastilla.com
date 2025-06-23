@@ -1,7 +1,9 @@
-// assets/js/main.js - simplified menu controller and theme toggle
+// assets/js/main.js - Theme, Palette, and other UI controls
 
 document.addEventListener('DOMContentLoaded', () => {
-    const paletteClasses = ['palette-dawn','palette-day','palette-dusk','palette-night'];
+    // --- PALETTE LOGIC ---
+    const paletteClasses = ['palette-dawn', 'palette-day', 'palette-dusk', 'palette-night'];
+    const paletteToggle = document.getElementById('sidebar-palette-toggle'); // New ID
 
     const detectPalette = () => {
         const h = new Date().getHours();
@@ -11,81 +13,167 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'night';
     };
 
-    const applyPalette = (p) => {
+    const applyPalette = (palette) => {
         document.body.classList.remove(...paletteClasses);
-        document.body.classList.add(`palette-${p}`);
+        if (palette && palette !== 'auto') {
+            document.body.classList.add(`palette-${palette}`);
+        }
+        // Update button text/icon if necessary
+        if (paletteToggle) {
+            const paletteText = paletteToggle.querySelector('span');
+            if (paletteText) paletteText.textContent = `Paleta (${palette || 'auto'})`;
+        }
     };
 
-    const storedPalette = localStorage.getItem('palette');
-    if (storedPalette && storedPalette !== 'auto') {
-        applyPalette(storedPalette);
+    let currentPalette = localStorage.getItem('palette') || 'auto';
+    if (currentPalette === 'auto') {
+        applyPalette(detectPalette()); // Apply detected on load if auto
     } else {
-        applyPalette(detectPalette());
+        applyPalette(currentPalette); // Apply stored palette
+    }
+    // Update button text on initial load
+     if (paletteToggle) {
+        const paletteText = paletteToggle.querySelector('span');
+        if (paletteText) paletteText.textContent = `Paleta (${currentPalette})`;
     }
 
 
-    const themeToggle = document.getElementById('theme-toggle');
+    if (paletteToggle) {
+        const order = ['auto', 'dawn', 'day', 'dusk', 'night'];
+        let currentIndex = order.indexOf(currentPalette);
+
+        paletteToggle.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % order.length;
+            const newPalette = order[currentIndex];
+            localStorage.setItem('palette', newPalette);
+            currentPalette = newPalette; // update currentPalette
+
+            if (newPalette === 'auto') {
+                // localStorage.removeItem('palette'); // No, keep 'auto' stored
+                applyPalette(detectPalette());
+            } else {
+                applyPalette(newPalette);
+            }
+        });
+    }
+
+    // --- THEME (DARK/LIGHT) LOGIC ---
+    const themeToggle = document.getElementById('sidebar-theme-toggle'); // New ID
     if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        const storedTheme = localStorage.getItem('theme');
-        let activeTheme = storedTheme;
+        const themeIcon = themeToggle.querySelector('i'); // Assuming <i> for icon
+        const themeText = themeToggle.querySelector('span');
+
+        const applyTheme = (theme) => {
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark'); // Apply to HTML for CSS vars
+                document.body.classList.add('dark-mode'); // For other selectors if needed
+                if (themeIcon) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+                if (themeText) themeText.textContent = 'Tema (Sol)';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.body.classList.remove('dark-mode');
+                if (themeIcon) {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+                if (themeText) themeText.textContent = 'Tema (Luna)';
+            }
+            localStorage.setItem('theme', theme);
+            themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        };
+
+        let activeTheme = localStorage.getItem('theme');
         if (!activeTheme) {
             activeTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
-
-        if (activeTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            if (icon) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            }
-        }
-        themeToggle.setAttribute('aria-pressed', activeTheme === 'dark' ? 'true' : 'false');
-        if (!storedTheme) {
-            localStorage.setItem('theme', activeTheme);
-        }
+        applyTheme(activeTheme);
 
         themeToggle.addEventListener('click', () => {
-            const isDark = document.body.classList.toggle('dark-mode');
-            if (icon) {
-                icon.classList.toggle('fa-moon', !isDark);
-                icon.classList.toggle('fa-sun', isDark);
-            }
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            let newTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
         });
     }
 
-    const moonToggle = document.getElementById('moon-toggle');
+    // --- MOON MODE LOGIC ---
+    // Assuming a button with id="sidebar-moon-toggle" will be added to fragments/header.php sidebar
+    const moonToggle = document.getElementById('sidebar-moon-toggle'); // New ID, if created
     if (moonToggle) {
-        const storedMoon = localStorage.getItem('moon');
-        if (storedMoon === 'on') {
-            document.body.classList.add('luna');
-        }
-        moonToggle.addEventListener('click', () => {
-            const active = document.body.classList.toggle('luna');
-            if (active) {
-                localStorage.setItem('moon', 'on');
+        const moonIcon = moonToggle.querySelector('i'); // Assuming <i> for icon
+        const moonText = moonToggle.querySelector('span');
+
+        const applyMoonMode = (isMoonMode) => {
+            if (isMoonMode) {
+                document.body.classList.add('luna'); // Class for moon mode styles
+                if (moonText) moonText.textContent = 'Modo Tierra'; // Or similar
+                // Update icon if necessary
             } else {
-                localStorage.removeItem('moon');
+                document.body.classList.remove('luna');
+                if (moonText) moonText.textContent = 'Modo Luna';
+                // Update icon if necessary
             }
+            localStorage.setItem('moon', isMoonMode ? 'on' : 'off');
+            moonToggle.setAttribute('aria-pressed', isMoonMode ? 'true' : 'false');
+        };
+
+        let currentMoonMode = localStorage.getItem('moon') === 'on';
+        applyMoonMode(currentMoonMode);
+
+        moonToggle.addEventListener('click', () => {
+            currentMoonMode = !currentMoonMode; // Toggle state
+            applyMoonMode(currentMoonMode);
         });
+    } else {
+        // console.log("Moon toggle button (#sidebar-moon-toggle) not found. Moon mode inactive.");
+        // Clean up localStorage if button is definitely removed
+        // localStorage.removeItem('moon');
+        // document.body.classList.remove('luna');
     }
 
-    const paletteToggle = document.getElementById('palette-toggle');
-    if (paletteToggle) {
-        const order = ['auto','dawn','day','dusk','night'];
-        let index = order.indexOf(storedPalette || 'auto');
-        paletteToggle.addEventListener('click', () => {
-            index = (index + 1) % order.length;
-            const p = order[index];
-            if (p === 'auto') {
-                localStorage.removeItem('palette');
-                applyPalette(detectPalette());
+    // --- MUTE TOGGLE LOGIC (Placeholder - actual logic in audio-controller.js) ---
+    // This just connects the new button to where the old logic might have been.
+    // audio-controller.js needs to be updated to find #sidebar-mute-toggle
+    const muteToggleSidebar = document.getElementById('sidebar-mute-toggle');
+    if (muteToggleSidebar && typeof window.toggleMute === 'function') { // Check if global toggleMute exists
+        muteToggleSidebar.addEventListener('click', () => {
+            window.toggleMute(); // Or however audio-controller.js exposes its function
+            // Update icon/text on muteToggleSidebar based on mute state from audio-controller
+            const isMuted = window.isMuted(); // Assuming audio-controller exposes this
+            const muteIcon = muteToggleSidebar.querySelector('i');
+            const muteText = muteToggleSidebar.querySelector('span');
+            if (isMuted) {
+                if (muteIcon) { muteIcon.classList.remove('fa-volume-up'); muteIcon.classList.add('fa-volume-mute');}
+                if (muteText) muteText.textContent = 'Sonido (Activar)';
             } else {
-                localStorage.setItem('palette', p);
-                applyPalette(p);
+                if (muteIcon) { muteIcon.classList.remove('fa-volume-mute'); muteIcon.classList.add('fa-volume-up');}
+                if (muteText) muteText.textContent = 'Sonido (Silenciar)';
             }
+        });
+        // Initial state update
+        // setTimeout(() => { // Delay slightly for audio-controller to init
+        //     const isMuted = window.isMuted ? window.isMuted() : false;
+        //     const muteIcon = muteToggleSidebar.querySelector('i');
+        //     const muteText = muteToggleSidebar.querySelector('span');
+        //     if (isMuted) {
+        //         if (muteIcon) { muteIcon.classList.remove('fa-volume-up'); muteIcon.classList.add('fa-volume-mute');}
+        //         if (muteText) muteText.textContent = 'Sonido (Activar)';
+        //     } else {
+        //         if (muteIcon) { muteIcon.classList.remove('fa-volume-mute'); muteIcon.classList.add('fa-volume-up');}
+        //         if (muteText) muteText.textContent = 'Sonido (Silenciar)';
+        //     }
+        // }, 100);
+    }
+
+
+    // --- HOMONEXUS TOGGLE LOGIC (Placeholder - actual logic in homonexus-toggle.js) ---
+    // homonexus-toggle.js needs to be updated to find #sidebar-homonexus-toggle
+    const homonexusToggleSidebar = document.getElementById('sidebar-homonexus-toggle');
+    if (homonexusToggleSidebar && typeof window.toggleHomonexus === 'function') { // Check if global toggleHomonexus exists
+        homonexusToggleSidebar.addEventListener('click', () => {
+            window.toggleHomonexus();
+            // Update icon/text on homonexusToggleSidebar based on state from homonexus-toggle.js
         });
     }
 
