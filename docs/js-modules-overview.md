@@ -4,7 +4,8 @@ This document summarizes the purpose of the main JavaScript files present in the
 
 | File                             | Description                                                                                                                                                                                                     |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assets/js/main.js`              | Handles sliding menu interactions, closing behavior, and the light/dark theme toggle used across all pages.                                                                                                     |
+| `assets/js/sliding-menu.js`      | Handles sliding menu open/close logic and updates body classes `menu-open-left` and `menu-open-right`.
+| `assets/js/main.js`              | Manages theme toggles and other global helpers used across all pages.
 | `assets/js/homonexus-toggle.js`  | Toggles Homonexus mode, storing the preference in a cookie.                                                                                                                                                     |
 | `assets/js/foro.js`              | Simple toggling for the forum agents menu.                                                                                                                                                                      |
 | `/assets/js/audio-controller.js` | Lowers audio/video volume when sliding menus open. Other scripts, such as `assets/js/main.js`, invoke its `handleMenuToggle` function directly.                                                                 |
@@ -20,7 +21,8 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `js/museum-3d/`                  | Additional modules used by the 3D viewer.                                                                                                                                                                       |
 | `assets/js/toc-generator.js`     | Builds a table of contents from headings inside `<main>` and injects a list of links styled with Tailwind.                                                                                                      |
 
-Deprecated or merged scripts such as `js/menu-controller.js` and `js/sliding-menu.js` have been removed in favour of `assets/js/main.js`. The old header loading helper was also dropped as noted in the project README.
+Deprecated scripts such as `js/menu-controller.js` remain removed. The new `assets/js/sliding-menu.js` module now contains the sliding menu logic previously in `assets/js/main.js`.
+The old header loading helper was also dropped as noted in the project README.
 ## Sound Assets
 
 Small audio clips provide feedback when the menu opens or closes. To keep the repository lightweight, the MP3 files are not included.
