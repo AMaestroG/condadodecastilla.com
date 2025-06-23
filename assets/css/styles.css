@@ -5,9 +5,20 @@
 /* ------------------------------------------------------------------------- */
 :root {
     /* Paleta Principal del Proyecto (Ejemplos, ajustar según guía de estilo) */
-    --color-primary: var(--epic-purple-emperor); /* Morado representativo */
-    --color-secondary: var(--epic-gold-main);    /* Dorado para acentos */
-    --color-background-light: var(--epic-alabaster-bg); /* Fondo claro principal */
+    --epic-purple-emperor: #4A0072; /* Ejemplo de Morado */
+    --epic-purple-emperor-rgb: 74, 0, 114;
+    --epic-gold-main: #D4AF37; /* Ejemplo de Dorado */
+    --epic-gold-main-rgb: 212, 175, 55;
+    --epic-alabaster-bg: #F2F0E6; /* Ejemplo de Alabastro */
+    --epic-text-light: #F8F9FA; /* Blanco casi puro */
+    --epic-text-light-rgb: 248, 249, 250;
+    --epic-text-color: #333333; /* Texto oscuro principal */
+
+    --color-primary: var(--epic-purple-emperor);
+    --color-primary-rgb: var(--epic-purple-emperor-rgb);
+    --color-secondary: var(--epic-gold-main);
+    --color-secondary-rgb: var(--epic-gold-main-rgb);
+    --color-background-light: var(--epic-alabaster-bg);
     --color-background-dark: #1f2937; /* Fondo oscuro principal (ej. gris oscuro azulado) */
     --color-text-light: var(--epic-text-light);       /* Texto para fondos oscuros */
     --color-text-dark: var(--epic-text-color);        /* Texto para fondos claros */
@@ -184,24 +195,129 @@ main {
   color: transparent;
 }
 
-/* --- Estilos para el Sidebar y AI Drawer (si Tailwind no es suficiente) --- */
-/* El sidebar y AI drawer usan clases Tailwind para posicionamiento y transformación. */
-/* Los estilos para los elementos internos del menú (ul, li, a) se aplican con Tailwind en menu.php */
+/* --- Estilos para el Sidebar y AI Drawer --- */
+:root {
+    /* ... otras variables ... */
+    --sidebar-bg-color-rgb: 45, 35, 65; /* Un morado oscuro base para RGB */
+    --sidebar-bg-opacity: 0.85; /* Opacidad deseada */
+    --sidebar-backdrop-blur: 8px;
+}
+
+#main-sidebar,
+#ai-chat-drawer {
+    background-color: rgba(var(--sidebar-bg-color-rgb), var(--sidebar-bg-opacity));
+    -webkit-backdrop-filter: blur(var(--sidebar-backdrop-blur)); /* Safari */
+    backdrop-filter: blur(var(--sidebar-backdrop-blur));
+    /* Las clases de Tailwind (bg-gray-800, bg-white dark:bg-gray-900) serán sobrescritas por esto.
+       Si se quiere que el color base cambie con el tema claro/oscuro, las variables RGB tendrían que
+       ser parte del sistema de temas claro/oscuro.
+       Por ahora, se usará un fondo oscuro semitransparente para ambos modos. */
+}
+
+/* Ajustes para el contenido dentro de los paneles semitransparentes para asegurar legibilidad */
+#main-sidebar,
+#main-sidebar h1, #main-sidebar h2, #main-sidebar h3, #main-sidebar h4, #main-sidebar h5, #main-sidebar h6,
+#main-sidebar p, #main-sidebar span, #main-sidebar li,
+#ai-chat-drawer,
+#ai-chat-drawer h1, #ai-chat-drawer h2, #ai-chat-drawer h3, #ai-chat-drawer h4, #ai-chat-drawer h5, #ai-chat-drawer h6,
+#ai-chat-drawer p, #ai-chat-drawer span, #ai-chat-drawer div { /* Ser más específico si es necesario */
+    color: var(--color-text-light); /* Forzar texto claro ya que el fondo es oscuro semitransparente */
+}
+
+#main-sidebar .text-gray-400 { /* Para los títulos de sección */
+    color: rgba(var(--epic-gold-main-rgb), 0.7) !important; /* Dorado pálido para títulos de sección */
+}
+#main-sidebar .text-gray-500 { /* Para texto secundario como "Idioma:" o "Selector no disponible" */
+    color: rgba(var(--epic-text-light-rgb), 0.7) !important; /* Blanco pálido */
+}
+
+/* Botones y enlaces dentro del sidebar */
+#main-sidebar button,
+#main-sidebar a {
+    color: var(--color-text-light); /* Texto de botones y enlaces en claro */
+}
+#main-sidebar button:hover, #main-sidebar ul.nav-links li a:hover,
+#main-sidebar button.hover\:bg-gray-700:hover, /* Para clases tailwind de hover */
+#main-sidebar a.hover\:bg-gray-700:hover {
+    background-color: rgba(var(--color-primary-rgb), 0.3) !important; /* Fondo morado sutil en hover */
+    color: var(--color-secondary) !important; /* Texto dorado en hover */
+}
+
+/* Estilo para el elemento activo del menú principal (links <a>) */
+#main-sidebar ul.nav-links li a[aria-current="page"] {
+    background-color: var(--color-secondary) !important; /* Fondo dorado para activo */
+    color: var(--color-primary) !important; /* Texto morado para activo */
+    font-weight: bold;
+}
+#main-sidebar ul.nav-links li a[aria-current="page"] span,
+#main-sidebar ul.nav-links li a[aria-current="page"] i {
+    color: var(--color-primary) !important;
+}
+
+
+/* Estilo para el botón de submenú activo/abierto (cuando un hijo está activo o el botón está expandido) */
+#main-sidebar ul.nav-links li button.submenu-toggle[aria-expanded="true"],
+#main-sidebar ul.nav-links li button.submenu-toggle.active-parent { /* 'active-parent' se podría añadir con JS si es necesario para padres de activos */
+    background-color: rgba(var(--color-secondary-rgb), 0.8) !important; /* Fondo dorado más opaco */
+    color: var(--color-primary) !important;
+}
+#main-sidebar ul.nav-links li button.submenu-toggle[aria-expanded="true"] span,
+#main-sidebar ul.nav-links li button.submenu-toggle[aria-expanded="true"] svg,
+#main-sidebar ul.nav-links li button.submenu-toggle.active-parent span,
+#main-sidebar ul.nav-links li button.submenu-toggle.active-parent svg {
+    color: var(--color-primary) !important;
+}
+
+
+/* Títulos de grupo y botones de herramientas (ajustes de color) */
+#main-sidebar .group-title { /* Ya estilizado en menu.php con text-gray-400 */
+    color: var(--color-secondary) !important; /* Forzar dorado para títulos de grupo */
+    opacity: 0.9;
+}
+
+#main-sidebar .menu-section h4 { /* Títulos de sección como "Personalizar Experiencia" */
+    color: var(--color-secondary) !important; /* Dorado */
+    border-bottom: 1px solid rgba(var(--color-secondary-rgb), 0.3);
+    padding-bottom: 0.25em;
+    margin-bottom: 0.75em !important; /* Tailwind mb-3 es 0.75rem, mb-2 es 0.5rem. mb-3 en el HTML */
+}
+
+
+/* Estilos para los iconos de FontAwesome dentro de los botones de herramientas del sidebar */
+#main-sidebar .settings-section button i.fas, #main-sidebar .settings-section button i.far,
+#main-sidebar .special-tools-section button i.fas, #main-sidebar .special-tools-section button i.far {
+    color: var(--epic-gold-main); /* Iconos en dorado */
+    opacity: 0.85;
+}
+#main-sidebar .menu-section button:hover i.fas, #main-sidebar .menu-section button:hover i.far {
+    opacity: 1;
+}
+
+
+/* Específicos para los contenedores de banderas e iconos sociales para que no hereden el bg-gray-700 de tailwind */
+#main-sidebar .settings-section .bg-gray-700,
+#main-sidebar .community-section .bg-gray-700 {
+    background-color: rgba(var(--sidebar-bg-color-rgb), 0.4) !important; /* Fondo más sutil para estos agrupadores */
+}
+
 
 #main-sidebar .language-selector img,
-#main-sidebar .social-links-section img { /* Para banderas e iconos sociales en sidebar */
-    filter: var(--current-icon-filter); /* Aplicar filtro para tema oscuro si son negros */
-    /* Ejemplo: hacerlos un poco más pequeños si es necesario */
-    max-width: 24px;
-    max-height: 24px;
+#main-sidebar .social-links-section img {
+    filter: none; /* Quitar el filtro de tema oscuro si los iconos ya son adecuados o son a color */
+    /* Ajustar tamaño si es necesario */
+    max-width: 28px;
+    max-height: 28px;
+    border-radius: 3px;
 }
-#main-sidebar .language-selector .flex > *, /* Asumiendo que language-flags.html crea elementos directos */
-#main-sidebar .social-links-section .flex > * { /* Asumiendo que social-menu.html crea elementos directos */
-    transition: transform 0.2s ease;
+#main-sidebar .language-selector .flex > *,
+#main-sidebar .community-section .flex > * {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.85;
 }
 #main-sidebar .language-selector .flex > *:hover,
-#main-sidebar .social-links-section .flex > *:hover {
-    transform: scale(1.1);
+#main-sidebar .community-section .flex > *:hover {
+    transform: scale(1.15);
+    opacity: 1;
 }
 
 
