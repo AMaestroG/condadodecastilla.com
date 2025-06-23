@@ -130,94 +130,10 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
 <!-- Overlay for modals/drawers -->
 <div id="site-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[55]" aria-hidden="true"></div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const mainSidebar = document.getElementById('main-sidebar');
-    const openMainSidebarButton = document.getElementById('open-main-sidebar');
-    const closeMainSidebarButton = document.getElementById('close-main-sidebar');
-
-    const aiChatDrawer = document.getElementById('ai-chat-drawer');
-    const openAiChatButton = document.getElementById('open-ai-chat');
-    const closeAiChatButton = document.getElementById('close-ai-chat');
-
-    const siteOverlay = document.getElementById('site-overlay');
-
-    function openDrawer(drawer) {
-        if (drawer) {
-            drawer.classList.remove('translate-x-full', '-translate-x-full');
-            drawer.classList.add('translate-x-0');
-            drawer.setAttribute('aria-hidden', 'false');
-            siteOverlay.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scroll
-        }
-    }
-
-    function closeDrawer(drawer) {
-        if (drawer) {
-            if(drawer.id === 'main-sidebar') {
-                drawer.classList.add('-translate-x-full');
-            } else {
-                drawer.classList.add('translate-x-full');
-            }
-            drawer.classList.remove('translate-x-0');
-            drawer.setAttribute('aria-hidden', 'true');
-
-            // Hide overlay only if no other drawer is open
-            const otherDrawerOpen = Array.from(document.querySelectorAll('[role="dialog"], [role="navigation"]'))
-                                      .some(d => d !== drawer && d.getAttribute('aria-hidden') === 'false' && (d.id === 'main-sidebar' || d.id === 'ai-chat-drawer'));
-            if (!otherDrawerOpen) {
-                siteOverlay.classList.add('hidden');
-                document.body.style.overflow = ''; // Restore scroll
-            }
-        }
-    }
-
-    openMainSidebarButton?.addEventListener('click', () => openDrawer(mainSidebar));
-    closeMainSidebarButton?.addEventListener('click', () => closeDrawer(mainSidebar));
-
-    openAiChatButton?.addEventListener('click', () => openDrawer(aiChatDrawer));
-    closeAiChatButton?.addEventListener('click', () => closeDrawer(aiChatDrawer));
-
-    siteOverlay?.addEventListener('click', () => {
-        closeDrawer(mainSidebar);
-        closeDrawer(aiChatDrawer);
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            if (mainSidebar && mainSidebar.getAttribute('aria-hidden') === 'false') {
-                closeDrawer(mainSidebar);
-            }
-            if (aiChatDrawer && aiChatDrawer.getAttribute('aria-hidden') === 'false') {
-                closeDrawer(aiChatDrawer);
-            }
-        }
-    });
-
-    // Placeholder for theme, palette, mute, homonexus toggles inside sidebar
-    // These buttons will need their respective JS logic from assets/js/main.js or similar
-    // to be connected or refactored.
-    document.getElementById('sidebar-theme-toggle')?.addEventListener('click', () => {
-        // Logic for theme toggle, potentially calling functions from main.js or dedicated module
-        console.log('Sidebar Theme Toggle Clicked');
-        document.getElementById('theme-toggle')?.click(); // Example: trigger original if still exists
-    });
-    document.getElementById('sidebar-palette-toggle')?.addEventListener('click', () => {
-        console.log('Sidebar Palette Toggle Clicked');
-        document.getElementById('palette-toggle')?.click();
-    });
-    document.getElementById('sidebar-mute-toggle')?.addEventListener('click', () => {
-        console.log('Sidebar Mute Toggle Clicked');
-        document.getElementById('mute-toggle')?.click();
-    });
-     document.getElementById('sidebar-homonexus-toggle')?.addEventListener('click', () => {
-        console.log('Sidebar Homonexus Toggle Clicked');
-        document.getElementById('homonexus-toggle')?.click();
-    });
-
-});
-</script>
 <?php
+// Script for UI Drawers (main-sidebar, ai-chat-drawer) is now in /assets/js/ui-drawers.js
+// Script for Sidebar Menu (submenus) is now in /assets/js/sidebar-menu.js
+
 // Remove or comment out slider_menu.php inclusion if it's part of the old complex menu system
 // if (file_exists(__DIR__ . "/slider_menu.php")) { include __DIR__ . "/slider_menu.php"; }
 

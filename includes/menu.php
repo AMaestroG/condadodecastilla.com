@@ -69,48 +69,7 @@ function render_main_menu(): void {
     $counter = 0;
     render_menu_items($items, '', $counter, $current);
     echo '</ul>';
-    // Script for submenu toggling
-    echo <<<SCRIPT
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const submenuToggles = document.querySelectorAll('#main-sidebar .submenu-toggle');
-        submenuToggles.forEach(function(toggle) {
-            toggle.addEventListener('click', function() {
-                const submenuId = this.getAttribute('aria-controls');
-                const submenu = document.getElementById(submenuId);
-                const arrow = this.querySelector('.submenu-arrow');
-                if (submenu) {
-                    const isExpanded = submenu.style.display === 'block';
-                    submenu.style.display = isExpanded ? 'none' : 'block';
-                    this.setAttribute('aria-expanded', !isExpanded);
-                    submenu.setAttribute('aria-hidden', isExpanded);
-                    if (arrow) {
-                        arrow.classList.toggle('rotate-180', !isExpanded);
-                    }
-                }
-            });
-        });
-
-        // Auto-expand submenu if a child is the current page
-        const activeSubmenuLink = document.querySelector('#main-menu .submenu a[aria-current="page"]');
-        if (activeSubmenuLink) {
-            const parentSubmenuUl = activeSubmenuLink.closest('ul.submenu');
-            if (parentSubmenuUl) {
-                parentSubmenuUl.style.display = 'block';
-                parentSubmenuUl.setAttribute('aria-hidden', 'false');
-                const toggleButton = document.querySelector('button[aria-controls="' + parentSubmenuUl.id + '"]');
-                if (toggleButton) {
-                    toggleButton.setAttribute('aria-expanded', 'true');
-                    const arrow = toggleButton.querySelector('.submenu-arrow');
-                    if (arrow) {
-                        arrow.classList.add('rotate-180');
-                    }
-                }
-            }
-        }
-    });
-    </script>
-SCRIPT;
+    // Script for submenu toggling is now in /assets/js/sidebar-menu.js
 }
 
 // Helper function to check if a menu item or its children is active
