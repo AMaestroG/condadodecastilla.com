@@ -23,6 +23,12 @@ if ! command -v composer >/dev/null 2>&1; then
     fi
 fi
 
+# Ensure PHP DOM extension is available (provided by php-xml)
+if ! php -m | grep -q '^dom$'; then
+    echo "Installing php-xml to provide ext-dom..." >&2
+    apt-get update -y >/dev/null 2>&1 && apt-get install -y php-xml >/dev/null 2>&1
+fi
+
 if ! command -v python3 >/dev/null 2>&1; then
     echo "Error: python3 is not installed or not in PATH." >&2
     exit 1
