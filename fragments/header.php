@@ -81,7 +81,7 @@
         </a>
         <button id="close-sidebar-button" aria-label="Cerrar menú" style="position: absolute; top: 15px; right: 15px; font-size: 2em; background: none; border: none; color: var(--epic-text-color); cursor: pointer; line-height: 1;">&times;</button>
     </div>
-    <div class="sidebar-content" style="padding: 15px; overflow-y: auto; height: calc(100% - 70px);"> {/* Approx header height */}
+    <div class="sidebar-content" style="padding: 15px; overflow-y: auto; height: calc(100% - 70px);"> <!-- Approx header height -->
         <div id="ai-chat-trigger-placeholder-mobile" class="menu-section" style="margin-bottom: 15px;">
             <!-- El botón de Chat IA se clonará aquí para móvil por main.js -->
         </div>
