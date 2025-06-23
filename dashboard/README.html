@@ -28,8 +28,8 @@
 <li><strong>Progress ODBC Driver</strong>: The appropriate Progress OpenEdge ODBC driver must be installed and correctly configured on the server where PHP is running. This includes setting up an ODBC Data Source Name (DSN) if you choose to connect via a system DSN, or ensuring the driver is available for DSN-less connections.</li>
 <li><strong>Database Access</strong>: Network access from the web server to the Progress database server.</li>
 <li><strong>Database Credentials</strong>: Valid username and password for accessing the Progress database.</li>
-<li><strong>Client Internet Access</strong>: The client's web browser needs internet access to load the Chart.js library from the CDN.</li>
 </ol>
+<p><strong>Note</strong>: The dashboard loads the Chart.js library from a CDN, but if the CDN is unreachable, it automatically falls back to a local copy located at <code>assets/vendor/js/chart.min.js</code>. Client internet access is therefore recommended but not strictly required.</p>
 <h2>Configuration</h2>
 <p>The primary configuration file is <code>includes/db_connect.php</code>. You <strong>must</strong> update this file with your actual Progress database credentials and connection details.</p>
 <p>Open <code>includes/db_connect.php</code> and modify the following placeholder variables:</p>
