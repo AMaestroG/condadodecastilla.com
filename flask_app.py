@@ -126,6 +126,19 @@ def forum_comments_handler():
         except Exception as exc:
             return jsonify({'error': str(exc)}), 500
 
+
+@app.route('/api/mission', methods=['GET'])
+def mission_handler():
+    """Return mission text from docs/README.md lines 3-7."""
+    try:
+        readme_path = os.path.join(os.path.dirname(__file__), 'docs', 'README.md')
+        with open(readme_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()[2:7]
+        text = ''.join(lines).strip()
+        return jsonify({'mission': text})
+    except Exception as exc:
+        return jsonify({'error': str(exc)}), 500
+
 if __name__ == '__main__':
     debug_env = os.getenv('FLASK_DEBUG')
     debug_mode = str(debug_env).lower() in ('1', 'true')
