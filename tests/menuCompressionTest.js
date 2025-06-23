@@ -7,20 +7,20 @@ const { launchBrowser, closeBrowser } = require('./helpers/puppeteerSetup');
   await page.waitForSelector('#consolidated-menu-button');
   await page.click('#consolidated-menu-button');
   await page.waitForTimeout(500);
-  const hasClass = await page.evaluate(() => document.body.classList.contains('menu-compressed'));
-  if (hasClass) {
-    console.error('menu-compressed class should not be present');
+  const countAfterOpen = await page.evaluate(() => document.body.classList.length);
+  if (countAfterOpen !== 0) {
+    console.error('Body classes should remain unchanged after opening');
     await closeBrowser(browser);
     process.exit(1);
   }
   await page.click('#consolidated-menu-button');
   await page.waitForTimeout(500);
-  const stillHasClass = await page.evaluate(() => document.body.classList.contains('menu-compressed'));
-  if (stillHasClass) {
-    console.error('menu-compressed class still present after closing');
+  const countAfterClose = await page.evaluate(() => document.body.classList.length);
+  if (countAfterClose !== 0) {
+    console.error('Body classes should remain unchanged after closing');
     await closeBrowser(browser);
     process.exit(1);
   }
-  console.log('Menu opens without adding menu-compressed');
+  console.log('Menu opens without modifying body classes');
   await closeBrowser(browser);
 })();

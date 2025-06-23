@@ -21,12 +21,12 @@ describe('menu.js toggle behavior', () => {
 
     btn.click()
     expect(menu.classList.contains('open')).toBe(true)
-    expect(window.document.body.classList.contains('menu-compressed')).toBe(false)
+    expect(window.document.body.classList.length).toBe(0)
     expect(btn.getAttribute('aria-expanded')).toBe('true')
 
     btn.click()
     expect(menu.classList.contains('open')).toBe(false)
-    expect(window.document.body.classList.contains('menu-compressed')).toBe(false)
+    expect(window.document.body.classList.length).toBe(0)
     expect(btn.getAttribute('aria-expanded')).toBe('false')
   })
 })

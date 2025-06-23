@@ -42,6 +42,3 @@ body {
     font-weight: bold;
 }
 
-body.menu-compressed {
-    overflow: hidden;
-}

@@ -5,6 +5,5 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', () => {
         const opened = menu.classList.toggle('open');
         toggle.setAttribute('aria-expanded', opened);
-        document.body.classList.toggle('menu-compressed', opened);
     });
 });
