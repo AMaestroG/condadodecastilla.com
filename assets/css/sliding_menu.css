@@ -1,0 +1,12 @@
+/* assets/css/sliding_menu.css */
+
+/* Translate body by panel width when menu panels are open */
+body.menu-open-left {
+    transform: translateX(var(--panel-width));
+    transition: transform 0.4s ease-in-out;
+}
+
+body.menu-open-right {
+    transform: translateX(calc(-1 * var(--panel-width)));
+    transition: transform 0.4s ease-in-out;
+}
