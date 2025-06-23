@@ -1,0 +1,283 @@
+/* Estilos generales */
+:root {
+    --primary-color: #6a0dad; /* Morado principal */
+    --secondary-color: #ffd700; /* Oro viejo */
+    --background-color: #f4f0e6; /* Alabastro claro */
+    --text-color: #333333;
+    --light-gray: #e0e0e0;
+    --dark-gray: #555555;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-sans: 'Arial', sans-serif; /* Fuente moderna y legible */
+    --font-serif: 'Georgia', serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header y Navegación */
+header {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header .logo a {
+    color: var(--background-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: var(--font-serif);
+}
+
+header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 1.5rem;
+}
+
+header ul li a {
+    color: var(--background-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+header ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+header ul li a:hover::after,
+header ul li a.active::after {
+    width: 100%;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/img/hero_mis_tierras.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-serif);
+    font-weight: bold;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Highlights Section */
+#highlights {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#highlights h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-serif);
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.highlight-item {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-item h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.highlight-item p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.highlight-item a {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.highlight-item a:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-gray);
+    color: var(--background-color);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+footer a {
+    color: var(--secondary-color);
+}
+
+footer a:hover {
+    color: var(--light-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .logo a {
+        margin-bottom: 0.5rem;
+    }
+
+    header ul {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Initially hidden on mobile */
+    }
+
+    header ul.active {
+        display: flex; /* Show when active */
+    }
+
+    header ul li {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    header ul li a {
+        display: block;
+        padding: 0.8rem 1rem; /* Adjusted padding for better touch targets */
+    }
+
+    header ul li a::after {
+      display: none; /* Optional: remove underline for mobile if it feels cluttered */
+    }
+
+    #hero h1 {
+        font-size: 2.2rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    /* Basic Mobile Menu Toggle */
+    .menu-toggle {
+        display: block; /* Hidden by default, shown on mobile */
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Mobile Menu Toggle - to be controlled by JS */
+.menu-toggle {
+    display: none; /* Hidden by default, shown in @media query */
+}
