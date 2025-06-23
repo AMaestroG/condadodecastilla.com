@@ -14,6 +14,7 @@ _proteger su patrimonio arqueológico y cultural_.
 - `museo/` – páginas del museo y fichas de piezas.
 - `foro/` – área gestionada por agentes expertos.
 - `backend/` – API en Flask e integración de IA.
+- `dashboard/` – panel de administración y estadísticas (ver [dashboard/README.html](../dashboard/README.html) para configuración y uso).
 - `docs/` – documentación completa.
 
 ## Árbol de directorios
