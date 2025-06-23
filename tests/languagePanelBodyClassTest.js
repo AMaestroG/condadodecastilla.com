@@ -7,22 +7,20 @@ const awaitTranslateOrSkip = require('./utils/skipIfNoTranslate');
   await page.goto('http://localhost:8080/tests/manual/test_language_panel.html');
   await page.waitForSelector('#flag-toggle');
   await page.click('#flag-toggle');
-  await page.waitForFunction(() => document.body.classList.contains('menu-open-right'));
   await awaitTranslateOrSkip(page);
-  const hasClass = await page.evaluate(() => document.body.classList.contains('menu-open-right'));
-  if (!hasClass) {
-    console.error('menu-open-right not added');
+  const hasClassAfterOpen = await page.evaluate(() => document.body.classList.contains('menu-open-right'));
+  if (hasClassAfterOpen) {
+    console.error('menu-open-right should not be added');
     await closeBrowser(browser);
     process.exit(1);
   }
   await page.click('#flag-toggle');
-  await page.waitForFunction(() => !document.body.classList.contains('menu-open-right'));
-  const stillHas = await page.evaluate(() => document.body.classList.contains('menu-open-right'));
-  if (stillHas) {
-    console.error('menu-open-right not removed');
+  const hasClassAfterClose = await page.evaluate(() => document.body.classList.contains('menu-open-right'));
+  if (hasClassAfterClose) {
+    console.error('menu-open-right should remain absent after closing');
     await closeBrowser(browser);
     process.exit(1);
   }
-  console.log('Language panel body class toggled correctly');
+  console.log('Language panel no longer toggles body class');
   await closeBrowser(browser);
 })();
