@@ -1,9 +1,9 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test.describe('Nueva Web - Página de Inicio (webnueva/index.html)', () => {
+test.describe('Nueva Web - Página de Inicio (nuevaweb/static/index.html)', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/webnueva/index.html');
+    await page.goto('/nuevaweb/static/index.html');
   });
 
   test('Debe mostrar el título correcto', async ({ page }) => {
@@ -83,7 +83,7 @@ test.describe('Nueva Web - Página de Inicio (webnueva/index.html)', () => {
     }
 
     await page.setViewportSize({ width: 375, height: 667 }); // Simular un iPhone
-    await page.goto('/webnueva/index.html'); // Recargar para asegurar que se aplica el viewport
+    await page.goto('/nuevaweb/static/index.html'); // Recargar para asegurar que se aplica el viewport
 
     const menuToggle = page.locator('.menu-toggle');
     const mainMenu = page.locator('ul#main-menu');
@@ -104,7 +104,7 @@ test.describe('Nueva Web - Página de Inicio (webnueva/index.html)', () => {
       return;
     }
     await page.setViewportSize({ width: 375, height: 800 }); // Alto suficiente para contenido
-    await page.goto('/webnueva/index.html');
+    await page.goto('/nuevaweb/static/index.html');
 
     // Función para verificar si dos elementos se superponen
     async function checkOverlap(selector1, selector2) {
@@ -144,7 +144,7 @@ test.describe('Nueva Web - Página de Inicio (webnueva/index.html)', () => {
 
 
     // Tomar un screenshot para inspección visual si es necesario
-    // await page.screenshot({ path: 'tests/playwright/screenshots/webnueva_mobile_layout.png' });
+    // await page.screenshot({ path: 'tests/playwright/screenshots/nuevaweb_static_mobile_layout.png' });
   });
 
   test('Las imágenes deben tener atributos alt (si las hubiera)', async ({ page }) => {

@@ -31,3 +31,7 @@ Integra PHP para el sitio público y un API minimal en Flask. Este servicio es s
 `flask_app.py` implementa un único endpoint `/api/hello`. Su función es mostrar la estructura básica de un servicio Flask y no se integra con la API principal del proyecto.
 
 Consulta la [guía de estilo](../docs/style-guide.md) para ver la paleta completa y otras recomendaciones.
+
+### Versión estática
+
+El antiguo directorio `webnueva/` ahora se encuentra en `nuevaweb/static/`. Allí se conserva una versión HTML estática moderna de la página de inicio. Puedes abrir `nuevaweb/static/index.html` directamente en tu navegador para probarla. Sus pruebas automatizadas se encuentran en `tests/playwright/nuevaweb_static_index.spec.js`.
