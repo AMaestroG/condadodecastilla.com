@@ -27,6 +27,9 @@ return [
         ['label' => 'menu_planifica_visita', 'url' => 'visitas/visitas.php'],
         ['label' => 'menu_programa_citas', 'url' => 'citas/agenda.php'],
     ],
+    'group_herramientas' => [
+        ['label' => 'menu_catalogo_scripts', 'url' => 'scripts/index.php'],
+    ],
     'group_comunidad' => [
         ['label' => 'menu_gestion_yacimientos', 'url' => 'empresa/index.php'],
         ['label' => 'menu_foro', 'url' => 'foro/index.php'],

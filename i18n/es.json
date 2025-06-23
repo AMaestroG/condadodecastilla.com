@@ -25,8 +25,10 @@
   "menu_mapa_interactivo": "Mapa Interactivo",
   "menu_documentacion": "Documentación",
   "menu_nueva_web": "Nueva Web",
+  "menu_catalogo_scripts": "Catálogo de Scripts",
   "group_historia_cultura": "Historia y Cultura",
   "group_lugares_patrimonio": "Lugares y Patrimonio",
   "group_servicios_visitante": "Servicios al Visitante",
+  "group_herramientas": "Herramientas",
   "group_comunidad": "Comunidad"
 }
