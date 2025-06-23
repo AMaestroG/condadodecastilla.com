@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateBodyForPanel = (menu, open) => {
         if (!menu) return;
+
+        const root = document.documentElement;
+        if (open) {
+            root.style.setProperty('--active-panel-width', `${menu.offsetWidth}px`);
+        } else {
+            root.style.removeProperty('--active-panel-width');
+        }
+
         if (menu.classList.contains('left-panel')) {
             document.body.classList.toggle('menu-open-left', open);
         } else if (menu.classList.contains('right-panel')) {

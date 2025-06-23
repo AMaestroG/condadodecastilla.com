@@ -1,12 +1,28 @@
 /* assets/css/sliding_menu.css */
 
-/* Translate body by panel width when menu panels are open */
+:root {
+    --active-panel-width: var(--panel-width);
+}
+
+/* Smooth transitions for body adjustments */
+body {
+    transition: margin-left var(--global-transition-speed) ease-in-out,
+                margin-right var(--global-transition-speed) ease-in-out,
+                width var(--global-transition-speed) ease-in-out,
+                box-shadow var(--global-transition-speed) ease-in-out;
+}
+
+body.menu-open-left,
+body.menu-open-right {
+    width: calc(100% - var(--active-panel-width));
+}
+
 body.menu-open-left {
-    transform: translateX(var(--panel-width));
-    transition: transform 0.4s ease-in-out;
+    margin-left: var(--active-panel-width);
+    box-shadow: inset 0 0 0 3px var(--epic-purple-emperor);
 }
 
 body.menu-open-right {
-    transform: translateX(calc(-1 * var(--panel-width)));
-    transition: transform 0.4s ease-in-out;
+    margin-right: var(--active-panel-width);
+    box-shadow: inset 0 0 0 3px var(--epic-gold-main);
 }
