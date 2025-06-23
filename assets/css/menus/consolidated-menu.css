@@ -241,6 +241,27 @@
     box-shadow: var(--global-box-shadow-medium);
 }
 
+#ai-response-box {
+    width: 100%;
+    min-height: 80px;
+    margin-top: 0.5rem;
+    background: rgba(var(--epic-purple-emperor-rgb), 0.1);
+    border: 1px solid var(--epic-gold-secondary);
+    color: var(--current-text);
+    padding: 8px;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#ai-chat-title {
+    background: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: bold;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: var(--breakpoint-md)) {
