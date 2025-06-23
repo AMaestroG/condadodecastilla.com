@@ -72,6 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = triggerButton || document.querySelector(`[data-menu-target="${menu.id}"]`);
         updateAria(btn, menu, false);
         if (btn && triggerButton) btn.focus(); // Only focus if we passed the button explicitly
+        if (menu.classList.contains('left-panel')) {
+            document.body.classList.remove('menu-open-left');
+        } else if (menu.classList.contains('right-panel')) {
+            document.body.classList.remove('menu-open-right');
+        }
         // Recalculate anyOpen and update body classes
         updateGlobalMenuState();
         vibrateFeedback();
@@ -98,6 +103,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const open = !menu.classList.contains('active');
         menu.classList.toggle('active', open);
         updateAria(btn, menu, open);
+
+        if (open) {
+            if (menu.classList.contains('left-panel')) {
+                document.body.classList.add('menu-open-left');
+            } else if (menu.classList.contains('right-panel')) {
+                document.body.classList.add('menu-open-right');
+            }
+        } else {
+            if (menu.classList.contains('left-panel')) {
+                document.body.classList.remove('menu-open-left');
+            } else if (menu.classList.contains('right-panel')) {
+                document.body.classList.remove('menu-open-right');
+            }
+        }
 
         if (open && menu.id === 'language-panel' && typeof primeTranslateLoad === 'function') {
             primeTranslateLoad();

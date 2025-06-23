@@ -110,6 +110,14 @@
     text-align: center;
 }
 
+body.menu-open-left {
+    transform: translateX(250px);
+}
+
+body.menu-open-right {
+    transform: translateX(-250px);
+}
+
 .menu-panel .menu-section {
     margin-top: 10px; /* Compacted */
     padding-top: 10px; /* Compacted */
