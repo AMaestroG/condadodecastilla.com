@@ -3,7 +3,7 @@
     top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
     right: 0;
     bottom: 0;
-    width: 260px;
+    width: var(--language-panel-width, 320px);
     max-width: 80%;
     /* Purple translucent backdrop similar to other panels */
     background: rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.9);
@@ -36,6 +36,23 @@
 #language-panel.active {
     transform: translateX(0);
     opacity: 1;
+}
+
+/* Header container for the language panel */
+.language-panel-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#close-language-panel {
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    cursor: pointer;
+    color: inherit;
+    padding: 0.2rem 0.5rem;
 }
 
 #language-panel .flag-list {
