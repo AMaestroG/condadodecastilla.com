@@ -438,3 +438,8 @@ body.homonexus-active #sidebar .nav-links a:hover {
     display: block;
 }
 
+
+body.menu-open-left,
+body.menu-open-right {
+    transition: transform 0.3s ease;
+}
