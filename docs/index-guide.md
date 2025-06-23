@@ -37,20 +37,20 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 ## Personalización del menú deslizante y nuevas páginas
 
 - **Estilos**: modifica `assets/css/menus/consolidated-menu.css` para cambiar colores morado y oro viejo, anchura u otros efectos del panel `.menu-panel`.
-- **Comportamiento**: `assets/js/main.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
+- **Comportamiento**: `assets/js/sliding-menu.js` gestiona la apertura y cierre con el atributo `data-menu-target`.
 - **Añadir páginas**: edita `fragments/menus/main-menu.php` para crear nuevos enlaces y añade el archivo correspondiente en el directorio del proyecto.
 
 ### Apertura del panel y superposición
 
 Al pulsar un botón con `data-menu-target="id-del-panel"`,
-`assets/js/main.js` abre el panel correspondiente y añade al elemento
+`assets/js/sliding-menu.js` abre el panel correspondiente y añade al elemento
 `<body>` la clase `menu-open-left` o `menu-open-right`, según el
 lateral del menú. Estas clases aplican un `transform` que desplaza el
 contenido de la página para dejar espacio al panel, generando un efecto
 de deslizamiento fluido. El panel `.menu-panel` mantiene la clase
 `active` para mostrarse u ocultarse.
 
-`assets/js/main.js` sigue actualizando los atributos `aria-expanded` y
+`assets/js/sliding-menu.js` sigue actualizando los atributos `aria-expanded` y
 `aria-hidden` de los botones y paneles para mantener la accesibilidad.
 
 Tras cualquier modificacion consulta la [Guia de Testing](testing.md) para ejecutar las pruebas.
@@ -156,7 +156,7 @@ Su estructura principal es la siguiente:
 - `<dialog id="ai-dialog">` y el área `#ai-response-box` sirven para
   mostrar la respuesta completa.
 
-`assets/js/main.js` controla la apertura y cierre de este panel utilizando
+`assets/js/sliding-menu.js` controla la apertura y cierre de este panel utilizando
 el atributo `data-menu-target="ai-chat-panel"`. Cuando el panel se abre,
 el script enfoca `#gemini-chat-area` y permite cerrarlo al pulsar
 `#close-ai-drawer`. Las funciones concretas de cada botón se encuentran en
