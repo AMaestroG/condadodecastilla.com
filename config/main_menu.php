@@ -34,4 +34,7 @@ return [
         ['label' => 'menu_documentacion', 'url' => 'docs/index.php'],
         ['label' => 'menu_contacto', 'url' => 'contacto/contacto.php'],
     ],
+    'group_herramientas' => [
+        ['label' => 'menu_catalogo_scripts', 'url' => 'scripts_admin.php'],
+    ],
 ];
