@@ -126,6 +126,7 @@ async function runTests() {
         expect(await isElementVisible(aiChatTriggerSel), "Botón AI Chat no visible en panel consolidado").toBe(true);
         await page.click(aiChatTriggerSel); await delay(DELAY_MS);
         expect(await hasClass('#ai-chat-panel', 'active'), "Panel AI no activo").toBe(true);
+        expect(await hasClass('body', 'menu-open-right'), "Body class toggled for AI panel").toBe(false);
         await page.click('#ai-chat-panel #close-ai-drawer'); await delay(DELAY_MS);
         expect(await hasClass('#ai-chat-panel', 'active'), "Panel AI no cerrado por botón interno").toBe(false);
         await page.click('#consolidated-menu-button'); await delay(DELAY_MS); // Cerrar panel principal
@@ -134,6 +135,7 @@ async function runTests() {
         expect(await hasClass('#language-panel', 'active'), "Panel idioma activo al inicio").toBe(false);
         await page.click('#flag-toggle'); await delay(DELAY_MS);
         expect(await hasClass('#language-panel', 'active'), "Panel idioma no activo tras click").toBe(true);
+        expect(await hasClass('body', 'menu-open-right'), "Body class toggled for language panel").toBe(false);
         await page.click('body'); await delay(DELAY_MS); // Click fuera
         expect(await hasClass('#language-panel', 'active'), "Panel idioma no cerrado por click fuera").toBe(false);
 

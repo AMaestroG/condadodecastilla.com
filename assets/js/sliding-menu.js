@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (menu.classList.contains('left-panel')) {
             document.body.classList.toggle('menu-open-left', open);
         } else if (menu.classList.contains('right-panel')) {
-            document.body.classList.toggle('menu-open-right', open);
+            // menu-open-right previously shifted the body via CSS transform.
+            // The transform has been disabled, so toggling is no longer needed
+            // for layout. Preserve hook for other effects if required.
+            // document.body.classList.toggle('menu-open-right', open);
         }
     };
 
