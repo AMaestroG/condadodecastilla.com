@@ -24,7 +24,7 @@ Se ha optado por un diseño moderno, limpio y responsive, implementado con HTML 
 
 ## Pruebas
 
-Se han desarrollado pruebas automatizadas utilizando Playwright, ubicadas en `tests/playwright/webnueva_index.spec.js`. Estas pruebas verifican:
+Se han desarrollado pruebas automatizadas utilizando Playwright, ubicadas en `tests/playwright/nuevaweb_static_index.spec.js`. Estas pruebas verifican:
 - La correcta visualización del título y la carga del CSS.
 - La presencia y funcionalidad de elementos clave como el header, logo, navegación, sección hero y footer.
 - La correctitud de los enlaces de navegación.
@@ -33,11 +33,11 @@ Se han desarrollado pruebas automatizadas utilizando Playwright, ubicadas en `te
 
 ## Visualización
 
-Para ver esta página, simplemente abre el archivo `webnueva/index.html` en un navegador web. No requiere un servidor PHP para su visualización directa, aunque las pruebas de Playwright se ejecutan con un servidor PHP para simular el entorno del proyecto completo.
+Para ver esta página, simplemente abre el archivo `nuevaweb/static/index.html` en un navegador web. No requiere un servidor PHP para su visualización directa, aunque las pruebas de Playwright se ejecutan con un servidor PHP para simular el entorno del proyecto completo.
 
 ## Diferencias con la Versión Anterior en esta Carpeta
 
-Esta implementación reemplaza a la anterior (`index.php`, `simple.css`, `menu.js`) que existía en esta misma carpeta `webnueva/`. Los objetivos de esta nueva versión son:
+Esta implementación reemplaza a la anterior (`index.php`, `simple.css`, `menu.js`) que existía en la antigua carpeta `webnueva/`. Los objetivos de esta nueva versión son:
 - Modernizar la estética.
 - Asegurar un diseño responsive robusto.
 - Utilizar HTML estático para la página de aterrizaje principal, simplificando su mantenimiento y despliegue, mientras se mantienen los enlaces a la funcionalidad PHP existente del sitio principal.
