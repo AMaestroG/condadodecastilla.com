@@ -22,7 +22,7 @@ require_admin_login();
 <body class="alabaster-bg admin-page">
     <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
     <header class="admin-header">
-        <h1>Panel de Estadísticas de Visitas</h1>
+        <h1 class="gradient-text font-headings">Panel de Estadísticas de Visitas</h1>
     </header>
     <nav class="admin-nav">
         <a href="/scripts_admin.php" class="cta-button">Scripts</a>
