@@ -50,7 +50,7 @@
     /* Altura reservada para la barra de idiomas superior (no usada en el panel lateral) */
     --language-bar-height: 40px;
     /* Espacio superior aplicado al menú, ajustado dinámicamente */
-    --menu-top-offset: 0px;
+    --language-bar-offset: 0px;
     /* Additional theme variables for admin dashboard */
     --epic-purple-hover: #663399;
     --epic-gray: #6c757d;
@@ -89,7 +89,7 @@
 }
 
 body.lang-bar-visible {
-    --menu-top-offset: var(--language-bar-height);
+    --language-bar-offset: var(--language-bar-height);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -139,7 +139,7 @@ body {
     text-rendering: optimizeLegibility;
     overflow-x: hidden; /* Prevent side scrolling on narrow screens */
     animation: fadeInPage 0.7s ease-out forwards;
-    padding-top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+    padding-top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
 }
 
 body::before {
@@ -2548,7 +2548,7 @@ body.dark-mode {
     /* background-image is inherited from body::before via cascading */
     background-color: var(--epic-alabaster-bg); /* This will be the dark version of the variable */
     /* filter property is now on body.dark-mode::before */
-    padding-top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+    padding-top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
 }
 
 body.dark-mode::before {
@@ -2885,7 +2885,7 @@ body.luna {
     --global-box-shadow-medium: 0 5px 15px rgba(30, 58, 138, 0.5);
     --global-box-shadow-dark: 0 8px 25px rgba(30, 58, 138, 0.5);
     background-color: var(--epic-alabaster-bg);
-    padding-top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+    padding-top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
 }
 
 body.luna::before {

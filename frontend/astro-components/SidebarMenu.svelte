@@ -57,7 +57,7 @@
 <style>
   nav {
     position: fixed;
-    top: var(--menu-top-offset, 0);
+    top: var(--language-bar-offset, 0);
     left: 0;
     height: 100%;
     width: 250px;

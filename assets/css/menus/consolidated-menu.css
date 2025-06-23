@@ -38,7 +38,7 @@
 .menu-panel {
     position: fixed;
     /* Place panel below the header and language bar */
-    top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+    top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
     bottom: 0; /* Make panel full height */
     width: 250px; /* Adjust width as needed */
     max-width: 80%; /* Max width for smaller screens */
@@ -284,7 +284,7 @@
         width: 230px; /* Slightly narrower for mobile */
         padding: 10px; /* Compacted */
         padding-top: 45px; /* Compacted */
-        top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+        top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
     }
     #consolidated-menu-button {
         font-size: 1em; /* Compacted */
@@ -377,7 +377,7 @@ body.homonexus-active #sidebar .nav-links a:hover {
 #language-panel {
     position: fixed;
     /* Align panel just below the header and optional language bar */
-    top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+    top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
     right: 0;
     width: 240px;
     max-width: 80%;

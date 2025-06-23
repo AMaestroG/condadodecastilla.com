@@ -81,6 +81,9 @@ Al añadir más elementos al contenedor puede ser necesario ajustar la posición
 }
 ```
 
+El valor de `--language-bar-offset` se actualiza automáticamente cuando el
+cuerpo tiene la clase `lang-bar-visible`. Por defecto equivale a `0px`.
+
 Esto evitará que los menús se oculten tras los botones fijos.
 
 ### Modificar la altura del contenedor

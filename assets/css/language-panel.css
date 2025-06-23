@@ -1,6 +1,6 @@
 #language-panel {
     position: fixed;
-    top: calc(var(--menu-extra-offset) + var(--menu-top-offset));
+    top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
     right: 0;
     bottom: 0;
     width: 260px;

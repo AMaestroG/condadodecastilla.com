@@ -15,5 +15,5 @@
 
 /* Align the hero title with the fixed menu button */
 .align-with-menu {
-    margin-top: var(--menu-top-offset);
+    margin-top: var(--language-bar-offset);
 }
