@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/head_common.php';
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
-}
+require_once __DIR__ . '/includes/markdown_utils.php';
 
 function get_blog_posts() {
     $posts = [];
@@ -17,16 +15,6 @@ function get_blog_posts() {
     return $posts;
 }
 
-use League\CommonMark\CommonMarkConverter;
-
-function render_markdown(string $markdown): string {
-    static $converter = null;
-    if ($converter === null) {
-        $converter = new CommonMarkConverter();
-    }
-
-    return $converter->convert($markdown)->getContent();
-}
 
 $posts = get_blog_posts();
 $post_slug_raw = isset($_GET['post']) ? $_GET['post'] : null;
@@ -58,7 +46,7 @@ if ($post_slug_raw) {
 <?php if ($post_slug && isset($posts[$post_slug])): ?>
     <article class="blog-post">
         <h1><?php echo htmlspecialchars($posts[$post_slug]['title']); ?></h1>
-        <?php echo render_markdown(file_get_contents($posts[$post_slug]['file'])); ?>
+        <?php echo render_markdown_file($posts[$post_slug]['file']); ?>
         <p><a href="blog.php">&larr; Volver al listado</a></p>
     </article>
 <?php else: ?>

@@ -12,4 +12,10 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true
+,
+    "autoload": {
+        "files": [
+            "includes/markdown_utils.php"
+        ]
+    }
 }

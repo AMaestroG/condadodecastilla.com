@@ -1,18 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/head_common.php';
-if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
-    require_once __DIR__ . '/../vendor/autoload.php';
-}
-use League\CommonMark\CommonMarkConverter;
-
-function render_markdown_file(string $path): string {
-    static $converter = null;
-    if ($converter === null) {
-        $converter = new CommonMarkConverter();
-    }
-    $markdown = file_get_contents($path);
-    return $converter->convert($markdown)->getContent();
-}
+require_once __DIR__ . '/../includes/markdown_utils.php';
 
 $readme = __DIR__ . '/README.md';
 $docs = array_filter(glob(__DIR__ . '/*.md'), function($f) use ($readme) { return $f !== $readme; });
