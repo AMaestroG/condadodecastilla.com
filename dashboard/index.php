@@ -17,7 +17,7 @@ require_admin_login();
     <title>Estadísticas de Visitas Web</title>
     <?php require_once __DIR__ . '/../includes/head_common.php'; ?>
     <link rel="stylesheet" href="../assets/css/admin_theme.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script> <!-- Specific version for stability -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" onerror="this.onerror=null;this.src='../assets/vendor/js/chart.min.js';"></script> <!-- CDN with local fallback -->
 </head>
 <body class="alabaster-bg admin-page">
     <?php require_once __DIR__ . '/../fragments/admin_header.php'; ?>
