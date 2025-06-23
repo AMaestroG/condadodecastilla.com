@@ -110,6 +110,17 @@
     text-align: center;
 }
 
+/* Gradient text for button labels */
+.menu-panel .menu-item-button span {
+    background-image: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: var(--epic-purple-emperor);
+    color: transparent;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(var(--color-negro-contraste-rgb), 0.8);
+}
+
 .menu-panel .menu-section {
     margin-top: 10px; /* Compacted */
     padding-top: 10px; /* Compacted */
@@ -157,6 +168,10 @@
     padding: 8px 12px; /* Compacted */
     text-decoration: none;
     color: var(--epic-purple-emperor);
+    background-image: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     border-radius: 3px;
     font-size: 0.85em; /* Compacted */
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -312,6 +327,17 @@ body.homonexus-active #sidebar {
     background: linear-gradient(135deg,
                 rgba(var(--epic-purple-emperor-rgb),0.85),
                 rgba(var(--epic-gold-secondary-rgb),0.85));
+}
+
+/* Gradient text for sidebar links */
+#sidebar .nav-links a {
+    background-image: linear-gradient(45deg, var(--epic-purple-emperor), var(--epic-gold-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: var(--epic-purple-emperor);
+    color: transparent;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(var(--color-negro-contraste-rgb), 0.8);
 }
 body.homonexus-active #sidebar .nav-links a {
     color: var(--epic-text-light);
