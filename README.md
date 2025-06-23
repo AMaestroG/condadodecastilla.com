@@ -18,6 +18,7 @@ Los colores predominantes son el morado principal, el oro viejo y el alabastro. 
 - `scripts/` – utilidades de desarrollo y mantenimiento.
 - `scripts_admin.php` – interfaz protegida para ejecutar esos scripts y revisar la salida.
 - `tests/` – pruebas automáticas.
+- `legacy/` – versiones antiguas conservadas por compatibilidad. La página principal anterior (`index.html`) ahora reside aquí y **`index.php`** es el punto de entrada actual.
 
 ## Tecnologías recomendadas
 
