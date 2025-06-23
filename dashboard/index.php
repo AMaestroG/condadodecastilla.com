@@ -24,6 +24,9 @@ require_admin_login();
     <header class="admin-header">
         <h1>Panel de Estadísticas de Visitas</h1>
     </header>
+    <nav class="admin-nav">
+        <a href="/scripts_admin.php" class="cta-button">Scripts</a>
+    </nav>
 
     
     <div class="chart-container">

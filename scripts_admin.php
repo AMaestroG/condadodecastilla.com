@@ -39,6 +39,9 @@ if (is_dir($scriptsDir)) {
     <?php require_once __DIR__ . '/fragments/admin_header.php'; ?>
     <main class="container-epic">
         <h1 class="gradient-text">Gestión de Scripts</h1>
+        <section class="help-link">
+            <p>Antes de ejecutar, revisa el <a href="/docs/script_catalog.md">catálogo de scripts</a> para conocer la función de cada uno.</p>
+        </section>
         <p style="color: var(--epic-purple-emperor);">Lista de scripts disponibles en el sistema.</p>
         <?php if ($scripts): ?>
             <ul>
