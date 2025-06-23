@@ -21,3 +21,13 @@ Cada clave identifica al agente y su valor incluye nombre, biografía, especiali
 ```
 
 Este endpoint ayuda a construir interfaces dinámicas que muestran la información de los expertos sin duplicar datos en el frontend.
+
+## `GET /api/mission`
+
+Devuelve un JSON con la misión del proyecto. El texto se obtiene de `docs/README.md` (líneas 3‑7).
+
+```json
+{
+  "mission": "Este directorio reúne todas las guías del proyecto **Condado de Castilla**.\n\nLa misión principal es _promocionar el turismo en Cerezo de Río Tirón y_\n_proteger su patrimonio arqueológico y cultural_."
+}
+```

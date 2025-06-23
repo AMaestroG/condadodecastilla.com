@@ -84,5 +84,12 @@ class FlaskApiTestCase(unittest.TestCase):
         self.assertIsInstance(data, dict)
         self.assertGreaterEqual(len(data), 5)
 
+    def test_mission_endpoint(self):
+        res = self.client.get('/api/mission')
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertIn('mission', data)
+        self.assertIn('Cerezo de Río Tirón', data['mission'])
+
 if __name__ == '__main__':
     unittest.main()
