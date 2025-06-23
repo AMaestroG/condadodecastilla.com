@@ -16,6 +16,10 @@ _proteger su patrimonio arqueológico y cultural_.
 - `backend/` – API en Flask e integración de IA.
 - `dashboard/` – panel de administración y estadísticas (ver [dashboard/README.html](../dashboard/README.html) para configuración y uso).
 - `docs/` – documentación completa.
+- `legacy/` – versiones anteriores que se conservan solo para referencia histórica.
+
+La portada actual del sitio se sirve desde **`index.php`** en la raíz del proyecto.
+El antiguo `index.html` se movió a `legacy/`.
 
 ## Árbol de directorios
 
