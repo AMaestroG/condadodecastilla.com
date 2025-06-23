@@ -58,7 +58,7 @@ load_page_css();
                                     <?php if (isset($tema['ruta_html_original'])): ?>
                                         <a href="/<?php echo htmlspecialchars(ltrim($tema['ruta_html_original'], '/')); ?>" class="read-more">Leer más...</a>
                                     <?php else: ?>
-                                        <span class="read-more" style="background-color: grey;">Enlace no disponible</span>
+                                        <span class="read-more" style="background-color: var(--epic-alabaster-medium);">Enlace no disponible</span>
                                     <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>

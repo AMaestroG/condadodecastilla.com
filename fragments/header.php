@@ -86,19 +86,19 @@
             <!-- El botón de Chat IA se clonará aquí para móvil por main.js -->
         </div>
         <div class="menu-section" style="margin-bottom: 15px;">
-            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase; color: var(--epic-purple-emperor);">Navegación</h4>
+            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase;">Navegación</h4>
             <div id="main-menu-placeholder">
                 <!-- El menú principal (ul#main-menu) se clonará aquí -->
             </div>
         </div>
         <div id="admin-menu-placeholder-container" class="menu-section" style="margin-bottom: 15px;">
-            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase; color: var(--epic-purple-emperor);">Admin</h4>
+            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase;">Admin</h4>
             <div id="admin-menu-placeholder">
                 <!-- El menú de admin (contenido de #admin-menu-source-content) se clonará aquí -->
             </div>
         </div>
         <div class="menu-section">
-            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase; color: var(--epic-purple-emperor);">Social</h4>
+            <h4 class="gradient-text" style="font-size: 0.9em; margin-bottom: 8px; text-transform: uppercase;">Social</h4>
             <div id="social-menu-placeholder">
                 <!-- Los enlaces sociales (contenido de #social-menu-source-content) se clonará aquí -->
             </div>

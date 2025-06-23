@@ -12,7 +12,7 @@
 
 
     <header class="page-header hero bg-[url('/assets/img/hero_alfoz_background.jpg')] bg-cover bg-center md:bg-center">
-        <div class="hero-content" style="background-color: rgba(var(--color-negro-contraste-rgb), 0.5); padding: clamp(30px, 5vw, 50px);">
+        <div class="hero-content" style="background-color: rgba(var(--epic-alabaster-medium-rgb), 0.5); padding: clamp(30px, 5vw, 50px);">
             <img loading="lazy" src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header" style="width: clamp(50px, 8vw, 70px); margin-bottom:15px;">
             <h1 class="gradient-text" style="font-size: clamp(2.6em, 6.5vw, 4.2em);">El Alfoz de Cerasio y Lantarón</h1>
             <p style="font-size: clamp(1.05em, 2.3vw, 1.45em); max-width: 70ch;">Cimientos de Castilla, Génesis de la Hispanidad.</p>
