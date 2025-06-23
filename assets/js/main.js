@@ -31,6 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sidebarMenuId = 'sidebar'; // Assuming 'sidebar' is the ID of your sidebar
 
+    const updateBodyForPanel = (menu, open) => {
+        if (!menu) return;
+        if (menu.classList.contains('left-panel')) {
+            document.body.classList.toggle('menu-open-left', open);
+        } else if (menu.classList.contains('right-panel')) {
+            document.body.classList.toggle('menu-open-right', open);
+        }
+    };
+
     const updateAria = (btn, menu, open) => {
         if (btn) btn.setAttribute('aria-expanded', String(open));
         if (menu) menu.setAttribute('aria-hidden', String(!open));
@@ -69,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closeMenu = (menu, triggerButton = null) => { // Added triggerButton for focus
         menu.classList.remove('active');
+        updateBodyForPanel(menu, false);
         const btn = triggerButton || document.querySelector(`[data-menu-target="${menu.id}"]`);
         updateAria(btn, menu, false);
         if (btn && triggerButton) btn.focus(); // Only focus if we passed the button explicitly
@@ -98,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const open = !menu.classList.contains('active');
         menu.classList.toggle('active', open);
         updateAria(btn, menu, open);
+        updateBodyForPanel(menu, open);
 
         if (open && menu.id === 'language-panel' && typeof primeTranslateLoad === 'function') {
             primeTranslateLoad();
