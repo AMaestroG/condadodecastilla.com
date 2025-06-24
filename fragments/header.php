@@ -38,7 +38,7 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
             <!-- Navegación Principal -->
             <div class="menu-section mb-6">
                 <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-gray-700 pb-1">Navegación</h3>
-                <nav id="unified-main-nav"> {/* Nuevo ID para el contenedor de nav si sidebar-nav ya no aplica */}
+                <nav id="unified-main-nav"><!-- Nuevo ID para el contenedor de nav si sidebar-nav ya no aplica -->
                     <?php
                     if (file_exists(__DIR__ . '/menus/main-menu.php')) {
                         include __DIR__ . '/menus/main-menu.php'; // Esto llama a render_main_menu() que crea ul#main-menu
