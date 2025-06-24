@@ -1,18 +1,17 @@
 #language-panel {
     position: fixed;
-    top: calc(var(--menu-extra-offset) + var(--language-bar-offset));
+    top: 0;
+    left: 0;
     right: 0;
-    bottom: 0;
-    width: var(--language-panel-width, 320px);
-    max-width: 80%;
+    width: 100%;
     /* Purple translucent backdrop similar to other panels */
-    background: rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.9);
-    border-left: 2px solid var(--epic-gold-main);
-    box-shadow: -3px 0 15px rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.3);
+    background: rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.75);
+    border-bottom: 2px solid var(--epic-gold-main);
+    box-shadow: 0 3px 15px rgba(var(--epic-purple-emperor-rgb, 74,13,103), 0.3);
     padding: 20px;
     display: flex;
     flex-direction: column;
-    transform: translateX(100%);
+    transform: translateY(-100%);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
     z-index: 1000;
@@ -20,7 +19,7 @@
 
 @media (max-width: 480px) {
     #language-panel {
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -34,7 +33,7 @@
 }
 
 #language-panel.active {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
 }
 
