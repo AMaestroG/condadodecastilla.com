@@ -39,3 +39,4 @@ scripts/temp_output/
 
 # Source maps
 assets/css/*.map
+phpinfo.php
