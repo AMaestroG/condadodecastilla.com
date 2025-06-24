@@ -65,7 +65,7 @@ Estos son los accesos que incorpora por defecto:
 
 - `#consolidated-menu-button` abre el panel lateral con toda la navegación.
 - `#open-unified-panel-button` despliega el nuevo panel IA y la barra de idiomas.
-- `#ai-chat-trigger` abre directamente el antiguo cajón IA.
+- `#ai-chat-trigger` abre directamente el cajón IA. En móviles no se clona al panel lateral.
 - `#theme-toggle` alterna entre modo claro y oscuro.
 Al añadir más elementos al contenedor puede ser necesario ajustar la posición de los paneles deslizantes. Para ello define la variable `--menu-extra-offset` con la altura del contenedor y úsala junto a `--language-bar-offset` en `assets/css/menus/consolidated-menu.css`:
 

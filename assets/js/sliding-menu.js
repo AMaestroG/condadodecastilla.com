@@ -245,29 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // IA chat toggle and Homonexus functionality removed
 
-    function setupMobileAIChatTrigger() {
-        if (window.innerWidth <= 768) {
-            const originalTrigger = document.getElementById('ai-chat-trigger');
-            const placeholderMobile = document.getElementById('ai-chat-trigger-placeholder-mobile');
-
-            if (originalTrigger && placeholderMobile && placeholderMobile.children.length === 0) {
-                const clonedTrigger = originalTrigger.cloneNode(true);
-                clonedTrigger.id = 'ai-chat-trigger-mobile';
-                // Ensure the data-menu-target is still correct for the cloned button.
-                // If event listeners were attached by ID, they might need re-attaching or using class based listeners.
-                // However, the current main click listener uses e.target.closest('[data-menu-target]'), which will work.
-                placeholderMobile.appendChild(clonedTrigger);
-            }
-        }
-    }
-    setupMobileAIChatTrigger(); // Call it on initial load
-
-    // Also consider calling setupMobileAIChatTrigger in handleResize if the trigger should be added/removed dynamically
-    // For now, it's only added if on mobile on load. If resizing from desktop to mobile, it won't be there.
-    // And if resizing from mobile to desktop, it will remain in the sidebar unless explicitly removed.
-    // The subtask asks for it to be cloned when mobile sidebar is initialized/opened or on DOMContentLoaded.
-    // For simplicity, DOMContentLoaded is chosen here. A more robust solution might involve the resize handler.
-
     function populateSidebarContents() {
         const mainMenuPlaceholder = document.getElementById('main-menu-placeholder');
         const adminMenuPlaceholder = document.getElementById('admin-menu-placeholder');
