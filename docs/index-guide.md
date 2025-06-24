@@ -185,12 +185,14 @@ Al enviar el formulario se regenerará `config/forum_agents.php` con la nueva in
 
 ## Nuevo panel IA
 
-El botón `#open-unified-panel-button` abre `#unified-panel`, un cajón lateral que integra navegación, herramientas del sitio y el asistente de inteligencia artificial. Dentro de este panel el chat se incrusta desde `fragments/header/ai-drawer.html` sin su cabecera original. Los eventos de apertura y cierre se gestionan en `assets/js/ui-drawers.js`.
+El botón `#open-unified-panel-button` (con `data-menu-target="unified-panel"`) abre `#unified-panel`, un cajón lateral que integra navegación, herramientas del sitio y el asistente de inteligencia artificial. Dentro de este panel el chat se incrusta desde `fragments/header/ai-drawer.html` sin su cabecera original. Los eventos de apertura y cierre se gestionan en `assets/js/ui-drawers.js`.
 
 Este nuevo panel, junto al de traducción superior, facilita el acceso inmediato a contenido multilingüe y al soporte conversacional. Su objetivo es reforzar nuestra misión de **promocionar el turismo en Cerezo de Río Tirón y proteger su patrimonio arqueológico y cultural**.
 
 ## Panel superior de traducción
 
 El archivo `fragments/header/language-flags.html` define `#language-panel` con los botones de idioma. Se puede abrir con `#flag-toggle` o desde el propio `#unified-panel`. Cuando está activo, `js/lang-bar.js` carga el widget de Google Translate y aplica la selección.
+
+Para invocarlo desde cualquier página basta con un botón con `data-menu-target="language-panel"`. `assets/js/sliding-menu.js` se ocupa de desplegarlo y de añadir la clase `menu-open-top` al `<body>`.
 
 Para que los menús se posicionen correctamente, ajusta `--language-bar-offset` según la altura de la barra y usa los estilos de `assets/css/language-panel.css`.

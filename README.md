@@ -20,6 +20,18 @@ Los colores predominantes son el morado principal, el oro viejo y el alabastro. 
 - `tests/` – pruebas automáticas.
 - `legacy/` – versiones antiguas conservadas por compatibilidad. La página principal anterior (`index.html`) ahora reside aquí y **`index.php`** es el punto de entrada actual.
 
+## Controles del encabezado
+
+La cabecera fija (`fragments/header.php`) incorpora accesos rápidos para el chat con IA y la selección de idioma. Cada botón emplea `data-menu-target` para abrir el panel correspondiente mediante `assets/js/sliding-menu.js`:
+
+```html
+<button id="open-unified-panel-button" data-menu-target="unified-panel"></button>
+<button id="ai-chat-trigger" data-menu-target="ai-chat-panel"></button>
+<button id="flag-toggle" data-menu-target="language-panel"></button>
+```
+
+Al pulsarlos, el script añade clases como `menu-open-left` o `menu-open-top` al `<body>` y muestra los paneles `#unified-panel`, `#ai-chat-panel` o `#language-panel`. Consulta [docs/index-guide.md](docs/index-guide.md) para más detalles.
+
 ## Tecnologías recomendadas
 
 El proyecto emplea PHP y Python con Flask. Para nuevos módulos se aconseja usar los frameworks modernos listados en [docs/fullstack-tools-2025.md](docs/fullstack-tools-2025.md): React, Next.js, Vue 3, Svelte/SvelteKit, Astro, SolidJS, Vite y TailwindCSS en el frontend, junto con FastAPI o NestJS para la capa de servicios. Se sugiere Docker y Docker Compose para un entorno reproducible.
