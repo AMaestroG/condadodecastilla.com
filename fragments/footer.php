@@ -61,7 +61,4 @@ if ('serviceWorker' in navigator) {
 // Lista de scripts que podrían ser obsoletos o necesitar revisión más profunda:
 // type="module" src="/assets/js/sliding-menu.js" -> Probablemente obsoleto por nuevo sistema de sidebar/drawers
 // defer src="/assets/js/slider_menu.js" -> Probablemente obsoleto
-// src="/assets/js/cave_mask.js" -> Relacionado con efectos visuales del header antiguo
-// src="/assets/js/escudo-reveal.js" -> Relacionado con efectos visuales del header antiguo
-// src="/assets/js/escudo-drag.js" -> Relacionado con efectos visuales del header antiguo
 </script>
