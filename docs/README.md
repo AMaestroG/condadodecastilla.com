@@ -128,6 +128,26 @@ Para insertar estas partes en una página basta con:
 Los fragmentos del directorio `fragments/` pueden copiarse o modificarse para
 crear nuevas secciones del menú.
 
+### Escudo y Banner
+
+La cabecera de la web muestra un **banner centrado** con el escudo de
+Cerezo de Río Tirón.  Sirve como punto focal y enlaza siempre a la
+página principal.  El marcado se genera en
+`fragments/header.php` y se apoya en las clases
+`.hero-escudo` y `#header-escudo-overlay` definidas en
+`assets/css/epic_theme.css` y `assets/css/header/topbar.css`.
+
+Para utilizarlo simplemente carga el fragmento de cabecera al inicio de
+cada plantilla:
+
+```php
+<?php require_once __DIR__ . '/fragments/header.php'; ?>
+```
+
+Esto añade el banner superior junto con los menús deslizantes y
+aplica los colores morado y oro viejo sobre fondo de alabastro
+descritos en la guía de estilo.
+
 ### Breadcrumbs
 
 El fragmento `fragments/breadcrumbs.php` genera automáticamente una lista de enlaces según la URL actual. Se usa así:
