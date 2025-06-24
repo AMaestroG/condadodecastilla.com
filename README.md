@@ -45,6 +45,7 @@ El proyecto emplea PHP y Python con Flask. Para nuevos módulos se aconseja usar
    ```
 
 2. Sustituye los valores de ejemplo por tus credenciales locales (base de datos, claves de API y ajustes de depuración).
+3. Opcionalmente define `HEADER_BANNER_URL` para personalizar la imagen del escudo que aparece en la cabecera.
 
 ### Solución de problemas de base de datos
 
