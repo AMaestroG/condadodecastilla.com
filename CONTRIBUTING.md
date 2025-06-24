@@ -31,3 +31,13 @@ npm install
 ```
 
 Con esto tendrás listo el entorno para ejecutar las pruebas descritas en [docs/testing.md](docs/testing.md).
+
+## Pruebas
+
+Antes de ejecutar `npm test`, instala primero las dependencias de Node:
+
+```bash
+npm install
+```
+
+Las pruebas basadas en Node usan **puppeteer**, por lo que este paquete debe estar disponible para que la suite se ejecute correctamente.
