@@ -2,12 +2,13 @@
 // fragments/header.php
 // UNIFIED PANEL RIGHT STRUCTURE
 require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
+require_once __DIR__ . '/../includes/config.php';
 ?>
 <header class="site-header bg-imperial-purple text-old-gold shadow-md sticky top-0 z-50">
     <div class="container-epic mx-auto flex items-center justify-between p-4">
         <div class="flex items-center">
             <a href="/" class="logo-link flex items-center text-xl font-bold">
-                <img src="/assets/img/escudo.jpg" alt="Logo Condado de Castilla" class="h-10 w-10 mr-2 rounded-full border border-old-gold">
+                <img src="<?= htmlspecialchars(HEADER_BANNER_URL, ENT_QUOTES) ?>" alt="Logo Condado de Castilla" class="h-10 w-10 mr-2 rounded-full border border-old-gold">
                 <span class="hidden sm:inline site-title">Condado de Castilla</span>
             </a>
         </div>
