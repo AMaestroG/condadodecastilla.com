@@ -9,7 +9,9 @@ _proteger su patrimonio arqueológico y cultural_.
 
 - `assets/` – imágenes, estilos y scripts. Los módulos JavaScript se agrupan en
   `assets/js` y se describen brevemente en
-  [js-modules-overview.md](js-modules-overview.md).
+  [js-modules-overview.md](js-modules-overview.md). Los antiguos `escudo-reveal.js`,
+  `escudo-drag.js` y `cave_mask.js` se retiraron por falta de uso; si se
+  necesita un efecto similar se puede emplear `torch_cursor.js` o máscaras CSS.
 - `includes/` – fragmentos PHP y utilidades comunes.
 - `museo/` – páginas del museo y fichas de piezas.
 - `foro/` – área gestionada por agentes expertos.

@@ -22,7 +22,7 @@ This document summarizes the purpose of the main JavaScript files present in the
 | `assets/js/toc-generator.js`     | Builds a table of contents from headings inside `<main>` and injects a list of links styled with Tailwind.                                                                                                      |
 
 Deprecated scripts such as `js/menu-controller.js` remain removed. The new `assets/js/sliding-menu.js` module now contains the sliding menu logic previously in `assets/js/main.js`.
-The old header loading helper was also dropped as noted in the project README.
+The old header loading helper was also dropped as noted in the project README. During cleanup we removed `assets/js/escudo-reveal.js`, `assets/js/escudo-drag.js` and `assets/js/cave_mask.js` along with `assets/css/cave_mask.css`. If a reveal effect is required again, consider using modern CSS masks or the existing `torch_cursor.js` overlay.
 ## Sound Assets
 
 Small audio clips provide feedback when the menu opens or closes. To keep the repository lightweight, the MP3 files are not included.

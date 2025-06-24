@@ -18,7 +18,6 @@ require_once __DIR__ . '/env_loader.php';
 <link rel="stylesheet" href="/assets/css/parallax.css">
 <link rel="stylesheet" href="/assets/css/time_palettes.css">
 <link rel="stylesheet" href="/assets/css/lighting.css">
-<link rel="stylesheet" href="/assets/css/cave_mask.css">
 <link rel="stylesheet" href="/assets/css/admin_theme.css">
 <link rel="preload" href="/assets/vendor/css/tailwind.min.css" as="style">
 <link rel="stylesheet" href="/assets/vendor/css/tailwind.min.css">
