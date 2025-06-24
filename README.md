@@ -44,6 +44,30 @@ Si la aplicación no puede conectarse a PostgreSQL:
 4. Algunas pruebas necesitan la extensión **pdo_pgsql**; consulta [docs/testing.md](docs/testing.md) para instalarla en caso de errores de conexión.
 
 
+## Instalación de dependencias
+
+Antes de ejecutar el proyecto asegúrate de contar con las versiones adecuadas de PHP, Python y Node.js:
+
+- **PHP 8.1** o superior
+- **Python 3.10** o superior
+- **Node.js 18** o superior
+
+Una vez verificados los requisitos, instala las librerías principales ejecutando en la raíz del proyecto:
+
+```bash
+composer install
+pip install -r requirements.txt
+npm install
+```
+
+Con las dependencias listas, puedes lanzar las pruebas de PHP y de Python para comprobar que todo funciona:
+
+```bash
+vendor/bin/phpunit
+python -m unittest discover -s tests
+```
+
+
 ## Puesta en marcha rápida
 
 1. Clona este repositorio y verifica que tengas **Docker** y **Docker Compose** instalados.
