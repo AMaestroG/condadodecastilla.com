@@ -114,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const anyPanelOpen = document.querySelectorAll('.menu-panel.active').length > 0;
         const sidebarOpen = document.getElementById(sidebarMenuId)?.classList.contains('sidebar-visible');
         const anyOpen = anyPanelOpen || sidebarOpen;
+        const leftPanelOpen = document.querySelector('.menu-panel.left-panel.active');
+        document.body.classList.toggle('menu-open-left', !!leftPanelOpen);
 
         if (window.audioController && typeof window.audioController.handleMenuToggle === 'function') {
             window.audioController.handleMenuToggle(anyOpen);

@@ -2917,3 +2917,9 @@ body.luna .firefly {
     50% { opacity: 1; transform: translateY(-15px) scale(1); }
     100% { opacity: 0; transform: translateY(-30px) scale(0.5); }
 }
+
+/* AI Chat Panel */
+#ai-chat-panel {
+    background: rgba(var(--epic-purple-emperor-rgb), 0.75);
+    color: var(--epic-gold-main);
+}
