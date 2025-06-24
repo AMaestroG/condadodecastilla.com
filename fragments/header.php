@@ -33,6 +33,11 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
         <!-- Panel Content (Scrollable) -->
         <div class="flex-grow p-4 overflow-y-auto">
 
+            <div id="escudo-banner">
+                <img src="/assets/img/escudo.jpg" alt="Escudo" class="hero-escudo">
+                <iframe src="BANNER_URL" class="banner-iframe" loading="lazy"></iframe>
+            </div>
+
             <!-- Navegación Principal -->
             <div class="menu-section mb-6">
                 <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-gray-700 pb-1">Navegación</h3>
