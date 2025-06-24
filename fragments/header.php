@@ -13,9 +13,11 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
         </div>
 
         <div class="flex items-center space-x-3">
-            <!-- El botón de Chat IA separado se elimina -->
             <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
-                <i class="fas fa-bars text-2xl"></i> {/* O un icono más tipo "puntos verticales" o "engranaje" si se prefiere */}
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" class="text-old-gold hover:text-white transition-colors">
+                <i class="fas fa-comments text-2xl"></i>
             </button>
         </div>
     </div>
@@ -67,22 +69,6 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
                 </ul>
             </div>
 
-            <!-- Chat IA -->
-            <div class="menu-section ai-chat-section mb-6">
-                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-gray-700 pb-1">Asistente IA</h3>
-                <div class="p-2 rounded bg-gray-800"> {/* Contenedor para el chat */}
-                <?php
-                if (file_exists(__DIR__ . '/header/ai-drawer.html')) {
-                    // El contenido de ai-drawer.html puede necesitar ajustes de estilo para este nuevo contexto
-                    // Específicamente, el header dentro de ai-drawer.html y el botón de cierre podrían ser redundantes.
-                    // Por ahora, se incluye tal cual.
-                    echo file_get_contents(__DIR__ . '/header/ai-drawer.html');
-                } else {
-                    echo '<p class="text-xs text-gray-500">Interfaz de Chat IA no encontrada.</p>';
-                }
-                ?>
-                </div>
-            </div>
 
             <!-- Comunidad -->
             <div class="menu-section community-links-section mb-6">
@@ -118,6 +104,17 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
 
         </div> <!-- Fin de Panel Content Scrollable -->
     </div>
+</aside>
+
+<!-- AI Chat Sliding Panel (Left) -->
+<aside id="ai-chat-panel" class="menu-panel left-panel" role="dialog" aria-modal="true" aria-labelledby="ai-chat-title" tabindex="-1" aria-hidden="true">
+    <?php
+    if (file_exists(__DIR__ . '/header/ai-drawer.html')) {
+        echo file_get_contents(__DIR__ . '/header/ai-drawer.html');
+    } else {
+        echo '<p class="text-xs text-gray-500">Interfaz de Chat IA no encontrada.</p>';
+    }
+    ?>
 </aside>
 
 <!-- Overlay for modals/drawers (se mantiene igual) -->

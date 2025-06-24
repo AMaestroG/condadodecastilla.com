@@ -26,6 +26,8 @@ class AiDrawerTest extends TestCase {
         [$status, $out, $err] = $this->runPage(__DIR__.'/../index.php');
         $this->assertSame(0, $status, $err);
         $this->assertStringContainsString('id="ai-drawer"', $out);
+        $this->assertStringContainsString('id="ai-chat-panel"', $out);
+        $this->assertStringContainsString('id="ai-chat-trigger"', $out);
     }
 }
 ?>
