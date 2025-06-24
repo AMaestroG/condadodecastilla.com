@@ -153,3 +153,14 @@ que se despliega el panel. Estas clases aplican un `transform` que desplaza el
 contenido central, resaltado con morado principal y bordes dorados
 (`--color-primario-purpura` y `--color-secundario-dorado`), para indicar el
 estado activo.
+
+## Estilo de los paneles IA y traducción
+
+Los paneles dedicados al asistente de inteligencia artificial y al selector de idioma utilizan la combinación:
+
+```css
+background: rgba(var(--epic-purple-emperor-rgb),0.75);
+color: var(--epic-gold-main);
+```
+
+Esta transparencia morada con texto dorado mantiene la legibilidad sobre el fondo de alabastro y recuerda la identidad visual del sitio.
