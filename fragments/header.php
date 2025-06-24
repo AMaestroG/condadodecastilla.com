@@ -16,7 +16,7 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
             <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
-            <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" class="text-old-gold hover:text-white transition-colors">
+            <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" aria-expanded="false" aria-controls="ai-chat-panel" class="text-old-gold hover:text-white transition-colors">
                 <i class="fas fa-comments text-2xl"></i>
             </button>
         </div>
