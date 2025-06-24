@@ -690,6 +690,24 @@ body.dark-mode .footer .social-links a:focus-visible {
     cursor: grabbing;
 }
 
+/* Escudo banner overlay used by admin header and hero sections */
+#header-escudo-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4010;
+    pointer-events: auto;
+}
+#header-escudo-overlay.reveal {
+    animation: escudoReveal 0.6s ease-in-out;
+}
+@keyframes escudoReveal {
+    0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { transform: translate(-50%, -50%) scale(1.2) rotate(5deg); }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+
 /* Background media within hero sections */
 .hero > img.hero-bg,
 .page-header > img.hero-bg,
