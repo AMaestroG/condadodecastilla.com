@@ -212,6 +212,7 @@ ejecutando `npm install`. Esto descargará paquetes como `puppeteer` y
    ```bash
    php -S localhost:8080
    ```
+> **Nota:** `npm run test` lanza `scripts/start_php_server.sh` para iniciar este servidor de forma temporal.
 3. Ejecuta las pruebas de PHP:
    ```bash
    vendor/bin/phpunit

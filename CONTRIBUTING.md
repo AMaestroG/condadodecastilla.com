@@ -31,3 +31,14 @@ npm install
 ```
 
 Con esto tendrás listo el entorno para ejecutar las pruebas descritas en [docs/testing.md](docs/testing.md).
+
+## Ejecutar pruebas
+
+1. Instala las dependencias con `npm install`, `pip install -r requirements.txt` y `composer install`.
+2. Usa `npm run test` para correr las pruebas de Node. Este comando ejecuta `scripts/start_php_server.sh` para iniciar un servidor PHP temporal en `localhost:8080`.
+3. Si lo prefieres, tambien puedes lanzar las pruebas de PHP y Python manualmente:
+   ```bash
+   vendor/bin/phpunit
+   python -m unittest discover -s tests
+   ```
+
