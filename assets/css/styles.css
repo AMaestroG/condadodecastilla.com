@@ -232,6 +232,13 @@ main {
     padding-left: 0.25rem; /* Alineación con items */
 }
 
+/* Asegura que las listas de navegación en el panel unificado se apilen verticalmente */
+#unified-panel .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 /* Botones y enlaces dentro del panel unificado */
 #unified-panel button,
 #unified-panel a {
