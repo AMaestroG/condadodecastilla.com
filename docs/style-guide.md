@@ -164,3 +164,19 @@ color: var(--epic-gold-main);
 ```
 
 Esta transparencia morada con texto dorado mantiene la legibilidad sobre el fondo de alabastro y recuerda la identidad visual del sitio.
+
+## Enlaces verticales en el panel unificado
+
+El contenedor `#unified-panel` reúne navegación, herramientas e IA. Sus enlaces principales deben presentarse uno debajo de otro para una lectura rápida.
+
+La regla añadida en `assets/css/styles.css` garantiza este apilado:
+
+```css
+#unified-panel ul#main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+```
+
+Esta disposición vertical simplifica el acceso a la información y contribuye a nuestro propósito de **promocionar el turismo en Cerezo de Río Tirón y proteger su patrimonio arqueológico y cultural**.

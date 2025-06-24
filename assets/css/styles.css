@@ -232,6 +232,13 @@ main {
     padding-left: 0.25rem; /* Alineación con items */
 }
 
+/* Enlaces apilados verticalmente en el panel unificado */
+#unified-panel ul#main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
 /* Botones y enlaces dentro del panel unificado */
 #unified-panel button,
 #unified-panel a {
