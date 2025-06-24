@@ -173,10 +173,14 @@ Sigue la [Guía de Testing](docs/testing.md) para preparar el entorno y ejecutar
 1. Instala todas las dependencias ejecutando `./scripts/setup_environment.sh`. El script descarga los paquetes de **PHP**, **Node** y **Python** necesarios para la suite completa y deja listo el entorno para las pruebas de PHP con `phpunit`, las pruebas de Node con **Puppeteer** y las pruebas de Python. También puedes hacerlo manualmente:
 
    ```bash
-   pip install -r requirements.txt
-   npm install
-   composer install
-   ```
+    pip install -r requirements.txt
+    npm install
+    composer install
+    ```
+
+Antes de lanzar `npm run test`, asegúrate de instalar las dependencias de Node
+ejecutando `npm install`. Esto descargará paquetes como `puppeteer` y
+`playwright`, imprescindibles para las pruebas de interfaz.
 
    Estos pasos garantizan que `phpunit`, `puppeteer` y las librerías de Python estén disponibles.
 
