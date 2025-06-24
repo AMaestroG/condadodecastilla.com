@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // The transform has been disabled, so toggling is no longer needed
             // for layout. Preserve hook for other effects if required.
             // document.body.classList.toggle('menu-open-right', open);
+        } else if (menu.classList.contains('top-panel')) {
+            document.body.classList.toggle('menu-open-top', open);
         }
     };
 

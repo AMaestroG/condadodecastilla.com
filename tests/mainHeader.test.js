@@ -135,7 +135,7 @@ async function runTests() {
         expect(await hasClass('#language-panel', 'active'), "Panel idioma activo al inicio").toBe(false);
         await page.click('#flag-toggle'); await delay(DELAY_MS);
         expect(await hasClass('#language-panel', 'active'), "Panel idioma no activo tras click").toBe(true);
-        expect(await hasClass('body', 'menu-open-right'), "Body class toggled for language panel").toBe(false);
+        expect(await hasClass('body', 'menu-open-top'), "Body class toggled for language panel").toBe(true);
         await page.click('body'); await delay(DELAY_MS); // Click fuera
         expect(await hasClass('#language-panel', 'active'), "Panel idioma no cerrado por click fuera").toBe(false);
 

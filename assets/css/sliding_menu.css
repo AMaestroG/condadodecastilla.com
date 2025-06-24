@@ -11,3 +11,8 @@ body.menu-open-right {
     transform: none;
     transition: none;
 }
+
+body.menu-open-top {
+    transform: translateY(var(--language-panel-height, 100px));
+    transition: transform 0.4s ease-in-out;
+}
