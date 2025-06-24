@@ -64,9 +64,9 @@ Este bloque fijo aparece al inicio de cada página y mantiene visibles los contr
 Estos son los accesos que incorpora por defecto:
 
 - `#consolidated-menu-button` abre el panel lateral con toda la navegación.
-- `#ai-chat-trigger` para iniciar el chat desde el menú.
+- `#open-unified-panel-button` despliega el nuevo panel IA y la barra de idiomas.
+- `#ai-chat-trigger` abre directamente el antiguo cajón IA.
 - `#theme-toggle` alterna entre modo claro y oscuro.
-
 Al añadir más elementos al contenedor puede ser necesario ajustar la posición de los paneles deslizantes. Para ello define la variable `--menu-extra-offset` con la altura del contenedor y úsala junto a `--language-bar-offset` en `assets/css/menus/consolidated-menu.css`:
 
 ```css
@@ -182,3 +182,15 @@ Existe una página protegida para modificar el archivo `config/forum_agents.php`
 4. Para añadir un nuevo agente rellena los campos del apartado _Añadir Nuevo Agente_ indicando un identificador único.
 
 Al enviar el formulario se regenerará `config/forum_agents.php` con la nueva información.
+
+## Nuevo panel IA
+
+El botón `#open-unified-panel-button` abre `#unified-panel`, un cajón lateral que integra navegación, herramientas del sitio y el asistente de inteligencia artificial. Dentro de este panel el chat se incrusta desde `fragments/header/ai-drawer.html` sin su cabecera original. Los eventos de apertura y cierre se gestionan en `assets/js/ui-drawers.js`.
+
+Este nuevo panel, junto al de traducción superior, facilita el acceso inmediato a contenido multilingüe y al soporte conversacional. Su objetivo es reforzar nuestra misión de **promocionar el turismo en Cerezo de Río Tirón y proteger su patrimonio arqueológico y cultural**.
+
+## Panel superior de traducción
+
+El archivo `fragments/header/language-flags.html` define `#language-panel` con los botones de idioma. Se puede abrir con `#flag-toggle` o desde el propio `#unified-panel`. Cuando está activo, `js/lang-bar.js` carga el widget de Google Translate y aplica la selección.
+
+Para que los menús se posicionen correctamente, ajusta `--language-bar-offset` según la altura de la barra y usa los estilos de `assets/css/language-panel.css`.
