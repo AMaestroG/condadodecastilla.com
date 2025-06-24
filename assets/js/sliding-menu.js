@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeMobileSidebar = (menu, btn) => {
-        menu.classList.remove('sidebar-visible');
+        menu.classList.remove('open');
         document.body.classList.remove('sidebar-active');
         updateAria(btn, menu, false);
         if (btn) btn.focus();
@@ -43,10 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!menu) return;
 
         // Close other panel menus
-        document.querySelectorAll('.menu-panel.active').forEach(m => closeMenu(m));
+        document.querySelectorAll('.menu-panel.open').forEach(m => closeMenu(m));
 
-        const open = !menu.classList.contains('sidebar-visible');
-        menu.classList.toggle('sidebar-visible', open);
+        const open = !menu.classList.contains('open');
+        menu.classList.toggle('open', open);
         document.body.classList.toggle('sidebar-active', open);
         updateAria(btn, menu, open);
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeMenu = (menu, triggerButton = null) => { // Added triggerButton for focus
-        menu.classList.remove('active');
+        menu.classList.remove('open');
         updateBodyForPanel(menu, false);
         const btn = triggerButton || document.querySelector(`[data-menu-target="${menu.id}"]`);
         updateAria(btn, menu, false);
@@ -78,18 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close sidebar if open
         const sidebar = document.getElementById(sidebarMenuId);
-        if (sidebar && sidebar.classList.contains('sidebar-visible')) {
+        if (sidebar && sidebar.classList.contains('open')) {
             const sidebarBtn = document.getElementById('consolidated-menu-button'); // Assuming this is the sidebar toggle
             closeMobileSidebar(sidebar, sidebarBtn);
         }
 
         // Close any other active panel menus to avoid overlap
-        document.querySelectorAll('.menu-panel.active').forEach(m => {
+        document.querySelectorAll('.menu-panel.open').forEach(m => {
             if (m !== menu) closeMenu(m, document.querySelector(`[data-menu-target="${m.id}"]`));
         });
 
-        const open = !menu.classList.contains('active');
-        menu.classList.toggle('active', open);
+        const open = !menu.classList.contains('open');
+        menu.classList.toggle('open', open);
         updateAria(btn, menu, open);
         updateBodyForPanel(menu, open);
 
@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateGlobalMenuState = () => {
-        const anyPanelOpen = document.querySelectorAll('.menu-panel.active').length > 0;
-        const sidebarOpen = document.getElementById(sidebarMenuId)?.classList.contains('sidebar-visible');
+        const anyPanelOpen = document.querySelectorAll('.menu-panel.open').length > 0;
+        const sidebarOpen = document.getElementById(sidebarMenuId)?.classList.contains('open');
         const anyOpen = anyPanelOpen || sidebarOpen;
         const leftPanelOpen = document.querySelector('.menu-panel.left-panel.active');
         document.body.classList.toggle('menu-open-left', !!leftPanelOpen);
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // If #consolidated-menu-items is the target on desktop, ensure sidebar is closed
                 if (btn.id === 'consolidated-menu-button' && btn.getAttribute('data-menu-target') === 'consolidated-menu-items') {
                     const sidebar = document.getElementById(sidebarMenuId);
-                    if (sidebar && sidebar.classList.contains('sidebar-visible')) {
+                    if (sidebar && sidebar.classList.contains('open')) {
                         closeMobileSidebar(sidebar, btn);
                     }
                 }
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Close panel menus if click is outside
-        document.querySelectorAll('.menu-panel.active').forEach(menu => {
+        document.querySelectorAll('.menu-panel.open').forEach(menu => {
             const btn = document.querySelector(`[data-menu-target="${menu.id}"]`);
             // If the click is outside the menu and not on its toggle button
             if (!menu.contains(e.target) && !(btn && btn.contains(e.target))) {
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close sidebar if click is outside
         const sidebar = document.getElementById(sidebarMenuId);
         const consolidatedMenuButton = document.getElementById('consolidated-menu-button');
-        if (sidebar && sidebar.classList.contains('sidebar-visible')) {
+        if (sidebar && sidebar.classList.contains('open')) {
             // If the click is outside the sidebar and not on the consolidated menu button
             if (!sidebar.contains(e.target) && !(consolidatedMenuButton && consolidatedMenuButton.contains(e.target))) {
                 closeMobileSidebar(sidebar, consolidatedMenuButton);
@@ -199,11 +199,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            document.querySelectorAll('.menu-panel.active').forEach(menu => {
+            document.querySelectorAll('.menu-panel.open').forEach(menu => {
                 closeMenu(menu, document.querySelector(`[data-menu-target="${menu.id}"]`));
             });
             const sidebar = document.getElementById(sidebarMenuId);
-            if (sidebar && sidebar.classList.contains('sidebar-visible')) {
+            if (sidebar && sidebar.classList.contains('open')) {
                 const sidebarBtn = document.getElementById('consolidated-menu-button');
                 closeMobileSidebar(sidebar, sidebarBtn);
             }
@@ -216,12 +216,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const consolidatedMenuButton = document.getElementById('consolidated-menu-button');
 
         // Close all panel menus
-        document.querySelectorAll('.menu-panel.active').forEach(menu => {
+        document.querySelectorAll('.menu-panel.open').forEach(menu => {
             closeMenu(menu, document.querySelector(`[data-menu-target="${menu.id}"]`));
         });
 
         // Close sidebar
-        if (sidebar && sidebar.classList.contains('sidebar-visible')) {
+        if (sidebar && sidebar.classList.contains('open')) {
             closeMobileSidebar(sidebar, consolidatedMenuButton);
         }
 
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeDrawer) {
         closeDrawer.addEventListener('click', () => {
             const panel = document.getElementById('ai-chat-panel');
-            if (panel && panel.classList.contains('active')) { // Ensure panel is active before closing
+            if (panel && panel.classList.contains('open')) { // Ensure panel is open before closing
                 const btn = document.querySelector(`[data-menu-target="ai-chat-panel"]`);
                 closeMenu(panel, btn); // Pass button for focus
             }
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closeSidebarButton.addEventListener('click', () => {
             const sidebar = document.getElementById(sidebarMenuId); // sidebarMenuId is 'sidebar'
             const consolidatedMenuButton = document.getElementById('consolidated-menu-button');
-            if (sidebar && sidebar.classList.contains('sidebar-visible')) {
+            if (sidebar && sidebar.classList.contains('open')) {
                 closeMobileSidebar(sidebar, consolidatedMenuButton);
             }
         });
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeLanguagePanelButton) {
         closeLanguagePanelButton.addEventListener('click', () => {
             const panel = document.getElementById('language-panel');
-            if (panel && panel.classList.contains('active')) {
+            if (panel && panel.classList.contains('open')) {
                 const btn = document.querySelector('[data-menu-target="language-panel"]');
                 closeMenu(panel, btn);
             }

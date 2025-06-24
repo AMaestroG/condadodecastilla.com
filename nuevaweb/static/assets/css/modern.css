@@ -1,3 +1,5 @@
+@import url("../../../../assets/css/components/menu.css");
+
 /* Estilos generales */
 :root {
     --primary-color: #6a0dad; /* Morado principal */
@@ -232,11 +234,16 @@ footer a:hover {
     header ul {
         flex-direction: column;
         width: 100%;
-        display: none; /* Initially hidden on mobile */
+        position: absolute;
+        top: 100%;
+        right: 0;
+        transform: translateX(100%);
+        transition: var(--menu-transition);
+        background: var(--primary-color);
     }
 
-    header ul.active {
-        display: flex; /* Show when active */
+    header ul.open {
+        transform: translateX(0);
     }
 
     header ul li {

@@ -1,4 +1,5 @@
 @import url("../components/breakpoints.css");
+@import url("../components/menu.css");
 /* --- Navbar Styles ----------------------------------------------------- */
 /*
 .navbar {
@@ -155,24 +156,18 @@
 #sidebar {
     position: fixed;
     top: 0;
-    left: 0; /* Base position for transform */
+    left: 0;
     width: 280px;
     height: 100vh;
     background-color: rgba(var(--epic-alabaster-bg-rgb, 253, 250, 246), 0.55);
-    backdrop-filter: blur(7px); /* Optional: frosted glass effect */
-    padding: 25px 15px; /* Refined padding */
+    backdrop-filter: blur(7px);
+    padding: 25px 15px;
     box-shadow: 3px 0 15px rgba(var(--epic-text-color-rgb), 0.25);
-    transform: translateX(-100%); /* Hidden off-screen */
-    transition: transform var(--global-transition-speed) ease-in-out;
     overflow-y: auto;
     z-index: 3000;
     display: flex;
     flex-direction: column;
     border-right: 2px solid var(--epic-gold-secondary);
-}
-
-#sidebar.sidebar-visible {
-    transform: translateX(0); /* Shown on-screen */
 }
 
 #sidebar-toggle {

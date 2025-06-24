@@ -92,10 +92,12 @@ test.describe('Nueva Web - Página de Inicio (nuevaweb/static/index.html)', () =
     await expect(mainMenu).not.toBeVisible(); // El menú debe estar oculto inicialmente
 
     await menuToggle.click();
-    await expect(mainMenu).toBeVisible(); // El menú debe mostrarse después del clic
+    await expect(mainMenu).toHaveClass(/open/);
+    const transform = await mainMenu.evaluate(e => getComputedStyle(e).transform);
+    expect(transform).not.toBe('none');
 
     await menuToggle.click();
-    await expect(mainMenu).not.toBeVisible(); // El menú debe ocultarse de nuevo
+    await expect(mainMenu).not.toHaveClass(/open/);
   });
 
   test('No debe haber superposición de elementos importantes en vista móvil', async ({ page, isMobile }) => {

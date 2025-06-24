@@ -1,13 +1,11 @@
+import { toggleMenu } from './menu-toggle.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const mainMenu = document.getElementById('main-menu');
 
     if (menuToggle && mainMenu) {
-        menuToggle.addEventListener('click', ()_ => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            mainMenu.classList.toggle('active');
-        });
+        menuToggle.addEventListener('click', () => toggleMenu(menuToggle, mainMenu));
     }
 
     // Smooth scroll for anchor links (optional, if you add internal page links)

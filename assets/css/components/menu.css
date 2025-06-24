@@ -1,0 +1,20 @@
+/* Shared sliding menu utilities */
+:root {
+    --menu-transition: transform var(--global-transition-speed) ease-in-out;
+}
+
+.menu-panel {
+    transition: var(--menu-transition);
+}
+
+.menu-panel.left-panel {
+    transform: translateX(-100%);
+}
+
+.menu-panel.right-panel {
+    transform: translateX(100%);
+}
+
+.menu-panel.open {
+    transform: translateX(0);
+}
