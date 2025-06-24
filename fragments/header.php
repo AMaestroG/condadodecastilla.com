@@ -13,9 +13,14 @@ require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
         </div>
 
         <div class="flex items-center space-x-3">
-            <!-- El botón de Chat IA separado se elimina -->
             <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
-                <i class="fas fa-bars text-2xl"></i> {/* O un icono más tipo "puntos verticales" o "engranaje" si se prefiere */}
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" class="text-old-gold hover:text-white transition-colors">
+                <i class="fas fa-comments text-xl"></i>
+            </button>
+            <button id="flag-toggle" data-menu-target="language-panel" aria-label="Cambiar idioma" class="text-old-gold hover:text-white transition-colors">
+                <i class="fas fa-flag text-xl"></i>
             </button>
         </div>
     </div>
