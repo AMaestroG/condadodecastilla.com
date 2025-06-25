@@ -40,3 +40,8 @@ scripts/temp_output/
 # Source maps
 assets/css/*.map
 phpinfo.php
+
+# Lock and debug files
+knowledge_graph_db.json.lock
+cgi_phpinfo_after_reinstall.txt
+
