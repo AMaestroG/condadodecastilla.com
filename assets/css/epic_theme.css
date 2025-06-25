@@ -2390,7 +2390,7 @@ body.dark-mode .footer .social-links a:focus-visible {
     height: 60vh; /* Responsive height based on viewport height */
     max-height: 700px; /* Maximum height to prevent it from becoming too large on tall screens */
     margin: 20px auto; /* Center it if parent is wider */
-    background-color: #1a1a1a; /* Dark background for the canvas itself, can be overridden by renderer */
+    background-color: var(--color-negro-contraste); /* Dark background for the canvas itself, can be overridden by renderer */
     border-radius: var(--global-border-radius);
     box-shadow: inset 0 2px 8px rgba(0,0,0,0.5); /* Optional inner shadow */
     position: relative; /* For potential overlays or UI elements on top */
@@ -2788,7 +2788,7 @@ button, input[type="submit"], input[type="button"], .cta-button, .submit-button,
     width: 100%;
     height: 100%;
     background-color: rgba(var(--epic-purple-emperor-rgb), 0.85);
-    color: white;
+    color: var(--epic-text-light);
     display: flex;
     justify-content: center;
     align-items: center;

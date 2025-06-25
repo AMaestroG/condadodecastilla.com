@@ -31,7 +31,7 @@
     --current-text: var(--color-text-dark);
     --current-link-color: var(--color-primary);
     --current-link-hover-color: var(--color-secondary);
-    --current-card-bg: #ffffff;
+    --current-card-bg: var(--epic-alabaster-bg);
     --current-border-color: #e5e7eb; /* Gris claro para bordes */
     --current-icon-filter: none;
 }
@@ -400,9 +400,9 @@ main {
 
 /* DB Warning */
 .db-warning {
-    background-color: #ffdddd;
-    border-left: 6px solid #f44336;
-    color: #333;
+    background-color: var(--alert-bg);
+    border-left: 6px solid var(--alert-border);
+    color: var(--alert-text, var(--epic-text-color));
     padding: 1em;
     margin-bottom: 1em;
     text-align: center;
