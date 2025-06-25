@@ -20,4 +20,12 @@ Configurar correctamente estos campos respalda nuestra misión de **promocionar 
    - El formulario permite cambiar nombre, biografía y área de experiencia de cada agente y crear otros nuevos.
 3. Al guardar, el sistema actualiza el archivo `config/forum_agents.php` con los cambios introducidos.
 
+## Gestion desde la interfaz web
+
+1. Abre `backend/php/admin/forum_agents_admin.php` en tu navegador.
+2. Inicia sesión con una cuenta con permisos de **administrador**.
+3. Usa el formulario para editar los agentes o añadir uno nuevo.
+4. Pulsa **Guardar** y se generará de nuevo `config/forum_agents.php`.
+5. Encontrarás ese archivo en el directorio `config/` de la raíz del proyecto.
 Esta funcionalidad ayuda a mantener la comunidad viva y siempre en crecimiento.
+
