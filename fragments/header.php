@@ -14,8 +14,11 @@ require_once __DIR__ . '/../includes/config.php';
         </div>
 
         <div class="flex items-center space-x-3">
-            <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
-                <i class="fas fa-bars text-2xl"></i>
+            <button id="sidebar-toggle" data-menu-target="sidebar" aria-label="Abrir Navegación" aria-expanded="false" aria-controls="sidebar" class="text-old-gold hover:text-white transition-colors">
+                <i class="fas fa-bars-staggered text-2xl"></i>
+            </button>
+            <button id="open-unified-panel-button" data-menu-target="unified-panel" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
+                <i class="fas fa-th-large text-2xl"></i>
             </button>
             <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" aria-expanded="false" aria-controls="ai-chat-panel" class="text-old-gold hover:text-white transition-colors">
                 <i class="fas fa-comments text-2xl"></i>
@@ -105,6 +108,17 @@ require_once __DIR__ . '/../includes/config.php';
 
         </div> <!-- Fin de Panel Content Scrollable -->
     </div>
+</aside>
+
+<!-- Sidebar Navigation (Left) -->
+<aside id="sidebar" class="menu-panel left-panel" role="navigation" aria-hidden="true">
+    <nav id="sidebar-nav" class="p-4">
+        <?php
+        if (file_exists(__DIR__ . '/menus/main-menu.php')) {
+            include __DIR__ . '/menus/main-menu.php';
+        }
+        ?>
+    </nav>
 </aside>
 
 <!-- AI Chat Sliding Panel (Left) -->

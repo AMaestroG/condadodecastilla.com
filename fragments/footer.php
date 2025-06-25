@@ -62,3 +62,4 @@ if ('serviceWorker' in navigator) {
 // type="module" src="/assets/js/sliding-menu.js" -> Probablemente obsoleto por nuevo sistema de sidebar/drawers
 // defer src="/assets/js/slider_menu.js" -> Probablemente obsoleto
 </script>
+<script type="module" src="/assets/js/sliding-menu.js"></script>
