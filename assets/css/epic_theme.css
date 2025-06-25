@@ -670,6 +670,15 @@ body.dark-mode .footer .social-links a:focus-visible {
     margin-bottom: 1.5em;
 }
 
+/* Brief summary paragraph inside hero sections */
+.hero-summary {
+    background-color: rgba(var(--epic-alabaster-bg-rgb), 0.85);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--global-border-radius);
+    margin: 0 auto 1.5em auto;
+    max-width: 65ch;
+}
+
 .hero-escudo { /* Specific to index.html hero */
     /* Slightly larger on wide screens for better visual impact */
     width: clamp(180px, 30vw, 300px);
