@@ -33,6 +33,11 @@ require_once __DIR__ . '/fragments/header.php';
     <main class="container-epic px-4 sm:px-6 lg:px-8 py-8">
         <section id="hero" class="section hero-section text-center py-12 sm:py-16 lg:py-20" data-aos="fade-up">
             <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla', 'h1', 'text-4xl lg:text-6xl font-bold gradient-text tagline-background font-headings mb-4'); ?>
+            <p class="hero-summary">
+                <a href="/historia/historia.php" class="block">
+                    Desde su origen romano como <span class="gradient-text">Auca Patricia</span>, Cerezo de Río Tirón conserva calzadas y murallas junto al Ebro. En el siglo VIII se alzó el <span class="gradient-text">Alcázar de Cerasio</span>, construido con alabastro reutilizado y sede de los primeros condes.
+                </a>
+            </p>
             <?php editableText('hero_subtitulo_index', $pdo, 'Donde la historia, la cultura y tu lengua tomaron forma.', 'p', 'text-xl lg:text-2xl text-gray-700 dark:text-gray-300 font-body mb-8'); ?>
             <p class="cta-group">
                 <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
