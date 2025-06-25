@@ -12,6 +12,7 @@ Los colores predominantes son el morado principal, el oro viejo y el alabastro. 
 - `includes/` – fragmentos PHP reutilizables y conexión a la base de datos.
 - `museo/` – páginas del museo y fichas de piezas.
 - `foro/` – área de debate gestionada por cinco agentes expertos.
+- Mantén las biografías de los agentes alineadas con la misión: promocionar el turismo y proteger el patrimonio.
 - `backend/` – API en Python (Flask) y herramientas de IA.
 - `nuevaweb/` – rediseño experimental del sitio ([nuevaweb/README.md](nuevaweb/README.md)). Incluye un API Flask de demo (`flask_app.py`) independiente de la API principal.
 - `docs/` – documentación completa.
