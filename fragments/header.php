@@ -1,6 +1,6 @@
 <?php
 // fragments/header.php
-// UNIFIED PANEL RIGHT STRUCTURE
+// UNIFIED PANEL LEFT STRUCTURE
 require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
 require_once __DIR__ . '/../includes/config.php';
 ?>
@@ -14,7 +14,7 @@ require_once __DIR__ . '/../includes/config.php';
         </div>
 
         <div class="flex items-center space-x-3">
-            <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
+            <button id="open-unified-panel-button" data-menu-target="unified-panel" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
             <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" aria-expanded="false" aria-controls="ai-chat-panel" class="text-old-gold hover:text-white transition-colors">
@@ -24,13 +24,13 @@ require_once __DIR__ . '/../includes/config.php';
     </div>
 </header>
 
-<!-- Unified Sliding Panel (Right) -->
-<aside id="unified-panel" class="fixed top-0 right-0 w-80 md:w-96 h-full bg-gray-900 text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-[70]" role="dialog" aria-modal="true" aria-labelledby="unified-panel-title" tabindex="-1" aria-hidden="true">
+<!-- Unified Sliding Panel (Left) -->
+<aside id="unified-panel" class="menu-panel left-panel fixed top-0 left-0 w-80 md:w-96 h-full bg-gray-900 text-white shadow-lg transition-transform duration-300 ease-in-out z-[70]" role="dialog" aria-modal="true" aria-labelledby="unified-panel-title" tabindex="-1" aria-hidden="true">
     <div class="flex flex-col h-full">
         <!-- Panel Header -->
         <div class="flex justify-between items-center p-4 border-b border-gray-700 flex-shrink-0">
             <h2 id="unified-panel-title" class="text-xl font-headings text-old-gold">Menú y Herramientas</h2>
-            <button id="close-unified-panel-button" aria-label="Cerrar Panel" class="text-2xl text-gray-300 hover:text-old-gold">&times;</button>
+            <button id="close-unified-panel-button" data-menu-target="unified-panel" aria-label="Cerrar Panel" class="text-2xl text-gray-300 hover:text-old-gold">&times;</button>
         </div>
 
         <!-- Panel Content (Scrollable) -->
@@ -107,8 +107,8 @@ require_once __DIR__ . '/../includes/config.php';
     </div>
 </aside>
 
-<!-- AI Chat Sliding Panel (Left) -->
-<aside id="ai-chat-panel" class="menu-panel left-panel" role="dialog" aria-modal="true" aria-labelledby="ai-chat-title" tabindex="-1" aria-hidden="true">
+<!-- AI Chat Sliding Panel (Right) -->
+<aside id="ai-chat-panel" class="menu-panel right-panel" role="dialog" aria-modal="true" aria-labelledby="ai-chat-title" tabindex="-1" aria-hidden="true">
     <?php
     if (file_exists(__DIR__ . '/header/ai-drawer.html')) {
         echo file_get_contents(__DIR__ . '/header/ai-drawer.html');

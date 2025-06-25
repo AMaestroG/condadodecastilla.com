@@ -14,10 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (menu.classList.contains('left-panel')) {
             document.body.classList.toggle('menu-open-left', open);
         } else if (menu.classList.contains('right-panel')) {
-            // menu-open-right previously shifted the body via CSS transform.
-            // The transform has been disabled, so toggling is no longer needed
-            // for layout. Preserve hook for other effects if required.
-            // document.body.classList.toggle('menu-open-right', open);
+            document.body.classList.toggle('menu-open-right', open);
         } else if (menu.classList.contains('top-panel')) {
             document.body.classList.toggle('menu-open-top', open);
         }
@@ -116,8 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const anyPanelOpen = document.querySelectorAll('.menu-panel.open').length > 0;
         const sidebarOpen = document.getElementById(sidebarMenuId)?.classList.contains('open');
         const anyOpen = anyPanelOpen || sidebarOpen;
-        const leftPanelOpen = document.querySelector('.menu-panel.left-panel.active');
+        const leftPanelOpen = document.querySelector('.menu-panel.left-panel.open');
+        const rightPanelOpen = document.querySelector('.menu-panel.right-panel.open');
         document.body.classList.toggle('menu-open-left', !!leftPanelOpen);
+        document.body.classList.toggle('menu-open-right', !!rightPanelOpen);
 
         if (window.audioController && typeof window.audioController.handleMenuToggle === 'function') {
             window.audioController.handleMenuToggle(anyOpen);
