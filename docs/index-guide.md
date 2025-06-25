@@ -64,8 +64,8 @@ Este bloque fijo aparece al inicio de cada página y mantiene visibles los contr
 Estos son los accesos que incorpora por defecto:
 
 - `#consolidated-menu-button` abre el panel lateral con toda la navegación.
-- `#open-unified-panel-button` despliega el nuevo panel IA y la barra de idiomas.
-- `#ai-chat-trigger` abre directamente el cajón IA. En móviles no se clona al panel lateral.
+- `#open-unified-panel-button` abre el panel de navegación principal (desliza desde la izquierda).
+- `#ai-chat-trigger` abre directamente el cajón IA que se desliza desde la derecha. En móviles no se clona al panel lateral.
 - `#theme-toggle` alterna entre modo claro y oscuro.
 Al añadir más elementos al contenedor puede ser necesario ajustar la posición de los paneles deslizantes. Para ello define la variable `--menu-extra-offset` con la altura del contenedor y úsala junto a `--language-bar-offset` en `assets/css/menus/consolidated-menu.css`:
 
@@ -185,7 +185,9 @@ Al enviar el formulario se regenerará `config/forum_agents.php` con la nueva in
 
 ## Nuevo panel IA
 
-El botón `#open-unified-panel-button` (con `data-menu-target="unified-panel"`) abre `#unified-panel`, un cajón lateral que integra navegación, herramientas del sitio y el asistente de inteligencia artificial. Dentro de este panel el chat se incrusta desde `fragments/header/ai-drawer.html` sin su cabecera original. Los eventos de apertura y cierre se gestionan en `assets/js/ui-drawers.js`.
+El botón `#open-unified-panel-button` (con `data-menu-target="unified-panel"`) abre `#unified-panel`, un cajón lateral que integra navegación, herramientas del sitio y el asistente de inteligencia artificial. Este panel se desliza desde la **izquierda** y dentro de él el chat se incrusta desde `fragments/header/ai-drawer.html` sin su cabecera original. Los eventos de apertura y cierre se gestionan en `assets/js/ui-drawers.js`.
+
+El panel `#ai-chat-panel` se despliega desde la **derecha** y utiliza el mismo script para su animación.
 
 Este nuevo panel, junto al de traducción superior, facilita el acceso inmediato a contenido multilingüe y al soporte conversacional. Su objetivo es reforzar nuestra misión de **promocionar el turismo en Cerezo de Río Tirón y proteger su patrimonio arqueológico y cultural**.
 
