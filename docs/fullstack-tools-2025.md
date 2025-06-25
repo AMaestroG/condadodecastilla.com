@@ -115,3 +115,4 @@ Fullstack: Next.js + API en Python o Node (NestJS)
 ```
 
 Este proyecto sigue una estética basada en tonos morados y oro viejo sobre fondos de alabastro. Los menús son deslizantes, las letras presentan degradados de alto contraste y se emplea la versión más reciente de las bibliotecas JavaScript y las mejoras de CSS/HTML.
+La maquetación actual hace que los paneles laterales compriman el contenido desde el borde correspondiente para mostrar la navegación sin ocultar la página.

@@ -44,11 +44,11 @@ El panel también incluye `admin-menu.php` y `social-menu.html` dentro de bloque
 
 Al pulsar un botón con `data-menu-target="id-del-panel"`,
 `assets/js/sliding-menu.js` abre el panel correspondiente y añade al elemento
-`<body>` la clase `menu-open-left` o `menu-open-right`, según el
-lateral del menú. Estas clases aplican un `transform` que desplaza el
-contenido de la página para dejar espacio al panel, generando un efecto
-de deslizamiento fluido. El panel `.menu-panel` mantiene la clase
-`active` para mostrarse u ocultarse.
+`<body>` la clase `menu-open-left` o `menu-open-right` dependiendo del lateral
+desde el que se muestre el panel. Con el nuevo diseño estas clases reducen el
+ancho del contenido central desde el borde activado en lugar de desplazarlo por
+completo, creando un efecto de compresión lateral. El panel `.menu-panel`
+mantiene la clase `active` para mostrarse u ocultarse.
 
 `assets/js/sliding-menu.js` sigue actualizando los atributos `aria-expanded` y
 `aria-hidden` de los botones y paneles para mantener la accesibilidad.
@@ -67,6 +67,9 @@ Estos son los accesos que incorpora por defecto:
 - `#open-unified-panel-button` despliega el nuevo panel IA y la barra de idiomas.
 - `#ai-chat-trigger` abre directamente el cajón IA. En móviles no se clona al panel lateral.
 - `#theme-toggle` alterna entre modo claro y oscuro.
+Los botones se sitúan en la parte superior: el de menú consolidado queda a la
+izquierda mientras que `#open-unified-panel-button` y `#ai-chat-trigger` se
+agrupan a la derecha para equilibrar la cabecera.
 Al añadir más elementos al contenedor puede ser necesario ajustar la posición de los paneles deslizantes. Para ello define la variable `--menu-extra-offset` con la altura del contenedor y úsala junto a `--language-bar-offset` en `assets/css/menus/consolidated-menu.css`:
 
 ```css

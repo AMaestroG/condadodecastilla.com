@@ -147,12 +147,13 @@ secciones realicen una animación de desplazamiento fluida.
 ## Menú móvil
 
 Los paneles de menú deslizante utilizan la clase `.open` para mostrarse y
-desaparecer al quitársela. Al activarse, `assets/js/sliding-menu.js` añade al elemento
-`<body>` la clase `menu-open-left` o `menu-open-right`, según el lado desde el
-que se despliega el panel. Estas clases aplican un `transform` que desplaza el
-contenido central, resaltado con morado principal y bordes dorados
-(`--color-primario-purpura` y `--color-secundario-dorado`), para indicar el
-estado activo.
+desaparecer al quitársela. Al activarse, `assets/js/sliding-menu.js` añade al
+elemento `<body>` la clase `menu-open-left` o `menu-open-right`, según el lado
+desde el que se despliega el panel. Con la nueva maquetación estas clases ya no
+empujan el contenido, sino que lo **comprimen lateralmente** para dejar espacio
+al menú. El fondo morado con bordes de oro viejo
+(`--color-primario-purpura` y `--color-secundario-dorado`) destaca así el estado
+activo sin desorientar al usuario.
 
 ## Estilo de los paneles IA y traducción
 
