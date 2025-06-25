@@ -6,18 +6,18 @@ require_once __DIR__ . '/../includes/config.php';
 ?>
 <header class="site-header bg-imperial-purple text-old-gold shadow-md sticky top-0 z-50">
     <div class="container-epic mx-auto flex items-center justify-between p-4">
-        <div class="flex items-center">
+        <div class="flex items-center space-x-3">
+            <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
+                <img src="<?= htmlspecialchars(HEADER_BANNER_URL, ENT_QUOTES) ?>" alt="Abrir Menú" class="h-8 w-8 rounded-full border border-old-gold">
+            </button>
             <a href="/" class="logo-link flex items-center text-xl font-bold">
                 <img src="<?= htmlspecialchars(HEADER_BANNER_URL, ENT_QUOTES) ?>" alt="Logo Condado de Castilla" class="h-10 w-10 mr-2 rounded-full border border-old-gold">
                 <span class="hidden sm:inline site-title">Condado de Castilla</span>
             </a>
         </div>
 
-        <div class="flex items-center space-x-3">
-            <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-            <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" aria-expanded="false" aria-controls="ai-chat-panel" class="text-old-gold hover:text-white transition-colors">
+        <div class="flex items-center">
+            <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" aria-expanded="false" aria-controls="ai-chat-panel" class="text-old-gold hover:text-white transition-colors ml-3">
                 <i class="fas fa-comments text-2xl"></i>
             </button>
         </div>
