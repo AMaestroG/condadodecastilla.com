@@ -7,130 +7,127 @@ require_once __DIR__ . '/env_loader.php';
 require_once __DIR__ . '/session.php';
 ensure_session_started();
 
-// Read Gemini API settings from environment variables when available
-if (!defined('GEMINI_API_KEY')) {
-    $envKey = getenv('GEMINI_API_KEY');
-    // Reads GEMINI_API_KEY only
-    define('GEMINI_API_KEY', $envKey !== false ? $envKey : 'YOUR_GEMINI_API_KEY_NOT_SET');
+// Claude API Settings
+if (!defined('CLAUDE_API_KEY')) {
+    $envKeyClaude = getenv('CLAUDE_API_KEY');
+    define('CLAUDE_API_KEY', $envKeyClaude !== false ? $envKeyClaude : 'YOUR_CLAUDE_API_KEY_NOT_SET');
 }
-if (!defined('GEMINI_API_ENDPOINT')) {
-    $envEndpoint = getenv('GEMINI_API_ENDPOINT');
-    define('GEMINI_API_ENDPOINT', $envEndpoint !== false ? $envEndpoint : 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent');
+if (!defined('CLAUDE_API_ENDPOINT')) {
+    $envEndpointClaude = getenv('CLAUDE_API_ENDPOINT');
+    define('CLAUDE_API_ENDPOINT', $envEndpointClaude !== false ? $envEndpointClaude : 'https://api.anthropic.com/v1/messages');
 }
+if (!defined('CLAUDE_MODEL')) {
+    $envModelClaude = getenv('CLAUDE_MODEL');
+    define('CLAUDE_MODEL', $envModelClaude !== false ? $envModelClaude : 'claude-3-haiku-20240307');
+}
+if (!defined('CLAUDE_API_VERSION')) {
+    $envVersionClaude = getenv('CLAUDE_API_VERSION');
+    define('CLAUDE_API_VERSION', $envVersionClaude !== false ? $envVersionClaude : '2023-06-01');
+}
+if (!defined('CLAUDE_MAX_TOKENS')) {
+    $envMaxTokensClaude = getenv('CLAUDE_MAX_TOKENS');
+    define('CLAUDE_MAX_TOKENS', $envMaxTokensClaude !== false ? (int)$envMaxTokensClaude : 1024);
+}
+
 
 if (!defined('AI_UTILS_LOADED')) {
     define('AI_UTILS_LOADED', true);
 }
 
-if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_NOT_SET' || GEMINI_API_KEY === '') {
-    error_log('GEMINI_API_KEY is missing. Using simulator responses.');
-    $_SESSION['gemini_api_key_notice'] = 'La clave de la API de Gemini no está configurada. Las funciones de IA usan un simulador.';
+if (CLAUDE_API_KEY === 'YOUR_CLAUDE_API_KEY_NOT_SET' || CLAUDE_API_KEY === '') {
+    error_log('CLAUDE_API_KEY is missing. AI functions will use a simulator or fail.');
+    // Consider adding a session notice if you have frontend UI for it
+    // $_SESSION['claude_api_key_notice'] = 'La clave de la API de Claude no está configurada. Las funciones de IA usan un simulador.';
 }
 
 
 /**
  * Placeholder para una función que generaría etiquetas sugeridas por IA.
- *
+ * (No utiliza la API de IA, se mantiene como estaba)
  * @param string $content_key Un identificador para el contenido a etiquetar.
  * @return array Un array de strings con las etiquetas sugeridas.
  */
 function get_suggested_tags_placeholder(string $content_key): array {
-    // Simulación basada en content_key
     if ($content_key === 'atapuerca' || $content_key === 'Contenido de Atapuerca') {
         return ['Prehistoria', 'Evolución Humana', 'Arqueología', 'Yacimientos UNESCO', 'Homo Antecessor', 'Burgos', 'Paleontología'];
     }
-
-    // Etiquetas por defecto para otros contenidos no especificados
     return ['General', 'Contenido Interesante', 'Historia', 'Web'];
 }
 
 /**
- * Función helper para simular una llamada a la API de Gemini.
- * En un entorno real, esto realizaría una solicitud HTTP real usando curl.
+ * Simulates a call to the Claude API.
  *
- * @param array $payload El cuerpo de la solicitud a enviar a la API.
- * @return array|null La respuesta decodificada de la API como array, o null en caso de error simulado.
+ * @param array $payload The request body to send to the API.
+ * @return array|null The decoded API response as an array, or null on simulated error.
  */
-function _call_gemini_api_simulator(array $payload): ?array {
-    // Simulación de la llamada a la API y la respuesta.
-    // No se realizan llamadas cURL reales aquí para el entorno de demostración.
+function _call_claude_api_simulator(array $payload): ?array {
+    $simulated_success = true;
 
-    $simulated_success = true; // Cambiar a false para probar manejo de errores
-
-    // @phpstan-ignore-next-line
     if (!$simulated_success) {
-        error_log("Simulated Gemini API call failed.");
-        return null;
+        error_log("Simulated Claude API call failed.");
+        return ['type' => 'error', 'error' => ['type' => 'simulated_error', 'message' => 'Simulated API call failure.']];
     }
 
-    // Extraer el prompt para la simulación de respuesta (asumiendo una estructura simple)
     $prompt_text = "";
-    if (isset($payload['contents'][0]['parts'][0]['text'])) {
-        $prompt_text = $payload['contents'][0]['parts'][0]['text'];
+    if (isset($payload['messages'][0]['content'])) {
+        $prompt_text = $payload['messages'][0]['content'];
     }
 
-    // Simular una respuesta basada en el tipo de prompt (muy básico)
-    $generated_text = "Este es un texto simulado generado por la API de Gemini en respuesta a un prompt que comenzaba con: '" . substr(htmlspecialchars($prompt_text), 0, 100) . "...'. ";
+    $generated_text = "Este es un texto simulado generado por la API de Claude en respuesta a un prompt que comenzaba con: '" . substr(htmlspecialchars($prompt_text), 0, 100) . "...'. ";
     if (stripos($prompt_text, "resume") !== false || stripos($prompt_text, "resumen") !== false) {
-        $generated_text .= "Este parece ser un resumen. Los puntos clave incluyen A, B y C. La elaboración detallada seguiría.";
-    } elseif (stripos($prompt_text, "etiquetas") !== false || stripos($prompt_text, "tags") !== false) {
-        $generated_text = json_encode(['tag1', 'tag2', 'tag3', 'simulated_tag']); // Simular respuesta para etiquetas
+        $generated_text .= "Este parece ser un resumen. Los puntos clave incluyen X, Y y Z.";
     } elseif (stripos($prompt_text, "traduce") !== false || stripos($prompt_text, "translate") !== false) {
-        $generated_text .= "Esta es la porción traducida simulada. El contenido original se ha procesado y convertido al idioma de destino.";
+        $generated_text .= "Esta es la porción traducida simulada para Claude.";
     }
 
-
-    // Estructura de respuesta simulada similar a lo que podría devolver Gemini API (muy simplificada)
-    // Referencia: https://ai.google.dev/docs/gemini_api_overview?hl=es-419#text-generation-response
-    // La estructura real puede variar, esto es solo para la simulación.
-    $simulated_response = [
-        'candidates' => [
+    return [
+        'id' => 'msg_sim_' . uniqid(),
+        'type' => 'message',
+        'role' => 'assistant',
+        'model' => CLAUDE_MODEL,
+        'content' => [
             [
-                'content' => [
-                    'parts' => [
-                        [
-                            'text' => $generated_text
-                        ]
-                    ],
-                    'role' => 'model'
-                ],
-                // Otros campos como 'finishReason', 'index', 'safetyRatings' podrían estar aquí.
+                'type' => 'text',
+                'text' => $generated_text
             ]
         ],
-        // 'promptFeedback' podría estar aquí.
+        'stop_reason' => 'end_turn',
+        'usage' => [
+            'input_tokens' => 10, // Simulated
+            'output_tokens' => 20 // Simulated
+        ]
     ];
-
-    return $simulated_response;
 }
 
 /**
- * Builds the payload for the Gemini API.
+ * Builds the payload for the Claude Messages API.
  *
- * @param string $prompt The prompt string.
+ * @param string $prompt The user's prompt.
+ * @param string $system_prompt Optional system prompt.
  * @return array The payload structure.
  */
-function _build_gemini_payload(string $prompt): array {
-    return [
-        'contents' => [
-            [
-                'parts' => [
-                    ['text' => $prompt]
-                ]
-            ]
+function _build_claude_payload(string $prompt, string $system_prompt = ''): array {
+    $payload = [
+        'model' => CLAUDE_MODEL,
+        'max_tokens' => CLAUDE_MAX_TOKENS,
+        'messages' => [
+            ['role' => 'user', 'content' => $prompt]
         ]
-        // Consider if 'generationConfig' or 'safetySettings' should be default or parameterizable
-        // For now, keep it simple as per existing usage.
     ];
+    if (!empty(trim($system_prompt))) {
+        $payload['system'] = $system_prompt;
+    }
+    return $payload;
 }
 
 /**
- * Parses the response from the Gemini API.
+ * Parses the response from the Claude API.
  *
  * @param array|null $api_response The decoded API response.
  * @param string|null $call_error Error message from the API call itself (e.g., cURL error).
  * @return string The extracted text content or an error message prefixed with "Error:".
  */
-function _parse_gemini_response(?array $api_response, ?string $call_error): string {
+function _parse_claude_response(?array $api_response, ?string $call_error): string {
     if ($call_error !== null) {
         return "Error: " . $call_error;
     }
@@ -139,49 +136,51 @@ function _parse_gemini_response(?array $api_response, ?string $call_error): stri
         return "Error: API call failed without a specific message.";
     }
 
-    if (isset($api_response['candidates'][0]['content']['parts'][0]['text'])) {
-        $text = trim($api_response['candidates'][0]['content']['parts'][0]['text']);
+    if (isset($api_response['type']) && $api_response['type'] === 'error') {
+        $error_message = $api_response['error']['message'] ?? 'Unknown API error.';
+        return "Error de la API de IA: " . htmlspecialchars($error_message);
+    }
+
+    if (isset($api_response['content'][0]['text'])) {
+        $text = trim($api_response['content'][0]['text']);
         if (empty($text)) {
             return "Error: El texto generado por la IA estaba vacío.";
         }
         return $text; // Return raw text
     }
 
-    if (isset($api_response['error']['message'])) {
-        return "Error de la API de IA: " . htmlspecialchars($api_response['error']['message']);
-    }
-
     return "Error: Respuesta inesperada del servicio de IA.";
 }
 
 /**
- * Llama a la API de Gemini utilizando cURL o usa el simulador si la
- * configuración sigue con valores de ejemplo.
+ * Calls the Claude API using cURL or uses the simulator if the
+ * configuration is not set.
  *
- * @param array $payload Cuerpo de la solicitud para la API.
- * @return array|null Respuesta decodificada o null si hay errores.
+ * @param array $payload Request body for the API.
+ * @param string|null &$error Error message if the call fails.
+ * @return array|null Decoded response or null on error.
  */
-function _call_gemini_api(array $payload, ?string &$error = null): ?array {
-    // Use simulator when the API key is missing or still has the placeholder
-    // value. A real HTTP request is only attempted if a non-empty key is
-    // provided via the environment or configuration.
-    if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_NOT_SET' || GEMINI_API_KEY === '') {
-        return _call_gemini_api_simulator($payload);
+function _call_claude_api(array $payload, ?string &$error = null): ?array {
+    if (CLAUDE_API_KEY === 'YOUR_CLAUDE_API_KEY_NOT_SET' || CLAUDE_API_KEY === '') {
+        return _call_claude_api_simulator($payload);
     }
 
+    $headers = [
+        'x-api-key: ' . CLAUDE_API_KEY,
+        'anthropic-version: ' . CLAUDE_API_VERSION,
+        'Content-Type: application/json'
+    ];
+
     if (function_exists('curl_init')) {
-        $ch = curl_init(GEMINI_API_ENDPOINT);
+        $ch = curl_init(CLAUDE_API_ENDPOINT);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . GEMINI_API_KEY
-        ]);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 
-        $response = curl_exec($ch);
-        if ($response === false) {
-            $error = 'Gemini API curl error: ' . curl_error($ch);
+        $response_body = curl_exec($ch);
+        if ($response_body === false) {
+            $error = 'Claude API cURL error: ' . curl_error($ch);
             error_log($error);
             curl_close($ch);
             return null;
@@ -189,202 +188,206 @@ function _call_gemini_api(array $payload, ?string &$error = null): ?array {
 
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+
         if ($http_code < 200 || $http_code >= 300) {
-            $error = 'Gemini API HTTP error: ' . $http_code;
+            $error = 'Claude API HTTP error: ' . $http_code . '. Response: ' . $response_body;
             error_log($error);
-            return null;
+            // Attempt to decode error response from Claude
+            $decoded_error = json_decode($response_body, true);
+            return $decoded_error ?? ['type' => 'error', 'error' => ['type' => 'http_error', 'message' => 'HTTP error ' . $http_code]];
         }
     } else {
         // Fallback to file_get_contents if cURL is not available
-        $context = stream_context_create([
+        $context_options = [
             'http' => [
                 'method'  => 'POST',
-                'header'  => "Content-Type: application/json\r\n" .
-                            'Authorization: Bearer ' . GEMINI_API_KEY . "\r\n",
+                'header'  => implode("\r\n", $headers) . "\r\n",
                 'content' => json_encode($payload),
-                'ignore_errors' => true
+                'ignore_errors' => true // To capture error responses
             ]
-        ]);
-        $response = @file_get_contents(GEMINI_API_ENDPOINT, false, $context);
+        ];
+        $context = stream_context_create($context_options);
+        $response_body = @file_get_contents(CLAUDE_API_ENDPOINT, false, $context);
 
-        if (isset($http_response_header[0]) &&
-            preg_match('#^HTTP/\S+\s+(\d+)#', $http_response_header[0], $m)) {
-            $http_code = (int)$m[1];
-            if ($http_code < 200 || $http_code >= 300) {
-                $error = 'Gemini API HTTP error: ' . $http_code;
-                error_log('Gemini API HTTP error: ' . $http_code . ' (using file_get_contents)');
-                return null;
-            }
-        }
-
-        if ($response === false) {
-            $error = 'Gemini API fopen error';
+        if ($response_body === false) {
+            $error = 'Claude API fopen error';
             error_log($error);
             return null;
         }
+
+        // Try to get HTTP status code from $http_response_header (available in this scope)
+        $http_code = 0;
+        if (isset($http_response_header[0]) && preg_match('#^HTTP/\S+\s+(\d+)#', $http_response_header[0], $m)) {
+            $http_code = (int)$m[1];
+        }
+
+        if ($http_code < 200 || $http_code >= 300) {
+            $error = 'Claude API HTTP error: ' . $http_code . ' (using file_get_contents). Response: ' . $response_body;
+            error_log($error);
+            $decoded_error = json_decode($response_body, true);
+            return $decoded_error ?? ['type' => 'error', 'error' => ['type' => 'http_error', 'message' => 'HTTP error ' . $http_code]];
+        }
     }
 
-    $decoded = json_decode($response, true);
+    $decoded = json_decode($response_body, true);
     if ($decoded === null) {
-        $error = 'Gemini API decode error';
+        $error = 'Claude API JSON decode error. Response: ' . $response_body;
         error_log($error);
+        return null; // Or return a structured error if Claude API guarantees JSON errors
     }
     return $decoded;
 }
 
 /**
- * Genera un resumen de un texto utilizando la API de Gemini (o el simulador
- * si la configuración es de ejemplo).
+ * Generates a summary of text using the Claude API.
  *
- * @param string $text_to_summarize El texto que se va a resumir.
- * @return string El resumen generado o un mensaje de error.
+ * @param string $text_to_summarize The text to summarize.
+ * @return string The generated summary or an error message.
  */
 function get_real_ai_summary(string $text_to_summarize): string {
     if (empty(trim($text_to_summarize))) {
         return "Error: No se proporcionó texto para resumir.";
     }
 
-    // Preparar el prompt para la API de Gemini
-    $prompt = "Por favor, resume el siguiente texto de forma concisa y clara, enfocándote en los puntos clave relevantes para un lector interesado en historia y cultura. El resumen debe ser adecuado para mostrar en una página web. Texto a resumir:
+    $system_prompt = "Eres un asistente experto en resumir textos, especialmente aquellos relacionados con historia y cultura. Genera resúmenes concisos y claros.";
+    $user_prompt = "Por favor, resume el siguiente texto. Enfócate en los puntos clave relevantes para un lector interesado en historia y cultura. El resumen debe ser adecuado para mostrar en una página web. Texto a resumir:\n\n\"" . $text_to_summarize . "\"";
 
-\"" . $text_to_summarize . "\"";
-
-    $payload = _build_gemini_payload($prompt);
+    $payload = _build_claude_payload($user_prompt, $system_prompt);
 
     $error = null;
-    $api_response = _call_gemini_api($payload, $error);
-    $parsed_text = _parse_gemini_response($api_response, $error);
+    $api_response = _call_claude_api($payload, $error);
+    $parsed_text = _parse_claude_response($api_response, $error);
 
     if (strpos($parsed_text, "Error:") === 0) {
-        return $parsed_text; // It's an error message, return as is.
+        return $parsed_text;
     }
-    // It's successful, non-empty text
     return nl2br(htmlspecialchars($parsed_text));
 }
 
 /**
- * Placeholder para una función que simularía una traducción inteligente.
+ * Placeholder function for intelligent translation simulation.
+ * This version is kept for compatibility if some UI elements still call it,
+ * but should ideally be replaced by calls to get_ai_translation.
  *
- * @param string $content_id Identificador del contenido (ej. 'atapuerca_main_text').
- * @param string $target_language Código del idioma objetivo (ej. 'en-ai', 'fr-ai').
- * @param string $original_sample_text Un extracto del texto original para incluir en la demo. O el texto completo si se desea devolverlo para 'es'.
- * @return string El texto "traducido" de demostración o el texto original si target_language es 'es'.
+ * @param string $content_id Content identifier (e.g., 'atapuerca_main_text').
+ * @param string $target_language Target language code (e.g., 'en-ai', 'fr-ai').
+ * @param string $original_sample_text An excerpt of the original text.
+ * @return string The "translated" demo text or original text.
  */
-function translate_with_gemini(string $content_id, string $target_language, string $original_sample_text = ''): string {
+function translate_with_ai_placeholder(string $content_id, string $target_language, string $original_sample_text = ''): string {
     if ($target_language === 'es') {
-        // Si el objetivo es español, se asume que se quiere restaurar el original.
-        // El JavaScript debería tener el contenido original completo.
-        // Esta función, si es llamada con 'es', simplemente devuelve el sample/original que se le pasó.
         return $original_sample_text;
     }
 
     $original_snippet = !empty($original_sample_text) ? htmlspecialchars(substr(strip_tags($original_sample_text), 0, 70)) . "..." : "el contenido original";
+    $ai_provider = "Claude"; // Updated provider name
 
     $outputText = "<div class='ai-translation-box'>";
-    $outputText .= "<p><em>Traducción IA (Demostración) para: " . htmlspecialchars($content_id) . "</em></p>";
+    $outputText .= "<p><em>Traducción IA (Demostración con {$ai_provider}) para: " . htmlspecialchars($content_id) . "</em></p>";
 
     switch ($target_language) {
         case 'en-ai':
-            $outputText .= "<p><strong>Simulated English Translation:</strong> This demonstrates where AI-generated English text would appear. The original Spanish content started with: '<em>" . $original_snippet . "</em>'.</p>";
-            $outputText .= "<p>In a production system, the full text would be processed by an advanced neural machine translation model to provide an accurate and nuanced English version.</p>";
+            $outputText .= "<p><strong>Simulated English Translation:</strong> This demonstrates where {$ai_provider}-generated English text would appear. Original: '<em>" . $original_snippet . "</em>'.</p>";
             break;
         case 'fr-ai':
-            $outputText .= "<p><strong>Traduction Française Simulée :</strong> Ceci montre où le texte français généré par l'IA apparaîtrait. Le contenu original en espagnol commençait par : '<em>" . $original_snippet . "</em>'.</p>";
-            $outputText .= "<p>Dans un système de production, le texte intégral serait traité par un modèle avancé de traduction automatique neuronale pour fournir une version française précise et nuancée.</p>";
+            $outputText .= "<p><strong>Traduction Française Simulée :</strong> Ceci montre où le texte français généré par {$ai_provider} apparaîtrait. Original: '<em>" . $original_snippet . "</em>'.</p>";
             break;
-        case 'de-ai':
-            $outputText .= "<p><strong>Simulierte Deutsche Übersetzung:</strong> Hier würde der von KI generierte deutsche Text erscheinen. Der ursprüngliche spanische Inhalt begann mit: '<em>" . $original_snippet . "</em>'.</p>";
-            $outputText .= "<p>In einem Produktivsystem würde der vollständige Text von einem fortgeschrittenen neuronalen Übersetzungsmodell verarbeitet, um eine präzise und nuancierte deutsche Version bereitzustellen.</p>";
-            break;
-        // No hay caso 'default' o 'es' aquí porque ya se manejó al inicio de la función.
+        // Add more cases if needed
     }
-    $outputText .= "<p class='ai-note'><em>(Esta es una simulación. La funcionalidad de traducción real con IA está pendiente de implementación).</em></p>";
+    $outputText .= "<p class='ai-note'><em>(Esta es una simulación. La funcionalidad de traducción real con {$ai_provider} está activa a través de otras funciones).</em></p>";
     $outputText .= "</div>";
     return $outputText;
 }
 
 /**
- * Genera una traducción real mediante la API de Gemini (o el simulador).
- * Devuelve solo la traducción en el idioma solicitado.
+ * Generates a translation using the Claude API.
  *
- * @param string $text            Texto de origen en castellano.
- * @param string $target_language Código del idioma de destino, ej. "en".
- * @return string Traducción generada o mensaje de error.
+ * @param string $text Text to translate (assumed to be Spanish).
+ * @param string $target_language Target language code (e.g., "en", "fr").
+ * @return string Generated translation or an error message.
  */
 function get_ai_translation(string $text, string $target_language): string {
     if (empty(trim($text))) {
         return "Error: No se proporcionó texto a traducir.";
     }
+    // Mapping common language codes to full names for better prompts
+    $language_map = [
+        'en' => 'inglés', 'fr' => 'francés', 'de' => 'alemán', 'pt' => 'portugués',
+        'it' => 'italiano', 'gl' => 'gallego',
+        // Add more as needed
+    ];
+    $target_language_name = $language_map[$target_language] ?? $target_language;
 
-    $prompt = "Traduce el siguiente texto al idioma '" . $target_language . "'. Devuelve solo la traducción:\n\n\"" . $text . "\"";
+    $system_prompt = "Eres un traductor experto. Tu tarea es traducir el texto proporcionado del español al idioma solicitado, manteniendo la naturalidad y precisión.";
+    $user_prompt = "Traduce el siguiente texto al " . htmlspecialchars($target_language_name) . ". Devuelve únicamente la traducción:\n\n\"" . $text . "\"";
 
-    $payload = _build_gemini_payload($prompt);
+    $payload = _build_claude_payload($user_prompt, $system_prompt);
 
     $error = null;
-    $api_response = _call_gemini_api($payload, $error);
-    $parsed_text = _parse_gemini_response($api_response, $error);
+    $api_response = _call_claude_api($payload, $error);
+    $parsed_text = _parse_claude_response($api_response, $error);
 
     if (strpos($parsed_text, "Error:") === 0) {
-        return $parsed_text; // It's an error message, return as is.
+        return $parsed_text;
     }
-    // It's successful, non-empty text
     return nl2br(htmlspecialchars($parsed_text));
 }
 
 
-
 /**
- * Genera una respuesta genérica para el chat utilizando Gemini.
+ * Generates a generic chat response using Claude.
  *
- * @param string $prompt Texto introducido por el usuario.
- * @return string Respuesta generada o mensaje de error.
+ * @param string $prompt User's input text.
+ * @return string Generated response or an error message.
  */
 function get_ai_chat_response(string $prompt): string {
     if (empty(trim($prompt))) {
         return "Error: No se proporcionó prompt.";
     }
-
-    $payload = _build_gemini_payload($prompt);
+    // For general chat, a system prompt can guide Claude's persona if desired.
+    // Example: $system_prompt = "Eres un asistente virtual amigable y servicial.";
+    // For now, no specific system prompt for generic chat.
+    $payload = _build_claude_payload($prompt);
 
     $error = null;
-    $api_response = _call_gemini_api($payload, $error);
-    $parsed_text = _parse_gemini_response($api_response, $error);
+    $api_response = _call_claude_api($payload, $error);
+    $parsed_text = _parse_claude_response($api_response, $error);
 
     if (strpos($parsed_text, "Error:") === 0) {
-        return $parsed_text; // It's an error message, return as is.
+        return $parsed_text;
     }
-    // It's successful, non-empty text
     return nl2br(htmlspecialchars($parsed_text));
 }
 
 
-
 /**
- * Genera un breve informe de investigación sobre un tema.
- * @param string $query Tema o pregunta a investigar.
- * @return string Resumen generado o mensaje de error.
+ * Generates a brief research report on a topic using Claude.
+ * @param string $query Topic or question to research.
+ * @return string Generated summary or an error message.
  */
 function get_ai_research(string $query): string {
     if (empty(trim($query))) {
         return "Error: No se proporcionó tema de investigación.";
     }
-    $prompt = "Investiga brevemente el siguiente tema y ofrece un resumen conciso con datos clave. Tema: \"" . $query . "\"";
-    $payload = _build_gemini_payload($prompt);
+    $system_prompt = "Eres un asistente de investigación. Proporciona información concisa y datos clave sobre el tema solicitado.";
+    $user_prompt = "Investiga brevemente el siguiente tema y ofrece un resumen conciso con datos clave. Tema: \"" . $query . "\"";
+
+    $payload = _build_claude_payload($user_prompt, $system_prompt);
     $error = null;
-    $api_response = _call_gemini_api($payload, $error);
-    $parsed_text = _parse_gemini_response($api_response, $error);
+    $api_response = _call_claude_api($payload, $error);
+    $parsed_text = _parse_claude_response($api_response, $error);
 
     if (strpos($parsed_text, "Error:") === 0) {
-        return $parsed_text; // It's an error message, return as is.
+        return $parsed_text;
     }
-    // It's successful, non-empty text
     return nl2br(htmlspecialchars($parsed_text));
 }
 
 /**
- * Devuelve un enlace de búsqueda web para la consulta dada.
- * @param string $query Consulta a buscar en la web.
- * @return string HTML con el enlace de búsqueda.
+ * Returns a web search link for the given query.
+ * (No AI API call, remains unchanged)
+ * @param string $query Query to search on the web.
+ * @return string HTML with the search link.
  */
 function get_web_search_results(string $query): string {
     if (empty(trim($query))) {
@@ -394,5 +397,10 @@ function get_web_search_results(string $query): string {
     $html = '<p>Resultados de búsqueda disponibles en <a href="' . $url . '" target="_blank" rel="noopener">Google</a>.</p>';
     return $html;
 }
+
+// The function `translate_with_gemini` was directly renamed to `translate_with_ai_placeholder`.
+// Any remaining calls would need to be updated to `translate_with_ai_placeholder` (for simulated text)
+// or `get_ai_translation` (for actual AI translation).
+// The conditional block that was here previously is no longer necessary.
 
 ?>
