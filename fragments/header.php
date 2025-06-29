@@ -4,20 +4,20 @@
 require_once __DIR__ . '/../includes/auth.php'; // For is_admin_logged_in()
 require_once __DIR__ . '/../includes/config.php';
 ?>
-<header class="site-header bg-imperial-purple text-old-gold shadow-md sticky top-0 z-50">
+<header class="site-header bg-imperial-purple-custom text-old-gold shadow-md sticky top-0 z-50">
     <div class="container-epic mx-auto flex items-center justify-between p-4">
         <div class="flex items-center space-x-3">
-            <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-white transition-colors">
+            <button id="open-unified-panel-button" aria-label="Abrir Menú y Herramientas" aria-expanded="false" aria-controls="unified-panel" class="text-old-gold hover:text-epic-gold-main transition-colors">
                 <img src="<?= htmlspecialchars(HEADER_BANNER_URL, ENT_QUOTES) ?>" alt="Abrir Menú" class="h-8 w-8 rounded-full border border-old-gold">
             </button>
-            <a href="/" class="logo-link flex items-center text-xl font-bold">
+            <a href="/" class="logo-link flex items-center text-xl font-bold font-headings">
                 <img src="<?= htmlspecialchars(HEADER_BANNER_URL, ENT_QUOTES) ?>" alt="Logo Condado de Castilla" class="h-10 w-10 mr-2 rounded-full border border-old-gold">
                 <span class="hidden sm:inline site-title">Condado de Castilla</span>
             </a>
         </div>
 
         <div class="flex items-center">
-            <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" aria-expanded="false" aria-controls="ai-chat-panel" class="text-old-gold hover:text-white transition-colors ml-3">
+            <button id="ai-chat-trigger" data-menu-target="ai-chat-panel" aria-label="Abrir chat IA" aria-haspopup="dialog" aria-expanded="false" aria-controls="ai-chat-panel" class="text-old-gold hover:text-epic-gold-main transition-colors ml-3">
                 <i class="fas fa-comments text-2xl"></i>
             </button>
         </div>
@@ -25,12 +25,12 @@ require_once __DIR__ . '/../includes/config.php';
 </header>
 
 <!-- Unified Sliding Panel (Right) -->
-<aside id="unified-panel" class="fixed top-0 right-0 w-80 md:w-96 h-full bg-gray-900 text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-[70]" role="dialog" aria-modal="true" aria-labelledby="unified-panel-title" tabindex="-1" aria-hidden="true">
+<aside id="unified-panel" class="fixed top-0 right-0 w-80 md:w-96 h-full bg-imperial-purple-custom text-epic-text-light-custom shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-[70]" role="dialog" aria-modal="true" aria-labelledby="unified-panel-title" tabindex="-1" aria-hidden="true">
     <div class="flex flex-col h-full">
         <!-- Panel Header -->
-        <div class="flex justify-between items-center p-4 border-b border-gray-700 flex-shrink-0">
+        <div class="flex justify-between items-center p-4 border-b border-epic-gold-main-custom flex-shrink-0">
             <h2 id="unified-panel-title" class="text-xl font-headings text-old-gold">Menú y Herramientas</h2>
-            <button id="close-unified-panel-button" aria-label="Cerrar Panel" class="text-2xl text-gray-300 hover:text-old-gold">&times;</button>
+            <button id="close-unified-panel-button" aria-label="Cerrar Panel" class="text-2xl text-epic-text-light-custom hover:text-old-gold">&times;</button>
         </div>
 
         <!-- Panel Content (Scrollable) -->
@@ -38,7 +38,7 @@ require_once __DIR__ . '/../includes/config.php';
 
             <!-- Navegación Principal -->
             <div class="menu-section mb-6">
-                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-gray-700 pb-1">Navegación</h3>
+                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-epic-gold-main-custom pb-1">Navegación</h3>
                 <nav id="unified-main-nav"> <!-- Nuevo ID para el contenedor de nav si sidebar-nav ya no aplica -->
                     <?php
                     if (file_exists(__DIR__ . '/menus/main-menu.php')) {
@@ -50,16 +50,16 @@ require_once __DIR__ . '/../includes/config.php';
 
             <!-- Herramientas del Sitio -->
             <div class="menu-section site-tools-section mb-6">
-                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-gray-700 pb-1">Herramientas del Sitio</h3>
+                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-epic-gold-main-custom pb-1">Herramientas del Sitio</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><button id="unified-theme-toggle" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-moon mr-2 w-5 text-center"></i> <span class="flex-1">Tema (Claro/Oscuro)</span></button></li>
-                    <li><button id="unified-mute-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-volume-up mr-2 w-5 text-center"></i> <span class="flex-1">Sonido</span></button></li>
-                    <li><button id="unified-homonexus-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-users mr-2 w-5 text-center"></i> <span class="flex-1">Homonexus</span></button></li>
+                    <li><button id="unified-theme-toggle" class="w-full text-left flex items-center p-2 rounded hover:bg-epic-purple-hover-custom"><i class="fas fa-moon mr-2 w-5 text-center"></i> <span class="flex-1">Tema (Claro/Oscuro)</span></button></li>
+                    <li><button id="unified-mute-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-epic-purple-hover-custom"><i class="fas fa-volume-up mr-2 w-5 text-center"></i> <span class="flex-1">Sonido</span></button></li>
+                    <li><button id="unified-homonexus-toggle" aria-pressed="false" class="w-full text-left flex items-center p-2 rounded hover:bg-epic-purple-hover-custom"><i class="fas fa-users mr-2 w-5 text-center"></i> <span class="flex-1">Homonexus</span></button></li>
                     <li class="pt-1">
                         <span class="block text-xs font-medium text-gray-500 mb-1 px-2">Idioma:</span>
                         <?php
                         if (file_exists(__DIR__ . '/header/language-flags.html')) {
-                            echo '<div class="flex space-x-3 justify-around px-2 py-1 bg-gray-700 rounded">';
+                            echo '<div class="flex space-x-3 justify-around px-2 py-1 bg-epic-purple-hover-custom rounded">'; // Changed bg-gray-700
                             include __DIR__ . '/header/language-flags.html';
                             echo '</div>';
                         } else {
@@ -73,12 +73,12 @@ require_once __DIR__ . '/../includes/config.php';
 
             <!-- Comunidad -->
             <div class="menu-section community-links-section mb-6">
-                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-gray-700 pb-1">Comunidad</h3>
+                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-epic-gold-main-custom pb-1">Comunidad</h3>
                 <ul class="space-y-1 text-sm">
                     <li>
                         <?php
                         if (file_exists(__DIR__ . '/menus/social-menu.html')) {
-                            echo '<div class="flex space-x-3 justify-around px-2 py-1 bg-gray-700 rounded">';
+                            echo '<div class="flex space-x-3 justify-around px-2 py-1 bg-epic-purple-hover-custom rounded">'; // Changed bg-gray-700
                             include __DIR__ . '/menus/social-menu.html';
                             echo '</div>';
                         } else {
@@ -86,15 +86,15 @@ require_once __DIR__ . '/../includes/config.php';
                         }
                         ?>
                     </li>
-                    <li><a href="/foro/index.php" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-comments mr-2 w-5 text-center"></i> <span class="flex-1">Foro</span></a></li>
-                    <li><a href="/contacto/contacto.php" class="w-full text-left flex items-center p-2 rounded hover:bg-gray-700"><i class="fas fa-envelope mr-2 w-5 text-center"></i> <span class="flex-1">Contacto</span></a></li>
+                    <li><a href="/foro/index.php" class="w-full text-left flex items-center p-2 rounded hover:bg-epic-purple-hover-custom"><i class="fas fa-comments mr-2 w-5 text-center"></i> <span class="flex-1">Foro</span></a></li>
+                    <li><a href="/contacto/contacto.php" class="w-full text-left flex items-center p-2 rounded hover:bg-epic-purple-hover-custom"><i class="fas fa-envelope mr-2 w-5 text-center"></i> <span class="flex-1">Contacto</span></a></li>
                 </ul>
             </div>
 
             <!-- Admin Menu (Condicional) -->
             <?php if (is_admin_logged_in()): ?>
             <div class="menu-section admin-section mb-6">
-                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-gray-700 pb-1">Admin</h3>
+                <h3 class="text-sm font-semibold uppercase text-old-gold mb-2 border-b border-epic-gold-main-custom pb-1">Admin</h3>
                 <?php
                 if (file_exists(__DIR__ . '/menus/admin-menu.php')) {
                     include __DIR__ . '/menus/admin-menu.php';

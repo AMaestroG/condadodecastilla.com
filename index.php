@@ -31,6 +31,19 @@ require_once __DIR__ . '/fragments/header.php';
 ?>
 
     <main class="container-epic px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Nueva sección Hero inspirada en modern.css -->
+        <section id="hero-main" data-aos="fade-up">
+            <?php editableText('hero_titulo_index_modern', $pdo, 'Condado de Castilla', 'h1', ''); // Clases se aplicarán desde #hero-main h1 en CSS ?>
+            <?php editableText('hero_subtitulo_index_modern', $pdo, 'Un lugar donde la historia y la naturaleza se encuentran.', 'p', ''); // Clases se aplicarán desde #hero-main p ?>
+            <a href="/historia/historia.php" class="cta-button-modern">Explora Nuestra Historia</a>
+            <?php
+            // El hero_summary y el segundo cta-button del hero original se omiten por ahora para seguir la estructura de modern.css
+            // Se podrían reintroducir si es necesario.
+            ?>
+        </section>
+
+        <!-- Sección Hero Original Comentada -->
+        <!--
         <section id="hero" class="section hero-section text-center py-12 sm:py-16 lg:py-20" data-aos="fade-up">
             <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla', 'h1', 'text-4xl lg:text-6xl font-bold gradient-text tagline-background font-headings mb-4'); ?>
             <p class="hero-summary">
@@ -44,6 +57,7 @@ require_once __DIR__ . '/fragments/header.php';
                 <a href="/lugares/lugares.php" class="cta-button-secondary">Explora los Lugares</a>
             </p>
         </section>
+        -->
 
         <section id="video-intro" class="section video-intro-section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -86,7 +100,34 @@ require_once __DIR__ . '/fragments/header.php';
             </div>
         </div>
 
+        <!-- Nueva sección Highlights inspirada en modern.css -->
+        <section id="highlights-main" data-aos="fade-up">
+            <h2>Destacados</h2> <!-- Se aplicarán estilos desde CSS -->
+            <div class="highlight-grid-modern">
+                <div class="highlight-item-modern">
+                    <!-- Idealmente, las imágenes también deberían ser gestionables o al menos consistentes en tamaño/aspecto -->
+                    <img loading="lazy" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Manuscrito medieval, simbolizando la historia de Castilla" class="w-full h-auto object-contain mb-4 max-h-48"> <!-- Ajustes de clase de imagen -->
+                    <h3>Nuestra Historia</h3>
+                    <p>Desde los albores de la civilización hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
+                    <a href="/historia/historia.php">Leer Más</a>
+                </div>
+                <div class="highlight-item-modern">
+                    <img loading="lazy" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Ruinas del Alcázar de Casio" class="w-full h-auto object-contain mb-4 max-h-48">
+                    <h3>Lugares Emblemáticos</h3>
+                    <p>Descubre el imponente Alcázar de Casio, la misteriosa Civitate Auca y otros tesoros arqueológicos.</p>
+                    <a href="/lugares/lugares.php">Explorar Sitios</a>
+                </div>
+                <div class="highlight-item-modern">
+                    <img loading="lazy" src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana" class="w-full h-auto object-contain mb-4 max-h-48">
+                    <h3>Cultura Viva</h3>
+                    <p>Participa en nuestras tradiciones, explora el arte y la gastronomía local. Conecta con el espíritu de Castilla.</p>
+                    <a href="/cultura/cultura.php">Descubrir Cultura</a>
+                </div>
+            </div>
+        </section>
 
+        <!-- Sección Legado Destacado Original Comentada -->
+        <!--
         <section id="legado-destacado" class="section alternate-bg spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
             <h2 class="section-title text-3xl font-headings text-center mb-12">Explora Nuestro Legado</h2>
             <div class="card-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -112,6 +153,13 @@ require_once __DIR__ . '/fragments/header.php';
                         <h3 class="font-headings text-xl mb-2">Cultura Viva</h3>
                         <p class="text-lg font-body mb-4">Participa en nuestras tradiciones, explora el arte y la gastronomía local. Conecta con el espíritu de Castilla.</p>
                         <a href="/cultura/cultura.php" class="read-more-button">Descubrir Cultura <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <section id="llamada-accion" class="section py-12 sm:py-16 lg:py-20 text-center" data-aos="fade-up">
                     </div>
                 </div>
             </div>

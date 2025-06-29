@@ -68,6 +68,21 @@ body {
 .text-epic-gold { color: var(--epic-gold-main); }
 .border-epic-purple { border-color: var(--epic-purple-emperor); }
 
+/* Custom classes for header and panel theming */
+.bg-imperial-purple-custom {
+    background-color: var(--epic-purple-emperor);
+}
+.text-epic-text-light-custom {
+    color: var(--epic-text-light);
+}
+.border-epic-gold-main-custom {
+    border-color: var(--epic-gold-main);
+}
+.hover\:bg-epic-purple-hover-custom:hover {
+    background-color: var(--epic-purple-hover, #663399); /* Use var from epic_theme or a fallback */
+}
+
+
 /* help toggle and panel */
 #help-toggle {
     position: fixed;
@@ -85,6 +100,53 @@ body {
     cursor: pointer;
     z-index: 1100;
 }
+
+/* Estilos para la nueva sección Hero inspirada en modern.css */
+#hero-main {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/img/hero_mis_tierras.jpg') no-repeat center center/cover;
+    color: var(--epic-text-light); /* Usando variable de epic_theme.css */
+    text-align: center;
+    padding: 4rem 1rem;
+    border-radius: var(--global-border-radius);
+    margin-bottom: 2rem;
+}
+
+#hero-main h1 {
+    font-size: 3rem; /* Ajustar según sea necesario */
+    margin-bottom: 0.5rem;
+    font-family: var(--font-headings); /* Cinzel */
+    font-weight: bold;
+    color: var(--epic-text-light); /* Asegurar color si no hereda bien */
+}
+
+#hero-main p {
+    font-size: 1.2rem; /* Ajustar */
+    margin-bottom: 1.5rem;
+    font-family: var(--font-body); /* Lora */
+    color: var(--epic-text-light); /* Asegurar color */
+}
+
+.cta-button-modern {
+    background-color: var(--epic-gold-main);
+    color: var(--epic-purple-emperor);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px; /* Pill shape */
+    font-weight: bold;
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+    text-decoration: none; /* Asegurar que no haya subrayado */
+}
+
+.cta-button-modern:hover {
+    background-color: var(--epic-purple-emperor);
+    color: var(--epic-gold-main);
+    border-color: var(--epic-gold-main);
+    text-decoration: none; /* Asegurar que no haya subrayado */
+}
+
 
 #help-panel {
     position: fixed;
@@ -117,4 +179,78 @@ body {
     color: var(--epic-purple-emperor);
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+/* Estilos para la nueva sección Highlights inspirada en modern.css */
+#highlights-main {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+}
+
+#highlights-main h2 {
+    font-size: 2.5rem;
+    color: var(--epic-purple-emperor);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-headings);
+}
+
+.highlight-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.highlight-item-modern {
+    background-color: var(--epic-alabaster-bg);
+    padding: 1.5rem;
+    border-radius: var(--global-border-radius);
+    box-shadow: var(--global-box-shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--epic-gold-secondary);
+    display: flex; /* Para mejor alineación interna si es necesario */
+    flex-direction: column; /* Alinea contenido verticalmente */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
+}
+
+.highlight-item-modern img {
+    border-radius: var(--global-border-radius); /* Aplicar a imágenes también */
+    margin-left: auto; /* Centrar imagen si es más pequeña que el contenedor */
+    margin-right: auto;
+    margin-bottom: 1rem; /* Espacio debajo de la imagen */
+}
+
+
+.highlight-item-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--global-box-shadow-medium);
+}
+
+.highlight-item-modern h3 {
+    font-size: 1.5rem;
+    color: var(--epic-purple-emperor);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-headings);
+}
+
+.highlight-item-modern p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+    color: var(--epic-text-color);
+    flex-grow: 1; /* Hace que el p ocupe espacio y empuje el enlace hacia abajo */
+}
+
+.highlight-item-modern a {
+    font-weight: bold;
+    font-family: var(--font-body);
+    color: var(--epic-purple-emperor);
+    text-decoration: none;
+    margin-top: auto; /* Empuja el enlace al final si la tarjeta usa flex-direction column */
+}
+
+.highlight-item-modern a:hover {
+    text-decoration: underline;
+    color: var(--epic-gold-main);
 }

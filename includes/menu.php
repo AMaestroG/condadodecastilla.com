@@ -12,12 +12,13 @@ function get_main_menu_items(): array {
 function render_menu_items(array $items, string $parentPath = '', int &$counter = 0, string $current = '', bool $isSubmenu = false): void {
     foreach ($items as $key => $item) {
         $baseClasses = 'block px-3 py-2 rounded-md text-base font-medium transition-colors duration-150 ease-in-out';
-        $activeClass = 'bg-gray-700 text-white';
-        $inactiveClass = 'text-gray-300 hover:bg-gray-700 hover:text-white';
+        // Updated classes for new panel theme
+        $activeClass = 'bg-epic-purple-hover-custom text-old-gold'; // Active link: darker purple bg, gold text
+        $inactiveClass = 'text-epic-text-light-custom hover:bg-epic-purple-hover-custom hover:text-old-gold'; // Inactive: light text, hover darker purple bg & gold text
 
         if (is_string($key) && is_array($item)) { // Group
             echo '<li class="menu-group mt-4 first:mt-0">';
-            echo '<span class="group-title block px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">' . htmlspecialchars(t($key)) . '</span>';
+            echo '<span class="group-title block px-3 py-2 text-xs font-semibold text-old-gold opacity-75 uppercase tracking-wider">' . htmlspecialchars(t($key)) . '</span>'; // Group titles: gold, slightly transparent
             echo '<ul class="mt-1 space-y-1">';
             render_menu_items($item, $parentPath, $counter, $current, false); // Children of a group are not submenus in the same way
             echo '</ul>';
