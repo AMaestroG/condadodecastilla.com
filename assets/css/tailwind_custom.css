@@ -1,6 +1,0 @@
-.font-epic-title { font-family: var(--font-epic-title), serif; }
-.font-epic-body { font-family: var(--font-epic-body), sans-serif; }
-.bg-imperial-purple { --tw-bg-opacity: 1; background-color: rgb(74 13 103 / var(--tw-bg-opacity)); }
-.text-old-gold { --tw-text-opacity: 1; color: rgb(184 134 11 / var(--tw-text-opacity)); }
-.bg-old-gold { --tw-bg-opacity: 1; background-color: rgb(207 181 59 / var(--tw-bg-opacity)); }
-.texture-alabaster { background-image: url('/assets/img/alabastro.jpg'); background-size: cover; background-blend-mode: multiply; }
