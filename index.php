@@ -1,136 +1,234 @@
 <?php
+declare(strict_types=1);
+
 require_once __DIR__ . '/includes/session.php';
 ensure_session_started();
-require_once 'includes/auth.php';      // For is_admin_logged_in()
-require_once __DIR__ . '/includes/db_connect.php'; // Provides $pdo
-/** @var PDO $pdo */
-$db_warning = '';
-if (!$pdo) {
-    $db_warning = "<p class='db-warning'>Contenido en modo lectura: base de datos no disponible.</p>";
+require_once __DIR__ . '/includes/components/aurora_components.php';
+
+use function AuroraComponents\collect_knowledge;
+use function AuroraComponents\gradient_heading;
+use function AuroraComponents\markdown_excerpt;
+use function AuroraComponents\mission_text;
+use function AuroraComponents\render_story_cards;
+use function AuroraComponents\render_tapestry;
+use function AuroraComponents\timeline;
+
+$knowledgeTree = [
+    [
+        'title' => 'Historia fundacional',
+        'path' => 'docs/historia.md',
+        'link' => '/historia/historia.php',
+        'paragraphs' => 2,
+    ],
+    [
+        'title' => 'Arqueología viva',
+        'path' => 'docs/arqueologia.md',
+        'link' => '/lugares/lugares.php',
+        'paragraphs' => 2,
+    ],
+    [
+        'title' => 'Tradición y cultura',
+        'path' => 'docs/tradicion.md',
+        'link' => '/cultura/cultura.php',
+        'paragraphs' => 2,
+    ],
+    [
+        'title' => 'Crónica ampliada',
+        'path' => 'docs/historia_ampliada_nuevo4.md',
+        'link' => '/historia/historia.php#cronica-ampliada',
+        'paragraphs' => 1,
+    ],
+];
+
+$knowledgeDeck = collect_knowledge($knowledgeTree);
+$mission = mission_text();
+
+$tapestryData = [
+    [
+        'heading' => 'Cerezo de Río Tirón, faro del norte',
+        'body' => markdown_excerpt('docs/historia_ampliada_nuevo4.md', 1, 260),
+    ],
+    [
+        'heading' => 'Ruta viva por el Condado',
+        'body' => markdown_excerpt('docs/tradicion.md', 1, 240),
+    ],
+    [
+        'heading' => 'Innovación y memoria',
+        'body' => markdown_excerpt('docs/arqueologia.md', 1, 220),
+    ],
+];
+
+$timelineItems = [
+    [
+        'label' => 'Siglo I',
+        'description' => 'Nacimiento de Auca Patricia en la vía romana que articuló el valle del Tirón.',
+    ],
+    [
+        'label' => 'Siglo VIII',
+        'description' => 'Alzamiento del Alcázar de Cerasio como bastión del despertar castellano.',
+    ],
+    [
+        'label' => 'Siglo XI',
+        'description' => 'Consolidación del condado y expansión de rutas peregrinas hacia Santiago.',
+    ],
+    [
+        'label' => 'Siglo XXI',
+        'description' => 'Renacimiento digital para custodiar el patrimonio y activar el turismo regenerativo.',
+    ],
+];
+
+$agentSeed = [];
+$agentsPath = __DIR__ . '/config/forum_agents.json';
+if (is_file($agentsPath)) {
+    $decoded = json_decode((string) file_get_contents($agentsPath), true);
+    if (is_array($decoded)) {
+        $agentSeed = $decoded;
+    }
 }
-require_once 'includes/text_manager.php';// For editableText()
-require_once 'includes/ai_utils.php';
-require_once __DIR__ . '/includes/homonexus.php';?><!DOCTYPE html>
+$agentSeedJson = htmlspecialchars((string) json_encode($agentSeed, JSON_UNESCAPED_UNICODE), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Condado de Castilla - Cuna de tu Cultura y Lengua</title>
-    <?php include __DIR__ . '/includes/head_common.php'; ?>
-    <?php
-    require_once __DIR__ . '/includes/load_page_css.php';
-    load_page_css();
-    ?>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Condado de Castilla 2025 · Turismo, Patrimonio y Comunidad</title>
+    <meta name="description" content="Descubre Cerezo de Río Tirón: turismo cultural, arqueología viva y comunidad participativa en el corazón de Castilla.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" integrity="sha256-n1OJ7Pc0I6/2DYUg9s1SZ0gWzLqcGfnlYBBYzYuyPRU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/aurora.css">
 </head>
-<body class="alabaster-bg <?php echo homonexus_body_class(); ?>">
-    <div id="layer-sky" class="parallax-layer" data-speed="0.2"></div>
-    <div id="layer-ruins" class="parallax-layer" data-speed="0.4"></div>
-    <div id="layer-grass" class="parallax-layer" data-speed="0.6"></div>
-<?php echo $db_warning; ?>
-<?php
-require_once __DIR__ . '/fragments/header.php';
-?>
+<body>
+    <button class="menu-toggle left" data-menu="left" aria-label="Abrir mapa de exploración">
+        <i class="fas fa-compass"></i>
+    </button>
+    <button class="menu-toggle right" data-menu="right" aria-label="Abrir panel comunitario">
+        <i class="fas fa-people-group"></i>
+    </button>
 
-    <main class="container-epic px-4 sm:px-6 lg:px-8 py-8">
-        <section id="hero" class="section hero-section text-center py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-            <?php editableText('hero_titulo_index', $pdo, 'Condado de Castilla', 'h1', 'text-4xl lg:text-6xl font-bold gradient-text tagline-background font-headings mb-4'); ?>
-            <p class="hero-summary">
-                <a href="/historia/historia.php" class="block">
-                    Desde su origen romano como <span class="gradient-text">Auca Patricia</span>, Cerezo de Río Tirón conserva calzadas y murallas junto al Ebro. En el siglo VIII se alzó el <span class="gradient-text">Alcázar de Cerasio</span>, construido con alabastro reutilizado y sede de los primeros condes.
-                </a>
-            </p>
-            <?php editableText('hero_subtitulo_index', $pdo, 'Donde la historia, la cultura y tu lengua tomaron forma.', 'p', 'text-xl lg:text-2xl text-gray-700 dark:text-gray-300 font-body mb-8'); ?>
-            <p class="cta-group">
-                <a href="/historia/historia.php" class="cta-button">Descubre la Historia</a>
-                <a href="/lugares/lugares.php" class="cta-button-secondary">Explora los Lugares</a>
-            </p>
-        </section>
+    <aside id="menu-left" class="side-menu left" aria-hidden="true">
+        <header>
+            <h3>Mapa cultural</h3>
+            <p>Selecciona un eje para empezar tu travesía.</p>
+        </header>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="/historia/historia.php">Historia fundacional</a></li>
+                <li><a href="/lugares/lugares.php">Yacimientos y rutas</a></li>
+                <li><a href="/cultura/cultura.php">Cultura viva</a></li>
+                <li><a href="/visitas/visitas.php">Planifica tu visita</a></li>
+                <li><a href="/foro/index.php">Foro participativo</a></li>
+            </ul>
+        </nav>
+        <div class="menu-footer">Inspirado por el legado de Castilla y el pulso del Tirón.</div>
+    </aside>
 
-        <section id="video-intro" class="section video-intro-section py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h2 class="section-title text-3xl font-headings mb-4">Un Vistazo a Nuestra Tierra</h2>
-                    <?php editableText('video_descripcion_index', $pdo, 'Sumérgete en la belleza y el misterio del Condado de Castilla a través de nuestro video introductorio. Descubre paisajes que han sido testigos de la historia y maravíllate con el legado que perdura.', 'p', 'text-lg font-body mb-6'); ?>
-                    <a href="#video-modal" class="cta-button-small open-video-modal">Ver Video</a>
-                </div>
-                <figure class="video-placeholder-container rounded-lg shadow-xl overflow-hidden">
-                    <img src="/assets/img/hero_mis_tierras.jpg" alt="Paisaje del Condado de Castilla" class="w-full h-auto object-cover">
-                    <figcaption class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
-                        Pulsa para ver el video promocional.
-                    </figcaption>
-                </figure>
-            </div>
-        </section>
+    <aside id="menu-right" class="side-menu right" aria-hidden="true">
+        <header>
+            <h3>Comunidad viva</h3>
+            <p>Sigue las decisiones estratégicas de nuestros agentes expertos.</p>
+        </header>
+        <nav aria-label="Panel comunitario">
+            <ul>
+                <li><a href="/foro/index.php#agentes">Consejo de expertos</a></li>
+                <li><a href="/dashboard/index.php">Inteligencia turística</a></li>
+                <li><a href="/museo/index.php">Museo interactivo</a></li>
+                <li><a href="/tienda/index.php">Artesanía y producto local</a></li>
+                <li><a href="/blog.php">Crónicas del Condado</a></li>
+            </ul>
+        </nav>
+        <div class="menu-footer">Participa, propone y co-crea el futuro de Cerezo de Río Tirón.</div>
+    </aside>
 
-        <!-- Modal para el video -->
-        <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-50" aria-labelledby="video-modal-title" role="dialog" aria-modal="true">
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl max-w-3xl w-full">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 id="video-modal-title" class="text-xl font-headings">Video Promocional</h3>
-                    <button class="close-video-modal text-2xl text-gray-700 dark:text-gray-300 hover:text-red-500">&times;</button>
+    <div class="site-shell" data-agent-seed="<?= $agentSeedJson; ?>" data-mission-endpoint="/api/mission" data-agents-endpoint="/api/forum/agents" data-comments-endpoint="/api/forum/comments">
+        <header class="hero" role="banner">
+            <div class="hero-inner">
+                <div class="hero-badge">
+                    <span class="gradient-display">Cerezo de Río Tirón</span>
                 </div>
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe class="w-full h-full"
-                        src="https://drive.google.com/file/d/1wm74VmKH21Nz7zFUkY8a8Z9672D4cyHN/preview"
-                        title="Video promocional del Condado de Castilla y Cerezo de Río Tirón"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        loading="lazy"
-                        allowfullscreen></iframe>
-                </div>
-                <p class="text-center mt-2 text-sm">
-                    <a href="/docs/transcripts/video_promocional.md" class="video-transcript-link underline">
-                        Ver transcripción del video
-                    </a>
+                <p class="hero-lead">
+                    <?= $mission; ?>
                 </p>
-            </div>
-        </div>
-
-
-        <section id="legado-destacado" class="section alternate-bg spotlight-active py-12 sm:py-16 lg:py-20" data-aos="fade-up">
-            <h2 class="section-title text-3xl font-headings text-center mb-12">Explora Nuestro Legado</h2>
-            <div class="card-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg rounded-lg overflow-hidden">
-                    <img loading="lazy" class="w-full h-56 object-cover" src="/assets/img/PrimerEscritoCastellano.jpg" alt="Manuscrito medieval, simbolizando la historia de Castilla">
-                    <div class="card-content p-6">
-                        <h3 class="font-headings text-xl mb-2">Nuestra Historia</h3>
-                        <p class="text-lg font-body mb-4">Desde los albores de la civilización hasta la formación del Condado. Sumérgete en los relatos que definieron Castilla.</p>
-                        <a href="/historia/historia.php" class="read-more-button">Leer Más <i class="fas fa-arrow-right ml-2"></i></a>
-                    </div>
-                </div>
-                <div class="card transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg rounded-lg overflow-hidden">
-                    <img loading="lazy" class="w-full h-56 object-cover" src="/assets/img/RodrigoTabliegaCastillo.jpg" alt="Ruinas del Alcázar de Casio">
-                    <div class="card-content p-6">
-                        <h3 class="font-headings text-xl mb-2">Lugares Emblemáticos</h3>
-                        <p class="text-lg font-body mb-4">Descubre el imponente Alcázar de Casio, la misteriosa Civitate Auca y otros tesoros arqueológicos.</p>
-                        <a href="/lugares/lugares.php" class="read-more-button">Explorar Sitios <i class="fas fa-arrow-right ml-2"></i></a>
-                    </div>
-                </div>
-                <div class="card transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg rounded-lg overflow-hidden">
-                    <img loading="lazy" class="w-full h-56 object-cover" src="/assets/img/Yanna.jpg" alt="Iglesia de Santa María de la Llana">
-                    <div class="card-content p-6">
-                        <h3 class="font-headings text-xl mb-2">Cultura Viva</h3>
-                        <p class="text-lg font-body mb-4">Participa en nuestras tradiciones, explora el arte y la gastronomía local. Conecta con el espíritu de Castilla.</p>
-                        <a href="/cultura/cultura.php" class="read-more-button">Descubrir Cultura <i class="fas fa-arrow-right ml-2"></i></a>
-                    </div>
+                <div class="hero-cta">
+                    <a class="button-aurora" href="/visitas/visitas.php"><i class="fas fa-route"></i> Planifica tu travesía</a>
+                    <a class="button-aurora" href="/foro/index.php"><i class="fas fa-comments"></i> Únete al foro</a>
+                    <a class="button-aurora" href="/dashboard/index.php"><i class="fas fa-chart-line"></i> Inteligencia territorial</a>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <section id="llamada-accion" class="section py-12 sm:py-16 lg:py-20 text-center" data-aos="fade-up">
-            <h2 class="text-3xl font-headings mb-6">¿Listo para el Viaje?</h2>
-            <p class="text-xl font-body mb-8 max-w-2xl mx-auto">
-                Tu aventura en el corazón de la historia castellana comienza aquí. Planifica tu visita, únete a nuestra comunidad o simplemente aprende más sobre este fascinante rincón del mundo.
-            </p>
-            <div class="cta-group">
-                <a href="/visitas/visitas.php" class="cta-button">Planifica tu Visita</a>
-                <a href="/foro/index.php" class="cta-button-secondary">Únete al Foro</a>
-            </div>
-        </section>
-    </main>
+        <main>
+            <section class="section-shell" id="atlas-conocimiento">
+                <?= gradient_heading('Atlas del conocimiento del Condado'); ?>
+                <?= render_story_cards($knowledgeDeck); ?>
+            </section>
 
-    <?php require_once __DIR__ . '/fragments/footer.php'; ?>
-    
-<!-- Script for video modal is now in /assets/js/video-modal.js -->
+            <section class="section-shell" id="relato-vivo">
+                <?= gradient_heading('Relato vivo de Castilla'); ?>
+                <?= render_tapestry($tapestryData); ?>
+            </section>
+
+            <section class="section-shell" id="agenda-evolutiva">
+                <?= gradient_heading('Agenda evolutiva'); ?>
+                <p>Un itinerario que conecta pasado, presente y futuro con decisiones medibles.</p>
+                <?= timeline($timelineItems); ?>
+                <div class="cta-evolution">
+                    <a class="button-aurora" href="/dashboard/index.php#indicadores">Ver indicadores estratégicos</a>
+                </div>
+            </section>
+
+            <section class="section-shell community-panel" id="consejo-expertos">
+                <?= gradient_heading('Consejo de 5 expertos guardianes'); ?>
+                <p>Consulta las perspectivas de nuestro foro permanente y aporta tus ideas.</p>
+                <div class="agent-grid" data-role="agents-grid">
+                    <!-- Renderizado inicial desde PHP -->
+                    <?php foreach ($agentSeed as $key => $agent): ?>
+                        <article class="agent-card" data-agent="<?= htmlspecialchars((string) $key, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>">
+                            <span class="agent-badge"><i class="<?= htmlspecialchars($agent['role_icon'] ?? 'fas fa-star', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>"></i> <?= htmlspecialchars($agent['name'] ?? 'Agente', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?></span>
+                            <h4><?= htmlspecialchars($agent['expertise'] ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?></h4>
+                            <p><?= htmlspecialchars($agent['bio'] ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?></p>
+                            <?php if (!empty($agent['vision'])): ?>
+                                <p><em><?= htmlspecialchars($agent['vision'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?></em></p>
+                            <?php endif; ?>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+
+            <section class="section-shell reactive-layout" id="explorador-activo">
+                <?= gradient_heading('Explorador activo'); ?>
+                <div class="flex-duo">
+                    <div class="transparent-card">
+                        <h3>Planificación y visitas</h3>
+                        <p>Organiza itinerarios, consulta horarios y reserva experiencias tematizadas.</p>
+                        <div class="link-grid">
+                            <a href="/visitas/visitas.php"><i class="fas fa-calendar-check"></i> Calendario de visitas</a>
+                            <a href="/lugares/lugares.php"><i class="fas fa-landmark"></i> Circuito arqueológico</a>
+                            <a href="/camino_santiago/index.php"><i class="fas fa-shoe-prints"></i> Camino de Santiago en Cerezo</a>
+                        </div>
+                    </div>
+                    <div class="transparent-card">
+                        <h3>Participa y difunde</h3>
+                        <p>Súmate a campañas de voluntariado, comparte crónicas y apoya el archivo vivo.</p>
+                        <div class="link-grid">
+                            <a href="/foro/index.php"><i class="fas fa-comments"></i> Foro y debates</a>
+                            <a href="/museo/index.php"><i class="fas fa-vr-cardboard"></i> Museo inmersivo</a>
+                            <a href="/tienda/index.php"><i class="fas fa-store"></i> Artesanía y km 0</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; <?= date('Y'); ?> Condado de Castilla · Comunidad viva de Cerezo de Río Tirón.</p>
+            <p><a href="/docs/">Centro de documentación</a> · <a href="/contacto/index.php">Contacto</a> · <a href="/sitemap.xml">Mapa del sitio</a></p>
+        </footer>
+    </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha256-uX2sEvhczHxVn9Yx8RJWb1x1o1t4bm/FYnGV8eK3op0=" crossorigin="anonymous"></script>
+    <script type="module" src="/js/aurora.js"></script>
 </body>
 </html>
