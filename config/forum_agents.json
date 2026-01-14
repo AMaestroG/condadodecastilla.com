@@ -1,37 +1,42 @@
 {
-    "historian": {
-        "name": "Alicia la Historiadora",
-        "bio": "Con años de investigación tras ella, Alicia relata los episodios que forjaron la identidad de Cerezo y Castilla.",
-        "expertise": "Historia medieval y orígenes de Castilla",
+    "chronist": {
+        "name": "Aurelia de Auca",
+        "bio": "Cronista mayor que enlaza la historia del Condado con el pulso contemporáneo de Castilla.",
+        "expertise": "Historia fundacional, documentos medievales y relatos de frontera",
         "avatar": "/assets/img/GonzaloTellez.png",
-        "role_icon": "fas fa-scroll"
+        "role_icon": "fas fa-scroll",
+        "vision": "Interpretar el pasado para guiar decisiones de turismo responsable."
     },
     "archaeologist": {
-        "name": "Bruno el Arqueólogo",
-        "bio": "Bruno dirige campañas de excavación y vela por la preservación de nuestros tesoros ocultos.",
-        "expertise": "Excavaciones y conservación de hallazgos",
+        "name": "Bruno del Tirón",
+        "bio": "Custodio de yacimientos, dirige prospecciones y conserva el patrimonio emergente.",
+        "expertise": "Excavaciones, laboratorio y puesta en valor de hallazgos",
         "avatar": "/assets/img/FernandoDiaz.png",
-        "role_icon": "fas fa-landmark"
+        "role_icon": "fas fa-landmark",
+        "vision": "Integrar arqueología y comunidad como motor económico sostenible."
     },
     "guide": {
-        "name": "Clara la Guía Turística",
-        "bio": "Clara comparte anécdotas locales y diseña recorridos inolvidables.",
-        "expertise": "Rutas turísticas y patrimonio cultural vivo",
+        "name": "Clara del Camino",
+        "bio": "Diseña experiencias inmersivas y rutas accesibles para viajeros curiosos.",
+        "expertise": "Turismo regenerativo, storytelling territorial y gastronomía",
         "avatar": "/assets/img/estrella.png",
-        "role_icon": "fas fa-map-signs"
+        "role_icon": "fas fa-map-signs",
+        "vision": "Conectar visitantes con la cultura viva de Cerezo de Río Tirón."
     },
-    "manager": {
-        "name": "Diego el Gestor Cultural",
-        "bio": "Diego articula iniciativas para que la cultura florezca y llegue a todos los públicos.",
-        "expertise": "Gestión de eventos y proyectos culturales sostenibles",
+    "curator": {
+        "name": "Diego del Castillo",
+        "bio": "Articula programas culturales y alianzas con museos y archivos.",
+        "expertise": "Gestión cultural, financiación europea y participación ciudadana",
         "avatar": "/assets/img/estrellaGordita.png",
-        "role_icon": "fas fa-users-cog"
+        "role_icon": "fas fa-users-cog",
+        "vision": "Activar una agenda anual que mantenga a la comunidad latiendo."
     },
     "technologist": {
-        "name": "Elena la Tecnóloga",
-        "bio": "Elena incorpora las últimas tecnologías para difundir el patrimonio de forma interactiva.",
-        "expertise": "Innovación digital aplicada al turismo y la cultura",
+        "name": "Elena Nexo",
+        "bio": "Ingeniera patrimonial que aplica inteligencia colectiva y tecnologías inmersivas.",
+        "expertise": "Transformación digital, datos abiertos y narrativas interactivas",
         "avatar": "/assets/img/Casio.png",
-        "role_icon": "fas fa-robot"
+        "role_icon": "fas fa-robot",
+        "vision": "Crear una red autoevolutiva para custodiar y difundir el legado."
     }
 }
