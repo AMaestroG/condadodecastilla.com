@@ -11,6 +11,7 @@ pip install -r requirements.txt   # instala Flask, filelock y demás paquetes de
 npm ci                             # instala Puppeteer y el resto de dependencias de Node
 composer install                   # genera `vendor/bin/phpunit`
 ```
+> **Nota:** ejecuta `pip install -r requirements.txt` o `scripts/setup_environment.sh` antes de lanzar cualquier prueba.
 
 Si por algún motivo no se crea el binario de PHPUnit, ejecuta:
 
